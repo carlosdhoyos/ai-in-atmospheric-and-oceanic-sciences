@@ -153,6 +153,11 @@ def main():
         }
 
     out = sorted(papers.values(), key=lambda p: -p["cites"])
+    # Structured summaries (goal, architecture, data, result, open work, issues), keyed by S2 paperId
+    summaries = json.load(open(D("summaries.json"))) if os.path.exists(D("summaries.json")) else {}
+    for p in out:
+        if p["s2"] in summaries:
+            p["summary"] = summaries[p["s2"]]
     retrieved = dt.date.today().isoformat()
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
@@ -170,6 +175,7 @@ def main():
     if frag_dir:
         open(os.path.join(frag_dir, "ai-aos-papers.html"), "w").write(tpl)
 
+    write_summaries_md(out)
     with open(os.path.join(ROOT, "papers.bib"), "w") as f:
         for p in out:
             f.write(bibtex(p) + "\n\n")
@@ -180,6 +186,37 @@ def main():
         print("  UNRESOLVED:", u)
     for want, got in mismatched:
         print(f"  MISMATCH: wanted {want!r}\n            got    {got!r}")
+
+
+def write_summaries_md(papers):
+    fields = [("goal", "Main goal"), ("architecture", "Architecture"), ("data", "Data"),
+              ("result", "Main result"), ("open_work", "Open work"), ("issues", "Issues")]
+    lines = ["# Paper summaries", "",
+             "Each paper is summarized as main goal, architecture, data, main result, open work and issues. "
+             "Summaries are based on the abstract and, for well-known papers, the published paper. "
+             "*Open work* and *Issues* are often an editorial assessment rather than the authors' own statement; "
+             "each entry notes its basis. Papers are grouped by their first subfield and ordered by citations.", ""]
+    lines += ["## Contents", ""] + [f"- [{label}](#{key})" for key, label in TOPICS.items()] + [""]
+    for key, label in TOPICS.items():
+        group = [p for p in papers if p["topics"][0] == key]
+        if not group:
+            continue
+        lines += [f'<a id="{key}"></a>', f"## {label}", ""]
+        for p in group:
+            link = f"https://doi.org/{p['doi']}" if p["doi"] else f"https://arxiv.org/abs/{p['arxiv']}" if p["arxiv"] else ""
+            first = p["authors"][0].split()[-1] if p["authors"] else ""
+            etal = " et al." if len(p["authors"]) > 1 else ""
+            lines.append(f"### [{p['title']}]({link})" if link else f"### {p['title']}")
+            lines.append(f"{first}{etal} ({p['year']}), *{p['venue']}*. {p['cites']:,} citations.")
+            lines.append("")
+            s = p.get("summary")
+            if not s:
+                lines += ["*Summary pending.*", ""]
+                continue
+            for k, l in fields:
+                lines.append(f"- **{l}:** {s.get(k) or 'Not reported.'}")
+            lines += [f"- *Basis: {s.get('basis', 'abstract')}*", ""]
+    open(os.path.join(ROOT, "SUMMARIES.md"), "w").write("\n".join(lines))
 
 
 def bibtex(p):

@@ -93,6 +93,11 @@ main { padding-block: 8px 60px; }
 .links a:hover, .links button:hover { text-decoration: underline; }
 .abstract { margin-top: 8px; font-size: 14px; color: var(--ink); max-width: 75ch; }
 .abstract[hidden] { display: none; }
+.summary-card { margin-top: 10px; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; font-size: 14px; max-width: 80ch; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.summary-card dt { font: 500 11px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.summary-card dd { margin: 0; }
+.summary-card .basis { grid-column: 1 / -1; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6px; }
+@media (max-width: 520px) { .summary-card { grid-template-columns: minmax(0, 1fr); } .summary-card dt { padding-top: 6px; } }
 .empty { padding: 48px 0; color: var(--muted); text-align: center; }
 .toast { position: fixed; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 13px; z-index: 20; }
 dialog { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); width: min(760px, calc(100vw - 32px)); padding: 16px; }
@@ -182,11 +187,19 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
   const fmt = n => n.toLocaleString("en-US");
   const NOW = new Date(DATA.retrieved);
   const thisYear = NOW.getFullYear();
-  const state = { q: "", kind: "", topics: new Set(), y0: null, y1: null, sort: "cites", open: new Set() };
+  const state = { q: "", kind: "", topics: new Set(), y0: null, y1: null, sort: "cites", open: new Set(), sum: new Set() };
+  const SUMMARY_FIELDS = [["goal", "Main goal"], ["architecture", "Architecture"], ["data", "Data"],
+    ["result", "Main result"], ["open_work", "Open work"], ["issues", "Issues"]];
+  const BASIS = {
+    abstract: "Summarized from the abstract.",
+    "abstract+knowledge": "Summarized from the abstract and the published paper; open work and issues are partly an editorial assessment.",
+    assessment: "Open work and issues are an editorial assessment, not stated by the authors.",
+  };
 
   P.forEach(p => {
     p.rate = p.cites / Math.max(1, thisYear - p.year + 0.5);
-    p.hay = [p.title, p.authors.join(" "), p.venue, p.abstract || "", p.arxiv || "", p.doi || ""].join(" ").toLowerCase();
+    p.hay = [p.title, p.authors.join(" "), p.venue, p.abstract || "", p.arxiv || "", p.doi || "",
+      p.summary ? Object.values(p.summary).join(" ") : ""].join(" ").toLowerCase();
   });
   const years = P.map(p => p.year);
   const minY = Math.min(...years), maxY = Math.max(...years);
@@ -256,7 +269,7 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
     if (!rows.length) { $("list").innerHTML = `<p class="empty">No papers match these filters. Try a shorter search or clear the filters.</p>`; return; }
     $("list").innerHTML = rows.map(p => {
       const url = p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
-      const open = state.open.has(p.id);
+      const open = state.open.has(p.id), sOpen = state.sum.has(p.id);
       return `<article class="paper" data-id="${p.id}">
         <div class="cites"><b>${fmt(p.cites)}</b><span>citations</span><span>${p.rate >= 10 ? Math.round(p.rate) : p.rate.toFixed(1)}/yr</span>
           <div class="meter" aria-hidden="true"><i style="width:${Math.max(2, Math.sqrt(p.cites / maxC) * 100)}%"></i></div></div>
@@ -271,10 +284,12 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
             ${p.arxiv ? `<a href="https://arxiv.org/abs/${esc(p.arxiv)}" target="_blank" rel="noopener">arXiv:${esc(p.arxiv)}</a>` : ""}
             ${p.pdf ? `<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF</a>` : ""}
             ${p.s2 ? `<a href="https://www.semanticscholar.org/paper/${p.s2}" target="_blank" rel="noopener">Citing papers</a>` : ""}
+            ${p.summary ? `<button type="button" data-act="sum" aria-expanded="${sOpen}">${sOpen ? "Hide summary" : "Summary"}</button>` : ""}
             ${p.abstract ? `<button type="button" data-act="abs" aria-expanded="${open}">${open ? "Hide abstract" : "Abstract"}</button>` : ""}
             <button type="button" data-act="cite">Copy citation</button>
             <button type="button" data-act="bib">BibTeX</button>
           </div>
+          ${p.summary && sOpen ? `<dl class="summary-card">${SUMMARY_FIELDS.map(([k, l]) => `<dt>${l}</dt><dd>${hl(p.summary[k] || "Not reported.", terms)}</dd>`).join("")}<p class="basis">${BASIS[p.summary.basis] || ""}</p></dl>` : ""}
           ${p.abstract ? `<p class="abstract" ${open ? "" : "hidden"}>${hl(p.abstract, terms)}</p>` : ""}
         </div></article>`;
     }).join("");
@@ -322,6 +337,7 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
     if (b.dataset.topic) { state.topics = new Set([b.dataset.topic]); syncChips(); render(); window.scrollTo({ top: 0 }); return; }
     const p = byId[b.closest(".paper").dataset.id];
     if (b.dataset.act === "abs") { state.open.has(p.id) ? state.open.delete(p.id) : state.open.add(p.id); render(); }
+    if (b.dataset.act === "sum") { state.sum.has(p.id) ? state.sum.delete(p.id) : state.sum.add(p.id); render(); }
     if (b.dataset.act === "bib") copy(bibtex(p), "BibTeX");
     if (b.dataset.act === "cite") copy(citation(p), "Citation");
   });
