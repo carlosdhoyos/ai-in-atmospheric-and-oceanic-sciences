@@ -100,6 +100,13 @@ def main():
             bad = [r for r in recs if sim(e["seed"], r["title"]) < 0.8]
             mismatched.extend((e["seed"], r["title"]) for r in bad)
             recs = [r for r in recs if r not in bad]
+        if not recs and e["check"]:  # identifiers missing or wrong: fall back to a title match
+            key = "TITLE:" + e["seed"]
+            if key not in s2cache:
+                s2cache[key] = s2.match(e["seed"])
+                json.dump(s2cache, open(cache_path, "w"))
+            r = s2cache[key]
+            recs = [r] if r and sim(e["seed"], r["title"]) >= 0.8 else []
         if not recs:
             unresolved.append(e["seed"])
             continue

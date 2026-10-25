@@ -32,20 +32,29 @@ def get(url, tries=6):
     return None
 
 
+# DOIs of conference abstracts and preprint servers, which often share the published paper's title
+NON_FINAL_DOI = re.compile(r"^10\.(5194/egusphere|5194/ems|31223/|2139/ssrn|1002/essoar|22541/|21203/|20944/|48550/|1101/|36227/|31219/)")
+TYPE_RANK = {"journal-article": 0, "proceedings-article": 1, "book-chapter": 2}
+
+
 def crossref(title):
-    q = urllib.parse.urlencode({"query.bibliographic": title, "rows": 5,
+    q = urllib.parse.urlencode({"query.bibliographic": title, "rows": 10,
                                 "select": "DOI,title,type,container-title,issued,is-referenced-by-count"})
     raw = get(f"https://api.crossref.org/works?{q}")
     if not raw:
         return None
-    best = None
+    cands = []
     for it in json.loads(raw)["message"]["items"]:
         t = (it.get("title") or [""])[0]
-        s = sim(title, t)
-        if not best or s > best["score"]:
-            best = {"score": round(s, 3), "doi": it["DOI"].lower(), "title": t, "type": it.get("type"),
-                    "venue": (it.get("container-title") or [""])[0],
-                    "cites": it.get("is-referenced-by-count")}
+        cands.append({"score": round(sim(title, t), 3), "doi": it["DOI"].lower(), "title": t, "type": it.get("type"),
+                      "venue": (it.get("container-title") or [""])[0],
+                      "cites": it.get("is-referenced-by-count") or 0})
+    good = [c for c in cands if c["score"] >= 0.9 and not NON_FINAL_DOI.match(c["doi"])]
+    if good:  # prefer the published version: journal > proceedings > other, then most cited
+        return min(good, key=lambda c: (TYPE_RANK.get(c["type"], 9), -c["cites"]))
+    best = max(cands, key=lambda c: c["score"], default=None)
+    if best and NON_FINAL_DOI.match(best["doi"]):
+        best["score"] = 0.0  # keep for inspection, never use as the paper's DOI
     return best
 
 
@@ -72,7 +81,7 @@ def main():
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     seeds = [l.rstrip("\n").split("\t", 1) for l in open(os.path.join(ROOT, "data", "seeds.tsv"))
              if l.strip() and not l.startswith("#")]
-    todo = [t for _, t in seeds if t not in cache or "crossref" not in cache[t]]
+    todo = [t for _, t in seeds if t not in cache or "crossref" not in cache[t] or os.environ.get("REFRESH_CROSSREF")]
     with cf.ThreadPoolExecutor(4) as ex:
         for t, r in zip(todo, ex.map(crossref, todo)):
             cache.setdefault(t, {})["crossref"] = r
