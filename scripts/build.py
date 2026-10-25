@@ -45,6 +45,11 @@ CONFERENCES = re.compile(r"neural information processing|neurips|nips|internatio
 PREPRINT_VENUES = re.compile(r"arxiv|essoar|ess open archive|research square|preprint|ssrn|biorxiv|egusphere", re.I)
 
 
+def clean_title(t):
+    t = t.replace("{\\deg}", "°").replace("\\deg", "°")
+    return re.sub(r"\s+", " ", t).strip()
+
+
 def load_tsv(path):
     if not os.path.exists(path):
         return []
@@ -129,8 +134,8 @@ def main():
             kind, venue = "journal", cr["venue"]
         elif cr and cr.get("type") == "proceedings-article" or CONFERENCES.search(s2venue) or "Conference" in types:
             kind, venue = "conference", (s2venue if s2venue and not PREPRINT_VENUES.search(s2venue) else (cr or {}).get("venue", ""))
-        elif doi and s2venue and not PREPRINT_VENUES.search(s2venue) and ("JournalArticle" in types or "Review" in types):
-            kind, venue = "journal", s2venue
+        elif doi and not PREPRINT_VENUES.search(s2venue or ""):
+            kind, venue = "journal", s2venue or jr.get("name") or ""
         elif arxiv:
             kind, venue = "preprint", "arXiv"
         else:
@@ -146,9 +151,10 @@ def main():
         pdf = (main.get("openAccessPdf") or {}).get("url") or None
         papers[pid] = {
             "id": pid[:12], "s2": pid,
-            "title": re.sub(r"\s+", " ", main["title"]).strip(),
+            "title": clean_title(main["title"]),
             "authors": [a["name"] for a in main.get("authors") or []],
-            "year": main.get("year") or int((main.get("publicationDate") or "0000")[:4]),
+            "year": main.get("year") or int((main.get("publicationDate") or "0000")[:4]) or
+                    next((r.get("year") for r in recs if r.get("year")), 0),
             "date": main.get("publicationDate"),
             "venue": venue, "kind": kind,
             "volume": (jr.get("volume") or "").strip() or None,

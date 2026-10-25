@@ -149,7 +149,7 @@ climate	Anthropogenic fingerprints in daily precipitation revealed by deep learn
 climate	Data-driven predictions of the time remaining until critical global warming thresholds are reached
 climate	Detecting Climate Signals Using Explainable AI With Single-Forcing Large Ensembles
 climate	Detection of Forced Change Within Combined Climate Fields Using Explainable Neural Networks
-climate	Long-term instabilities of deep learning-based digital twins of the climate system: The cause and a solution
+climate	Challenges of learning multi-scale dynamics with AI weather models: Implications for stability and one solution
 parameterization	Deep learning to represent subgrid processes in climate models
 parameterization	Could Machine Learning Break the Convection Parameterization Deadlock?
 parameterization	Prognostic Validation of a Neural Network Unified Physics Parameterization
@@ -185,7 +185,7 @@ parameterization	Non-Linear Dimensionality Reduction With a Variational Encoder 
 parameterization	A Moist Physics Parameterization Based on Deep Learning
 parameterization	Training Physics-Based Machine-Learning Parameterizations With Gradient-Free Ensemble Kalman Methods
 parameterization	Implicit learning of convective organization explains precipitation stochasticity
-parameterization	Stable Machine-Learning Parameterization of Subgrid Processes with Real Geography and Full-physics Emulation
+parameterization	Stable Machine-Learning Parameterization of Subgrid Processes in a Comprehensive Atmospheric Model Learned From Embedded Convection-Permitting Simulations
 parameterization	Using Machine Learning at scale in numerical simulations with SmartSim: An application to ocean climate modeling
 downscaling	DeepSD: Generating High Resolution Climate Change Projections through Single Image Super-Resolution
 downscaling	Intercomparison of machine learning methods for statistical downscaling: the case of daily and extreme precipitation
@@ -233,7 +233,7 @@ remote_sensing	Combining Crowdsourcing and Deep Learning to Explore the Mesoscal
 remote_sensing	Discovering the Importance of Mesoscale Cloud Organization Through Unsupervised Classification
 remote_sensing	Improving Precipitation Estimation Using Convolutional Neural Network
 extremes	Application of Deep Convolutional Neural Networks for Detecting Extreme Weather in Climate Datasets
-extremes	ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events
+extremes	Semi-Supervised Detection of Extreme Weather Events in Large Climate Datasets
 extremes	ClimateNet: an expert-labeled open dataset and Deep Learning architecture for enabling high-precision analyses of extreme weather
 extremes	Exascale Deep Learning for Climate Analytics
 extremes	Deep Learning for Spatially Explicit Prediction of Synoptic-Scale Fronts

@@ -1708,17 +1708,6 @@
    "cites": 17
   }
  },
- "Long-term instabilities of deep learning-based digital twins of the climate system: The cause and a solution": {
-  "crossref": {
-   "score": 0.0,
-   "doi": "10.2139/ssrn.5221581",
-   "title": "Deep Learning Based Digital Twins for Heat Pumps",
-   "type": "posted-content",
-   "venue": "",
-   "cites": 0
-  },
-  "arxiv": null
- },
  "Deep learning to represent subgrid processes in climate models": {
   "crossref": {
    "score": 1.0,
@@ -2072,21 +2061,6 @@
    "type": "journal-article",
    "venue": "Proceedings of the National Academy of Sciences",
    "cites": 46
-  }
- },
- "Stable Machine-Learning Parameterization of Subgrid Processes with Real Geography and Full-physics Emulation": {
-  "crossref": {
-   "score": 0.676,
-   "doi": "10.1038/s41467-020-17142-3",
-   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions",
-   "type": "journal-article",
-   "venue": "Nature Communications",
-   "cites": 180
-  },
-  "arxiv": {
-   "score": 0.676,
-   "id": "2001.03151",
-   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions"
   }
  },
  "Using Machine Learning at scale in numerical simulations with SmartSim: An application to ocean climate modeling": {
@@ -2592,21 +2566,6 @@
    "score": 1.0,
    "id": "1605.01156",
    "title": "Application of Deep Convolutional Neural Networks for Detecting Extreme Weather in Climate Datasets"
-  }
- },
- "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events": {
-  "crossref": {
-   "score": 0.488,
-   "doi": "10.1017/cbo9781107775541.006",
-   "title": "Rossby wave breaking: climatology, interaction with low-frequency climate variability, and links to extreme weather events",
-   "type": "book-chapter",
-   "venue": "Dynamics and Predictability of Large-Scale, High-Impact Weather and Climate Events",
-   "cites": 12
-  },
-  "arxiv": {
-   "score": 1.0,
-   "id": "1612.02095",
-   "title": "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events"
   }
  },
  "ClimateNet: an expert-labeled open dataset and Deep Learning architecture for enabling high-precision analyses of extreme weather": {
@@ -3549,6 +3508,47 @@
    "type": "journal-article",
    "venue": "Big Data Research",
    "cites": 241
+  }
+ },
+ "Challenges of learning multi-scale dynamics with AI weather models: Implications for stability and one solution": {
+  "crossref": {
+   "score": 0.0,
+   "doi": "10.2139/ssrn.5221581",
+   "title": "Deep Learning Based Digital Twins for Heat Pumps",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": null
+ },
+ "Stable Machine-Learning Parameterization of Subgrid Processes in a Comprehensive Atmospheric Model Learned From Embedded Convection-Permitting Simulations": {
+  "crossref": {
+   "score": 0.676,
+   "doi": "10.1038/s41467-020-17142-3",
+   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 180
+  },
+  "arxiv": {
+   "score": 0.676,
+   "id": "2001.03151",
+   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions"
+  }
+ },
+ "Semi-Supervised Detection of Extreme Weather Events in Large Climate Datasets": {
+  "crossref": {
+   "score": 0.488,
+   "doi": "10.1017/cbo9781107775541.006",
+   "title": "Rossby wave breaking: climatology, interaction with low-frequency climate variability, and links to extreme weather events",
+   "type": "book-chapter",
+   "venue": "Dynamics and Predictability of Large-Scale, High-Impact Weather and Climate Events",
+   "cites": 12
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1612.02095",
+   "title": "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events"
   }
  }
 }

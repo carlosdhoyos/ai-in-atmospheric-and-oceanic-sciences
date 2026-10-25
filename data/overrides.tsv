@@ -6,5 +6,6 @@ Physics-informed machine learning	DOI:10.1038/s42254-021-00314-5
 Probabilistic weather forecasting with machine learning	DOI:10.1038/s41586-024-08252-9
 The ERA5 global reanalysis	DOI:10.1002/qj.3803
 Artificial intelligence for modeling and understanding extreme weather and climate events	DOI:10.1038/s41467-025-56573-8
-Long-term instabilities of deep learning-based digital twins of the climate system: The cause and a solution	ARXIV:2304.07029
-Stable Machine-Learning Parameterization of Subgrid Processes with Real Geography and Full-physics Emulation	ARXIV:2407.00124
+Challenges of learning multi-scale dynamics with AI weather models: Implications for stability and one solution	ARXIV:2304.07029
+Stable Machine-Learning Parameterization of Subgrid Processes in a Comprehensive Atmospheric Model Learned From Embedded Convection-Permitting Simulations	ARXIV:2407.00124
+A foundation model for the Earth system	DOI:10.1038/s41586-025-09005-y
