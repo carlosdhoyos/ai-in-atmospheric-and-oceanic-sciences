@@ -7,11 +7,13 @@ Tables
   summaries         paper_id, goal, architecture, data, result, open_work, issues, basis
   paper_architecture  paper_id, family, arch_group, tag_kind ('model_family' or 'approach'; multi-label)
   paper_data_source   paper_id, source                   (multi-label)
+  paper_task          paper_id, task      research goal (multi-label)
+  paper_issue_theme   paper_id, theme     recurring limitation from the summary's issues (multi-label)
+  paper_open_theme    paper_id, theme     research agenda from the summary's open work (multi-label)
   category_overrides  manual fixes applied on top of the rules (from data/category_overrides.csv)
 Views
   v_papers_wide     papers with list columns for subfields, architectures and data sources
 """
-import csv
 import json
 import os
 import sys
@@ -19,7 +21,7 @@ import sys
 import duckdb
 
 sys.path.insert(0, os.path.dirname(__file__))
-from taxonomy import APPROACHES, ARCH_GROUP, classify
+from taxonomy import APPROACHES, ARCH_GROUP, categorize, load_overrides
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DB = os.path.join(ROOT, "data", "papers.duckdb")
@@ -31,26 +33,14 @@ def main():
     papers, topics, retrieved = cat["papers"], cat["topics"], cat["retrieved"]
     summaries = json.load(open(os.path.join(ROOT, "data", "summaries.json")))
 
-    overrides = []
-    if os.path.exists(OVERRIDES):
-        overrides = [r for r in csv.DictReader(open(OVERRIDES)) if r.get("paper_id") and not r["paper_id"].startswith("#")]
+    overrides = load_overrides(OVERRIDES)
+    cats = categorize(papers, summaries, overrides)
 
-    rows, auth, subf, summ, arch, data = [], [], [], [], [], []
+    rows, auth, subf, summ, arch, data, multi = [], [], [], [], [], [], {"task": [], "issue_theme": [], "open_theme": []}
     for p in papers:
         p["summary"] = summaries.get(p["s2"])
-        c = classify(p)
         pid = p["s2"]
-        for o in (o for o in overrides if o["paper_id"] == pid):
-            dim, label, act = o["dimension"], o["label"], o["action"]
-            if dim in ("architecture", "data_source"):
-                if act == "add" and label not in c[dim]:
-                    c[dim].append(label)
-                if act == "remove" and label in c[dim]:
-                    c[dim].remove(label)
-            elif dim in ("paper_type", "venue_family"):
-                c[dim] = label
-            elif dim == "probabilistic":
-                c[dim] = label.lower() == "true"
+        c = cats[pid]
         age = max(1, int(retrieved[:4]) - p["year"] + 0.5) if p["year"] else None
         rows.append((pid, p["title"], p["year"], p["date"], p["venue"], c["venue_family"], p["kind"], c["paper_type"],
                      p["topics"][0], topics[p["topics"][0]], c["probabilistic"], p["doi"], p["arxiv"], p["cites"],
@@ -64,6 +54,8 @@ def main():
         arch += [(pid, a, ARCH_GROUP.get(a, "Approach"), "approach" if a in APPROACHES else "model_family")
                  for a in c["architecture"]]
         data += [(pid, d) for d in c["data_source"]]
+        for dim in multi:
+            multi[dim] += [(pid, v) for v in c[dim]]
 
     if os.path.exists(DB):
         os.remove(DB)
@@ -85,6 +77,9 @@ def main():
     con.executemany("INSERT INTO paper_architecture VALUES (?,?,?,?)", arch)
     con.execute("CREATE TABLE paper_data_source (paper_id VARCHAR, source VARCHAR)")
     con.executemany("INSERT INTO paper_data_source VALUES (?,?)", data)
+    for dim, col in (("task", "task"), ("issue_theme", "theme"), ("open_theme", "theme")):
+        con.execute(f"CREATE TABLE paper_{dim} (paper_id VARCHAR, {col} VARCHAR)")
+        con.executemany(f"INSERT INTO paper_{dim} VALUES (?,?)", multi[dim])
     con.execute("CREATE TABLE category_overrides (paper_id VARCHAR, dimension VARCHAR, label VARCHAR, action VARCHAR, note VARCHAR)")
     if overrides:
         con.executemany("INSERT INTO category_overrides VALUES (?,?,?,?,?)",
@@ -93,7 +88,10 @@ def main():
         SELECT p.*,
           (SELECT list(label ORDER BY NOT is_primary, label) FROM subfields s WHERE s.paper_id = p.paper_id) AS subfields,
           (SELECT list(family ORDER BY family) FROM paper_architecture a WHERE a.paper_id = p.paper_id) AS architectures,
-          (SELECT list(source ORDER BY source) FROM paper_data_source d WHERE d.paper_id = p.paper_id) AS data_sources
+          (SELECT list(source ORDER BY source) FROM paper_data_source d WHERE d.paper_id = p.paper_id) AS data_sources,
+          (SELECT list(task ORDER BY task) FROM paper_task t WHERE t.paper_id = p.paper_id) AS tasks,
+          (SELECT list(theme ORDER BY theme) FROM paper_issue_theme i WHERE i.paper_id = p.paper_id) AS issue_themes,
+          (SELECT list(theme ORDER BY theme) FROM paper_open_theme o WHERE o.paper_id = p.paper_id) AS open_themes
         FROM papers p""")
     con.close()
     print(f"wrote {DB}: {len(rows)} papers, {len(arch)} architecture tags, {len(data)} data-source tags, "

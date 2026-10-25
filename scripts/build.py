@@ -14,6 +14,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import s2
 from resolve_ids import sim
+from taxonomy import categorize, load_overrides
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = lambda *p: os.path.join(ROOT, "data", *p)
@@ -171,6 +172,12 @@ def main():
     for p in out:
         if p["s2"] in summaries:
             p["summary"] = summaries[p["s2"]]
+    # Homogenized categories (same rules as the DuckDB database) for the Insights view
+    cats = categorize(out, summaries, load_overrides(D("category_overrides.csv")))
+    keep = ("paper_type", "venue_family", "probabilistic", "model_family", "arch_group", "approach", "data_source",
+            "task", "issue_theme", "open_theme")
+    for p in out:
+        p["cat"] = {k: cats[p["s2"]][k] for k in keep}
     retrieved = dt.date.today().isoformat()
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)

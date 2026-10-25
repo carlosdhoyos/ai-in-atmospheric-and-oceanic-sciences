@@ -2,6 +2,14 @@
 
 Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py). Every figure has its data in [`analysis/tables/`](tables/).
 
+**Interactive version.** Open [`index.html`](../index.html) and switch to the **Insights** tab. Every chart there recalculates for the current selection: search, subfield, years, and any number of "Slice by" filters (architecture, goal, data source, limitation, open problem, venue…). It includes:
+- a timeline of when each architecture, goal or data source first appeared
+- trends by year
+- what is rising and what is fading since 2022
+- citation impact by group
+- a cross-tab explorer for any two categories
+- the recurring limitations and open problems, with quotes from the most-cited papers
+
 **Read this first.** This is a curated catalog of 373 papers, not a census of the field. It over-represents landmark and highly cited work and covers papers from 2025 onward thinly. The trends below describe the catalog. They point in the direction the field has moved, but the percentages are not field-wide estimates. Categories come from keyword rules applied to the structured summaries (see [Categories](#categories)), so a paper is tagged by what its summary says.
 
 ## Headlines
@@ -64,6 +72,9 @@ AGU journals (JAMES and GRL above all) are the main home of the catalog's papers
 | approach (`tag_kind = 'approach'`) | hybrid physics-ML, physics-informed constraints, causal/XAI, data-assimilation scheme | same |
 | `arch_group` | 7 coarse groups used in trend plots | mapping in `scripts/taxonomy.py` |
 | data source (`paper_data_source`) | ERA5, other/unspecified reanalysis, CMIP/climate models, km-scale simulations, idealized models, operational NWP, radar, satellite, stations/in situ, ocean/sea-ice products, scheme output, generic PDE benchmarks | summary data field |
+| goal (`paper_task`) | 19 research goals, e.g. medium-range forecasting, parameterization, downscaling, detection & attribution | summary goal field and title |
+| limitation (`paper_issue_theme`) | 16 recurring limitation themes, e.g. idealized setting, reanalysis dependence, blurring, no uncertainty, instability | summary issues field |
+| open problem (`paper_open_theme`) | 11 research-agenda themes, e.g. probabilistic forecasts, operational use, online coupling, learning from observations | summary open-work field |
 | `probabilistic` | true/false | summary architecture/goal/result and title |
 | `venue_family` | 13 publisher/community groups | venue string |
 

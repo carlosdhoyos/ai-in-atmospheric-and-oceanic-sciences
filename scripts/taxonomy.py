@@ -165,3 +165,138 @@ def classify(paper):
     venue = next((label for label, rx in VENUE_FAMILY if re.search(rx, paper["venue"] or "", I)), "Other venues")
     return {"paper_type": ptype, "architecture": arch, "data_source": data,
             "probabilistic": probabilistic and ptype == "method", "venue_family": venue}
+
+
+# Research goal / task (multi-label), matched against the goal field and title.
+TASK = [
+    ("Medium-range weather forecasting", r"medium-range|global weather|weather (forecast|prediction)|\bnwp\b|"
+                                         r"forecast\w* .*(global|weather)|data-driven weather|weather model"),
+    ("Nowcasting (0–12 h)", r"nowcast|radar extrapolation|twelve[- ]hour|0-2 ?h|next-hour|short-term precipitation"),
+    ("Subseasonal to decadal prediction", r"subseasonal|sub-seasonal|seasonal|\bs2s\b|enso|el ni|\bmjo\b|madden|decadal|"
+                                          r"interannual|multi-year"),
+    ("Climate emulation & projection", r"climate (emulat|projection|simulation|model output)|emulat\w* .*climate|"
+                                       r"long(-term)? climate|scenario|projections?\b|climate prediction"),
+    ("Parameterization & physics emulation", r"parameteri|subgrid|sub-grid|closure|radiative transfer|radiation|"
+                                             r"microphysics|convection scheme|gravity wave|physics (scheme|emulat)|"
+                                             r"chemistry (solver|mechanism)|moist physics"),
+    ("Model error & bias correction", r"\bbias|model error|correct(ion|ing|s)? (model|forecast|bias|systematic)"),
+    ("Post-processing & calibration", r"post-?process|calibrat"),
+    ("Downscaling & super-resolution", r"downscal|super-resolution|higher resolution|high-resolution (fields|projections|"
+                                       r"climate)|km-scale"),
+    ("Data assimilation & state estimation", r"assimilat|state estimation|initial condition|analysis system|"
+                                             r"from (raw |sparse )?observations"),
+    ("Detection & classification", r"detect(?!.*(climate|forced|anthropogenic))|classif|identif|segment|track(ing)? "
+                                   r"(fronts|cyclone|eddies)|front(s)?\b|atmospheric river"),
+    ("Retrieval & estimation from observations", r"retriev|estimat\w* .*(satellite|radar|microwave|observation)|"
+                                                 r"satellite (precipitation|estimat)|intensity estimation|from satellite"),
+    ("Reconstruction & gap filling", r"reconstruct|gap|missing|infill|interpolat|fill"),
+    ("Climate change detection & attribution", r"(detect|identif)\w* .*(climate|forced|anthropogenic)|attribution of|"
+                                               r"fingerprint|forced (change|response|signal)|warming threshold|time remaining"),
+    ("Process understanding & discovery", r"interpret|explain|discover|understand|mechanism|causal|insight|physical "
+                                          r"relationship|governing equations"),
+    ("Extreme events", r"extreme|heatwave|heat wave|hail|tornado|tropical cyclone|hurricane|typhoon|severe|gray swan|flood"),
+    ("Air quality & atmospheric composition", r"air quality|pm2|pm10|ozone|pollut|chemistry|aerosol|dust"),
+    ("Ocean & sea-ice prediction", r"ocean|sea surface|sea ice|eddy|eddies|sea level|wave|storm surge|carbon (sink|uptake)"),
+    ("Benchmarking, evaluation & feasibility", r"benchmark|dataset|^(\w+ )?(evaluat|assess|compar|test|ask|examin|investigat|quantif)|"
+                                  r"intercompar|whether"),
+    ("Computational speed-up", r"speed|accelerat|faster|cheap|computational (cost|efficien)|cost-effective|efficient"),
+]
+
+# Recurring limitations (issues field) and research agenda (open_work field).
+ISSUE_THEME = [
+    ("Generalization / out-of-distribution", r"out-of-distribution|generaliz|extrapolat|unseen|non-?stationar|"
+                                             r"outside the training|new (regimes|climates)|transfer\w* (to|across)|"
+                                             r"warmer climate|climate change"),
+    ("Idealized or narrow setting", r"idealized|toy|aqua-?planet|lorenz|single (region|site|case|season|column|model)|"
+                                    r"small (domain|region|sample)|limited (domain|region|data|dataset)|one (region|model|"
+                                    r"case|dataset|year|country|basin)|regional|\b1d\b|two-dimensional|2d|site-specific|"
+                                    r"basin only|short lead|single-country|only one"),
+    ("Trained or tested on model data only", r"(trained|tested|evaluated)\w* (and \w+ )?(only )?on (model|simulat)|"
+                                             r"model (world|data only|output)|perfect-model|simulated observations|"
+                                             r"depend\w* on (the )?(climate |cmip\w* )?model|relies? on model"),
+    ("Offline testing only", r"offline"),
+    ("Coarse resolution or few variables", r"coarse|resolution|single (variable|channel|level|pressure)|few variables|"
+                                           r"limited (predictors|variables)|only (ssh|shortwave|one variable|sst)|"
+                                           r"shortwave only|univariate"),
+    ("Label or ground-truth quality", r"label|best[- ]track|reports? (have|bias)|ground truth|subjective"),
+    ("Depends on reanalysis / NWP analyses", r"reanalysis|inherit|analys[ie]s (for|as) initial|relies on (nwp|operational|"
+                                              r"analys)|nwp-based|initial conditions from|initialized from"),
+    ("Smoothing, blurring or weak extremes", r"blur|smooth|underestimat|damp|spectral|loss of (fine|small)|extremes?\b"),
+    ("Instability or drift in long runs", r"instab|unstable|drift|stability|blow|online (coupling|simulation)|long rollout"),
+    ("No or poorly calibrated uncertainty", r"deterministic|no (uncertainty|probabilistic)|uncertainty (is )?not|"
+                                            r"calibrat|under-?dispers|spread"),
+    ("Physical consistency / conservation", r"conserv|physical(ly)? (consisten|constraint|realism|balance|plausib)|"
+                                            r"energy|mass\b|balance"),
+    ("Interpretability / black box", r"interpret|black[- ]box|explain|saliency|relevance map|attribution map"),
+    ("Limited evaluation", r"short (record|test|validation|period)|few (events|cases|samples)|limited (evaluation|"
+                           r"validation|verification)|baselines?\b|selected (examples|cases)|favou?rs|single (season|event)|"
+                           r"anecdotal|metrics|overfit|leak|not (reported|given|established|demonstrated|shown)|"
+                           r"no comparison|relative to climatology|overstate|small (validation|sample)|"
+                           r"no quantitative"),
+    ("Compute or data demands", r"comput\w* (cost|expens|demand)|expensive|gpu|large (amounts|training)|data-hungry|"
+                                r"training data (volume|requirement)|costly"),
+    ("Review dates quickly", r"rapidly (evolving|moving)|evolv\w* quickly|predates|may date|pre-20\d\d"),
+    ("Summary uncertain (no abstract)", r"abstract (is )?unavailable|cannot be verified|inferred from the title|"
+                                        r"not confirmed|abstract-level"),
+]
+OPEN_THEME = [
+    ("Probabilistic forecasts & uncertainty", r"probabilis|ensemble|uncertaint|stochastic|calibrat"),
+    ("Operational use", r"operational|real-time|deploy"),
+    ("Online coupling & hybrid models", r"coupl\w* (to|with|in)|online|hybrid|host model|full (gcm|model)|"
+                                        r"integrat\w* (into|with)|inside (a|the)"),
+    ("Generalization & transfer", r"generaliz|transfer|other (regions|climates|models|domains|basins)|real geography|"
+                                  r"climate change|out-of-distribution|robust"),
+    ("Higher resolution & larger domains", r"resolution|larger domain|global (grid|domain|scale)|km-scale|finer|"
+                                           r"extend\w* to (global|3d)"),
+    ("More variables & Earth-system components", r"more (variables|predictors|levels|processes)|additional (variables|"
+                                                 r"predictors)|precipitation|coupled (ocean|atmosphere)|land|chemistry|"
+                                                 r"earth system|sea ice|ocean"),
+    ("Learning directly from observations", r"observation|end-to-end|raw|satellite|in situ"),
+    ("Extremes & rare events", r"extreme|tail|rare|high-impact|tropical cyclone|heatwave"),
+    ("Physical constraints & interpretability", r"physic\w*[- ](constrain|informed|consisten)|conserv|interpret|explain|"
+                                                r"mechanism|causal"),
+    ("Longer lead times", r"lead time|longer (horizon|range|leads)|extend\w* .*lead|beyond \d+ days"),
+    ("Benchmarks & evaluation", r"benchmark|evaluat|verification|metric|intercompar|validat"),
+]
+
+
+def period(year):
+    return "≤2018" if year <= 2018 else "2019–20" if year <= 2020 else "2021–22" if year <= 2022 else "2023–26"
+
+
+def categorize(papers, summaries, overrides=()):
+    """All categories for every paper, keyed by S2 paperId, with manual overrides applied."""
+    out = {}
+    for p in papers:
+        p = dict(p, summary=summaries.get(p["s2"]))
+        s = p["summary"] or {}
+        c = classify(p)
+        goal_text = s.get("goal", "") + " " + p["title"]
+        c["task"] = match_all(TASK, goal_text) if c["paper_type"] != "review" else []
+        c["issue_theme"] = match_all(ISSUE_THEME, s.get("issues", ""))
+        c["open_theme"] = match_all(OPEN_THEME, s.get("open_work", "")) if c["paper_type"] != "review" else []
+        for o in (o for o in overrides if o["paper_id"] == p["s2"]):
+            dim, label, act = o["dimension"], o["label"], o["action"]
+            if isinstance(c.get(dim), list):
+                if act == "add" and label not in c[dim]:
+                    c[dim].append(label)
+                if act == "remove" and label in c[dim]:
+                    c[dim].remove(label)
+            elif dim == "probabilistic":
+                c[dim] = label.lower() == "true"
+            else:
+                c[dim] = label
+        c["arch_group"] = sorted({ARCH_GROUP[a] for a in c["architecture"] if a in ARCH_GROUP})
+        c["model_family"] = [a for a in c["architecture"] if a not in APPROACHES]
+        c["approach"] = [a for a in c["architecture"] if a in APPROACHES]
+        c["period"] = period(p["year"]) if p["year"] else None
+        out[p["s2"]] = c
+    return out
+
+
+def load_overrides(path):
+    import csv
+    import os
+    if not os.path.exists(path):
+        return []
+    return [r for r in csv.DictReader(open(path)) if r.get("paper_id") and not r["paper_id"].startswith("#")]

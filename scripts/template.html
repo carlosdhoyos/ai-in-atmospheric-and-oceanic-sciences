@@ -18,6 +18,9 @@
   --bar: #9fc3d0;
   --bar-on: #0a6e8a;
   --chip: #e8eef0;
+  /* chart tokens: validated categorical order, one-hue heat ramp, recessive grid */
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300; --s7: #6250d6;
+  --s-other: #b4b8b9; --heat: #1c5cab; --on-heat: #ffffff; --grid: #e3e9eb;
   --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -26,12 +29,16 @@
   :root:not([data-theme="light"]) {
     --bg: #0c1519; --surface: #13212a; --ink: #e3ecef; --muted: #93a8b2; --line: #24363f;
     --accent: #5cc3e0; --accent-soft: #163543; --warm: #e8875c; --bar: #2c5262; --bar-on: #5cc3e0; --chip: #1b2c35;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9;
+    --s-other: #4f5b60; --heat: #6da7ec; --on-heat: #0c1519; --grid: #22333b;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0c1519; --surface: #13212a; --ink: #e3ecef; --muted: #93a8b2; --line: #24363f;
   --accent: #5cc3e0; --accent-soft: #163543; --warm: #e8875c; --bar: #2c5262; --bar-on: #5cc3e0; --chip: #1b2c35;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9;
+  --s-other: #4f5b60; --heat: #6da7ec; --on-heat: #0c1519; --grid: #22333b;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -111,6 +118,70 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
   .cites b { font-size: 17px; }
   .summary { margin-left: 0; width: 100%; }
 }
+/* Slice-by filters and tabs */
+.slice { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.slice select { max-width: 100%; }
+.fchip { font: 500 12.5px var(--f-body); background: var(--accent-soft); color: var(--ink); border: 1px solid var(--accent); border-radius: 999px; padding: 3px 4px 3px 10px; display: inline-flex; gap: 6px; align-items: center; }
+.fchip b { font-weight: 600; color: var(--muted); }
+.fchip button { border: 0; background: transparent; color: var(--accent); font-size: 15px; line-height: 1; cursor: pointer; padding: 0 6px; border-radius: 999px; }
+.tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.tabs button { font: 600 13px var(--f-body); border: 0; background: var(--surface); color: var(--muted); padding: 7px 14px; cursor: pointer; }
+.tabs button + button { border-left: 1px solid var(--line); }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--surface); }
+
+/* Insights */
+#insights { padding-block: 20px 60px; display: grid; gap: 22px; }
+.findings { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+.findings h2, .panel h3 { font-family: var(--f-display); font-stretch: 112%; font-weight: 600; margin: 0; text-wrap: balance; }
+.findings h2 { font-size: 20px; }
+.findings ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; max-width: 90ch; }
+.findings li::marker { color: var(--accent); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 14px; font-variant-numeric: tabular-nums; }
+.kpi { border-top: 2px solid var(--line); padding-top: 8px; min-width: 0; }
+.kpi b { display: block; font-family: var(--f-display); font-stretch: 112%; font-size: 22px; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
+.kpi span { font-size: 12px; color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; min-width: 0; }
+.panel h3 { font-size: 17px; }
+.panel .sub { color: var(--muted); font-size: 13.5px; margin: 4px 0 10px; max-width: 80ch; }
+.panel .opts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+.panel .opts select { font-size: 13px; padding: 5px 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { font: 500 12.5px var(--f-body); border: 0; background: transparent; color: var(--muted); padding: 5px 10px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--chip); color: var(--ink); }
+.chart { width: 100%; overflow-x: auto; }
+.chart svg { display: block; font-family: var(--f-body); }
+.chart svg text { fill: var(--muted); font-size: 11px; }
+.chart svg .lab { fill: var(--ink); font-size: 12px; }
+.chart svg .clickable { cursor: pointer; }
+.chart svg .clickable:hover { fill: var(--accent); text-decoration: underline; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--ink); margin-top: 8px; }
+.legend button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.legend button:hover { text-decoration: underline; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+.pivot-wrap { overflow-x: auto; }
+table.pivot { border-collapse: separate; border-spacing: 2px; font-size: 12px; font-variant-numeric: tabular-nums; }
+table.pivot th { font-weight: 500; color: var(--muted); text-align: left; padding: 4px 6px; vertical-align: bottom; }
+table.pivot thead th { max-width: 92px; min-width: 56px; font-size: 11.5px; line-height: 1.25; overflow-wrap: anywhere; hyphens: auto; }
+table.pivot tbody th { white-space: nowrap; color: var(--ink); max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+table.pivot td { text-align: center; padding: 6px 4px; border-radius: 4px; min-width: 44px; cursor: pointer; }
+table.pivot td.zero { color: var(--line); cursor: default; }
+table.pivot td:not(.zero):hover { outline: 2px solid var(--accent); }
+table.pivot .tot { color: var(--muted); background: transparent; cursor: default; font-weight: 600; }
+.bars { display: grid; gap: 6px; }
+.barrow { display: grid; grid-template-columns: minmax(0, 1fr) 46px; gap: 8px; align-items: center; font-size: 13px; background: none; border: 0; padding: 4px 6px; border-radius: 6px; text-align: left; cursor: pointer; color: var(--ink); font-family: inherit; }
+.barrow[aria-pressed="true"] { background: var(--accent-soft); }
+.barrow .track { display: block; height: 8px; background: var(--chip); border-radius: 4px; margin-top: 4px; overflow: hidden; }
+.barrow .track i { display: block; height: 100%; background: var(--s1); border-radius: 0 4px 4px 0; }
+.barrow .val { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+.quotes { display: grid; gap: 10px; }
+.quote { border-left: 3px solid var(--line); padding: 2px 0 2px 12px; font-size: 13.5px; }
+.quote p { margin: 0; }
+.quote button { font: 500 12.5px var(--f-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; margin-top: 3px; }
+.tip { position: fixed; z-index: 30; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.4; padding: 7px 10px; border-radius: 6px; max-width: 320px; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+.tip b { font-weight: 600; }
+@media (max-width: 820px) { .two { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -158,7 +229,17 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
     <div class="row">
       <div class="chips" id="topics" role="group" aria-label="Subfields"></div>
     </div>
+    <div class="row slice">
+      <label class="inline" for="fdim">Slice by</label>
+      <select id="fdim" aria-label="Category to filter by"></select>
+      <select id="fval" aria-label="Value to filter by"></select>
+      <span class="chips" id="factive" aria-live="polite"></span>
+    </div>
     <div class="row">
+      <div class="tabs" role="tablist" aria-label="View">
+        <button type="button" role="tab" id="tab-papers" aria-selected="true" aria-controls="list">Papers</button>
+        <button type="button" role="tab" id="tab-insights" aria-selected="false" aria-controls="insights">Insights</button>
+      </div>
       <button class="btn" id="bib-all" type="button">BibTeX for shown papers</button>
       <button class="btn" id="reset" type="button">Clear filters</button>
       <span class="summary" id="summary"></span>
@@ -168,6 +249,71 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
 
 <div class="wrap">
   <main id="list" aria-live="polite"></main>
+  <section id="insights" hidden aria-label="Insights">
+    <div class="findings">
+      <h2>What the selection shows</h2>
+      <div class="kpis" id="kpis"></div>
+      <ul id="findings"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>When each one arrived</h3>
+      <p class="sub">One row per category, one dot per paper (dot size = citations). The orange dot is the first paper in the catalog. Click a row name to filter; click a dot to open the paper.</p>
+      <div class="opts"><label>Rows <select id="tl-dim" aria-label="Timeline rows"></select></label></div>
+      <div class="chart" id="timeline"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Trend by year</h3>
+      <p class="sub">The seven most common values, with the rest folded into Other. Papers with several tags count once per tag.</p>
+      <div class="opts">
+        <label>Color by <select id="tr-dim" aria-label="Trend category"></select></label>
+        <span class="seg" role="group" aria-label="Scale"><button type="button" data-mode="count" aria-pressed="false">Papers</button><button type="button" data-mode="share" aria-pressed="true">Share</button></span>
+      </div>
+      <div class="chart" id="trend"></div>
+      <div class="legend" id="trend-legend"></div>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h3>Rising and fading</h3>
+        <p class="sub">Share of papers with each value before 2022 and from 2022 on.</p>
+        <div class="opts"><label>Category <select id="rf-dim" aria-label="Rising and fading category"></select></label></div>
+        <div class="chart" id="slope"></div>
+        <div class="legend"><span><i style="background:var(--s1)"></i> Rising</span><span><i style="background:var(--s2)"></i> Fading</span><span><i style="background:var(--s-other)"></i> Stable (±2 pts)</span></div>
+      </div>
+      <div class="panel">
+        <h3>Citation impact</h3>
+        <p class="sub">Each dot is a paper: year against citations per year (log scale). The highlighted group's median is compared with the rest.</p>
+        <div class="opts"><label>Highlight <select id="im-dim" aria-label="Highlight category"></select></label><select id="im-val" aria-label="Highlight value"></select></div>
+        <div class="chart" id="impact"></div>
+        <p class="note" id="impact-note"></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Cross-tab explorer</h3>
+      <p class="sub">Pick any two categories and a measure. Click a cell to filter by both values. Choosing the same category for rows and columns shows co-occurrence, for example which architectures are combined.</p>
+      <div class="opts">
+        <label>Rows <select id="pv-row" aria-label="Rows"></select></label>
+        <label>Columns <select id="pv-col" aria-label="Columns"></select></label>
+        <label>Measure <select id="pv-metric" aria-label="Measure">
+          <option value="n">Papers</option><option value="row">% of row</option><option value="col">% of column</option>
+          <option value="cpy">Median citations per year</option><option value="cites">Total citations</option>
+        </select></label>
+      </div>
+      <div class="pivot-wrap" id="pivot"></div>
+      <p class="note" id="pivot-note"></p>
+    </div>
+
+    <div class="panel">
+      <h3>What the papers say is still missing</h3>
+      <p class="sub">Recurring limitations and open problems, grouped from the structured summaries. Select a theme to read what the most-cited papers in it say.</p>
+      <div class="opts"><span class="seg" role="group" aria-label="Theme set"><button type="button" data-voice="issue_theme" aria-pressed="true">Limitations</button><button type="button" data-voice="open_theme" aria-pressed="false">Open problems</button></span></div>
+      <div class="two"><div class="bars" id="voice-bars"></div><div class="quotes" id="voice-quotes"></div></div>
+      <p class="note">Themes come from keyword rules over the summaries' issues and open-work fields; many of these are editorial assessments rather than the authors' own statements.</p>
+    </div>
+  </section>
   <footer>
     <p>Metadata and citation counts were retrieved from Semantic Scholar, Crossref and arXiv on <span id="asof2"></span>. Counts differ between indexes (Google Scholar is usually higher), so use them to compare papers, not as absolute numbers. Papers with both an arXiv preprint and a published version are listed once under the published venue.</p>
   </footer>
@@ -226,6 +372,29 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
   };
   const authorLine = a => a.length > 6 ? a.slice(0, 5).join(", ") + ` … ${a[a.length - 1]} (${a.length} authors)` : a.join(", ");
 
+  // Categories for slicing: every dimension returns a list of values per paper (multi-label safe)
+  const TYPE_LABEL = { method: "Method", review: "Review / perspective", dataset_benchmark: "Dataset / benchmark", evaluation: "Evaluation" };
+  const KIND_LABEL = { journal: "Journal", conference: "Conference", preprint: "arXiv only" };
+  const period = y => y <= 2018 ? "≤2018" : y <= 2020 ? "2019–20" : y <= 2022 ? "2021–22" : "2023–26";
+  const DIMS = [
+    ["model_family", "Architecture", p => p.cat.model_family],
+    ["arch_group", "Architecture group", p => p.cat.arch_group],
+    ["approach", "Approach (hybrid, XAI, …)", p => p.cat.approach],
+    ["task", "Goal", p => p.cat.task],
+    ["data_source", "Data source", p => p.cat.data_source],
+    ["issue_theme", "Limitation", p => p.cat.issue_theme],
+    ["open_theme", "Open problem", p => p.cat.open_theme],
+    ["subfield", "Subfield", p => p.topics.map(t => T[t])],
+    ["paper_type", "Paper type", p => [TYPE_LABEL[p.cat.paper_type]]],
+    ["output", "Output", p => p.cat.paper_type === "method" ? [p.cat.probabilistic ? "Probabilistic" : "Deterministic"] : []],
+    ["venue_family", "Venue family", p => [p.cat.venue_family]],
+    ["kind", "Publication type", p => [KIND_LABEL[p.kind]]],
+    ["period", "Period", p => [period(p.year)]],
+  ].map(([key, label, get]) => ({ key, label, get }));
+  const DIM = Object.fromEntries(DIMS.map(d => [d.key, d]));
+  state.facets = new Map();  // dimension -> Set of values (OR within a dimension, AND across dimensions)
+  state.tab = "papers";
+
   function filtered() {
     const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
     const y0 = +$("y0").value, y1 = +$("y1").value;
@@ -233,6 +402,7 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
       (!state.kind || p.kind === state.kind) &&
       p.year >= y0 && p.year <= y1 &&
       (!state.topics.size || p.topics.some(t => state.topics.has(t))) &&
+      [...state.facets].every(([d, set]) => DIM[d].get(p).some(v => set.has(v))) &&
       terms.every(t => p.hay.includes(t)));
   }
   const sorters = {
@@ -262,10 +432,20 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
 
   function render() {
     const rows = filtered().sort(sorters[state.sort]);
+    drawHist(rows);
+    renderFacets();
+    $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
+    $("list").hidden = state.tab !== "papers";
+    $("insights").hidden = state.tab !== "insights";
+    $("tab-papers").setAttribute("aria-selected", state.tab === "papers");
+    $("tab-insights").setAttribute("aria-selected", state.tab === "insights");
+    if (state.tab === "insights") return renderInsights(rows);
+    renderList(rows);
+  }
+
+  function renderList(rows) {
     const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
     const maxC = Math.max(1, ...P.map(p => p.cites));
-    drawHist(rows);
-    $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
     if (!rows.length) { $("list").innerHTML = `<p class="empty">No papers match these filters. Try a shorter search or clear the filters.</p>`; return; }
     $("list").innerHTML = rows.map(p => {
       const url = p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
@@ -370,10 +550,342 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
   $("sort").onchange = e => { state.sort = e.target.value; render(); };
   $("y0").onchange = $("y1").onchange = render;
   $("reset").onclick = () => {
-    state.q = ""; state.kind = ""; state.topics.clear(); $("q").value = ""; $("kind").value = "";
+    state.q = ""; state.kind = ""; state.topics.clear(); state.facets.clear(); $("q").value = ""; $("kind").value = "";
     $("y0").value = minY; $("y1").value = maxY; syncChips(); render();
   };
-  if (location.hash && T[location.hash.slice(1)]) { state.topics.add(location.hash.slice(1)); syncChips(); }
+
+  /* ---------- Slice-by filters ---------- */
+  const dimOptions = (keys, sel) => keys.map(k => `<option value="${k}"${k === sel ? " selected" : ""}>${DIM[k].label}</option>`).join("");
+  $("fdim").innerHTML = dimOptions(DIMS.map(d => d.key), "model_family");
+  function counts(dim, rows) {  // value -> papers, sorted by count
+    const m = new Map();
+    rows.forEach(p => DIM[dim].get(p).forEach(v => m.set(v, (m.get(v) || 0) + 1)));
+    return [...m].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(b[0]));
+  }
+  function fillValues() {
+    const d = $("fdim").value, set = state.facets.get(d) || new Set();
+    $("fval").innerHTML = `<option value="">Choose a value…</option>` +
+      counts(d, P).filter(([v]) => !set.has(v)).map(([v, n]) => `<option value="${esc(v)}">${esc(v)} (${n})</option>`).join("");
+  }
+  function addFacet(d, v) {
+    if (!state.facets.has(d)) state.facets.set(d, new Set());
+    state.facets.get(d).add(v);
+  }
+  function renderFacets() {
+    $("factive").innerHTML = [...state.facets].flatMap(([d, set]) => [...set].map(v =>
+      `<span class="fchip"><b>${esc(DIM[d].label)}:</b> ${esc(v)}<button type="button" data-d="${d}" data-v="${esc(v)}" aria-label="Remove filter ${esc(v)}">×</button></span>`)).join("");
+    fillValues();
+  }
+  $("fdim").onchange = fillValues;
+  $("fval").onchange = e => { if (e.target.value) { addFacet($("fdim").value, e.target.value); render(); } };
+  $("factive").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    const set = state.facets.get(b.dataset.d); set.delete(b.dataset.v);
+    if (!set.size) state.facets.delete(b.dataset.d);
+    render();
+  });
+  $("tab-papers").onclick = () => { state.tab = "papers"; render(); };
+  $("tab-insights").onclick = () => { state.tab = "insights"; render(); };
+
+  /* ---------- Insights ---------- */
+  const SER = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)", "var(--s7)"];
+  const NS = 'xmlns="http://www.w3.org/2000/svg"';
+  const CHART_DIMS = ["model_family", "arch_group", "approach", "task", "data_source", "issue_theme", "open_theme", "subfield",
+    "paper_type", "output", "venue_family", "kind"];
+  const ins = { tl: "model_family", tr: "arch_group", trMode: "share", rf: "task", im: "arch_group", imVal: "Transformers",
+    pvRow: "task", pvCol: "arch_group", pvMetric: "n", voice: "issue_theme", voiceTheme: null };
+  const pct = x => `${Math.round(x * 100)}%`;
+  const median = a => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+  const short = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s;
+  const width = id => Math.max(300, $(id).clientWidth || 800);
+  const tipAttr = html => `data-tip="${esc(html)}"`;
+
+  function setupSelect(id, keys, key) {
+    $(id).innerHTML = dimOptions(keys, ins[key]);
+    $(id).onchange = e => { ins[key] = e.target.value; if (key === "im") ins.imVal = null; render(); };
+  }
+  setupSelect("tl-dim", CHART_DIMS, "tl");
+  setupSelect("tr-dim", CHART_DIMS.concat("period"), "tr");
+  setupSelect("rf-dim", CHART_DIMS, "rf");
+  setupSelect("im-dim", CHART_DIMS, "im");
+  setupSelect("pv-row", CHART_DIMS.concat("period"), "pvRow");
+  setupSelect("pv-col", CHART_DIMS.concat("period"), "pvCol");
+  $("pv-metric").onchange = e => { ins.pvMetric = e.target.value; render(); };
+  $("im-val").onchange = e => { ins.imVal = e.target.value; render(); };
+  document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { ins.trMode = b.dataset.mode; render(); });
+  document.querySelectorAll("[data-voice]").forEach(b => b.onclick = () => { ins.voice = b.dataset.voice; ins.voiceTheme = null; render(); });
+
+  function openPaper(id) {
+    state.tab = "papers"; state.sum.add(id); render();
+    const el = document.querySelector(`.paper[data-id="${id}"]`);
+    if (el) el.scrollIntoView({ block: "center" });
+  }
+
+  function renderInsights(rows) {
+    if (!rows.length) {
+      $("findings").innerHTML = "<li>No papers match the current filters. Remove a filter to see insights.</li>";
+      $("kpis").innerHTML = "";
+      ["timeline", "trend", "trend-legend", "slope", "impact", "pivot", "voice-bars", "voice-quotes"].forEach(id => $(id).innerHTML = "");
+      return;
+    }
+    renderFindings(rows); renderTimeline(rows); renderTrend(rows); renderSlope(rows); renderImpact(rows);
+    renderPivot(rows); renderVoices(rows);
+  }
+
+  // Auto-written findings for whatever is selected
+  function firstOf(dim, v, rows) {
+    return rows.filter(p => DIM[dim].get(p).includes(v)).sort((a, b) => a.year - b.year || b.cites - a.cites)[0];
+  }
+  function shift(dim, rows) {
+    const before = rows.filter(p => p.year < 2022), after = rows.filter(p => p.year >= 2022);
+    if (before.length < 8 || after.length < 8) return [];
+    const cb = new Map(counts(dim, before)), ca = new Map(counts(dim, after));
+    return [...new Set([...cb.keys(), ...ca.keys()])].map(v =>
+      [v, (ca.get(v) || 0) / after.length - (cb.get(v) || 0) / before.length]).sort((a, b) => b[1] - a[1]);
+  }
+  function renderFindings(rows) {
+    const methods = rows.filter(p => p.cat.paper_type === "method");
+    const arch = counts("model_family", rows), goal = counts("task", rows), data = counts("data_source", rows);
+    const prob = methods.length ? methods.filter(p => p.cat.probabilistic).length / methods.length : 0;
+    $("kpis").innerHTML = [
+      [fmt(rows.length), "papers selected"],
+      [Math.round(median(rows.map(p => p.rate))), "median citations per year"],
+      [arch[0] ? arch[0][0] : "–", arch[0] ? `most common architecture (${pct(arch[0][1] / rows.length)})` : "architecture"],
+      [goal[0] ? goal[0][0] : "–", goal[0] ? `most common goal (${goal[0][1]} papers)` : "goal"],
+      [methods.length ? pct(prob) : "–", "of method papers are probabilistic"],
+    ].map(([b, s]) => `<div class="kpi"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+    const f = [];
+    const top3 = arch.slice(0, 3).map(([v, n]) => {
+      const p0 = firstOf("model_family", v, rows);
+      return `<b>${esc(v)}</b> (${n} papers, since ${p0.year})`;
+    });
+    if (top3.length) f.push(`Most used architectures: ${top3.join(", ")}.`);
+    const sa = shift("model_family", rows);
+    if (sa.length) {
+      const up = sa.filter(x => x[1] > 0.02).slice(0, 3), down = sa.filter(x => x[1] < -0.02).slice(-3).reverse();
+      if (up.length) f.push(`Rising since 2022: ${up.map(([v, d]) => `<b>${esc(v)}</b> (+${Math.round(d * 100)} pts)`).join(", ")}${down.length ? `. Fading: ${down.map(([v, d]) => `${esc(v)} (${Math.round(d * 100)} pts)`).join(", ")}` : ""}.`);
+    }
+    const sg = shift("task", rows);
+    if (sg.length && sg[0][1] > 0.02) f.push(`The goal growing fastest is <b>${esc(sg[0][0])}</b> (+${Math.round(sg[0][1] * 100)} pts of papers after 2022); the one shrinking most is ${esc(sg[sg.length - 1][0])} (${Math.round(sg[sg.length - 1][1] * 100)} pts).`);
+    if (data.length) f.push(`Most common data: <b>${esc(data[0][0])}</b> (${data[0][1]} papers)${data[1] ? `, then ${esc(data[1][0])} (${data[1][1]})` : ""}${data[2] ? ` and ${esc(data[2][0])} (${data[2][1]})` : ""}.`);
+    const groups = counts("arch_group", rows).filter(([, n]) => n >= 5).map(([g, n]) =>
+      [g, median(rows.filter(p => p.cat.arch_group.includes(g)).map(p => p.rate)), n]).sort((a, b) => b[1] - a[1]);
+    if (groups.length > 1) f.push(`Highest median citation rate: <b>${esc(groups[0][0])}</b> (${Math.round(groups[0][1])}/yr over ${groups[0][2]} papers); lowest: ${esc(groups[groups.length - 1][0])} (${Math.round(groups[groups.length - 1][1])}/yr).`);
+    const iss = counts("issue_theme", rows).filter(([v]) => !/Summary uncertain|Review dates/.test(v));
+    if (iss.length) f.push(`Most frequent limitation: <b>${esc(iss[0][0])}</b> (${iss[0][1]} papers); most frequent open problem: <b>${esc((counts("open_theme", rows)[0] || ["–"])[0])}</b>.`);
+    const oldest = [...rows].sort((a, b) => a.year - b.year)[0];
+    f.push(`The selection spans ${oldest.year}–${Math.max(...rows.map(p => p.year))}; papers from 2025 onward are thinly covered by the catalog.`);
+    $("findings").innerHTML = f.map(x => `<li>${x}</li>`).join("");
+  }
+
+  // Swimlane timeline: when each value first appears and how it fills in
+  function renderTimeline(rows) {
+    const dim = ins.tl, vals = counts(dim, rows).slice(0, 16);
+    if (!vals.length) { $("timeline").innerHTML = `<p class="note">No papers in this selection have a ${esc(DIM[dim].label.toLowerCase())} tag.</p>`; return; }
+    const W = width("timeline"), labW = Math.min(230, W * 0.34), rightW = 92, rowH = 30, top = 22;
+    const ys = rows.map(p => p.year), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    const span = Math.max(1, y1 - y0 + 1), plotW = W - labW - rightW, colW = plotW / span;
+    const x = y => labW + (y - y0 + 0.5) * colW, maxC = Math.max(...rows.map(p => p.cites));
+    const order = vals.map(([v, n]) => ({ v, n, first: firstOf(dim, v, rows) })).sort((a, b) => a.first.year - b.first.year || b.n - a.n);
+    const H = top + order.length * rowH + 8;
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Timeline of first appearance by ${esc(DIM[dim].label)}">`;
+    const step = span > 14 ? 2 : 1;
+    for (let y = y0; y <= y1; y++) {
+      if ((y - y0) % step) continue;
+      s += `<line x1="${x(y)}" x2="${x(y)}" y1="${top - 4}" y2="${H - 6}" stroke="var(--grid)"/><text x="${x(y)}" y="${top - 8}" text-anchor="middle">${y}</text>`;
+    }
+    order.forEach((o, i) => {
+      const cy = top + i * rowH + rowH / 2;
+      s += `<line x1="${labW}" x2="${W - rightW}" y1="${cy}" y2="${cy}" stroke="var(--grid)"/>`;
+      s += `<text class="lab clickable" x="${labW - 10}" y="${cy + 4}" text-anchor="end" data-facet="${esc(dim)}|${esc(o.v)}" ${tipAttr(`<b>${esc(o.v)}</b><br>Click to filter`)}>${esc(short(o.v, Math.floor(labW / 6.6)))}</text>`;
+      const ps = rows.filter(p => DIM[dim].get(p).includes(o.v)).sort((a, b) => a.cites - b.cites);
+      const perYear = {};
+      ps.forEach(p => {
+        const k = perYear[p.year] = (perYear[p.year] || 0) + 1;
+        const jitter = ((k - 1) % 5 - 2) * Math.min(colW / 6, 5) + (Math.floor((k - 1) / 5) % 2 ? 2 : 0);
+        const r = 2.5 + 6.5 * Math.sqrt(p.cites / maxC), isFirst = p === o.first;
+        s += `<circle class="clickable" data-paper="${p.id}" cx="${x(p.year) + jitter}" cy="${cy}" r="${r.toFixed(1)}" fill="${isFirst ? "var(--s2)" : "var(--s1)"}" fill-opacity="${isFirst ? 1 : 0.75}" stroke="var(--surface)" stroke-width="1.5" ${tipAttr(`<b>${esc(p.title)}</b><br>${p.year} · ${esc(p.venue)} · ${fmt(p.cites)} citations${isFirst ? "<br>First paper in this row" : ""}`)}/>`;
+      });
+      s += `<text x="${W - rightW + 8}" y="${cy + 4}">since ${o.first.year} · ${o.n}</text>`;
+    });
+    $("timeline").innerHTML = s + "</svg>";
+  }
+
+  // Stacked bars per year, top 7 + Other
+  function renderTrend(rows) {
+    const dim = ins.tr, top = counts(dim, rows).slice(0, 7).map(([v]) => v);
+    document.querySelectorAll("[data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === ins.trMode));
+    const ys = rows.map(p => p.year), y1 = Math.max(...ys), share = ins.trMode === "share";
+    const perYear = {}; rows.forEach(p => perYear[p.year] = (perYear[p.year] || 0) + 1);
+    // in share mode, start where a year has enough papers for a share to mean something
+    const y0 = share ? (Object.keys(perYear).map(Number).sort((a, b) => a - b).find(y => perYear[y] >= 5) ?? Math.min(...ys))
+                     : Math.max(Math.min(...ys), 2012);
+    const keys = [...top, "Other"], table = {};
+    for (let y = y0; y <= y1; y++) table[y] = Object.fromEntries(keys.map(k => [k, 0]));
+    rows.filter(p => p.year >= y0).forEach(p => DIM[dim].get(p).forEach(v => table[p.year][top.includes(v) ? v : "Other"]++));
+    const totals = Object.fromEntries(Object.entries(table).map(([y, t]) => [y, Object.values(t).reduce((a, b) => a + b, 0)]));
+    const maxT = share ? 1 : Math.max(1, ...Object.values(totals));
+    const W = width("trend"), H = 260, L = 40, B = 24, Tp = 10, n = y1 - y0 + 1, bw = (W - L - 8) / n;
+    const yv = v => Tp + (H - Tp - B) * (1 - v / maxT);
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Papers per year by ${esc(DIM[dim].label)}">`;
+    const ticks = share ? [0, 0.25, 0.5, 0.75, 1] : niceTicks(maxT);
+    ticks.forEach(t => s += `<line x1="${L}" x2="${W - 4}" y1="${yv(t)}" y2="${yv(t)}" stroke="var(--grid)"/><text x="${L - 6}" y="${yv(t) + 4}" text-anchor="end">${share ? pct(t) : t}</text>`);
+    for (let y = y0; y <= y1; y++) {
+      let acc = 0;
+      const xx = L + (y - y0) * bw + 2, tot = totals[y];
+      keys.forEach((k, ki) => {
+        const v = table[y][k]; if (!v) return;
+        const val = share ? v / tot : v, y_top = yv(acc + val), h = yv(acc) - y_top;
+        s += `<rect x="${xx}" y="${y_top}" width="${Math.max(1, bw - 4)}" height="${Math.max(0, h - 1)}" rx="${h > 6 ? 2 : 0}" fill="${k === "Other" ? "var(--s-other)" : SER[ki]}" ${tipAttr(`<b>${y} · ${esc(k)}</b><br>${v} paper tags (${pct(v / tot)} of ${tot})`)}/>`;
+        acc += val;
+      });
+      if (n <= 16 || (y - y0) % 2 === 0) s += `<text x="${xx + bw / 2 - 2}" y="${H - 6}" text-anchor="middle">${y}</text>`;
+    }
+    $("trend").innerHTML = s + "</svg>";
+    $("trend-legend").innerHTML = keys.filter(k => k !== "Other" || Object.values(table).some(t => t.Other)).map((k, i) =>
+      `<button type="button" data-facet="${esc(dim)}|${esc(k)}" ${k === "Other" ? "disabled" : ""}><i style="background:${k === "Other" ? "var(--s-other)" : SER[i]}"></i>${esc(k)}</button>`).join("");
+  }
+  function niceTicks(max) {
+    const step = [1, 2, 5, 10, 20, 25, 50, 100].find(s => max / s <= 5) || Math.ceil(max / 5);
+    const t = []; for (let v = 0; v <= max; v += step) t.push(v); return t;
+  }
+
+  // Slope chart: share before 2022 vs from 2022
+  function renderSlope(rows) {
+    const dim = ins.rf, before = rows.filter(p => p.year < 2022), after = rows.filter(p => p.year >= 2022);
+    if (before.length < 8 || after.length < 8) {
+      $("slope").innerHTML = `<p class="note">Needs at least 8 papers on each side of 2022 (now ${before.length} before, ${after.length} after).</p>`; return;
+    }
+    const cb = new Map(counts(dim, before)), ca = new Map(counts(dim, after));
+    const vals = counts(dim, rows).slice(0, 12).map(([v]) => ({ v, a: (cb.get(v) || 0) / before.length, b: (ca.get(v) || 0) / after.length }));
+    const W = width("slope"), H = 34 + vals.length * 26, x0 = 70, x1 = Math.max(x0 + 120, W * 0.42);
+    const maxS = Math.max(0.05, ...vals.flatMap(o => [o.a, o.b])), y = v => 24 + (H - 40) * (1 - v / maxS);
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Share before and after 2022 by ${esc(DIM[dim].label)}">`;
+    s += `<text x="${x0}" y="12" text-anchor="middle">before 2022 (${before.length})</text><text x="${x1}" y="12" text-anchor="middle">2022 on (${after.length})</text>`;
+    s += `<line x1="${x0}" x2="${x0}" y1="18" y2="${H - 10}" stroke="var(--grid)"/><line x1="${x1}" x2="${x1}" y1="18" y2="${H - 10}" stroke="var(--grid)"/>`;
+    // de-overlap right labels
+    const lab = vals.map(o => ({ o, y: y(o.b) })).sort((p, q) => p.y - q.y);
+    for (let i = 1; i < lab.length; i++) if (lab[i].y - lab[i - 1].y < 13) lab[i].y = lab[i - 1].y + 13;
+    vals.forEach(o => {
+      const d = o.b - o.a, col = d > 0.02 ? "var(--s1)" : d < -0.02 ? "var(--s2)" : "var(--s-other)";
+      const tip = tipAttr(`<b>${esc(o.v)}</b><br>${pct(o.a)} → ${pct(o.b)} (${d >= 0 ? "+" : ""}${Math.round(d * 100)} pts)`);
+      s += `<line x1="${x0}" x2="${x1}" y1="${y(o.a)}" y2="${y(o.b)}" stroke="${col}" stroke-width="2" ${tip}/>`;
+      s += `<circle cx="${x0}" cy="${y(o.a)}" r="4" fill="${col}" stroke="var(--surface)" stroke-width="2" ${tip}/><circle cx="${x1}" cy="${y(o.b)}" r="4" fill="${col}" stroke="var(--surface)" stroke-width="2" ${tip}/>`;
+    });
+    const left = vals.map(o => ({ o, y: y(o.a) })).sort((p, q) => p.y - q.y);
+    for (let i = 1; i < left.length; i++) if (left[i].y - left[i - 1].y < 12) left[i].y = left[i - 1].y + 12;
+    left.forEach(({ o, y: ly }) => s += `<text x="${x0 - 8}" y="${ly + 4}" text-anchor="end">${pct(o.a)}</text>`);
+    lab.forEach(({ o, y: ly }) => {
+      const d = Math.round((o.b - o.a) * 100);
+      s += `<text class="lab clickable" x="${x1 + 10}" y="${ly + 4}" data-facet="${esc(dim)}|${esc(o.v)}">${esc(short(o.v, Math.floor((W - x1 - 60) / 6.4)))}</text><text x="${W - 4}" y="${ly + 4}" text-anchor="end">${d >= 0 ? "+" : ""}${d}</text>`;
+    });
+    $("slope").innerHTML = s + "</svg>";
+  }
+
+  // Impact scatter: year vs citations/yr (log), one group highlighted
+  function renderImpact(rows) {
+    const dim = ins.im, vals = counts(dim, rows);
+    if (!vals.length) { $("impact").innerHTML = ""; $("im-val").innerHTML = ""; $("impact-note").textContent = ""; return; }
+    if (!ins.imVal || !vals.some(([v]) => v === ins.imVal)) ins.imVal = vals[0][0];
+    $("im-val").innerHTML = vals.map(([v, n]) => `<option value="${esc(v)}"${v === ins.imVal ? " selected" : ""}>${esc(v)} (${n})</option>`).join("");
+    const W = width("impact"), H = 280, L = 44, B = 24, Tp = 8;
+    const ys = rows.map(p => p.year), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    const lo = 0.1, hi = Math.max(10, ...rows.map(p => p.rate)), lg = v => Math.log10(Math.max(lo, v));
+    const X = y => L + (y - y0 + 0.5) / (y1 - y0 + 1) * (W - L - 8), Y = v => Tp + (H - Tp - B) * (1 - (lg(v) - lg(lo)) / (lg(hi) - lg(lo)));
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Citations per year by publication year">`;
+    [0.1, 1, 10, 100, 1000, 10000].filter(t => t <= hi * 1.01).forEach(t => s += `<line x1="${L}" x2="${W - 4}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--grid)"/><text x="${L - 6}" y="${Y(t) + 4}" text-anchor="end">${t >= 1000 ? t / 1000 + "K" : t}</text>`);
+    const step = y1 - y0 > 12 ? 2 : 1;
+    for (let y = y0; y <= y1; y += step) s += `<text x="${X(y)}" y="${H - 6}" text-anchor="middle">${y}</text>`;
+    const inG = p => DIM[dim].get(p).includes(ins.imVal);
+    const jit = p => ((parseInt(p.id.slice(0, 4), 16) % 100) / 100 - 0.5) * (W - L) / (y1 - y0 + 1) * 0.7;
+    [...rows.filter(p => !inG(p)), ...rows.filter(inG)].forEach(p => {
+      const g = inG(p);
+      s += `<circle class="clickable" data-paper="${p.id}" cx="${X(p.year) + jit(p)}" cy="${Y(p.rate)}" r="${g ? 4.5 : 3.5}" fill="${g ? "var(--s1)" : "var(--s-other)"}" fill-opacity="${g ? 0.9 : 0.55}" stroke="var(--surface)" stroke-width="${g ? 1.5 : 1}" ${tipAttr(`<b>${esc(p.title)}</b><br>${p.year} · ${fmt(p.cites)} citations · ${p.rate.toFixed(1)}/yr`)}/>`;
+    });
+    $("impact").innerHTML = s + "</svg>";
+    const a = rows.filter(inG).map(p => p.rate), b = rows.filter(p => !inG(p)).map(p => p.rate);
+    $("impact-note").innerHTML = `<b>${esc(ins.imVal)}</b>: median ${median(a).toFixed(1)} citations/yr over ${a.length} papers, against ${median(b).toFixed(1)}/yr for the other ${b.length}.`;
+  }
+
+  // Cross-tab heatmap table
+  function renderPivot(rows) {
+    const rd = ins.pvRow, cd = ins.pvCol, metric = ins.pvMetric, LIM = 14;
+    $("pv-row").value = rd; $("pv-col").value = cd;
+    const rv = counts(rd, rows).slice(0, LIM).map(([v]) => v), cv = counts(cd, rows).slice(0, LIM).map(([v]) => v);
+    const cell = {}, rowTot = {}, colTot = {};
+    rows.forEach(p => {
+      const rs = DIM[rd].get(p).filter(v => rv.includes(v)), cs = DIM[cd].get(p).filter(v => cv.includes(v));
+      rs.forEach(r => rowTot[r] = (rowTot[r] || 0) + 1);
+      cs.forEach(c => colTot[c] = (colTot[c] || 0) + 1);
+      rs.forEach(r => cs.forEach(c => (cell[r + "\u0001" + c] = cell[r + "\u0001" + c] || []).push(p)));
+    });
+    const val = (r, c) => {
+      const ps = cell[r + "\u0001" + c] || [];
+      if (!ps.length) return null;
+      return { n: ps.length, row: ps.length / rowTot[r], col: ps.length / colTot[c], cpy: median(ps.map(p => p.rate)), cites: ps.reduce((a, p) => a + p.cites, 0) }[metric];
+    };
+    const all = rv.flatMap(r => cv.map(c => val(r, c))).filter(v => v != null), mx = Math.max(...all, 1e-9);
+    const show = v => metric === "row" || metric === "col" ? pct(v) : metric === "cpy" ? v.toFixed(1) : fmt(v);
+    let h = `<table class="pivot"><thead><tr><th>${esc(DIM[rd].label)} ↓ / ${esc(DIM[cd].label)} →</th>` +
+      cv.map(c => `<th title="${esc(c)}">${esc(short(c, 34))}</th>`).join("") + `<th class="tot">Papers</th></tr></thead><tbody>`;
+    rv.forEach(r => {
+      h += `<tr><th title="${esc(r)}">${esc(short(r, 40))}</th>`;
+      cv.forEach(c => {
+        const v = val(r, c);
+        if (v == null) { h += `<td class="zero">·</td>`; return; }
+        const t = Math.sqrt(v / mx), bg = `color-mix(in oklab, var(--heat) ${Math.round(8 + t * 82)}%, var(--surface))`;
+        const n = (cell[r + "\u0001" + c] || []).length;
+        h += `<td style="background:${bg};color:${t > 0.62 ? "var(--on-heat)" : "var(--ink)"}" data-cell="${esc(r)}\u0001${esc(c)}" ${tipAttr(`<b>${esc(r)}</b> × <b>${esc(c)}</b><br>${n} papers · ${show(v)}<br>Click to filter`)}>${show(v)}</td>`;
+      });
+      h += `<td class="tot">${rowTot[r] || 0}</td></tr>`;
+    });
+    h += `<tr><th class="tot">Papers</th>${cv.map(c => `<td class="tot">${colTot[c] || 0}</td>`).join("")}<td class="tot"></td></tr></tbody></table>`;
+    $("pivot").innerHTML = h;
+    const more = counts(rd, rows).length > LIM || counts(cd, rows).length > LIM;
+    $("pivot-note").textContent = (more ? `Showing the ${LIM} most common values on each axis. ` : "") +
+      "Multi-label categories count a paper in every cell it belongs to, so cells can sum to more than the totals.";
+  }
+
+  // Limitations / open problems with quotes
+  function renderVoices(rows) {
+    const dim = ins.voice, field = dim === "issue_theme" ? "issues" : "open_work";
+    document.querySelectorAll("[data-voice]").forEach(b => b.setAttribute("aria-pressed", b.dataset.voice === dim));
+    const vals = counts(dim, rows).filter(([v]) => !/Summary uncertain|Review dates/.test(v));
+    if (!vals.length) { $("voice-bars").innerHTML = `<p class="note">No themes in this selection.</p>`; $("voice-quotes").innerHTML = ""; return; }
+    if (!ins.voiceTheme || !vals.some(([v]) => v === ins.voiceTheme)) ins.voiceTheme = vals[0][0];
+    const mx = vals[0][1];
+    $("voice-bars").innerHTML = vals.map(([v, n]) => `<button type="button" class="barrow" data-theme="${esc(v)}" aria-pressed="${v === ins.voiceTheme}">
+      <span>${esc(v)}<span class="track"><i style="width:${(n / mx * 100).toFixed(1)}%"></i></span></span><span class="val">${n}<br>${pct(n / rows.length)}</span></button>`).join("");
+    const ps = rows.filter(p => DIM[dim].get(p).includes(ins.voiceTheme) && p.summary).sort((a, b) => b.rate - a.rate).slice(0, 5);
+    $("voice-quotes").innerHTML = `<p class="note" style="margin:0">Most-cited papers (per year) with <b>${esc(ins.voiceTheme)}</b>:</p>` +
+      ps.map(p => `<div class="quote"><p>“${esc(p.summary[field])}”</p><button type="button" data-paper="${p.id}">${esc(short(p.title, 90))} (${p.year})</button></div>`).join("") +
+      `<button type="button" class="btn" data-facet="${esc(dim)}|${esc(ins.voiceTheme)}">Filter to these ${vals.find(([v]) => v === ins.voiceTheme)[1]} papers</button>`;
+  }
+  $("voice-bars").addEventListener("click", e => { const b = e.target.closest("[data-theme]"); if (b) { ins.voiceTheme = b.dataset.theme; render(); } });
+
+  // Shared interactions: facet clicks, paper clicks, pivot cells, tooltip
+  $("insights").addEventListener("click", e => {
+    const f = e.target.closest("[data-facet]");
+    if (f) { const [d, v] = f.dataset.facet.split("|"); addFacet(d, v); render(); return; }
+    const pp = e.target.closest("[data-paper]");
+    if (pp) { const p = P.find(x => x.id === pp.dataset.paper); if (p) openPaper(p.id); return; }
+    const c = e.target.closest("[data-cell]");
+    if (c) { const [r, cc] = c.dataset.cell.split("\u0001"); addFacet(ins.pvRow, r); addFacet(ins.pvCol, cc); render(); }
+  });
+  const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; tip.setAttribute("role", "tooltip"); document.body.append(tip);
+  $("insights").addEventListener("pointermove", e => {
+    const t = e.target.closest("[data-tip]");
+    if (!t) { tip.hidden = true; return; }
+    tip.innerHTML = t.dataset.tip; tip.hidden = false;
+    const r = tip.getBoundingClientRect(), x = Math.min(e.clientX + 14, innerWidth - r.width - 8), y = e.clientY + 16 + r.height > innerHeight ? e.clientY - r.height - 12 : e.clientY + 16;
+    tip.style.left = Math.max(8, x) + "px"; tip.style.top = y + "px";
+  });
+  $("insights").addEventListener("pointerleave", () => tip.hidden = true);
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => state.tab === "insights" && render(), 150); });
+
+  const hash = location.hash.slice(1);
+  if (hash === "insights") state.tab = "insights";
+  else if (hash && T[hash]) { state.topics.add(hash); syncChips(); }
   render();
 })();
 </script>

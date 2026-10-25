@@ -9,7 +9,9 @@ The page lets you:
 - search titles, authors, abstracts, venues and DOIs/arXiv IDs;
 - filter by subfield, publication type (journal / conference / arXiv-only) and year (or click a bar in the year histogram);
 - sort by total citations, citations per year, date or title;
-- expand abstracts, copy a formatted citation, copy BibTeX for one paper or for everything currently shown.
+- expand abstracts, copy a formatted citation, copy BibTeX for one paper or for everything currently shown;
+- slice by any category (architecture, goal, data source, limitation, open problem, venue…) and combine filters;
+- open the **Insights** tab for interactive charts that follow the current selection: when each architecture arrived, trends by year, what is rising and fading, citation impact, a two-way cross-tab explorer, and the recurring limitations and open problems with quotes.
 
 All entries are also available as [`papers.bib`](papers.bib) and [`data/papers.json`](data/papers.json).
 
@@ -17,7 +19,7 @@ All entries are also available as [`papers.bib`](papers.bib) and [`data/papers.j
 
 ## Database and analysis
 
-[`data/papers.duckdb`](data/papers.duckdb) holds every paper with its metadata, authors, subfields and structured summary. It also adds standardized categories: paper type, model family, approach (hybrid, physics-informed, XAI, data assimilation), training data source, a probabilistic flag and venue family. Open it with the `duckdb` CLI or from Python:
+[`data/papers.duckdb`](data/papers.duckdb) holds every paper with its metadata, authors, subfields and structured summary. It also adds standardized categories: paper type, model family, approach (hybrid, physics-informed, XAI, data assimilation), training data source, research goal, limitation themes, open-problem themes, a probabilistic flag and venue family. Open it with the `duckdb` CLI or from Python:
 
 ```python
 import duckdb
@@ -25,7 +27,7 @@ con = duckdb.connect("data/papers.duckdb", read_only=True)
 con.sql("SELECT arch_group, count(*) FROM paper_architecture GROUP BY 1").df()
 ```
 
-The tables are `papers`, `authors`, `subfields`, `summaries`, `paper_architecture`, `paper_data_source` and `category_overrides`, plus a `v_papers_wide` view with list columns. Example queries are in [`analysis/queries.sql`](analysis/queries.sql).
+The tables are `papers`, `authors`, `subfields`, `summaries`, `paper_architecture`, `paper_data_source`, `paper_task`, `paper_issue_theme`, `paper_open_theme` and `category_overrides`, plus a `v_papers_wide` view with list columns. Example queries are in [`analysis/queries.sql`](analysis/queries.sql).
 
 Categories are assigned by keyword rules in [`scripts/taxonomy.py`](scripts/taxonomy.py). To fix a single paper, add a row to [`data/category_overrides.csv`](data/category_overrides.csv). [`analysis/EDA.md`](analysis/EDA.md) has the exploratory analysis (publication trends, architecture shift, data sources, citation rates, venues), with figures in `analysis/figures/` and their data in `analysis/tables/`.
 
