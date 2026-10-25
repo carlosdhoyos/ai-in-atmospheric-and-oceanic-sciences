@@ -15,6 +15,25 @@ All entries are also available as [`papers.bib`](papers.bib) and [`data/papers.j
 
 **Structured summaries.** Every paper has a short card (main goal, architecture, data, main result, open work, issues), shown under "Summary" on the page and collected in [`SUMMARIES.md`](SUMMARIES.md) by subfield. The cards are based on the abstract and, for well-known papers, the published paper; *open work* and *issues* are often an editorial assessment, and each card states its basis. Treat specific numbers as pointers to check in the paper itself.
 
+## Database and analysis
+
+[`data/papers.duckdb`](data/papers.duckdb) holds every paper with its metadata, authors, subfields and structured summary. It also adds standardized categories: paper type, model family, approach (hybrid, physics-informed, XAI, data assimilation), training data source, a probabilistic flag and venue family. Open it with the `duckdb` CLI or from Python:
+
+```python
+import duckdb
+con = duckdb.connect("data/papers.duckdb", read_only=True)
+con.sql("SELECT arch_group, count(*) FROM paper_architecture GROUP BY 1").df()
+```
+
+The tables are `papers`, `authors`, `subfields`, `summaries`, `paper_architecture`, `paper_data_source` and `category_overrides`, plus a `v_papers_wide` view with list columns. Example queries are in [`analysis/queries.sql`](analysis/queries.sql).
+
+Categories are assigned by keyword rules in [`scripts/taxonomy.py`](scripts/taxonomy.py). To fix a single paper, add a row to [`data/category_overrides.csv`](data/category_overrides.csv). [`analysis/EDA.md`](analysis/EDA.md) has the exploratory analysis (publication trends, architecture shift, data sources, citation rates, venues), with figures in `analysis/figures/` and their data in `analysis/tables/`.
+
+```bash
+python3 scripts/build_db.py   # rebuild the database from data/papers.json + data/summaries.json
+python3 analysis/eda.py       # regenerate figures and tables (needs duckdb, pandas, matplotlib)
+```
+
 ## Subfields
 
 Reviews & perspectives · Medium-range weather · Ensembles & generative models · Foundation models · Nowcasting · Post-processing · S2S, ENSO & MJO · Climate emulation & detection · Parameterization & hybrid models · Downscaling · Data assimilation · Remote sensing & clouds · Extremes & tropical cyclones · Explainability & causality · Ocean · Sea ice · Air quality & chemistry · Benchmarks & datasets · Core ML methods
@@ -35,6 +54,7 @@ To refresh citation counts or add papers:
 python3 scripts/resolve_ids.py
 rm -f data/cache_s2.json      # force fresh citation counts
 python3 scripts/build.py
+python3 scripts/build_db.py && python3 analysis/eda.py
 ```
 
 No API keys are needed; the scripts back off automatically when rate-limited.

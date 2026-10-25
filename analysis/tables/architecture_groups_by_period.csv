@@ -1,0 +1,5 @@
+period,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets,total
+≤2018,13,18,7,11,6,0,0,55
+2019–20,42,24,13,25,10,3,3,120
+2021–22,27,24,7,15,10,4,3,90
+2023–26,15,16,2,4,27,16,20,100

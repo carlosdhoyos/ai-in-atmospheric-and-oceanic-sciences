@@ -1,0 +1,4 @@
+paper_id,dimension,label,action,note
+874deb5f06f35e52ae13a921b23611eec4abd1da,paper_type,method,set,"ClimaX proposes a new model; its summary mentions evaluating state-of-the-art baselines"
+533d77c2dd250e18da88b269cbb221c4835f1365,architecture,Graph neural network,add,"GenCast denoiser is a graph transformer on an icosahedral mesh"
+10194e9d1d6b8ca8870445c990d4933c1dac1125,probabilistic,false,set,"Deterministic model; the summary mentions large ensembles only as an application"
