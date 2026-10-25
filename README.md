@@ -13,6 +13,8 @@ The page lets you:
 
 All entries are also available as [`papers.bib`](papers.bib) and [`data/papers.json`](data/papers.json).
 
+**Structured summaries.** Every paper has a short card (main goal, architecture, data, main result, open work, issues), shown under "Summary" on the page and collected in [`SUMMARIES.md`](SUMMARIES.md) by subfield. The cards are based on the abstract and, for well-known papers, the published paper; *open work* and *issues* are often an editorial assessment, and each card states its basis. Treat specific numbers as pointers to check in the paper itself.
+
 ## Subfields
 
 Reviews & perspectives · Medium-range weather · Ensembles & generative models · Foundation models · Nowcasting · Post-processing · S2S, ENSO & MJO · Climate emulation & detection · Parameterization & hybrid models · Downscaling · Data assimilation · Remote sensing & clouds · Extremes & tropical cyclones · Explainability & causality · Ocean · Sea ice · Air quality & chemistry · Benchmarks & datasets · Core ML methods
