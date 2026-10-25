@@ -1,0 +1,325 @@
+# topic<TAB>title  (topics: review, weather, probabilistic, foundation, nowcasting, postprocessing, s2s, climate, parameterization, downscaling, da, remote_sensing, extremes, xai, ocean, seaice, chemistry, benchmarks, methods)
+review	Deep learning and process understanding for data-driven Earth system science
+review	Can deep learning beat numerical weather prediction?
+review	Machine learning for weather and climate are worlds apart
+review	Earth System Modeling 2.0: A Blueprint for Models That Learn From Observations and Targeted High-Resolution Simulations
+review	Harnessing AI and computing to advance climate modelling and prediction
+review	Machine learning for the physics of climate
+review	Outlook for Exploiting Artificial Intelligence in the Earth and Environmental Sciences
+review	The Rise of Data-Driven Weather Forecasting: A First Statistical Assessment of Machine Learning–Based Weather Forecasts in an Operational-Like Context
+review	Machine Learning for Climate Physics and Simulations
+review	AI-empowered next-generation multiscale climate modelling for mitigation and adaptation
+review	Pushing the frontiers in climate modelling and analysis with machine learning
+review	Tackling Climate Change with Machine Learning
+review	Integrating Scientific Knowledge with Machine Learning for Engineering and Environmental Systems
+review	Theory-Guided Data Science: A New Paradigm for Scientific Discovery from Data
+review	Bridging observations, theory and numerical simulation of the ocean using machine learning
+review	Machine Learning in Weather Prediction and Climate Analyses—Applications and Perspectives
+review	Machine learning and the physical sciences
+review	Machine Learning for Model Error Inference and Correction
+review	Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events
+review	A Review of Machine Learning for Convective Weather
+review	Using Artificial Intelligence to Improve Real-Time Decision-Making for High-Impact Weather
+review	Opinion: Optimizing climate models with process knowledge, resolution, and artificial intelligence
+review	Machine learning and artificial intelligence to aid climate change research and preparedness
+review	Artificial intelligence for climate prediction of extremes: State of the art, challenges, and future perspectives
+review	Opportunities and challenges for machine learning in weather and climate modelling: hard, medium and soft AI
+review	A Review of Recent and Emerging Machine Learning Applications for Climate Variability and Weather Phenomena
+review	Towards neural Earth system modelling by integrating artificial intelligence in Earth system science
+review	Machine learning for numerical weather and climate modelling: a review
+review	Advances and prospects of deep learning for medium-range extreme weather forecasting
+review	Challenges and Benchmark Datasets for Machine Learning in the Atmospheric Sciences: Definition, Status, and Outlook
+review	The digital revolution of Earth-system science
+review	The quiet revolution of numerical weather prediction
+review	A digital twin of Earth for the green transition
+review	Physics-informed machine learning: case studies for weather and climate modelling
+review	Towards implementing artificial intelligence post-processing in weather and climate: proposed actions from the Oxford 2019 workshop
+review	Leveraging Modern Artificial Intelligence for Remote Sensing and NWP: Benefits and Challenges
+review	Machine Learning Methods in Weather and Climate Applications: A Survey
+review	Artificial intelligence for modeling and understanding extreme weather and climate events
+review	Analysis, characterization, prediction, and attribution of extreme atmospheric events with machine learning and deep learning techniques: a review
+review	S2S reboot: An argument for greater inclusion of machine learning in subseasonal to seasonal forecasts
+review	Machine Learning in Tropical Cyclone Forecast Modeling: A Review
+review	Machine Learning With Data Assimilation and Uncertainty Quantification for Dynamical Systems: A Review
+review	Enhancing Regional Climate Downscaling through Advances in Machine Learning
+review	Statistical Postprocessing for Weather Forecasts: Review, Challenges, and Avenues in a Big Data World
+review	Physics-informed machine learning
+weather	Toward Data-Driven Weather and Climate Forecasting: Approximating a Simple General Circulation Model With Deep Learning
+weather	Weather and climate forecasting with neural networks: using general circulation models (GCMs) with different complexity as a study ground
+weather	Challenges and design choices for global weather and climate models based on machine learning
+weather	Can Machines Learn to Predict Weather? Using Deep Learning to Predict Gridded 500-hPa Geopotential Height From Historical Weather Data
+weather	Improving Data-Driven Global Weather Prediction Using Deep Convolutional Neural Networks on a Cubed Sphere
+weather	Data-Driven Medium-Range Weather Prediction With a Resnet Pretrained on Climate Simulations: A New Model for WeatherBench
+weather	A Machine Learning-Based Global Atmospheric Forecast Model
+weather	Forecasting Global Weather with Graph Neural Networks
+weather	FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators
+weather	Spherical Fourier Neural Operators: Learning Stable Dynamics on the Sphere
+weather	Accurate medium-range global weather forecasting with 3D neural networks
+weather	Learning skillful medium-range global weather forecasting
+weather	The operational medium-range deterministic weather forecasting can be extended beyond a 10-day lead time
+weather	FuXi: a cascade machine learning forecasting system for 15-day global weather forecast
+weather	Scaling transformer neural networks for skillful and reliable medium-range weather forecasting
+weather	AIFS - ECMWF's data-driven forecasting system
+weather	Neural general circulation models for weather and climate
+weather	ArchesWeather: An efficient AI weather forecasting model at 1.5° resolution
+weather	Graph-based Neural Weather Prediction for Limited Area Modeling
+weather	End-to-end data-driven weather prediction
+weather	FengWu-GHR: Learning the Kilometer-scale Medium-range Global Weather Forecasting
+weather	Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciarán
+weather	Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect?
+weather	Testing the Limit of Atmospheric Predictability With a Machine Learning Weather Model
+weather	Dynamical Tests of a Deep Learning Weather Prediction Model
+weather	On Some Limitations of Current Machine Learning Weather Prediction Models
+weather	Advancing Parsimonious Deep Learning Weather Prediction Using the HEALPix Mesh
+weather	Deep Learning for Day Forecasts from Sparse Observations
+weather	Regional data-driven weather modeling with a global stretched-grid
+weather	FuXi Weather: A data-to-forecast machine learning system for global weather
+weather	Robustness of AI-based weather forecasts in a changing climate
+weather	Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling
+weather	Kilometer-Scale Convection Allowing Model Emulation using Generative Diffusion Modeling
+weather	Neural general circulation models optimized to predict satellite-based precipitation observations
+probabilistic	Probabilistic weather forecasting with machine learning
+probabilistic	Skillful joint probabilistic weather forecasting from marginals
+probabilistic	AIFS-CRPS: Ensemble forecasting using a model trained with a loss function based on the Continuous Ranked Probability Score
+probabilistic	Probabilistic Weather Forecasting with Hierarchical Graph Neural Networks
+probabilistic	Huge Ensembles Part I: Design of Ensemble Weather Forecasts using Spherical Fourier Neural Operators
+probabilistic	FuXi-ENS: A machine learning model for medium-range ensemble weather forecasting
+probabilistic	SwinVRNN: A Data-Driven Ensemble Forecasting Model via Learned Distribution Perturbation
+probabilistic	Generative emulation of weather forecast ensembles with diffusion models
+probabilistic	ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting
+probabilistic	FourCastNet 3: A geometric approach to probabilistic machine-learning weather forecasting at scale
+probabilistic	Ensemble Methods for Neural Network-Based Weather Forecasts
+probabilistic	A generative adversarial network approach to (ensemble) weather prediction
+probabilistic	DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting
+probabilistic	Continuous Ensemble Weather Forecasting with Diffusion models
+probabilistic	A Practical Probabilistic Benchmark for AI Weather Models
+probabilistic	Sub-Seasonal Forecasting With a Large Ensemble of Deep-Learning Weather Prediction Models
+foundation	ClimaX: A foundation model for weather and climate
+foundation	A foundation model for the Earth system
+foundation	Prithvi WxC: Foundation Model for Weather and Climate
+foundation	Climate in a Bottle: Towards a Generative Foundation Model for the Kilometer-Scale Global Atmosphere
+nowcasting	Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting
+nowcasting	Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model
+nowcasting	Skilful precipitation nowcasting using deep generative models of radar
+nowcasting	Skilful nowcasting of extreme precipitation with NowcastNet
+nowcasting	MetNet: A Neural Weather Model for Precipitation Forecasting
+nowcasting	Deep learning for twelve hour precipitation forecasts
+nowcasting	RainNet v1.0: a convolutional neural network for radar-based precipitation nowcasting
+nowcasting	Machine Learning for Precipitation Nowcasting from Radar Images
+nowcasting	Earthformer: Exploring Space-Time Transformers for Earth System Forecasting
+nowcasting	PreDiff: Precipitation Nowcasting with Latent Diffusion Models
+nowcasting	Latent diffusion models for generative precipitation nowcasting with accurate uncertainty quantification
+nowcasting	DiffCast: A Unified Framework via Residual Diffusion for Precipitation Nowcasting
+postprocessing	Neural Networks for Postprocessing Ensemble Weather Forecasts
+postprocessing	Deep learning for post-processing ensemble weather forecasts
+postprocessing	Machine Learning Methods for Postprocessing Ensemble Forecasts of Wind Gusts: A Systematic Comparison
+postprocessing	Ensemble Postprocessing Using Quantile Function Regression Based on Neural Networks and Bernstein Polynomials
+postprocessing	Using machine learning to correct model error in data assimilation and forecast applications
+postprocessing	Increasing the accuracy and resolution of precipitation forecasts using deep generative models
+s2s	Deep learning for multi-year ENSO forecasts
+s2s	Unified deep learning model for El Niño/Southern Oscillation forecasts by incorporating seasonality in climate data
+s2s	A self-attention–based neural network for three-dimensional multivariate modeling and its skillful ENSO predictions
+s2s	A Deep Learning Model for Forecasting Global Monthly Mean Sea Surface Temperature Anomalies
+s2s	Training machine learning models on climate model output yields skillful interpretable seasonal precipitation forecasts
+s2s	Subseasonal Forecasts of Opportunity Identified by an Explainable Neural Network
+s2s	Sub-Seasonal Climate Forecasting via Machine Learning: Challenges, Analysis, and Advances
+s2s	Improving Subseasonal Forecasting in the Western U.S. with Machine Learning
+s2s	A machine learning model that outperforms conventional global subseasonal forecast models
+s2s	Temporal Convolutional Networks for the Advance Prediction of ENSO
+s2s	Using network theory and machine learning to predict El Niño
+s2s	The Application of Machine Learning Techniques to Improve El Niño Prediction Skill
+s2s	Testing the reliability of interpretable neural networks in geoscience using the Madden–Julian oscillation
+s2s	Interpretable Deep Learning for Probabilistic MJO Prediction
+s2s	Deep learning for bias correction of MJO prediction
+s2s	Incorporating Uncertainty Into a Regression Neural Network Enables Identification of Decadal State‐Dependent Predictability in CESM2
+s2s	Explained predictions of strong eastern Pacific El Niño events using deep learning
+climate	ACE: A fast, skillful learned global atmospheric model for climate prediction
+climate	ACE2: accurately learning subseasonal to decadal atmospheric variability and forced responses
+climate	Probabilistic Emulation of a Global Climate Model with Spherical DYffusion
+climate	A Deep Learning Earth System Model for Efficient Simulation of the Observed Climate
+climate	LUCIE: A Lightweight Uncoupled ClImate Emulator with long-term stability and physical consistency for O(1000)-member ensembles
+climate	Emulating Earth system model temperatures with MESMER: from global mean temperature trajectories to grid-point-level realizations on land
+climate	Predicting global patterns of long-term climate change from short-term simulations using machine learning
+climate	Artificial intelligence reconstructs missing climate information
+climate	Application of the AI2 Climate Emulator to E3SMv2's global atmosphere model, with a focus on precipitation fidelity
+climate	DiffESM: Conditional Emulation of Temperature and Precipitation in Earth System Models With 3D Diffusion Models
+climate	FaIRGP: A Bayesian Energy Balance Model for Surface Temperatures Emulation
+climate	Climate change now detectable from any single day of weather at global scale
+climate	Anthropogenic fingerprints in daily precipitation revealed by deep learning
+climate	Data-driven predictions of the time remaining until critical global warming thresholds are reached
+climate	Detecting Climate Signals Using Explainable AI With Single-Forcing Large Ensembles
+climate	Detection of Forced Change Within Combined Climate Fields Using Explainable Neural Networks
+climate	Long-term instabilities of deep learning-based digital twins of the climate system: The cause and a solution
+parameterization	Deep learning to represent subgrid processes in climate models
+parameterization	Could Machine Learning Break the Convection Parameterization Deadlock?
+parameterization	Prognostic Validation of a Neural Network Unified Physics Parameterization
+parameterization	Spatially Extended Tests of a Neural Network Parametrization Trained by Coarse-Graining
+parameterization	Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions
+parameterization	Use of Neural Networks for Stable, Accurate and Physically Consistent Parameterization of Subgrid Atmospheric Processes With Good Performance at Reduced Precision
+parameterization	Enforcing Analytic Constraints in Neural Networks Emulating Physical Systems
+parameterization	Climate-invariant machine learning
+parameterization	New Approach to Calculation of Atmospheric Model Physics: Accurate and Fast Neural Network Emulation of Longwave Radiation in a Climate Model
+parameterization	A neural network approach for a fast and accurate computation of a longwave radiative budget
+parameterization	Machine Learning Emulation of Gravity Wave Drag in Numerical Weather Forecasting
+parameterization	Machine Learning Gravity Wave Parameterization Generalizes to Capture the QBO and Response to Increased CO2
+parameterization	Interpreting and Stabilizing Machine-Learning Parametrizations of Convection
+parameterization	ClimSim: A large multi-scale dataset for hybrid physics-ML climate emulation
+parameterization	Coupled online learning as a way to tackle instabilities and biases in neural network parameterizations: general algorithms and Lorenz 96 case study
+parameterization	Correcting Coarse-Grid Weather and Climate Models by Machine Learning From Global Storm-Resolving Simulations
+parameterization	Machine-Learned Climate Model Corrections From a Global Storm-Resolving Model: Performance Across the Annual Cycle
+parameterization	Correcting Weather and Climate Models by Machine Learning Nudged Historical Simulations
+parameterization	Correcting a 200 km Resolution Climate Model in Multiple Climates by Machine Learning From 25 km Resolution Simulations
+parameterization	Machine Learning the Warm Rain Process
+parameterization	Deep Learning Based Cloud Cover Parameterization for ICON
+parameterization	Data-Driven Equation Discovery of a Cloud Cover Parameterization
+parameterization	Stable climate simulations using a realistic general circulation model with neural network parameterizations for atmospheric moist physics and radiation processes
+parameterization	Calibrate, emulate, sample
+parameterization	Assessing the Potential of Deep Learning for Emulating Cloud Superparameterization in Climate Models With Real-Geography Boundary Conditions
+parameterization	Accelerating Radiation Computations for Dynamical Models With Targeted Machine Learning and Code Optimization
+parameterization	A Hybrid Approach to Atmospheric Modeling That Combines Machine Learning With a Physics-Based Numerical Model
+parameterization	A posteriori learning for quasi-geostrophic turbulence parametrization
+parameterization	Stable a posteriori LES of 2D turbulence using convolutional neural networks: Backscattering analysis and generalization to higher Re via transfer learning
+parameterization	Subgrid modelling for two-dimensional turbulence using neural networks
+parameterization	Machine Learning for Stochastic Parameterization: Generative Adversarial Networks in the Lorenz '96 Model
+parameterization	Non-Linear Dimensionality Reduction With a Variational Encoder Decoder to Understand Convective Processes in Climate Models
+parameterization	A Moist Physics Parameterization Based on Deep Learning
+parameterization	Training Physics-Based Machine-Learning Parameterizations With Gradient-Free Ensemble Kalman Methods
+parameterization	Implicit learning of convective organization explains precipitation stochasticity
+parameterization	Stable Machine-Learning Parameterization of Subgrid Processes with Real Geography and Full-physics Emulation
+parameterization	Using Machine Learning at scale in numerical simulations with SmartSim: An application to ocean climate modeling
+downscaling	DeepSD: Generating High Resolution Climate Change Projections through Single Image Super-Resolution
+downscaling	Intercomparison of machine learning methods for statistical downscaling: the case of daily and extreme precipitation
+downscaling	Configuration and intercomparison of deep learning neural models for statistical downscaling
+downscaling	Stochastic Super-Resolution for Downscaling Time-Evolving Atmospheric Fields With a Generative Adversarial Network
+downscaling	Adversarial super-resolution of climatological wind and solar data
+downscaling	A Generative Deep Learning Approach to Stochastic Downscaling of Precipitation Forecasts
+downscaling	Residual corrective diffusion modeling for km-scale atmospheric downscaling
+downscaling	Regional climate model emulator based on deep learning: concept and first evaluation of a novel hybrid downscaling approach
+downscaling	Machine learning emulation of precipitation from km-scale regional climate simulations using a diffusion model
+downscaling	Debias Coarsely, Sample Conditionally: Statistical Downscaling through Optimal Transport and Probabilistic Diffusion Models
+downscaling	Dynamical-generative downscaling of climate model ensembles
+downscaling	Hard-Constrained Deep Learning for Climate Downscaling
+downscaling	Physically constrained generative adversarial networks for improving precipitation fields from Earth system models
+downscaling	High-resolution downscaling with interpretable deep learning: Rainfall extremes over New Zealand
+downscaling	Deep Learning for Daily Precipitation and Temperature Downscaling
+downscaling	ClimAlign: Unsupervised statistical downscaling of climate variables via normalizing flows
+downscaling	A comparative study of convolutional neural network models for wind field downscaling
+downscaling	Deep-Learning-Based Gridded Downscaling of Surface Meteorological Variables in Complex Terrain. Part I: Daily Maximum and Minimum 2-m Temperature
+downscaling	On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections
+downscaling	Precipitation Downscaling with Spatiotemporal Video Diffusion
+da	Combining data assimilation and machine learning to emulate a dynamical model from sparse and noisy observations: A case study with the Lorenz 96 model
+da	Combining data assimilation and machine learning to infer unresolved scale parametrization
+da	Learning earth system models from observations: machine learning or data assimilation?
+da	Bayesian inference of chaotic dynamics by merging data assimilation, machine learning and expectation-maximization
+da	DiffDA: a Diffusion model for weather-scale Data Assimilation
+da	FengWu-4DVar: Coupling the Data-driven Weather Forecasting Model with 4D Variational Assimilation
+da	Generative Data Assimilation of Sparse Weather Station Observations at Kilometer Scales
+da	Data driven weather forecasts trained and initialised directly from observations
+da	Score-based Data Assimilation
+da	Building Tangent-Linear and Adjoint Models for Data Assimilation With Neural Networks
+da	Integrating Recurrent Neural Networks With Data Assimilation for Scalable Data-Driven State Estimation
+da	Variational Data Assimilation with a Learned Inverse Observation Operator
+da	Deep Data Assimilation: Integrating Deep Learning with Data Assimilation
+da	Learning Variational Data Assimilation Models and Solvers
+da	Supervised learning from noisy observations: Combining machine-learning techniques with data assimilation
+da	FuXi-DA: a generalized deep learning data assimilation framework for assimilating satellite observations
+remote_sensing	A Deep Neural Network Modeling Framework to Reduce Bias in Satellite Precipitation Products
+remote_sensing	PERSIANN-CNN: Precipitation Estimation from Remotely Sensed Information Using Artificial Neural Networks–Convolutional Neural Networks
+remote_sensing	GPROF-NN: a neural-network-based implementation of the Goddard Profiling Algorithm
+remote_sensing	Development and Interpretation of a Neural-Network-Based Synthetic Radar Reflectivity Estimator Using GOES-R Satellite Observations
+remote_sensing	Using Deep Learning to Emulate and Accelerate a Radiative Transfer Model
+remote_sensing	Data-Driven Cloud Clustering via a Rotationally Invariant Autoencoder
+remote_sensing	Combining Crowdsourcing and Deep Learning to Explore the Mesoscale Organization of Shallow Convection
+remote_sensing	Discovering the Importance of Mesoscale Cloud Organization Through Unsupervised Classification
+remote_sensing	Improving Precipitation Estimation Using Convolutional Neural Network
+extremes	Application of Deep Convolutional Neural Networks for Detecting Extreme Weather in Climate Datasets
+extremes	ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events
+extremes	ClimateNet: an expert-labeled open dataset and Deep Learning architecture for enabling high-precision analyses of extreme weather
+extremes	Exascale Deep Learning for Climate Analytics
+extremes	Deep Learning for Spatially Explicit Prediction of Synoptic-Scale Fronts
+extremes	Interpretable Deep Learning for Spatial Analysis of Severe Hailstorms
+extremes	Tropical Cyclone Track Forecasting Using Fused Deep Learning From Aligned Reanalysis Data
+extremes	Tropical Cyclone Intensity Estimation Using a Deep Convolutional Neural Network
+extremes	Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery
+extremes	Deep Learning-Based Extreme Heatwave Forecast
+extremes	Probabilistic forecasts of extreme heatwaves using convolutional neural networks in a regime of lack of data
+extremes	Global Extreme Heat Forecasting Using Neural Weather Models
+extremes	Analog Forecasting of Extreme-Causing Weather Patterns Using Deep Learning
+extremes	Prediction of severe thunderstorm events with ensemble deep learning and radar data
+extremes	Deep Learning on Three-Dimensional Multiscale Data for Next-Hour Tornado Prediction
+extremes	Money Doesn't Grow on Trees, but Forecasts Do: Forecasting Extreme Precipitation with Random Forests
+extremes	Forecasting Severe Weather with Random Forests
+extremes	A Feed Forward Neural Network Based on Model Output Statistics for Short-Term Hurricane Intensity Prediction
+extremes	Hurricane Forecasting: A Novel Multimodal Machine Learning Framework
+extremes	Can AI weather models predict out-of-distribution gray swan tropical cyclones?
+xai	Making the Black Box More Transparent: Understanding the Physical Implications of Machine Learning
+xai	Physically Interpretable Neural Networks for the Geosciences: Applications to Earth System Variability
+xai	Investigating the Fidelity of Explainable Artificial Intelligence Methods for Applications of Convolutional Neural Networks in Geoscience
+xai	Neural network attribution methods for problems in geoscience: A novel synthetic benchmark dataset
+xai	Viewing Forced Climate Patterns Through an AI Lens
+xai	Indicator Patterns of Forced Change Learned by an Artificial Neural Network
+xai	Evaluation, Tuning, and Interpretation of Neural Networks for Working with Images in Meteorological Applications
+xai	Inferring causation from time series in Earth system sciences
+xai	Detecting and quantifying causal associations in large nonlinear time series datasets
+xai	Discovering governing equations from data by sparse identification of nonlinear dynamical systems
+xai	Data-Driven Equation Discovery of Ocean Mesoscale Closures
+xai	Learning Closed-Form Equations for Subgrid-Scale Closures From High-Fidelity Data: Promises and Challenges
+xai	Creating and Evaluating Uncertainty Estimates with Neural Networks for Environmental-Science Applications
+xai	Using Machine Learning to Analyze Physical Causes of Climate Change: A Case Study of U.S. Midwest Extreme Precipitation
+ocean	Applications of Deep Learning to Ocean Data Inference and Subgrid Parameterization
+ocean	Stochastic-Deep Learning Parameterization of Ocean Momentum Forcing
+ocean	Benchmarking of Machine Learning Ocean Subgrid Parameterizations in an Idealized Model
+ocean	Generative Data-Driven Approaches for Stochastic Subgrid Parameterizations in an Idealized Ocean Model
+ocean	Implementation and Evaluation of a Machine Learned Mesoscale Eddy Parameterization Into a Numerical Ocean Circulation Model
+ocean	Samudra: An AI Global Ocean Emulator for Climate
+ocean	AI-GOMS: Large AI-Driven Global Ocean Modeling System
+ocean	XiHe: A Data-Driven Model for Global Ocean Eddy-Resolving Forecasting
+ocean	OceanNet: a principled neural operator-based digital twin for regional oceans
+ocean	Forecasting the eddying ocean with a deep neural network
+ocean	EddyNet: A Deep Neural Network For Pixel-Wise Classification of Oceanic Eddies
+ocean	A Deep Learning Approach to Spatiotemporal Sea Surface Height Interpolation and Estimation of Deep Currents in Geostrophic Ocean Turbulence
+ocean	Unsupervised Learning Reveals Geography of Global Ocean Dynamical Regions
+ocean	Revealing the Impact of Global Heating on North Atlantic Circulation Using Transparent Machine Learning
+ocean	Improved Quantification of Ocean Carbon Uptake by Using Machine Learning to Merge Global Models and pCO2 Data
+ocean	A neural network-based estimate of the seasonal to inter-annual variability of the Atlantic Ocean carbon sink
+ocean	A Deep Learning Network to Retrieve Ocean Hydrographic Profiles from Combined Satellite and In Situ Measurements
+ocean	A CFCC-LSTM Model for Sea Surface Temperature Prediction
+ocean	Deep learning for ocean remote sensing: an application of convolutional neural networks for super-resolution on satellite-derived SST data
+seaice	Seasonal Arctic sea ice forecasting with probabilistic deep learning
+seaice	Deep learning subgrid-scale parametrisations for short-term forecasting of sea-ice dynamics with a Maxwell elasto-brittle rheology
+seaice	Deep Learning of Systematic Sea Ice Model Errors From Data Assimilation Increments
+seaice	Prediction of monthly Arctic sea ice concentrations using satellite and reanalysis data based on convolutional neural networks
+seaice	Data-driven surrogate modeling of high-resolution sea-ice thickness in the Arctic
+chemistry	Application of random forest regression to the calculation of gas-phase chemistry within the GEOS-Chem chemistry model v10
+chemistry	Toward Stable, General Machine-Learned Models of the Atmospheric Chemical System
+chemistry	Random forest meteorological normalisation models for Swiss PM10 trend analysis
+chemistry	An ensemble-based model of PM2.5 concentration across the contiguous United States with high spatiotemporal resolution
+chemistry	Improved 1 km resolution PM2.5 estimates across China using enhanced space–time extremely randomized trees
+chemistry	Physics-informed learning of aerosol microphysics
+benchmarks	WeatherBench: A benchmark data set for data-driven weather forecasting
+benchmarks	WeatherBench 2: A benchmark for the next generation of data-driven global weather models
+benchmarks	ClimateBench v1.0: A Benchmark for Data-Driven Climate Projections
+benchmarks	ClimateSet: A Large-Scale Climate Model Dataset for Machine Learning
+benchmarks	ChaosBench: A Multi-Channel, Physics-Based Benchmark for Subseasonal-to-Seasonal Climate Prediction
+benchmarks	SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking
+benchmarks	SEVIR: A Storm Event Imagery Dataset for Deep Learning Applications in Radar and Satellite Meteorology
+benchmarks	The ERA5 global reanalysis
+benchmarks	Digital Typhoon: Long-term Satellite Image Dataset for the Spatio-Temporal Modeling of Tropical Cyclones
+benchmarks	RainBench: Towards Data-Driven Global Precipitation Forecasting from Satellite Imagery
+benchmarks	EarthNet2021: A large-scale dataset and challenge for Earth surface forecasting as a guided video prediction task
+benchmarks	ENS-10: A Dataset For Post-Processing Ensemble Weather Forecasts
+benchmarks	The EUPPBench postprocessing benchmark dataset v1.0
+methods	Model-Free Prediction of Large Spatiotemporally Chaotic Systems from Data: A Reservoir Computing Approach
+methods	Data-driven forecasting of high-dimensional chaotic systems with long short-term memory networks
+methods	Data-driven predictions of a multiscale Lorenz 96 chaotic system using machine-learning methods: reservoir computing, artificial neural network, and long short-term memory network
+methods	Fourier Neural Operator for Parametric Partial Differential Equations
+methods	Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations
+methods	Learning to Simulate Complex Physics with Graph Networks
+methods	Learning Mesh-Based Simulation with Graph Networks
+methods	Machine learning–accelerated computational fluid dynamics
+methods	Learning data-driven discretizations for partial differential equations
+nowcasting	SmaAt-UNet: Precipitation Nowcasting using a Small Attention-UNet Architecture
+nowcasting	PredRNN: Recurrent Neural Networks for Predictive Learning using Spatiotemporal LSTMs
+methods	Hybrid Forecasting of Chaotic Processes: Using Machine Learning in Conjunction with a Knowledge-Based Model
+methods	Adaptive Fourier Neural Operators: Efficient Token Mixers for Transformers
+review	Deep Learning-Based Weather Prediction: A Survey

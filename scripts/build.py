@@ -1,0 +1,204 @@
+"""Build data/papers.json, papers.bib and index.html from the resolved caches.
+
+Pipeline:
+  1. resolve_ids.py  -> data/cache_ids.json   (seed title -> Crossref DOI / arXiv id)
+  2. discover.py     -> data/cache_discovery.json (highly cited candidates, screened into data/additions.tsv)
+  3. build.py        -> one Semantic Scholar batch call for metadata + citation counts, then outputs.
+"""
+import datetime as dt
+import json
+import os
+import re
+import sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+import s2
+from resolve_ids import sim
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+D = lambda *p: os.path.join(ROOT, "data", *p)
+
+TOPICS = {
+    "review": "Reviews & perspectives",
+    "weather": "Medium-range weather",
+    "probabilistic": "Ensembles & generative",
+    "foundation": "Foundation models",
+    "nowcasting": "Nowcasting",
+    "postprocessing": "Post-processing",
+    "s2s": "S2S, ENSO & MJO",
+    "climate": "Climate emulation & detection",
+    "parameterization": "Parameterization & hybrid models",
+    "downscaling": "Downscaling",
+    "da": "Data assimilation",
+    "remote_sensing": "Remote sensing & clouds",
+    "extremes": "Extremes & tropical cyclones",
+    "xai": "Explainability & causality",
+    "ocean": "Ocean",
+    "seaice": "Sea ice",
+    "chemistry": "Air quality & chemistry",
+    "benchmarks": "Benchmarks & datasets",
+    "methods": "Core ML methods",
+}
+CONFERENCES = re.compile(r"neural information processing|neurips|nips|international conference on machine learning|icml|"
+                         r"learning representations|iclr|knowledge discovery|kdd|aaai|computer vision|cvpr|iccv|"
+                         r"artificial intelligence and statistics|aistats|supercomputing|\bsc\b|igarss|ijcai", re.I)
+PREPRINT_VENUES = re.compile(r"arxiv|essoar|ess open archive|research square|preprint|ssrn|biorxiv|egusphere", re.I)
+
+
+def load_tsv(path):
+    if not os.path.exists(path):
+        return []
+    return [l.rstrip("\n").split("\t") for l in open(path) if l.strip() and not l.startswith("#")]
+
+
+def main():
+    ids = json.load(open(D("cache_ids.json")))
+    seeds = load_tsv(D("seeds.tsv"))
+    # overrides: title<TAB>ID (DOI:..., ARXIV:..., or S2 paperId) for seeds the automatic matching missed
+    overrides = {r[0]: r[1] for r in load_tsv(D("overrides.tsv"))}
+    # additions: topic<TAB>S2-style ID<TAB>note, screened by hand from the discovery pass
+    additions = load_tsv(D("additions.tsv"))
+
+    entries = []  # (topics, [lookup ids], crossref record or None)
+    for topic, title in seeds:
+        c = ids.get(title, {})
+        cr = c.get("crossref") if (c.get("crossref") or {}).get("score", 0) >= 0.9 else None
+        ax = c.get("arxiv") if (c.get("arxiv") or {}).get("score", 0) >= 0.9 else None
+        look = []
+        if title in overrides:
+            look.append(overrides[title])
+        if cr:
+            look.append("DOI:" + cr["doi"])
+        if ax:
+            look.append("ARXIV:" + ax["id"])
+        entries.append({"seed": title, "topics": [topic], "look": look, "cr": cr, "check": True})
+    for topic, pid, *_ in additions:
+        entries.append({"seed": pid, "topics": topic.split(","), "look": [pid], "cr": None, "check": False})
+
+    cache_path = D("cache_s2.json")
+    s2cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
+    for e in entries:
+        if not e["look"]:
+            key = "TITLE:" + e["seed"]
+            if key not in s2cache:
+                s2cache[key] = s2.match(e["seed"])
+                json.dump(s2cache, open(cache_path, "w"))
+            e["look"] = [key]
+    all_ids = sorted({i for e in entries for i in e["look"]})
+    missing = [i for i in all_ids if i not in s2cache]
+    for n, (i, rec) in enumerate(s2.batch(missing), 1):
+        s2cache[i] = rec
+        if n % 50 == 0 or n == len(missing):
+            json.dump(s2cache, open(cache_path, "w"))
+            print(f"fetched {n}/{len(missing)}", flush=True)
+
+    papers, unresolved, mismatched = {}, [], []
+    for e in entries:
+        recs = [s2cache.get(i) for i in e["look"]]
+        recs = [r for r in recs if r]
+        if e["check"]:  # drop records whose title does not match the seed (wrong ID or bad fuzzy match)
+            bad = [r for r in recs if sim(e["seed"], r["title"]) < 0.8]
+            mismatched.extend((e["seed"], r["title"]) for r in bad)
+            recs = [r for r in recs if r not in bad]
+        if not recs:
+            unresolved.append(e["seed"])
+            continue
+        # Journal and arXiv versions are sometimes separate S2 records: keep the most cited one's
+        # metadata and fill identifiers from the others.
+        recs.sort(key=lambda r: r.get("citationCount") or 0, reverse=True)
+        main = recs[0]
+        ext = {}
+        for r in reversed(recs):
+            ext.update({k: v for k, v in (r.get("externalIds") or {}).items() if v})
+        doi = (ext.get("DOI") or "").lower() or None
+        if doi and doi.startswith("10.48550/"):
+            doi = None
+        arxiv = ext.get("ArXiv")
+        cr = e["cr"]
+        jr = main.get("journal") or {}
+        s2venue = main.get("venue") or jr.get("name") or ""
+        types = set(main.get("publicationTypes") or [])
+        if cr and cr.get("type") == "journal-article" and not PREPRINT_VENUES.search(cr["venue"]):
+            kind, venue = "journal", cr["venue"]
+        elif cr and cr.get("type") == "proceedings-article" or CONFERENCES.search(s2venue) or "Conference" in types:
+            kind, venue = "conference", (s2venue if s2venue and not PREPRINT_VENUES.search(s2venue) else (cr or {}).get("venue", ""))
+        elif doi and s2venue and not PREPRINT_VENUES.search(s2venue) and ("JournalArticle" in types or "Review" in types):
+            kind, venue = "journal", s2venue
+        elif arxiv:
+            kind, venue = "preprint", "arXiv"
+        else:
+            kind, venue = ("journal" if doi else "preprint"), s2venue or "Preprint"
+        if not venue:
+            venue = "arXiv" if arxiv else "Preprint"
+        cites = max([r.get("citationCount") or 0 for r in recs] + [(cr or {}).get("cites") or 0])
+        pid = main["paperId"]
+        p = papers.get(pid)
+        if p:  # same paper listed under several topics
+            p["topics"] = sorted(set(p["topics"]) | set(e["topics"]), key=list(TOPICS).index)
+            continue
+        pdf = (main.get("openAccessPdf") or {}).get("url") or None
+        papers[pid] = {
+            "id": pid[:12], "s2": pid,
+            "title": re.sub(r"\s+", " ", main["title"]).strip(),
+            "authors": [a["name"] for a in main.get("authors") or []],
+            "year": main.get("year") or int((main.get("publicationDate") or "0000")[:4]),
+            "date": main.get("publicationDate"),
+            "venue": venue, "kind": kind,
+            "volume": (jr.get("volume") or "").strip() or None,
+            "pages": re.sub(r"\s+", "", jr.get("pages") or "") or None,
+            "doi": doi, "arxiv": arxiv, "pdf": pdf,
+            "cites": cites, "infl": main.get("influentialCitationCount") or 0,
+            "abstract": (main.get("abstract") or "").strip() or None,
+            "topics": e["topics"],
+        }
+
+    out = sorted(papers.values(), key=lambda p: -p["cites"])
+    retrieved = dt.date.today().isoformat()
+    json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
+              open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
+
+    blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out}, ensure_ascii=False, separators=(",", ":"))
+    blob = blob.replace("</", "<\\/")
+    tpl = open(os.path.join(ROOT, "scripts", "template.html")).read().replace("/*DATA*/", blob)
+    # Standalone page for the repo / GitHub Pages; the bare fragment is what the artifact viewer wraps itself.
+    head, _, body = tpl.partition('<div class="wrap">')
+    standalone = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
+                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n"
+                  + head + "</head>\n<body>\n<div class=\"wrap\">" + body + "</body>\n</html>\n")
+    open(os.path.join(ROOT, "index.html"), "w").write(standalone)
+    frag_dir = os.environ.get("FRAGMENT_DIR")
+    if frag_dir:
+        open(os.path.join(frag_dir, "ai-aos-papers.html"), "w").write(tpl)
+
+    with open(os.path.join(ROOT, "papers.bib"), "w") as f:
+        for p in out:
+            f.write(bibtex(p) + "\n\n")
+
+    kinds = {k: sum(p["kind"] == k for p in out) for k in ("journal", "conference", "preprint")}
+    print(f"{len(out)} papers {kinds}; {len(unresolved)} unresolved")
+    for u in unresolved:
+        print("  UNRESOLVED:", u)
+    for want, got in mismatched:
+        print(f"  MISMATCH: wanted {want!r}\n            got    {got!r}")
+
+
+def bibtex(p):
+    last = (p["authors"][0].split()[-1] if p["authors"] else "anon")
+    word = (re.findall(r"[A-Za-z]{4,}", p["title"]) or ["paper"])[0]
+    key = re.sub(r"[^A-Za-z0-9]", "", f"{last}{p['year']}{word}")
+    f = [("title", "{" + p["title"] + "}"), ("author", " and ".join(p["authors"])), ("year", p["year"])]
+    if p["kind"] == "journal":
+        typ = "article"; f.append(("journal", p["venue"]))
+    elif p["kind"] == "conference":
+        typ = "inproceedings"; f.append(("booktitle", p["venue"]))
+    else:
+        typ = "misc"; f.append(("howpublished", f"arXiv:{p['arxiv']}"))
+    f += [("volume", p["volume"]), ("pages", p["pages"]), ("doi", p["doi"])]
+    if p["arxiv"]:
+        f += [("eprint", p["arxiv"]), ("archivePrefix", "arXiv")]
+    body = ",\n".join(f"  {k} = {{{v}}}" for k, v in f if v)
+    return f"@{typ}{{{key},\n{body}\n}}"
+
+
+if __name__ == "__main__":
+    main()

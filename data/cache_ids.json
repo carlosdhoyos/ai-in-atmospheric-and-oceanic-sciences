@@ -1,0 +1,3534 @@
+{
+ "Deep learning and process understanding for data-driven Earth system science": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu24-15874",
+   "title": "Deep learning and Process Understanding for Data-Driven Earth System Science",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 4
+  },
+  "arxiv": null
+ },
+ "Can deep learning beat numerical weather prediction?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0097",
+   "title": "Can deep learning beat numerical weather prediction?",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 412
+  },
+  "arxiv": null
+ },
+ "Machine learning for weather and climate are worlds apart": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0098",
+   "title": "Machine learning for weather and climate are worlds apart",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 59
+  },
+  "arxiv": null
+ },
+ "Earth System Modeling 2.0: A Blueprint for Models That Learn From Observations and Targeted High-Resolution Simulations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/2017gl076101",
+   "title": "Earth System Modeling 2.0: A Blueprint for Models That Learn From Observations and Targeted High\u2010Resolution Simulations",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 297
+  },
+  "arxiv": null
+ },
+ "Harnessing AI and computing to advance climate modelling and prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41558-023-01769-3",
+   "title": "Harnessing AI and computing to advance climate modelling and prediction",
+   "type": "journal-article",
+   "venue": "Nature Climate Change",
+   "cites": 80
+  },
+  "arxiv": null
+ },
+ "Machine learning for the physics of climate": {
+  "crossref": {
+   "score": 0.493,
+   "doi": "10.59646/714/12",
+   "title": "Physics of Climate and Weather",
+   "type": "book-chapter",
+   "venue": "Machine Learning: Concepts, Techniques, and Real-World Systems",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2408.09627",
+   "title": "Machine Learning for the Physics of Climate"
+  }
+ },
+ "Outlook for Exploiting Artificial Intelligence in the Earth and Environmental Sciences": {
+  "crossref": {
+   "score": 0.659,
+   "doi": "10.3389/feart.2024.1382457",
+   "title": "Editorial: Application of artificial intelligence in environmental, agriculture and earth sciences",
+   "type": "journal-article",
+   "venue": "Frontiers in Earth Science",
+   "cites": 3
+  },
+  "arxiv": null
+ },
+ "The Rise of Data-Driven Weather Forecasting: A First Statistical Assessment of Machine Learning\u2013Based Weather Forecasts in an Operational-Like Context": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-23-0162.1",
+   "title": "The Rise of Data-Driven Weather Forecasting: A First Statistical Assessment of Machine Learning\u2013Based Weather Forecasts in an Operational-Like Context",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 168
+  },
+  "arxiv": null
+ },
+ "Machine Learning for Climate Physics and Simulations": {
+  "crossref": {
+   "score": 0.606,
+   "doi": "10.22541/essoar.175336391.14023985/v1",
+   "title": "Toward generative machine learning for boosting ensembles of climate simulations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2404.13227",
+   "title": "Machine learning for climate physics and simulations"
+  }
+ },
+ "AI-empowered next-generation multiscale climate modelling for mitigation and adaptation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41561-024-01527-w",
+   "title": "AI-empowered next-generation multiscale climate modelling for mitigation and adaptation",
+   "type": "journal-article",
+   "venue": "Nature Geoscience",
+   "cites": 84
+  },
+  "arxiv": null
+ },
+ "Pushing the frontiers in climate modelling and analysis with machine learning": {
+  "crossref": {
+   "score": 0.458,
+   "doi": "10.22541/au.172463437.78285184/v1",
+   "title": "Machine Learning Insights into T\u00fcrkiye\u2019s Climate Variability: Predictive Modelling and Spatial Analysis",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  },
+  "arxiv": null
+ },
+ "Tackling Climate Change with Machine Learning": {
+  "crossref": {
+   "score": 0.769,
+   "doi": "10.1163/9789004322714_cclc_2017-0189-005",
+   "title": "Tackling climate change in the EU",
+   "type": "dataset",
+   "venue": "Climate Change and Law Collection",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1906.05433",
+   "title": "Tackling Climate Change with Machine Learning"
+  }
+ },
+ "Integrating Scientific Knowledge with Machine Learning for Engineering and Environmental Systems": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1145/3514228",
+   "title": "Integrating Scientific Knowledge with Machine Learning for Engineering and Environmental Systems",
+   "type": "journal-article",
+   "venue": "ACM Computing Surveys",
+   "cites": 797
+  },
+  "arxiv": null
+ },
+ "Theory-Guided Data Science: A New Paradigm for Scientific Discovery from Data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/tkde.2017.2720168",
+   "title": "Theory-Guided Data Science: A New Paradigm for Scientific Discovery from Data",
+   "type": "journal-article",
+   "venue": "IEEE Transactions on Knowledge and Data Engineering",
+   "cites": 1594
+  },
+  "arxiv": null
+ },
+ "Bridging observations, theory and numerical simulation of the ocean using machine learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1088/1748-9326/ac0eb0",
+   "title": "Bridging observations, theory and numerical simulation of the ocean using machine learning",
+   "type": "journal-article",
+   "venue": "Environmental Research Letters",
+   "cites": 133
+  },
+  "arxiv": null
+ },
+ "Machine Learning in Weather Prediction and Climate Analyses\u2014Applications and Perspectives": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3390/atmos13020180",
+   "title": "Machine Learning in Weather Prediction and Climate Analyses\u2014Applications and Perspectives",
+   "type": "journal-article",
+   "venue": "Atmosphere",
+   "cites": 304
+  },
+  "arxiv": null
+ },
+ "Machine learning and the physical sciences": {
+  "crossref": {
+   "score": 0.673,
+   "doi": "10.21275/sr251231170730",
+   "title": "Artificial Intelligence and Machine Learning in Physical Sciences",
+   "type": "journal-article",
+   "venue": "International Journal of Science and Research (IJSR)",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1903.10563",
+   "title": "Machine learning and the physical sciences"
+  }
+ },
+ "Machine Learning for Model Error Inference and Correction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10503695.1",
+   "title": "Machine Learning for Model Error Inference and Correction",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  },
+  "arxiv": null
+ },
+ "Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018ms001351",
+   "title": "Using Machine Learning to Parameterize Moist Convection: Potential for Modeling of Climate, Climate Change, and Extreme Events",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 303
+  },
+  "arxiv": null
+ },
+ "A Review of Machine Learning for Convective Weather": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-22-0077.1",
+   "title": "A Review of Machine Learning for Convective Weather",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 24
+  },
+  "arxiv": null
+ },
+ "Using Artificial Intelligence to Improve Real-Time Decision-Making for High-Impact Weather": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-16-0123.1",
+   "title": "Using Artificial Intelligence to Improve Real-Time Decision-Making for High-Impact Weather",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 336
+  },
+  "arxiv": null
+ },
+ "Opinion: Optimizing climate models with process knowledge, resolution, and artificial intelligence": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/acp-24-7041-2024",
+   "title": "Opinion: Optimizing climate models with process knowledge, resolution, and artificial intelligence",
+   "type": "journal-article",
+   "venue": "Atmospheric Chemistry and Physics",
+   "cites": 45
+  },
+  "arxiv": null
+ },
+ "Machine learning and artificial intelligence to aid climate change research and preparedness": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1088/1748-9326/ab4e55",
+   "title": "Machine learning and artificial intelligence to aid climate change research and preparedness",
+   "type": "journal-article",
+   "venue": "Environmental Research Letters",
+   "cites": 395
+  },
+  "arxiv": null
+ },
+ "Artificial intelligence for climate prediction of extremes: State of the art, challenges, and future perspectives": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/wcc.914",
+   "title": "Artificial intelligence for climate prediction of extremes: State of the art, challenges, and future perspectives",
+   "type": "journal-article",
+   "venue": "WIREs Climate Change",
+   "cites": 129
+  },
+  "arxiv": null
+ },
+ "Opportunities and challenges for machine learning in weather and climate modelling: hard, medium and soft AI": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0083",
+   "title": "Opportunities and challenges for machine learning in weather and climate modelling: hard, medium and soft AI",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 116
+  },
+  "arxiv": null
+ },
+ "A Review of Recent and Emerging Machine Learning Applications for Climate Variability and Weather Phenomena": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-22-0086.1",
+   "title": "A Review of Recent and Emerging Machine Learning Applications for Climate Variability and Weather Phenomena",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 26
+  }
+ },
+ "Towards neural Earth system modelling by integrating artificial intelligence in Earth system science": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s42256-021-00374-3",
+   "title": "Towards neural Earth system modelling by integrating artificial intelligence in Earth system science",
+   "type": "journal-article",
+   "venue": "Nature Machine Intelligence",
+   "cites": 255
+  }
+ },
+ "Machine learning for numerical weather and climate modelling: a review": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-2023-350",
+   "title": "Machine Learning for numerical weather and climate modelling: a review",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 5
+  }
+ },
+ "Advances and prospects of deep learning for medium-range extreme weather forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu24-5611",
+   "title": "Advances and Prospects of Deep Learning for Medium-Range Extreme Weather Forecasting",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Challenges and Benchmark Datasets for Machine Learning in the Atmospheric Sciences: Definition, Status, and Outlook": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-21-0002.1",
+   "title": "Challenges and Benchmark Datasets for Machine Learning in the Atmospheric Sciences: Definition, Status, and Outlook",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 29
+  }
+ },
+ "The digital revolution of Earth-system science": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s43588-021-00023-0",
+   "title": "The digital revolution of Earth-system science",
+   "type": "journal-article",
+   "venue": "Nature Computational Science",
+   "cites": 185
+  }
+ },
+ "The quiet revolution of numerical weather prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/nature14956",
+   "title": "The quiet revolution of numerical weather prediction",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 2338
+  }
+ },
+ "A digital twin of Earth for the green transition": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41558-021-00986-y",
+   "title": "A digital twin of Earth for the green transition",
+   "type": "journal-article",
+   "venue": "Nature Climate Change",
+   "cites": 377
+  }
+ },
+ "Physics-informed machine learning: case studies for weather and climate modelling": {
+  "crossref": {
+   "score": 0.728,
+   "doi": "10.3788/ai.2025.20010",
+   "title": "Physics-informed machine learning\u2014case studies in photoacoustic imaging",
+   "type": "journal-article",
+   "venue": "Advanced Imaging",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 0.544,
+   "id": "2304.00062",
+   "title": "A Physics-Informed Machine Learning for Electricity Markets: A NYISO Case Study"
+  }
+ },
+ "Towards implementing artificial intelligence post-processing in weather and climate: proposed actions from the Oxford 2019 workshop": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0091",
+   "title": "Towards implementing artificial intelligence post-processing in weather and climate: proposed actions from the Oxford 2019 workshop",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 57
+  }
+ },
+ "Leveraging Modern Artificial Intelligence for Remote Sensing and NWP: Benefits and Challenges": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-18-0324.1",
+   "title": "Leveraging Modern Artificial Intelligence for Remote Sensing and NWP: Benefits and Challenges",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 80
+  }
+ },
+ "Machine Learning Methods in Weather and Climate Applications: A Survey": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.20944/preprints202309.1764.v2",
+   "title": "Machine Learning Methods in Weather and Climate Applications: A Survey",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 37
+  }
+ },
+ "Artificial intelligence for modeling and understanding extreme weather and climate events": {
+  "crossref": {
+   "score": 0.854,
+   "doi": "10.2139/ssrn.6003834",
+   "title": "Artificial Intelligence for Modeling and Forecasting Extreme Weather Events",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": null
+ },
+ "Analysis, characterization, prediction, and attribution of extreme atmospheric events with machine learning and deep learning techniques: a review": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1007/s00704-023-04571-5",
+   "title": "Analysis, characterization, prediction, and attribution of extreme atmospheric events with machine learning and deep learning techniques: a review",
+   "type": "journal-article",
+   "venue": "Theoretical and Applied Climatology",
+   "cites": 75
+  }
+ },
+ "S2S reboot: An argument for greater inclusion of machine learning in subseasonal to seasonal forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/wcc.567",
+   "title": "S2S reboot: An argument for greater inclusion of machine learning in subseasonal to seasonal forecasts",
+   "type": "journal-article",
+   "venue": "WIREs Climate Change",
+   "cites": 73
+  }
+ },
+ "Machine Learning in Tropical Cyclone Forecast Modeling: A Review": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3390/atmos11070676",
+   "title": "Machine Learning in Tropical Cyclone Forecast Modeling: A Review",
+   "type": "journal-article",
+   "venue": "Atmosphere",
+   "cites": 223
+  }
+ },
+ "Machine Learning With Data Assimilation and Uncertainty Quantification for Dynamical Systems: A Review": {
+  "crossref": {
+   "score": 0.713,
+   "doi": "10.70675/d7feb169z7520z4c44za5efzed912837dfc6",
+   "title": "Machine learning, data assimilation and dynamical systems",
+   "type": "dissertation",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2303.10462",
+   "title": "Machine learning with data assimilation and uncertainty quantification for dynamical systems: a review"
+  }
+ },
+ "Enhancing Regional Climate Downscaling through Advances in Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-23-0066.1",
+   "title": "Enhancing Regional Climate Downscaling through Advances in Machine Learning",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 57
+  }
+ },
+ "Statistical Postprocessing for Weather Forecasts: Review, Challenges, and Avenues in a Big Data World": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-19-0308.1",
+   "title": "Statistical Postprocessing for Weather Forecasts: Review, Challenges, and Avenues in a Big Data World",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 217
+  }
+ },
+ "Physics-informed machine learning": {
+  "crossref": {
+   "score": 0.862,
+   "doi": "10.1007/978-3-662-69995-9_6",
+   "title": "Physics-Informed Learning",
+   "type": "book-chapter",
+   "venue": "Machine Learning for Engineers",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 0.776,
+   "id": "2402.07514",
+   "title": "Physics-informed machine learning as a kernel method"
+  }
+ },
+ "Toward Data-Driven Weather and Climate Forecasting: Approximating a Simple General Circulation Model With Deep Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018gl080704",
+   "title": "Toward Data\u2010Driven Weather and Climate Forecasting: Approximating a Simple General Circulation Model With Deep Learning",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 212
+  }
+ },
+ "Weather and climate forecasting with neural networks: using general circulation models (GCMs) with different complexity as a study ground": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-12-2797-2019",
+   "title": "Weather and climate forecasting with neural networks: using general circulation models (GCMs) with different complexity as a study ground",
+   "type": "journal-article",
+   "venue": "Geoscientific Model Development",
+   "cites": 121
+  }
+ },
+ "Challenges and design choices for global weather and climate models based on machine learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2018-148-rc2",
+   "title": "Challenges and design choices for global weather and climate models based on machine learning",
+   "type": "peer-review",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Can Machines Learn to Predict Weather? Using Deep Learning to Predict Gridded 500-hPa Geopotential Height From Historical Weather Data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019ms001705",
+   "title": "Can Machines Learn to Predict Weather? Using Deep Learning to Predict Gridded 500\u2010hPa Geopotential Height From Historical Weather Data",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 259
+  }
+ },
+ "Improving Data-Driven Global Weather Prediction Using Deep Convolutional Neural Networks on a Cubed Sphere": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10502543.1",
+   "title": "Improving data-driven global weather prediction using deep convolutional neural networks on a cubed sphere",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 6
+  }
+ },
+ "Data-Driven Medium-Range Weather Prediction With a Resnet Pretrained on Climate Simulations: A New Model for WeatherBench": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002405",
+   "title": "Data\u2010Driven Medium\u2010Range Weather Prediction With a Resnet Pretrained on Climate Simulations: A New Model for WeatherBench",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 173
+  }
+ },
+ "A Machine Learning-Based Global Atmospheric Forecast Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10502527.1",
+   "title": "A Machine-Learning-Based Global Atmospheric Forecast Model",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Forecasting Global Weather with Graph Neural Networks": {
+  "crossref": {
+   "score": 0.603,
+   "doi": "10.52202/079017-1316",
+   "title": "Probabilistic Weather Forecasting with Hierarchical Graph Neural Networks",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 9
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2202.07575",
+   "title": "Forecasting Global Weather with Graph Neural Networks"
+  }
+ },
+ "FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators": {
+  "crossref": {
+   "score": 0.833,
+   "doi": "10.1145/3592979.3593412",
+   "title": "FourCastNet: Accelerating Global High-Resolution Weather Forecasting Using Adaptive Fourier Neural Operators",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the Platform for Advanced Scientific Computing Conference",
+   "cites": 248
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2202.11214",
+   "title": "FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators"
+  }
+ },
+ "Spherical Fourier Neural Operators: Learning Stable Dynamics on the Sphere": {
+  "crossref": {
+   "score": 0.429,
+   "doi": "10.21203/rs.3.rs-8218223/v1",
+   "title": "Resolution-Invariant Fluid Dynamics Modeling: Fourier Neural Operators vs. Convolutional Networks",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2306.03838",
+   "title": "Spherical Fourier Neural Operators: Learning Stable Dynamics on the Sphere"
+  }
+ },
+ "Accurate medium-range global weather forecasting with 3D neural networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-023-06185-3",
+   "title": "Accurate medium-range global weather forecasting with 3D neural networks",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 1561
+  }
+ },
+ "Learning skillful medium-range global weather forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1126/science.adi2336",
+   "title": "Learning skillful medium-range global weather forecasting",
+   "type": "journal-article",
+   "venue": "Science",
+   "cites": 1486
+  }
+ },
+ "FengWu: Pushing the Skillful Global Medium-range Weather Forecast beyond 10 Days Lead": {
+  "crossref": {
+   "score": 0.596,
+   "doi": "10.5194/egusphere-egu24-11381",
+   "title": "GraphCast: Learning skillful medium-range global weather forecasting",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  },
+  "arxiv": null
+ },
+ "FuXi: a cascade machine learning forecasting system for 15-day global weather forecast": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.21203/rs.3.rs-3081705/v1",
+   "title": "FuXi: A cascade machine learning forecasting system for 15-day global weather forecast",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Scaling transformer neural networks for skillful and reliable medium-range weather forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/079017-2196",
+   "title": "Scaling transformer neural networks for skillful and reliable medium-range weather forecasting",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 28
+  }
+ },
+ "AIFS - ECMWF's data-driven forecasting system": {
+  "crossref": {
+   "score": 0.804,
+   "doi": "10.5194/egusphere-egu25-12077",
+   "title": "The AIFS: ECMWF&amp;#8217;s data-driven weather forecasting system",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2406.01465",
+   "title": "AIFS -- ECMWF's data-driven forecasting system"
+  }
+ },
+ "Neural general circulation models for weather and climate": {
+  "crossref": {
+   "score": 0.593,
+   "doi": "10.1093/oso/9780195130720.003.0018",
+   "title": "On Cirrus Modeling for General Circulation and Climate Models",
+   "type": "book-chapter",
+   "venue": "Cirrus",
+   "cites": 2
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2311.07222",
+   "title": "Neural General Circulation Models for Weather and Climate"
+  }
+ },
+ "ArchesWeather: An efficient AI weather forecasting model at 1.5\u00b0 resolution": {
+  "crossref": {
+   "score": 0.521,
+   "doi": "10.5194/ems2024-566",
+   "title": "Operational weather forecasting in Antarctica with the WRF model in sub-kilometer resolution",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2405.14527",
+   "title": "ArchesWeather: An efficient AI weather forecasting model at 1.5\u00b0 resolution"
+  }
+ },
+ "Graph-based Neural Weather Prediction for Limited Area Modeling": {
+  "crossref": {
+   "score": 0.489,
+   "doi": "10.5353/th_b3120652",
+   "title": "A limited area primitive equation weather prediction model for Hong Kong",
+   "type": "dissertation",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2309.17370",
+   "title": "Graph-based Neural Weather Prediction for Limited Area Modeling"
+  }
+ },
+ "End-to-end data-driven weather prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-025-08897-0",
+   "title": "End-to-end data-driven weather prediction",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 107
+  }
+ },
+ "FengWu-GHR: Learning the Kilometer-scale Medium-range Global Weather Forecasting": {
+  "crossref": {
+   "score": 0.767,
+   "doi": "10.5194/egusphere-egu24-11381",
+   "title": "GraphCast: Learning skillful medium-range global weather forecasting",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2402.00059",
+   "title": "FengWu-GHR: Learning the Kilometer-scale Medium-range Global Weather Forecasting"
+  }
+ },
+ "Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciar\u00e1n": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41612-024-00638-w",
+   "title": "Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciar\u00e1n",
+   "type": "journal-article",
+   "venue": "npj Climate and Atmospheric Science",
+   "cites": 81
+  }
+ },
+ "Can Artificial Intelligence-Based Weather Prediction Models Simulate the Butterfly Effect?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.169111361.10601606/v1",
+   "title": "Can artificial intelligence-based weather prediction models simulate the butterfly effect?",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Testing the Limit of Atmospheric Predictability With a Machine Learning Weather Model": {
+  "crossref": {
+   "score": 0.526,
+   "doi": "10.1175/jas-d-19-0166.1",
+   "title": "Comments on \u201cWhat Is the Predictability Limit of Midlatitude Weather?\u201d",
+   "type": "journal-article",
+   "venue": "Journal of the Atmospheric Sciences",
+   "cites": 9
+  },
+  "arxiv": null
+ },
+ "Dynamical Tests of a Deep Learning Weather Prediction Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-23-0090.1",
+   "title": "Dynamical Tests of a Deep Learning Weather Prediction Model",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 30
+  }
+ },
+ "On Some Limitations of Current Machine Learning Weather Prediction Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2023gl107377",
+   "title": "On Some Limitations of Current Machine Learning Weather Prediction Models",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 149
+  }
+ },
+ "Advancing Parsimonious Deep Learning Weather Prediction Using the HEALPix Mesh": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.169603505.58030377/v1",
+   "title": "Advancing Parsimonious Deep Learning Weather Prediction using the HEALPix Mesh",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "Deep Learning for Day Forecasts from Sparse Observations": {
+  "crossref": {
+   "score": 0.679,
+   "doi": "10.2139/ssrn.7615764",
+   "title": "Recurrent Deep Learning for CO\u2082 Plume Reconstruction and Forecasting from Sparse Seismic Observations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2306.06079",
+   "title": "Deep Learning for Day Forecasts from Sparse Observations"
+  }
+ },
+ "Regional data-driven weather modeling with a global stretched-grid": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-25-0001.1",
+   "title": "Regional Data-Driven Weather Modeling with a Global Stretched Grid",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 11
+  }
+ },
+ "FuXi Weather: A data-to-forecast machine learning system for global weather": {
+  "crossref": {
+   "score": 0.904,
+   "doi": "10.5194/egusphere-egu25-7911",
+   "title": "A data-to-forecast machine learning system for global weather",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Robustness of AI-based weather forecasts in a changing climate": {
+  "crossref": {
+   "score": 0.567,
+   "doi": "10.1007/978-3-319-73400-2_66-1",
+   "title": "Language Issues in Weather Forecasts, Reporting, and Climate Change",
+   "type": "book-chapter",
+   "venue": "Handbook of the Changing World Language Map",
+   "cites": 1
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2409.18529",
+   "title": "Robustness of AI-based weather forecasts in a changing climate"
+  }
+ },
+ "Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/079017-0734",
+   "title": "Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 5
+  }
+ },
+ "Kilometer-Scale Convection Allowing Model Emulation using Generative Diffusion Modeling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1126/sciadv.adv0423",
+   "title": "Kilometer-scale convection-allowing model emulation using generative diffusion modeling",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 12
+  }
+ },
+ "Neural general circulation models optimized to predict satellite-based precipitation observations": {
+  "crossref": {
+   "score": 0.688,
+   "doi": "10.1126/sciadv.adv6891",
+   "title": "Neural general circulation models for modeling precipitation",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 8
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2412.11973",
+   "title": "Neural general circulation models optimized to predict satellite-based precipitation observations"
+  }
+ },
+ "Probabilistic weather forecasting with machine learning": {
+  "crossref": {
+   "score": 0.817,
+   "doi": "10.24818/ida-cl/2022.19",
+   "title": "Probabilistic Forecasting with Machine Learning and Big Data",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 0.699,
+   "id": "2602.13010",
+   "title": "Probabilistic Wind Power Forecasting with Tree-Based Machine Learning and Weather Ensembles"
+  }
+ },
+ "Skillful joint probabilistic weather forecasting from marginals": {
+  "crossref": {
+   "score": 0.651,
+   "doi": "10.1126/sciadv.adx2372",
+   "title": "ArchesWeatherGen: Skillful and compute-efficient probabilistic weather forecasting with machine learning",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 5
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2506.10772",
+   "title": "Skillful joint probabilistic weather forecasting from marginals"
+  }
+ },
+ "AIFS-CRPS: Ensemble forecasting using a model trained with a loss function based on the Continuous Ranked Probability Score": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s44387-026-00073-7",
+   "title": "AIFS-CRPS: ensemble forecasting using a model trained with a loss function based on the continuous ranked probability score",
+   "type": "journal-article",
+   "venue": "npj Artificial Intelligence",
+   "cites": 33
+  }
+ },
+ "Probabilistic Weather Forecasting with Hierarchical Graph Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/079017-1316",
+   "title": "Probabilistic Weather Forecasting with Hierarchical Graph Neural Networks",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 9
+  }
+ },
+ "Huge Ensembles Part I: Design of Ensemble Weather Forecasts using Spherical Fourier Neural Operators": {
+  "crossref": {
+   "score": 0.99,
+   "doi": "10.5194/gmd-18-5575-2025",
+   "title": "Huge ensembles \u2013 Part 1: Design of ensemble weather forecasts using spherical Fourier neural operators",
+   "type": "journal-article",
+   "venue": "Geoscientific Model Development",
+   "cites": 12
+  }
+ },
+ "FuXi-ENS: A machine learning model for medium-range ensemble weather forecasting": {
+  "crossref": {
+   "score": 0.814,
+   "doi": "10.1126/sciadv.adu2854",
+   "title": "FuXi-ENS: A machine learning model for efficient and accurate ensemble weather prediction",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 16
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2405.05925",
+   "title": "FuXi-ENS: A machine learning model for medium-range ensemble weather forecasting"
+  }
+ },
+ "SwinVRNN: A Data-Driven Ensemble Forecasting Model via Learned Distribution Perturbation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022ms003211",
+   "title": "SwinVRNN: A Data\u2010Driven Ensemble Forecasting Model via Learned Distribution Perturbation",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 61
+  }
+ },
+ "Generative emulation of weather forecast ensembles with diffusion models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1126/sciadv.adk4489",
+   "title": "Generative emulation of weather forecast ensembles with diffusion models",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 103
+  }
+ },
+ "ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting": {
+  "crossref": {
+   "score": 0.551,
+   "doi": "10.5194/egusphere-egu26-4637",
+   "title": "GenEPS: A Generative Foundation Model for Probabilistic Weather Forecasting\u00a0",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2412.12971",
+   "title": "ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting"
+  }
+ },
+ "FourCastNet 3: A geometric approach to probabilistic machine-learning weather forecasting at scale": {
+  "crossref": {
+   "score": 0.995,
+   "doi": "10.5194/egusphere-egu26-11448",
+   "title": "FourCastNet 3: A geometric approach to probabilisticmachine-learning weather forecasting at scale",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 10
+  }
+ },
+ "Ensemble Methods for Neural Network-Based Weather Forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002331",
+   "title": "Ensemble Methods for Neural Network\u2010Based Weather Forecasts",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 49
+  }
+ },
+ "A generative adversarial network approach to (ensemble) weather prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.neunet.2021.02.003",
+   "title": "A generative adversarial network approach to (ensemble) weather prediction",
+   "type": "journal-article",
+   "venue": "Neural Networks",
+   "cites": 73
+  }
+ },
+ "DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-1961",
+   "title": "DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 10
+  }
+ },
+ "Continuous Ensemble Weather Forecasting with Diffusion models": {
+  "crossref": {
+   "score": 0.585,
+   "doi": "10.1175/waf-d-17-0017.1",
+   "title": "Ensemble-Based Storm Surge Forecasting Models",
+   "type": "journal-article",
+   "venue": "Weather and Forecasting",
+   "cites": 6
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2410.05431",
+   "title": "Continuous Ensemble Weather Forecasting with Diffusion models"
+  }
+ },
+ "A Practical Probabilistic Benchmark for AI Weather Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2024gl113656",
+   "title": "A Practical Probabilistic Benchmark for AI Weather Models",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 25
+  }
+ },
+ "Sub-Seasonal Forecasting With a Large Ensemble of Deep-Learning Weather Prediction Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10506235.1",
+   "title": "Sub-seasonal forecasting with a large ensemble of deep-learning weather prediction models",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 9
+  }
+ },
+ "ClimaX: A foundation model for weather and climate": {
+  "crossref": {
+   "score": 0.46,
+   "doi": "10.1016/j.wace.2015.10.005",
+   "title": "Interpreting climate model projections of extreme weather events",
+   "type": "journal-article",
+   "venue": "Weather and Climate Extremes",
+   "cites": 40
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2301.10343",
+   "title": "ClimaX: A foundation model for weather and climate"
+  }
+ },
+ "A foundation model for the Earth system": {
+  "crossref": {
+   "score": 0.713,
+   "doi": "10.5194/egusphere-egu24-1760",
+   "title": "EarthPT: a foundation model for Earth Observation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2405.13063",
+   "title": "A Foundation Model for the Earth System"
+  }
+ },
+ "Prithvi WxC: Foundation Model for Weather and Climate": {
+  "crossref": {
+   "score": 0.562,
+   "doi": "10.5194/egusphere-egu25-1738",
+   "title": "Prithvi-Typhoon: A Foundation Model Approach for Enhanced Tropical Cyclone Intensity Prediction",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2409.13598",
+   "title": "Prithvi WxC: Foundation Model for Weather and Climate"
+  }
+ },
+ "Climate in a Bottle: Towards a Generative Foundation Model for the Kilometer-Scale Global Atmosphere": {
+  "crossref": {
+   "score": 0.455,
+   "doi": "10.5194/egusphere-egu25-11001",
+   "title": "Unveiling global haboob behavior with a kilometer-scale aerosol-climate model",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2505.06474",
+   "title": "Climate in a Bottle: Towards a Generative Foundation Model for the Kilometer-Scale Global Atmosphere"
+  }
+ },
+ "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting": {
+  "crossref": {
+   "score": 0.642,
+   "doi": "10.1127/metz/2019/0977",
+   "title": "Machine Learning Approach to Summer Precipitation Nowcasting over the Eastern Alps",
+   "type": "journal-article",
+   "venue": "Meteorologische Zeitschrift",
+   "cites": 11
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1506.04214",
+   "title": "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting"
+  }
+ },
+ "Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model": {
+  "crossref": {
+   "score": 0.604,
+   "doi": "10.5194/egusphere-egu25-4735",
+   "title": "Application of a novel deep learning model for precipitation nowcasting&amp;#160;",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1706.03458",
+   "title": "Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model"
+  }
+ },
+ "Skilful precipitation nowcasting using deep generative models of radar": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-021-03854-z",
+   "title": "Skilful precipitation nowcasting using deep generative models of radar",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 876
+  }
+ },
+ "Skilful nowcasting of extreme precipitation with NowcastNet": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-023-06184-4",
+   "title": "Skilful nowcasting of extreme precipitation with NowcastNet",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 449
+  }
+ },
+ "MetNet: A Neural Weather Model for Precipitation Forecasting": {
+  "crossref": {
+   "score": 0.486,
+   "doi": "10.7764/tesisuc/ing/21985",
+   "title": "Using the weather research and forecasting (WRF) model for precipitation forecasting in an Andean region with complex topography",
+   "type": "dissertation",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2003.12140",
+   "title": "MetNet: A Neural Weather Model for Precipitation Forecasting"
+  }
+ },
+ "Deep learning for twelve hour precipitation forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-022-32483-x",
+   "title": "Deep learning for twelve hour precipitation forecasts",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 242
+  }
+ },
+ "RainNet v1.0: a convolutional neural network for radar-based precipitation nowcasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2020-30",
+   "title": "RainNet v1.0: a convolutional neural network for radar-based precipitation nowcasting",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 8
+  }
+ },
+ "Machine Learning for Precipitation Nowcasting from Radar Images": {
+  "crossref": {
+   "score": 0.758,
+   "doi": "10.3390/rs15061639",
+   "title": "Mutual Information Boosted Precipitation Nowcasting from Radar Images",
+   "type": "journal-article",
+   "venue": "Remote Sensing",
+   "cites": 11
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1912.12132",
+   "title": "Machine Learning for Precipitation Nowcasting from Radar Images"
+  }
+ },
+ "Earthformer: Exploring Space-Time Transformers for Earth System Forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/068431-1841",
+   "title": "Earthformer: Exploring Space-Time Transformers for Earth System Forecasting",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 35",
+   "cites": 79
+  }
+ },
+ "PreDiff: Precipitation Nowcasting with Latent Diffusion Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-3439",
+   "title": "PreDiff: Precipitation Nowcasting with Latent Diffusion Models",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 55
+  }
+ },
+ "Latent diffusion models for generative precipitation nowcasting with accurate uncertainty quantification": {
+  "crossref": {
+   "score": 0.75,
+   "doi": "10.5194/egusphere-egu23-9531",
+   "title": "Latent diffusion models for generative nowcasting and uncertainty quantification of precipitation fields",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 38
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2304.12891",
+   "title": "Latent diffusion models for generative precipitation nowcasting with accurate uncertainty quantification"
+  }
+ },
+ "DiffCast: A Unified Framework via Residual Diffusion for Precipitation Nowcasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/cvpr52733.2024.02622",
+   "title": "DiffCast: A Unified Framework via Residual Diffusion for Precipitation Nowcasting",
+   "type": "proceedings-article",
+   "venue": "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+   "cites": 82
+  }
+ },
+ "Neural Networks for Postprocessing Ensemble Weather Forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-18-0187.1",
+   "title": "Neural Networks for Postprocessing Ensemble Weather Forecasts",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 376
+  }
+ },
+ "Deep learning for post-processing ensemble weather forecasts": {
+  "crossref": {
+   "score": 0.725,
+   "doi": "10.5194/egusphere-egu23-14425",
+   "title": "Lead time continuous statistical post-processing of ensemble weather forecasts",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2005.08748",
+   "title": "Deep Learning for Post-Processing Ensemble Weather Forecasts"
+  }
+ },
+ "Machine Learning Methods for Postprocessing Ensemble Forecasts of Wind Gusts: A Systematic Comparison": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-21-0150.1",
+   "title": "Machine Learning Methods for Postprocessing Ensemble Forecasts of Wind Gusts: A Systematic Comparison",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 76
+  }
+ },
+ "Ensemble Postprocessing Using Quantile Function Regression Based on Neural Networks and Bernstein Polynomials": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-19-0227.1",
+   "title": "Ensemble Postprocessing Using Quantile Function Regression Based on Neural Networks and Bernstein Polynomials",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 49
+  }
+ },
+ "Using machine learning to correct model error in data assimilation and forecast applications": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu21-4007",
+   "title": "Using machine learning to correct model error in data assimilation and forecast applications",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 6
+  }
+ },
+ "Increasing the accuracy and resolution of precipitation forecasts using deep generative models": {
+  "crossref": {
+   "score": 0.627,
+   "doi": "10.5194/egusphere-egu25-12110",
+   "title": "Increasing the Accuracy and Resilience of Streamflow Forecasts through Data Augmentation and High Resolution Weather Inputs",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2203.12297",
+   "title": "Increasing the accuracy and resolution of precipitation forecasts using deep generative models"
+  }
+ },
+ "Deep learning for multi-year ENSO forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-019-1559-7",
+   "title": "Deep learning for multi-year ENSO forecasts",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 1027
+  }
+ },
+ "Unified deep learning model for El Ni\u00f1o/Southern Oscillation forecasts by incorporating seasonality in climate data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.scib.2021.03.009",
+   "title": "Unified deep learning model for El Ni\u00f1o/Southern Oscillation forecasts by incorporating seasonality in climate data",
+   "type": "journal-article",
+   "venue": "Science Bulletin",
+   "cites": 69
+  }
+ },
+ "A self-attention\u2013based neural network for three-dimensional multivariate modeling and its skillful ENSO predictions": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1126/sciadv.adf2827",
+   "title": "A self-attention\u2013based neural network for three-dimensional multivariate modeling and its skillful ENSO predictions",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 173
+  }
+ },
+ "A Deep Learning Model for Forecasting Global Monthly Mean Sea Surface Temperature Anomalies": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3389/fclim.2022.932932",
+   "title": "A deep learning model for forecasting global monthly mean sea surface temperature anomalies",
+   "type": "journal-article",
+   "venue": "Frontiers in Climate",
+   "cites": 54
+  }
+ },
+ "Training machine learning models on climate model output yields skillful interpretable seasonal precipitation forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s43247-021-00225-4",
+   "title": "Training machine learning models on climate model output yields skillful interpretable seasonal precipitation forecasts",
+   "type": "journal-article",
+   "venue": "Communications Earth &amp; Environment",
+   "cites": 142
+  }
+ },
+ "Subseasonal Forecasts of Opportunity Identified by an Explainable Neural Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu21-9015",
+   "title": "Subseasonal Forecasts of Opportunity Identified by an Explainable Neural Network",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Sub-Seasonal Climate Forecasting via Machine Learning: Challenges, Analysis, and Advances": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1609/aaai.v35i1.16090",
+   "title": "Sub-Seasonal Climate Forecasting via Machine Learning: Challenges, Analysis, and Advances",
+   "type": "journal-article",
+   "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+   "cites": 29
+  }
+ },
+ "Improving Subseasonal Forecasting in the Western U.S. with Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1145/3292500.3330674",
+   "title": "Improving Subseasonal Forecasting in the Western U.S. with Machine Learning",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining",
+   "cites": 57
+  }
+ },
+ "A machine learning model that outperforms conventional global subseasonal forecast models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.21203/rs.3.rs-3776375/v1",
+   "title": "A machine learning model that outperforms conventional global subseasonal forecast models",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Temporal Convolutional Networks for the Advance Prediction of ENSO": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41598-020-65070-5",
+   "title": "Temporal Convolutional Networks for the Advance Prediction of ENSO",
+   "type": "journal-article",
+   "venue": "Scientific Reports",
+   "cites": 243
+  }
+ },
+ "Using network theory and machine learning to predict El Ni\u00f1o": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/esd-2018-13",
+   "title": "Using Network Theory and Machine Learning to predict El Ni\u00f1o",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 5
+  }
+ },
+ "The Application of Machine Learning Techniques to Improve El Ni\u00f1o Prediction Skill": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3389/fphy.2019.00153",
+   "title": "The Application of Machine Learning Techniques to Improve El Ni\u00f1o Prediction Skill",
+   "type": "journal-article",
+   "venue": "Frontiers in Physics",
+   "cites": 50
+  }
+ },
+ "Testing the reliability of interpretable neural networks in geoscience using the Madden\u2013Julian oscillation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2020-152",
+   "title": "Testing the Reliability of Interpretable Neural Networks in Geoscience Using the Madden-Julian Oscillation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 5
+  }
+ },
+ "Interpretable Deep Learning for Probabilistic MJO Prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10510869.2",
+   "title": "Interpretable Deep Learning for Probabilistic MJO Prediction",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Deep learning for bias correction of MJO prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-021-23406-3",
+   "title": "Deep learning for bias correction of MJO prediction",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 66
+  }
+ },
+ "Incorporating Uncertainty Into a Regression Neural Network Enables Identification of Decadal State\u2010Dependent Predictability in CESM2": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022gl098635",
+   "title": "Incorporating Uncertainty Into a Regression Neural Network Enables Identification of Decadal State\u2010Dependent Predictability in CESM2",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 23
+  }
+ },
+ "Explained predictions of strong eastern Pacific El Ni\u00f1o events using deep learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41598-023-45739-3",
+   "title": "Explained predictions of strong eastern Pacific El Ni\u00f1o events using deep learning",
+   "type": "journal-article",
+   "venue": "Scientific Reports",
+   "cites": 12
+  }
+ },
+ "ACE: A fast, skillful learned global atmospheric model for climate prediction": {
+  "crossref": {
+   "score": 0.442,
+   "doi": "10.1038/s41612-024-00741-y",
+   "title": "Incorporating heat budget dynamics in a Transformer-based deep learning model for skillful ENSO prediction",
+   "type": "journal-article",
+   "venue": "npj Climate and Atmospheric Science",
+   "cites": 12
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2310.02074",
+   "title": "ACE: A fast, skillful learned global atmospheric model for climate prediction"
+  }
+ },
+ "ACE2: accurately learning subseasonal to decadal atmospheric variability and forced responses": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41612-025-01090-0",
+   "title": "ACE2: accurately learning subseasonal to decadal atmospheric variability and forced responses",
+   "type": "journal-article",
+   "venue": "npj Climate and Atmospheric Science",
+   "cites": 37
+  }
+ },
+ "Probabilistic Emulation of a Global Climate Model with Spherical DYffusion": {
+  "crossref": {
+   "score": 0.993,
+   "doi": "10.52202/079017-4052",
+   "title": "Probablistic Emulation of a Global Climate Model with Spherical DYffusion",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 3
+  }
+ },
+ "A Deep Learning Earth System Model for Efficient Simulation of the Observed Climate": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2025av001706",
+   "title": "A Deep Learning Earth System Model for Efficient Simulation of the Observed Climate",
+   "type": "journal-article",
+   "venue": "AGU Advances",
+   "cites": 16
+  }
+ },
+ "LUCIE: A Lightweight Uncoupled ClImate Emulator with long-term stability and physical consistency for O(1000)-member ensembles": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu25-20616",
+   "title": "LUCIE: A Lightweight Uncoupled ClImate Emulator with long-term stability and physical consistency for O(1000)-member ensembles",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 7
+  }
+ },
+ "Emulating Earth system model temperatures with MESMER: from global mean temperature trajectories to grid-point-level realizations on land": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/esd-11-139-2020",
+   "title": "Emulating Earth system model temperatures with MESMER: from global mean temperature trajectories to grid-point-level realizations on land",
+   "type": "journal-article",
+   "venue": "Earth System Dynamics",
+   "cites": 74
+  }
+ },
+ "Predicting global patterns of long-term climate change from short-term simulations using machine learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41612-020-00148-5",
+   "title": "Predicting global patterns of long-term climate change from short-term simulations using machine learning",
+   "type": "journal-article",
+   "venue": "npj Climate and Atmospheric Science",
+   "cites": 90
+  }
+ },
+ "Artificial intelligence reconstructs missing climate information": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu21-16087",
+   "title": "Artificial intelligence reconstructs missing climate information",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Application of the AI2 Climate Emulator to E3SMv2's global atmosphere model, with a focus on precipitation fidelity": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/au.170864176.62037635/v2",
+   "title": "Application of the AI2 Climate Emulator to E3SMv2's global atmosphere model, with a focus on precipitation fidelity",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "DiffESM: Conditional Emulation of Temperature and Precipitation in Earth System Models With 3D Diffusion Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.170612214.43012845/v2",
+   "title": "DiffESM: Conditional Emulation of Temperature and Precipitation in Earth System Models with 3D Diffusion Models",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "FaIRGP: A Bayesian Energy Balance Model for Surface Temperatures Emulation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.169008319.96252512/v1",
+   "title": "FaIRGP: A Bayesian Energy Balance Model for Surface Temperatures Emulation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Climate change now detectable from any single day of weather at global scale": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41558-019-0666-7",
+   "title": "Climate change now detectable from any single day of weather at global scale",
+   "type": "journal-article",
+   "venue": "Nature Climate Change",
+   "cites": 226
+  }
+ },
+ "Anthropogenic fingerprints in daily precipitation revealed by deep learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.21203/rs.3.rs-1860132/v1",
+   "title": "Anthropogenic fingerprints in daily precipitation revealed by deep learning",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Data-driven predictions of the time remaining until critical global warming thresholds are reached": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.2207183120",
+   "title": "Data-driven predictions of the time remaining until critical global warming thresholds are reached",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 139
+  }
+ },
+ "Detecting Climate Signals Using Explainable AI With Single-Forcing Large Ensembles": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10505762.1",
+   "title": "Detecting climate signals using explainable AI with single-forcing large ensembles",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Detection of Forced Change Within Combined Climate Fields Using Explainable Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10509261.1",
+   "title": "Detection of forced change within combined climate fields using explainable neural networks",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Long-term instabilities of deep learning-based digital twins of the climate system: The cause and a solution": {
+  "crossref": {
+   "score": 0.542,
+   "doi": "10.2139/ssrn.5221581",
+   "title": "Deep Learning Based Digital Twins for Heat Pumps",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": null
+ },
+ "Deep learning to represent subgrid processes in climate models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.1810286115",
+   "title": "Deep learning to represent subgrid processes in climate models",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 748
+  }
+ },
+ "Could Machine Learning Break the Convection Parameterization Deadlock?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018gl078202",
+   "title": "Could Machine Learning Break the Convection Parameterization Deadlock?",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 386
+  }
+ },
+ "Prognostic Validation of a Neural Network Unified Physics Parameterization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.31223/osf.io/eu3ax",
+   "title": "Prognostic validation of a neural network unified physics parameterization",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "Spatially Extended Tests of a Neural Network Parametrization Trained by Coarse-Graining": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019ms001711",
+   "title": "Spatially Extended Tests of a Neural Network Parametrization Trained by Coarse\u2010Graining",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 138
+  }
+ },
+ "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-020-17142-3",
+   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 180
+  }
+ },
+ "Use of Neural Networks for Stable, Accurate and Physically Consistent Parameterization of Subgrid Atmospheric Processes With Good Performance at Reduced Precision": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020gl091363",
+   "title": "Use of Neural Networks for Stable, Accurate and Physically Consistent Parameterization of Subgrid Atmospheric Processes With Good Performance at Reduced Precision",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 104
+  }
+ },
+ "Enforcing Analytic Constraints in Neural Networks Emulating Physical Systems": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1103/physrevlett.126.098302",
+   "title": "Enforcing Analytic Constraints in Neural Networks Emulating Physical Systems",
+   "type": "journal-article",
+   "venue": "Physical Review Letters",
+   "cites": 338
+  }
+ },
+ "Climate-invariant machine learning": {
+  "crossref": {
+   "score": 0.5,
+   "doi": "10.22541/essoar.15002822/v1",
+   "title": "Can Machine Learning Produce Climate Invariant Downscaling?",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2112.08440",
+   "title": "Climate-Invariant Machine Learning"
+  }
+ },
+ "New Approach to Calculation of Atmospheric Model Physics: Accurate and Fast Neural Network Emulation of Longwave Radiation in a Climate Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr2923.1",
+   "title": "New Approach to Calculation of Atmospheric Model Physics: Accurate and Fast Neural Network Emulation of Longwave Radiation in a Climate Model",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 161
+  }
+ },
+ "A neural network approach for a fast and accurate computation of a longwave radiative budget": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/1520-0450(1998)037<1385:annafa>2.0.co;2",
+   "title": "A Neural Network Approach for a Fast and Accurate Computation of a Longwave Radiative Budget",
+   "type": "journal-article",
+   "venue": "Journal of Applied Meteorology",
+   "cites": 173
+  }
+ },
+ "Machine Learning Emulation of Gravity Wave Drag in Numerical Weather Forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu21-7678",
+   "title": "Machine learning emulation of gravity wave drag in numerical weather forecasting",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 4
+  }
+ },
+ "Machine Learning Gravity Wave Parameterization Generalizes to Capture the QBO and Response to Increased CO2": {
+  "crossref": {
+   "score": 0.96,
+   "doi": "10.1029/2022gl098174",
+   "title": "Machine Learning Gravity Wave Parameterization Generalizes to Capture the QBO and Response to Increased CO<sub>2</sub>",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 40
+  }
+ },
+ "Interpreting and Stabilizing Machine-Learning Parametrizations of Convection": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jas-d-20-0082.1",
+   "title": "Interpreting and Stabilizing Machine-Learning Parametrizations of Convection",
+   "type": "journal-article",
+   "venue": "Journal of the Atmospheric Sciences",
+   "cites": 74
+  }
+ },
+ "ClimSim: A large multi-scale dataset for hybrid physics-ML climate emulation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-0968",
+   "title": "ClimSim: A large multi-scale dataset for hybrid physics-ML climate emulation",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 12
+  }
+ },
+ "Coupled online learning as a way to tackle instabilities and biases in neural network parameterizations: general algorithms and Lorenz 96 case study": {
+  "crossref": {
+   "score": 0.983,
+   "doi": "10.5194/gmd-13-2185-2020",
+   "title": "Coupled online learning as a way to tackle instabilities  and biases in neural network parameterizations: general algorithms and Lorenz\u00a096 case study (v1.0)",
+   "type": "journal-article",
+   "venue": "Geoscientific Model Development",
+   "cites": 62
+  }
+ },
+ "Correcting Coarse-Grid Weather and Climate Models by Machine Learning From Global Storm-Resolving Simulations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10507879.1",
+   "title": "Correcting coarse-grid weather and climate models by machine learning from global storm-resolving simulations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "Machine-Learned Climate Model Corrections From a Global Storm-Resolving Model: Performance Across the Annual Cycle": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10512393.1",
+   "title": "Machine-learned climate model corrections from a global storm-resolving model: Performance across the annual cycle",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Correcting Weather and Climate Models by Machine Learning Nudged Historical Simulations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10505959.1",
+   "title": "Correcting weather and climate models by machine learning nudged historical simulations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 7
+  }
+ },
+ "Correcting a 200 km Resolution Climate Model in Multiple Climates by Machine Learning From 25 km Resolution Simulations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022ms003219",
+   "title": "Correcting a 200\u00a0km Resolution Climate Model in Multiple Climates by Machine Learning From 25\u00a0km Resolution Simulations",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 36
+  }
+ },
+ "Machine Learning the Warm Rain Process": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10503868.1",
+   "title": "Machine Learning the Warm Rain Process",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Deep Learning Based Cloud Cover Parameterization for ICON": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10509777.1",
+   "title": "Deep Learning Based Cloud Cover Parameterization for ICON",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Data-Driven Equation Discovery of a Cloud Cover Parameterization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.168182254.49726852/v1",
+   "title": "Data-Driven Equation Discovery of a Cloud Cover Parameterization",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 6
+  }
+ },
+ "Stable climate simulations using a realistic general circulation model with neural network parameterizations for atmospheric moist physics and radiation processes": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-15-3923-2022",
+   "title": "Stable climate simulations using a realistic general circulation model with neural network parameterizations for atmospheric moist physics and radiation processes",
+   "type": "journal-article",
+   "venue": "Geoscientific Model Development",
+   "cites": 47
+  }
+ },
+ "Calibrate, emulate, sample": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.jcp.2020.109716",
+   "title": "Calibrate, emulate, sample",
+   "type": "journal-article",
+   "venue": "Journal of Computational Physics",
+   "cites": 101
+  }
+ },
+ "Assessing the Potential of Deep Learning for Emulating Cloud Superparameterization in Climate Models With Real-Geography Boundary Conditions": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002385",
+   "title": "Assessing the Potential of Deep Learning for Emulating Cloud Superparameterization in Climate Models With Real\u2010Geography Boundary Conditions",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 52
+  }
+ },
+ "Accelerating Radiation Computations for Dynamical Models With Targeted Machine Learning and Code Optimization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002226",
+   "title": "Accelerating Radiation Computations for Dynamical Models With Targeted Machine Learning and Code Optimization",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 52
+  }
+ },
+ "A Hybrid Approach to Atmospheric Modeling That Combines Machine Learning With a Physics-Based Numerical Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2021ms002712",
+   "title": "A Hybrid Approach to Atmospheric Modeling That Combines Machine Learning With a Physics\u2010Based Numerical Model",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 66
+  }
+ },
+ "A posteriori learning for quasi-geostrophic turbulence parametrization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022ms003124",
+   "title": "A Posteriori Learning for Quasi\u2010Geostrophic Turbulence Parametrization",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 54
+  }
+ },
+ "Stable a posteriori LES of 2D turbulence using convolutional neural networks: Backscattering analysis and generalization to higher Re via transfer learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.31223/x5f61w",
+   "title": "Stable a posteriori LES of 2D turbulence using convolutional neural networks: Backscattering analysis and generalization to higher Re via transfer learning",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 5
+  }
+ },
+ "Subgrid modelling for two-dimensional turbulence using neural networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1017/jfm.2018.770",
+   "title": "Subgrid modelling for two-dimensional turbulence using neural networks",
+   "type": "journal-article",
+   "venue": "Journal of Fluid Mechanics",
+   "cites": 307
+  }
+ },
+ "Machine Learning for Stochastic Parameterization: Generative Adversarial Networks in the Lorenz '96 Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019ms001896",
+   "title": "Machine Learning for Stochastic Parameterization: Generative Adversarial Networks in the Lorenz '96 Model",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 123
+  }
+ },
+ "Non-Linear Dimensionality Reduction With a Variational Encoder Decoder to Understand Convective Processes in Climate Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022ms003130",
+   "title": "Non\u2010Linear Dimensionality Reduction With a Variational Encoder Decoder to Understand Convective Processes in Climate Models",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 32
+  }
+ },
+ "A Moist Physics Parameterization Based on Deep Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002076",
+   "title": "A Moist Physics Parameterization Based on Deep Learning",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 107
+  }
+ },
+ "Training Physics-Based Machine-Learning Parameterizations With Gradient-Free Ensemble Kalman Methods": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10510937.2",
+   "title": "Training physics-based machine-learning parameterizations with gradient-free ensemble Kalman methods",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Implicit learning of convective organization explains precipitation stochasticity": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10512517.1",
+   "title": "Implicit learning of convective organization explains precipitation stochasticity",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 5
+  }
+ },
+ "Stable Machine-Learning Parameterization of Subgrid Processes with Real Geography and Full-physics Emulation": {
+  "crossref": {
+   "score": 0.676,
+   "doi": "10.1038/s41467-020-17142-3",
+   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 180
+  },
+  "arxiv": {
+   "score": 0.676,
+   "id": "2001.03151",
+   "title": "Stable machine-learning parameterization of subgrid processes for climate modeling at a range of resolutions"
+  }
+ },
+ "Using Machine Learning at scale in numerical simulations with SmartSim: An application to ocean climate modeling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.jocs.2022.101707",
+   "title": "Using Machine Learning at scale in numerical simulations with SmartSim: An application to ocean climate modeling",
+   "type": "journal-article",
+   "venue": "Journal of Computational Science",
+   "cites": 74
+  }
+ },
+ "DeepSD: Generating High Resolution Climate Change Projections through Single Image Super-Resolution": {
+  "crossref": {
+   "score": 0.871,
+   "doi": "10.24963/ijcai.2018/759",
+   "title": "Generating High Resolution Climate Change Projections through Single Image Super-Resolution: An Abridged Version",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence",
+   "cites": 59
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1703.03126",
+   "title": "DeepSD: Generating High Resolution Climate Change Projections through Single Image Super-Resolution"
+  }
+ },
+ "Intercomparison of machine learning methods for statistical downscaling: the case of daily and extreme precipitation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1007/s00704-018-2613-3",
+   "title": "Intercomparison of machine learning methods for statistical downscaling: the case of daily and extreme precipitation",
+   "type": "journal-article",
+   "venue": "Theoretical and Applied Climatology",
+   "cites": 160
+  }
+ },
+ "Configuration and intercomparison of deep learning neural models for statistical downscaling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2019-278",
+   "title": "Configuration and Intercomparison of Deep Learning Neural Models for Statistical Downscaling",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 8
+  }
+ },
+ "Stochastic Super-Resolution for Downscaling Time-Evolving Atmospheric Fields With a Generative Adversarial Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/tgrs.2020.3032790",
+   "title": "Stochastic Super-Resolution for Downscaling Time-Evolving Atmospheric Fields With a Generative Adversarial Network",
+   "type": "journal-article",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "cites": 151
+  }
+ },
+ "Adversarial super-resolution of climatological wind and solar data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.1918964117",
+   "title": "Adversarial super-resolution of climatological wind and solar data",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 220
+  }
+ },
+ "A Generative Deep Learning Approach to Stochastic Downscaling of Precipitation Forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2022ms003120",
+   "title": "A Generative Deep Learning Approach to Stochastic Downscaling of Precipitation Forecasts",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 159
+  }
+ },
+ "Residual corrective diffusion modeling for km-scale atmospheric downscaling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s43247-025-02042-5",
+   "title": "Residual corrective diffusion modeling for km-scale atmospheric downscaling",
+   "type": "journal-article",
+   "venue": "Communications Earth &amp; Environment",
+   "cites": 102
+  }
+ },
+ "Regional climate model emulator based on deep learning: concept and first evaluation of a novel hybrid downscaling approach": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.21203/rs.3.rs-725819/v1",
+   "title": "Regional Climate Model Emulator based on Deep Learning: Concept and First Evaluation of a Novel Hybrid Downscaling Approach",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "Machine learning emulation of precipitation from km-scale regional climate simulations using a diffusion model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/ems2025-71",
+   "title": "Machine Learning Emulation of Precipitation from km-scale Regional Climate Simulations using a Diffusion Model",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 9
+  }
+ },
+ "Debias Coarsely, Sample Conditionally: Statistical Downscaling through Optimal Transport and Probabilistic Diffusion Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-2069",
+   "title": "Debias Coarsely, Sample Conditionally: Statistical Downscaling through Optimal Transport and Probabilistic Diffusion Models",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 7
+  }
+ },
+ "Dynamical-generative downscaling of climate model ensembles": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.2420288122",
+   "title": "Dynamical-generative downscaling of climate model ensembles",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 60
+  }
+ },
+ "Hard-Constrained Deep Learning for Climate Downscaling": {
+  "crossref": {
+   "score": 0.705,
+   "doi": "10.5194/egusphere-egu25-7599",
+   "title": "Prior knowledge-constrained deep learning for probabilistic precipitation downscaling",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2208.05424",
+   "title": "Hard-Constrained Deep Learning for Climate Downscaling"
+  }
+ },
+ "Physically constrained generative adversarial networks for improving precipitation fields from Earth system models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s42256-022-00540-1",
+   "title": "Physically constrained generative adversarial networks for improving precipitation fields from Earth system models",
+   "type": "journal-article",
+   "venue": "Nature Machine Intelligence",
+   "cites": 79
+  }
+ },
+ "High-resolution downscaling with interpretable deep learning: Rainfall extremes over New Zealand": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.wace.2022.100525",
+   "title": "High-resolution downscaling with interpretable deep learning: Rainfall extremes over New Zealand",
+   "type": "journal-article",
+   "venue": "Weather and Climate Extremes",
+   "cites": 81
+  }
+ },
+ "Deep Learning for Daily Precipitation and Temperature Downscaling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020wr029308",
+   "title": "Deep Learning for Daily Precipitation and Temperature Downscaling",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 200
+  }
+ },
+ "ClimAlign: Unsupervised statistical downscaling of climate variables via normalizing flows": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1145/3429309.3429318",
+   "title": "ClimAlign: Unsupervised statistical downscaling of climate variables via normalizing flows",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the 10th International Conference on Climate Informatics",
+   "cites": 29
+  }
+ },
+ "A comparative study of convolutional neural network models for wind field downscaling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/met.1961",
+   "title": "A comparative study of convolutional neural network models for wind field downscaling",
+   "type": "journal-article",
+   "venue": "Meteorological Applications",
+   "cites": 116
+  }
+ },
+ "Deep-Learning-Based Gridded Downscaling of Surface Meteorological Variables in Complex Terrain. Part I: Daily Maximum and Minimum 2-m Temperature": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jamc-d-20-0057.1",
+   "title": "Deep-Learning-Based Gridded Downscaling of Surface Meteorological Variables in Complex Terrain. Part I: Daily Maximum and Minimum 2-m Temperature",
+   "type": "journal-article",
+   "venue": "Journal of Applied Meteorology and Climatology",
+   "cites": 88
+  }
+ },
+ "On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1007/s00382-021-05847-0",
+   "title": "On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections",
+   "type": "journal-article",
+   "venue": "Climate Dynamics",
+   "cites": 58
+  }
+ },
+ "Precipitation Downscaling with Spatiotemporal Video Diffusion": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/079017-1795",
+   "title": "Precipitation Downscaling with Spatiotemporal Video Diffusion",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 2
+  }
+ },
+ "Combining data assimilation and machine learning to emulate a dynamical model from sparse and noisy observations: A case study with the Lorenz 96 model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2019-136",
+   "title": "Combining data assimilation and machine learning to emulate a dynamical model from sparse and noisy observations: a case study with the Lorenz 96 model",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 26
+  }
+ },
+ "Combining data assimilation and machine learning to infer unresolved scale parametrization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0086",
+   "title": "Combining data assimilation and machine learning to infer unresolved scale parametrization",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 135
+  }
+ },
+ "Learning earth system models from observations: machine learning or data assimilation?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rsta.2020.0089",
+   "title": "Learning earth system models from observations: machine learning or data assimilation?",
+   "type": "journal-article",
+   "venue": "Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 153
+  }
+ },
+ "Bayesian inference of chaotic dynamics by merging data assimilation, machine learning and expectation-maximization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3934/fods.2020004",
+   "title": "Bayesian inference of chaotic dynamics by merging data assimilation, machine learning and expectation-maximization",
+   "type": "journal-article",
+   "venue": "Foundations of Data Science",
+   "cites": 113
+  }
+ },
+ "DiffDA: a Diffusion model for weather-scale Data Assimilation": {
+  "crossref": {
+   "score": 0.431,
+   "doi": "10.1175/mwr-d-23-0100.1",
+   "title": "Assimilation of Satellite Lightning Data in a Storm-Scale Numerical Weather Prediction System Using a 3D-EnVar Data Assimilation Scheme",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 3
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2401.05932",
+   "title": "DiffDA: a Diffusion Model for Weather-scale Data Assimilation"
+  }
+ },
+ "FengWu-4DVar: Coupling the Data-driven Weather Forecasting Model with 4D Variational Assimilation": {
+  "crossref": {
+   "score": 0.927,
+   "doi": "10.5194/egusphere-egu24-2857",
+   "title": "Coupling the Data-driven Weather Forecasting Model with 4D Variational Assimilation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Generative Data Assimilation of Sparse Weather Station Observations at Kilometer Scales": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2024ms004505",
+   "title": "Generative Data Assimilation of Sparse Weather Station Observations at Kilometer Scales",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 14
+  }
+ },
+ "Data driven weather forecasts trained and initialised directly from observations": {
+  "crossref": {
+   "score": 0.713,
+   "doi": "10.5194/egusphere-egu26-6436",
+   "title": "End-to-end forecast of the Arctic sea ice initialised directly from observations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2407.15586",
+   "title": "Data driven weather forecasts trained and initialised directly from observations"
+  }
+ },
+ "Score-based Data Assimilation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-1763",
+   "title": "Score-based Data Assimilation",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 20
+  }
+ },
+ "Building Tangent-Linear and Adjoint Models for Data Assimilation With Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10506310.1",
+   "title": "Building tangent-linear and adjoint models for data assimilation with neural networks",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 4
+  }
+ },
+ "Integrating Recurrent Neural Networks With Data Assimilation for Scalable Data-Driven State Estimation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10508080.1",
+   "title": "Integrating recurrent neural networks with data assimilation for scalable data-driven state estimation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "Variational Data Assimilation with a Learned Inverse Observation Operator": {
+  "crossref": {
+   "score": 0.531,
+   "doi": "10.1016/b978-0-32-391720-9.00022-x",
+   "title": "Observation Space Variational Data Assimilation Methods",
+   "type": "book-chapter",
+   "venue": "Data Assimilation for the Geosciences",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2102.11192",
+   "title": "Variational Data Assimilation with a Learned Inverse Observation Operator"
+  }
+ },
+ "Deep Data Assimilation: Integrating Deep Learning with Data Assimilation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3390/app11031114",
+   "title": "Deep Data Assimilation: Integrating Deep Learning with Data Assimilation",
+   "type": "journal-article",
+   "venue": "Applied Sciences",
+   "cites": 136
+  }
+ },
+ "Learning Variational Data Assimilation Models and Solvers": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2021ms002572",
+   "title": "Learning Variational Data Assimilation Models and Solvers",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 91
+  }
+ },
+ "Supervised learning from noisy observations: Combining machine-learning techniques with data assimilation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu21-3560",
+   "title": "Supervised learning from noisy observations: Combining machine-learning techniques with data assimilation",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "FuXi-DA: a generalized deep learning data assimilation framework for assimilating satellite observations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41612-025-01039-3",
+   "title": "FuXi-DA: a generalized deep learning data assimilation framework for assimilating satellite observations",
+   "type": "journal-article",
+   "venue": "npj Climate and Atmospheric Science",
+   "cites": 31
+  }
+ },
+ "A Deep Neural Network Modeling Framework to Reduce Bias in Satellite Precipitation Products": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jhm-d-15-0075.1",
+   "title": "A Deep Neural Network Modeling Framework to Reduce Bias in Satellite Precipitation Products",
+   "type": "journal-article",
+   "venue": "Journal of Hydrometeorology",
+   "cites": 130
+  }
+ },
+ "PERSIANN-CNN: Precipitation Estimation from Remotely Sensed Information Using Artificial Neural Networks\u2013Convolutional Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jhm-d-19-0110.1",
+   "title": "PERSIANN-CNN: Precipitation Estimation from Remotely Sensed Information Using Artificial Neural Networks\u2013Convolutional Neural Networks",
+   "type": "journal-article",
+   "venue": "Journal of Hydrometeorology",
+   "cites": 176
+  }
+ },
+ "GPROF-NN: a neural-network-based implementation of the Goddard Profiling Algorithm": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/amt-2022-15",
+   "title": "GPROF-NN: A neural network based implementation of the Goddard Profiling Algorithm",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Development and Interpretation of a Neural-Network-Based Synthetic Radar Reflectivity Estimator Using GOES-R Satellite Observations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jamc-d-20-0084.1",
+   "title": "Development and Interpretation of a Neural-Network-Based Synthetic Radar Reflectivity Estimator Using GOES-R Satellite Observations",
+   "type": "journal-article",
+   "venue": "Journal of Applied Meteorology and Climatology",
+   "cites": 53
+  }
+ },
+ "Using Deep Learning to Emulate and Accelerate a Radiative Transfer Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/jtech-d-21-0007.1",
+   "title": "Using deep learning to emulate and accelerate a radiative-transfer model",
+   "type": "journal-article",
+   "venue": "Journal of Atmospheric and Oceanic Technology",
+   "cites": 25
+  }
+ },
+ "Data-Driven Cloud Clustering via a Rotationally Invariant Autoencoder": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/tgrs.2021.3098008",
+   "title": "Data-Driven Cloud Clustering via a Rotationally Invariant Autoencoder",
+   "type": "journal-article",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "cites": 18
+  }
+ },
+ "Combining Crowdsourcing and Deep Learning to Explore the Mesoscale Organization of Shallow Convection": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-19-0324.1",
+   "title": "Combining Crowdsourcing and Deep Learning to Explore the Mesoscale Organization of Shallow Convection",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 47
+  }
+ },
+ "Discovering the Importance of Mesoscale Cloud Organization Through Unsupervised Classification": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019gl085190",
+   "title": "Discovering the Importance of Mesoscale Cloud Organization Through Unsupervised Classification",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 47
+  }
+ },
+ "Improving Precipitation Estimation Using Convolutional Neural Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018wr024090",
+   "title": "Improving Precipitation Estimation Using Convolutional Neural Network",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 233
+  }
+ },
+ "Application of Deep Convolutional Neural Networks for Detecting Extreme Weather in Climate Datasets": {
+  "crossref": {
+   "score": 0.711,
+   "doi": "10.1109/iccea62105.2024.10604271",
+   "title": "Deep Convolutional Neural Networks for Detecting Solar Cell Defects",
+   "type": "proceedings-article",
+   "venue": "2024 5th International Conference on Computer Engineering and Application (ICCEA)",
+   "cites": 1
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1605.01156",
+   "title": "Application of Deep Convolutional Neural Networks for Detecting Extreme Weather in Climate Datasets"
+  }
+ },
+ "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events": {
+  "crossref": {
+   "score": 0.488,
+   "doi": "10.1017/cbo9781107775541.006",
+   "title": "Rossby wave breaking: climatology, interaction with low-frequency climate variability, and links to extreme weather events",
+   "type": "book-chapter",
+   "venue": "Dynamics and Predictability of Large-Scale, High-Impact Weather and Climate Events",
+   "cites": 12
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "1612.02095",
+   "title": "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events"
+  }
+ },
+ "ClimateNet: an expert-labeled open dataset and Deep Learning architecture for enabling high-precision analyses of extreme weather": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-14-107-2021",
+   "title": "ClimateNet: an expert-labeled open dataset and deep learning architecture for enabling high-precision analyses of extreme weather",
+   "type": "journal-article",
+   "venue": "Geoscientific Model Development",
+   "cites": 70
+  }
+ },
+ "Exascale Deep Learning for Climate Analytics": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/sc.2018.00054",
+   "title": "Exascale Deep Learning for Climate Analytics",
+   "type": "proceedings-article",
+   "venue": "SC18: International Conference for High Performance Computing, Networking, Storage and Analysis",
+   "cites": 207
+  }
+ },
+ "Deep Learning for Spatially Explicit Prediction of Synoptic-Scale Fronts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/waf-d-18-0183.1",
+   "title": "Deep Learning for Spatially Explicit Prediction of Synoptic-Scale Fronts",
+   "type": "journal-article",
+   "venue": "Weather and Forecasting",
+   "cites": 71
+  }
+ },
+ "Interpretable Deep Learning for Spatial Analysis of Severe Hailstorms": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-18-0316.1",
+   "title": "Interpretable Deep Learning for Spatial Analysis of Severe Hailstorms",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 133
+  }
+ },
+ "Tropical Cyclone Track Forecasting Using Fused Deep Learning From Aligned Reanalysis Data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3389/fdata.2020.00001",
+   "title": "Tropical Cyclone Track Forecasting Using Fused Deep Learning From Aligned Reanalysis Data",
+   "type": "journal-article",
+   "venue": "Frontiers in Big Data",
+   "cites": 112
+  }
+ },
+ "Tropical Cyclone Intensity Estimation Using a Deep Convolutional Neural Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/tip.2017.2766358",
+   "title": "Tropical Cyclone Intensity Estimation Using a Deep Convolutional Neural Network",
+   "type": "journal-article",
+   "venue": "IEEE Transactions on Image Processing",
+   "cites": 229
+  }
+ },
+ "Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-18-0391.1",
+   "title": "Using Deep Learning to Estimate Tropical Cyclone Intensity from Satellite Passive Microwave Imagery",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 135
+  }
+ },
+ "Deep Learning-Based Extreme Heatwave Forecast": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3389/fclim.2022.789641",
+   "title": "Deep Learning-Based Extreme Heatwave Forecast",
+   "type": "journal-article",
+   "venue": "Frontiers in Climate",
+   "cites": 69
+  }
+ },
+ "Probabilistic forecasts of extreme heatwaves using convolutional neural networks in a regime of lack of data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1103/physrevfluids.8.040501",
+   "title": "Probabilistic forecasts of extreme heatwaves using convolutional neural networks in a regime of lack of data",
+   "type": "journal-article",
+   "venue": "Physical Review Fluids",
+   "cites": 49
+  }
+ },
+ "Global Extreme Heat Forecasting Using Neural Weather Models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-22-0035.1",
+   "title": "Global Extreme Heat Forecasting Using Neural Weather Models",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 25
+  }
+ },
+ "Analog Forecasting of Extreme-Causing Weather Patterns Using Deep Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.31223/osf.io/epa9m",
+   "title": "Analog forecasting of extreme-causing weather patterns using deep learning",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Prediction of severe thunderstorm events with ensemble deep learning and radar data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.21203/rs.3.rs-1928945/v1",
+   "title": "Prediction of severe thunderstorm events with ensemble deep learning and radar data",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Deep Learning on Three-Dimensional Multiscale Data for Next-Hour Tornado Prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-19-0372.1",
+   "title": "Deep Learning on Three-Dimensional Multiscale Data for Next-Hour Tornado Prediction",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 58
+  }
+ },
+ "Money Doesn't Grow on Trees, but Forecasts Do: Forecasting Extreme Precipitation with Random Forests": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-17-0250.1",
+   "title": "Money Doesn't Grow on Trees, but Forecasts Do: Forecasting Extreme Precipitation with Random Forests",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 93
+  }
+ },
+ "Forecasting Severe Weather with Random Forests": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/mwr-d-19-0344.1",
+   "title": "Forecasting Severe Weather with Random Forests",
+   "type": "journal-article",
+   "venue": "Monthly Weather Review",
+   "cites": 61
+  }
+ },
+ "A Feed Forward Neural Network Based on Model Output Statistics for Short-Term Hurricane Intensity Prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/waf-d-18-0173.1",
+   "title": "A Feed Forward Neural Network Based on Model Output Statistics for Short-Term Hurricane Intensity Prediction",
+   "type": "journal-article",
+   "venue": "Weather and Forecasting",
+   "cites": 47
+  }
+ },
+ "Hurricane Forecasting: A Novel Multimodal Machine Learning Framework": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/waf-d-21-0091.1",
+   "title": "Hurricane Forecasting: A Novel Multimodal Machine Learning Framework",
+   "type": "journal-article",
+   "venue": "Weather and Forecasting",
+   "cites": 64
+  }
+ },
+ "Can AI weather models predict out-of-distribution gray swan tropical cyclones?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.2420914122",
+   "title": "Can AI weather models predict out-of-distribution gray swan tropical cyclones?",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 52
+  }
+ },
+ "Making the Black Box More Transparent: Understanding the Physical Implications of Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-18-0195.1",
+   "title": "Making the Black Box More Transparent: Understanding the Physical Implications of Machine Learning",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 397
+  }
+ },
+ "Physically Interpretable Neural Networks for the Geosciences: Applications to Earth System Variability": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019ms002002",
+   "title": "Physically Interpretable Neural Networks for the Geosciences: Applications to Earth System Variability",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 242
+  }
+ },
+ "Investigating the Fidelity of Explainable Artificial Intelligence Methods for Applications of Convolutional Neural Networks in Geoscience": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/aies-d-22-0012.1",
+   "title": "Investigating the Fidelity of Explainable Artificial Intelligence Methods for Applications of Convolutional Neural Networks in Geoscience",
+   "type": "journal-article",
+   "venue": "Artificial Intelligence for the Earth Systems",
+   "cites": 49
+  }
+ },
+ "Neural network attribution methods for problems in geoscience: A novel synthetic benchmark dataset": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1017/eds.2022.7",
+   "title": "Neural network attribution methods for problems in geoscience: A novel synthetic benchmark dataset",
+   "type": "journal-article",
+   "venue": "Environmental Data Science",
+   "cites": 66
+  }
+ },
+ "Viewing Forced Climate Patterns Through an AI Lens": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019gl084944",
+   "title": "Viewing Forced Climate Patterns Through an AI Lens",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 108
+  }
+ },
+ "Indicator Patterns of Forced Change Learned by an Artificial Neural Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002195",
+   "title": "Indicator Patterns of Forced Change Learned by an Artificial Neural Network",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 74
+  }
+ },
+ "Evaluation, Tuning, and Interpretation of Neural Networks for Working with Images in Meteorological Applications": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1175/bams-d-20-0097.1",
+   "title": "Evaluation, Tuning, and Interpretation of Neural Networks for Working with Images in Meteorological Applications",
+   "type": "journal-article",
+   "venue": "Bulletin of the American Meteorological Society",
+   "cites": 68
+  }
+ },
+ "Inferring causation from time series in Earth system sciences": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-019-10105-3",
+   "title": "Inferring causation from time series in Earth system sciences",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 872
+  }
+ },
+ "Detecting and quantifying causal associations in large nonlinear time series datasets": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1126/sciadv.aau4996",
+   "title": "Detecting and quantifying causal associations in large nonlinear time series datasets",
+   "type": "journal-article",
+   "venue": "Science Advances",
+   "cites": 996
+  }
+ },
+ "Discovering governing equations from data by sparse identification of nonlinear dynamical systems": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.1517384113",
+   "title": "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 4602
+  }
+ },
+ "Data-Driven Equation Discovery of Ocean Mesoscale Closures": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10503535.1",
+   "title": "Data-driven Equation Discovery of Ocean Mesoscale Closures",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Learning Closed-Form Equations for Subgrid-Scale Closures From High-Fidelity Data: Promises and Challenges": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.22541/essoar.168677212.21341231/v1",
+   "title": "Learning Closed-form Equations for Subgrid-scale Closures from High-fidelity Data: Promises and Challenges",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Creating and Evaluating Uncertainty Estimates with Neural Networks for Environmental-Science Applications": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10512538.1",
+   "title": "Creating and evaluating uncertainty estimates with neural networks for environmental-science applications",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Using Machine Learning to Analyze Physical Causes of Climate Change: A Case Study of U.S. Midwest Extreme Precipitation": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2021gl093787",
+   "title": "Using Machine Learning to Analyze Physical Causes of Climate Change: A Case Study of U.S. Midwest Extreme Precipitation",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 123
+  }
+ },
+ "Applications of Deep Learning to Ocean Data Inference and Subgrid Parameterization": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018ms001472",
+   "title": "Applications of Deep Learning to Ocean Data Inference and Subgrid Parameterization",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 337
+  }
+ },
+ "Stochastic-Deep Learning Parameterization of Ocean Momentum Forcing": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10506419.1",
+   "title": "Stochastic Deep Learning parameterization of Ocean Momentum Forcing",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 3
+  }
+ },
+ "Benchmarking of Machine Learning Ocean Subgrid Parameterizations in an Idealized Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10511742.1",
+   "title": "Benchmarking of machine learning ocean subgrid parameterizations in an idealized model",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Generative Data-Driven Approaches for Stochastic Subgrid Parameterizations in an Idealized Ocean Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2023ms003681",
+   "title": "Generative Data\u2010Driven Approaches for Stochastic Subgrid Parameterizations in an Idealized Ocean Model",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 33
+  }
+ },
+ "Implementation and Evaluation of a Machine Learned Mesoscale Eddy Parameterization Into a Numerical Ocean Circulation Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2023ms003697",
+   "title": "Implementation and Evaluation of a Machine Learned Mesoscale Eddy Parameterization Into a Numerical Ocean Circulation Model",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 30
+  }
+ },
+ "Samudra: An AI Global Ocean Emulator for Climate": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2024gl114318",
+   "title": "Samudra: An AI Global Ocean Emulator for Climate",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 25
+  }
+ },
+ "AI-GOMS: Large AI-Driven Global Ocean Modeling System": {
+  "crossref": {
+   "score": 0.496,
+   "doi": "10.5220/0014794200004938",
+   "title": "Leisure Advisor: AI-Driven Personalized Activity Recommendation System",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the 1st Global Challenges and Solutions of AI Techniques for Sustainable Development",
+   "cites": 0
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2308.03152",
+   "title": "AI-GOMS: Large AI-Driven Global Ocean Modeling System"
+  }
+ },
+ "XiHe: A Data-Driven Model for Global Ocean Eddy-Resolving Forecasting": {
+  "crossref": {
+   "score": 0.603,
+   "doi": "10.5194/egusphere-egu26-16579",
+   "title": "Data-driven global ocean model resolving atmospherically forced ocean dynamics",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2402.02995",
+   "title": "XiHe: A Data-Driven Model for Global Ocean Eddy-Resolving Forecasting"
+  }
+ },
+ "OceanNet: a principled neural operator-based digital twin for regional oceans": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41598-024-72145-0",
+   "title": "OceanNet: a principled neural operator-based digital twin for regional oceans",
+   "type": "journal-article",
+   "venue": "Scientific Reports",
+   "cites": 32
+  }
+ },
+ "Forecasting the eddying ocean with a deep neural network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-025-57389-2",
+   "title": "Forecasting the eddying ocean with a deep neural network",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 59
+  }
+ },
+ "EddyNet: A Deep Neural Network For Pixel-Wise Classification of Oceanic Eddies": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/igarss.2018.8518411",
+   "title": "EddyNet: A Deep Neural Network For Pixel-Wise Classification of Oceanic Eddies",
+   "type": "proceedings-article",
+   "venue": "IGARSS 2018 - 2018 IEEE International Geoscience and Remote Sensing Symposium",
+   "cites": 132
+  }
+ },
+ "A Deep Learning Approach to Spatiotemporal Sea Surface Height Interpolation and Estimation of Deep Currents in Geostrophic Ocean Turbulence": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019ms001965",
+   "title": "A Deep Learning Approach to Spatiotemporal Sea Surface Height Interpolation and Estimation of Deep Currents in Geostrophic Ocean Turbulence",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 65
+  }
+ },
+ "Unsupervised Learning Reveals Geography of Global Ocean Dynamical Regions": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018ea000519",
+   "title": "Unsupervised Learning Reveals Geography of Global Ocean Dynamical Regions",
+   "type": "journal-article",
+   "venue": "Earth and Space Science",
+   "cites": 48
+  }
+ },
+ "Revealing the Impact of Global Heating on North Atlantic Circulation Using Transparent Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10506146.2",
+   "title": "Revealing the impact of global heating on North Atlantic circulation using transparent machine learning",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Improved Quantification of Ocean Carbon Uptake by Using Machine Learning to Merge Global Models and pCO2 Data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10507164.1",
+   "title": "Improved quantification of ocean carbon uptake by using machine learning to merge global models and pCO2 data",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 2
+  }
+ },
+ "A neural network-based estimate of the seasonal to inter-annual variability of the Atlantic Ocean carbon sink": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/bgd-10-8799-2013",
+   "title": "A neural network-based estimate of the seasonal to inter-annual variability of the Atlantic Ocean carbon sink",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 4
+  }
+ },
+ "A Deep Learning Network to Retrieve Ocean Hydrographic Profiles from Combined Satellite and In Situ Measurements": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/essoar.10503703.1",
+   "title": "A Deep Learning Network to Retrieve Ocean Hydrographic Profiles from Combined Satellite and In Situ Measurements",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 10
+  }
+ },
+ "A CFCC-LSTM Model for Sea Surface Temperature Prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/lgrs.2017.2780843",
+   "title": "A CFCC-LSTM Model for Sea Surface Temperature Prediction",
+   "type": "journal-article",
+   "venue": "IEEE Geoscience and Remote Sensing Letters",
+   "cites": 260
+  }
+ },
+ "Deep learning for ocean remote sensing: an application of convolutional neural networks for super-resolution on satellite-derived SST data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/prrs.2016.7867019",
+   "title": "Deep learning for ocean remote sensing: an application of convolutional neural networks for super-resolution on satellite-derived SST data",
+   "type": "proceedings-article",
+   "venue": "2016 9th IAPR Workshop on Pattern Recogniton in Remote Sensing (PRRS)",
+   "cites": 81
+  }
+ },
+ "Seasonal Arctic sea ice forecasting with probabilistic deep learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.31223/x5430p",
+   "title": "Seasonal Arctic sea ice forecasting with probabilistic deep learning",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Deep learning subgrid-scale parametrisations for short-term forecasting of sea-ice dynamics with a Maxwell elasto-brittle rheology": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/tc-17-2965-2023",
+   "title": "Deep learning subgrid-scale parametrisations for short-term forecasting of sea-ice dynamics with a Maxwell  elasto-brittle rheology",
+   "type": "journal-article",
+   "venue": "The Cryosphere",
+   "cites": 11
+  }
+ },
+ "Deep Learning of Systematic Sea Ice Model Errors From Data Assimilation Increments": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-egu23-10351",
+   "title": "Deep learning of systematic sea ice model errors from data assimilation increments",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Prediction of monthly Arctic sea ice concentrations using satellite and reanalysis data based on convolutional neural networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/tc-14-1083-2020",
+   "title": "Prediction of monthly Arctic sea ice concentrations using satellite and reanalysis data based on convolutional neural networks",
+   "type": "journal-article",
+   "venue": "The Cryosphere",
+   "cites": 104
+  }
+ },
+ "Data-driven surrogate modeling of high-resolution sea-ice thickness in the Arctic": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/egusphere-2023-1384",
+   "title": "Data-driven surrogate modeling of high-resolution sea-ice thickness in the Arctic",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Application of random forest regression to the calculation of gas-phase chemistry within the GEOS-Chem chemistry model v10": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/gmd-2018-229",
+   "title": "Application of random forest regression to the calculation of\ngas-phase chemistry within the GEOS-Chem chemistry model v10",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Toward Stable, General Machine-Learned Models of the Atmospheric Chemical System": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.31223/osf.io/8vy6j",
+   "title": "Toward stable, general machine-learned models of the atmospheric chemical system",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 1
+  }
+ },
+ "Random forest meteorological normalisation models for Swiss PM10 trend analysis": {
+  "crossref": {
+   "score": 0.946,
+   "doi": "10.5194/acp-18-6223-2018",
+   "title": "Random forest meteorological normalisation models for Swiss PM\n                    <sub>10</sub>\n                    trend analysis",
+   "type": "journal-article",
+   "venue": "Atmospheric Chemistry and Physics",
+   "cites": 419
+  }
+ },
+ "An ensemble-based model of PM2.5 concentration across the contiguous United States with high spatiotemporal resolution": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.envint.2019.104909",
+   "title": "An ensemble-based model of PM2.5 concentration across the contiguous United States with high spatiotemporal resolution",
+   "type": "journal-article",
+   "venue": "Environment International",
+   "cites": 683
+  }
+ },
+ "Improved 1 km resolution PM2.5 estimates across China using enhanced space\u2013time extremely randomized trees": {
+  "crossref": {
+   "score": 0.959,
+   "doi": "10.5194/acp-20-3273-2020",
+   "title": "Improved 1\u2009km resolution PM\n                    <sub>2.5</sub>\n                    estimates across China using enhanced space\u2013time extremely randomized trees",
+   "type": "journal-article",
+   "venue": "Atmospheric Chemistry and Physics",
+   "cites": 680
+  }
+ },
+ "Physics-informed learning of aerosol microphysics": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1017/eds.2022.22",
+   "title": "Physics-informed learning of aerosol microphysics",
+   "type": "journal-article",
+   "venue": "Environmental Data Science",
+   "cites": 20
+  }
+ },
+ "WeatherBench: A benchmark data set for data-driven weather forecasting": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020ms002203",
+   "title": "WeatherBench: A Benchmark Data Set for Data\u2010Driven Weather Forecasting",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 541
+  }
+ },
+ "WeatherBench 2: A benchmark for the next generation of data-driven global weather models": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2023ms004019",
+   "title": "WeatherBench 2: A Benchmark for the Next Generation of Data\u2010Driven Global Weather Models",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 233
+  }
+ },
+ "ClimateBench v1.0: A Benchmark for Data-Driven Climate Projections": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2021ms002954",
+   "title": "ClimateBench v1.0: A Benchmark for Data\u2010Driven Climate Projections",
+   "type": "journal-article",
+   "venue": "Journal of Advances in Modeling Earth Systems",
+   "cites": 80
+  }
+ },
+ "ClimateSet: A Large-Scale Climate Model Dataset for Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-0952",
+   "title": "ClimateSet: A Large-Scale Climate Model Dataset for Machine Learning",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 7
+  }
+ },
+ "ChaosBench: A Multi-Channel, Physics-Based Benchmark for Subseasonal-to-Seasonal Climate Prediction": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/079017-1386",
+   "title": "ChaosBench: A Multi-Channel, Physics-Based Benchmark for Subseasonal-to-Seasonal Climate Prediction",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 37",
+   "cites": 7
+  }
+ },
+ "SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-0349",
+   "title": "SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 5
+  }
+ },
+ "SEVIR: A Storm Event Imagery Dataset for Deep Learning Applications in Radar and Satellite Meteorology": {
+  "crossref": {
+   "score": 0.514,
+   "doi": "10.1109/jurse60372.2025.11076062",
+   "title": "Resolution Matters: Deep Learning Models for Slum Segmentation in Satellite Imagery",
+   "type": "proceedings-article",
+   "venue": "2025 Joint Urban Remote Sensing Event (JURSE)",
+   "cites": 2
+  },
+  "arxiv": null
+ },
+ "The ERA5 global reanalysis": {
+  "crossref": {
+   "score": 0.374,
+   "doi": "10.5194/egusphere-egu26-15265",
+   "title": "Is ERA5 Fit for Purpose? A Global Multi-Variable Evaluation of Reanalysis Strengths and Weaknesses",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  },
+  "arxiv": null
+ },
+ "Digital Typhoon: Long-term Satellite Image Dataset for the Spatio-Temporal Modeling of Tropical Cyclones": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/075280-1768",
+   "title": "Digital Typhoon: Long-term Satellite Image Dataset for the Spatio-Temporal Modeling of Tropical Cyclones",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 36",
+   "cites": 7
+  }
+ },
+ "RainBench: Towards Data-Driven Global Precipitation Forecasting from Satellite Imagery": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1609/aaai.v35i17.17749",
+   "title": "RainBench: Towards Data-Driven Global Precipitation Forecasting from Satellite Imagery",
+   "type": "journal-article",
+   "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+   "cites": 12
+  }
+ },
+ "EarthNet2021: A large-scale dataset and challenge for Earth surface forecasting as a guided video prediction task": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/cvprw53098.2021.00124",
+   "title": "EarthNet2021: A large-scale dataset and challenge for Earth surface forecasting as a guided video prediction task",
+   "type": "proceedings-article",
+   "venue": "2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+   "cites": 52
+  }
+ },
+ "ENS-10: A Dataset For Post-Processing Ensemble Weather Forecasts": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.52202/068431-1597",
+   "title": "ENS-10: A Dataset for Post-Processing Ensemble Weather Forecasts",
+   "type": "proceedings-article",
+   "venue": "Advances in Neural Information Processing Systems 35",
+   "cites": 3
+  }
+ },
+ "The EUPPBench postprocessing benchmark dataset v1.0": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/essd-2022-465",
+   "title": "The EUPPBench postprocessing benchmark dataset v1.0",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Model-Free Prediction of Large Spatiotemporally Chaotic Systems from Data: A Reservoir Computing Approach": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1103/physrevlett.120.024102",
+   "title": "Model-Free Prediction of Large Spatiotemporally Chaotic Systems from Data: A Reservoir Computing Approach",
+   "type": "journal-article",
+   "venue": "Physical Review Letters",
+   "cites": 1170
+  }
+ },
+ "Data-driven forecasting of high-dimensional chaotic systems with long short-term memory networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1098/rspa.2017.0844",
+   "title": "Data-driven forecasting of high-dimensional chaotic systems with long short-term memory networks",
+   "type": "journal-article",
+   "venue": "Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+   "cites": 377
+  }
+ },
+ "Data-driven predictions of a multiscale Lorenz 96 chaotic system using machine-learning methods: reservoir computing, artificial neural network, and long short-term memory network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/npg-27-373-2020",
+   "title": "Data-driven predictions of a multiscale Lorenz 96 chaotic system using machine-learning methods: reservoir computing, artificial neural network, and long short-term memory network",
+   "type": "journal-article",
+   "venue": "Nonlinear Processes in Geophysics",
+   "cites": 174
+  }
+ },
+ "Fourier Neural Operator for Parametric Partial Differential Equations": {
+  "crossref": {
+   "score": 0.91,
+   "doi": "10.2139/ssrn.5417024",
+   "title": "Graph-informed Neural Operator for Parametric Partial\u00a0Differential Equations",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 0
+  }
+ },
+ "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.jcp.2018.10.045",
+   "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+   "type": "journal-article",
+   "venue": "Journal of Computational Physics",
+   "cites": 20363
+  }
+ },
+ "Learning to Simulate Complex Physics with Graph Networks": {
+  "crossref": {
+   "score": 0.8,
+   "doi": "10.1145/3543507.3583858",
+   "title": "Learning to Simulate Crowd Trajectories with Graph Networks",
+   "type": "proceedings-article",
+   "venue": "Proceedings of the ACM Web Conference 2023",
+   "cites": 12
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2002.09405",
+   "title": "Learning to Simulate Complex Physics with Graph Networks"
+  }
+ },
+ "Learning Mesh-Based Simulation with Graph Networks": {
+  "crossref": {
+   "score": 0.626,
+   "doi": "10.1109/access.2025.3577098",
+   "title": "Accelerating Thermal Homann Flow Simulation With Mesh-Based Graph Neural Networks",
+   "type": "journal-article",
+   "venue": "IEEE Access",
+   "cites": 3
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2010.03409",
+   "title": "Learning Mesh-Based Simulation with Graph Networks"
+  }
+ },
+ "Machine learning\u2013accelerated computational fluid dynamics": {
+  "crossref": {
+   "score": 0.887,
+   "doi": "10.52843/cassyni.nn3m2c",
+   "title": "Machine Learning for Computational Fluid Dynamics",
+   "type": "posted-content",
+   "venue": "",
+   "cites": 17
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2102.01010",
+   "title": "Machine learning accelerated computational fluid dynamics"
+  }
+ },
+ "Learning data-driven discretizations for partial differential equations": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1073/pnas.1814058116",
+   "title": "Learning data-driven discretizations for partial differential equations",
+   "type": "journal-article",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "cites": 479
+  }
+ },
+ "The operational medium-range deterministic weather forecasting can be extended beyond a 10-day lead time": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s43247-025-02502-y",
+   "title": "The operational medium-range deterministic weather forecasting can be extended beyond a 10-day lead time",
+   "type": "journal-article",
+   "venue": "Communications Earth &amp; Environment",
+   "cites": 61
+  }
+ },
+ "SmaAt-UNet: Precipitation Nowcasting using a Small Attention-UNet Architecture": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.patrec.2021.01.036",
+   "title": "SmaAt-UNet: Precipitation nowcasting using a small attention-UNet architecture",
+   "type": "journal-article",
+   "venue": "Pattern Recognition Letters",
+   "cites": 466
+  }
+ },
+ "PredRNN: Recurrent Neural Networks for Predictive Learning using Spatiotemporal LSTMs": {
+  "crossref": {
+   "score": 0.713,
+   "doi": "10.1109/tpami.2022.3165153",
+   "title": "PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning",
+   "type": "journal-article",
+   "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+   "cites": 601
+  },
+  "arxiv": {
+   "score": 0.713,
+   "id": "2103.09504",
+   "title": "PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning"
+  }
+ },
+ "Hybrid Forecasting of Chaotic Processes: Using Machine Learning in Conjunction with a Knowledge-Based Model": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1063/1.5028373",
+   "title": "Hybrid forecasting of chaotic processes: Using machine learning in conjunction with a knowledge-based model",
+   "type": "journal-article",
+   "venue": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
+   "cites": 320
+  }
+ },
+ "Adaptive Fourier Neural Operators: Efficient Token Mixers for Transformers": {
+  "crossref": {
+   "score": 0.606,
+   "doi": "10.1109/iccv51070.2023.00556",
+   "title": "Adaptive Frequency Filters As Efficient Global Token Mixers",
+   "type": "proceedings-article",
+   "venue": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
+   "cites": 117
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2111.13587",
+   "title": "Adaptive Fourier Neural Operators: Efficient Token Mixers for Transformers"
+  }
+ },
+ "Deep Learning-Based Weather Prediction: A Survey": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.bdr.2020.100178",
+   "title": "Deep Learning-Based Weather Prediction: A Survey",
+   "type": "journal-article",
+   "venue": "Big Data Research",
+   "cites": 241
+  }
+ }
+}

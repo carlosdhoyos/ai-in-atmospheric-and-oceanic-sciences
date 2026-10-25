@@ -1,0 +1,363 @@
+<title>Atmosphere–Ocean AI Papers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A curated, searchable catalog of machine-learning research in atmospheric and oceanic sciences, with citation counts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a sticky instrument bar (search + filters) over a single reading column of paper records; a year histogram acts as the overview. */
+:root {
+  --bg: #f3f6f7;
+  --surface: #ffffff;
+  --ink: #102029;
+  --muted: #536772;
+  --line: #d5dee2;
+  --accent: #0a6e8a;
+  --accent-soft: #e0eff4;
+  --warm: #b4532a;
+  --bar: #9fc3d0;
+  --bar-on: #0a6e8a;
+  --chip: #e8eef0;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1519; --surface: #13212a; --ink: #e3ecef; --muted: #93a8b2; --line: #24363f;
+    --accent: #5cc3e0; --accent-soft: #163543; --warm: #e8875c; --bar: #2c5262; --bar-on: #5cc3e0; --chip: #1b2c35;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1519; --surface: #13212a; --ink: #e3ecef; --muted: #93a8b2; --line: #24363f;
+  --accent: #5cc3e0; --accent-soft: #163543; --warm: #e8875c; --bar: #2c5262; --bar-on: #5cc3e0; --chip: #1b2c35;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+header.masthead { padding-block: 40px 20px; display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); align-items: end; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+h1 { font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-size: clamp(30px, 5vw, 50px); line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 62ch; margin: 12px 0 0; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-variant-numeric: tabular-nums; }
+.stat b { display: block; font-family: var(--f-display); font-stretch: 112%; font-size: 26px; font-weight: 600; line-height: 1.1; }
+.stat span { font-size: 12px; color: var(--muted); }
+
+.hist { margin: 8px 0 0; }
+.hist svg { display: block; width: 100%; height: 86px; }
+.hist .cap { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
+.hist rect { cursor: pointer; }
+
+.controls { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 12px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row + .row { margin-top: 10px; }
+input[type="search"], select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; min-width: 0; }
+input[type="search"] { flex: 1 1 280px; }
+select { flex: 0 0 auto; }
+label.inline { font-size: 13px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 13px var(--f-body); border: 1px solid transparent; background: var(--chip); color: var(--ink); padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.chip .n { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-left: 4px; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.chip[aria-pressed="true"] .n { color: var(--accent-soft); }
+.btn { font: 500 13px var(--f-body); background: transparent; color: var(--accent); border: 1px solid var(--line); padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.summary { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+
+main { padding-block: 8px 60px; }
+.paper { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.cites { text-align: right; font-variant-numeric: tabular-nums; }
+.cites b { display: block; font-family: var(--f-display); font-stretch: 112%; font-weight: 600; font-size: 20px; line-height: 1.1; }
+.cites span { font-size: 11px; color: var(--muted); display: block; }
+.cites .meter { height: 3px; background: var(--chip); border-radius: 2px; margin-top: 6px; overflow: hidden; }
+.cites .meter i { display: block; height: 100%; background: var(--accent); }
+.paper h2 { font-family: var(--f-body); font-weight: 600; font-size: 16.5px; line-height: 1.35; margin: 0; text-wrap: pretty; }
+.paper h2 a { color: var(--ink); text-decoration: none; }
+.paper h2 a:hover { color: var(--accent); text-decoration: underline; }
+.authors { color: var(--muted); font-size: 13.5px; margin-top: 3px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 6px; font-size: 13px; }
+.venue { font-style: italic; }
+.kind { font: 500 11px var(--f-mono); letter-spacing: .04em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; border: 1px solid currentColor; }
+.kind.journal { color: var(--accent); }
+.kind.conference { color: var(--muted); }
+.kind.preprint { color: var(--warm); }
+.tag { font-size: 12px; background: var(--chip); padding: 1px 8px; border-radius: 999px; color: var(--muted); cursor: pointer; border: 0; font-family: inherit; }
+.links { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: 8px; }
+.links a, .links button { font: 500 13px var(--f-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: none; }
+.links a:hover, .links button:hover { text-decoration: underline; }
+.abstract { margin-top: 8px; font-size: 14px; color: var(--ink); max-width: 75ch; }
+.abstract[hidden] { display: none; }
+.empty { padding: 48px 0; color: var(--muted); text-align: center; }
+.toast { position: fixed; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 13px; z-index: 20; }
+dialog { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); width: min(760px, calc(100vw - 32px)); padding: 16px; }
+dialog textarea { width: 100%; height: 50vh; font: 12px/1.4 var(--f-mono); background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+dialog .row { justify-content: space-between; }
+footer { color: var(--muted); font-size: 13px; padding-block: 0 40px; }
+mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-radius: 2px; }
+@media (max-width: 720px) {
+  header.masthead { grid-template-columns: minmax(0, 1fr); padding-block: 24px 12px; }
+  .paper { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; }
+  .cites b { font-size: 17px; }
+  .summary { margin-left: 0; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Literature catalog · <span id="asof"></span></p>
+      <h1>AI in Atmospheric &amp; Oceanic Sciences</h1>
+      <p class="lede">Peer-reviewed papers and arXiv preprints on machine learning for weather, climate, ocean and sea ice. Citation counts come from Semantic Scholar and Crossref. Search titles, authors and abstracts, then filter by subfield, year or publication type.</p>
+    </div>
+    <div>
+      <div class="stats">
+        <div class="stat"><b id="s-papers">0</b><span>papers</span></div>
+        <div class="stat"><b id="s-journal">0</b><span>peer-reviewed</span></div>
+        <div class="stat"><b id="s-cites">0</b><span>total citations</span></div>
+      </div>
+      <div class="hist" aria-label="Papers per year; click a bar to filter that year">
+        <svg id="hist" viewBox="0 0 340 86" preserveAspectRatio="none" role="img"></svg>
+        <div class="cap"><span id="h-min"></span><span>papers per year (click to filter)</span><span id="h-max"></span></div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="row">
+      <input type="search" id="q" placeholder="Search title, author, abstract, venue… (e.g. diffusion, Zanna, ENSO)" aria-label="Search papers">
+      <select id="kind" aria-label="Publication type">
+        <option value="">All types</option>
+        <option value="journal">Journal</option>
+        <option value="conference">Conference</option>
+        <option value="preprint">arXiv preprint only</option>
+      </select>
+      <label class="inline">From <select id="y0" aria-label="From year"></select></label>
+      <label class="inline">to <select id="y1" aria-label="To year"></select></label>
+      <select id="sort" aria-label="Sort order">
+        <option value="cites">Most cited</option>
+        <option value="rate">Citations per year</option>
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="title">Title A–Z</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="chips" id="topics" role="group" aria-label="Subfields"></div>
+    </div>
+    <div class="row">
+      <button class="btn" id="bib-all" type="button">BibTeX for shown papers</button>
+      <button class="btn" id="reset" type="button">Clear filters</button>
+      <span class="summary" id="summary"></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="list" aria-live="polite"></main>
+  <footer>
+    <p>Metadata and citation counts were retrieved from Semantic Scholar, Crossref and arXiv on <span id="asof2"></span>. Counts differ between indexes (Google Scholar is usually higher), so use them to compare papers, not as absolute numbers. Papers with both an arXiv preprint and a published version are listed once under the published venue.</p>
+  </footer>
+</div>
+
+<dialog id="bibdlg">
+  <div class="row"><strong id="bibtitle">BibTeX</strong><span class="row"><button class="btn" id="bibcopy" type="button">Copy</button><button class="btn" id="bibclose" type="button">Close</button></span></div>
+  <textarea id="bibtext" readonly aria-label="BibTeX entries"></textarea>
+</dialog>
+
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(() => {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const P = DATA.papers, T = DATA.topics;
+  const $ = id => document.getElementById(id);
+  const fmt = n => n.toLocaleString("en-US");
+  const NOW = new Date(DATA.retrieved);
+  const thisYear = NOW.getFullYear();
+  const state = { q: "", kind: "", topics: new Set(), y0: null, y1: null, sort: "cites", open: new Set() };
+
+  P.forEach(p => {
+    p.rate = p.cites / Math.max(1, thisYear - p.year + 0.5);
+    p.hay = [p.title, p.authors.join(" "), p.venue, p.abstract || "", p.arxiv || "", p.doi || ""].join(" ").toLowerCase();
+  });
+  const years = P.map(p => p.year);
+  const minY = Math.min(...years), maxY = Math.max(...years);
+  $("asof").textContent = $("asof2").textContent = NOW.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  $("s-papers").textContent = fmt(P.length);
+  $("s-journal").textContent = fmt(P.filter(p => p.kind !== "preprint").length);
+  $("s-cites").textContent = fmt(P.reduce((a, p) => a + p.cites, 0));
+
+  for (const id of ["y0", "y1"]) {
+    const s = $(id);
+    for (let y = minY; y <= maxY; y++) s.add(new Option(y, y));
+  }
+  $("y0").value = minY; $("y1").value = maxY;
+
+  const topicKeys = Object.keys(T);
+  $("topics").innerHTML = topicKeys.map(k =>
+    `<button class="chip" type="button" aria-pressed="false" data-k="${k}">${T[k]}<span class="n">${P.filter(p => p.topics.includes(k)).length}</span></button>`).join("");
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const hl = (s, terms) => {
+    let out = esc(s);
+    for (const t of terms) if (t.length > 1) out = out.replace(new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"), "<mark>$1</mark>");
+    return out;
+  };
+  const authorLine = a => a.length > 6 ? a.slice(0, 5).join(", ") + ` … ${a[a.length - 1]} (${a.length} authors)` : a.join(", ");
+
+  function filtered() {
+    const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    const y0 = +$("y0").value, y1 = +$("y1").value;
+    return P.filter(p =>
+      (!state.kind || p.kind === state.kind) &&
+      p.year >= y0 && p.year <= y1 &&
+      (!state.topics.size || p.topics.some(t => state.topics.has(t))) &&
+      terms.every(t => p.hay.includes(t)));
+  }
+  const sorters = {
+    cites: (a, b) => b.cites - a.cites,
+    rate: (a, b) => b.rate - a.rate,
+    new: (a, b) => (b.date || b.year + "").localeCompare(a.date || a.year + "") || b.cites - a.cites,
+    old: (a, b) => (a.date || a.year + "").localeCompare(b.date || b.year + ""),
+    title: (a, b) => a.title.localeCompare(b.title),
+  };
+
+  function drawHist(rows) {
+    const all = {}, sel = {};
+    P.forEach(p => all[p.year] = (all[p.year] || 0) + 1);
+    rows.forEach(p => sel[p.year] = (sel[p.year] || 0) + 1);
+    const n = maxY - minY + 1, w = 340 / n, top = Math.max(...Object.values(all));
+    let svg = "";
+    for (let y = minY; y <= maxY; y++) {
+      const i = y - minY, ha = (all[y] || 0) / top * 80, hs = (sel[y] || 0) / top * 80;
+      svg += `<g data-y="${y}"><title>${y}: ${sel[y] || 0} shown of ${all[y] || 0}</title>` +
+        `<rect x="${i * w + 1}" y="0" width="${w - 2}" height="86" fill="transparent"/>` +
+        `<rect x="${i * w + 1}" y="${86 - ha}" width="${w - 2}" height="${ha}" fill="var(--bar)"/>` +
+        `<rect x="${i * w + 1}" y="${86 - hs}" width="${w - 2}" height="${hs}" fill="var(--bar-on)"/></g>`;
+    }
+    $("hist").innerHTML = svg;
+    $("h-min").textContent = minY; $("h-max").textContent = maxY;
+  }
+
+  function render() {
+    const rows = filtered().sort(sorters[state.sort]);
+    const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    const maxC = Math.max(1, ...P.map(p => p.cites));
+    drawHist(rows);
+    $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
+    if (!rows.length) { $("list").innerHTML = `<p class="empty">No papers match these filters. Try a shorter search or clear the filters.</p>`; return; }
+    $("list").innerHTML = rows.map(p => {
+      const url = p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
+      const open = state.open.has(p.id);
+      return `<article class="paper" data-id="${p.id}">
+        <div class="cites"><b>${fmt(p.cites)}</b><span>citations</span><span>${p.rate >= 10 ? Math.round(p.rate) : p.rate.toFixed(1)}/yr</span>
+          <div class="meter" aria-hidden="true"><i style="width:${Math.max(2, Math.sqrt(p.cites / maxC) * 100)}%"></i></div></div>
+        <div>
+          <h2><a href="${esc(url)}" target="_blank" rel="noopener">${hl(p.title, terms)}</a></h2>
+          <div class="authors">${hl(authorLine(p.authors), terms)}</div>
+          <div class="meta"><span class="kind ${p.kind}">${p.kind === "preprint" ? "arXiv" : p.kind}</span>
+            <span><span class="venue">${hl(p.venue || "arXiv", terms)}</span> · ${p.year}</span>
+            ${p.topics.map(t => `<button class="tag" type="button" data-topic="${t}">${T[t]}</button>`).join("")}</div>
+          <div class="links">
+            ${p.doi ? `<a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">DOI</a>` : ""}
+            ${p.arxiv ? `<a href="https://arxiv.org/abs/${esc(p.arxiv)}" target="_blank" rel="noopener">arXiv:${esc(p.arxiv)}</a>` : ""}
+            ${p.pdf ? `<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF</a>` : ""}
+            ${p.s2 ? `<a href="https://www.semanticscholar.org/paper/${p.s2}" target="_blank" rel="noopener">Citing papers</a>` : ""}
+            ${p.abstract ? `<button type="button" data-act="abs" aria-expanded="${open}">${open ? "Hide abstract" : "Abstract"}</button>` : ""}
+            <button type="button" data-act="cite">Copy citation</button>
+            <button type="button" data-act="bib">BibTeX</button>
+          </div>
+          ${p.abstract ? `<p class="abstract" ${open ? "" : "hidden"}>${hl(p.abstract, terms)}</p>` : ""}
+        </div></article>`;
+    }).join("");
+  }
+
+  // Citation helpers
+  const byId = Object.fromEntries(P.map(p => [p.id, p]));
+  const lastName = a => a.trim().split(/\s+/).slice(-1)[0];
+  function bibtex(p) {
+    const key = (lastName(p.authors[0] || "anon") + p.year + (p.title.match(/[A-Za-z]{4,}/) || ["paper"])[0]).replace(/[^A-Za-z0-9]/g, "");
+    const f = [["title", `{${p.title}}`], ["author", p.authors.join(" and ")], ["year", p.year]];
+    let type = "article";
+    if (p.kind === "journal") f.push(["journal", p.venue]);
+    else if (p.kind === "conference") { type = "inproceedings"; f.push(["booktitle", p.venue]); }
+    else { type = "misc"; f.push(["eprint", p.arxiv], ["archivePrefix", "arXiv"], ["howpublished", `arXiv:${p.arxiv}`]); }
+    if (p.volume) f.push(["volume", p.volume]);
+    if (p.pages) f.push(["pages", p.pages]);
+    if (p.doi) f.push(["doi", p.doi]);
+    if (p.arxiv && p.kind !== "preprint") f.push(["eprint", p.arxiv], ["archivePrefix", "arXiv"]);
+    return `@${type}{${key},\n` + f.filter(x => x[1]).map(([k, v]) => `  ${k} = {${v}}`).join(",\n") + "\n}";
+  }
+  function citation(p) {
+    const a = p.authors.length > 3 ? `${p.authors[0]} et al.` : p.authors.join(", ");
+    const src = p.kind === "preprint" ? `arXiv:${p.arxiv}` : p.venue + (p.volume ? `, ${p.volume}` : "") + (p.pages ? `, ${p.pages}` : "");
+    return `${a} (${p.year}). ${p.title}. ${src}.` + (p.doi ? ` https://doi.org/${p.doi}` : "");
+  }
+  let toastTimer;
+  function toast(msg) {
+    let t = document.querySelector(".toast");
+    if (!t) { t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); document.body.append(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 1800);
+  }
+  function showText(title, text) {
+    $("bibtitle").textContent = title; $("bibtext").value = text;
+    $("bibdlg").showModal(); $("bibtext").select();
+  }
+  function copy(text, label) {
+    if (!navigator.clipboard) return showText(label, text);
+    navigator.clipboard.writeText(text).then(() => toast(`Copied ${label.toLowerCase()}`), () => showText(label, text));
+  }
+
+  $("list").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.topic) { state.topics = new Set([b.dataset.topic]); syncChips(); render(); window.scrollTo({ top: 0 }); return; }
+    const p = byId[b.closest(".paper").dataset.id];
+    if (b.dataset.act === "abs") { state.open.has(p.id) ? state.open.delete(p.id) : state.open.add(p.id); render(); }
+    if (b.dataset.act === "bib") copy(bibtex(p), "BibTeX");
+    if (b.dataset.act === "cite") copy(citation(p), "Citation");
+  });
+  $("bib-all").onclick = () => {
+    const rows = filtered().sort(sorters[state.sort]);
+    showText(`BibTeX for ${rows.length} papers`, rows.map(bibtex).join("\n\n"));
+  };
+  $("bibcopy").onclick = () => copy($("bibtext").value, "BibTeX");
+  $("bibclose").onclick = () => $("bibdlg").close();
+
+  function syncChips() {
+    document.querySelectorAll("#topics .chip").forEach(c => c.setAttribute("aria-pressed", state.topics.has(c.dataset.k)));
+  }
+  $("topics").addEventListener("click", e => {
+    const c = e.target.closest(".chip"); if (!c) return;
+    const k = c.dataset.k;
+    state.topics.has(k) ? state.topics.delete(k) : state.topics.add(k);
+    syncChips(); render();
+  });
+  $("hist").addEventListener("click", e => {
+    const g = e.target.closest("g"); if (!g) return;
+    const y = g.dataset.y;
+    const single = $("y0").value === y && $("y1").value === y;
+    $("y0").value = single ? minY : y; $("y1").value = single ? maxY : y;
+    render();
+  });
+  let qt;
+  $("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; render(); }, 120); });
+  $("kind").onchange = e => { state.kind = e.target.value; render(); };
+  $("sort").onchange = e => { state.sort = e.target.value; render(); };
+  $("y0").onchange = $("y1").onchange = render;
+  $("reset").onclick = () => {
+    state.q = ""; state.kind = ""; state.topics.clear(); $("q").value = ""; $("kind").value = "";
+    $("y0").value = minY; $("y1").value = maxY; syncChips(); render();
+  };
+  if (location.hash && T[location.hash.slice(1)]) { state.topics.add(location.hash.slice(1)); syncChips(); }
+  render();
+})();
+</script>
