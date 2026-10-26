@@ -15,7 +15,7 @@ def pct(x):
     return f"{round(100 * x)}%"
 
 
-def write(con, periods_sql, order):
+def write(con, periods_sql, order, n_all=None):
     q = lambda sql: con.sql(sql).fetchall()  # noqa: E731
     one = lambda sql: q(sql)[0][0]  # noqa: E731
     n_papers = one("SELECT count(*) FROM papers")
@@ -161,7 +161,7 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 - a cross-tab explorer for any two categories
 - the recurring limitations and open problems, with quotes from the most-cited papers
 
-**Read this first.** This is a curated catalog of {n_papers} papers ({y0}–{y1}), not a census of the field. It over-represents landmark and highly cited work. {coverage} The trends below describe the catalog. They point in the direction the field has moved, but the percentages are not field-wide estimates. Categories come from keyword rules applied to the structured summaries (see [Categories](#categories)), so a paper is tagged by what its summary says.
+**Read this first.** This is a curated catalog of {n_all or n_papers} papers ({y0}–{y1}), not a census of the field. The analysis below uses its core set of {n_papers} papers: hand-picked landmark papers plus, in every publication year, the papers cited at or above that year's median rate. Searches reached different depths in different decades, and the core set makes periods comparable. It over-represents landmark and highly cited work. {coverage} The trends below describe the catalog. They point in the direction the field has moved, but the percentages are not field-wide estimates. Categories come from keyword rules applied to the structured summaries (see [Categories](#categories)), so a paper is tagged by what its summary says.
 
 ## Headlines
 

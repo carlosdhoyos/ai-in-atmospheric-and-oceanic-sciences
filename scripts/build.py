@@ -86,6 +86,32 @@ def load_tsv(path):
     return [l.rstrip("\n").split("\t") for l in open(path) if l.strip() and not l.startswith("#")]
 
 
+def route_of(name):
+    """Which search a candidates file came from (see data/updates.md)."""
+    if "snowball" in name:
+        return "citation snowballing"
+    if "_era_" in name:
+        return "era search"
+    if "applied" in name:
+        return "applied-scope search"
+    return "recent window search"
+
+
+def mark_core(papers):
+    """The comparable core set: hand-picked seeds plus, in every publication year, the papers whose citations per
+    year are at or above that year's median. Different routes reach different depths (era searches keep modest
+    regional studies, snowballing only well-cited work), so trends and shares are computed on this set by default.
+    """
+    this_year = dt.date.today().year
+    rate = {p["s2"]: p["cites"] / max(1.0, this_year - p["year"] + 0.5) for p in papers}
+    by_year = {}
+    for p in papers:
+        by_year.setdefault(p["year"], []).append(rate[p["s2"]])
+    med = {y: sorted(v)[(len(v) - 1) // 2] for y, v in by_year.items()}
+    for p in papers:
+        p["core"] = p["route"] == "seed" or rate[p["s2"]] >= med[p["year"]]
+
+
 def main():
     ids = json.load(open(D("cache_ids.json")))
     seeds = load_tsv(D("seeds.tsv"))
@@ -106,14 +132,20 @@ def main():
             look.append("DOI:" + cr["doi"])
         if ax:
             look.append("ARXIV:" + ax["id"])
-        entries.append({"seed": title, "topics": [topic], "look": look, "cr": cr, "check": True})
+        entries.append({"seed": title, "topics": [topic], "look": look, "cr": cr, "check": True, "route": "seed"})
     # titles of screened candidates, used when Semantic Scholar does not resolve an addition's DOI/arXiv ID
-    hints = {}
+    # and the search that found each addition (its "route" into the catalog)
+    hints, routes = {}, {}
     for path in sorted(glob.glob(D("candidates_*_scored.csv"))):
-        hints.update({r["id"]: r["title"] for r in csv.DictReader(open(path))})
+        route = route_of(os.path.basename(path))
+        for r in csv.DictReader(open(path)):
+            hints[r["id"]] = r["title"]
+            routes.setdefault(r["id"], route)
+            if r.get("s2"):
+                routes.setdefault(r["s2"], route)
     for topic, pid, *_ in additions:
         entries.append({"seed": pid, "topics": topic.split(","), "look": [pid], "cr": None, "check": False,
-                        "hint": hints.get(pid)})
+                        "hint": hints.get(pid), "route": routes.get(pid, "initial keyword search")})
 
     cache_path = D("cache_s2.json")
     s2cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
@@ -191,6 +223,8 @@ def main():
         p = papers.get(pid)
         if p:  # same paper listed under several topics
             p["topics"] = sorted(set(p["topics"]) | set(e["topics"]), key=list(TOPICS).index)
+            if e["route"] == "seed":
+                p["route"] = "seed"
             continue
         pdf = (main.get("openAccessPdf") or {}).get("url") or None
         papers[pid] = {
@@ -206,10 +240,11 @@ def main():
             "doi": doi, "arxiv": arxiv, "pdf": pdf,
             "cites": cites, "infl": main.get("influentialCitationCount") or 0,
             "abstract": (main.get("abstract") or "").strip() or None,
-            "topics": e["topics"],
+            "topics": e["topics"], "route": e["route"],
         }
 
     out = sorted(papers.values(), key=lambda p: -p["cites"])
+    mark_core(out)
     # Structured summaries (goal, architecture, data, result, open work, issues), keyed by S2 paperId
     summaries = json.load(open(D("summaries.json"))) if os.path.exists(D("summaries.json")) else {}
     for p in out:

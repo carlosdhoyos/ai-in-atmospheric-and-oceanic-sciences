@@ -7,6 +7,7 @@ drops papers already in the catalog, and writes data/candidates_era_<years>_scor
 (score = log10(1 + citations) + number of queries that found the paper), ready for update.py screen-batches.
 
     python3 scripts/discover_era.py --years 1980-1999
+    python3 scripts/discover_era.py --years 2010-2018 --methods modern
 """
 import argparse
 import collections
@@ -25,6 +26,11 @@ METHODS = ['"neural network"', '"neural networks"', '"expert system"', '"artific
            '"self-organizing map"', '"support vector"', '"decision tree"', '"knowledge-based"',
            '"nearest neighbor"', '"classification tree"', '"genetic programming"', '"nonlinear principal component"',
            '"nonlinear canonical correlation"', '"perceptron"']
+# vocabulary of the deep-learning era (2010 on); the list above is tuned for 1980-2009
+MODERN_METHODS = ['"neural network"', '"machine learning"', '"deep learning"', '"artificial intelligence"',
+                  '"random forest"', '"support vector"', '"gradient boosting"', 'XGBoost', '"convolutional"', 'LSTM',
+                  '"recurrent neural"', 'transformer', '"graph neural"', '"generative adversarial"', '"diffusion model"',
+                  'autoencoder', '"physics-informed"', '"neural operator"', '"data-driven"', '"extreme learning machine"']
 DOMAINS = ['weather', 'forecasting', 'precipitation', 'rainfall', 'cloud', 'satellite', 'radar', 'thunderstorm',
            'tornado', 'hail', 'fog', 'hurricane', 'wind', 'ocean', '"sea surface temperature"', '"El Nino"',
            'ENSO', '"sea ice"', 'climate', 'atmospheric', 'meteorology', 'ozone', '"air pollution"',
@@ -41,8 +47,11 @@ def main(a):
     raw = json.load(open(raw_path)) if os.path.exists(raw_path) else {}
     # few broad OR-queries (each returns up to 1,000 hits) instead of one per method x domain pair:
     # the bulk endpoint is rate limited, so hundreds of small queries take hours
-    mgroups = [METHODS[i:i + 6] for i in range(0, len(METHODS), 6)]
-    dgroups = [DOMAINS[i:i + 9] for i in range(0, len(DOMAINS), 9)]
+    # later decades have far more papers, so smaller groups keep each query under its 1,000-hit cap
+    methods = MODERN_METHODS if a.methods == "modern" else METHODS
+    mg, dg = (3, 5) if a.methods == "modern" else (6, 9)
+    mgroups = [methods[i:i + mg] for i in range(0, len(methods), mg)]
+    dgroups = [DOMAINS[i:i + dg] for i in range(0, len(DOMAINS), dg)]
     queries = [f"({' | '.join(m)}) + ({' | '.join(d)})" for m in mgroups for d in dgroups]
     for n, q in enumerate(queries, 1):
         if q in raw:
@@ -88,4 +97,6 @@ if __name__ == "__main__":
     ap.add_argument("--years", default="1980-1999", help="Semantic Scholar year range, e.g. 1980-1999")
     ap.add_argument("--per-query", type=int, default=1000, help="most-cited hits kept per query")
     ap.add_argument("--min-cites", type=int, default=5)
+    ap.add_argument("--methods", choices=["early", "modern"], default="early",
+                    help="method vocabulary: early (expert systems, shallow NNs...) or modern (deep learning era, 2010 on)")
     main(ap.parse_args())

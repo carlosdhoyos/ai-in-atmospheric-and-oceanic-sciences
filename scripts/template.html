@@ -105,6 +105,8 @@ main { padding-block: 8px 60px; }
 .kind.conference { color: var(--muted); }
 .kind.preprint { color: var(--warm); }
 .kind.other { color: var(--muted); }
+.core-toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; }
+.core-toggle input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
 .tag { font-size: 12px; background: var(--chip); padding: 1px 8px; border-radius: 999px; color: var(--muted); cursor: pointer; border: 0; font-family: inherit; }
 .links { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: 8px; }
 .links a, .links button { font: 500 13px var(--f-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: none; }
@@ -354,6 +356,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
       </select>
       <label class="inline">From <select id="y0" aria-label="From year"></select></label>
       <label class="inline">to <select id="y1" aria-label="To year"></select></label>
+      <label class="inline core-toggle" title="Hand-picked landmark papers plus, in every year, the papers cited at or above that year's median rate. Searches reached different depths in different decades; this set makes periods comparable."><input type="checkbox" id="core"> Core set only</label>
       <select id="sort" aria-label="Sort order">
         <option value="cites">Most cited</option>
         <option value="rate">Citations per year</option>
@@ -607,6 +610,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     ["venue_family", "Venue family", p => [p.cat.venue_family]],
     ["kind", "Publication type", p => [KIND_LABEL[p.kind]]],
     ["period", "Period", p => [period(p.year)]],
+    ["route", "How it entered the catalog", p => [p.route || "unknown"]],
   ].map(([key, label, get]) => ({ key, label, get }));
   const DIM = Object.fromEntries(DIMS.map(d => [d.key, d]));
   state.facets = new Map();  // dimension -> Set of values (OR within a dimension, AND across dimensions)
@@ -617,6 +621,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     const y0 = +$("y0").value, y1 = +$("y1").value;
     return P.filter(p =>
       (!state.kind || p.kind === state.kind) &&
+      (!state.core || p.core) &&
       p.year >= y0 && p.year <= y1 &&
       (!state.topics.size || p.topics.some(t => state.topics.has(t))) &&
       [...state.facets].every(([d, set]) => DIM[d].get(p).some(v => set.has(v))) &&
@@ -769,6 +774,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   let qt;
   $("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; render(); }, 120); });
   $("kind").onchange = e => { state.kind = e.target.value; render(); };
+  $("core").onchange = e => { state.core = e.target.checked; render(); };
   $("sort").onchange = e => { state.sort = e.target.value; render(); };
   $("y0").onchange = $("y1").onchange = render;
   $("reset").onclick = () => {
@@ -1366,6 +1372,9 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   });
   $("journals").addEventListener("pointerleave", () => tip.hidden = true);
   $("j-kind").onchange = $("j-min").onchange = () => render();
+  // trends and venue comparisons default to the comparable core set; the catalog lists everything
+  state.core = PAGE.mode === "eda" || PAGE.mode === "journals";
+  $("core").checked = state.core;
   if (PAGE.mode === "journals") {
     state.tab = "journals";
     document.querySelector(".tabs").hidden = true;

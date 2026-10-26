@@ -41,7 +41,16 @@ plt.rcParams.update({
     "legend.frameon": False,
 })
 
-con = duckdb.connect(os.path.join(ROOT, "data", "papers.duckdb"), read_only=True)
+# Trends and shares use the comparable core set (papers.core, see build.mark_core): searches reached different
+# depths in different decades, so the full catalog would mix modest regional studies from some periods with only
+# well-cited work from others. Every table is copied into memory restricted to core papers.
+con = duckdb.connect()
+con.execute(f"ATTACH '{os.path.join(ROOT, "data", "papers.duckdb")}' AS src (READ_ONLY)")
+N_ALL = con.sql("SELECT count(*) FROM src.papers").fetchall()[0][0]
+for (t,) in con.sql("SELECT table_name FROM duckdb_tables() WHERE database_name = 'src'").fetchall():
+    cols = [c for (c,) in con.sql(f"SELECT column_name FROM duckdb_columns() WHERE database_name = 'src' AND table_name = '{t}'").fetchall()]
+    where = "WHERE core" if t == "papers" else ("WHERE paper_id IN (SELECT paper_id FROM src.papers WHERE core)" if "paper_id" in cols else "")
+    con.execute(f"CREATE TABLE {t} AS SELECT * FROM src.{t} {where}")
 
 
 def df(sql):
@@ -276,4 +285,4 @@ save(fig, "10_limitations_by_architecture.png")
 print("figures:", sorted(os.listdir(FIG)))
 
 import report  # noqa: E402  (writes analysis/EDA.md from the same database)
-report.write(con, PERIODS, PERIOD_ORDER)
+report.write(con, PERIODS, PERIOD_ORDER, N_ALL)

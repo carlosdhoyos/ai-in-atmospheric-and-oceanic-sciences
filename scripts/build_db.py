@@ -45,7 +45,8 @@ def main():
         rows.append((pid, p["title"], p["year"], p["date"], p["venue"], c["journal"], c["venue_family"], p["kind"], c["paper_type"],
                      p["topics"][0], topics[p["topics"][0]], c["probabilistic"], p["doi"], p["arxiv"], p["cites"],
                      p["infl"], round(p["cites"] / age, 2) if age else None, len(p["authors"]),
-                     p["authors"][0] if p["authors"] else None, p["abstract"], p["pdf"] is not None))
+                     p["authors"][0] if p["authors"] else None, p["abstract"], p["pdf"] is not None,
+                     p.get("route"), bool(p.get("core"))))
         auth += [(pid, i + 1, a) for i, a in enumerate(p["authors"])]
         subf += [(pid, t, topics[t], i == 0) for i, t in enumerate(p["topics"])]
         s = p["summary"] or {}
@@ -64,8 +65,9 @@ def main():
         paper_id VARCHAR PRIMARY KEY, title VARCHAR, year INTEGER, pub_date DATE, venue VARCHAR, journal VARCHAR, venue_family VARCHAR,
         kind VARCHAR, paper_type VARCHAR, primary_subfield VARCHAR, primary_subfield_label VARCHAR, probabilistic BOOLEAN,
         doi VARCHAR, arxiv VARCHAR, citations INTEGER, influential_citations INTEGER, citations_per_year DOUBLE,
-        n_authors INTEGER, first_author VARCHAR, abstract VARCHAR, open_access_pdf BOOLEAN)""")
-    con.executemany("INSERT INTO papers VALUES (" + ",".join("?" * 21) + ")", rows)
+        n_authors INTEGER, first_author VARCHAR, abstract VARCHAR, open_access_pdf BOOLEAN,
+        route VARCHAR, core BOOLEAN)""")  # route: how the paper entered the catalog; core: comparable set (build.mark_core)
+    con.executemany("INSERT INTO papers VALUES (" + ",".join("?" * 23) + ")", rows)
     con.execute("CREATE TABLE authors (paper_id VARCHAR, position INTEGER, name VARCHAR)")
     con.executemany("INSERT INTO authors VALUES (?,?,?)", auth)
     con.execute("CREATE TABLE subfields (paper_id VARCHAR, subfield VARCHAR, label VARCHAR, is_primary BOOLEAN)")

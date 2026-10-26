@@ -1,15 +1,15 @@
 theme,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets,Expert systems & fuzzy logic
-Idealized or narrow setting,29.5,18.1,22.4,18.1,28.7,17.3,26.5,13.5
-Limited evaluation,18.4,17.6,23.5,17.2,22.6,23.0,19.6,15.0
-Depends on reanalysis / NWP analyses,17.7,4.9,8.2,6.4,19.5,23.7,27.5,1.4
-No or poorly calibrated uncertainty,14.9,9.7,14.3,7.8,13.4,17.3,17.6,7.7
-"Smoothing, blurring or weak extremes",12.2,7.5,10.5,5.4,11.0,21.6,23.5,5.3
-Generalization / out-of-distribution,10.4,12.4,10.2,9.6,10.4,5.8,7.8,6.8
-Coarse resolution or few variables,13.9,4.2,5.1,4.9,14.6,16.5,9.8,2.9
-Label or ground-truth quality,8.7,3.6,0.7,6.4,4.9,1.4,0.0,9.7
-Trained or tested on model data only,6.2,2.1,3.4,1.8,9.1,1.4,4.9,0.0
-Interpretability / black box,2.8,4.6,6.5,3.3,1.8,4.3,2.0,2.9
-Physical consistency / conservation,1.7,1.5,4.1,1.8,6.1,1.4,4.9,0.5
-Instability or drift in long runs,3.1,1.9,1.4,0.9,6.7,2.2,3.9,0.0
-Compute or data demands,2.1,1.9,0.7,3.9,4.9,3.6,0.0,1.4
-Offline testing only,2.8,1.7,0.3,0.9,3.0,0.7,2.0,0.0
+Idealized or narrow setting,31.9,16.8,24.1,17.4,29.2,14.6,27.8,14.1
+Limited evaluation,10.8,17.4,21.9,15.1,16.0,22.0,20.8,14.1
+Depends on reanalysis / NWP analyses,18.7,4.2,7.0,6.0,24.5,25.6,29.2,2.0
+"Smoothing, blurring or weak extremes",13.3,7.6,7.5,7.1,12.3,25.6,27.8,8.1
+No or poorly calibrated uncertainty,19.3,10.0,16.0,8.8,15.1,17.1,18.1,4.0
+Coarse resolution or few variables,17.5,4.5,5.9,5.7,17.0,20.7,12.5,4.0
+Generalization / out-of-distribution,10.2,13.6,8.6,9.1,10.4,3.7,9.7,3.0
+Label or ground-truth quality,8.4,2.3,0.5,4.8,4.7,0.0,0.0,8.1
+Trained or tested on model data only,7.8,2.0,3.2,0.9,8.5,1.2,4.2,0.0
+Interpretability / black box,3.0,5.6,7.5,2.3,1.9,3.7,2.8,1.0
+Physical consistency / conservation,3.0,1.1,3.7,2.0,8.5,1.2,5.6,0.0
+Instability or drift in long runs,3.6,1.5,1.6,0.6,6.6,2.4,5.6,0.0
+Compute or data demands,2.4,2.5,0.0,4.6,6.6,4.9,0.0,1.0
+Offline testing only,2.4,1.4,0.0,0.6,1.9,0.0,1.4,0.0
