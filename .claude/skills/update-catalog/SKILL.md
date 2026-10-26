@@ -76,6 +76,20 @@ FourCastNet). Tell the screeners that older papers are wanted and that generic M
 forests, diffusion foundations, software) is excluded. References are cached in `.update/cache_refs.json`, so a
 rerun only fetches papers added since.
 
+**Early literature (1980s–1990s).** Neither window searches nor snowballing reach it well: older indexes are thin
+and today's papers rarely cite the first expert-system, neural-network and pattern-recognition studies. Search it
+directly by era (a dozen broad queries, method group × domain group, ~10 minutes):
+
+```bash
+cd scripts && python3 discover_era.py --years 1980-1999 && cd ..   # -> data/candidates_era_1980-1999_scored.csv
+python3 scripts/update.py screen-batches --file data/candidates_era_1980-1999_scored.csv --top 2000 --n 8 --recent-from 0
+```
+
+Tell the screeners to judge papers by the standards of their time (modest citation counts), to include expert
+systems, fuzzy logic, genetic algorithms, nearest-neighbour/analog and pattern-recognition methods, and to
+exclude plain linear statistics (MOS, EOF/CCA, ARIMA) not framed as learning. Run it again with
+`--years 2000-2009` if that decade looks thin.
+
 To add a **new research area**, give it a scope in `SCOPES` in `scripts/discover_recent.py` (journals, arXiv
 query, relevance rule), a subfield key in `TOPICS` in `scripts/build.py`, goal/data/venue rules in
 `scripts/taxonomy.py`, and a section in the screening brief; then run it from an early `--since` (the applied
