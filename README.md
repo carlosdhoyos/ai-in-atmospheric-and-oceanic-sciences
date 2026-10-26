@@ -1,6 +1,6 @@
 # AI in Atmospheric and Oceanic Sciences
 
-A curated, citation-ranked catalog of machine-learning research for weather, climate, ocean and sea ice, and for the water, energy and agriculture problems tied to them, covering peer-reviewed journals, major ML conferences and arXiv preprints.
+A curated, citation-ranked catalog of machine-learning research, from the first expert systems and neural networks of the 1980s to today's foundation models, for weather, climate, ocean and sea ice, and for the water, energy and agriculture problems tied to them, covering peer-reviewed journals, major ML conferences and arXiv preprints.
 
 **Browse it:** three self-contained pages, each a single HTML file you can open in a browser or serve with GitHub Pages:
 
@@ -11,7 +11,7 @@ A curated, citation-ranked catalog of machine-learning research for weather, cli
 The page lets you:
 
 - search titles, authors, abstracts, venues and DOIs/arXiv IDs;
-- filter by subfield, publication type (journal / conference / arXiv-only) and year (or click a bar in the year histogram);
+- filter by subfield, publication type (journal / conference / arXiv-only / other, for older records whose venue is not indexed) and year (or click a bar in the year histogram);
 - sort by total citations, citations per year, date or title;
 - expand abstracts, copy a formatted citation, copy BibTeX for one paper or for everything currently shown;
 - slice by any category (architecture, goal, data source, limitation, open problem, venue…) and combine filters;
@@ -47,6 +47,15 @@ Reviews & perspectives · Medium-range weather · Ensembles & generative models 
 The last three (the "applied" scope) include only work tied to water, weather or climate: for example streamflow and flood prediction, wind and solar forecasting from meteorological inputs, or climate-driven crop yield prediction.
 
 A paper can belong to more than one subfield.
+
+## Coverage
+
+The catalog spans 1980–2026. Recent years come from window searches of arXiv and key journals; older work comes
+from mining the reference lists of catalog papers (`scripts/snowball.py`) and from era searches that pair the
+methods of each period (expert systems, fuzzy logic, genetic algorithms, nearest-neighbour and pattern-recognition
+methods, early neural networks, SVMs) with the domains (`scripts/discover_era.py`). Many pre-2010 records have no
+abstract in the indexes, so their summary cards rest on the title and on knowledge of the paper; each card states
+its basis. Analyses use the periods ≤1999, 2000–09, 2010–18, 2019–20, 2021–22, 2023–24 and 2025–26.
 
 ## How the catalog is built
 

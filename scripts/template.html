@@ -104,6 +104,7 @@ main { padding-block: 8px 60px; }
 .kind.journal { color: var(--accent); }
 .kind.conference { color: var(--muted); }
 .kind.preprint { color: var(--warm); }
+.kind.other { color: var(--muted); }
 .tag { font-size: 12px; background: var(--chip); padding: 1px 8px; border-radius: 999px; color: var(--muted); cursor: pointer; border: 0; font-family: inherit; }
 .links { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin-top: 8px; }
 .links a, .links button { font: 500 13px var(--f-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: none; }
@@ -286,6 +287,7 @@ input[type="search"]:focus, select:focus { outline: none; border-color: var(--ac
 .kind { font-family: var(--f-mono); border-radius: 999px; padding: 1px 8px; }
 .kind.journal { color: var(--accent); }
 .kind.preprint { color: var(--warm); }
+.kind.other { color: var(--muted); }
 /* cards */
 .panel, .findings, .summary-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: border-color var(--ease), transform var(--ease); }
 .panel:hover, .findings:hover, .summary-card:hover { border-color: var(--accent); transform: translateY(-2px); }
@@ -348,6 +350,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
         <option value="journal">Journal</option>
         <option value="conference">Conference</option>
         <option value="preprint">arXiv preprint only</option>
+        <option value="other">Other / venue not recorded</option>
       </select>
       <label class="inline">From <select id="y0" aria-label="From year"></select></label>
       <label class="inline">to <select id="y1" aria-label="To year"></select></label>
@@ -563,7 +566,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   const minY = Math.min(...years), maxY = Math.max(...years);
   $("asof").textContent = $("asof2").textContent = NOW.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
   $("s-papers").textContent = fmt(P.length);
-  $("s-journal").textContent = fmt(P.filter(p => p.kind !== "preprint").length);
+  $("s-journal").textContent = fmt(P.filter(p => p.kind === "journal" || p.kind === "conference").length);
   $("s-cites").textContent = fmt(P.reduce((a, p) => a + p.cites, 0));
 
   for (const id of ["y0", "y1"]) {
@@ -586,7 +589,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
   // Categories for slicing: every dimension returns a list of values per paper (multi-label safe)
   const TYPE_LABEL = { method: "Method", review: "Review / perspective", dataset_benchmark: "Dataset / benchmark", evaluation: "Evaluation" };
-  const KIND_LABEL = { journal: "Journal", conference: "Conference", preprint: "arXiv only" };
+  const KIND_LABEL = { journal: "Journal", conference: "Conference", preprint: "arXiv only", other: "Other / venue not recorded" };
   const PERIODS = DATA.periods || [["≤2018", 2018], ["2019–20", 2020], ["2021–22", 2022], ["2023–26", 9999]];
   const period = y => (PERIODS.find(([, last]) => y <= last) || PERIODS[PERIODS.length - 1])[0];
   const DIMS = [
@@ -675,7 +678,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
         <div>
           <h2><a href="${esc(url)}" target="_blank" rel="noopener">${hl(p.title, terms)}</a></h2>
           <div class="authors">${hl(authorLine(p.authors), terms)}</div>
-          <div class="meta"><span class="kind ${p.kind}">${p.kind === "preprint" ? "arXiv" : p.kind}</span>
+          <div class="meta"><span class="kind ${p.kind}">${p.kind === "preprint" ? "arXiv" : p.kind === "other" ? "other" : p.kind}</span>
             <span><span class="venue">${hl(p.venue || "arXiv", terms)}</span> · ${p.year}</span>
             ${p.topics.map(t => `<button class="tag" type="button" data-topic="${t}">${T[t]}</button>`).join("")}</div>
           <div class="links">
@@ -1233,7 +1236,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
   function renderJournals(rows) {
     const kind = $("j-kind").value, minN = +$("j-min").value;
-    const all = venueStats(rows.filter(p => p.kind !== "preprint"));
+    const all = venueStats(rows.filter(p => (p.kind === "journal" || p.kind === "conference") && p.cat.journal !== "Venue not recorded"));
     const vs = all.filter(v => (kind === "all" || v.kind === kind) && v.n >= minN);
     const ranked = all.filter(v => v.n >= 5).sort((a, b) => b.index - a.index);
     const pre = rows.filter(p => p.kind === "preprint");
@@ -1253,7 +1256,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     const big = [...all].sort((a, b) => b.n - a.n).slice(0, 3);
     if (big.length) f.push(`Largest venues: ${big.map(v => `${esc(v.name)} (${v.n} papers, index ${v.index.toFixed(2)})`).join(", ")}.`);
     if (topVen.length) f.push(`The most-cited papers (top 10% for their year) appear most often in ${topVen.slice(0, 4).map(v => `<b>${esc(v.name)}</b> (${v.n})`).join(", ")}.`);
-    const rising = venueStats(rows.filter(p => p.year >= maxY - 2 && p.kind !== "preprint")).sort((a, b) => b.n - a.n).slice(0, 3);
+    const rising = venueStats(rows.filter(p => p.year >= maxY - 2 && (p.kind === "journal" || p.kind === "conference") && p.cat.journal !== "Venue not recorded")).sort((a, b) => b.n - a.n).slice(0, 3);
     if (rising.length) f.push(`Most papers from ${maxY - 2} on: ${rising.map(v => `${esc(v.name)} (${v.n})`).join(", ")}.`);
     f.push(`Scores describe each venue's papers in this catalog, normalized by publication year; see "How to read this".`);
     $("j-findings").innerHTML = f.map(x => `<li>${x}</li>`).join("");

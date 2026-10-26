@@ -211,7 +211,7 @@ save(fig, "07_probabilistic_share.png")
 # 8. Venue families by publication type
 d = df("SELECT venue_family, kind, count(*) AS n FROM papers GROUP BY ALL")
 pv = d.pivot_table(index="venue_family", columns="kind", values="n", aggfunc="sum", fill_value=0)
-pv = pv[[k for k in ["journal", "conference", "preprint"] if k in pv.columns]]
+pv = pv[[k for k in ["journal", "conference", "preprint", "other"] if k in pv.columns]]
 pv = pv.loc[pv.sum(axis=1).sort_values().index]
 table(pv.reset_index(), "venue_families.csv")
 fig, ax = plt.subplots(figsize=(8, 5))

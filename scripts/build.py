@@ -181,9 +181,11 @@ def main():
         elif arxiv:
             kind, venue = "preprint", "arXiv"
         else:
-            kind, venue = ("journal" if doi else "preprint"), s2venue or "Preprint"
+            # older records without DOI or arXiv ID (books, chapters, reports, conference papers) are not preprints
+            kind = "journal" if doi else "other"
+            venue = s2venue if s2venue and not PREPRINT_VENUES.search(s2venue) else "Venue not recorded"
         if not venue:
-            venue = "arXiv" if arxiv else "Preprint"
+            venue = "arXiv" if arxiv else "Venue not recorded"
         cites = max([r.get("citationCount") or 0 for r in recs] + [(cr or {}).get("cites") or 0])
         pid = main["paperId"]
         p = papers.get(pid)
@@ -249,7 +251,7 @@ def main():
         for p in out:
             f.write(bibtex(p) + "\n\n")
 
-    kinds = {k: sum(p["kind"] == k for p in out) for k in ("journal", "conference", "preprint")}
+    kinds = {k: sum(p["kind"] == k for p in out) for k in ("journal", "conference", "preprint", "other")}
     print(f"{len(out)} papers {kinds}; {len(unresolved)} unresolved")
     for u in unresolved:
         print("  UNRESOLVED:", u)

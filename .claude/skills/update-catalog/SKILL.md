@@ -88,7 +88,10 @@ python3 scripts/update.py screen-batches --file data/candidates_era_1980-1999_sc
 Tell the screeners to judge papers by the standards of their time (modest citation counts), to include expert
 systems, fuzzy logic, genetic algorithms, nearest-neighbour/analog and pattern-recognition methods, and to
 exclude plain linear statistics (MOS, EOF/CCA, ARIMA) not framed as learning. Run it again with
-`--years 2000-2009` if that decade looks thin.
+`--years 2000-2009` if that decade looks thin (in 2026 it added ~1,060 papers). Old records often have no
+abstract; tell the summary writers to name a method family only when the title or their confident knowledge gives
+it, and grep the architecture fields for "likely"/"assumed" before merging. Records with neither DOI nor arXiv ID
+get publication type `other` (venue not recorded), not `preprint`.
 
 To add a **new research area**, give it a scope in `SCOPES` in `scripts/discover_recent.py` (journals, arXiv
 query, relevance rule), a subfield key in `TOPICS` in `scripts/build.py`, goal/data/venue rules in
@@ -163,7 +166,8 @@ review what changed, because the numbers are computed but the interpretation is 
 - **Recency bias.** Papers from the last two years have had little time to be cited, so citation-rate
   comparisons (report headline 7, figure 6, the "Citation impact" guided view) only use papers up to two years
   before the newest. Keep it that way when you change those parts, and read any new comparison with this in mind.
-- **Periods.** `PERIODS` in `scripts/taxonomy.py` drives the database, the report and both pages. When a new
+- **Periods.** `PERIODS` in `scripts/taxonomy.py` drives the database, the report and both pages; `BASELINE`
+  names the first deep-learning-era period that "then vs now" comparisons start from. When a new
   year starts, extend the last period or open a new one once it has enough papers (roughly 40+).
 - **Categories.** New vocabulary can escape the keyword rules (in 2026, flow matching and Mamba/state-space
   models needed adding). Grep the recent summaries' architecture text for terms that do not map to a family. Look at papers with no architecture, goal or

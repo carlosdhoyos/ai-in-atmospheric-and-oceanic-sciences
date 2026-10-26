@@ -1,8 +1,8 @@
-period,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets,total
-≤1999,0,265,5,58,0,0,0,328
-2000–09,0,491,20,133,1,0,0,645
-2010–18,27,51,23,46,9,0,0,156
-2019–20,93,77,72,72,26,10,3,353
-2021–22,70,63,67,39,21,14,12,286
-2023–24,57,61,42,31,59,55,42,347
-2025–26,41,56,35,23,46,60,45,306
+period,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets,Expert systems & fuzzy logic,total
+≤1999,0,251,5,89,0,0,0,84,429
+2000–09,0,624,50,362,3,0,0,117,1156
+2010–18,27,50,23,47,9,0,0,2,158
+2019–20,93,76,72,76,26,10,3,2,358
+2021–22,70,63,67,39,21,14,12,2,288
+2023–24,57,61,42,32,59,55,42,0,348
+2025–26,41,56,35,23,46,60,45,0,306

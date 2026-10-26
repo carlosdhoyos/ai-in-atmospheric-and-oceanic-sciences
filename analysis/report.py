@@ -126,7 +126,7 @@ def write(con, periods_sql, order):
                  cut AS (SELECT quantile_cont(rel, 0.9) t10 FROM r)
             SELECT journal, venue_family, count(*) n, median(rel) idx, avg((rel >= (SELECT t10 FROM cut))::INT) top10,
                    median(citations_per_year) cpy
-            FROM r WHERE kind <> 'preprint' GROUP BY 1, 2 HAVING count(*) >= 5 ORDER BY idx DESC""")
+            FROM r WHERE kind IN ('journal', 'conference') AND journal <> 'Venue not recorded' GROUP BY 1, 2 HAVING count(*) >= 5 ORDER BY idx DESC""")
     def tier(idx, top):
         return "Leading" if idx >= 1.5 and top >= 0.2 else "Strong" if idx >= 1.0 else "Steady" if idx >= 0.6 else "Lower impact"
     journal_rows = "\n".join(f"| {j} | {fam} | {n} | {idx:.2f} | {pct(t)} | {c:.1f} | {tier(idx, t)} |"
