@@ -97,17 +97,19 @@ def main():
     for topic, pid, *_ in additions:
         entries.append({"seed": pid, "topics": topic.split(","), "look": [pid], "cr": None, "check": False})
 
+    fetched = False  # True when this run downloads anything new from Semantic Scholar
     cache_path = D("cache_s2.json")
     s2cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
     for e in entries:
         if not e["look"]:
             key = "TITLE:" + e["seed"]
             if key not in s2cache:
-                s2cache[key] = s2.match(e["seed"])
+                s2cache[key] = s2.match(e["seed"]); fetched = True
                 json.dump(s2cache, open(cache_path, "w"))
             e["look"] = [key]
     all_ids = sorted({i for e in entries for i in e["look"]})
     missing = [i for i in all_ids if i not in s2cache]
+    fetched = fetched or bool(missing)
     for n, (i, rec) in enumerate(s2.batch(missing), 1):
         s2cache[i] = rec
         if n % 50 == 0 or n == len(missing):
@@ -125,7 +127,7 @@ def main():
         if not recs and e["check"]:  # identifiers missing or wrong: fall back to a title match
             key = "TITLE:" + e["seed"]
             if key not in s2cache:
-                s2cache[key] = s2.match(e["seed"])
+                s2cache[key] = s2.match(e["seed"]); fetched = True
                 json.dump(s2cache, open(cache_path, "w"))
             r = s2cache[key]
             recs = [r] if r and sim(e["seed"], r["title"]) >= 0.8 else []
@@ -194,7 +196,9 @@ def main():
             "task", "issue_theme", "open_theme")
     for p in out:
         p["cat"] = {k: cats[p["s2"]][k] for k in keep}
-    retrieved = dt.date.today().isoformat()
+    # The retrieval date shown on the pages only advances when this run fetched new metadata/citations
+    previous = json.load(open(D("papers.json"))).get("retrieved") if os.path.exists(D("papers.json")) else None
+    retrieved = dt.date.today().isoformat() if fetched or not previous else previous
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
 
