@@ -583,7 +583,13 @@ Shi et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conferen
 ### [Physics-aware Machine Learning Revolutionizes Scientific Paradigm for Machine Learning and Process-based Hydrology](https://arxiv.org/abs/2310.05227)
 Xu et al. (2023), *arXiv*. 31 citations.
 
-*Summary pending.*
+- **Main goal:** Bridges machine learning and process-based hydrology by reviewing physics-aware machine learning approaches for water cycle prediction under climate change.
+- **Architecture:** Review of physics-aware ML in four classes: physical data-guided, physics-informed, physics-embedded and physics-aware hybrid learning, applied to rainfall-runoff and hydrodynamic processes; releases the HydroPML platform.
+- **Data:** Literature review; the HydroPML platform hosts hydrological methods and data, publicly available.
+- **Main result:** Structures the field into a community of methods, identifies promising and challenging directions, and releases HydroPML as a foundation for hydrological applications.
+- **Open work:** Developing explainable and causal ML for hydrology and progressing toward a digital water cycle.
+- **Issues:** Review framing is broad and somewhat promotional; platform maturity and benchmark coverage are not detailed in the abstract.
+- *Basis: abstract*
 
 ### [Applications of Machine Learning and Artificial Intelligence in Tropospheric Ozone Research](https://doi.org/10.5194/gmd-18-8777-2025)
 Hickman et al. (2025), *Geoscientific Model Development*. 17 citations.
@@ -2044,7 +2050,13 @@ Price et al. (2022), *International Conference on Artificial Intelligence and St
 ### [Unsupervised deep learning bias correction of CMIP6 global ensemble precipitation predictions with cycle generative adversarial network](https://doi.org/10.1088/1748-9326/ad66e6)
 Huang et al. (2024), *Environmental Research Letters*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Bias-corrects CMIP6 global ensemble precipitation without paired supervision, improving extremes.
+- **Architecture:** Unsupervised CycleGAN (cycle-consistent generative adversarial network) compared with a supervised CNN and quantile mapping.
+- **Data:** CMIP6 ensemble mean precipitation and observational reference; reference product not specified in the abstract.
+- **Main result:** CycleGAN outperforms CNN and quantile mapping for ensemble mean bias correction and better predicts extreme precipitation.
+- **Open work:** Extending to individual models, other variables and future projections.
+- **Issues:** Only ensemble mean corrected; no quantitative metrics in abstract; stationarity of correction under future climate uncertain.
+- *Basis: abstract*
 
 ### [Improving Medium Range Severe Weather Prediction through Transformer Post-processing of AI Weather Forecasts](https://doi.org/10.1175/aies-d-25-0045.1)
 Hua et al. (2025), *Artificial Intelligence for the Earth Systems*. 7 citations.
@@ -2503,7 +2515,13 @@ Wang et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 ### [Exascale Hybrid Numerical-AI Ensembles for Operational Flood-Season Forecasting in East Asia: 15-km Decadal Hindcasts and 1-km High-Resolution Capability](https://arxiv.org/abs/2605.24896)
 Chen et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Improves seasonal summer rainfall forecasts for the East Asian flood season, limited by the spring predictability barrier.
+- **Architecture:** CAPES, a hybrid ensemble combining a kilometer-resolution coupled regional atmosphere–land–ocean model with a data-driven AI seasonal forecasting system, run on exascale computing.
+- **Data:** Ten annual 1,774-member hindcasts for 2016–2025 at 15 km (174 numerical plus 1,600 AI members); training data of the AI system not reported in the abstract.
+- **Main result:** Hindcasts complete in 14.6 hours, improving mean prediction score from ECMWF's 71.8 to 75.9; 1-km configuration enables fine-scale typhoon simulation.
+- **Open work:** Operationalize the 1-km fused ensemble and extend beyond one-week fine-scale runs.
+- **Issues:** Prediction score metric is specific to Chinese operations; ten-year hindcast is short; AI component details not given.
+- *Basis: abstract*
 
 <a id="climate"></a>
 ## Climate emulation & detection
@@ -4448,7 +4466,13 @@ Lee et al. (2025), *Proceedings of the National Academy of Sciences of the Unite
 ### [Deep Learning for Multi-Satellite Precipitation Retrievals: Impact of Tomorrow.io’s Microwave Sounders](https://doi.org/10.1175/jhm-d-25-0007.1)
 Cannon et al. (2026), *Journal of Hydrometeorology*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Develops satellite precipitation retrieval for regions lacking radar, evaluating the benefit of commercial Tomorrow.io microwave sounders.
+- **Architecture:** Convolutional neural network ingesting sequences of geostationary imagery and sparse polar-orbiting passive microwave swaths over the preceding hour.
+- **Data:** Geostationary imagers, public passive microwave sensors and two Tomorrow.io microwave sounders; verified against radar networks (USA, Europe, Japan), US gauges, and IMERG-Early.
+- **Main result:** 10-min, 0.04° precipitation over 60°S–72°N; 5–10% gains over earlier versions and 30–50% skill gains over IMERG-Early; data denial for 2024 hurricanes shows microwave benefit.
+- **Open work:** Add more sounders and extend validation to data-poor regions.
+- **Issues:** Depends on commercial satellite data; validation mostly over radar-rich regions.
+- *Basis: abstract*
 
 <a id="extremes"></a>
 ## Extremes & tropical cyclones
@@ -6022,1117 +6046,2455 @@ Yin et al. (2026), *Science Advances*. 0 citations.
 ### [Rainfall–runoff modelling using Long Short-Term Memory (LSTM) networks](https://doi.org/10.5194/hess-22-6005-2018)
 Kratzert et al. (2018), *Hydrology and Earth System Sciences*. 1,818 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether a purely data-driven recurrent network can simulate daily rainfall-runoff, including snow-driven storage effects, as an alternative to conceptual hydrological models.
+- **Architecture:** Long Short-Term Memory (LSTM) recurrent neural network trained per catchment, regionally across many catchments, and with regional pretraining followed by fine-tuning on individual catchments.
+- **Data:** 241 catchments of the CAMELS dataset (contiguous US) with daily meteorological forcing and discharge; benchmark is SAC-SMA coupled with Snow-17.
+- **Main result:** LSTMs fine-tuned from a regional model outperform SAC-SMA + Snow-17 and single-catchment LSTMs, showing that regional learning transfers process understanding to individual basins.
+- **Open work:** Adding static catchment attributes, testing in ungauged basins and probing interpretability of the learned storage states are natural next steps.
+- **Issues:** Evaluated only on CAMELS US catchments; no uncertainty estimates; purely data-driven with no physical constraints, so extrapolation to unseen climates is untested.
+- *Basis: abstract*
 
 ### [Flood Prediction Using Machine Learning Models: Literature Review](https://doi.org/10.3390/w10111536)
 Mosavi et al. (2018), *Water*. 1,514 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews machine learning models for flood prediction to guide hydrologists and climate scientists in choosing suitable methods for short- and long-term flood forecasting.
+- **Architecture:** Review of machine learning methods for flood prediction, including artificial neural networks (MLP), support vector machines, neuro-fuzzy systems, decision trees, wavelet-based and hybrid or ensemble models.
+- **Data:** Published studies benchmarking ML flood models; no new data are used.
+- **Main result:** Hybridization, data decomposition, algorithm ensembles and model optimization are reported as the most effective strategies for improving ML flood prediction; promising methods are identified for short- and long-term floods.
+- **Open work:** Further development of hybrid and ensemble models and more systematic benchmarking are suggested.
+- **Issues:** Qualitative comparison across studies with heterogeneous data and metrics; predates the widespread use of LSTM-based rainfall-runoff models.
+- *Basis: abstract*
 
 ### [A Transdisciplinary Review of Deep Learning Research and Its Relevance for Water Resources Scientists](https://doi.org/10.1029/2018wr022643)
 Shen (2017), *Water Resources Research*. 1,182 citations.
 
-*Summary pending.*
+- **Main goal:** Introduces deep learning to water resources scientists and argues it can address hydrologic challenges such as scaling, equifinality, data discoverability and parameter regionalization.
+- **Architecture:** Review and technical overview of deep learning (convolutional neural networks, LSTM recurrent networks, generative models) and of interpretability methods termed AI neuroscience.
+- **Data:** Literature from water sciences and other physical and geoscientific disciplines; no new data.
+- **Main result:** Finds that DL is especially suited to image-like and sequential data, can serve as an exploratory scientific tool, and that interpretation techniques can extract insights from trained networks.
+- **Open work:** Calls for wider DL adoption in hydrology, interpretable DL, and networks that mimic physical organizing units to reveal emergent behaviour.
+- **Issues:** Perspective-style review written early in hydrologic DL adoption; offers few quantitative comparisons.
+- *Basis: abstract*
 
 ### [Towards learning universal, regional, and local hydrological behaviors via machine learning applied to large-sample datasets](https://doi.org/10.5194/hess-23-5089-2019)
 Kratzert et al. (2019), *Hydrology and Earth System Sciences*. 1,021 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses regional rainfall-runoff modelling, where traditional models degrade when calibrated across many basins, by training one model on large-sample data.
+- **Architecture:** Single LSTM recurrent neural network trained on all basins, plus the Entity-Aware LSTM (EA-LSTM) whose input gate is conditioned on static catchment attributes to learn catchment similarity.
+- **Data:** 531 basins from the CAMELS dataset with meteorological forcing time series and static catchment attributes; compared against several regionally and individually calibrated hydrological benchmark models.
+- **Main result:** A single regional LSTM significantly outperforms regionally calibrated and even basin-wise calibrated hydrological models; EA-LSTM embeddings yield catchment similarities consistent with hydrological understanding.
+- **Open work:** Applying the approach to ungauged basins and other regions and exploiting the learned embeddings for hydrological insight.
+- **Issues:** Limited to CAMELS US basins; deterministic predictions without uncertainty; no physical constraints.
+- *Basis: abstract*
 
 ### [Toward Improved Predictions in Ungauged Basins: Exploiting the Power of Machine Learning](https://doi.org/10.1029/2019wr026065)
 Kratzert et al. (2019), *Water Resources Research*. 772 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether LSTMs can predict streamflow in ungauged basins, a long-standing hydrological challenge.
+- **Architecture:** Long Short-Term Memory (LSTM) recurrent neural networks using meteorological forcing and static catchment attributes, evaluated with k-fold cross-validation over basins.
+- **Data:** 531 CAMELS basins (4-2,000 km2) with about 30 years of daily data; benchmarked against basin-calibrated SAC-SMA and the NOAA National Water Model reanalysis over a 15-year validation period.
+- **Main result:** Out-of-sample LSTM median Nash-Sutcliffe efficiency is 0.69, above calibrated SAC-SMA (0.64) and the National Water Model (0.58).
+- **Open work:** Adding physical constraints to LSTMs (physics-guided machine learning) is suggested as future research.
+- **Issues:** Limited to US catchments with good attribute data; ungauged performance relies on informative catchment attributes; no uncertainty quantification.
+- *Basis: abstract*
 
 ### [What Role Does Hydrological Science Play in the Age of Machine Learning?](https://doi.org/10.1029/2020wr028091)
 Nearing et al. (2020), *Water Resources Research*. 721 citations.
 
-*Summary pending.*
+- **Main goal:** Asks what role hydrological process understanding should play as machine learning increasingly dominates rainfall-runoff modelling.
+- **Architecture:** Commentary/perspective (non-ML method) derived from a keynote; discusses deep learning (LSTM) results relative to process-based models.
+- **Data:** Draws on recent deep learning rainfall-runoff experiments on large-sample datasets such as CAMELS; no new dataset.
+- **Main result:** Argues large-scale hydrological datasets contain more information than current theory or models capture, and that preferences for process-based models are often not evidence-based.
+- **Open work:** Calls for quantitative assessment of where and when process understanding adds value in an ML-dominated modelling discipline.
+- **Issues:** Opinion piece with only preliminary examples; conclusions rest largely on streamflow prediction rather than other hydrological variables.
+- *Basis: abstract*
 
 ### [Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach](https://doi.org/10.5194/bg-2019-368)
 Jung et al. (2019), *Biogeosciences*. 672 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates FLUXCOM machine-learning upscaling of eddy covariance carbon fluxes (GPP and NEE) from flux towers to the globe.
+- **Architecture:** Ensemble of machine learning methods (e.g., random forests, neural networks, model trees, kernel methods) with different forcing data and predictor sets; evaluation study rather than a new model.
+- **Data:** FLUXNET eddy covariance sites with remote sensing (MODIS) and meteorological forcing; compared with atmospheric inversions, sun-induced fluorescence (SIF) and dynamic global vegetation models.
+- **Main result:** Global mean GPP is 106-130 PgC/yr; seasonal SIF agrees better with FLUXCOM (R2~0.75) than DGVMs (~0.6); NEE seasonality matches inversions (R2>0.92), but interannual NEE variability is underestimated.
+- **Open work:** Exploiting more Earth observation data and machine learning concepts and improving flux tower quantity and quality, especially in the tropics.
+- **Issues:** Too strong tropical carbon sink likely from eddy covariance biases and missing site history; no CO2 fertilization, so flux trends are unrealistic.
+- *Basis: abstract*
 
 ### [A Comprehensive Review of Deep Learning Applications in Hydrology and Water Resources](https://doi.org/10.31223/osf.io/xs36g)
 Sit et al. (2020), *Water Science and Technology*. 532 citations.
 
-*Summary pending.*
+- **Main goal:** Systematically reviews deep learning applications in hydrology and the water sector for monitoring, management, governance and communication.
+- **Architecture:** Systematic review of deep learning approaches (CNNs, LSTM recurrent networks, generative adversarial networks, autoencoders and others) for generation, prediction, enhancement and classification tasks.
+- **Data:** Published literature on water-related deep learning applications; no new data.
+- **Main result:** Provides a guide to state-of-the-art deep learning in water resources and discusses key issues including ethics for decision-making.
+- **Open work:** Gives recommendations and future directions for deep learning in hydrology and water resources.
+- **Issues:** Broad scope limits depth of comparison; performance claims are not benchmarked across studies.
+- *Basis: abstract*
 
 ### [Enhancing Streamflow Forecast and Extracting Insights Using Long‐Short Term Memory Networks With Data Integration at Continental Scales](https://doi.org/10.1029/2019wr026793)
 Feng et al. (2019), *Water Resources Research*. 468 citations.
 
-*Summary pending.*
+- **Main goal:** Improves daily streamflow forecasts by integrating recent discharge observations of varied types into an LSTM model at continental scale.
+- **Architecture:** LSTM recurrent neural network with a data integration (DI) procedure that feeds lagged discharge either directly or through a convolutional neural network unit.
+- **Data:** CAMELS basins across the contiguous US with meteorological forcings, catchment attributes and recent discharge observations.
+- **Main result:** Data integration reaches a continental median Nash-Sutcliffe efficiency of 0.86; benefits are largest in high-autocorrelation basins and reduce baseflow bias in groundwater-dominated western basins.
+- **Open work:** Improving forecasts in high-aridity basins with flashy peaks and extending to operational forecasting.
+- **Issues:** Requires recent discharge observations, so not applicable to ungauged basins; fails to improve high-aridity basins with 1-day flash peaks.
+- *Basis: abstract*
 
 ### [Differentiable modelling to unify machine learning and physical models for geosciences](https://doi.org/10.1038/s43017-023-00450-9)
 Shen et al. (2023), *Nature Reviews Earth &amp; Environment*. 450 citations.
 
-*Summary pending.*
+- **Main goal:** Proposes differentiable modelling as a way to unify process-based models and machine learning in the geosciences, combining interpretability with data-driven skill.
+- **Architecture:** Perspective on differentiable modelling: physics-based models implemented in differentiable form and coupled with neural networks (e.g., LSTM or MLP) for parameter learning and process representation; physics-informed machine learning.
+- **Data:** Examples drawn from hydrological modelling, e.g., large-sample streamflow datasets such as CAMELS; no single new dataset.
+- **Main result:** Differentiable models achieve accuracy similar to pure ML with less data, better interpretability and extrapolation, and outperform ML under data scarcity for dynamics and decadal trends.
+- **Open work:** Address computational challenges, reduce uncertainty and verify the physical significance of learned outputs.
+- **Issues:** Perspective with examples mostly from hydrology; computational cost and physical validation remain open.
+- *Basis: abstract*
 
 ### [Global prediction of extreme floods in ungauged watersheds](https://doi.org/10.1038/s41586-024-07145-1)
 Nearing et al. (2024), *Nature*. 441 citations.
 
-*Summary pending.*
+- **Main goal:** Provides reliable flood warnings for extreme riverine events in ungauged watersheds worldwide, where gauge networks are sparse.
+- **Architecture:** LSTM-based recurrent neural network (encoder-decoder hindcast/forecast LSTMs) trained across thousands of gauged basins and applied to ungauged basins.
+- **Data:** Global streamflow gauge records (e.g., GRDC/Caravan) with meteorological reanalysis and forecast forcings (e.g., ERA5-Land, IFS HRES) and catchment attributes; benchmarked against GloFAS.
+- **Main result:** AI forecasts at up to five-day lead time are as reliable as or better than GloFAS nowcasts, and skill for five-year return-period events matches GloFAS skill for one-year events.
+- **Open work:** Increasing availability of hydrological data to further improve global flood warnings; model is operational in over 80 countries.
+- **Issues:** Performance depends on sparse gauge data, especially in data-poor regions; extreme events remain few for evaluation.
+- *Basis: abstract+knowledge*
 
 ### [Process‐Guided Deep Learning Predictions of Lake Water Temperature](https://doi.org/10.1029/2019wr024922)
 Read et al. (2019), *Water Resources Research*. 394 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts depth-specific lake water temperature with a hybrid model that integrates physical theory with deep learning.
+- **Architecture:** Process-Guided Deep Learning (PGDL): LSTM recurrent neural network with an energy-conservation penalty in the loss and pretraining on outputs of a process-based lake model.
+- **Data:** In situ lake temperature observations and process-based (General Lake Model) simulations for two detailed study lakes and 68 additional lakes.
+- **Main result:** PGDL beats DL and process-based models; across 68 lakes median test RMSE is 1.65 °C versus 1.78 °C (DL) and 2.03 °C (PB).
+- **Open work:** Applying process-guided deep learning to other environmental variables and larger lake populations.
+- **Issues:** Gains depend on pretraining data having more variability than the training period; in some lakes PB or DL is more accurate.
+- *Basis: abstract*
 
 ### [Deep learning rainfall-runoff predictions of extreme events](https://doi.org/10.5194/hess-2021-423)
 Frame et al. (2021), *Hydrology and Earth System Sciences*. 341 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether deep learning rainfall-runoff models remain reliable for extreme, high return-period events not seen in training.
+- **Architecture:** LSTM recurrent neural network and a mass-conserving LSTM (MC-LSTM) variant architecturally constrained to conserve water mass.
+- **Data:** CAMELS US basins with daily forcing and streamflow; benchmarks are the Sacramento conceptual model and the US National Water Model.
+- **Main result:** LSTM and MC-LSTM remain relatively accurate for extreme events, even when extremes are excluded from training; adding mass-balance constraints reduced skill during extremes.
+- **Open work:** Understanding why mass constraints hurt extremes and improving data-driven extrapolation.
+- **Issues:** Limited to US basins and daily resolution; few truly extreme events available for evaluation.
+- *Basis: abstract*
 
 ### [Evaluation of global terrestrial evapotranspiration using state-of-the-art approaches in remote sensing, machine learning and land surface modeling](https://doi.org/10.5194/hess-24-1485-2020)
 Pan et al. (2019), *Hydrology and Earth System Sciences*. 325 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates global terrestrial evapotranspiration estimates from remote sensing, machine learning and land surface models, since ET cannot be measured directly globally.
+- **Architecture:** Review and intercomparison of 4 remote-sensing physical models, 2 machine-learning upscaling algorithms and 14 land surface models (TRENDY ensemble); not a new ML model.
+- **Data:** Global gridded ET products and land surface model simulations, 1982-2011.
+- **Main result:** Ensemble means agree at 589.6-617.1 mm/yr; remote sensing and ML ensembles show significant increasing trends (0.62 and 0.38 mm/yr2) while LSMs do not; greening increases ET.
+- **Open work:** Better water stress and canopy parameterization, new satellite retrievals, deep learning and model-data fusion.
+- **Issues:** Large uncertainties in the Amazon and arid/semiarid regions; ML products inherit flux tower sampling biases.
+- *Basis: abstract*
 
 ### [Drought assessment and monitoring through blending of multi-sensor indices using machine learning approaches for different climate regions](https://doi.org/10.1016/j.agrformet.2015.10.011)
 Park et al. (2016), *Agricultural and Forest Meteorology*. 324 citations.
 
-*Summary pending.*
+- **Main goal:** Monitors drought by blending multiple satellite drought indices with machine learning for different climate regions.
+- **Architecture:** Machine learning models including random forest, boosted regression trees and Cubist used to combine multi-sensor drought indices.
+- **Data:** Satellite indices from MODIS (vegetation and land surface temperature) and TRMM precipitation, evaluated against in situ drought indices and US Drought Monitor in arid and humid US regions.
+- **Main result:** Not reported in the abstract (unavailable); random forest is reported to perform best and blended indices outperform individual indices.
+- **Open work:** Extending to other regions and to drought forecasting.
+- **Issues:** Abstract unavailable; quantitative results and exact regions not verified.
+- *Basis: assessment*
 
 ### [Rainfall-Runoff Prediction at Multiple Timescales with a Single Long Short-Term Memory Network](https://doi.org/10.5194/hess-2020-540)
 Gauch et al. (2020), *Hydrology and Earth System Sciences*. 319 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts discharge at multiple timescales (daily and hourly) with one model, since sub-daily flood peaks are missed by daily models.
+- **Architecture:** Two multi-timescale LSTM (MTS-LSTM) architectures that process long-past inputs at coarse resolution and recent inputs at fine resolution.
+- **Data:** 516 basins across the contiguous US with hourly and daily forcings and discharge; benchmark is the US National Water Model.
+- **Main result:** MTS-LSTMs achieve significantly higher NSE than the National Water Model and match per-timescale LSTMs with lower computational cost.
+- **Open work:** Operational use with forcings of differing lead times and resolutions.
+- **Issues:** US basins only; simulation with observed forcing rather than true forecasting; no uncertainty estimates.
+- *Basis: abstract*
 
 ### [Groundwater level forecasting with artificial neural networks: a comparison of long short-term memory (LSTM), convolutional neural networks (CNNs), and non-linear autoregressive networks with exogenous input (NARX)](https://doi.org/10.5194/hess-25-1671-2021)
 Wunsch et al. (2021), *Hydrology and Earth System Sciences*. 313 citations.
 
-*Summary pending.*
+- **Main goal:** Compares shallow and deep neural networks for groundwater level forecasting using only widely available meteorological inputs.
+- **Architecture:** Comparison of NARX (non-linear autoregressive network with exogenous input), LSTM recurrent networks and convolutional neural networks for seq2val and seq2seq forecasting.
+- **Data:** Groundwater level time series from wells with meteorological inputs (precipitation, temperature); 4-year test period; well locations not reported in the abstract.
+- **Main result:** NARX performs best on average, CNNs are much faster and slightly worse; with small training data NARX clearly beats LSTM and CNN.
+- **Open work:** Testing with larger datasets where deep learning may excel.
+- **Issues:** NARX is sensitive to initialization (handled by ensembles); conclusions depend on the small data typical of groundwater.
+- *Basis: abstract*
 
 ### [Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network](https://doi.org/10.1002/2017gl075619)
 Fang et al. (2017), *Geophysical Research Letters*. 304 citations.
 
-*Summary pending.*
+- **Main goal:** Extends the short and irregular SMAP soil moisture record into a spatiotemporally seamless product over the continental US.
+- **Architecture:** Long Short-Term Memory (LSTM) recurrent neural network predicting SMAP soil moisture from forcing, model-simulated moisture and static attributes.
+- **Data:** SMAP level-3 surface soil moisture, atmospheric forcings (NLDAS), Noah land surface model soil moisture and static physiographic attributes over CONUS.
+- **Main result:** Test RMSE below 0.035 and correlation above 0.87 over more than 75% of CONUS, removing most bias of model simulations, robust in temporal and spatial extrapolation.
+- **Open work:** Hindcasting, data assimilation and weather forecasting applications.
+- **Issues:** Short SMAP training record; inherits SMAP retrieval errors; surface layer only.
+- *Basis: abstract+knowledge*
 
 ### [From calibration to parameter learning: Harnessing the scaling effects of big data in geoscientific modeling](https://doi.org/10.1038/s41467-021-26107-z)
 Tsai et al. (2020), *Nature Communications*. 298 citations.
 
-*Summary pending.*
+- **Main goal:** Replaces inefficient, non-unique per-site calibration of process-based geoscientific models with a learned global mapping from inputs to spatially varying parameters.
+- **Architecture:** Differentiable parameter learning (dPL): a neural network (LSTM or MLP parameter network) coupled end-to-end with a differentiable process-based model, trained by backpropagation through the physics.
+- **Data:** Soil moisture (SMAP satellite retrievals with the VIC land surface model) and streamflow (CAMELS basins with the HBV hydrologic model) across the contiguous United States.
+- **Main result:** dPL drastically outperforms evolutionary calibration and regionalization, improves with more training data, generalizes better to unseen locations and uncalibrated variables, and matches performance with only ~12.5% of the data at orders-of-magnitude lower cost.
+- **Open work:** Extend dPL to more complex process models and Earth system components, and use it to learn missing physics rather than only parameters.
+- **Issues:** Requires process models to be rewritten or wrapped as differentiable code; results inherit structural deficiencies of the backbone model; demonstrated mainly over CONUS.
+- *Basis: abstract+knowledge*
 
 ### [Caravan - A global community dataset for large-sample hydrology](https://doi.org/10.1038/s41597-023-01975-w)
 Kratzert et al. (2023), *Scientific Data*. 290 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a globally standardized large-sample hydrology dataset, since existing regional CAMELS datasets differ in format and content and hinder global studies.
+- **Architecture:** Benchmark dataset and open-source software: harmonizes seven CAMELS-style datasets and provides cloud-based (Google Earth Engine) code to extract forcings and catchment attributes for new basins. Not an ML model itself.
+- **Data:** 6830 catchments with streamflow, ERA5-Land meteorological forcing and static attributes (HydroATLAS geophysical, sociological and climatological attributes) aggregated from CAMELS (US, GB, BR, CL, AUS), LamaH-CE and HYSETS.
+- **Main result:** Delivers a consistent global dataset of forcing, streamflow and attributes plus tooling that lets the community add catchments, supporting global training of models such as LSTMs.
+- **Open work:** Community extension to under-represented regions (Africa, Asia), additional forcing products and variables, and use as a standard benchmark for global hydrological ML.
+- **Issues:** Reanalysis-based forcing (ERA5-Land) is coarser and more biased than local station products; geographic coverage is skewed to North America and Europe; streamflow quality varies by source.
+- *Basis: abstract+knowledge*
 
 ### [Machine learning algorithms for modeling groundwater level changes in agricultural regions of the U.S.](https://doi.org/10.1002/2016wr019933)
 Sahoo et al. (2017), *Water Resources Research*. 265 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts seasonal groundwater level change and quantifies the relative importance of climate, pumping and surface-water drivers in agricultural aquifers without expensive physical models.
+- **Architecture:** Ensemble framework combining spectral analysis, input selection by mutual information, genetic algorithms and lag analysis, and a multilayer perceptron (MLP) neural network, with uncertainty analysis.
+- **Data:** Well observations in the High Plains aquifer and the Mississippi River Valley alluvial aquifer, USA, with climate, irrigation demand and streamflow predictors; testing period 2003–2012.
+- **Main result:** Irrigation demand is the dominant driver at most wells; held-out observations correlate with R > 0.8 at 88% (HPA) and 83% (MRVA) of wells; cumulative level-change error is under 2 m over most of the area.
+- **Open work:** Apply the framework to other aquifers and to scenario projections of water availability under changing climate and management.
+- **Issues:** Purely statistical so physical consistency is not guaranteed; relies on proxy pumping/irrigation data; well-by-well models may not transfer to unmonitored locations.
+- *Basis: abstract*
 
 ### [Developing reservoir monthly inflow forecasts using artificial intelligence and climate phenomenon information](https://doi.org/10.1002/2017wr020482)
 Yang et al. (2017), *Water Resources Research*. 264 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts monthly reservoir inflows for water management by combining artificial intelligence methods with large-scale climate phenomenon information (climate indices).
+- **Architecture:** Machine learning regression models using climate-phenomenon predictors; the model set is not reported in the available metadata.
+- **Data:** Not reported in the available metadata; title implies historical reservoir inflow records with climate indices (e.g., ENSO-related) as predictors.
+- **Main result:** Not reported in the available metadata; the title suggests climate-index information improves monthly inflow forecasts.
+- **Open work:** Extend to longer lead times and probabilistic forecasts usable for reservoir operation decisions.
+- **Issues:** Abstract unavailable, so data, region and quantitative skill could not be verified; monthly data give small samples, and teleconnection-based predictability varies by region and season.
+- *Basis: assessment*
 
 ### [Machine learning methods for empirical streamflow simulation: a comparison of model accuracy, interpretability, and uncertainty in seasonal watersheds](https://doi.org/10.5194/hess-20-2611-2016)
 Shortridge et al. (2016), *Hydrology and Earth System Sciences*. 264 citations.
 
-*Summary pending.*
+- **Main goal:** Compares machine learning methods for monthly streamflow simulation not only on accuracy but also on interpretability and uncertainty, which matter for planning and management.
+- **Architecture:** Comparison of multiple regression and machine learning methods: generalized additive models, multivariate adaptive regression splines, artificial neural networks (MLP), random forests and M5 cubist models.
+- **Data:** Monthly streamflow and climate data for five highly seasonal rivers in the Ethiopian highlands (Blue Nile region); compared with physical models developed for the region.
+- **Main result:** Data-driven models reduce errors relative to regional physical models, with relative ranking varying by basin; random forests and GAMs aid interpretation, but GAMs and MARS become highly variable under high temperatures.
+- **Open work:** Evaluate robustness of empirical models under climate change and extreme conditions before using them for planning.
+- **Issues:** Monthly data in few basins limit generality; extrapolation under unprecedented climate (high temperatures) is unreliable; empirical models lack process representation.
+- *Basis: abstract*
 
 ### [Differentiable, Learnable, Regionalized Process‐Based Models With Multiphysical Outputs can Approach State‐Of‐The‐Art Hydrologic Prediction Accuracy](https://doi.org/10.1029/2022wr032404)
 Feng et al. (2022), *Water Resources Research*. 263 citations.
 
-*Summary pending.*
+- **Main goal:** Shows that differentiable, learnable process-based hydrologic models can approach LSTM accuracy for streamflow while remaining interpretable and predicting untrained physical variables.
+- **Architecture:** Differentiable (δ) model: the HBV conceptual hydrologic model implemented in a differentiable programming framework with embedded neural networks (LSTM/MLP) that regionalize parameters and enhance or replace process modules.
+- **Data:** 671 CAMELS basins across the contiguous USA with Daymet and a second forcing dataset (Maurer/NLDAS); simulated evapotranspiration and baseflow compared with alternative estimates.
+- **Main result:** Median Nash–Sutcliffe efficiency of 0.732 versus 0.748 for a state-of-the-art LSTM with Daymet (0.715 vs 0.722 with another forcing), while also outputting soil and groundwater storage, snowpack, ET and baseflow.
+- **Open work:** Apply to models with more process complexity, constrain with multi-variable observations, and use the framework to learn physics from big data.
+- **Issues:** Still slightly below LSTM for streamflow; untrained internal states are only loosely validated; evaluated on CAMELS basins with limited human influence.
+- *Basis: abstract*
 
 ### [Flood forecasting with machine learning models in an operational framework](https://doi.org/10.5194/hess-2021-554)
 Nevo et al. (2021), *Hydrology and Earth System Sciences*. 245 citations.
 
-*Summary pending.*
+- **Main goal:** Describes Google's operational riverine flood forecasting and warning system, aiming to deliver accurate real-time flood alerts for large gauged rivers.
+- **Architecture:** Operational system with four subsystems; stage forecasting uses Long Short-Term Memory (LSTM) networks and linear models, and inundation uses a Thresholding model and a new machine-learning Manifold model as an alternative to hydraulic modeling.
+- **Data:** Historical river stage gauge data and inundation information for flood-prone rivers in India and Bangladesh; operational evaluation during the 2021 monsoon season.
+- **Main result:** All models meet operational performance thresholds; LSTM beats the linear model; Thresholding and Manifold are similar for extent. In 2021 the system covered 287,000 km² and over 350M people, sending more than 100M alerts.
+- **Open work:** Extend coverage to more flood-prone and ungauged locations and improve modeling skill and accuracy.
+- **Issues:** Limited to large gauged rivers; evaluation on historical data with operational-metric framing rather than independent benchmarks; inundation depth validation is limited.
+- *Basis: abstract*
 
 ### [Estimating daily reference evapotranspiration based on limited meteorological data using deep learning and classical machine learning methods](https://doi.org/10.1016/j.jhydrol.2020.125286)
 Chen et al. (2020), *Journal of Hydrology*. 232 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates deep learning for estimating daily reference evapotranspiration (ETo) from limited meteorological inputs and tests transferability beyond training stations.
+- **Architecture:** Comparison of deep neural network (MLP), temporal convolutional network (TCN) and LSTM with support vector machine and random forest, against temperature-, radiation- and humidity-based empirical equations; K-means clustering groups stations.
+- **Data:** Weather station data from the Northeast Plain, China, with FAO-56 Penman–Monteith ETo as target; local per-station and cross-station (leave-station-out within clusters) strategies.
+- **Main result:** TCN and RF beat modified Hargreaves locally (RMSE lower by ~0.10 and ~0.07 mm/d); across stations TCN and LSTM performed best with temperature inputs, and all ML models beat radiation- and humidity-based equations.
+- **Open work:** Test in other climates and with other input combinations, and assess operational use with forecast inputs.
+- **Issues:** Single region; target is computed Penman–Monteith ETo rather than lysimeter measurements; improvements over empirical formulas are modest in absolute terms.
+- *Basis: abstract*
 
 ### [Meteorological drought forecasting for ungauged areas based on machine learning: Using long-range climate forecast and remote sensing data](https://doi.org/10.1016/j.agrformet.2017.02.011)
 Rhee et al. (2017), *Agricultural and Forest Meteorology*. 226 citations.
 
-*Summary pending.*
+- **Main goal:** Develops high-resolution meteorological drought forecasts for ungauged areas where no station observations exist.
+- **Architecture:** Machine learning models (extremely randomized trees and others such as random forest and boosted regression trees) using remote-sensing drought variables, compared with Kriging spatial interpolation; long-range climate forecasts versus climatology as future inputs.
+- **Data:** SPI and SPEI at 3-, 6-, 9- and 12-month scales forecast at 1–6 month leads on a 0.05° grid; remote sensing products (e.g., MODIS, TRMM) and long-range climate forecasts (South Korea, per reliable knowledge).
+- **Main result:** Extremely randomized trees achieve the best producer's drought accuracy (up to 64%), while Kriging gives better user's accuracy (up to 44%); long-range forecast inputs add little, though reducing precipitation forecast error improves drought forecasts.
+- **Open work:** Improve forecast skill through better long-range climate forecasts and more sophisticated downscaling.
+- **Issues:** Modest accuracy for drought classes; contribution of climate forecasts not significant; class-based metrics; single regional setting.
+- *Basis: abstract+knowledge*
 
 ### [A physical process and machine learning combined hydrological model for daily streamflow simulations of large watersheds with limited observation data](https://doi.org/10.1016/j.jhydrol.2020.125206)
 Yang et al. (2020), *Journal of Hydrology*. 221 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast, easy-to-use ML-based hydrological model for daily streamflow in large, data-limited watersheds while handling spatial variability and extreme flows.
+- **Architecture:** Artificial neural network (MLP) trained on synthetic data from the physically based distributed GBHM model and a stochastic rainfall generator, with a categorization approach for high flows and local-binary-pattern computer vision features for spatial rainfall patterns.
+- **Data:** Synthetic case studies from GBHM simulations plus real data from the upper Chao Phraya Basin, Thailand.
+- **Main result:** The combined GBHM-ANN-CA-CV model greatly improves accuracy in data-limited basins; computer-vision spatial features improve robustness and categorization greatly improves high-flow simulation.
+- **Open work:** Apply to other basins and to changing-environment scenarios for water resource management.
+- **Issues:** Relies on the physical model's synthetic data so inherits its biases; single real-world basin; hand-crafted CV features rather than learned spatial representations.
+- *Basis: abstract*
 
 ### [Continuous streamflow prediction in ungauged basins: long short-term memory neural networks clearly outperform traditional hydrological models](https://doi.org/10.5194/hess-27-139-2023)
 Arsenault et al. (2023), *Hydrology and Earth System Sciences*. 221 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether LSTM networks predict continuous streamflow in ungauged basins better than regionalized conceptual hydrological models.
+- **Architecture:** Long short-term memory (LSTM) recurrent neural network trained regionally, compared with state-of-the-art hydrological-model-dependent regionalization methods (spatial proximity, physical similarity, etc.).
+- **Data:** 148 catchments in northeast North America (Quebec region) with the same meteorological and geophysical descriptor data as the hydrological models; leave-one-out cross-validation.
+- **Main result:** LSTM outperforms regionalized hydrological models in 93–97% of catchments and beats models calibrated on the target catchment in up to 78% of cases, robust to hyperparameter changes.
+- **Open work:** Use LSTM-based regionalization as a new baseline and explore larger, more diverse regions.
+- **Issues:** Regional study with relatively dense gauging; leave-one-out may overstate transfer to truly remote ungauged areas; no interpretation of internal states.
+- *Basis: abstract*
 
 ### [Hybrid forecasting: blending climate predictions with AI models](https://doi.org/10.5194/hess-27-1865-2023)
 Slater et al. (2023), *Hydrology and Earth System Sciences*. 215 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews hybrid hydroclimatic forecasting that blends dynamical weather/climate model predictions with statistical or AI methods to improve forecast skill.
+- **Architecture:** Review of hybrid forecasting systems that use machine learning and statistical post-processing to integrate outputs of numerical weather prediction, climate, land, hydrology and Earth system models.
+- **Data:** Review of literature covering subseasonal-to-decadal predictions of rainfall, temperature, streamflow, floods, droughts, tropical cyclones and atmospheric rivers.
+- **Main result:** Hybrid systems can reduce dynamical model biases, avoid running costly land models, and combine sources of predictability across horizons, and are attracting growing attention.
+- **Open work:** Physically explainable results, assimilating human influences, new ensemble techniques, seamless short-to-long lead prediction, land/ocean/ice initial conditions, spatial variability and operational uptake.
+- **Issues:** As a review it offers no new quantitative benchmark; hybrid approaches depend on stationarity of learned relationships and on the quality of dynamical inputs.
+- *Basis: abstract*
 
 ### [Deep learning shows declining groundwater levels in Germany until 2100 due to climate change](https://doi.org/10.1038/s41467-022-28770-2)
 Wunsch et al. (2021), *Nature Communications*. 208 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how climate change will directly affect groundwater levels in Germany during the 21st century.
+- **Architecture:** Convolutional neural network (1D CNN) groundwater level models driven only by meteorological inputs, applied to climate projections.
+- **Data:** Groundwater level records at 118 sites across Germany; meteorological inputs (precipitation, temperature) from observations for training and regional climate projections under RCP2.6, 4.5 and 8.5.
+- **Main result:** Significant declining trends at most sites under RCP8.5, strongest in northern and eastern Germany, with greater variability and longer low-level periods; much weaker effects under RCP2.6 and 4.5.
+- **Open work:** Include anthropogenic factors such as extraction and land-use change, and extend to other regions.
+- **Issues:** Excludes groundwater abstraction; extrapolation of data-driven models to future climates is uncertain; inherits climate-model biases.
+- *Basis: abstract*
 
 ### [U-FLOOD – Topographic deep learning for predicting urban pluvial flood water depth](https://doi.org/10.1016/j.jhydrol.2021.126898)
 Löwe et al. (2021), *Journal of Hydrology*. 208 citations.
 
-*Summary pending.*
+- **Main goal:** Provides fast predictions of 2D maximum water depth maps for urban pluvial floods at locations and rain events not seen in training.
+- **Architecture:** U-Net convolutional neural network (image segmentation architecture) taking hyetograph patterns and topographic inputs, with systematic input selection and hyperparameter tuning (97k to 260M parameters).
+- **Data:** Hydrodynamic flood simulations for an urban area (Denmark) driven by natural rain events, with terrain and imperviousness rasters; evaluation on unseen locations and events.
+- **Main result:** Five terrain-shape and imperviousness inputs are optimal; a 28M-parameter model works best; performance is similar to existing screening approaches with predictions in seconds.
+- **Open work:** Balance temporal and spatial rainfall patterns in training data, improve spatial inputs, and couple U-FLOOD to dynamic sewer system models.
+- **Issues:** Predicts only maximum depth, not flood dynamics; trained on simulated data so inherits simulator assumptions; sewer system effects not represented.
+- *Basis: abstract+knowledge*
 
 ### [Uncertainty Estimation with Deep Learning for Rainfall-Runoff Modelling](https://doi.org/10.31223/x5js4t)
 Klotz et al. (2020), *Hydrology and Earth System Sciences*. 195 citations.
 
-*Summary pending.*
+- **Main goal:** Establishes benchmarking for uncertainty estimation in deep learning rainfall-runoff models, since actionable hydrological forecasts require reliable uncertainty.
+- **Architecture:** LSTM-based baselines: three Mixture Density Network variants (Gaussian, countable mixture of asymmetric Laplacians, uncountable mixture) and Monte Carlo dropout, plus a benchmarking procedure.
+- **Data:** CAMELS US basins (531 basins, daily streamflow with meteorological forcing).
+- **Main result:** Mixture Density Network baselines give accurate, well-calibrated uncertainty and outperform Monte Carlo dropout; post-hoc analysis reveals nuanced learned behaviors.
+- **Open work:** Standardize uncertainty benchmarks across the community and extend to forecasting with input uncertainty and ungauged basins.
+- **Issues:** Evaluated in simulation mode with observed forcing; covers mainly aleatoric/total predictive uncertainty; limited to CAMELS US.
+- *Basis: abstract+knowledge*
 
 ### [Uncovering Flooding Mechanisms Across the Contiguous United States Through Interpretive Deep Learning on Representative Catchments](https://doi.org/10.1029/2021wr030185)
 Jiang et al. (2021), *Water Resources Research*. 189 citations.
 
-*Summary pending.*
+- **Main goal:** Uses interpretive deep learning to extract scientific insight about flood-generating mechanisms across the contiguous United States.
+- **Architecture:** LSTM runoff models interpreted with the expected gradients method and an additive decomposition method.
+- **Data:** 160 representative catchments across CONUS (CAMELS-based) with daily meteorological forcing and streamflow; 20,908 identified flow peaks.
+- **Main result:** Three mechanisms emerge: snowmelt (10.1% of peaks), recent rainfall (60.9%) and historical rainfall (29.0%); single mechanisms dominate 70.7% of catchments; LSTM memory retention differs by flood type.
+- **Open work:** Use interpretive DL more broadly for AI-assisted scientific discovery of hydrological processes and extremes.
+- **Issues:** Mechanism attribution depends on the interpretation method and the model's learned structure; limited to available catchments and inputs.
+- *Basis: abstract*
 
 ### [Data‐driven flood emulation: Speeding up urban flood predictions by deep convolutional neural networks](https://doi.org/10.1111/jfr3.12684)
 Guo et al. (2020), *Journal of Flood Risk Management*. 187 citations.
 
-*Summary pending.*
+- **Main goal:** Accelerates urban pluvial flood prediction by emulating physically based simulations of maximum water depth.
+- **Architecture:** Deep convolutional neural network framed as image-to-image translation (encoder-decoder CNN) generating water depth rasters.
+- **Data:** Flood simulation data from three urban catchments and 18 hyetographs; tests with design and real hyetographs.
+- **Main result:** Predictions take about 0.5% of the time of physically based models with promising accuracy and generalizability.
+- **Open work:** Apply to flood-safe urban layout planning and related urban flood analysis tasks.
+- **Issues:** Trained on simulator output so inherits its assumptions; few catchments and hyetographs; only maximum depth is predicted.
+- *Basis: abstract*
 
 ### [Daily reference evapotranspiration estimates by artificial neural networks technique and empirical equations using limited input climate variables](https://doi.org/10.1016/j.compag.2016.11.011)
 Antonopoulos et al. (2017), *Computers and Electronics in Agriculture*. 184 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates daily reference evapotranspiration when only limited climate variables are available.
+- **Architecture:** Artificial neural network (MLP) compared with empirical equations (e.g., temperature- and radiation-based formulas) using reduced input sets.
+- **Data:** Not reported in the available metadata; likely daily weather station data with Penman–Monteith ETo as target (possibly in Greece).
+- **Main result:** Not reported in the available metadata; the title implies ANNs give competitive or better ETo estimates than empirical equations with limited inputs.
+- **Open work:** Test spatial transferability and other input combinations.
+- **Issues:** Abstract unavailable, so data and numbers could not be verified; limited-input estimation is inherently less accurate in some climates.
+- *Basis: assessment*
 
 ### [Combining Physically Based Modeling and Deep Learning for Fusing GRACE Satellite Data: Can We Learn From Mismatch?](https://doi.org/10.1029/2018wr023333)
 Sun et al. (2019), *Water Resources Research*. 183 citations.
 
-*Summary pending.*
+- **Main goal:** Improves land surface model terrestrial water storage simulations by learning their mismatch with GRACE, addressing missing processes such as groundwater depletion.
+- **Architecture:** Deep convolutional neural network (CNN) learning spatiotemporal patterns of the mismatch between GRACE and NOAH-simulated TWS anomalies, used to correct NOAH output.
+- **Data:** GRACE TWS anomalies and NOAH land surface model simulations over India, with in situ groundwater storage observations for validation.
+- **Main result:** CNN correction raises country-average correlation to 0.94 and NSE to 0.87 (14% and 52% improvements over NOAH); learned mismatch correlates well with in situ groundwater anomalies.
+- **Open work:** Fill the GRACE to GRACE-FO data gap and apply mismatch learning to other regions and models.
+- **Issues:** Correction is statistical and not process-based; single region; coarse GRACE resolution limits local applicability.
+- *Basis: abstract*
 
 ### [Using a long short-term memory (LSTM) neural network to boost river streamflow forecasts over the western United States](https://doi.org/10.5194/hess-2022-53)
 Hunt et al. (2022), *Hydrology and Earth System Sciences*. 174 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether an LSTM can boost medium-range river streamflow forecasts over physics-based systems in the western United States.
+- **Architecture:** Long short-term memory (LSTM) neural network in a hybrid system driven by meteorological forecasts; compared with raw and bias-corrected GloFAS.
+- **Data:** ERA5 and GloFAS-ERA5 reanalysis catchment means plus streamflow at ten western US gauges; testing June 2019–June 2020 with ERA5; operational phase September 2020–October 2021 with ECMWF IFS forecasts up to 10 days.
+- **Main result:** LSTM is best in testing (skilful at nine stations, six highly skilful) and beats raw and bias-corrected GloFAS operationally, with skilful 5-day forecasts at nine stations.
+- **Open work:** Expand to more stations, ensemble IFS inputs and longer lead times.
+- **Issues:** Only ten stations; short evaluation periods; trained on reanalysis but driven by forecasts, causing distribution shift; deterministic forecasts.
+- *Basis: abstract*
 
 ### [Training Machine Learning Surrogate Models From a High‐Fidelity Physics‐Based Model: Application for Real‐Time Street‐Scale Flood Prediction in an Urban Coastal Community](https://doi.org/10.1029/2019wr027038)
 Zahura et al. (2020), *Water Resources Research*. 170 citations.
 
-*Summary pending.*
+- **Main goal:** Provides real-time street-scale pluvial flood prediction for an urban coastal city, where physics-based 1-D pipe/2-D overland flow models are too slow for operational decision support.
+- **Architecture:** Random forest surrogate model trained to emulate hourly water depths from a high-fidelity 1-D/2-D physics-based urban flood model, using topographic and environmental features.
+- **Data:** Hourly water depths simulated by a high-resolution 1-D/2-D physics-based model at 16,914 road segments in Norfolk, Virginia, USA; two training scenarios (flood-prone streets only vs. all segments).
+- **Main result:** The random forest achieves high predictive skill, best when trained only on the most flood-prone streets, and cuts run time by a factor of about 3,000 relative to the physics-based model.
+- **Open work:** Testing on additional storms and cities, adding forecast rainfall and tide inputs for operational use, and quantifying surrogate uncertainty.
+- **Issues:** Learns from simulated rather than observed depths, so it inherits the physics model's errors; single city; skill drops when trained on all segments; no uncertainty estimate.
+- *Basis: abstract*
 
 ### [The suitability of differentiable, physics-informed machine learning hydrologic models for ungauged regions and climate change impact assessment](https://doi.org/10.5194/hess-27-2357-2023)
 Feng et al. (2023), *Hydrology and Earth System Sciences*. 170 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether differentiable, physics-informed hydrologic models can extrapolate to ungauged regions and credibly predict decadal streamflow trends for climate change impact assessment.
+- **Architecture:** Differentiable process-based hydrologic model (delta model) whose parameters are produced by a regionalized deep neural network (LSTM-based parameterization pipeline), compared against a pure LSTM.
+- **Data:** CAMELS basins in the contiguous US with several meteorological forcings (e.g. Daymet, Maurer, NLDAS); random ungauged-basin (PUB) and regional holdout (PUR) cross-validation, plus decadal trend evaluation.
+- **Main result:** Delta models approach or beat LSTM in PUB and clearly beat it in PUR on daily metrics and mean/high-flow trends, though low-flow trends are worse; untrained evapotranspiration keeps good seasonality and parameter fields stay spatially stable.
+- **Open work:** Applying delta models to regional and global simulations, improving low-flow processes, and assimilating multi-source observations for climate impact studies.
+- **Issues:** Low-flow trend skill lags LSTM; performance depends on forcing product; evaluated on US basins only, and trend credibility is judged on historical decades rather than true future climates.
+- *Basis: abstract+knowledge*
 
 ### [Hydrologically Informed Machine Learning for Rainfall-Runoff Modelling: Towards Distributed Modelling](https://doi.org/10.5194/hess-2020-487)
 Herath et al. (2020), *Hydrology and Earth System Sciences*. 158 citations.
 
-*Summary pending.*
+- **Main goal:** Extends machine-learning model induction from lumped to semi-distributed rainfall-runoff models, because lumped models lose meaning in large catchments with heterogeneous forcing and properties.
+- **Architecture:** Genetic programming (evolutionary computation) framework, MIKA-SHA, that automatically assembles interpretable semi-distributed conceptual rainfall-runoff models from FUSE and SUPERFLEX building blocks.
+- **Data:** Rainfall-runoff data for the Red Creek catchment near Vestry, Mississippi, USA.
+- **Main result:** Induced model architectures agree with previous research and fieldwork insights on the watershed and are readily interpretable by hydrologists; quantitative skill is not given in the abstract.
+- **Open work:** Coupling the framework with other building-block libraries and testing on more and larger catchments.
+- **Issues:** Single test catchment; computationally intensive search; no quantitative comparison with data-driven models such as LSTM reported in the abstract.
+- *Basis: abstract*
 
 ### [A note on leveraging synergy in multiple meteorological data sets with deep learning for rainfall–runoff modeling](https://doi.org/10.31223/osf.io/pjm5a)
 Kratzert et al. (2020), *Hydrology and Earth System Sciences*. 152 citations.
 
-*Summary pending.*
+- **Main goal:** Shows that a deep learning rainfall-runoff model can exploit multiple meteorological forcing products together rather than relying on a single product.
+- **Architecture:** Long short-term memory network (LSTM) taking several precipitation and meteorological forcing products simultaneously as input.
+- **Data:** CAMELS basins in the continental US with forcings from NLDAS, Maurer and Daymet.
+- **Main result:** Combining forcing products in a single LSTM significantly improves streamflow simulation accuracy over any individual product; the LSTM blends precipitation products differently by location and by hydrograph part.
+- **Open work:** Extending to more forcing products and regions, and to operational forecasting with forecast inputs.
+- **Issues:** US-only with gridded products that are themselves correlated; benefit relies on all products being available at prediction time.
+- *Basis: abstract*
 
 ### [A comprehensive study of deep learning for soil moisture prediction](https://doi.org/10.5194/hess-28-917-2024)
 Wang et al. (2024), *Hydrology and Earth System Sciences*. 151 citations.
 
-*Summary pending.*
+- **Main goal:** Systematically compares deep learning architectures for soil moisture prediction to identify network design principles and understand how models use data.
+- **Architecture:** Ten deep learning structures (three basic feature extractors such as LSTM, CNN-type and MLP-type networks, plus seven hybrids including feature-attention LSTM and GAN-based LSTM), interpreted with SHAP and t-SNE; three classical ML baselines.
+- **Data:** Soil moisture observations across different soil textures and depths with meteorological drivers; specific sites and products not reported in the abstract.
+- **Main result:** LSTM's temporal modelling suits soil moisture forecasting; feature-attention LSTM and GAN-LSTM further improve accuracy, showing benefits of attention and adversarial training. Code for 13 models is open source.
+- **Open work:** Applying the design principles to other hydrology problems and testing transfer across regions.
+- **Issues:** Site and dataset details are not given in the abstract; skill gains are modest and interpretability analyses are qualitative.
+- *Basis: abstract*
 
 ### [Enhancing predictive skills in physically-consistent way: Physics Informed Machine Learning for Hydrological Processes](https://doi.org/10.1016/j.jhydrol.2022.128618)
 Bhasme et al. (2021), *Journal of Hydrology*. 143 citations.
 
-*Summary pending.*
+- **Main goal:** Combines conceptual hydrological models and machine learning so streamflow predictions are both skilful and physically consistent.
+- **Architecture:** Physics-informed machine learning hybrid in which the abcd conceptual water-balance model structure is coupled with ML regressors that predict intermediate (evapotranspiration) and target (streamflow) variables.
+- **Data:** Monthly streamflow and actual evapotranspiration for the Narmada river basin, India.
+- **Main result:** The PIML model outperforms both the purely conceptual abcd model and standalone ML algorithms while preserving water-balance consistency.
+- **Open work:** Extending to daily time steps, more basins and flood risk assessment applications.
+- **Issues:** Single basin at monthly resolution; specific ML algorithms and quantitative gains not detailed in the abstract.
+- *Basis: abstract*
 
 ### [Evaluation of random forests for short-term daily streamflow forecasting in rainfall- and snowmelt-driven watersheds](https://doi.org/10.5194/hess-25-2997-2021)
 Pham et al. (2021), *Hydrology and Earth System Sciences*. 140 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates random forests for 1-day-ahead streamflow forecasting in watersheds driven by both rainfall and snowmelt, beyond the usual rainfall-dominated settings.
+- **Architecture:** Random forest regression benchmarked against naive persistence and multiple linear regression.
+- **Data:** 86 watersheds in the Pacific Northwest, classified as rainfall-dominated, transient or snowmelt-dominated.
+- **Main result:** Random forests perform better in snowmelt-driven watersheds, but improvements over benchmarks are largest in rainfall-driven ones; skill degrades with steeper slopes and sandier soils.
+- **Open work:** Jointly considering variable importance measures with physical processes and testing longer lead times.
+- **Issues:** Only 1-day lead time; two variable importance measures disagree, limiting inference; regional study.
+- *Basis: abstract*
 
 ### [Evaluation and machine learning improvement of global hydrological model-based flood simulations](https://doi.org/10.1088/1748-9326/ab4d5e)
 Yang et al. (2019), *Environmental Research Letters*. 136 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates global hydrological model flood simulations and improves them with machine learning, since GHM-based flood estimates are too inaccurate for most applications.
+- **Architecture:** Hybrid physics-ML approach: LSTM post-processor taking basin-averaged meteorology and simulated discharge from GHM-CaMa-Flood chains as inputs to predict observed discharge.
+- **Data:** Five GHMs under the ISIMIP2a protocol, 1971–2010, evaluated against 1,032 gauges from the Global Streamflow Indices and Metadata Archive (GSIM).
+- **Main result:** GHMs capture peak amplitude reasonably but timing poorly, with large differences across climate zones; the LSTM drastically improves global flood simulations, especially peak magnitude.
+- **Open work:** Using hybrid GHM-ML approaches for robust flood risk assessment and projections.
+- **Issues:** Post-processing requires gauges and may not transfer to ungauged basins or future climates; inherits forcing biases.
+- *Basis: abstract*
 
 ### [The Data Synergy Effects of Time‐Series Deep Learning Models in Hydrology](https://doi.org/10.1029/2021wr029583)
 Fang et al. (2021), *Water Resources Research*. 135 citations.
 
-*Summary pending.*
+- **Main goal:** Examines whether pooling data from heterogeneous regions helps deep learning hydrologic models, challenging the practice of stratified regional models.
+- **Architecture:** Time-series deep learning models, LSTM networks, trained on pooled versus region-stratified data.
+- **Data:** Two hydrologic examples: soil moisture (SMAP-based) and streamflow (CAMELS) across the contiguous US.
+- **Main result:** Models improve when data from characteristically different regions are pooled (data synergy); modest diversity beats homogeneous training sets of similar size.
+- **Open work:** Promoting data sharing and building large diverse datasets to better represent extremes and future scenarios.
+- **Issues:** Demonstrated for US datasets and LSTM only; mechanisms of synergy are not fully explained.
+- *Basis: abstract+knowledge*
 
 ### [Using machine learning models, remote sensing, and GIS to investigate the effects of changing climates and land uses on flood probability](https://doi.org/10.1016/j.jhydrol.2020.125663)
 Avand et al. (2020), *Journal of Hydrology*. 134 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates how future climate and land use changes alter flood susceptibility in the Tajan watershed, Iran.
+- **Architecture:** Random forest and Bayesian generalized linear model for flood susceptibility mapping, with land change modeler (LCM) for land use projection and LARS-WG weather generator for downscaled climate.
+- **Data:** 262 historical flood locations and 12 conditioning factors; land use 1990–2019 projected to 2040; climate 1990–2015 projected to 2020–2040 under RCP2.6 and RCP8.5.
+- **Main result:** Random forest (AUC 0.91) beats GLMbayes (0.847); elevation, distance from river, land use, slope and rainfall dominate; projected forest and rangeland loss and rainfall increase raise flood probability downstream.
+- **Open work:** Using ensembles of climate models and dynamic hydrological modelling to refine projections.
+- **Issues:** Susceptibility is static and presence-based; single weather generator downscaling; future factor changes assumed to apply directly to a statistically trained model.
+- *Basis: abstract*
 
 ### [Can artificial intelligence and data-driven machine learning models match or even replace process-driven hydrologic models for streamflow simulation?: A case study of four watersheds with different hydro-climatic regions across the CONUS](https://doi.org/10.1016/j.jhydrol.2021.126423)
 Kim et al. (2021), *Journal of Hydrology*. 132 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether data-driven machine learning models can match or replace process-based hydrologic models for streamflow simulation.
+- **Architecture:** Comparison of an artificial neural network (MLP) and an LSTM against process models SAC-SMA, Xinanjiang and the distributed CREST model.
+- **Data:** Four watersheds across the CONUS with different hydro-climatic conditions and input scenarios, including delayed inputs.
+- **Main result:** ML models are biased with baseline inputs but reach high accuracy with delayed inputs; ANN excels where rainfall drives runoff; ML is better for high flows, process models for low flows.
+- **Open work:** Large-scale tests of transferability and scalability, e.g. in the style of the Distributed Model Intercomparison Projects.
+- **Issues:** Only four watersheds; results depend on input lag design; limited generalization claims.
+- *Basis: abstract*
 
 ### [Deep learning hybrid model with Boruta-Random forest optimiser algorithm for streamflow forecasting with climate mode indices, rainfall, and periodicity](https://doi.org/10.1016/j.jhydrol.2021.126350)
 Ahmed et al. (2021), *Journal of Hydrology*. 131 citations.
 
-*Summary pending.*
+- **Main goal:** Improves long-term forecasting of stream water level using climate mode indices, rainfall and periodicity for water resources planning.
+- **Architecture:** Hybrid deep learning: LSTM and gated recurrent unit (GRU) networks with Boruta random forest feature selection (BRF-LSTM) applied to lagged predictors.
+- **Data:** Six gauging stations in the Murray-Darling Basin, Australia, with lagged climate mode indices, rainfall and a monthly periodicity factor.
+- **Main result:** BRF-LSTM outperforms benchmarks, with over 98% of errors within ±0.015 m and RRMSE about 1.30%; periodicity improves skill at four stations.
+- **Open work:** Applying the approach to other hydrological variables influenced by low-frequency climate variability.
+- **Issues:** Few stations; very low errors may partly reflect water-level persistence; risk of selection bias from feature screening.
+- *Basis: abstract*
 
 ### [Explore Spatio‐Temporal Learning of Large Sample Hydrology Using Graph Neural Networks](https://doi.org/10.1029/2021wr030394)
 Sun et al. (2021), *Water Resources Research*. 129 citations.
 
-*Summary pending.*
+- **Main goal:** Exploits spatial and temporal dependencies across many basins to improve streamflow forecasting in gauged and ungauged basins.
+- **Architecture:** Graph neural networks (ChebNet, graph convolutional network, GraphWaveNet) with basins as nodes, compared with an LSTM baseline.
+- **Data:** CAMELS large-sample hydrology dataset, with transductive (fixed graph) and inductive (variable graph, ungauged basins) settings.
+- **Main result:** GNNs are robust and computationally efficient, matching or beating the LSTM baseline; edge- and node-level analysis interprets learned relations.
+- **Open work:** Incorporating river network topology and more data sources into graph learning.
+- **Issues:** Graphs built from basin similarity rather than physical connectivity; US-only; gains over LSTM are modest.
+- *Basis: abstract*
 
 ### [Simulation and prediction of suprapermafrost groundwater level variation in response to climate change using a neural network model](https://doi.org/10.1016/j.jhydrol.2015.09.038)
 Chang et al. (2015), *Journal of Hydrology*. 127 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates and predicts suprapermafrost groundwater level variation in response to climate change in a permafrost region.
+- **Architecture:** Artificial neural network relating climate drivers to groundwater level; the network design is not reported in the available metadata.
+- **Data:** Not reported in the abstract; presumably observed groundwater levels and meteorological data at a permafrost site, likely on the Tibetan Plateau.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Projecting groundwater response under future climate scenarios and linking to active-layer dynamics.
+- **Issues:** Abstract unavailable; study region, data and skill could not be verified; statistical models may not extrapolate under permafrost degradation.
+- *Basis: assessment*
 
 ### [Machine-learning methods for stream water temperature prediction](https://doi.org/10.5194/hess-25-2951-2021)
 Feigl et al. (2021), *Hydrology and Earth System Sciences*. 118 citations.
 
-*Summary pending.*
+- **Main goal:** Develops and benchmarks machine learning models for daily river water temperature prediction to support water management under climate change.
+- **Architecture:** Six models: stepwise linear regression, random forest, XGBoost, feed-forward neural networks (MLP) and two recurrent neural networks, tuned by Bayesian optimization, versus linear regression and air2stream.
+- **Data:** 10 Austrian catchments (200 to 96,000 km2) with daily air temperature, runoff, precipitation and global radiation.
+- **Main result:** Mean RMSE of 0.55 °C versus 1.55 °C for linear regression and 0.98 °C for air2stream; FNN and XGBoost each best in 4 of 10 catchments, RNNs best in the largest.
+- **Open work:** Regional multi-catchment models and applications to future climate; R package wateRtemp released.
+- **Issues:** High sensitivity to hyperparameters (FNN RMSE standard deviation 1.60 °C); single-catchment models; Austrian setting only.
+- *Basis: abstract*
 
 ### [Hydrologically Informed Machine Learning for Rainfall‐Runoff Modeling: A Genetic Programming‐Based Toolkit for Automatic Model Induction](https://doi.org/10.1029/2019wr026933)
 Chadalawada et al. (2020), *Water Resources Research*. 116 citations.
 
-*Summary pending.*
+- **Main goal:** Automates the construction of physically meaningful rainfall-runoff models from flexible modelling frameworks, avoiding time-consuming manual trial of configurations.
+- **Architecture:** Genetic programming (evolutionary computation) model induction toolkit (ML-RR-MI) that searches SUPERFLEX and FUSE building blocks to build lumped conceptual models.
+- **Data:** Rainfall-runoff data for the Blackwater River basin, Alabama, USA.
+- **Main result:** Evolved model configurations are consistent with fieldwork and previous research findings; quantitative skill is not reported in the abstract.
+- **Open work:** Extending to semi-distributed models (later done in MIKA-SHA) and other building-block libraries.
+- **Issues:** Single basin; computational cost of the search; no comparison with deep learning in the abstract.
+- *Basis: abstract*
 
 ### [Challenges in Applying Machine Learning Models for Hydrological Inference: A Case Study for Flooding Events Across Germany](https://doi.org/10.1029/2019wr025924)
 Schmidt et al. (2020), *Water Resources Research*. 116 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether machine learning models can be used for hydrological inference, not just prediction, using flood events across Germany.
+- **Architecture:** Artificial neural networks (MLP) and random forest compared with multiple linear regression, interpreted using permuted feature importance.
+- **Data:** Large dataset of flood events across Germany with catchment and event predictors.
+- **Main result:** ML models beat linear regression and reflect basic hydrological principles, but feature importances differ across algorithms, revealing equifinality that hampers inference.
+- **Open work:** Using multiple algorithms and interpretation methods within cross-validation when doing ML-based inference.
+- **Issues:** Inference conclusions depend on chosen algorithms; correlated predictors complicate importance estimates.
+- *Basis: abstract*
 
 ### [Reconstruction of GRACE Total Water Storage Through Automated Machine Learning](https://doi.org/10.1029/2020wr028666)
 Sun et al. (2020), *Water Resources Research*. 114 citations.
 
-*Summary pending.*
+- **Main goal:** Fills the roughly 1-year gap between GRACE and GRACE-FO total water storage records to maintain data continuity.
+- **Architecture:** Automated machine learning (AutoML) workflow selecting and tuning six ML model types (including tree ensembles and neural networks) per grid cell, with model combination.
+- **Data:** GRACE/GRACE-FO total water storage anomalies over CONUS with meteorological and climatic predictors.
+- **Main result:** Mean gridwise NSE about 0.85, correlation about 0.95 and normalized RMSE about 0.09 on test data; skill holds in the mission gap and GRACE-FO period; no single algorithm is best everywhere.
+- **Open work:** Applying AutoML to larger-scale hydrological prediction systems and global reconstructions.
+- **Issues:** Gridwise models ignore spatial dependence; reconstruction in the gap cannot be directly verified; CONUS only.
+- *Basis: abstract*
 
 ### [NeuralHydrology - Interpreting LSTMs in Hydrology](https://doi.org/10.1007/978-3-030-28954-6_19)
 Kratzert et al. (2019), *Explainable AI*. 109 citations.
 
-*Summary pending.*
+- **Main goal:** Interprets LSTM rainfall-runoff models to address the opacity that limits their acceptance in environmental sciences.
+- **Architecture:** Long short-term memory network (LSTM) analysed by inspecting internal memory cell states and gradients.
+- **Data:** Two catchments, one snow-influenced and one without, from the CAMELS US dataset.
+- **Main result:** The trained LSTM internally learns patterns consistent with hydrological understanding, e.g. cell states resembling snow storage and dynamic reservoirs.
+- **Open work:** Systematic interpretability tools for larger samples of basins and other hydrologic variables.
+- **Issues:** Only two catchments; qualitative interpretation; links between cells and physical stores are not unique.
+- *Basis: abstract+knowledge*
 
 ### [Assessing the Physical Realism of Deep Learning Hydrologic Model Projections Under Climate Change](https://doi.org/10.1029/2022wr032123)
 Wi et al. (2022), *Water Resources Research*. 106 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether deep learning hydrologic models produce physically realistic streamflow projections under warming.
+- **Architecture:** Regional LSTM benchmarked against process models HYMOD, SAC-SMA and VIC; hybrid variants with process-model outputs as extra targets (multi-output LSTM) or input features.
+- **Data:** Daily streamflow in 15 California watersheds forced with warming scenarios, plus an LSTM trained on over 500 US watersheds.
+- **Main result:** LSTM reproduces hydrograph shifts but in some basins unrealistically increases the runoff ratio; SAC-SMA ET as input fixes this, but not with VIC or HYMOD; the 500-basin LSTM gives more realistic responses.
+- **Open work:** Hybrid modelling and large diverse training sets to make LSTM climate projections trustworthy.
+- **Issues:** Synthetic warming scenarios rather than full climate projections; hybrid benefit depends on process model fidelity.
+- *Basis: abstract*
 
 ### [Distributed Hydrological Modeling With Physics‐Encoded Deep Learning: A General Framework and Its Application in the Amazon](https://doi.org/10.1029/2023wr036170)
 Wang et al. (2024), *Water Resources Research*. 102 citations.
 
-*Summary pending.*
+- **Main goal:** Combines deep learning accuracy with physical mechanisms in distributed hydrological modelling for very large basins.
+- **Architecture:** Differentiable framework encoding the HydroPy process model as a neural network, plus a parameterization neural network from watershed attributes and NN replacement modules (e.g. for potential evapotranspiration).
+- **Data:** Amazon Basin (about 6 million km2), trained jointly on streamflow observations and GRACE total water storage.
+- **Main result:** Median NSE of 0.83 for streamflow and 0.77 for total water storage, 41% and 35% higher than original HydroPy; NN replacement for Penman-Monteith yields more plausible PET.
+- **Open work:** Applying the framework to other basins and global modelling, and further interpreting learned parameters.
+- **Issues:** Single basin; process replacements reduce interpretability; dependent on GRACE resolution.
+- *Basis: abstract*
 
 ### [Improving Snow Water Equivalent Maps With Machine Learning of Snow Survey and Lidar Measurements](https://doi.org/10.1029/2018wr024146)
 Broxton et al. (2019), *Water Resources Research*. 101 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces uncertainty in snow water equivalent (SWE) mapping from aerial lidar snow depth, which lacks spatially explicit snow density, in semiarid Arizona mountain forests that supply surface water.
+- **Architecture:** Artificial neural network (MLP) that distributes field snow density measurements spatially; density maps are combined with bias-corrected lidar snow depth to produce SWE maps.
+- **Data:** About 300 field snow density measurements, aerial lidar snow depth bias-corrected with ~4,000 geolocated field depth observations, two sites on Arizona's Mogollon Rim, February and March 2017; SNOTEL comparison.
+- **Main result:** Snow density varies less spatially than depth in late winter; the lidar-ANN SWE estimates differ by up to 30% from SWE computed with SNOTEL density, and point-station representativeness changes between midwinter and late winter.
+- **Open work:** Extending the approach to more sites, years and snow conditions, and testing transfer of density models without dense field surveys.
+- **Issues:** Two sites and two survey dates only; relies on intensive field campaigns; no independent SWE validation beyond field data; generalization untested.
+- *Basis: abstract*
 
 ### [Estimating propagation probability from meteorological to ecological droughts using a hybrid machine learning copula method](https://doi.org/10.5194/hess-27-559-2023)
 Jiang et al. (2023), *Hydrology and Earth System Sciences*. 99 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies the probability that meteorological drought propagates into ecological (vegetation) drought of different magnitudes in northwestern China, to support ecological conservation.
+- **Architecture:** Hybrid of machine learning classifiers and a four-dimensional C-vine copula; 11 classifiers compared, with quadratic discriminant analysis (QDA) best; drought events identified with a three-dimensional spatiotemporal clustering method.
+- **Data:** Meteorological and ecological drought indices over northwestern China, 1982–2020; 130 meteorological and 184 ecological drought events, 46 paired propagation events. Specific input products not reported in the abstract.
+- **Main result:** QDA performs best among 11 models; ecological droughts last longer but have smaller area and severity than meteorological droughts; the hybrid method handles large regions better than traditional propagation methods.
+- **Open work:** Applying the framework to other regions and drought types, and to future climate scenarios to project propagation risk.
+- **Issues:** Only 46 paired propagation events for training; results depend on the event-pairing overlap rule and drought index choices; skill metrics not given in the abstract.
+- *Basis: abstract*
 
 ### [Evaluation of artificial intelligence models for flood and drought forecasting in arid and tropical regions](https://doi.org/10.1016/j.envsoft.2021.105136)
 Adikari et al. (2021), *Environmental Modelling & Software*. 98 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates how well artificial intelligence models forecast floods and droughts in contrasting arid and tropical climate regions.
+- **Architecture:** Comparison of several AI/machine learning forecasting models (neural network-based); exact model set not reported here (abstract unavailable).
+- **Data:** Hydrometeorological observations from arid and tropical study catchments; specific datasets not reported.
+- **Main result:** Not available from the abstract; the study compares model skill for flood and drought forecasting across the two climate settings.
+- **Open work:** Testing across more catchments and climates and on longer lead times.
+- **Issues:** Abstract missing; details of models, data and results not verified.
+- *Basis: assessment*
 
 ### [Streamflow simulation in data-scarce basins using Bayesian and physics-informed machine learning models](https://doi.org/10.1175/jhm-d-20-0082.1)
 Lu et al. (2021), *Journal of Hydrometeorology*. 97 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses LSTM streamflow prediction in poorly monitored, data-scarce watersheds and addresses overfitting, uncertainty quantification and out-of-distribution prediction.
+- **Architecture:** LSTM networks with L2 and dropout regularization, a Bayesian LSTM for uncertainty quantification, and a physics-informed hybrid LSTM coupled with a hydrologic model for out-of-distribution prediction.
+- **Data:** Daily streamflow in two diverse sets of catchments with and without snow influence, with calibration records as short as two years.
+- **Main result:** With similar hydrologic variability, LSTM reaches NSE above 0.8 from two years of data; under shifted variability the hybrid model generalizes better; Bayesian and hybrid LSTMs do not overfit and the Bayesian LSTM gives useful uncertainty.
+- **Open work:** Applying the approaches to more data-scarce regions and combining Bayesian and physics-informed components.
+- **Issues:** Small number of case-study catchments; out-of-distribution skill depends on the process model in the hybrid; quantitative uncertainty calibration not reported in the abstract.
+- *Basis: abstract*
 
 ### [Continental-scale streamflow modeling of basins with reservoirs: Towards a coherent deep-learning-based strategy](https://doi.org/10.1016/j.jhydrol.2021.126455)
 Ouyang et al. (2021), *arXiv*. 96 citations.
 
-*Summary pending.*
+- **Main goal:** Determines which dam-influenced basins can be modeled by deep learning for continental-scale daily streamflow prediction using readily available information.
+- **Architecture:** Long short-term memory (LSTM) networks trained on basin groups defined by reservoir degree of regulation (dor), purpose and diversion, in a divide-and-conquer strategy.
+- **Data:** 3,557 basins over the contiguous United States (83% dammed), extending reference-basin datasets with reservoir attributes (e.g. GAGES-II-type information).
+- **Main result:** Training on all basins gives median NSE 0.74; pooled training yields median NSE 0.73, 0.78 and 0.71 for zero-, small- and large-dor basins; reference-trained models transfer poorly and migrating models between dor groups fails.
+- **Open work:** Separately modeling reservoirs for irrigation, fire protection, hydropower and flood control, and explicit representation of large-dor reservoirs.
+- **Issues:** Large-dor basins with irrigation dams remain poorly simulated; no explicit reservoir operation data; dammed basins must be in the training set.
+- *Basis: abstract*
 
 ### [A graph neural network (GNN) approach to basin-scale river network learning: the role of physics-based connectivity and data fusion](https://doi.org/10.5194/hess-26-5163-2022)
 Sun et al. (2022), *Hydrology and Earth System Sciences*. 96 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a fast basin-scale river network model for streamflow forecasting, since high-resolution vector-based river network models are computationally demanding.
+- **Architecture:** Multistage physics-guided graph neural network (GNN) pretrained to emulate a vector-based river routing model, fine-tuned on gauge observations, with graph-based data fusion for bias correction and graph coarsening for scalability.
+- **Data:** Outputs of a high-resolution vector-based river network model and streamflow gauge observations in a snow-dominated western US watershed and a larger basin.
+- **Main result:** The GNN surrogate reproduces the process model with median KGE above 0.97; data fusion improves KGE by up to 50% at cross-validation gauges; coarsened graphs give comparable skill at a fraction of training cost.
+- **Open work:** Scaling to continental river networks and determining the degree of physical realism needed in large-scale GNN river models.
+- **Issues:** Surrogate inherits biases of the process-based model; tested in a limited number of basins; forecasting skill under extremes not detailed.
+- *Basis: abstract*
 
 ### [Machine-learning- and deep-learning-based streamflow prediction in a hilly catchment for future scenarios using CMIP6 GCM data](https://doi.org/10.5194/hess-27-1047-2023)
 Singh et al. (2023), *Hydrology and Earth System Sciences*. 95 citations.
 
-*Summary pending.*
+- **Main goal:** Projects future streamflow in the Himalayan Sutlej River basin under climate change for water resource planning.
+- **Architecture:** Comparison of Gaussian linear regression, generalized additive model, MARS, artificial neural network (MLP), random forest and a 1D convolutional neural network; random forest selected for projections.
+- **Data:** Daily data 1979–2009 at Kasol for training; bias-corrected CMIP6 output from six GCMs downscaled to 0.25° under SSP245 and SSP585 for 2041–2070 and 2071–2100.
+- **Main result:** Random forest performs best (test R2 0.78, NSE 0.71, KGE 0.82); mean annual streamflow rises about 0.8–1.4%, monsoon flow increases ~10–13%, while pre-monsoon and winter flows decline (winter ~-22%).
+- **Open work:** Incorporating glacier and snowmelt dynamics and land-use change, and assessing downstream agricultural water impacts.
+- **Issues:** Statistical models trained on historical relationships may not hold under future climate; GCM and downscaling uncertainty; glacier retreat not explicitly modeled.
+- *Basis: abstract*
 
 ### [A spatial–temporal graph deep learning model for urban flood nowcasting leveraging heterogeneous community features](https://doi.org/10.1038/s41598-023-32548-x)
 Farahmand et al. (2021), *Scientific Reports*. 94 citations.
 
-*Summary pending.*
+- **Main goal:** Nowcasts urban flood inundation during extreme weather events by combining physics-based and human-sensed data to improve situational awareness.
+- **Architecture:** Attention-based spatial-temporal graph convolution network (ASTGCN), a graph neural network with spatial and temporal graph convolution modules and attention.
+- **Data:** Harris County, Texas, census tracts during Hurricane Harvey 2017: static spatial features, rainfall intensity and water elevation, and human-sensed data (flood reports, human activity fluctuations).
+- **Main result:** ASTGCN achieves precision 0.808 and recall 0.891 for census-tract flood status, outperforming other models; adding human-sensed features improves performance.
+- **Open work:** Training and testing on more historical flood events to build an operational predictive tool for responders.
+- **Issues:** Single event and single region; human-sensed data availability and biases vary; nowcasting rather than lead-time forecasting.
+- *Basis: abstract*
 
 ### [Prediction of coastal flooding risk under climate change impacts in South Korea using machine learning algorithms](https://doi.org/10.1088/1748-9326/aba5b3)
 Park et al. (2020), *Environmental Research Letters*. 91 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses future coastal flooding risk in South Korea under climate change to support integrated coastal zone management.
+- **Architecture:** Multiple machine learning classifiers compared, with k-nearest neighbor performing best, producing risk probability maps.
+- **Data:** Coastal flood hazard data with RCP scenarios from regional climate models and sea level rise ratios; projections for the 2030s to 2080s.
+- **Main result:** Average ROC AUC of 0.946 with k-NN; southern coastal areas show higher compound flood risk (high tide plus heavy rainfall) than eastern and western coasts.
+- **Open work:** Incorporating socioeconomic vulnerability and dynamic coastal processes into the risk probability approach.
+- **Issues:** Statistical classification may not extrapolate to future climates; climate model and sea level rise uncertainties; details of training labels not given in the abstract.
+- *Basis: abstract*
 
 ### [Rapid spatio-temporal flood modelling via hydraulics-based graph neural networks](https://doi.org/10.5194/hess-27-4227-2023)
 Bentivoglio et al. (2023), *Hydrology and Earth System Sciences*. 89 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast, generalizable surrogate for spatio-temporal flood simulation, as numerical shallow water solvers are computationally expensive.
+- **Architecture:** SWE-GNN: a hydraulics-inspired graph neural network mirroring finite-volume shallow water equation solvers, with learned inter-cell fluxes, stacked layers, multi-step-ahead loss and curriculum learning.
+- **Data:** Two-dimensional dike-breach flood simulations over randomly generated digital elevation models produced with a high-fidelity numerical solver.
+- **Main result:** Mean errors of 0.04 m for water depth and 0.004 m2/s for unit discharge on unseen topographies; generalizes to new breach locations, larger domains and longer periods; up to 100x faster than the solver.
+- **Open work:** Applying to real topographies and uncertainty-aware, time-sensitive flood applications.
+- **Issues:** Trained and tested on synthetic terrain and simulated floods only; no real event validation; dike-breach scenarios only.
+- *Basis: abstract*
 
 ### [Groundwater Storage Loss Associated With Land Subsidence in Western United States Mapped Using Machine Learning](https://doi.org/10.1029/2019wr026621)
 Smith et al. (2020), *Water Resources Research*. 86 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates land subsidence and associated groundwater storage loss across the western United States, where physical models and InSAR are costly or incomplete.
+- **Architecture:** Machine learning regression (tree-based model type not specified in the abstract) relating widely available predictors to land subsidence.
+- **Data:** Evapotranspiration, land use, sediment thickness and other ancillary data, with InSAR/GPS subsidence observations for training; western US, 2015–2016.
+- **Main result:** Estimates ~2.0 km3/yr groundwater storage loss from pumping-induced compaction in 2015–2016; California accounts for 75% of subsidence, concentrated in the Central Valley.
+- **Open work:** Extending to other periods and regions and linking to groundwater management.
+- **Issues:** Short period; relies on training labels from InSAR with atmospheric errors; ML relationships are correlative rather than mechanistic.
+- *Basis: abstract*
 
 ### [Global high-resolution total water storage anomalies from self-supervised data assimilation using deep learning algorithms](https://doi.org/10.1038/s44221-024-00194-w)
 Gou et al. (2024), *Nature Water*. 86 citations.
 
-*Summary pending.*
+- **Main goal:** Produces global high-resolution total water storage anomalies (TWSA) to better resolve the terrestrial water cycle beyond coarse GRACE resolution.
+- **Architecture:** Self-supervised deep learning data assimilation model with a new loss function combining hydrological simulations and satellite gravimetry.
+- **Data:** GRACE and GRACE-FO measurements and hydrological model simulations; global 0.5° output.
+- **Main result:** The product closes the water balance in small basins while preserving large-scale GRACE accuracy, supporting local hazard monitoring.
+- **Open work:** Applying the approach to other TWSA data sources and using the product for natural and anthropogenic water cycle impact studies.
+- **Issues:** Fine-scale information depends on hydrological simulations; validation in small basins relies on water balance closure; limited quantitative metrics in the abstract.
+- *Basis: abstract*
 
 ### [Improving Streamflow Prediction Using Multiple Hydrological Models and Machine Learning Methods](https://doi.org/10.1029/2024wr038192)
 Solanki et al. (2025), *Water Resources Research*. 86 citations.
 
-*Summary pending.*
+- **Main goal:** Improves streamflow simulation and flood prediction in India, hampered by hydrological model and meteorological forecast errors.
+- **Architecture:** Post-processing of five hydrological models (VIC, H08, CWatM, Noah-MP, CLM) with multiple linear regression, random forest, XGBoost and LSTM, including ML-based multi-model ensembles.
+- **Data:** IMD observed meteorological forcing and GEFS forecasts driving the hydrological models; observed streamflow and flood inundation in Indian basins.
+- **Main result:** ML post-processing significantly improves overall streamflow simulation and the ML multi-model ensemble beats individual models, but improvement in high flows is limited; accounting for dams is crucial.
+- **Open work:** Developing operational multi-model ML flood early warning systems for India.
+- **Issues:** Limited gains for high flows that matter most for floods; skill depends on forecast quality and dam representation.
+- *Basis: abstract*
 
 ### [Constructing high-resolution groundwater drought at spatio-temporal scale using GRACE satellite data based on machine learning in the Indus Basin](https://doi.org/10.1016/j.jhydrol.2022.128295)
 Ali et al. (2022), *Journal of Hydrology*. 85 citations.
 
-*Summary pending.*
+- **Main goal:** Constructs high-resolution groundwater drought information in the Indus Basin by downscaling coarse GRACE observations.
+- **Architecture:** Machine learning downscaling of GRACE groundwater storage anomalies (specific model not reported here; abstract unavailable), followed by drought index calculation.
+- **Data:** GRACE satellite data with hydrometeorological predictors over the Indus Basin; details not reported.
+- **Main result:** Not available from the abstract; the study produces spatio-temporal high-resolution groundwater drought maps.
+- **Open work:** Validation with more in situ wells and extension to GRACE-FO period and other basins.
+- **Issues:** Abstract missing; method and results not verified; downscaled products depend on predictor relationships and sparse wells.
+- *Basis: assessment*
 
 ### [River flooding mechanisms and their changes in Europe revealed by explainable machine learning](https://doi.org/10.5194/hess-26-6339-2022)
 Jiang et al. (2022), *Hydrology and Earth System Sciences*. 84 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies river flooding mechanisms in Europe and detects their changes, needed for flood forecasting and projection under climate change.
+- **Architecture:** Explainable machine learning (LSTM-based discharge model with interpretation) combined with cluster analysis to attribute annual maximum discharge events to drivers.
+- **Data:** 53,968 annual maximum discharge events in about a thousand European catchments with meteorological drivers over roughly 70 years.
+- **Main result:** Three mechanisms emerge: recent precipitation, antecedent precipitation (excess soil moisture) and snowmelt; over half of catchments have mixed mechanisms; snowmelt floods decreased and recent-precipitation floods increased.
+- **Open work:** Extending to other regions and linking mechanism changes to flood seasonality and magnitude projections.
+- **Issues:** Attribution depends on the interpretation method and model; observational record limits trend detection; catchment selection bias.
+- *Basis: abstract+knowledge*
 
 ### [Ensemble streamflow forecasting over a cascade reservoir catchment with integrated hydrometeorological modeling and machine learning](https://doi.org/10.5194/hess-2021-393-rc1)
 Liu et al. (2021), *Hydrology and Earth System Sciences*. 84 citations.
 
-*Summary pending.*
+- **Main goal:** Improves hourly ensemble streamflow forecasts in a cascade reservoir catchment where upstream releases and rainfall-runoff both control flow.
+- **Architecture:** Hydrometeorological ensemble forecasting (bias-corrected meteorological forecasts driving a land surface hydrological model) combined with a long short-term memory (LSTM) network.
+- **Data:** Yantan catchment, China; hourly streamflow hindcasts during rainy seasons 2013–2017 with ensemble meteorological forecasts and upstream reservoir release data.
+- **Main result:** The hydrometeorological approach reduces probabilistic error by 10% and deterministic error by 6% versus ESP over 7 days; adding LSTM cuts deterministic error another 6% in the first 72 hours; LSTM with observations only degrades after 24 hours.
+- **Open work:** Better integration of reservoir operation information and extension to other regulated catchments.
+- **Issues:** Single catchment; short hindcast period; gains of ML limited to short leads.
+- *Basis: abstract*
 
 ### [Improving Urban Flood Prediction using LSTM-DeepLabv3+ and Bayesian Optimization with Spatiotemporal feature fusion](https://doi.org/10.1016/j.jhydrol.2024.130743)
 Situ et al. (2023), *Journal of Hydrology*. 83 citations.
 
-*Summary pending.*
+- **Main goal:** Improves urban flood prediction by jointly modeling spatial and temporal features with diverse inputs, faster than physically based models.
+- **Architecture:** CNN-RNN hybrid feature fusion: combinations of FCN, U-Net, SegNet, DeepLabv3+ with LSTM, BiLSTM and GRU, with Bayesian optimization for factor selection; LSTM-DeepLabv3+ is best.
+- **Data:** Urban flood simulations from a physically based model under various rainfall inputs with seven selected flood-driving factors; study area details not reported in the abstract.
+- **Main result:** LSTM-DeepLabv3+ achieves MAE 0.007, RMSE 0.025, NSE 0.973, KGE 0.755, with inference of 1.158 s, about 1/125 of physical model computation time.
+- **Open work:** Testing with observed flood events and transfer to other urban areas.
+- **Issues:** Trained on simulated floods so inherits physical model errors; single urban case; no uncertainty estimates.
+- *Basis: abstract*
 
 ### [High temporal resolution rainfall–runoff modeling using long-short-term-memory (LSTM) networks](https://doi.org/10.1007/s00521-020-05010-6)
 Li et al. (2020), *Neural computing & applications (Print)*. 83 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a data-driven high-temporal-resolution rainfall-runoff model for flood risk management in a flood-prone Houston watershed.
+- **Architecture:** Sequence-to-sequence long short-term memory (LSTM) network emulating rainfall-runoff at 15-minute resolution, compared with the process-based GSSHA model.
+- **Data:** Ten years of precipitation from 153 rain gauges and river channel discharge (over 5.3 million data points) in a Houston, Texas watershed.
+- **Main result:** LSTM predicts discharge efficiently and is more robust than GSSHA; test NSE rises from 0.666 to 0.942 when a selected subset of gauges is used as input.
+- **Open work:** Exploring physical consistency further and applying to other watersheds and forecasting with predicted rainfall.
+- **Issues:** Single watershed; input gauge selection based on performance risks overfitting; relies on observed rainfall rather than forecasts.
+- *Basis: abstract*
 
 ### [Short-term flood probability density forecasting using a conceptual hydrological model with machine learning techniques](https://doi.org/10.1016/j.jhydrol.2021.127255)
 Zhou et al. (2021), *Journal of Hydrology*. 80 citations.
 
-*Summary pending.*
+- **Main goal:** Produces short-term probabilistic flood forecasts as probability density functions to quantify forecast uncertainty.
+- **Architecture:** Conceptual hydrological model coupled with machine learning techniques for probability density forecasting (specific methods not reported here; abstract unavailable).
+- **Data:** Flood events in one or more study catchments; data not reported.
+- **Main result:** Not available from the abstract.
+- **Open work:** Testing in more catchments and with forecast rainfall inputs.
+- **Issues:** Abstract missing; methods and results not verified.
+- *Basis: assessment*
 
 ### [A deep-learning-technique-based data-driven model for accurate and rapid flood predictions in temporal and spatial dimensions](https://doi.org/10.5194/hess-27-1791-2023)
 Zhou et al. (2023), *Hydrology and Earth System Sciences*. 80 citations.
 
-*Summary pending.*
+- **Main goal:** Provides accurate and rapid urban flood prediction in time and space to support flood management decisions.
+- **Architecture:** Long short-term memory (LSTM) network with Bayesian optimization and transfer learning, compared with ANN and convolutional neural network baselines.
+- **Data:** Simulations from a physically based hydrodynamic model for various hyetographs in a northern China urban case study, plus a second case for transfer learning.
+- **Main result:** Predicts maximum water depths and flood time series 19,585 times faster than the hydrodynamic model with mean relative error 9.5%; transfer learning generalizes to a new case.
+- **Open work:** Using the model for real-time control, optimization and emergency planning.
+- **Issues:** Trained on synthetic hydrodynamic outputs; limited validation with observed floods; only design hyetographs tested.
+- *Basis: abstract*
 
 ### [Scalable flood level trend monitoring with surveillance cameras using a deep convolutional neural network](https://doi.org/10.5194/hess-23-4621-2019)
 Vitry et al. (2019), *Hydrology and Earth System Sciences*. 80 citations.
 
-*Summary pending.*
+- **Main goal:** Provides scalable urban surface flooding data by extracting flood level trends from existing surveillance cameras.
+- **Architecture:** Deep convolutional neural network (DCNN) for floodwater segmentation in video frames, producing a static observer flooding index (SOFI).
+- **Data:** 1,218 flooding images collected from the Internet for training; six surveillance videos with different flooding and lighting conditions for testing.
+- **Main result:** SOFI correlates 75% on average with actual water level fluctuations, rising to 85% after retraining with a few frames per video.
+- **Open work:** Deploying at scale across camera networks and integrating with flood models.
+- **Issues:** Qualitative trend only, not absolute water level; only six test videos; performance depends on lighting and viewpoint.
+- *Basis: abstract*
 
 ### [Leveraging machine learning for predicting flash flood damage in the Southeast US](https://doi.org/10.1088/1748-9326/ab6edd)
 Alipour et al. (2020), *Environmental Research Letters*. 80 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts property damage from flash floods in the Southeast US to support proactive disaster management.
+- **Architecture:** Random forest classifier and regressor with variable selection, using hazard, vulnerability and exposure features.
+- **Data:** More than 14,000 flash flood events with mesoscale hydrometeorological and socioeconomic data from multiple sources.
+- **Main result:** Classifies damaging events with 81% accuracy and predicts damage amounts in good agreement with observed property damage.
+- **Open work:** Extending to real-time damage forecasting and other regions.
+- **Issues:** Damage reports are noisy and incomplete; regression skill not quantified in the abstract.
+- *Basis: abstract*
 
 ### [Improving River Routing Using a Differentiable Muskingum‐Cunge Model and Physics‐Informed Machine Learning](https://doi.org/10.1029/2023wr035337)
 Bindas et al. (2024), *Water Resources Research*. 76 citations.
 
-*Summary pending.*
+- **Main goal:** Improves hydrologic flood routing in large heterogeneous river basins by learning routing parameters with differentiable modeling.
+- **Architecture:** Differentiable Muskingum-Cunge routing model over a river network with an embedded neural network (MLP) inferring Manning's n and channel geometry from reach attributes, trained only on downstream hydrographs.
+- **Data:** Synthetic experiments plus real Juniata River basin data with reach-scale attributes, runoff inputs and gauge hydrographs.
+- **Main result:** Manning's n is identifiable with moderate precision but channel geometry is not; the model beats ML and summed-runoff baselines for subbasins above 2,000 km2, including untrained inner gauges.
+- **Open work:** Coupling the learned n parameterization with national-scale hydrologic models for flood simulation.
+- **Issues:** Absolute n values vary with training period; channel geometry unidentifiable; single basin demonstration.
+- *Basis: abstract+knowledge*
 
 ### [Spatiotemporal deep learning rainfall-runoff forecasting combined with remote sensing precipitation products in large scale basins](https://doi.org/10.1016/j.jhydrol.2022.128727)
 Zhu et al. (2022), *Journal of Hydrology*. 72 citations.
 
-*Summary pending.*
+- **Main goal:** Rainfall-runoff forecasting in large-scale basins with a spatiotemporal deep learning model that uses remote sensing precipitation products as forcing.
+- **Architecture:** Spatiotemporal deep learning model combined with remote-sensing precipitation; the exact architecture is not available.
+- **Data:** Satellite remote sensing precipitation products and observed streamflow for large basins; specific products and basins are not available because the abstract is missing.
+- **Main result:** Not reported; the abstract is unavailable.
+- **Open work:** Comparison across precipitation products and transfer to other large basins would follow naturally.
+- **Issues:** Abstract missing, so the card is based on the title only; satellite precipitation errors propagate into runoff forecasts.
+- *Basis: assessment*
 
 ### [Robust Runoff Prediction With Explainable Artificial Intelligence and Meteorological Variables From Deep Learning Ensemble Model](https://doi.org/10.1029/2023wr035676)
 Wu et al. (2023), *Water Resources Research*. 71 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts runoff at three hydrological stations for flood warning while accounting for meteorological drivers beyond precipitation and making the model interpretable.
+- **Architecture:** Decomposition-ensemble pipeline: TVF-EMD and robust local mean decomposition of runoff, bidirectional gated recurrent unit (BiGRU) and extreme learning machine sub-models, combined nonlinearly by a random forest; SHAP for explanation.
+- **Data:** Runoff series from three hydrological stations with meteorological variables selected by the Relief algorithm and variance inflation factor; station locations and periods not reported in the abstract.
+- **Main result:** Outperforms comparison models on various evaluation metrics, and SHAP quantifies each meteorological variable's contribution to the long-term runoff trend; no specific numbers are given in the abstract.
+- **Open work:** Testing on more basins and longer lead times, and checking whether the decomposition is applied without future information leakage, are natural next steps.
+- **Issues:** Very complex multi-stage pipeline with risk of overfitting and decomposition leakage in operational use; only three stations evaluated.
+- *Basis: assessment*
 
 ### [Transformer Versus LSTM: A Comparison of Deep Learning Models for Karst Spring Discharge Forecasting](https://doi.org/10.1029/2022wr032602)
 Pölz et al. (2024), *Water Resources Research*. 68 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates whether the transformer improves forecasts of karst spring discharge up to 4 days ahead for drinking-water management.
+- **Architecture:** Transformer compared with a long short-term memory (LSTM) network and a common baseline model, in discharge-based and non-discharge-based input scenarios, with uncertainty analysis.
+- **Data:** Extensive hourly database for an Austrian karst spring (LKAS2) plus two further karst springs with diverse discharge characteristics; inputs include rainfall, electrical conductivity and temporal information.
+- **Main result:** Transformer beats the LSTM by 9% mean difference for the spring with the longest response time but is 4% worse for the shortest; both reach NSE 0.64-0.92 and sMAPE 10.8-28.7% at LKAS2 and the transformer better captures snowmelt.
+- **Open work:** Testing on more springs and longer horizons, and exploiting attention for process understanding, are natural next steps.
+- **Issues:** Only three springs; performance depends on spring response time; prediction intervals are widest during snowmelt.
+- *Basis: abstract*
 
 ### [Robust Meteorological Drought Prediction Using Antecedent SST Fluctuations and Machine Learning](https://doi.org/10.1029/2020wr029413)
 Li et al. (2021), *Water Resources Research*. 68 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts meteorological drought robustly by exploiting the full antecedent global sea surface temperature fluctuation pattern rather than signals from a few ocean regions.
+- **Architecture:** Antecedent SST fluctuation pattern (ASFP) predictors fed to support vector regression, random forest and extreme learning machine models for ensemble, probabilistic and deterministic predictions.
+- **Data:** Antecedent global SST fields and the standardized precipitation evapotranspiration index (SPEI) at 1°x1° for the Colorado, Danube, Orange and Pearl River basins; SST product not reported in the abstract.
+- **Main result:** ASFP-ELM effectively predicts the space-time evolution of drought events at 1- and 3-month lead times and outperforms ASFP-SVR and ASFP-RF; no skill numbers in the abstract.
+- **Open work:** Extending to longer leads and more basins, and integrating into drought early warning systems, are suggested.
+- **Issues:** Short lead times only; SST-only predictors ignore land-surface memory; skill numbers and physical interpretation are not given in the abstract.
+- *Basis: assessment*
 
 ### [Development of a Distributed Physics‐Informed Deep Learning Hydrological Model for Data‐Scarce Regions](https://doi.org/10.1029/2023wr036333)
 Zhong et al. (2024), *Water Resources Research*. 68 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates streamflow in data-scarce regions, including ungauged internal sub-basins, where large-sample deep learning and transfer learning generalize poorly.
+- **Architecture:** Distributed physics-informed deep learning model: differentiable hydrological models for each sub-basin with neural network parameterization, coupled with a differentiable Muskingum channel routing scheme.
+- **Data:** Streamflow from the downstream-most gauge for training and upstream held-out stations for testing, with meteorological forcing; basin and data products are not reported in the abstract.
+- **Main result:** Trained only on the outlet station, it outperforms a distributed hydrological model at both training and held-out upstream stations, and beats transfer-learning models while needing fewer gauges.
+- **Open work:** Testing in more regions with distinct hydrological processes and adding further process modules are natural extensions.
+- **Issues:** Equifinality in sub-basin parameters when constrained only by outlet flow; no quantitative scores in the abstract; evaluated on a limited number of basins.
+- *Basis: assessment*
 
 ### [Flash Drought: Review of Concept, Prediction and the Potential for Machine Learning, Deep Learning Methods](https://doi.org/10.1029/2022ef002723)
 Tyagi et al. (2022), *Earth's Future*. 66 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews the flash drought concept, the sources of uncertainty in its prediction, and the potential of machine learning and deep learning to improve it.
+- **Architecture:** Review of 121 articles covering flash drought definitions, key indicators, characteristics, and monitoring, prediction and impact-assessment methods, including ML and DL approaches.
+- **Data:** Literature corpus of 121 relevant articles; no new data.
+- **Main result:** Flash drought prediction is limited by inconsistent definitions and indicators, low subseasonal-to-seasonal predictability, input-data errors, parameter uncertainty and nonlinear, non-stationary indicator interactions; combining traditional methods and multisource data with ML/DL shows promise.
+- **Open work:** Calls for consistent definitions, better physical understanding, and ML/DL models that fuse multisource data for S2S flash drought prediction.
+- **Issues:** A review, so no new quantitative evaluation; conclusions about ML potential are largely prospective.
+- *Basis: abstract*
 
 ### [Karst spring discharge modeling based on deep learning using spatially distributed input data](https://doi.org/10.5194/hess-2021-403)
 Wunsch et al. (2021), *Hydrology and Earth System Sciences*. 66 citations.
 
-*Summary pending.*
+- **Main goal:** Models karst spring discharge where few climate stations exist in the catchment, by learning directly from gridded meteorological data.
+- **Architecture:** 2D convolutional neural network (CNN) processing gridded meteorological inputs followed by a 1D CNN for discharge simulation, compared with 1D models using station data; spatial input sensitivity analysis.
+- **Data:** Gridded meteorological data (product not named in the abstract) and discharge for three karst spring catchments in the Alpine and Mediterranean regions.
+- **Main result:** The 2D models simulate karst spring discharge excellently, rivalling existing modeling studies in the regions, and the sensitivity analysis highlights relevant input areas useful for catchment delineation.
+- **Open work:** Using spatial sensitivity to localize and delineate karst catchments and testing more springs are suggested directions.
+- **Issues:** Only three catchments; no quantitative scores in the abstract; performance tied to the quality of gridded meteorological products.
+- *Basis: abstract*
 
 ### [Multi‐Task Deep Learning of Daily Streamflow and Water Temperature](https://doi.org/10.1029/2021wr030138)
 Sadler et al. (2021), *Water Resources Research*. 60 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether jointly modeling daily streamflow and stream water temperature with multi-task deep learning improves predictions of interdependent hydrologic variables.
+- **Architecture:** Multi-task deep learning with an LSTM (recurrent) network and a scaling factor weighting the auxiliary variable's loss; single-site and multi-site models.
+- **Data:** Paired daily streamflow and stream temperature at 101 sites across the conterminous United States, with meteorological forcing.
+- **Main result:** Multi-task single-site models beat single-task models for 56 of 101 sites in streamflow NSE; the multi-site model improves only 17 sites, and naive scaling-factor choices degrade 3 and 47 of 53 sites.
+- **Open work:** Better selection of the multi-task scaling factor and understanding where multi-task benefits arise are open questions.
+- **Issues:** Benefits are site- and configuration-dependent; sensitivity to the scaling-factor hyperparameter limits robustness.
+- *Basis: abstract+knowledge*
 
 ### [Large-scale flood modeling and forecasting with FloodCast](https://arxiv.org/abs/2403.12226)
 Xu et al. (2024), *arXiv*. 60 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast, resolution-invariant, geometry-adaptive large-scale flood modeling and forecasting framework to overcome costly fixed-grid hydrodynamic models.
+- **Architecture:** FloodCast: multi-satellite observation module with unsupervised change detection plus a geometry-adaptive physics-informed neural solver (GeoPINS) combining PINNs with Fourier neural operators, extended to sequence-to-sequence modeling.
+- **Data:** Benchmark dataset for the 2022 Pakistan flood built from a finite-difference hydrodynamic solution, with SAR-based flood extent and depth, optical remote sensing imagery and satellite rainfall.
+- **Main result:** Achieves an average MAPE of 14.93% and MAE of 0.0610 m for 14-day water depth simulations, outperforming traditional hydrodynamics against SAR-based depth data.
+- **Open work:** Real-time flood hazard forecasting with reliable precipitation forecasts and transfer to other basins are the stated directions.
+- **Issues:** Evaluated on a single flood event; forecast skill depends on precipitation input quality; validation depth data from SAR is itself uncertain.
+- *Basis: abstract*
 
 ### [Gap Filling of High‐Resolution Soil Moisture for SMAP/Sentinel‐1: A Two‐Layer Machine Learning‐Based Framework](https://doi.org/10.1029/2019wr024902)
 Mao et al. (2019), *Water Resources Research*. 59 citations.
 
-*Summary pending.*
+- **Main goal:** Fills spatial gaps in the 3-km SMAP/Sentinel-1 soil moisture product caused by the narrow swath and low revisit of Sentinel-1 radar.
+- **Architecture:** Two-layer machine learning framework that first predicts brightness temperature and then soil moisture in gap areas, using historical radar backscatter (30-day average); specific learner not named in the abstract.
+- **Data:** SMAP/Sentinel-1 L2_SM_SP 3-km soil moisture, SMAP radiometer and Sentinel-1 radar observations over Arizona, Oklahoma, Iowa and Arkansas; validated against holdouts, airborne and in situ networks.
+- **Main result:** Reconstructs 3-km soil moisture with mean R improvements of 47%/35%/20%/80% and unbiased RMSE improvements of 20%/10%/7%/26% over the 33-km SMAP product at the four sites.
+- **Open work:** Applying the framework globally and to areas where radiometer observations are also missing would follow.
+- **Issues:** Requires concurrent radiometer data; validated in only four regions; inherits errors of the SMAP/Sentinel-1 retrieval it imitates.
+- *Basis: abstract*
 
 ### [Neural networks for extreme quantile regression with an application to forecasting of flood risk](https://doi.org/10.1214/24-aoas1907)
 Pasche et al. (2022), *Annals of Applied Statistics*. 59 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates conditional extreme quantiles beyond the range of historical data for flood risk forecasting with complex predictor dependence.
+- **Architecture:** Extreme quantile regression neural network (EQRN) combining neural networks with extreme value theory (generalized Pareto tail), including a recurrent (LSTM-type) version for time series.
+- **Data:** Discharge and covariates in space and time for the Swiss Aare catchment; specific data products not reported in the abstract.
+- **Main result:** Provides one-day-ahead predictions of return levels and exceedance probabilities that complement static extreme value analysis and adapt to distributional shifts.
+- **Open work:** Extending to longer lead times and multivariate or spatial extremes are natural next steps.
+- **Issues:** Single catchment application; extrapolation to very high quantiles remains uncertain; no quantitative skill figures in the abstract.
+- *Basis: assessment*
 
 ### [Developing a Physics‐Informed Deep Learning Model to Simulate Runoff Response to Climate Change in Alpine Catchments](https://doi.org/10.1029/2022wr034118)
 Zhong et al. (2023), *Water Resources Research*. 56 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates runoff response to climate change in permafrost-affected alpine catchments, where cryosphere degradation alters runoff regimes.
+- **Architecture:** Physics-informed deep learning model hybridizing neural networks with dominant hydrological process physics, including neural network-based soil freeze-thaw coupling inspired by the Stefan equation.
+- **Data:** Streamflow and meteorological forcing for the source region of the Yellow River; specific products and periods not reported in the abstract.
+- **Main result:** Including freeze-thaw physics better captures interannual streamflow and baseflow recession under +1°C warming, and the model beats lumped, distributed physical and standard DL models.
+- **Open work:** Applying to other permafrost catchments and to full climate projections is a natural extension.
+- **Issues:** Single basin; warming tests are sensitivity experiments without observational verification of future responses.
+- *Basis: abstract*
 
 ### [Capabilities of Deep Learning Models on Learning Physical Relationships: Case of Rainfall-Runoff Modeling with LSTM](https://doi.org/10.1016/j.scitotenv.2021.149876)
 Yokoo et al. (2021), *Science of the Total Environment*. 55 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates whether deep learning rainfall-runoff models learn physically meaningful input-output relationships.
+- **Architecture:** Long short-term memory (LSTM) network with daily precipitation and mean air temperature as inputs, probed with hypothetical input experiments.
+- **Data:** Daily precipitation, air temperature and discharge from a snow-dominated watershed (Japan, per the authors' affiliation); details not given in the abstract.
+- **Main result:** The trained LSTM produces discharge even without precipitation and conserves only 17-39% of snow-period precipitation mass in annual flow, despite strong goodness-of-fit.
+- **Open work:** Motivates physical constraints such as mass conservation in DL hydrological models.
+- **Issues:** Single watershed and minimal inputs; hypothetical experiments are out-of-distribution by design.
+- *Basis: abstract*
 
 ### [Hybrid modeling of evapotranspiration: inferring stomatal and aerodynamic resistances using combined physics-based and machine learning](https://doi.org/10.1088/1748-9326/acbbe0)
 ElGhawi et al. (2023), *Environmental Research Letters*. 52 citations.
 
-*Summary pending.*
+- **Main goal:** Models evapotranspiration (latent heat flux) by inferring stomatal and aerodynamic resistances, a key challenge across vegetation types.
+- **Architecture:** Hybrid model: a feed-forward neural network (MLP) estimates surface and aerodynamic resistances that feed the Penman-Monteith equation end to end, constrained by theory-driven priors or multi-task learning of sensible heat.
+- **Data:** Multi-year eddy-covariance flux measurements at forest and grassland sites from the FLUXNET database.
+- **Main result:** All hybrid models predict fluxes well (R2 0.82-0.89 grassland, 0.70-0.80 forest, mean diurnal); constrained models give physically consistent resistances while the under-constrained model is implausible.
+- **Open work:** Proposes testing the learned resistance parameterizations as replacements for ad hoc formulations in Earth system models.
+- **Issues:** Equifinality when both resistances are estimated freely; limited to sites with flux data; not yet tested in an Earth system model.
+- *Basis: abstract*
 
 ### [Regionalization in a Global Hydrologic Deep Learning Model: From Physical Descriptors to Random Vectors](https://doi.org/10.1029/2021wr031794)
 Li et al. (2022), *Water Resources Research*. 51 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether catchment physical descriptors are necessary for regionalization in global deep learning streamflow models, given that they are uncertain or unavailable.
+- **Architecture:** Deep learning global hydrologic model (LSTM-type recurrent networks, among other models) where catchment attributes are replaced by random vectors.
+- **Data:** Gauged basins with weather forcing and catchment physical descriptors (CAMELS-type data, not named in the abstract).
+- **Main result:** Random vectors give predictive performance comparable to actual physical descriptors and are robust across data sparsity scenarios and model choices.
+- **Open work:** Extending to ungauged prediction scenarios, where random vectors cannot directly substitute descriptors, is an open question.
+- **Issues:** Only valid for gauged-basin scenarios; random vectors provide no physical interpretability.
+- *Basis: assessment*
 
 ### [Physics Guided Machine Learning Methods for Hydrology](https://arxiv.org/abs/2012.02854)
 Khandelwal et al. (2020), *arXiv*. 51 citations.
 
-*Summary pending.*
+- **Main goal:** Bridges the performance gap of physically-based hydrology models by incorporating physical knowledge into machine learning for streamflow prediction with less data.
+- **Architecture:** Physics-guided LSTM architecture coupled with the SWAT hydrology model that models intermediate processes linking weather drivers to streamflow.
+- **Data:** Observed runoff for small catchments in the South Branch of the Root River Watershed, Minnesota, plus a 200-year synthetic dataset from SWAT for pretraining.
+- **Main result:** Early-stage work; synthetic SWAT data improves performance and reduces convergence time, but no quantitative results are given.
+- **Open work:** Plans to add complexity and spatial heterogeneity to generalize to more sophisticated cases.
+- **Issues:** Preliminary results only; small catchments in a single watershed; inherits SWAT structural biases via synthetic data.
+- *Basis: abstract*
 
 ### [On the need for physical constraints in deep learning rainfall–runoff projections under climate change: a sensitivity analysis to warming and shifts in potential evapotranspiration](https://doi.org/10.5194/hess-28-479-2024)
 Wi et al. (2024), *Hydrology and Earth System Sciences*. 51 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether deep learning rainfall-runoff models produce physically plausible streamflow projections under warming and changes in potential evapotranspiration.
+- **Architecture:** Sensitivity analysis comparing three conceptual process-based models with LSTM, mass-conserving LSTM (MC-LSTM) and a new MC-LSTM-PET variant, plus a national LSTM.
+- **Data:** 212 watersheds in the Great Lakes basin and a national LSTM fit to 531 US watersheds (CAMELS); warming scenarios with Hamon and Priestley-Taylor PET.
+- **Main result:** DL models beat process models historically, but the LSTM shows unrealistic water losses under warming (-20% to -25%), whereas MC-LSTM-PET reproduces the expected PET-dependent responses of process models.
+- **Open work:** Physical constraints on architecture and inputs are needed for credible DL climate projections; further constraint designs are open.
+- **Issues:** Sensitivity experiments with idealized scenarios; no ground truth for future responses; process models are used as the plausibility reference.
+- *Basis: abstract*
 
 ### [Coupling Machine Learning Into Hydrodynamic Models to Improve River Modeling With Complex Boundary Conditions](https://doi.org/10.1029/2022wr032183)
 Huang et al. (2022), *Water Resources Research*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Improves river hydrodynamic modeling with complex lake and uncontrolled downstream boundary conditions for flood management.
+- **Architecture:** Coupled framework of a gated recurrent unit (GRU) network with a 1-D hydrodynamic model (GRU-HD), using ML-predicted water levels as downstream boundary conditions.
+- **Data:** Water levels and streamflow on the middle and lower Yangtze River with Poyang and Dongting lakes; periods not reported in the abstract.
+- **Main result:** GRU-HD simulates water levels, streamflow and river-lake exchange with most KGE above 0.90, and ML boundary conditions beat the rating-curve approach.
+- **Open work:** Applying to other river-lake systems and to forecasting mode with predicted inflows would follow.
+- **Issues:** Single river system; ML boundary predictions may not extrapolate to unprecedented floods.
+- *Basis: abstract*
 
 ### [A Machine Learning Framework for Predicting and Understanding the Canadian Drought Monitor](https://doi.org/10.1029/2022wr033847)
 Mardian et al. (2023), *Water Resources Research*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Automates prediction of the expert-produced Canadian Drought Monitor (CDM) maps and explains drought dynamics in near real time.
+- **Architecture:** Machine learning framework (tree-based gradient boosting type model, not named in the abstract) with SHAP variable importance for interpretation.
+- **Data:** Nearly two decades of CDM expert analyses with climate, hydrological and remote sensing predictors including GRACE groundwater signals.
+- **Main result:** Effectively predicts CDM maps and drought evolution; SHAP links the 2015 Prairie drought to a strong El Nino and reduced groundwater detected by GRACE.
+- **Open work:** Streamlining CDM operations and retrospectively extending the CDM to evaluate drought events historically.
+- **Issues:** Learns expert judgments, which embed subjectivity; skill metrics and model type are not detailed in the abstract.
+- *Basis: assessment*
 
 ### [From RNNs to Transformers: benchmarking deep learning architectures for hydrologic prediction](https://doi.org/10.5194/hess-29-6811-2025)
 Liu et al. (2025), *Hydrology and Earth System Sciences*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Benchmarks attention-based models against LSTM across diverse hydrologic prediction tasks to guide model choice in the era of large models.
+- **Architecture:** Benchmark framework comparing 11 transformer architectures with an LSTM baseline, plus pretrained large language models and time series attention models for zero-shot forecasting.
+- **Data:** Multi-source datasets for daily runoff (including a global streamflow dataset), soil moisture, snow water equivalent and dissolved oxygen.
+- **Main result:** LSTM is best for regression (median KGE 0.75 on global streamflow, 0.11 above the best transformer), while attention models overtake LSTM as tasks move to autoregression and zero-shot prediction.
+- **Open work:** Provides a platform for developing large-scale hydrologic models; scaling foundation models for hydrology remains open.
+- **Issues:** Results depend on hyperparameter tuning per architecture; zero-shot evaluation of LLMs is limited.
+- *Basis: abstract*
 
 ### [Unveiling the limits of deep learning models in hydrological extrapolation tasks](https://doi.org/10.5194/hess-29-5871-2025)
 Baste et al. (2025), *Hydrology and Earth System Sciences*. 48 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether LSTM rainfall-runoff models can extrapolate to extreme precipitation beyond the training range, a key concern for flood design and climate change.
+- **Architecture:** Stand-alone LSTM compared with a hybrid model combining a conceptual hydrological model with an LSTM, probed with synthetic design precipitation events of increasing intensity and duration.
+- **Data:** 196 catchments in Switzerland for training; synthetic design storms of varying intensity and duration for the extrapolation experiments.
+- **Main result:** The LSTM cannot predict discharge above a theoretical limit of 73 mm/d, below the 183 mm/d training maximum, and shows concave runoff response; gating, not only cell-state saturation, blocks new extreme information.
+- **Open work:** More robust training strategies, larger and more diverse training sets, and architectures that preserve extrapolation capacity for extremes.
+- **Issues:** Synthetic design events rather than observed extremes; a single region; larger hidden states or more data do not guarantee better extrapolation.
+- *Basis: abstract*
 
 ### [Improved Understanding of How Catchment Properties Control Hydrological Partitioning Through Machine Learning](https://doi.org/10.1029/2021wr031412)
 Cheng et al. (2022), *Water Resources Research*. 47 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies how catchment properties control the Budyko parameter omega (Fu's equation) governing long-term partitioning of precipitation into evapotranspiration and runoff.
+- **Architecture:** Boosted regression tree and CUBIST rule-based regression models interpreted with feature importance, accumulated local effects (ALE) and LIME explainable AI methods.
+- **Data:** 15 catchment properties for 443 Australian catchments; continental omega and evapotranspiration mapped at 0.05° resolution.
+- **Main result:** Root zone storage capacity, vapor pressure, vegetation coverage, precipitation depth, seasonality-asynchrony index and water use efficiency dominate omega, with nonlinear, non-monotonic and regionally varying effects.
+- **Open work:** Applying the interpretable parameterization to other continents and to nonstationary climate and land-cover conditions.
+- **Issues:** Long-term static framework ignores temporal change; interpretation methods reflect model associations rather than causality; Australia-only.
+- *Basis: abstract*
 
 ### [Towards interpreting machine learning models for predicting soil moisture droughts](https://doi.org/10.1088/1748-9326/acdbe0)
 Huang et al. (2023), *Environmental Research Letters*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Explains what drives machine learning predictions of soil moisture during drought events to assess reliability of AI-based drought modelling.
+- **Architecture:** Site-specific random forest models interpreted with permutation importance, accumulated local effects, SHAP, LIME and individual conditional expectation explainable AI tools.
+- **Data:** Observations from 30 flux sites covering 8 vegetation types (soil temperature, aridity, latent heat flux and related variables).
+- **Main result:** Soil temperature, atmospheric aridity, time variables and latent heat flux dominate globally; grass sites depend more on temperature, aridity and latent heat, forest sites on time-dependent variables.
+- **Open work:** Using interpretations to guide operational drought prediction, irrigation and water management, and extending to more sites.
+- **Issues:** Site-level models with limited samples; interpretations depend on correlated predictors; no explicit forecast lead time or uncertainty.
+- *Basis: abstract*
 
 ### [Long-term drought prediction using deep neural networks based on geospatial weather data](https://arxiv.org/abs/2309.06212)
 Grabar et al. (2023), *arXiv*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts drought up to a year ahead for agricultural planning and insurance, a problem still unsolved with reasonable accuracy.
+- **Architecture:** End-to-end spatio-temporal neural networks compared, including the EarthFormer transformer and convolutional LSTM, predicting the Palmer Drought Severity Index.
+- **Data:** Open monthly gridded climate data as input; five distinct environmental regions as testbeds for PDSI prediction.
+- **Main result:** EarthFormer performs best for short-term forecasts up to six months, while ConvLSTM excels at longer-term PDSI forecasting.
+- **Open work:** Adding more predictors and probabilistic forecasting, and testing in more regions and for insurance use cases.
+- **Issues:** PDSI is a derived index with its own biases; few regions; skill at 12-month leads is limited and uncertainty is not quantified.
+- *Basis: abstract*
 
 ### [Quantifying cascading uncertainty in compound flood modeling with linked process-based and machine learning models](https://doi.org/10.5194/hess-28-2531-2024)
 Muñoz et al. (2024), *Hydrology and Earth System Sciences*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies how uncertainty from initial conditions, forcing, parameters and model structure cascades through compound flood modeling chains.
+- **Architecture:** Linked process-based hydrodynamic model and machine learning model (PB-ML) compared with multiple linear regression to attribute uncertainty contributions over time.
+- **Data:** Hydrodynamic model scenario ensembles for Hurricane Harvey in Galveston Bay, Texas, evaluated through maximum water level residuals.
+- **Main result:** The PB-ML model captures hidden nonlinear interactions and outperforms MLR; model structure and forcing are the main uncertainty sources, contributing 56% of variance reduction in maximum water level residuals.
+- **Open work:** Applying the framework to other compound events and coasts and using it to target uncertainty reduction in operational flood forecasting.
+- **Issues:** Single event and location; ML component type and generalization not established; scenarios cover a finite set of perturbations.
+- *Basis: abstract*
 
 ### [Explaining the Mechanism of Multiscale Groundwater Drought Events: A New Perspective From Interpretable Deep Learning Model](https://doi.org/10.1029/2023wr035139)
 Cai et al. (2024), *Water Resources Research*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Explains the causes of groundwater drought events across spatial scales using interpretable deep learning.
+- **Architecture:** Long short-term memory (LSTM) groundwater models interpreted with expected gradients and additive decomposition.
+- **Data:** Groundwater and meteorological records for 16 regions in the southeastern United States at three spatial scales; 233 drought events identified with the standardized groundwater index.
+- **Main result:** Temperature-related features drive large-scale groundwater droughts (importance rising from 56.1% to 63.1% approaching onset), while precipitation dominates in small catchments; temperature shows a trigger effect.
+- **Open work:** Extending interpretable deep learning to other aquifers and hydrological processes and linking findings to physical mechanisms.
+- **Issues:** Attributions reflect learned correlations rather than causality; regional focus; results depend on LSTM accuracy and chosen interpretation methods.
+- *Basis: abstract*
 
 ### [Explainable deep learning for insights in El Niño and river flows](https://doi.org/10.1038/s41467-023-35968-5)
 Liu et al. (2022), *Nature Communications*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Improves predictive understanding of how ENSO and global sea surface temperatures drive river flows by opening up black-box deep learning.
+- **Architecture:** Explainable deep learning with saliency maps on convolutional neural network SST predictors, combined with complex climate networks, with uncertainty estimation.
+- **Data:** Global SST from observations, reanalysis and Earth system model simulations, paired with river flow records for selected major rivers.
+- **Main result:** Global SST holds predictive information beyond ENSO indices; saliency identifies relevant SST regions and dependencies, improving river flow prediction with uncertainty.
+- **Open work:** Using explainable DL for climate-informed water resource projections and coupling with Earth system models.
+- **Issues:** Saliency maps can be noisy and model-dependent; few rivers; relies on Earth system model fidelity for projections.
+- *Basis: abstract*
 
 ### [HydroNets: Leveraging River Structure for Hydrologic Modeling](https://arxiv.org/abs/2007.00595)
 Moshe et al. (2020), *arXiv*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Builds scalable, accurate hydrologic models that exploit river network structure, aiding flood warning with limited training data.
+- **Architecture:** HydroNets: a family of deep neural network models structured along the river network, combining basin-specific rainfall-runoff modules with upstream routing dynamics.
+- **Data:** Two large river basins in India with only a few years of data.
+- **Main result:** Injecting river structure reduces sample complexity and improves predictions, especially at longer horizons, compared with structure-agnostic baselines.
+- **Open work:** Scaling to more basins and global flood forecasting, and testing robustness to climate-driven distribution shift.
+- **Issues:** Only two basins evaluated; quantitative skill not reported in the abstract; short records limit extreme-event evaluation.
+- *Basis: abstract*
 
 ### [A Deep Learning Approach Based on Physical Constraints for Predicting Soil Moisture in Unsaturated Zones](https://doi.org/10.1029/2023wr035194)
 Wang et al. (2023), *Water Resources Research*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Improves prediction of soil moisture in the unsaturated zone by adding physical mechanisms to data-driven deep learning.
+- **Architecture:** Physics-informed deep learning (PIDL): LSTM-based network with a loss constrained by water balance, Richards equation and soil moisture boundary conditions.
+- **Data:** Many in situ soil moisture observation sites in the field.
+- **Main result:** PIDL reduces soil moisture RMSE by 51.03% vs ordinary LSTM and 53.46% vs physical models, and performs better with sparse data, extremes and abrupt changes and over longer prediction periods.
+- **Open work:** Generalizing the hybrid approach to other hydrological prediction problems.
+- **Issues:** Site-based tests; physical constraints rely on simplified Richards equation parameters; regional transferability not shown.
+- *Basis: abstract*
 
 ### [Analysis of flash droughts in China using machine learning](https://doi.org/10.5194/hess-26-3241-2022)
 Zhang et al. (2022), *Hydrology and Earth System Sciences*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates flash drought intensification rate and detects flash droughts in China while examining their meteorological drivers.
+- **Architecture:** Multiple linear regression, long short-term memory (LSTM) and random forest models relating rate of intensification to nine climate variables.
+- **Data:** Global reanalysis soil moisture and climate variables, China, 1979 to 2016 (weekly soil moisture percentiles).
+- **Main result:** Random forest is best: average CC 0.90 and RMSE 2.6 percentile/week in southeastern China; flash drought POD 0.93, FAR 0.15, CSI 0.80; P deficit and PET excess act synergistically.
+- **Open work:** Using ML for operational flash drought monitoring and early warning and improving performance in arid regions such as Xinjiang.
+- **Issues:** Relies on reanalysis soil moisture and its biases; poor performance in Xinjiang; diagnostic rather than predictive at lead time.
+- *Basis: abstract*
 
 ### [Detecting the State of the Climate System via Artificial Intelligence to Improve Seasonal Forecasts and Inform Reservoir Operations](https://doi.org/10.1029/2019wr025035)
 Giuliani et al. (2019), *Water Resources Research*. 43 citations.
 
-*Summary pending.*
+- **Main goal:** Captures the state of multiple global climate signals to improve seasonal forecasts and inform reservoir operations in regions where ENSO teleconnections are unclear.
+- **Architecture:** Climate State Intelligence framework: AI-based feature extraction from global SST and climate fields feeding seasonal forecast models, used as inputs to optimized lake operating policies.
+- **Data:** Global SST anomalies and climate indices (ENSO, NAO) with hydrometeorological data for Lake Como basin, northern Italy.
+- **Main result:** Teleconnections from ENSO and NAO give skillful seasonal precipitation and inflow forecasts; forecast-informed operations improve system performance by 44% on average, 59% using preseason SST anomalies directly.
+- **Open work:** Applying the framework to other basins and integrating dynamical seasonal forecasts.
+- **Issues:** Single regulated lake; teleconnection signals may be nonstationary; value depends on operating objectives.
+- *Basis: abstract*
 
 ### [Deep learning for monthly rainfall–runoff modelling: a large-sample comparison with conceptual models across Australia](https://doi.org/10.5194/hess-28-1191-2024)
 Clark et al. (2024), *Hydrology and Earth System Sciences*. 41 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether LSTM deep learning matches conceptual models for monthly rainfall-runoff prediction in Australia's dry, variable climate.
+- **Architecture:** Long short-term memory (LSTM) networks compared with the WAPABA conceptual monthly rainfall-runoff model.
+- **Data:** Almost 500 Australian catchments at monthly time step; study period with a wet phase followed by a prolonged drought (Millennium Drought).
+- **Main result:** LSTMs match or exceed WAPABA in over two-thirds of catchments, gain most in large catchments, and generalize better to new conditions; short records benefit neither.
+- **Open work:** Improving LSTM training with small monthly datasets and use for climate change water resources planning.
+- **Issues:** Monthly data give small training sets; nonstationarity from drought challenges both models; limited interpretability.
+- *Basis: abstract*
 
 ### [H2O-Net: Self-Supervised Flood Segmentation via Adversarial Domain Adaptation and Label Refinement](https://doi.org/10.1109/wacv48630.2021.00016)
 Akiva et al. (2020), *IEEE Workshop/Winter Conference on Applications of Computer Vision*. 40 citations.
 
-*Summary pending.*
+- **Main goal:** Segments floods in near real time from high-resolution satellite and aerial imagery without hand labels.
+- **Architecture:** H2O-Net: self-supervised deep convolutional segmentation network with adversarial domain adaptation (GAN-style synthesis of water-correlated signals) and coarse-to-fine label refinement.
+- **Data:** High-resolution commercial satellite imagery (PlanetScope) with Sentinel-2/Landsat-derived water indices for domain bridging; transfer test on drone imagery.
+- **Main result:** Outperforms state-of-the-art semantic segmentation for flood mapping by 10% pixel accuracy and 12% mIoU, and transfers to drone imagery.
+- **Open work:** Real-time deployment for flood alerts and broader sensor and geographic generalization.
+- **Issues:** Optical imagery is blocked by clouds during floods; self-generated labels may carry index errors; limited event set.
+- *Basis: abstract+knowledge*
 
 ### [High‐Resolution National‐Scale Water Modeling Is Enhanced by Multiscale Differentiable Physics‐Informed Machine Learning](https://doi.org/10.1029/2024wr038928)
 Song et al. (2025), *Water Resources Research*. 38 citations.
 
-*Summary pending.*
+- **Main goal:** Improves calibration and parameter regionalization of the U.S. National Water Model for high-resolution flood forecasting and water management.
+- **Architecture:** Differentiable hybrid models with neural network multiscale parameterization of process-based equations, with unit-hydrograph or Muskingum-Cunge river routing, trained end to end.
+- **Data:** 2,807 CONUS basins for training and 4,997 basins for evaluation at about 37 km2 resolution; compared with NWM 3.0.
+- **Main result:** Median daily NSE improves to about 0.68 from 0.48 for NWM 3.0, with large gains in the western CONUS and Prairie Pothole Region; Muskingum-Cunge helps basins over 10,000 km2.
+- **Open work:** Integration with the next-generation NWM via BMI and operational flood prediction; a released CONUS hydrologic dataset.
+- **Issues:** Process structure still simplified; computational cost of training; evaluation focuses on streamflow.
+- *Basis: abstract*
 
 ### [Using Machine Learning to Identify Hydrologic Signatures With an Encoder–Decoder Framework](https://doi.org/10.1029/2022wr033091)
 Botterill et al. (2023), *Water Resources Research*. 38 citations.
 
-*Summary pending.*
+- **Main goal:** Learns data-driven equivalents of hydrologic signatures from streamflow and climate to improve rainfall-runoff modeling in ungauged watersheds.
+- **Architecture:** Encoder-decoder model: convolutional neural network encoder producing a low-dimensional signature encoding, and a process-informed decoder with stores and fluxes.
+- **Data:** U.S. CAMELS watershed dataset (streamflow, climate forcing and attributes).
+- **Main result:** Learned signatures improve prediction over classical or no signatures and relate to seasonality, extremes, baseflow and recessions.
+- **Open work:** Replacing expert-selected signatures with learned ones in other hydrologic applications.
+- **Issues:** Encodings are less directly interpretable; CAMELS-only; ungauged application still needs some flow data for encoding.
+- *Basis: abstract*
 
 ### [When ancient numerical demons meet physics-informed machine learning: adjoint-based gradients for implicit differentiable modeling](https://doi.org/10.5194/hess-28-3051-2024)
 Song et al. (2024), *Hydrology and Earth System Sciences*. 37 citations.
 
-*Summary pending.*
+- **Main goal:** Enables implicit numerical schemes in differentiable hydrological models to avoid numerical errors from explicit operator-splitting schemes.
+- **Architecture:** Discretize-then-optimize adjoint method for gradients through implicit solvers in a differentiable model where neural networks parameterize a process-based hydrologic model (HBV-type).
+- **Data:** Large-sample US basins (CAMELS) streamflow and evapotranspiration data.
+- **Main result:** Adjoint model moderately improves KGE, peak and low flows and ET over the explicit model; with capillary rise, low flows beat LSTM; spatial parameter patterns remain robust.
+- **Open work:** Using implicit schemes to enrich differentiable models with more complex physics.
+- **Issues:** Higher computational cost with modest improvements; evaluation limited to selected basins and metrics.
+- *Basis: abstract+knowledge*
 
 ### [Regionalizing Root‐Zone Soil Moisture Estimates From ESA CCI Soil Water Index Using Machine Learning and Information on Soil, Vegetation, and Climate](https://doi.org/10.1029/2020wr029249)
 Grillakis et al. (2021), *Water Resources Research*. 36 citations.
 
-*Summary pending.*
+- **Main goal:** Extends near-surface ESA CCI satellite soil moisture to root-zone depth globally.
+- **Architecture:** Soil Water Index calibration against in situ data, regionalized with machine learning using soil, vegetation and climate descriptors.
+- **Data:** ESA CCI soil moisture, International Soil Moisture Network in situ data, global descriptors; 2001 to 2018; compared with ERA5-Land and FLDAS.
+- **Main result:** Root-zone soil moisture agrees well with ERA5-Land and FLDAS, mainly at mid-latitudes.
+- **Open work:** Wider exploitation of the product for large-scale soil moisture studies and improving high-latitude and tropical performance.
+- **Issues:** Sparse in situ network limits calibration in many regions; weaker agreement outside mid-latitudes; ML method details not in abstract.
+- *Basis: abstract*
 
 ### [Design flood estimation for global river networks based on machine learning models](https://doi.org/10.5194/hess-2020-594)
 Zhao et al. (2020), *Hydrology and Earth System Sciences*. 36 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates design floods anywhere on the global river network, especially in ungauged areas.
+- **Architecture:** Flood frequency fitting with Bayesian MCMC, K-means clustering of stations, and regional regression models including support vector machine regression.
+- **Data:** 11,793 global gauging stations with twelve globally available catchment descriptors.
+- **Main result:** SVM regression performs best (normalized RMSE 0.708 for 100-year floods); average relative bias under 18% for 10 to 100 year floods, improving on the index-flood method.
+- **Open work:** Applying estimates to global flood hazard mapping and accounting for nonstationarity.
+- **Issues:** Assumes stationary flood frequency; station distribution uneven across climates; ungauged accuracy limited by descriptors.
+- *Basis: abstract*
 
 ### [A robust gap-filling approach for European Space Agency Climate Change Initiative (ESA CCI) soil moisture integrating satellite observations, model-driven knowledge, and spatiotemporal machine learning](https://doi.org/10.5194/hess-27-577-2023)
 Liu et al. (2023), *Hydrology and Earth System Sciences*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Fills gaps in daily ESA CCI satellite soil moisture caused by poor coverage, snow, frozen soil and radio-frequency interference, to provide spatiotemporally continuous data for hydrological and ecological research.
+- **Architecture:** Spatiotemporal machine learning gap-filling approach combining satellite observations with model-driven knowledge (bias-corrected model diurnal temperature range) and a residual calibration step; tree-based ML regression.
+- **Data:** ESA CCI soil moisture over China, satellite-derived and model-derived diurnal temperature range and other explanatory variables; validated against multiple in situ networks; long-term application 2005–2015.
+- **Main result:** In situ validation gives RMSE 0.09–0.14 and MAE 0.07–0.13 cm3/cm3; 10-fold cross-validation median R2 0.56, RMSE 0.025; long-term trend R2 0.49 versus 0.28 for the original CCI product.
+- **Open work:** Applying the approach to other regions and other gap-prone satellite variables, and improving accuracy where model-derived predictors replace satellite ones.
+- **Issues:** Moderate R2; model-derived DTR yields lower accuracy than satellite DTR; performance drops sharply when any explanatory variable is removed; demonstrated only for China.
+- *Basis: abstract*
 
 ### [Causality-Structured Deep Learning for Soil Moisture Predictions](https://doi.org/10.1175/jhm-d-21-0206.1)
 Li et al. (2022), *Journal of Hydrometeorology*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Improves surface soil moisture prediction by embedding causal relations among hydrometeorological variables into a deep learning model.
+- **Architecture:** Causality-structured LSTM (CLSTM) that incorporates a causal graph learned from the data alongside temporal dependencies, compared with a standard LSTM.
+- **Data:** Surface soil moisture and meteorological drivers at 64 FLUXNET sites worldwide.
+- **Main result:** CLSTM outperforms LSTM, with more than 67% of sites improving NSE by over 10%, better generalization under extreme conditions such as drought and precipitation events, and gains across lead times.
+- **Open work:** Applying causality-structured networks to other hydrometeorological variables and to drought prediction.
+- **Issues:** Point-scale site evaluation only; causal discovery may be sensitive to method choices and data length; no gridded or operational test.
+- *Basis: abstract*
 
 ### [Kuro Siwo: 33 billion m2 under the water. A global multi-temporal satellite dataset for rapid flood mapping](https://doi.org/10.52202/079017-1204)
 Bountos et al. (2023), *Neural Information Processing Systems*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses the lack of large annotated SAR datasets for deep learning flood segmentation needed for rapid global flood mapping.
+- **Architecture:** Benchmark dataset (Kuro Siwo) of manually annotated multi-temporal SAR flood maps plus a benchmark (BlackBench) of segmentation baselines such as U-Net-type CNNs and transformer models, with unlabeled data for self-supervised pretraining.
+- **Data:** Sentinel-1 SAR Ground Range Detected and Single Look Complex products for 43 flood events worldwide, covering over 338 billion m2 with 33 billion m2 flooded or permanent water, plus a large unlabeled SAR set.
+- **Main result:** Provides strong baselines for flood events across Europe, America, Africa, Asia and Australia; specific scores are not reported in the abstract.
+- **Open work:** Exploiting SAR phase information from SLC data, self-supervised pretraining at scale, and adding more events and regions.
+- **Issues:** 43 events may under-sample flood types such as urban or vegetated flooding where SAR is weak; manual labels can contain errors.
+- *Basis: abstract*
 
 ### [On the challenges of global entity-aware deep learning models for groundwater level prediction](https://doi.org/10.5194/hess-28-525-2024)
 Heudorfer et al. (2024), *Hydrology and Earth System Sciences*. 32 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether global entity-aware deep learning models, as used in rainfall-runoff modelling, can predict groundwater levels across many wells and generalize spatially.
+- **Architecture:** Global deep learning model (sequence network) with static well features: environmental attributes, time-series-derived features, or random integer identifiers as a control.
+- **Data:** Published dataset of 108 groundwater monitoring wells in Germany with meteorological inputs; in-sample (temporal) and out-of-sample (spatial) evaluation.
+- **Main result:** In-sample mean NSE above 0.8, comparable to single-well models, but out-of-sample NSE below 0.7; all static feature types, including random ones, perform equally, so the model uses them only as identifiers.
+- **Open work:** Larger well datasets and more meaningful static features to achieve genuine entity awareness and regionalization in hydrogeology.
+- **Issues:** Small dataset of 108 wells; no real entity awareness learned; spatial generalization is poor.
+- *Basis: abstract*
 
 ### [Generative Adversarial Network for Real‐Time Flash Drought Monitoring: A Deep Learning Study](https://doi.org/10.1029/2023wr035600)
 Foroumandi et al. (2024), *Water Resources Research*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Enables real-time daily monitoring of rapidly developing flash droughts over the contiguous United States.
+- **Architecture:** Generative adversarial network (GAN) with a Markovian (PatchGAN) discriminator and a modified U-Net generator; four generator losses compared (MAE, adversarial, adversarial plus MSE, adversarial plus MAE).
+- **Data:** Daily NLDAS-2 forcing and land surface data with Standardized Soil Moisture Index (SSI) maps over CONUS.
+- **Main result:** The GAN reproduces SSI better than U-Net and naive baselines and captures fine and coarse spatial drought patterns and abrupt temporal changes important for flash drought identification.
+- **Open work:** Operational deployment, extension to other drought indices and regions, and uncertainty quantification.
+- **Issues:** Target SSI is model-derived from NLDAS-2, so it inherits land surface model biases; no probabilistic output; quantitative scores not given in the abstract.
+- *Basis: abstract*
 
 ### [A Novel Physics‐Aware Machine Learning‐Based Dynamic Error Correction Model for Improving Streamflow Forecast Accuracy](https://doi.org/10.1029/2022wr033318)
 Roy et al. (2023), *Water Resources Research*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Improves medium-lead streamflow forecast accuracy for flood warning in snow-fed Himalayan rivers through dynamic error correction.
+- **Architecture:** Hybrid physics-aware framework coupling the HBV conceptual hydrological model, a particle filter for data assimilation, and random forest error correction, producing an ensemble of streamflow.
+- **Data:** Observed streamflow and meteorological forcing for the Beas River (India) and Sunkoshi River (Nepal).
+- **Main result:** For 7-day-ahead forecasts NSE reaches 0.94 and 0.98 in calibration and 0.95 and 0.99 in validation for Beas and Sunkoshi respectively.
+- **Open work:** Testing in more basins, with forecast meteorological inputs, and for extreme flood events.
+- **Issues:** Only two basins; very high NSE may reflect error correction using recent observations; reliance on forecast forcing quality not discussed.
+- *Basis: abstract*
 
 ### [Robust Inverse Framework using Knowledge-guided Self-Supervised Learning: An application to Hydrology](https://doi.org/10.1145/3534678.3539448)
 Ghosh et al. (2021), *Knowledge Discovery and Data Mining*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Infers robust catchment characteristics from meteorological drivers and streamflow responses because existing basin attributes are noisy, uncertain or missing, harming broad-scale streamflow models.
+- **Architecture:** Knowledge-guided self-supervised learning (KGSSL) inverse framework with an encoder that learns basin characteristics from driver-response sequences, coupled to an LSTM-type forward streamflow model.
+- **Data:** CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) US benchmark basins.
+- **Main result:** KGSSL outperforms baselines by 16% in predicting missing characteristics and gives a 35% improvement in forward streamflow modelling when static characteristics are unknown.
+- **Open work:** Extending to ungauged basins and other environmental systems where system characteristics are uncertain.
+- **Issues:** Requires response data to infer characteristics, limiting use in ungauged basins; evaluated only on CAMELS.
+- *Basis: abstract*
 
 ### [A distributed hybrid physics–AI framework for learning corrections of internal hydrological fluxes and enhancing high-resolution regionalized flood modeling](https://doi.org/10.5194/hess-29-3589-2025)
 Huynh et al. (2025), *Hydrology and Earth System Sciences*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a spatially distributed hybrid physics-AI hydrological model to improve high-resolution regional flood modelling and learn interpretable corrections to internal fluxes.
+- **Architecture:** Differentiable process-based model with kinematic wave routing on a flow-direction grid, hybridized with a neural network (MLP) process-parameterization network correcting internal fluxes and a regionalization network estimating parameters, trained jointly.
+- **Data:** Two high-resolution datasets (1 km, 1 h): 235 catchments in France for calibration and validation, and a multi-catchment flash-flood-prone setup for regionalization.
+- **Main result:** Hybrid models achieve higher accuracy and robustness than the classical GR-like model in both spatial and temporal validation, with interpretable parameter and flux patterns.
+- **Open work:** Using learned flux corrections to discover scale-relevant hydrological laws and extending to other regions and processes.
+- **Issues:** Regional focus on France; interpretability of learned corrections remains partly qualitative; quantitative gains not stated in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [Uncovering the Dynamic Drivers of Floods Through Interpretable Deep Learning](https://doi.org/10.1029/2024ef004751)
 Xu et al. (2024), *Earth's Future*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Uses interpretable deep learning to reveal how flood drivers vary in space and time under climate change rather than treating deep learning as a black box.
+- **Architecture:** Peak-sensitive Informer (transformer variant) compared with transformer and LSTM, combined with interpretability (attribution) techniques.
+- **Data:** 482 watersheds across the United States, 1981–2020, with precipitation, soil water and snowmelt drivers.
+- **Main result:** Informer gives NSE above 0.6 in 70% of watersheds for peak flows; three flood-inducing patterns are identified (precipitation, excess soil water, snowmelt) and over 40% of watersheds show shifts in dominant drivers.
+- **Open work:** Using interpretable deep learning for process discovery in other hydrological variables and regions.
+- **Issues:** Interpretations depend on attribution method reliability; NSE above 0.6 in only 70% of basins limits trust elsewhere; attribution of driver shifts to climate change is correlative.
+- *Basis: abstract*
 
 ### [Improving regional climate simulations based on a hybrid data assimilation and machine learning method](https://doi.org/10.5194/hess-27-1583-2023)
 He et al. (2023), *Hydrology and Earth System Sciences*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Improves representation of land-atmosphere energy and water exchange in regional climate simulations by optimizing surface soil and vegetation conditions.
+- **Architecture:** Hybrid data assimilation and machine learning (DA-ML) framework implemented in the WRF model with land surface models, assimilating LAI and soil moisture; ML used to estimate evapotranspiration-related fields.
+- **Data:** Remotely sensed LAI, multi-source soil moisture observations, large aperture scintillometer flux observations and an ML-based ET map (ETMap) in the Heihe River basin, northwest China.
+- **Main result:** WRF (DA-ML) agrees well with observed sensible and latent heat fluxes, improves ET versus open loop, reduces warm and dry biases especially in oases, and produces more realistic oasis-desert boundaries.
+- **Open work:** Applying the framework to other basins with complex surfaces and longer climate simulations.
+- **Issues:** Single-basin case study; improvements described largely qualitatively in the abstract; computational cost of DA within WRF not discussed.
+- *Basis: abstract*
 
 ### [Rapid Flood Inundation Forecast Using Fourier Neural Operator](https://doi.org/10.1109/iccvw60793.2023.00401)
 Sun et al. (2023), *2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)*. 28 citations.
 
-*Summary pending.*
+- **Main goal:** Provides real-time street-level flood inundation forecasts, which high-resolution hydrodynamic models are too slow to deliver.
+- **Architecture:** Fourier neural operator (FNO) surrogate of a hydrodynamic model for flood extent and depth, compared with a U-Net baseline.
+- **Data:** Hydrodynamic simulations of water depth at 15-min intervals for six historical storm events over an urban area of Houston, Texas; two held-out events for testing.
+- **Main result:** FNO outperforms U-Net, maintains high predictability at lead times up to 3 h, and generalizes well to new sites.
+- **Open work:** Testing on more events and cities and coupling with rainfall forecasts for operational use.
+- **Issues:** Trained and evaluated on simulated depths, so it inherits hydrodynamic model errors; only eight events in total.
+- *Basis: abstract*
 
 ### [Implementing generative adversarial network (GAN) as a data-driven multi-site stochastic weather generator for flood frequency estimation](https://doi.org/10.1016/j.envsoft.2023.105896)
 Ji et al. (2023), *Environmental Modelling & Software*. 28 citations.
 
-*Summary pending.*
+- **Main goal:** Uses a generative adversarial network as a multi-site stochastic weather generator to produce synthetic rainfall series for flood frequency estimation.
+- **Architecture:** Generative adversarial network (GAN) trained to generate spatially correlated multi-site weather (rainfall) time series, which drive a hydrological model for flood frequency analysis.
+- **Data:** Not reported (abstract unavailable); presumably multi-site station rainfall records from a study catchment.
+- **Main result:** Not reported in the abstract; the title implies the GAN generator yields synthetic weather suitable for estimating flood frequency.
+- **Open work:** Likely: comparison with conventional stochastic weather generators and extension to non-stationary climate.
+- **Issues:** Abstract unavailable; GANs may under-represent rare extremes that dominate flood frequency, and training records are typically short.
+- *Basis: assessment*
 
 ### [A flood predictability study for Hurricane Harvey with the CREST-iMAP model using high-resolution quantitative precipitation forecasts and U-Net deep learning precipitation nowcasts](https://doi.org/10.1016/j.jhydrol.2022.128168)
 Chen et al. (2022), *Journal of Hydrology*. 28 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses flood predictability for Hurricane Harvey by driving a coupled hydrologic-hydraulic model with high-resolution precipitation forecasts and deep learning nowcasts.
+- **Architecture:** Non-ML CREST-iMAP coupled hydrologic and inundation model forced by quantitative precipitation forecasts and U-Net deep learning precipitation nowcasts.
+- **Data:** Not reported (abstract unavailable); likely radar-based precipitation (e.g., MRMS) and NWP quantitative precipitation forecasts for the Houston area during Harvey 2017.
+- **Main result:** Not reported in the abstract; the title implies a comparison of flood forecast skill from QPF versus U-Net nowcast forcing.
+- **Open work:** Likely: blending nowcasts and NWP forecasts and testing on more events.
+- **Issues:** Abstract unavailable; single-event case study; U-Net nowcasts typically blur and underestimate intense rainfall at longer leads.
+- *Basis: assessment*
 
 ### [Machine-learning-based downscaling of modelled climate change impacts on groundwater table depth](https://doi.org/10.5194/hess-26-5859-2022)
 Schneider et al. (2022), *Hydrology and Earth System Sciences*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Produces nationwide 100 m maps of climate change impacts on shallow groundwater table depth in Denmark where running the 100 m hydrological model for a full climate ensemble is infeasible.
+- **Architecture:** Hybrid downscaling with random forest trained on 100 m hydrological model impact signals, applied to 500 m national model outputs.
+- **Data:** Danish national integrated surface-subsurface hydrological model (500 m) with a climate model ensemble; 100 m submodels for five subcatchments covering about 9% of Denmark for training; one held-out validation submodel.
+- **Main result:** Downscaled 100 m impact maps validate successfully against the held-out 100 m submodel and are consistent with the 500 m model signals across Denmark.
+- **Open work:** Applying the downscaling to other hydrological model outputs and other regions with computational limits.
+- **Issues:** Validated against model output, not observations; training subcatchments cover only 9% of the country; uses a reduced climate ensemble for training.
+- *Basis: abstract*
 
 ### [Machine Learning for Postprocessing Ensemble Streamflow Forecasts](https://doi.org/10.2166/hydro.2022.114)
 Sharma et al. (2021), *Journal of Hydroinformatics*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Improves the skill and reliability of medium-range (1–7 day) ensemble streamflow forecasts for water management.
+- **Architecture:** Machine learning postprocessor applied to ensemble streamflow from NWP-forced distributed hydrological model, compared with a neural network and simple baselines; the ML algorithm is not named in the abstract.
+- **Data:** NWP ensemble forecasts driving a distributed hydrological model in the Upper Susquehanna River basin, eastern United States.
+- **Main result:** The postprocessor beats climatology, persistence, raw hydrometeorological forecasts and a neural network, with larger gains at medium-range leads, high flows and warm season.
+- **Open work:** Testing in other basins and with other postprocessing algorithms and forecast systems.
+- **Issues:** Single basin; gains smaller at short leads and for low-moderate flows; quantitative metrics not given in the abstract.
+- *Basis: abstract*
 
 ### [Metamorphic testing of machine learning and conceptual hydrologic models](https://doi.org/10.5194/hess-28-2505-2024)
 Reichert et al. (2024), *Hydrology and Earth System Sciences*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses the reliability of hydrological models for predicting responses to changed forcings beyond observed conditions, such as climate change, where observations cannot validate them.
+- **Architecture:** Metamorphic testing with a multi-model approach and sensitivity analysis to training and calibration options, applied to conceptual hydrological models and machine learning models (e.g., LSTM).
+- **Data:** Selected basins from the CAMELS data set.
+- **Main result:** ML models fit better than conceptual models in calibration and validation, but their response to modified inputs can violate expectations, and its magnitude and even sign depend on training data.
+- **Open work:** Using metamorphic tests routinely to diagnose models and to develop models with physically consistent responses.
+- **Issues:** Expected responses are qualitative and somewhat subjective; limited set of basins and models; does not establish which model is correct for future climates.
+- *Basis: abstract*
 
 ### [Deep Learning‐Based Approach for Enhancing Streamflow Prediction in Watersheds With Aggregated and Intermittent Observations](https://doi.org/10.1029/2024wr037331)
 Mangukiya et al. (2024), *Water Resources Research*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts daily streamflow in watersheds that only have monthly aggregated or intermittent observations due to limited monitoring.
+- **Architecture:** Long short-term memory (LSTM) network trained with aggregated or intermittent targets.
+- **Data:** Near-natural and human-influenced watersheds with daily data degraded to monthly aggregates and monthly or weekly intermittent samples.
+- **Main result:** Median NSE 0.61 (near-natural) and 0.48 (human-influenced) from monthly aggregates, and 0.70 and 0.55 from intermittent observations; median bias within ±5% except in arid regions.
+- **Open work:** Applying the approach in truly data-scarce regions and improving performance in arid and human-influenced basins.
+- **Issues:** Tested by synthetically degrading observed daily data; weaker in arid and human-influenced watersheds; relies on wet-season data.
+- *Basis: abstract*
 
 ### [Deep-learning-based sub-seasonal precipitation and streamflow ensemble forecasting over the source region of the Yangtze River](https://doi.org/10.5194/hess-29-2023-2025)
 Dong et al. (2025), *Hydrology and Earth System Sciences*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Improves sub-seasonal (up to 30 day) joint precipitation and streamflow ensemble forecasts for water management in the source region of the Yangtze River.
+- **Architecture:** Ensemble of convolutional neural networks with ResNet blocks and a specialized loss for statistical downscaling of precipitation, coupled to a hybrid Xin'anjiang conceptual model plus LSTM (XAJ-LSTM).
+- **Data:** ECMWF sub-seasonal ensemble precipitation forecasts, observed precipitation and streamflow in the source region of the Yangtze River.
+- **Main result:** CNN downscaling cuts RMSE by about 34% vs raw ECMWF and 26% vs quantile mapping; streamflow driven by it has 16–33% lower relative errors and 20–31% lower RMSE, while standalone XAJ gains little.
+- **Open work:** Extending to other basins and operational sub-seasonal forecasting chains, and understanding hydrologic model sensitivity to forcing improvements.
+- **Issues:** Single basin; heavy-precipitation gains are smaller (6–10%); benefits depend on the hydrological model used.
+- *Basis: abstract*
 
 ### [Reinforcement learning–based adaptive strategies for climate change adaptation: An application for coastal flood risk management](https://doi.org/10.1073/pnas.2402826122)
 Feng et al. (2025), *Proceedings of the National Academy of Sciences of the United States of America*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Develops adaptive coastal flood protection strategies under deep uncertainty in sea-level rise that update as observations accrue.
+- **Architecture:** Reinforcement learning (deep RL) policy optimization for sequential adaptation decisions, compared with conventional numerical optimization methods.
+- **Data:** Sea-level rise projections and coastal flood and economic loss models for Manhattan, New York City; specific products not reported in the abstract.
+- **Main result:** RL-based designs substantially reduce costs compared with conventional methods and handle complex policies, extreme losses and potential expert misjudgment.
+- **Open work:** Applying RL to broader climate adaptation decisions and other regions and hazards.
+- **Issues:** Results depend on the assumed sea-level rise and damage models; single case study; RL policy interpretability for decision-makers is a concern.
+- *Basis: abstract*
 
 ### [Streamflow Prediction in Human‐Regulated Catchments Using Multiscale Deep Learning Modeling With Anthropogenic Similarities](https://doi.org/10.1029/2023wr036853)
 Tursun et al. (2024), *Water Resources Research*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Improves streamflow prediction in human-regulated catchments by representing anthropogenic disturbance through river-reach attributes.
+- **Architecture:** Multiscale LSTM and a differentiable parameter learning (DPL) hybrid model, both using combined river-reach and catchment static attributes.
+- **Data:** 95 human-regulated catchments in the USA and 24 in the Yellow River Basin, China; river attributes such as degree of regulation and dams plus SWOT River Database (SWORD) width, slope and elevation.
+- **Main result:** Median KGE 0.78 (Multiscale LSTM) and 0.71 (DPL) in the USA, and 0.58 and 0.24 in the Yellow River; river-scale attributes dominate and the training period choice is the strongest factor.
+- **Open work:** Improving models in heavily regulated basins such as the Yellow River and incorporating more satellite-derived human-influence data.
+- **Issues:** Much weaker performance in China, especially for DPL; static attributes cannot capture time-varying reservoir operations.
+- *Basis: abstract*
 
 ### [Machine learning‐based streamflow forecasting using CMIP6 scenarios: Assessing performance and improving hydrological projections and climate change](https://doi.org/10.1002/hyp.15204)
 Kartal (2024), *Hydrological Processes*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Projects climate change impacts on streamflow in the Konya Closed basin, Turkey, using bias-corrected CMIP6 GCM outputs and machine learning.
+- **Architecture:** Comparison of LSTM, bidirectional LSTM, AdaBoost, gradient boosting, regression tree and random forest for bias correction and streamflow modelling.
+- **Data:** CMIP6 GCMs under SSP2-4.5 and SSP5-8.5, Climate Prediction Center data for the historical period, and observed streamflow in the Konya Closed basin.
+- **Main result:** Random forest consistently outperforms other models; projections show a significant decline in river flow in coming decades.
+- **Open work:** Using projections to plan climate-resilient water infrastructure and drought early warning.
+- **Issues:** Single basin; statistical models trained on historical relationships may not hold under future climate; GCM selection and uncertainty not detailed.
+- *Basis: abstract*
 
 ### [Using Temporal Deep Learning Models to Estimate Daily Snow Water Equivalent Over the Rocky Mountains](https://doi.org/10.1029/2023wr035009)
 Duan et al. (2024), *Water Resources Research*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates daily snow water equivalent across the Rocky Mountains from gridded meteorology for water resources applications.
+- **Architecture:** Three temporal deep learning models (e.g., LSTM-type recurrent and temporal convolutional networks) compared with a conceptual SWE model, plus explainable AI attribution.
+- **Data:** SNOTEL station SWE observations as targets and high-resolution gridded meteorological fields over the Rocky Mountain region; comparison with interpolated gridded SWE datasets.
+- **Main result:** All DL models give higher median NSE than the conceptual model and gridded datasets but higher mean squared errors; XAI shows precipitation and temperature dominate; normalizing SWE by historical maximum solves extrapolation.
+- **Open work:** Improving spatial extrapolation to ungauged terrain and integrating remote sensing of snow.
+- **Issues:** Training only at SNOTEL sites limits representativeness at other elevations; higher MSE than baselines; extrapolation needs normalization.
+- *Basis: abstract*
 
 ### [Probabilistic Diffusion Models Advance Extreme Flood Forecasting](https://doi.org/10.1029/2025gl115705)
 Ou et al. (2024), *Geophysical Research Letters*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Improves extreme flood forecasting, which suffers from peak underestimation and high uncertainty.
+- **Architecture:** Diffusion-based runoff model (DRUM), a probabilistic diffusion model for streamflow, compared with state-of-the-art deep learning benchmarks such as LSTM.
+- **Data:** Representative basins across the contiguous United States with precipitation forcing, including operational forecast and measured precipitation scenarios.
+- **Main result:** DRUM improves nowcasting for the top 1 per mille flows in 72.3% of basins, extends reliable lead time by nearly a day for 20- and 50-year floods, and gains 3–7 days in some regions with measured precipitation.
+- **Open work:** Applying diffusion models more broadly in hydrology and Earth system science.
+- **Issues:** Gains under ideal measured precipitation overstate operational value; regional variability; generative sampling cost not discussed.
+- *Basis: abstract*
 
 ### [High-resolution European daily soil moisture derived with machine learning (2003–2020)](https://doi.org/10.1038/s41597-022-01785-6)
 O et al. (2022), *Scientific Data*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Produces a high-resolution observation-based daily soil moisture dataset for Europe for hydrological and agricultural analyses.
+- **Architecture:** Long short-term memory (LSTM) network trained on in situ soil moisture with meteorological inputs; dataset product (SoMo.ml-EU).
+- **Data:** In situ soil moisture measurements and high-resolution meteorological data; 0.1° daily dataset over Europe for three soil layers, 2003–2020.
+- **Main result:** SoMo.ml-EU agrees more closely with independent in situ data than its 0.25° predecessor and captures soil moisture variability including drought.
+- **Open work:** Further regional studies and extension to other regions or periods.
+- **Issues:** Uneven in situ network density limits accuracy in sparse areas; no physical constraints; quantitative metrics not reported in the abstract.
+- *Basis: abstract*
 
 ### [Hydrological Projections in the Third Pole Using Artificial Intelligence and an Observation‐Constrained Cryosphere‐Hydrology Model](https://doi.org/10.1029/2023ef004222)
 Long et al. (2024), *Earth's Future*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Projects future spatio-temporal runoff in the glacier-fed mountainous basins of the Third Pole, whose water resources are sensitive to climate change and glacier melt.
+- **Architecture:** LSTM-grid: a grid-scale long short-term memory (LSTM) recurrent neural network driven by monthly precipitation, air temperature and total glacier mass change at 0.25° resolution.
+- **Data:** Training targets are gridded monthly runoff and evapotranspiration from an observation-constrained cryosphere-hydrology model in headwaters of seven Third Pole basins, 2000–2017; verification 2013–2017; future climate projections as forcing.
+- **Main result:** Nash-Sutcliffe efficiency exceeds 0.92 in verification; monsoon basins show faster runoff increase than westerly basins, spring runoff rises notably, and precipitation gains influence after peak glacier mass loss.
+- **Open work:** Validating against direct observations and quantifying uncertainty from climate projections and glacier change scenarios.
+- **Issues:** Trained on output of a process model rather than observations, so it inherits that model's biases; monthly resolution; extrapolation to future climates beyond the training range is untested.
+- *Basis: abstract*
 
 ### [Accelerating Urban Flood Inundation Simulation Under Spatio‐Temporally Varying Rainstorms Using ConvLSTM Deep Learning Model](https://doi.org/10.1029/2025wr040433)
 Liao et al. (2025), *Water Resources Research*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Provides rapid urban flood inundation prediction that accounts for spatio-temporally varying rainstorms, which earlier deep learning surrogates often ignored, with added interpretability.
+- **Architecture:** ConvLSTM (convolutional long short-term memory) network as an end-to-end surrogate of a physics-based flood model, compared with a 3D CNN, with Grad-CAM for interpretation.
+- **Data:** Rainstorm scenarios and inundation simulations from a physics-based urban flood model over a 74 km² urban area, plus observed inundation points from actual storms.
+- **Main result:** Average Pearson correlation of 0.958 and MAE of 0.021 m against the physics-based model; predicts an event in about 2 s, 170 times faster; Grad-CAM highlights local and upstream rainfall concentration.
+- **Open work:** Transfer to other cities and integration into real-time flood early warning using rainfall forecasts.
+- **Issues:** Single study area; trained on physics-model output so accuracy is bounded by that model; generalization to unseen rainfall patterns and extreme events is limited.
+- *Basis: abstract*
 
 ### [Towards Interpretable Physical‐Conceptual Catchment‐Scale Hydrological Modeling Using the Mass‐Conserving‐Perceptron](https://doi.org/10.1029/2024wr037224)
 Wang et al. (2024), *Water Resources Research*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Develops parsimonious, interpretable catchment-scale hydrologic models with machine learning by finding the minimal architecture that explains a catchment's input-state-output behaviour across high, medium and low flows.
+- **Architecture:** Directed-graph architectures built from the mass-conserving perceptron (MCP) unit, a physically interpretable neural network element, explored with increasing complexity including input bypass and bidirectional groundwater exchange.
+- **Data:** Daily precipitation, potential evapotranspiration and streamflow at a single study catchment (the Leaf River basin in the authors' MCP studies).
+- **Main result:** A HyMod-like architecture with three cell-states and two flow paths captures dominant processes; input bypass improves hydrograph timing and shape and groundwater exchange improves baseflow; multiple diagnostic metrics are essential.
+- **Open work:** Neural architecture search for minimal MCP representations across large-sample catchments in different hydroclimatic regimes, and information-theoretic training metrics.
+- **Issues:** Single-catchment study, so findings on architecture may not generalize; predictive skill relative to LSTM benchmarks is not the focus.
+- *Basis: abstract+knowledge*
 
 ### [Assessing the adequacy of traditional hydrological models for climate change impact studies: a case for long short-term memory (LSTM) neural networks](https://doi.org/10.5194/hess-29-2811-2025)
 Martel et al. (2025), *Hydrology and Earth System Sciences*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether traditional calibrated hydrological models are adequate for climate change impact studies compared with LSTM models, given concerns about extrapolation under strong warming.
+- **Architecture:** Two long short-term memory (LSTM) networks, one regional and one continental, compared with four traditional conceptual hydrological models calibrated per catchment.
+- **Data:** 148 catchments for the regional LSTM plus about 1000 additional continental catchments, many in climates analogous to the future study domain; climate forcing from four simple scenarios and 22 CMIP6 GCMs under SSP5-8.5.
+- **Main result:** LSTM models show different climate sensitivity than traditional models; precipitation elasticity and analogue-catchment tests suggest the continental LSTM is best suited for climate change impact studies.
+- **Open work:** Further verification of LSTM climate sensitivity with more analogue catchments and physically grounded tests of extrapolation.
+- **Issues:** Future streamflow truth is unavailable, so adequacy is inferred indirectly; results may depend on catchment selection and on the specific traditional models compared.
+- *Basis: abstract*
 
 ### [Accelerating flood warnings by 10 hours: the power of river network topology in AI-enhanced flood forecasting](https://doi.org/10.1038/s44304-025-00083-6)
 Wang et al. (2024), *npj Natural Hazards*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Explains why graph neural networks underuse river network topology in flood forecasting and proposes a fix to improve forecasts, especially for extreme floods.
+- **Architecture:** Graph neural network (GNN) applied to a transformed dense, reachability-based graph that reduces resistance distances and over-squashing, compared with an EA-LSTM baseline.
+- **Data:** Water level records and forcing for a river network; specific basins and data products not reported in the abstract.
+- **Main result:** GNNs on the dense graph outperform EA-LSTM, particularly for rare extreme floods; 24 h GNN water-level forecasts match EA-LSTM 14 h accuracy, about 10 h earlier warning.
+- **Open work:** Testing on more river networks and combining with weather forecast inputs for operational early warning.
+- **Issues:** Study region details and generality across networks are unclear from the abstract; dense graphs may lose some physical meaning of flow routing.
+- *Basis: abstract*
 
 ### [Demonstrating a Hybrid Machine Learning Approach for Snow Characteristic Estimation Throughout the Western United States](https://doi.org/10.1029/2023wr035805)
 Steele et al. (2024), *Water Resources Research*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Improves estimates of snow water equivalent (SWE) and snow density across the western United States by combining physical modelling with machine learning.
+- **Architecture:** Hybrid model in which a neural network is informed by outputs of a physical snow model, compared with a plain LSTM, the physical model and a statistical snow density model.
+- **Data:** Nine years of daily data at 49 SNOTEL sites spanning western US snow climates, with regional and westwide training configurations.
+- **Main result:** The hybrid model reduces SWE RMSE by 35% relative to the physical model and 51% relative to the LSTM; regional training gives only minimal benefit over a westwide model.
+- **Open work:** Extending to spatially distributed SWE mapping and to sites without in situ observations.
+- **Issues:** Point-scale evaluation at SNOTEL stations, which under-sample high elevations and complex terrain; relies on availability of physical model output.
+- *Basis: abstract*
 
 ### [Interrogating process deficiencies in large-scale hydrologic models with interpretable machine learning](https://doi.org/10.5194/hess-29-4457-2025)
 Husic et al. (2025), *Hydrology and Earth System Sciences*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Diagnoses process deficiencies in large-scale operational hydrologic models by identifying catchment attributes that control their performance.
+- **Architecture:** Random forest predicting Kling-Gupta efficiency of streamflow simulations, explained with SHAP (Shapley value) interpretable machine learning.
+- **Data:** National Water Model (NWM) and National Hydrologic Model (NHM) streamflow simulations at 4383 stream gauges in the conterminous US, with 48 catchment attributes.
+- **Main result:** Soil water content is the most influential feature; KGE drops for soil water below 210 mm, precipitation below 900 mm/yr, road density above 5 km/km² and lake area above 10%.
+- **Open work:** Improving representation of soil water storage, arid processes, reservoirs and human influences in NWM and NHM.
+- **Issues:** Proof of concept; explains correlations with attributes rather than causal process errors; attribute data quality affects conclusions.
+- *Basis: abstract*
 
 ### [Exploring the ability of LSTM-based hydrological models to simulate streamflow time series for flood frequency analysis](https://doi.org/10.5194/hess-29-4951-2025)
 Martel et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Improves LSTM simulation of peak streamflow for flood frequency analysis in ungauged catchments, since annual maxima are under-represented in training data.
+- **Architecture:** Long short-term memory (LSTM) networks with six enhancements: extra meteorological variables, hybrid inputs from the HYDROTEL distributed model, oversampling of peaks, multi-head attention, donor catchments and combinations.
+- **Data:** 88 catchments in Quebec with leave-one-out cross-validation; flood frequency analysis applied to observations and simulations; HYDROTEL as benchmark.
+- **Main result:** Simple LSTM models simulate peak streamflow as well as HYDROTEL, and hybrid LSTM-hydrological model versions perform better for flood frequency analysis.
+- **Open work:** The authors discuss several pathways to further improve LSTM peak-flow prediction.
+- **Issues:** Regional study in Quebec; limited number of annual maxima makes flood quantile evaluation uncertain.
+- *Basis: abstract*
 
 ### [Synergizing Intuitive Physics and Big Data in Deep Learning: Can We Obtain Process Insights While Maintaining State‐Of‐The‐Art Hydrological Prediction Capability?](https://doi.org/10.1029/2024wr037582)
 He et al. (2024), *Water Resources Research*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Reconciles process understanding with state-of-the-art predictive accuracy in deep learning hydrological models.
+- **Architecture:** Deep process learning (DPL): a neural network with intuitive physical structure embedded as a structural prior so information flows along hydrologically meaningful paths.
+- **Data:** Precipitation-runoff data for catchments across the USA; internal states validated against independent snow water equivalent and evapotranspiration datasets.
+- **Main result:** Ensemble median NSE 0.758 and KGE 0.778 versus 0.762 and 0.751 for a state-of-the-art deep learning model, with robust transferability and good water budget closure.
+- **Open work:** Applying the approach to other geoscientific domains that need process clarity.
+- **Issues:** Gains in accuracy are marginal; process insights depend on chosen priors and on the quality of the independent validation datasets.
+- *Basis: abstract*
 
 ### [A Quantum-Empowered SPEI Drought Forecasting Algorithm Using Spatially Aware Mamba Network](https://doi.org/10.1109/tgrs.2025.3583578)
 Tang et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts drought via the SPEI index while exploiting spatial coherence across neighbouring regions, which benchmark deep learning models ignore.
+- **Architecture:** SQUARE-Mamba: a spatially aware neural network with a Mamba state space model for temporal features and quantum neural networks to entangle spatial features across time.
+- **Data:** Seven meteorological variables and SPEI for multiple regions; validation over El Niño, La Niña and normal years; specific data products not reported in the abstract.
+- **Main result:** Average R² improvement above 9.8% over baselines; the quantum component adds over 2.7% R² to the plain Mamba baseline.
+- **Open work:** Longer lead times and wider regional evaluation; code is released.
+- **Issues:** Quantum layers are simulated and their practical benefit is modest; study domain and lead times unclear from the abstract.
+- *Basis: abstract*
 
 ### [CH-RUN: a deep-learning-based spatially contiguous runoff reconstruction for Switzerland](https://doi.org/10.5194/hess-29-1061-2025)
 Kraft et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Reconstructs spatially contiguous daily runoff across all of Switzerland from 1962 to 2023, including ungauged locations, to study long-term water resource changes.
+- **Architecture:** Sequential deep learning models: an LSTM recurrent neural network and a 1D temporal convolutional network, driven by temperature, precipitation and static catchment attributes.
+- **Data:** Swiss gauged catchment runoff with gridded temperature and precipitation available since the 1960s; spatiotemporal cross-validation and comparison with an operational distributed hydrological model.
+- **Main result:** Competitive or better performance than the operational model in daily runoff, interannual variability and trends; reveals more frequent dry years and a negative summer runoff trend.
+- **Open work:** Using the efficient model for scenario simulation and climate attribution studies; the product is released online.
+- **Issues:** Reconstruction quality in the early period depends on gridded forcing quality; glacier and human regulation effects may be imperfectly learned.
+- *Basis: abstract*
 
 ### [Remote Sensing of River Discharge From Medium‐Resolution Satellite Imagery Based on Deep Learning](https://doi.org/10.1029/2023wr036880)
 Hao et al. (2024), *Water Resources Research*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates river discharge from medium-resolution satellite imagery, including narrow ungauged rivers where width-based methods fail.
+- **Architecture:** Transformer architecture mapping time series of river surface reflectance imagery directly to discharge.
+- **Data:** Medium-resolution satellite reflectance time series paired with quality-checked records from 2036 discharge gauges.
+- **Main result:** Positive KGE in 68.6% of ungauged rivers versus 28.4% for BAM and 33.1% for geoBAM, despite two-thirds of rivers being narrower than 100 m; braided rivers show no degradation.
+- **Open work:** Scaling to global space-based discharge monitoring and combining with other sensors.
+- **Issues:** Performance in ungauged regions with different optical conditions (clouds, sediment) and climates outside the gauge sample is uncertain.
+- *Basis: abstract*
 
 ### [Towards a global spatial machine learning model for seasonal groundwater level predictions in Germany](https://doi.org/10.5194/hess-29-3405-2025)
 Kunz et al. (2025), *Hydrology and Earth System Sciences*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts seasonal groundwater levels across Germany with a single global machine learning model to support national groundwater management.
+- **Architecture:** Temporal Fusion Transformer (TFT) and N-HiTS (MLP-based neural hierarchical forecasting) global time series models.
+- **Data:** Historical groundwater levels at 5288 monitoring wells in Germany, meteorological inputs and static hydrogeological and soil features; forecasts up to 12 weeks.
+- **Main result:** N-HiTS beats TFT with median NSE 0.5 at 12 weeks; 25% of wells exceed NSE 0.68 while 15% are below 0; better in data-dense lowland porous aquifers.
+- **Open work:** Improving performance at poorly predicted wells and using meteorological forecasts as inputs.
+- **Issues:** Wide performance spread with many poor wells; uses observed meteorology, so operational skill with forecast inputs is untested.
+- *Basis: abstract*
 
 ### [High-resolution rainfall-runoff modeling using graph neural network](https://arxiv.org/abs/2110.10833)
 Xiang et al. (2021), *arXiv*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Exploits spatial information within watersheds for rainfall-runoff modelling, which watershed-lumped LSTM models ignore.
+- **Architecture:** GNRRM (Graph Neural Rainfall-Runoff Model), a graph neural network using high-resolution precipitation, flow direction and geographic information.
+- **Data:** High-resolution gridded precipitation and streamflow for study watersheds; specific products not reported in the abstract.
+- **Main result:** GNRRM overfits less and significantly improves performance compared with baseline models.
+- **Open work:** Incorporating more domain knowledge into deep learning rainfall-runoff models.
+- **Issues:** No quantitative results or study area details in the abstract; limited evaluation scope likely.
+- *Basis: abstract*
 
 ### [Harnessing Generative Deep Learning for Enhanced Ensemble Data Assimilation](https://doi.org/10.1029/2025wr040078)
 Foroumandi et al. (2025), *Water Resources Research*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a hydrologic data assimilation method that avoids restrictive error-distribution assumptions and better represents posterior distributions.
+- **Architecture:** HydroGEnDA: autoencoders map states to a latent space, a deep generative model learns the state distribution and is conditioned on observations, followed by resampling in physical space.
+- **Data:** Synthetic experiments with the Lorenz-63 model at varying observation noise and real case studies with coupled SNOW-17 and SAC-SMA models across diverse watersheds.
+- **Main result:** HydroGEnDA outperforms previous data assimilation methods in both synthetic and real experiments.
+- **Open work:** Application to higher-dimensional distributed models and more observation types.
+- **Issues:** Trained offline on hydrologic model outputs, so it inherits model biases; tested on low-dimensional lumped models.
+- *Basis: abstract*
 
 ### [The Merit of River Network Topology for Neural Flood Forecasting](https://doi.org/10.5555/3692070.3693060)
 Kirschstein et al. (2024), *International Conference on Machine Learning*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether incorporating river network topology into neural models improves discharge forecasting across gauging stations.
+- **Architecture:** Graph neural networks (GNNs) with different adjacency definitions, including learned edge weights.
+- **Data:** River discharge records from a network of gauging stations; specific dataset not reported in the abstract.
+- **Main result:** Models fail to benefit from river network topology on the full network or subgraphs; learned edge weights show no regular pattern; GNNs struggle with sudden discharge spikes.
+- **Open work:** Systematic study of when neural prediction benefits from graph structure.
+- **Issues:** Negative result on a single river network; the cause of the missing benefit is not resolved.
+- *Basis: abstract*
 
 ### [Enforcing Water Balance in Multitask Deep Learning Models for Hydrological Forecasting](https://doi.org/10.1175/jhm-d-23-0073.1)
 Li et al. (2024), *Journal of Hydrometeorology*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts soil moisture, evapotranspiration and runoff jointly while satisfying water balance, which independent deep learning models violate.
+- **Architecture:** Multitask deep learning model with soft, hard and hybrid physical constraints enforcing water balance.
+- **Data:** ERA5-Land data, which close the water budget, for training and evaluation over gridded domains.
+- **Main result:** Multitask models match or beat single-task models; the best multitask model outperforms single-task over 70.5% of grids; the hybrid constrained model is best overall and under reduced data and extrapolation.
+- **Open work:** Applying the constraints with observational data and other hydrological variables.
+- **Issues:** Trained and evaluated on ERA5-Land, so it inherits reanalysis biases and its water closure by design.
+- *Basis: abstract*
 
 ### [Toward Optimal Rainfall for Flood Prediction in Headwater Basins—Orographic QPE Error Modeling Using Machine Learning](https://doi.org/10.1029/2023wr034456)
 Liao et al. (2023), *Water Resources Research*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Corrects orographic quantitative precipitation estimate (QPE) errors in headwater basins to improve flood simulation and nowcasting.
+- **Architecture:** Physics-guided AI framework: precipitation regime identification from inverse rainfall correction, then a multilayer perceptron (MLP) error model per regime.
+- **Data:** Merged radar and rain gauge QPE products and 57 largest floods in Southern Appalachian headwater basins, 2008–2017.
+- **Main result:** Hourly KGE improves on average from −0.5 to 0.4 and peak flood error drops 70%, with better results for cold-season events.
+- **Open work:** Generalizing to other mountainous regions and integrating corrected QPE into operational flood nowcasting.
+- **Issues:** Limited number of flood events; error climatology depends on the hydrologic inverse correction method.
+- *Basis: abstract*
 
 ### [Leveraging Next‐Generation Satellite Remote Sensing‐Based Snow Data to Improve Seasonal Water Supply Predictions in a Practical Machine Learning‐Driven River Forecast System](https://doi.org/10.1029/2023wr035785)
 Fleming et al. (2024), *Water Resources Research*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether satellite fractional snow-covered area improves operational seasonal water supply forecasts in the western US.
+- **Architecture:** Statistical and AI-based models of the NRCS operational water supply forecast system, with genetic algorithm predictor selection.
+- **Data:** STC MODSCAG fractional snow-covered area from MODIS with SNOTEL predictors in four watersheds (Walker, Wind, Piedra, Gila Rivers); over 200 forecast models.
+- **Main result:** fSCA gives roughly 10–25% accuracy gains for short-lead late-season forecasts and helps long-lead forecasts but not at peak accumulation; AI model generally beats statistical.
+- **Open work:** Using fSCA alone in sparsely monitored regions and guiding new SNOTEL site selection.
+- **Issues:** Only four watersheds; benefits vary with snowmelt dominance and monitoring density.
+- *Basis: abstract*
 
 ### [A Deep State Space Model for Rainfall‐Runoff Simulations](https://doi.org/10.1029/2025wr039888)
 Wang et al. (2025), *Water Resources Research*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Challenges LSTM's dominance in rainfall-runoff simulation by introducing a deep state space model.
+- **Architecture:** S4D-FT, a frequency tuned diagonal state space sequence model, benchmarked against LSTM and the physically based SAC-SMA model.
+- **Data:** 531 CONUS watersheds (the standard CAMELS subset) under in-sample and out-of-sample setups.
+- **Main result:** S4D-FT outperforms LSTM across diverse regions in both setups, especially snowmelt-driven and intermittent regimes, but underperforms in flashy high-magnitude regimes.
+- **Open work:** Improving short-burst flow representation and exploring other state space variants.
+- **Issues:** Weaker on flashy floods due to global convolution emphasizing slow dynamics.
+- *Basis: abstract+knowledge*
 
 ### [Global soil moisture from in-situ measurements using machine learning - SoMo.ml](https://doi.org/10.6084/m9.figshare.c.5142185.v1)
 Sungmin et al. (2020), *arXiv*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Produces a global long-term soil moisture dataset derived from in-situ measurements, independent of satellite and model products.
+- **Architecture:** Long short-term memory (LSTM) network extrapolating daily soil moisture dynamics in space and time from meteorological and static predictors.
+- **Data:** In-situ soil moisture from over 1000 stations worldwide (ISMN), with ERA5 meteorological forcing; output 0.25°, daily, three layers, 2000–2019.
+- **Main result:** SoMo.ml performs especially well in temporal dynamics in cross-validation and inter-comparison with existing datasets.
+- **Open work:** Use for anomaly detection and memory analyses; extension in time and depth.
+- **Issues:** Station coverage uneven, so poorly sampled regions are extrapolated; inherits forcing biases.
+- *Basis: abstract+knowledge*
 
 ### [Reanalysis and Forecasting of Total Water Storage and Hydrological States by Combining Machine Learning With CLM Model Simulations and GRACE Data Assimilation](https://doi.org/10.1029/2024wr037926)
 Li et al. (2025), *Water Resources Research*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts total water storage anomaly up to one year ahead and assimilates it to improve land model reanalysis and hydrological forecasts.
+- **Architecture:** Machine learning forecasts of GRACE TWSA (model type not specified in the abstract) assimilated into the Community Land Model (CLM) via data assimilation.
+- **Data:** GRACE TWSA over Europe with near-real-time meteorological observations as predictors; validation with observations and reanalysis; five hindcast experiments.
+- **Main result:** ML forecast TWSA correlates 0.91–0.94 with GRACE in Iberia, Danube and Volga basins; assimilation improves CLM forecasts of hydrological states and droughts.
+- **Open work:** Integrating into seasonal drought services and future satellite gravity missions.
+- **Issues:** GRACE coarse resolution and short record; ML architecture details unclear from abstract.
+- *Basis: abstract*
 
 ### [Learning Distributed Parameters of Land Surface Hydrologic Models Using a Generative Adversarial Network](https://doi.org/10.1029/2024wr037380)
 Sun et al. (2024), *Water Resources Research*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Calibrates spatially distributed parameters of a land surface hydrologic model, avoiding the uneven spatial performance caused by single-value objective functions.
+- **Architecture:** Generative adversarial network (GAN-PO): a generator produces spatially coherent parameter fields while a discriminator detects spatial model biases; neural-network surrogates make the VIC model differentiable.
+- **Data:** Variable Infiltration Capacity (VIC) model calibrated against evapotranspiration (ET) observations over the Huaihe basin, China.
+- **Main result:** GAN-PO reduces ET errors from default parameters in nearly all grid cells, beats parameter regionalization and outperforms differentiable parameter learning (dPL) in spatial performance; ablation shows the discriminator is essential.
+- **Open work:** Extend to multi-variable calibration (streamflow, soil moisture), other basins and other land surface models.
+- **Issues:** Single basin and single target variable (ET); relies on surrogate fidelity; calibrated parameters may compensate for structural model errors.
+- *Basis: abstract*
 
 ### [An explainable deep learning model based on hydrological principles for flood simulation and forecasting](https://doi.org/10.5194/hess-29-7217-2025)
 Xiang et al. (2025), *Hydrology and Earth System Sciences*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Makes deep learning flood simulation physically interpretable by embedding conceptual hydrological principles into the network.
+- **Architecture:** Hybrid recurrent neural network: a physics-based XAJRNN layer encoding Xinanjiang (XAJ) runoff generation and flow routing, fused with LSTM layers.
+- **Data:** Streamflow and flood events in the Lushui River and Qingjiang River basins, China; compared with benchmark models.
+- **Main result:** Average Nash-Sutcliffe efficiency of 0.98 and 0.94 in the two basins, with flood peak relative errors and peak timing errors close to zero.
+- **Open work:** Test transfer to more and more diverse basins, ungauged settings and operational forecasting with forecast forcings.
+- **Issues:** Only two basins; very high NSE values suggest testing in simulation mode with observed forcing; interpretability claims rest on the embedded XAJ structure.
+- *Basis: abstract*
 
 ### [Global Flood Projection and Socioeconomic Implications Under a Deep Learning Framework](https://doi.org/10.1029/2024wr037139)
 Kang et al. (2025), *Water Resources Research*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Projects global changes in bivariate flood risk (peak and volume) and their socioeconomic exposure under climate change, and identifies drivers of streamflow change.
+- **Architecture:** Supervised machine learning to rank drivers of daily streamflow, plus a physics-constrained cascade with a hybrid deep-learning-hydrological model; copula-style joint return periods.
+- **Data:** Bias-corrected outputs of 20 CMIP6 global climate models under four SSPs; global catchment streamflow; population and GDP exposure data.
+- **Main result:** Under SSP3-7.0 the median joint return period of a 50-year flood falls to about 27.6 years, exposing 186 trillion USD and 4 billion people; downwelling shortwave radiation is the dominant driver of daily streamflow changes.
+- **Open work:** Refine attribution of drivers, include human regulation such as reservoirs and adaptation, and narrow cascade uncertainty.
+- **Issues:** Long model chain propagates GCM, bias-correction and hydrological model uncertainty; ML model extrapolates beyond training climate; exposure estimates are scenario-dependent.
+- *Basis: abstract*
 
 ### [Machine-learning-constrained projection of bivariate hydrological drought magnitudes and socioeconomic risks over China](https://doi.org/10.5194/hess-28-3305-2024)
 Liu et al. (2024), *Hydrology and Earth System Sciences*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Projects future bivariate hydrological drought risk (duration and severity) and its GDP and population exposure across China under climate change.
+- **Architecture:** Cascade model chain: random forest for variable importance, five hydrological models coupled with a deep-learning model (hybrid hydrological-deep-learning), copula functions and most-likely-realization method.
+- **Data:** 179 catchments in China; five bias-corrected CMIP6 GCMs under three SSPs; terrestrial water storage anomalies (GRACE-type) and standardized runoff index; GDP and population data.
+- **Main result:** The hybrid model reaches KGE above 0.8 in 161 of 179 catchments; by late century bivariate drought risk doubles over 60% of catchments, mainly in southwestern China under SSP5-8.5.
+- **Open work:** Account for human water use and reservoirs, and quantify uncertainty contributions along the chain.
+- **Issues:** Few GCMs; learned streamflow relationships are extrapolated to future climates; exposure depends on socioeconomic scenarios.
+- *Basis: abstract*
 
 ### [Improved 30‐m Evapotranspiration Estimates Over 145 Eddy Covariance Sites in the Contiguous United States: The Role of ECOSTRESS, Harmonized Landsat Sentinel‐2 Imagery, Climate Reanalysis, and Deep Neural Network Postprocessing](https://doi.org/10.1029/2023wr036313)
 Rashid et al. (2024), *Water Resources Research*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Produces field-scale (30 m) daily evapotranspiration estimates and diagnoses their error sources across the contiguous United States.
+- **Architecture:** Physically based PT-JPL model driven by satellite and reanalysis inputs, followed by a deep neural network (MLP-type) postprocessor; random forest with partial dependence plots for error diagnosis.
+- **Data:** ECOSTRESS, MODIS, Harmonized Landsat Sentinel-2 (HLS), ERA5-Land radiation and meteorology; eddy covariance ET at 145 flux sites in CONUS, with held-out test sites.
+- **Main result:** 30 m ET reaches r = 0.8, RMSE 1.736, KGE 0.466 versus r = 0.485, KGE -0.841 for 70 m ECOSTRESS ET; DNN postprocessing raises test-site performance to r = 0.842, KGE 0.792. Radiation input biases drive most errors.
+- **Open work:** Improve radiation inputs and extend the approach beyond flux-site footprints and to other regions.
+- **Issues:** Postprocessor is trained on flux towers, which have energy-balance closure issues and limited land-cover coverage; larger biases in humid, densely vegetated, high-radiation conditions.
+- *Basis: abstract*
 
 ### [Physics-Aware Downsampling with Deep Learning for Scalable Flood Modeling](https://arxiv.org/abs/2106.07218)
 Giladi et al. (2021), *Neural Information Processing Systems*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces the cost of large-scale physics-based flood simulation by learning coarse terrain representations that preserve fine-grid flood behavior.
+- **Architecture:** Deep convolutional neural network trained to downsample digital elevation maps in a physics-aware way, optimized through a differentiable shallow-water flood simulator so coarse-grid solutions match fine-grid ones.
+- **Data:** Purpose-built dataset of terrain elevation maps and fine-grid flood simulations; released with code for reproduction.
+- **Main result:** Achieves a significant reduction in computational cost while maintaining an accurate flood solution compared with naive coarse-graining.
+- **Open work:** Validate against observed flood extents and integrate into operational flood forecasting at larger scales.
+- **Issues:** Evaluated against simulations rather than observed floods; quantitative gains not reported in the abstract; tied to a specific hydraulic solver.
+- *Basis: abstract*
 
 ### [Saudi Rainfall (SaRa): hourly 0.1° gridded rainfall (1979–present) for Saudi Arabia via machine learning fusion of satellite and model data](https://doi.org/10.5194/hess-29-4983-2025)
 Wang et al. (2025), *Hydrology and Earth System Sciences*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a reliable hourly precipitation product for the arid, data-sparse Arabian Peninsula to support hydrology, flood management and climate research.
+- **Architecture:** Stacked machine learning models (18 model stacks) fusing satellite and (re)analysis precipitation with static predictors; the specific learners are not named in the abstract.
+- **Data:** Gauge observations in Saudi Arabia (113) and globally (14,256) as targets; inputs include IMERG, GSMaP, ERA5 and other products; evaluated on 119 independent Saudi gauges; hourly 0.1°, 1979-present.
+- **Main result:** SaRa ranks first among 20 products on all metrics, with median KGE 0.36 versus 0.21 for ERA5, -0.39 for IMERG-L V07, 0.29 for IMERG-F V07 and 0.20 for MSWEP V2.8.
+- **Open work:** Extend to the wider region and evaluate for extremes and hydrological modeling applications.
+- **Issues:** Absolute skill remains modest (median KGE 0.36); sparse gauges limit evaluation of hourly extremes; quality depends on input products in early decades.
+- *Basis: abstract*
 
 ### [Extended-range forecasting of stream water temperature with deep-learning models](https://doi.org/10.5194/hess-29-1685-2025)
 Padrón et al. (2025), *Hydrology and Earth System Sciences*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Provides probabilistic extended-range (up to 32 days) forecasts of daily maximum stream water temperature for operational use.
+- **Architecture:** Temporal fusion transformer compared with RNN encoder-decoder, N-HiTS, random forest, MLP and an autoregressive linear model.
+- **Data:** 10 years of data from 54 stations in Switzerland: static catchment features, 64 days of past meteorological observations and 32-day meteorological ensemble forecasts.
+- **Main result:** TFT is best with CRPS 0.70 °C averaged over leads (0.38 °C at 1 day to 0.90 °C at 32 days), ahead of RNN (0.74), N-HiTS (0.75), random forest (0.80), MLP (0.81) and linear (0.96); TFT also performs best at ungauged stations.
+- **Open work:** Reduce error from meteorological ensemble uncertainty at long leads and extend to other regions; forecasts already run operationally twice weekly.
+- **Issues:** Skill at long leads is limited by meteorological forecast uncertainty; evaluation covers 90 forecasts over one year; single country.
+- *Basis: abstract*
 
 ### [RiverMamba: A State Space Model for Global River Discharge and Flood Forecasting](https://arxiv.org/abs/2505.22535)
 Eddin et al. (2025), *Neural Information Processing Systems*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts global river discharge and floods while exploiting spatial connections across river networks, beyond local-scale deep learning models.
+- **Architecture:** State space model (Mamba blocks) capturing spatio-temporal relations over large river networks, pretrained on long-term reanalysis, with forecast blocks that ingest meteorological forecasts.
+- **Data:** Long-term reanalysis data for pretraining (GloFAS-type discharge reanalysis), ECMWF HRES meteorological forecasts; global 0.05° grid, up to 7-day lead time.
+- **Main result:** Provides reliable discharge predictions across flood return periods, including extreme floods, and lead times, surpassing both AI- and physics-based models.
+- **Open work:** Extend lead times, add uncertainty quantification and evaluate operationally against gauged observations worldwide.
+- **Issues:** Training on reanalysis targets inherits its biases; deterministic forecasts; quantitative gains not given in the abstract.
+- *Basis: abstract*
 
 ### [Effective Deep Learning Seasonal Prediction Model for Summer Drought Over China](https://doi.org/10.1029/2023ef004409)
 Liu et al. (2024), *Earth's Future*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Improves seasonal prediction of summer drought, measured by consecutive dry days (CDD), over China.
+- **Architecture:** Convolutional neural network predicting principal components of the six leading EOF modes of CDD anomalies, projected back onto observed patterns.
+- **Data:** Previous-winter precipitation, 2-m temperature and 500 hPa geopotential height as predictors; observed CDD over China; independent hindcast period 2007-2018.
+- **Main result:** The six PCs are significantly predicted and summer CDD patterns reach anomaly correlation generally above 0.2 three months ahead, with skill over the Yangtze valley, northwestern and northern China.
+- **Open work:** Add other predictors such as SST and soil moisture and compare with dynamical seasonal forecasts.
+- **Issues:** Short hindcast period (12 years) and modest skill; EOF truncation limits spatial detail; small sample for training CNN.
+- *Basis: abstract*
 
 ### [Evaluating the Functional Realism of Deep Learning Rainfall‐Runoff Models Using Catchment Hydrology Principles](https://doi.org/10.1029/2025wr040076)
 Bayati et al. (2025), *Water Resources Research*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether accurate LSTM rainfall-runoff models rely on hydrologically plausible internal mechanisms (functional realism).
+- **Architecture:** Hydrology-specific explainable AI framework that extracts nonlinear, lag-dependent, time-varying impulse response functions from LSTM networks for precipitation, temperature and PET.
+- **Data:** 672 North American catchments with strong LSTM predictive skill; forcings of precipitation, temperature and potential evapotranspiration.
+- **Main result:** High accuracy often masks implausible reasoning: in over 70% of rain-dominated basins temperature rises increase simulated streamflow without rain, and in snow basins PET is misattributed as a snowmelt driver.
+- **Open work:** Use the diagnostic to constrain or regularize LSTM training and test robustness under climate shifts and extremes.
+- **Issues:** Diagnosis only, no remedy proposed; IRF extraction depends on perturbation design; limited to North America.
+- *Basis: abstract*
 
 ### [Investigating Deep Learning Knowledge Transfer in Streamflow Prediction From Global to Local Catchment](https://doi.org/10.1029/2025wr041194)
 Ougahi et al. (2026), *Water Resources Research*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Improves streamflow prediction in data-scarce basins by transferring LSTM knowledge from data-rich regions.
+- **Architecture:** Transfer learning with LSTM networks pre-trained on donor basins and fine-tuned locally; K-Means clustering of catchment attributes to select donor groups.
+- **Data:** 441 donor basins from Scotland, Switzerland and British Columbia; 36 target basins in data-poor region (CA); ERA5 climate data and lagged streamflow.
+- **Main result:** TL-LSTM pre-trained on clusters beats locally trained models (NSE 0.85, KGE 0.80); the cluster most similar to the target region gives the best results, and short local records improve fine-tuning.
+- **Open work:** Test transfer to more climates and fully ungauged basins without lagged streamflow.
+- **Issues:** Uses lagged observed streamflow as input, limiting use in truly ungauged basins; small target set; ambiguity in target region definition in the abstract.
+- *Basis: abstract*
 
 ### [Hierarchical Deep Learning for Consistent Multi‐Timescale Hydrological Forecasting](https://doi.org/10.1029/2024wr038105)
 Jahangir et al. (2025), *Water Resources Research*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Produces streamflow forecasts that are consistent across timescales (daily and weekly) for decision-making.
+- **Architecture:** Hierarchical deep learning model based on LSTM networks with temporal hierarchical reconciliation implemented as a differentiable output layer.
+- **Data:** Over 400 catchments in the contiguous United States (CAMELS-type data); seven-day-ahead daily and weekly forecasts.
+- **Main result:** Improves median daily NSE (3.01% at lead one) over a multi-timescale LSTM and is more accurate than aggregated daily forecasts in over 65% of catchments weekly; 9.45% median NSE gain for the worst decile.
+- **Open work:** Extend to more timescales, probabilistic reconciliation and other water resources variables.
+- **Issues:** Modest gains for typical catchments; deterministic forecasts; performance depends on reconciliation formulation.
+- *Basis: abstract*
 
 ### [Global Runoff Partitioning Based on Budyko‐Constrained Machine Learning](https://doi.org/10.1029/2025wr039863)
 Cheng et al. (2025), *Water Resources Research*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates global partitioning of runoff into baseflow and quickflow by combining a physical framework with machine learning.
+- **Architecture:** Hybrid Budyko-constrained machine learning: boosted regression trees predict parameters of the Budyko curve and a new baseflow coefficient curve from 13 climatic and physiographic properties.
+- **Data:** 1,461 catchments worldwide for training and testing; applied globally at 0.25° grid.
+- **Main result:** Test R2 of 0.96 for runoff and 0.91 for baseflow; globally 35.3% of precipitation becomes runoff (19.6% baseflow, 15.7% quickflow); vegetation controls Budyko alpha and soil controls baseflow parameters.
+- **Open work:** Extend to temporal variability and changing climate, and evaluate in poorly gauged regions.
+- **Issues:** Long-term mean water balance only; catchment sample biased to gauged regions; baseflow separation method uncertainty affects targets.
+- *Basis: abstract*
 
 ### [Improving streamflow predictions across CONUS by integrating advanced machine learning models and diverse data](https://doi.org/10.1088/1748-9326/ad6fb7)
 Tayal et al. (2024), *Environmental Research Letters*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Improves large-sample streamflow prediction where detailed basin attributes are hard to obtain.
+- **Architecture:** Geo-ViT-LSTM: vision transformer encoding remote sensing basin imagery into attributes combined with a global LSTM network.
+- **Data:** 531 basins across the contiguous United States (CAMELS-type); remote sensing imagery for basin attributes.
+- **Main result:** Shows superior accuracy over baselines in both temporal and spatiotemporal extrapolation scenarios; numbers not reported in the abstract.
+- **Open work:** Apply to regions lacking attribute data and other land surface variables.
+- **Issues:** Quantitative improvements not given; CONUS only; interpretability of learned attributes unclear.
+- *Basis: abstract*
 
 ### [Knowledge‐Guided Machine Learning for Operational Flood Forecasting](https://doi.org/10.1029/2024wr039064)
 McEachran et al. (2025), *Water Resources Research*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a knowledge-guided ML system for operational catchment flood forecasting that efficiently integrates real-time data.
+- **Architecture:** Factorized Hierarchical Neural Network with an inverse model inferring catchment state from observations and a forward model predicting streamflow; inference-based data integration instead of optimization-based data assimilation; compared with autoregressive LSTM.
+- **Data:** CAMELS-US large-sample dataset and US National Weather Service operational flood forecasts.
+- **Main result:** Human NWS forecasters are more accurate in the first 12-18 hours, but FHNN is significantly better at later lead times.
+- **Open work:** Combine AI models with forecaster expertise in operational river forecasting.
+- **Issues:** Comparison with NWS depends on forcing used; early-lead skill below human forecasts; limited to evaluated basins.
+- *Basis: abstract*
 
 ### [Flash drought prediction using deep learning](https://doi.org/10.1088/1748-9326/addb65)
 Jacob et al. (2025), *Environmental Research Letters*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts rapidly developing flash droughts, addressing imbalanced and limited data for ML.
+- **Architecture:** Convolutional neural network classifier.
+- **Data:** Flash drought events in Eastern Australia, 2001-2022; training 2001-2015, validation 2016-2017, test 2018-2022; predictor datasets not named in the abstract.
+- **Main result:** Balanced accuracy of 80% and AUC of 93% on the test period.
+- **Open work:** Reduce overestimation of drought extent and extend to longer leads and other regions.
+- **Issues:** Overestimates the spatial extent of droughts; lead time unclear in abstract; rare events limit training data.
+- *Basis: abstract*
 
 ### [Improving Subseasonal Soil Moisture and Evaporative Stress Index Forecasts through Machine Learning: The Role of Initial Land State versus Dynamical Model Output](https://doi.org/10.1175/jhm-d-23-0074.1)
 Lorenz et al. (2024), *Journal of Hydrometeorology*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Improves subseasonal (15-28 day) forecasts of soil moisture and the Evaporative Stress Index for flash drought prediction.
+- **Architecture:** Statistical-dynamical forecasts enhanced with nonlinear machine learning methods compared with linear regression.
+- **Data:** Current and past land surface states and S2S Prediction Project dynamical hindcasts; soil moisture at 0-10 and 0-100 cm and ESI.
+- **Main result:** Skill gains come almost entirely from initial land state predictors, not dynamical model output; nonlinear ML helps soil moisture but not ESI; gains mainly in soil moistening rather than drying.
+- **Open work:** Optimize use of current land state information in operational S2S flash drought forecasts.
+- **Issues:** Little improvement for drought onset (drying); limited value from dynamical forecasts at present.
+- *Basis: abstract*
 
 ### [Infilling of missing rainfall radar data with a memory-assisted deep learning approach](https://doi.org/10.5194/hess-29-3687-2025)
 Meuer et al. (2025), *Hydrology and Earth System Sciences*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Infills missing radar rainfall data, such as during radar outages, while accounting for spatiotemporal variability of precipitation.
+- **Architecture:** Deep convolutional neural network with a memory component (recurrent) using sequences before and after the gap.
+- **Data:** Hourly RADKLIM 1 km radar-gauge precipitation over Germany; artificial and real gaps; events including May 2012 and July 2021 (Ahrtal flood).
+- **Main result:** Effectively infills artificial and actual gaps, including during significant rainfall events; quantitative metrics not given in the abstract.
+- **Open work:** Use in nowcasting and hydrological applications and transfer to other radar networks.
+- **Issues:** Single dataset and country; skill for large gaps during extremes may be limited; numbers not reported in abstract.
+- *Basis: abstract*
 
 ### [DroughtSet: Understanding Drought Through Spatial-Temporal Learning](https://arxiv.org/abs/2412.15075)
 Tan et al. (2024), *AAAI Conference on Artificial Intelligence*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a benchmark and model for subseasonal-to-seasonal drought prediction and understanding over CONUS.
+- **Architecture:** Benchmark dataset DroughtSet plus a spatial-temporal deep learning model (SPDrought) predicting three drought indices with feature-importance analysis.
+- **Data:** Predictive features and three drought indices from multiple remote sensing and reanalysis datasets across the contiguous United States.
+- **Main result:** SPDrought predicts three drought types simultaneously and offers insights into sensitivity of drought to physical and biological drivers; numbers not given in abstract.
+- **Open work:** Use DroughtSet to benchmark more time-series and spatio-temporal forecasting methods.
+- **Issues:** CONUS only; quantitative skill not reported in the abstract; reanalysis inputs carry biases.
+- *Basis: abstract*
 
 ### [FROSTBYTE: a reproducible data-driven workflow for probabilistic seasonal streamflow forecasting in snow-fed river basins across North America](https://doi.org/10.5194/hess-28-4127-2024)
 Arnal et al. (2024), *Hydrology and Earth System Sciences*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a reproducible workflow for probabilistic seasonal streamflow volume forecasts in snow-fed basins across North America.
+- **Architecture:** Non-deep statistical workflow: quantile mapping for gap-filling SWE, principal component analysis and regression for ensemble hindcasts.
+- **Data:** Snow water equivalent and precipitation station data, streamflow observations for 75 nival basins in Canada and the USA, 1979-2021.
+- **Main result:** Predicts lower and higher than normal spring-early summer flows up to 5 months ahead in some basins; late-season snowpack is key, while target-period precipitation reduces skill.
+- **Open work:** Include climate forecasts and other predictors and assess changing predictability.
+- **Issues:** Linear regression on SWE misses precipitation during the target period; limited to unregulated basins.
+- *Basis: abstract*
 
 ### [Automated classification of atmospheric circulation types for compound flood risk assessment: CMIP6 model analysis utilising a deep learning ensemble](https://doi.org/10.1088/1748-9326/adddcb)
 Heinrich et al. (2025), *Environmental Research Letters*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses future changes in atmospheric circulation types linked to compound coastal flooding in Europe.
+- **Architecture:** Deep learning ensemble (neural network classifiers) for automatic classification of Hess-Brezowsky Grosswetterlagen.
+- **Data:** 31 realisations of CMIP6 simulations under SSP1-2.6, SSP3-7.0 and SSP5-8.5.
+- **Main result:** Robust increase in winter frequency of the Cyclonic Westerly pattern by 2100 across models and scenarios, implying increasing compound flood risk.
+- **Open work:** Link circulation changes directly to surge and discharge modeling.
+- **Issues:** Classification inherits subjectivity of the original catalog; circulation types are an indirect proxy for flood risk.
+- *Basis: abstract*
 
 ### [Utilizing Earth Foundation Models to Enhance the Simulation Performance of Hydrological Models with AlphaEarth Embeddings](https://arxiv.org/abs/2601.01558)
 Qu et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Improves streamflow prediction in ungauged basins using foundation-model embeddings of basin characteristics.
+- **Architecture:** Deep learning hydrological models using AlphaEarth Foundation satellite embeddings in place of or alongside traditional catchment attributes; embedding similarity for donor basin selection.
+- **Data:** AlphaEarth satellite embeddings and streamflow records; specific basin dataset not named in the abstract.
+- **Main result:** Embedding-based models achieve higher accuracy in basins not used for training; similarity-selected donors improve performance, while many dissimilar donors reduce accuracy.
+- **Open work:** Interpret what embeddings encode physically and test across regions.
+- **Issues:** Quantitative gains and dataset not reported; embeddings are opaque.
+- *Basis: abstract*
 
 ### [Deep Learning Identification of the Governing Equation for Water Flow in Heterogeneous Soils From Data](https://doi.org/10.1029/2024wr037786)
 Song et al. (2025), *Water Resources Research*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Discovers governing equations for soil water flow in heterogeneous soils from data.
+- **Architecture:** Extended-DeepGS: deep learning framework with group sparse regression for equation discovery; not a forecasting network.
+- **Data:** Time series of volumetric soil water content from numerical experiments.
+- **Main result:** Simultaneously reconstructs soil moisture dynamics and governing equations robustly in numerical experiments.
+- **Open work:** Apply to field observations and address limitations discussed.
+- **Issues:** Tested on synthetic numerical experiments only; relies on assumed generalized equation form.
+- *Basis: abstract*
 
 ### [Skilful probabilistic predictions of UK flood risk months ahead using a large-sample machine learning model trained on multimodel ensemble climate forecasts](https://doi.org/10.5194/hess-29-2393-2025)
 Moulds et al. (2025), *Hydrology and Earth System Sciences*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a hybrid subseasonal-to-seasonal forecasting system for UK flood risk months ahead.
+- **Architecture:** Quantile regression forest (random forest) trained on dynamical forecasts plus static catchment attributes in a large-sample multi-site setup.
+- **Data:** C3S multimodel ensemble of 196 members from eight seasonal forecast models; 579 UK stations, 2004-2016.
+- **Main result:** Large-sample model slightly but significantly beats single-site models; positive CRPSS in 60% of stations in month 1, falling to 33% in month 4.
+- **Open work:** Improve skill at longer leads.
+- **Issues:** Skill declines rapidly; short hindcast period.
+- *Basis: abstract*
 
 ### [Generative AI-Downscaling of Large Ensembles Project Unprecedented Future Droughts](https://arxiv.org/abs/2509.21844)
 Lewis et al. (2025), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies future meteorological drought risk over New Zealand, which needs large, high-resolution ensembles too costly to produce with regional climate models.
+- **Architecture:** Generative AI downscaling emulator (deep generative model; exact family not stated in the abstract) trained to emulate a physics-based regional climate model, applied to many GCM large ensembles.
+- **Data:** 20 CMIP6 GCMs, including two single-model initial-condition large ensembles, downscaled to 12 km; training target is the dynamical RCM; SSP3-7.0 scenario.
+- **Main result:** The emulator adds value similar to the RCM for precipitation and drought metrics. Droughts intensify over most of the country; current-climate extreme droughts up to twice as long as in small ensembles, reaching about 30 months in some places under SSP3-7.0.
+- **Open work:** Apply to other hazards and regions and further assess emulator fidelity for extremes outside the training distribution.
+- **Issues:** Emulator inherits RCM and GCM biases and may not extrapolate under strong warming; drought duration and frequency changes remain highly uncertain.
+- *Basis: abstract*
 
 ### [Update hydrological states or meteorological forcings? Comparing data assimilation methods for differentiable hydrologic models](https://arxiv.org/abs/2502.16444)
 Jamaat et al. (2025), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Determines which variational data assimilation strategy works best for differentiable (physics-informed ML) hydrologic models in short-term streamflow forecasting.
+- **Architecture:** Differentiable hydrologic model with neural network parameterization, plus variational DA that optimizes adjusters on precipitation forcing, internal hydrological states, or both; compared with LSTM with DA.
+- **Data:** CAMELS basins across the conterminous United States.
+- **Main result:** Variational DA raises one-day-lead median NSE from 0.75 to 0.82, matching or beating LSTM with DA in eastern, northwestern and central Great Plains regions; state adjusters matter most, precipitation adjusters help high flows.
+- **Open work:** Apply the framework to whole river networks and longer lead times operationally.
+- **Issues:** Evaluated mainly at one-day lead on CAMELS basins; benefits vary regionally; uses observed rather than forecast forcings in hindcast.
+- *Basis: abstract*
 
 ### [AIFL: A Global Daily Streamflow Forecasting Model Using Deterministic LSTM Pre-trained on ERA5-Land and Fine-tuned on IFS](https://doi.org/10.1016/j.jhydrol.2026.136064)
 Taccari et al. (2026), *Journal of Hydrology*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a global daily streamflow forecasting model that closes the performance gap when moving from reanalysis forcing to operational forecasts.
+- **Architecture:** AIFL, a deterministic LSTM with two-stage transfer learning: pre-training on reanalysis then fine-tuning on operational forecast forcing.
+- **Data:** 18,588 Caravan basins; ERA5-Land 1980–2019 pre-training; ECMWF IFS forecasts 2016–2019 fine-tuning; independent test 2021–2024.
+- **Main result:** Median KGE' 0.66 and NSE 0.53 on the test period, comparable to state-of-the-art global systems; two-stage training beats IFS-only and mixed-forcing alternatives.
+- **Open work:** Add probabilistic output, longer lead times and data assimilation of recent discharge.
+- **Issues:** Deterministic only; short IFS fine-tuning period; Caravan gauge coverage is uneven across regions.
+- *Basis: abstract*
 
 ### [Quantifying Historical and Future Surface Soil Moisture Drying Using Deep Learning and Remote Sensing](https://doi.org/10.1029/2025ef006261)
 Bo et al. (2026), *Earth's Future*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies historical and future surface soil moisture drying, which is debated and linked to droughts, heatwaves and wildfires.
+- **Architecture:** Deep learning gap-filling of satellite soil moisture records, then observational constraint applied to Earth System Model projections. Network family not reported in the abstract.
+- **Data:** Remote sensing surface soil moisture 1983–2020 and 23 CMIP6 ESMs over 1901–2100.
+- **Main result:** About half of global land dried over the past four decades; observation-constrained projections show weaker drying in dry–wet transition zones and monsoon margins than raw ESMs.
+- **Open work:** Integrate remote sensing and AI into ESMs to improve soil moisture–atmosphere feedbacks and drought projections.
+- **Issues:** Gap-filled data may carry retrieval and ML errors into the constraint; constraint method assumes stationarity of observed relationships.
+- *Basis: abstract*
 
 ### [Diffusion‐Based Probabilistic Modeling for Hourly Streamflow Prediction and Assimilation](https://doi.org/10.1029/2025wr042720)
 Yang et al. (2025), *Water Resources Research*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Provides probabilistic hourly streamflow prediction for flood warning, since hourly peaks exceed daily values and LSTM schemes handle uncertainty and observations poorly.
+- **Architecture:** h-Diffusion, a denoising diffusion probabilistic model conditioned on observed or simulated daily discharge to generate hourly hydrographs, with inpainting for data assimilation.
+- **Data:** CAMELS hourly dataset (US basins); baselines MTS-LSTM and MF-LSTM.
+- **Main result:** Outperforms the LSTM baselines on general and extreme metrics; inpainting with recent observations greatly improves flood forecasts and can inversely estimate rainfall.
+- **Open work:** Operational testing with forecast forcing and extension to ungauged basins.
+- **Issues:** Depends on daily discharge input quality; diffusion sampling is costly; evaluated on CAMELS only.
+- *Basis: abstract*
 
 ### [BiasCast: learning and adjusting real time biases from meteorological forecasts to enhance runoff predictions](https://doi.org/10.5194/hess-30-5067-2026)
 Konold et al. (2026), *Hydrology and Earth System Sciences*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Mitigates skill loss in deep learning runoff forecasts when switching from reanalysis to biased meteorological forecast inputs.
+- **Architecture:** LSTM variants including Encoder–Decoder LSTM and Sequential Forecast LSTM, with transfer learning, input embeddings and assimilation of past discharge.
+- **Data:** Extended LamaH-CE dataset, 451 Central European basins; reanalysis and meteorological forecast forcings; maximum daily discharge targets.
+- **Main result:** Domain shift drops median NSE from 0.58 to 0.33; Sequential Forecast LSTM reaches 0.63 and adding recent discharge gives 0.71, above the reanalysis baseline; biggest gains in arid catchments.
+- **Open work:** Extend to longer lead times and probabilistic forecasts; exploit catchment attributes to target bias correction.
+- **Issues:** Archived forecasts and complex embeddings sometimes destabilize training; gains are smaller in alpine and snow catchments; regional dataset only.
+- *Basis: abstract*
 
 ### [Spatially Resolved Meteorological and Ancillary Data in Central Europe for Rainfall Streamflow Modeling](https://arxiv.org/abs/2506.03819)
 Vischer et al. (2025), *arXiv*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a fully spatially resolved dataset so neural rainfall–streamflow models can go beyond lumped catchments.
+- **Architecture:** Benchmark dataset of gridded meteorological forcings and ancillary data (soil, rock, land cover, orography), with code to combine it with discharge data; neural network modeling demonstrated.
+- **Data:** Five central European basins (upper Danube, Elbe, Oder, Rhine, Weser) on a 9 km grid, daily 1980–2024; source of the meteorological forcings not reported in the abstract.
+- **Main result:** Harmonized, openly available dataset enabling direct comparison of distributed and lumped model types.
+- **Open work:** Use the dataset to benchmark distributed neural hydrological models against lumped and process-based models.
+- **Issues:** Limited to five basins; 9 km grid may be coarse for small catchments; discharge data must be added by users.
+- *Basis: abstract*
 
 ### [Fine Flood Forecasts: Incorporating local data into global models through fine-tuning](https://arxiv.org/abs/2504.12559)
 Ryd et al. (2025), *arXiv*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Lets national forecasters adapt globally trained ML flood models using local data they own, lowering barriers to operational deployment.
+- **Architecture:** Pre-train a global deep learning streamflow model (network family not stated in the abstract) on a large diverse dataset, then fine-tune on individual basins.
+- **Data:** Large global streamflow dataset for pre-training and per-basin data for fine-tuning; specific products not reported in the abstract.
+- **Main result:** Fine-tuning improves performance, most strongly in watersheds that underperform under global training.
+- **Open work:** Operational roadmap for national agencies; test with truly private local data and forecast forcings.
+- **Issues:** Risk of overfitting small local records; magnitude of gains not quantified in the abstract.
+- *Basis: abstract*
 
 ### [DUALFloodGNN: Physics-informed Graph Neural Network for Operational Flood Modeling](https://doi.org/10.24963/ijcai.2026/713)
 Acosta et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Enables fast operational flood modeling, since physics-based hydrodynamic models are too slow for rapid prediction.
+- **Architecture:** DUALFloodGNN, a physics-informed graph neural network with message passing that jointly predicts node water volume and edge flow, with global and local physics loss terms and multi-step curriculum training.
+- **Data:** Hydrodynamic simulation dataset (open-sourced); specific sites not reported in the abstract.
+- **Main result:** Substantial improvements over standard and state-of-the-art GNN flood models for water volume, flow and depth while remaining computationally efficient.
+- **Open work:** Test generalization to unseen catchments and real events.
+- **Issues:** Trained on simulated data, so inherits numerical model assumptions; autoregressive error accumulation remains possible.
+- *Basis: abstract*
 
 ### [Increased Streamflow Intermittence in Europe Due To Climate Change Projected by Combining Global Hydrological Modeling and Machine Learning](https://doi.org/10.1029/2024ef005868)
 Abbasi et al. (2025), *Earth's Future*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies future climate change impacts on streamflow intermittence across Europe at high resolution, including headwater streams.
+- **Architecture:** Hybrid approach: random forest trained on observed streamflow intermittence using predictors from a global hydrological model (WaterGAP).
+- **Data:** WaterGAP at 50 km driven by five global climate models, historical gauge observations; predictions for 1.5 million reaches at 500 m; SSP1-RCP2.6 and SSP5-RCP8.5.
+- **Main result:** Non-perennial reach-months rise under both scenarios; no-flow share goes from 3.5% (1985–2014) to 3.8% (SSP1-2.6) or 4.8% (SSP5-8.5) in 2071–2100; 2.8% of reaches shift to non-perennial.
+- **Open work:** Link to ecological impacts and include water use and management changes.
+- **Issues:** Coarse driving model; only five GCMs; RF may not extrapolate to new climate; human water use projections uncertain.
+- *Basis: abstract*
 
 ### [Spatiotemporal Dynamics of Active Root Zone Storage Revealed From Hybrid Machine Learning](https://doi.org/10.1029/2025wr042803)
 Blougouras et al. (2026), *Water Resources Research*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Infers the dynamically active root zone storage that ecosystems use for evapotranspiration, which cannot be measured directly.
+- **Architecture:** Hybrid machine learning model combining a parsimonious ecohydrological structure with neural networks, treating active storage as a latent state.
+- **Data:** Multi-source observations of ET, runoff, snow and terrestrial water storage for hundreds of US catchments, 2001–2020.
+- **Main result:** Active storage peaks in transitional regions where atmospheric demand and supply balance; realized capacity reflects long-term hydroclimate and substrate constraints.
+- **Open work:** Extend globally and link to vegetation and carbon fluxes.
+- **Issues:** Latent state is not directly verifiable; depends on observational product uncertainties.
+- *Basis: abstract*
 
 ### [Strategies for incorporating static features into global deep learning models](https://doi.org/10.5194/hess-30-1877-2026)
 Liesch et al. (2026), *Hydrology and Earth System Sciences*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Systematically compares how static catchment or site features are integrated into global deep learning models for groundwater level prediction, a choice seldom evaluated.
+- **Architecture:** Global deep learning groundwater model comparing four static-feature strategies: repetition, concatenation, attention and conditional initialization.
+- **Data:** Large-scale groundwater level dataset from Germany with environmental and time-series-derived static features.
+- **Main result:** All methods perform similarly on average; repetition slightly best but computationally inefficient; feature informativeness matters more than integration method.
+- **Open work:** Explore efficient integration methods and better static feature selection.
+- **Issues:** Single-country groundwater dataset; results may differ for streamflow or other variables.
+- *Basis: abstract*
 
 ### [HydroAgent: Closing the Gap Between Frontier LLMs and Human Experts in Hydrologic Model Calibration via Simulator-Grounded RL](https://arxiv.org/abs/2605.17792)
 Li et al. (2026), *arXiv*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether large language model agents can replace human experts in calibrating distributed hydrologic models, a bottleneck for operational water management.
+- **Architecture:** Benchmark of nine frontier LLM agents and HydroAgent, a Qwen3-4B fine-tuned with supervised learning and Group-Relative Policy Optimization reinforcement learning from simulator feedback.
+- **Data:** CREST distributed hydrologic model used by the US National Weather Service; four held-out gauges (329–40,792 km2); 2,576 expert calibration trajectories.
+- **Main result:** Frontier LLM best NSE ranges from -0.16 to 0.75, mostly 0.65–0.75, rarely reaching human experts; the authors argue domain grounding, not model size, is the gap.
+- **Open work:** Scale to more basins and modalities including remote sensing and forecaster narratives.
+- **Issues:** Few test gauges; HydroAgent quantitative results not given in the abstract; single hydrologic model.
+- *Basis: abstract*
 
 ### [Harnessing Deep Learning for Dual Gains in S2S‐Scale Soil Moisture Forecasting and Flash Drought Mechanisms](https://doi.org/10.1029/2025wr041466)
 Yang et al. (2026), *Water Resources Research*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts soil moisture at sub-seasonal to seasonal scales to anticipate flash droughts and explain their drivers, where NWP has limited skill.
+- **Architecture:** Spatiotemporal deep learning models (ConvLSTM, U-Net) with a Bayesian model averaging ensemble, interpreted with occlusion maps and SHAP.
+- **Data:** Drought-related precursors (compound drought–heatwave, evaporative stress, VPD, vegetation conditions) over basins with varied climates; NWP comparison. Data products not reported in the abstract.
+- **Main result:** Deep learning improves pentad SSI forecasts over NWP; BMA ensemble is reliable up to 12 pentads (~60 days); three driver patterns: water-, energy-dominated and composite.
+- **Open work:** Use for operational early warning systems.
+- **Issues:** Limited to selected basins; interpretability methods are post hoc.
+- *Basis: abstract*
 
 ### [Near real-time estimation of daytime and nighttime evapotranspiration using GOES-R observations and machine learning models](https://doi.org/10.5194/hess-30-4927-2026)
 Ranjbar et al. (2026), *Hydrology and Earth System Sciences*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates evapotranspiration in near real time at 5-min resolution for both day and night, since most satellite ET products are daily and daytime-only.
+- **Architecture:** ALIVEET framework comparing Gradient Boosting Regression and LSTM models.
+- **Data:** GOES-R ABI observations including land surface temperature; ground ET reference not named in the abstract; comparison with daily ALEXI ET.
+- **Main result:** GBR daytime R2 0.74 (nRMSE 0.91); LSTM nighttime R2 0.24 (nRMSE 1.29).
+- **Open work:** Improve nighttime estimates and agreement with ALEXI.
+- **Issues:** Nighttime skill is weak (R2 0.24) and nRMSE values are high; coverage limited to the GOES-R domain; cloudy-sky retrievals are harder to validate.
+- *Basis: abstract*
 
 ### [PERSIANN-Unet: A Global Deep Learning Framework for Near-Real-Time Precipitation Estimation Using Infrared Data](https://doi.org/10.1175/jhm-d-25-0162.1)
 Nguyen et al. (2026), *Journal of Hydrometeorology*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Produces near-real-time quasi-global precipitation estimates from infrared data alone, avoiding dependence on infrequent passive microwave overpasses.
+- **Architecture:** PERSIANN-Unet, a U-Net convolutional neural network using IR data and monthly climatology.
+- **Data:** Geostationary IR; IMERG V07 Final 2016–2021 training; evaluated 2022–2023 against HE, IMERG, PDIR-Now and Stage IV over CONUS.
+- **Main result:** Closely matches IMERG Final globally; produces spatially consistent fields without tile seams at 0.04°, half-hourly over 60°N–60°S.
+- **Open work:** Further evaluation in data-poor regions and extremes.
+- **Issues:** Trained on IMERG so inherits its biases; IR-only limits physical sensitivity.
+- *Basis: abstract*
 
 ### [Deep Learning Reveals the Role of Climate Drivers in Shaping Hydrological Droughts](https://doi.org/10.1029/2025wr042855)
 Tripathy et al. (2026), *Water Resources Research*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies the climate drivers and mechanisms of hydrological drought across the contiguous United States to support drought forecasting and water management.
+- **Architecture:** Attention-augmented LSTM with Expected Gradients attribution.
+- **Data:** ERA5 1940–2022 monthly variables plus Niño-3.4; 547 GAGES-II catchments.
+- **Main result:** Three mechanisms: rapid-onset, gradually evolving and climatically reinforced droughts, with spatial patterns by aridity.
+- **Open work:** Use for seasonal drought forecasting and water management.
+- **Issues:** Inputs come from ERA5 so inherit reanalysis biases; attribution by Expected Gradients is model-dependent and not causal; restricted to minimally disturbed catchments.
+- *Basis: abstract*
 
 ### [Interpretable Deep Learning Reveals Influence and Interactions of Hydroclimatic Drivers on Floods Across India](https://doi.org/10.1029/2026ef008397)
 Tripathi et al. (2026), *Earth's Future*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies flood-generating processes and predicts extreme river-flood magnitudes across peninsular India to understand how rainfall, antecedent wetness and reservoir storage jointly control floods.
+- **Architecture:** Cluster-specific TabNet deep-learning models (attention-based tabular network) predict flood magnitude; SHAP values attribute predictions to drivers and their interactions; events are first classified by rainfall–soil-moisture thresholds.
+- **Data:** Flood events 1980–2020 at 206 catchments in peninsular India, with daily hydro-meteorological forcings, soil moisture and basin-averaged static attributes; strict spatial cross-validation.
+- **Main result:** Humid, low-storage basins are dominated by excess-rain floods while drier, storage-influenced basins show more long-rain floods; about 67% of basins reach KGE above 0.3 with physically consistent driver combinations.
+- **Open work:** Extend toward climate-adaptive flood forecasting in monsoon regions and improve skill in basins where models remain weak.
+- **Issues:** Predictive skill is only moderate (KGE threshold of 0.3); reservoir operations are represented coarsely; SHAP attributions are correlational rather than causal.
+- *Basis: abstract*
 
 ### [Interpretable soil moisture prediction with a knowledge-guided deep learning approach](https://doi.org/10.5194/hess-30-2973-2026)
 Wang et al. (2026), *Hydrology and Earth System Sciences*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts soil moisture simultaneously at multiple depths with interpretable deep learning, addressing nonlinear soil water transport and variable boundary conditions.
+- **Architecture:** Non-local neural networks: a self-attention variant (SA-NLNN, embedded Gaussian) and a knowledge-guided variant (KG-NLNN) that decomposes depth influences into four physically motivated components; physics-guided deep learning.
+- **Data:** In-situ multi-depth soil moisture observations; specific sites and periods are not reported in the abstract.
+- **Main result:** Both models perform satisfactorily; knowledge-guided non-local operations significantly improve accuracy, reliability, noise robustness and interpretability of learned inter-layer weights, at high computational efficiency.
+- **Open work:** Test at more sites and soil types, and couple with land surface models or remote sensing for spatial prediction.
+- **Issues:** Evaluation limited to in-situ stations; interpretability is qualitative; quantitative gains and generalization to unseen sites are not reported in the abstract.
+- *Basis: abstract*
 
 ### [Prediction of Drought and Flash Drought in Africa at the Seasonal-to-Subseasonal Scale using the Community Research Earth Digital Intelligence Twin Framework](https://arxiv.org/abs/2605.05255)
 Edris et al. (2026), *arXiv*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether large ML weather-model frameworks retain skill for drought and flash drought prediction over Africa at subseasonal-to-seasonal scales.
+- **Architecture:** DroughtFormer, a CrossFormer transformer built on NSF NCAR's CREDIT framework, with dry air mass and moisture conservation constraints, predicting soil moisture, vegetation health and other drought variables.
+- **Data:** ERA5 and GLDAS2 reanalyses plus IMERG precipitation and MODIS satellite observations over Africa.
+- **Main result:** Stable, skillful forecasts to 90-day leads for soil moisture and vegetation variables, beating or matching climatology; lower accuracy for precipitation and flash-drought indices and underestimated anomaly magnitudes.
+- **Open work:** Improve precipitation and flash-drought index skill and the representation of anomaly magnitudes.
+- **Issues:** Benchmarked mainly against climatology; trained on reanalysis so inherits its biases over data-sparse Africa; flash-drought onset remains poorly predicted.
+- *Basis: abstract*
 
 ### [Integrating Satellite Retrievals, Numerical Models, and Machine Learning for Global Groundwater Recharge Estimation](https://doi.org/10.1029/2025wr040312)
 Soylu et al. (2026), *Water Resources Research*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates global groundwater recharge, which is hard to measure directly, to assess sustainability of aquifer use.
+- **Architecture:** Gaussian Process Regression emulator trained on Hydrus-1D Richards-equation simulations of unsaturated-zone fluxes, then driven by satellite and reanalysis inputs.
+- **Data:** Hydrus-1D runs at 235 points spanning climates and soils; inputs from SMAP soil moisture, GPM precipitation, ERA5 reanalysis and soil hydraulic properties; GRACE storage changes for validation.
+- **Main result:** Captures global recharge patterns, especially in high-rainfall regions; rainfall, unsaturated conductivity and soil moisture are the main predictors; estimates consistent with GRACE storage trends.
+- **Open work:** Improve performance in arid and heavily irrigated regions and add lateral and anthropogenic processes.
+- **Issues:** 1-D vertical model ignores lateral flow and irrigation; weaker in arid areas; GRACE comparison is indirect validation; emulator inherits Hydrus-1D assumptions.
+- *Basis: abstract*
 
 ### [Lightweight Wrappers for Adapting Time Series Foundation Models to Regional Drought Forecasting](https://doi.org/10.1145/3770855.3818835)
 Gao et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Adapts frozen time series foundation models to regional drought forecasting when weights are proprietary, local data are short and compute is limited.
+- **Architecture:** Black-box inference-time wrappers around frozen time series foundation models (transformer backbones): SMR2 multi-resolution residual corrections with adaptive ensembling, and Moving Block Bootstrap ensembling; no fine-tuning.
+- **Data:** One-month-ahead SPEI at multiple sites in South Australia; period and SPEI source not reported in the abstract.
+- **Main result:** Consistently improves several backbone models, with up to 26% MSE reduction over the frozen backbone.
+- **Open work:** Extend to longer leads, other drought indices and regions, and probabilistic outputs.
+- **Issues:** Single region and one-month lead; point forecasts only; gains depend on backbone; compared mainly with the frozen backbone rather than domain models.
+- *Basis: abstract*
 
 ### [Hydrology in the Age of Artificial Intelligence: From Fragmentation to Coherent Terrestrial Hydrosphere Science](https://doi.org/10.1029/2026wr043509)
 Painter et al. (2026), *Water Resources Research*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Argues about the scientific role of machine learning in hydrology and the persistent fragmentation of hydrological science.
+- **Architecture:** Commentary/perspective; no new model. Discusses integrating data-driven ML and process-based approaches for the terrestrial hydrosphere.
+- **Data:** No new data; cites examples such as divergent estimates of groundwater–streamflow interactions and water-balance storage changes.
+- **Main result:** Argues ML's outperformance in streamflow prediction reflects fragmentation of hydrology, and that the future lies in integrating ML and physics rather than choosing between them.
+- **Open work:** Develop coherent, scale-relevant, integrated understanding of the terrestrial hydrosphere combining data-driven and process-based methods.
+- **Issues:** Opinion piece without quantitative demonstration; concrete integration methods are not specified.
+- *Basis: abstract*
 
 ### [The Role of Assimilating Deep Learning‐Enhanced AMSR‐E/2 Observations in European Soil Moisture Reanalysis](https://doi.org/10.1029/2026wr043561)
 Sivaprasad et al. (2026), *Water Resources Research*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether assimilating deep-learning-enhanced satellite soil moisture improves a European land reanalysis, given sensor gaps, retrieval noise and biases.
+- **Architecture:** Ensemble land data assimilation into the encore Community Land Model (eCLM) of a deep-learning-enhanced AMSR-E/2 soil moisture product, with climatological bias correction and Triple Collocation uncertainty estimates.
+- **Data:** DL-enhanced AMSR-E/AMSR2 soil moisture, daily 2003–2023 over Europe; independent in situ soil moisture networks for evaluation.
+- **Main result:** Against open loop, PBIAS drops from 28.68% to 3.28% and RMSE from 0.100 to 0.082 m3/m3, beating assimilation of original AMSR-E/2; spatial uncertainty improves correlation at 66% of stations.
+- **Open work:** Extend to other variables and observation types, and to global or coupled Earth system reanalyses.
+- **Issues:** The deep learning enhancement itself is described elsewhere; gains vary by climate zone and season; evaluation at point stations has representativeness issues.
+- *Basis: abstract*
 
 ### [Attention‐Based Stochastic Simulation of Climate‐Informed Spatiotemporal Flood Risk for Multisite Insurance Portfolios](https://doi.org/10.1029/2026gl123701)
 Nayak et al. (2025), *Geophysical Research Letters*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates spatiotemporally correlated flood risk at interannual-to-decadal horizons relevant to insurance contracts.
+- **Architecture:** Attention-based analog retrieval combined with stochastic generation of multivariate flood frequency, intensity and duration sequences; explainable AI attribution and wavelet analysis.
+- **Data:** Flood records at over 100 sites in the Mississippi River Basin conditioned on large-scale climate variability indices.
+- **Main result:** Produces spatiotemporally coherent, out-of-sample flood portfolios and links simulated clustering to large-scale climate drivers, giving interpretable flood clusters for loss simulation.
+- **Open work:** Apply to other basins and portfolios and couple with loss and financial models.
+- **Issues:** Single basin; limited by length of observed records for rare clustered events; no quantitative skill reported in the abstract.
+- *Basis: abstract*
 
 ### [Predicting streamflow drought in the conterminous United States using machine learning and a donor-gage approach, 1982–2020](https://doi.org/10.5194/hess-30-5925-2026)
 Heldmyer et al. (2026), *Hydrology and Earth System Sciences*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts streamflow drought across the conterminous US and identifies its meteorological drivers and sensitive basin characteristics.
+- **Architecture:** 3198 at-site random forest models plus a dynamic regionalization donor-gage approach for pseudo-ungaged prediction.
+- **Data:** USGS streamgages across CONUS, 1982–2020, with meteorological drivers including teleconnections, temperature, evaporative demand, snow water equivalent, precipitation and soil moisture.
+- **Main result:** Teleconnections, temperature, evaporative demand and SWE dominate in western regions, precipitation and soil moisture in the east and northwest; donor-gage regionalization performs comparably to at-site models.
+- **Open work:** Apply the donor-gage approach to other hydrologic prediction problems requiring transfer to ungaged locations.
+- **Issues:** Pseudo-ungaged tests may overstate transfer skill; driver importance from random forests is correlational; human regulation of flows not explicitly addressed.
+- *Basis: abstract*
 
 ### [Hapi: A Multivariable Land-Surface Transformer for Medium-Range Hydrological Forecasting at Continental Scale](https://arxiv.org/abs/2609.22702)
 Zhang et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Produces fast, high-resolution medium-range hydrological and flood forecasts across the contiguous US.
+- **Architecture:** Hapi, a U-Net Swin Transformer with 3-D patches and hierarchical shifted-window attention, multi-task with adaptive task weighting.
+- **Data:** ERA5-Land inputs at 0.05° over CONUS; held-out 2024 evaluation against GloFAS return-period flood thresholds and 3,881 USGS gauges.
+- **Main result:** Highest flood F1 in 20 of 21 comparisons and highest median NSE at every lead (24–72 h); a four-variable 72-h forecast takes 0.11 s on one A100 GPU.
+- **Open work:** Run with actual weather forecast forcings rather than prescribed ERA5-Land, and extend lead times.
+- **Issues:** Potential-skill setting with ERA5-Land prescribed over the horizon overstates operational skill; single test year; ERA5-Land biases inherited.
+- *Basis: abstract*
 
 ### [Integrating meteorological forcings and satellite-derived observations to emulate snow water equivalent in the Colorado Rocky Mountains using a spatiotemporal deep learning model](https://doi.org/10.1175/jhm-d-25-0208.1)
 Akor et al. (2026), *Journal of Hydrometeorology*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Emulates Noah-MP snow water equivalent cheaply for hydrologic forecasting in the Colorado Rocky Mountains.
+- **Architecture:** ConvLSTM spatiotemporal deep learning emulator, compared with a pixel-wise LSTM baseline.
+- **Data:** WRF meteorological forcings, static physiographic variables, remotely sensed snow cover and leaf area index; Noah-MP SWE targets; evaluation against SNODAS and SNOTEL.
+- **Main result:** Spatial coupling raises the fraction of cells with non-negative NSE by 15–27%; reproduces Noah-MP and SNODAS patterns, competitive against SNOTEL, R2 up to 0.96 in accumulation and 0.97 in melt.
+- **Open work:** Use for real-time monitoring and ensemble forecasting, and extend to other regions.
+- **Issues:** Emulates a model rather than observations, so inherits Noah-MP and WRF biases; regional study; some cells still have negative NSE.
+- *Basis: abstract*
 
 ### [Probabilistic Deep Learning for Drought Forecasting: Role of Internal Climate Variability](https://arxiv.org/abs/2608.01864)
 Funk et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Improves European drought forecasting by treating internal climate variability as structured, usable information.
+- **Architecture:** Deep learning drought forecasting framework extended with an uncertainty-aware lower drought bound derived from a large climate model ensemble; network family not specified in the abstract.
+- **Data:** Large climate model ensemble for internal variability and reanalysis data over Europe; specific products not named in the abstract.
+- **Main result:** The ensemble-informed bound is better calibrated than a reanalysis-only bound across most regions and seasons, especially in anomalously dry conditions.
+- **Open work:** Use large ensembles more broadly to inject physically plausible variability into ML forecasts.
+- **Issues:** Relies on the climate model ensemble realistically representing internal variability; the bound is a conservative lower tail rather than a full predictive distribution.
+- *Basis: abstract*
 
 ### [Probabilistic Seasonal Streamflow Forecasting Across California's Sierra Nevada Watersheds with Agentic AI](https://arxiv.org/abs/2605.16178)
 Lopez-Gomez et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Accelerates development of seasonal snowmelt runoff forecasts for Sierra Nevada watersheds as hydroclimatic change erodes statistical forecast skill.
+- **Architecture:** Agentic large language model workflow plus LLM code-mutation with Monte Carlo Tree Search, producing an adaptive ensemble of three XGBoost quantile regression models with physics-informed features.
+- **Data:** Monthly Full Natural Flow for 23 Sierra Nevada watersheds; agent-discovered datasets; evaluation 2021–2025 against California's Bulletin 120 forecasts.
+- **Main result:** Better early-season April–July runoff skill than Bulletin 120, reducing watershed-averaged quantile forecast error by up to 29%.
+- **Open work:** Extend agent-driven model development to other geoscience forecasting tasks.
+- **Issues:** Short 5-year evaluation; risk of overfitting through automated search; reproducibility of LLM-driven workflow.
+- *Basis: abstract*
 
 ### [Skillful Data-Driven Subseasonal Soil Moisture Forecasting: Prospects and Limits for Flash Drought Prediction](https://arxiv.org/abs/2610.07060)
 Otero et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts subseasonal root-zone soil moisture over Europe and assesses prospects for flash drought prediction.
+- **Architecture:** Vision Transformer with dual-pathway temporal and spatial attention, residual learning, and quantile-head fine-tuning for probabilistic output.
+- **Data:** European root-zone soil moisture; evaluation 2021–2022 against deep learning baselines and ECMWF S2S forecasts; training source not named in the abstract.
+- **Main result:** Highest deterministic and probabilistic skill at all leads, reliably detecting dry states below the 20th percentile; residual learning in physical units is essential to beat persistence.
+- **Open work:** Improve prediction of flash drought onset, which remains a challenge for all S2S systems.
+- **Issues:** Short two-year test; flash drought onset poorly predicted; skill depends strongly on target formulation.
+- *Basis: abstract*
 
 ### [Hourly U.S.-wide flood simulation beyond the limits of traditional and data-driven models](https://arxiv.org/abs/2609.06794)
 Yang et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Provides hourly flood simulation across the US river network that resolves extreme peaks better than operational and AI models.
+- **Architecture:** dHBV2.0MTS-MC, a multi-timescale differentiable physics-embedded learning model (neural networks parameterizing an HBV-style hydrologic model) with infiltration excess.
+- **Data:** More than 800,000 CONUS river reaches, evaluated at 2,831 gauges against NWM v3.0, an operational LSTM and recent AI models.
+- **Main result:** Median hourly NSE 0.683 versus 0.461 for NWM3.0; peak timing errors reduced to 4.5–6 h; captures 33% more 50-year floods than NWM3.0 and cuts peak error by 34% for 100-year floods.
+- **Open work:** Candidate for the next-generation National Water Model; operational forecasting tests with forecast forcings.
+- **Issues:** Evaluated in simulation mode with observed forcings; ungauged-reach accuracy only indirectly verified.
+- *Basis: abstract*
 
 <a id="energy"></a>
 ## Weather & climate for energy
@@ -7140,277 +8502,607 @@ Yang et al. (2026), *arXiv*. 0 citations.
 ### [Machine learning methods for solar radiation forecasting: A review](https://doi.org/10.1016/j.renene.2016.12.095)
 Voyant et al. (2017), *Renewable Energy*. 1,705 citations.
 
-*Summary pending.*
+- **Main goal:** Surveys machine learning methods for forecasting solar radiation, which is needed for integrating solar power into electricity grids.
+- **Architecture:** Review of machine learning methods for solar irradiance forecasting, including artificial neural networks (MLP), support vector machines/regression, regression trees, random forest, k-nearest neighbours and hybrid or ensemble approaches.
+- **Data:** Literature on global horizontal and other irradiance forecasting from ground stations, satellite and numerical weather prediction inputs; specific datasets not reported (abstract unavailable).
+- **Main result:** Concludes that ANN and SVR are the most used methods, that ensembles and hybrid methods tend to improve accuracy, and that comparisons across studies are hampered by inconsistent error metrics and datasets.
+- **Open work:** Standardized benchmarks and error metrics, wider use of ensemble and hybrid methods, and probabilistic forecasting are identified as directions.
+- **Issues:** Abstract unavailable; review predates deep learning adoption in the field, and cross-study performance comparisons are qualitative.
+- *Basis: abstract+knowledge*
 
 ### [A review of deep learning for renewable energy forecasting](https://doi.org/10.1016/j.enconman.2019.111799)
 Wang et al. (2019), *Energy Conversion and Management*. 1,073 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews deep learning methods for forecasting intermittent renewable energy such as wind and solar power, needed for power system planning and operation.
+- **Architecture:** Review of deterministic and probabilistic deep learning forecasting methods grouped into deep belief networks, stacked autoencoders, deep recurrent neural networks (LSTM) and others, plus preprocessing and error post-correction.
+- **Data:** Published studies on wind and solar power forecasting; no new data.
+- **Main result:** Provides a taxonomy and discussion of deep learning forecasting methods and of data preprocessing (e.g., decomposition) and post-correction techniques that improve accuracy.
+- **Open work:** Identifies current challenges and future research directions in deep learning-based renewable energy forecasting.
+- **Issues:** Comparisons across studies are largely qualitative; links to numerical weather prediction inputs are not emphasized in the abstract.
+- *Basis: abstract*
 
 ### [A review of wind speed and wind power forecasting with deep neural networks](https://doi.org/10.1016/j.apenergy.2021.117766)
 Wang et al. (2021), *Applied Energy*. 890 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews deep neural network methods for wind speed and wind power forecasting, which is key to integrating wind energy into power systems.
+- **Architecture:** Review of deep learning approaches for wind forecasting, including convolutional neural networks, recurrent networks (LSTM, GRU), autoencoders, deep belief networks and hybrid models with data decomposition and optimization.
+- **Data:** Published studies using wind farm and meteorological station time series and numerical weather prediction inputs; no new data (abstract unavailable).
+- **Main result:** Not reported in the abstract (unavailable); the review categorizes deep learning methods and discusses preprocessing, model structures and performance trends.
+- **Open work:** Likely directions include probabilistic forecasting, spatiotemporal modelling across wind farms and better integration of weather prediction inputs.
+- **Issues:** Abstract unavailable, so the card is based on the title and general knowledge of this review; specific conclusions are not verified.
+- *Basis: assessment*
 
 ### [Deep Learning for solar power forecasting — An approach using AutoEncoder and LSTM Neural Networks](https://doi.org/10.1109/smc.2016.7844673)
 Gensler et al. (2016), *IEEE International Conference on Systems, Man and Cybernetics*. 568 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts photovoltaic power output with deep learning to support solar integration into the grid.
+- **Architecture:** Deep learning models combining an autoencoder for feature extraction with an LSTM recurrent neural network (Auto-LSTM), compared with MLP, deep belief networks and physical models.
+- **Data:** Historical power measurements from a set of photovoltaic plants with numerical weather prediction inputs; details not available (abstract missing).
+- **Main result:** Not reported in the abstract (unavailable); the autoencoder-LSTM combination is reported to compare favourably with the other forecasting approaches.
+- **Open work:** Further evaluation on more sites and probabilistic forecasts would follow naturally.
+- **Issues:** Abstract unavailable; dataset size, lead times and quantitative errors not verified.
+- *Basis: assessment*
 
 ### [Comparison of machine learning methods for photovoltaic power forecasting based on numerical weather prediction](https://doi.org/10.1016/j.rser.2022.112364)
 Markovics et al. (2022), *Renewable & Sustainable Energy Reviews*. 441 citations.
 
-*Summary pending.*
+- **Main goal:** Compares machine learning methods for day-ahead photovoltaic power forecasting from numerical weather prediction inputs.
+- **Architecture:** Comparison of many machine learning regression methods, including linear models, kernel ridge regression, support vector regression, random forest, gradient boosting and MLP neural networks, with physical PV modelling as reference.
+- **Data:** Numerical weather prediction forecasts (ECMWF) and measured power from photovoltaic plants in Hungary; exact period not verified (abstract unavailable).
+- **Main result:** Not reported in the abstract (unavailable); kernel ridge regression and MLP are reported among the best, and input selection and hyperparameter tuning strongly affect accuracy.
+- **Open work:** Testing across more plants and climates and combining ML with physical model chains.
+- **Issues:** Abstract unavailable; limited geographic scope and dependence on a single NWP source.
+- *Basis: assessment*
 
 ### [Hourly forecasting of solar irradiance based on CEEMDAN and multi-strategy CNN-LSTM neural networks](https://doi.org/10.1016/j.renene.2020.09.141)
 Gao et al. (2020), *Renewable Energy*. 324 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts hourly solar irradiance for scheduling solar generation in smart grids despite its intermittency.
+- **Architecture:** Hybrid CEEMDAN decomposition followed by a CNN-LSTM network (convolutional neural network plus LSTM) with multiple strategies compared.
+- **Data:** Four real-world solar irradiance datasets from different climate types; station names not reported in the abstract.
+- **Main result:** CEEMDAN-CNN-LSTM outperforms many alternatives with an average RMSE of 38.49 W/m2 across climates.
+- **Open work:** Extension to longer horizons and probabilistic forecasts.
+- **Issues:** Decomposition of the full series can leak future information if not done causally; one-hour horizon only; no weather prediction inputs.
+- *Basis: assessment*
 
 ### [Long short term memory–convolutional neural network based deep hybrid approach for solar irradiance forecasting](https://doi.org/10.1016/j.apenergy.2021.117061)
 Kumari et al. (2021), *Applied Energy*. 273 citations.
 
-*Summary pending.*
+- **Main goal:** Improves hourly global horizontal irradiance (GHI) forecasting to support integration of variable solar power into grids and energy markets.
+- **Architecture:** Hybrid LSTM-CNN: an LSTM extracts temporal features from irradiance time series and a convolutional neural network extracts spatial features from correlation matrices of meteorological variables at the target and neighboring sites.
+- **Data:** Hourly meteorological data (temperature, precipitation, relative humidity, cloud cover, etc.) and GHI at 23 locations in California, USA; evaluated over one year, by season and under three sky conditions.
+- **Main result:** Forecast skill score improves by about 37–45% over smart persistence, SVM, ANN, standalone LSTM, CNN and other hybrid models across seasons and sky conditions.
+- **Open work:** Test longer horizons and other climates, and incorporate satellite or numerical weather prediction inputs.
+- **Issues:** Single-region study; deterministic forecasts only with no uncertainty quantification; short-term horizon; sensitivity to the choice of neighboring sites not fully explored.
+- *Basis: abstract*
 
 ### [Predicting solar energy generation through artificial neural networks using weather forecasts for microgrid control](https://doi.org/10.1016/j.renene.2018.03.070)
 Rodríguez et al. (2018), *Renewable Energy*. 235 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts photovoltaic energy generation from weather forecasts to support microgrid control and day-ahead/intra-day energy market bidding.
+- **Architecture:** Artificial neural network (MLP) developed in MATLAB, mapping forecast weather parameters to solar energy production.
+- **Data:** Weather forecast and PV generation data for a solar installation (site details not given in the abstract); validation on days outside the training database.
+- **Main result:** Difference between produced and predicted energy is about 0.5–9%, judged sufficient for operational use in systems with integrated solar generation.
+- **Open work:** Integrate the predictor into real microgrid controllers and test with more sites and seasons.
+- **Issues:** Single-site, small-dataset study; simple ANN without comparison to strong baselines; accuracy depends on weather forecast quality; no uncertainty estimates.
+- *Basis: abstract*
 
 ### [A transformer-based deep neural network with wavelet transform for forecasting wind speed and wind energy](https://doi.org/10.1016/j.energy.2023.127678)
 Nascimento et al. (2023), *Energy*. 204 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts wind speed and wind energy for wind power planning and grid integration.
+- **Architecture:** Transformer-based deep neural network combined with wavelet transform decomposition of the input time series.
+- **Data:** Not reported in the available metadata; likely measured wind speed time series from sites in Brazil.
+- **Main result:** Not reported in the available metadata; the title implies the wavelet-transformer improves wind speed and energy forecasts over baselines.
+- **Open work:** Test across more sites and horizons and add probabilistic forecasts.
+- **Issues:** Abstract unavailable, so data, horizon and skill could not be verified; wavelet decomposition can leak future information if applied to the full series before splitting.
+- *Basis: assessment*
 
 ### [Hybrid deep neural model for hourly solar irradiance forecasting](https://doi.org/10.1016/j.renene.2021.02.161)
 Huang et al. (2021), *Renewable Energy*. 182 citations.
 
-*Summary pending.*
+- **Main goal:** Improves one-hour-ahead solar irradiance forecasting for photovoltaic integration by using multivariate inputs and multi-branch hybrid deep networks.
+- **Architecture:** WPD-CNN-LSTM-MLP: wavelet packet decomposition with convolutional neural network, LSTM and multi-layer perceptron (MLP) branches.
+- **Data:** Hourly irradiance, temperature, relative humidity and wind speed from Denver, Clark and Folsom, USA.
+- **Main result:** Outperforms BPNN, SVM, RNN, LSTM, climatology–persistence and ablated hybrids in hourly irradiance forecasting.
+- **Open work:** Extend to longer horizons and probabilistic forecasting.
+- **Issues:** Only one-hour-ahead deterministic forecasts; three sites; wavelet decomposition can leak information if not applied causally.
+- *Basis: abstract*
 
 ### [A Transformer-based multimodal-learning framework using sky images for ultra-short-term solar irradiance forecasting](https://doi.org/10.1016/j.apenergy.2023.121160)
 Liu et al. (2023), *Applied Energy*. 181 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts solar irradiance at ultra-short-term horizons (minutes) using sky images to anticipate cloud-driven fluctuations in PV output.
+- **Architecture:** Transformer-based multimodal learning framework fusing ground-based sky images with irradiance/meteorological time series.
+- **Data:** Not reported in the available metadata; likely a public sky-image and irradiance dataset from a ground station.
+- **Main result:** Not reported in the available metadata; the title implies improved ultra-short-term accuracy over single-modality baselines.
+- **Open work:** Test generalization across sites and cameras and extend to probabilistic forecasts.
+- **Issues:** Abstract unavailable, so data and skill could not be verified; sky-camera approaches are site-specific and limited to very short horizons.
+- *Basis: assessment*
 
 ### [Short term solar irradiance forecasting using a mixed wavelet neural network](https://doi.org/10.1016/j.renene.2016.01.020)
 Sharma et al. (2016), *Renewable Energy*. 167 citations.
 
-*Summary pending.*
+- **Main goal:** Improves short-term solar irradiance forecasting to support integration of photovoltaic generation into the grid.
+- **Architecture:** Wavelet neural network with mixed wavelet activation functions in the hidden layer, a neural network variant combining wavelet decomposition ideas with an MLP.
+- **Data:** Not reported in the abstract; presumably measured solar irradiance time series from ground stations.
+- **Main result:** Not reported in the abstract; the title implies the mixed wavelet network improves short-term forecasts over conventional benchmarks.
+- **Open work:** Testing across more climates and forecast horizons and combining with sky imagery or NWP inputs.
+- **Issues:** Abstract unavailable, so data, horizon and gains could not be verified; univariate time-series models typically struggle with sudden cloud-driven ramps.
+- *Basis: assessment*
 
 ### [Machine learning for solar irradiance forecasting of photovoltaic system](https://doi.org/10.1016/j.renene.2015.12.069)
 Li et al. (2016), *Renewable Energy*. 164 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts solar irradiance for photovoltaic systems to reduce uncertainty in PV power output.
+- **Architecture:** Machine learning forecasting methods for irradiance; the specific algorithms are not reported in the available metadata.
+- **Data:** Not reported in the abstract; presumably measured irradiance and meteorological observations at PV sites.
+- **Main result:** Not reported in the abstract; the paper presumably shows machine learning outperforms simple reference forecasts.
+- **Open work:** Extending to longer horizons and different climates, and linking irradiance forecasts directly to PV power prediction.
+- **Issues:** Abstract unavailable, so methods, data and skill could not be verified; summary is based on the title only.
+- *Basis: assessment*
 
 ### [Forecasting daily global solar irradiance generation using machine learning](https://doi.org/10.1016/j.rser.2017.08.066)
 Sharma et al. (2018), *Renewable & Sustainable Energy Reviews*. 140 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts daily global solar irradiance to support solar power generation planning.
+- **Architecture:** Machine learning forecasting methods for daily irradiance; the specific algorithms are not reported in the available metadata.
+- **Data:** Not reported in the abstract; presumably ground-measured irradiance and meteorological data.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing at more sites and horizons and comparing with NWP-based forecasts.
+- **Issues:** Abstract unavailable, so methods, data and skill could not be verified; summary is based on the title only.
+- *Basis: assessment*
 
 ### [Forecast for surface solar irradiance at the Brazilian Northeastern region using NWP model and artificial neural networks](https://doi.org/10.1016/j.renene.2015.11.005)
 Lima et al. (2016), *Renewable Energy*. 138 citations.
 
-*Summary pending.*
+- **Main goal:** Improves surface solar irradiance forecasts for the Brazilian Northeastern region to support solar energy integration.
+- **Architecture:** Numerical weather prediction model forecasts post-processed with artificial neural networks (MLP) for bias correction or refinement.
+- **Data:** NWP irradiance forecasts and ground measurements in Northeastern Brazil; specific model configuration and period not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies ANN post-processing improves NWP irradiance forecasts.
+- **Open work:** Extending to more stations and using additional predictors or satellite data.
+- **Issues:** Abstract unavailable, so details and skill could not be verified; regional study.
+- *Basis: assessment*
 
 ### [Evaluating neural network models in site-specific solar PV forecasting using numerical weather prediction data and weather observations](https://doi.org/10.1016/j.renene.2023.02.130)
 Brester et al. (2023), *Renewable Energy*. 110 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates neural network models for site-specific solar PV power forecasting using NWP output and local weather observations.
+- **Architecture:** Neural network models using NWP and observation inputs; the network designs are not reported in the available metadata.
+- **Data:** Not reported in the abstract; NWP forecast data and weather/PV observations at specific sites, likely in Finland given the authors.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing across more sites and seasons and combining NWP with satellite nowcasts.
+- **Issues:** Abstract unavailable; data, horizons and skill could not be verified; high-latitude conditions (snow, low sun) may limit transferability.
+- *Basis: assessment*
 
 ### [Benchmarking of Deep Learning Irradiance Forecasting Models from Sky Images - an in-depth Analysis](https://doi.org/10.1016/j.solener.2021.05.056)
 Paletta et al. (2021), *Solar Energy*. 110 citations.
 
-*Summary pending.*
+- **Main goal:** Benchmarks deep learning models for very short-term solar irradiance forecasting from sky images, to support grid and plant operations.
+- **Architecture:** Four common deep learning architectures (convolutional neural network, CNN-LSTM, 3D CNN and ConvLSTM-type spatiotemporal models) fed with hemispherical sky image sequences and exogenous variables.
+- **Data:** Sequences of hemispherical sky images with irradiance measurements from a single site; one year held out for testing.
+- **Main result:** Encoding spatiotemporal image sequences helps, with 10-min-ahead forecast skill of 20.4% versus smart persistence, but models behave like a very smart persistence and miss events such as clouds obscuring the sun.
+- **Open work:** Shifting from reactive to anticipatory forecasting that predicts large irradiance ramps.
+- **Issues:** Single site; models lag ramps; evaluation limited to short horizons.
+- *Basis: abstract+knowledge*
 
 ### [Deep learning algorithms for very short term solar irradiance forecasting: A survey](https://doi.org/10.1016/j.rser.2023.113362)
 Ajith et al. (2023), *Renewable & Sustainable Energy Reviews*. 87 citations.
 
-*Summary pending.*
+- **Main goal:** Surveys deep learning methods for very short-term solar irradiance forecasting, important for grid integration of photovoltaic power.
+- **Architecture:** Review of deep learning approaches (e.g. convolutional neural networks, recurrent networks/LSTM and hybrids) for intra-hour solar irradiance forecasting.
+- **Data:** Covers studies using inputs such as ground-based sky images, irradiance time series and satellite data; specific datasets not reported here (abstract unavailable).
+- **Main result:** Not available from the abstract; the survey organizes and compares deep learning methods for very short-term forecasting.
+- **Open work:** Standardized benchmarks and datasets, and better handling of rapid cloud-induced ramps.
+- **Issues:** Abstract missing; scope and conclusions not verified.
+- *Basis: assessment*
 
 ### [Sky image-based solar irradiance prediction methodologies using artificial neural networks](https://doi.org/10.1016/j.renene.2018.11.056)
 Kamadinata et al. (2019), *Renewable Energy*. 85 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts global horizontal irradiance 1–5 minutes ahead from sky images to help balance PV electricity supply and demand.
+- **Architecture:** Two artificial neural network (MLP) methodologies using color information at a limited number of sampling points in sky images, without explicit cloud detection.
+- **Data:** Ground-based sky images and measured global horizontal irradiance at a single site; dataset details not reported in the abstract.
+- **Main result:** Captures fluctuating irradiance trends with minimum RMSE of 143 W/m2, comparable to existing methods while using far less image data.
+- **Open work:** Testing at other sites and climates and extending forecast horizons.
+- **Issues:** High absolute RMSE; single-site evaluation; limited image information may miss complex cloud dynamics.
+- *Basis: abstract*
 
 ### [Enhancing solar PV output forecast by integrating ground and satellite observations with deep learning](https://doi.org/10.1016/j.rser.2022.112680)
 Qin et al. (2022), *Renewable & Sustainable Energy Reviews*. 81 citations.
 
-*Summary pending.*
+- **Main goal:** Improves solar PV power output forecasting by combining ground observations with satellite observations.
+- **Architecture:** Deep learning forecasting model fusing ground and satellite inputs (specific network not reported here; abstract unavailable).
+- **Data:** Ground-based PV/irradiance measurements and satellite observations; specific products not reported.
+- **Main result:** Not available from the abstract; integration of satellite data is expected to improve forecasts over ground-only inputs.
+- **Open work:** Testing across more plants, climates and lead times.
+- **Issues:** Abstract missing; architecture, data and skill not verified.
+- *Basis: assessment*
 
 ### [Development and assessment of artificial neural network models for direct normal solar irradiance forecasting using operational numerical weather prediction data](https://doi.org/10.1016/j.egyai.2023.100314)
 Pereira et al. (2023), *Energy and AI*. 76 citations.
 
-*Summary pending.*
+- **Main goal:** Develops forecasts of direct normal solar irradiance (DNI), important for concentrating solar power, using operational numerical weather prediction outputs.
+- **Architecture:** Artificial neural network (MLP) models post-processing operational NWP forecast variables to predict DNI.
+- **Data:** Operational NWP forecast data and ground DNI measurements; specific model and site not reported here (abstract unavailable).
+- **Main result:** Not available from the abstract; ANN models are assessed against NWP-based DNI forecasts.
+- **Open work:** Testing at more sites and climates and with probabilistic outputs.
+- **Issues:** Abstract missing; details not verified; skill depends on NWP quality and aerosol representation.
+- *Basis: assessment*
 
 ### [Multi-channel convolutional neural network for integration of meteorological and geographical features in solar power forecasting](https://doi.org/10.1016/j.apenergy.2021.117083)
 Heo et al. (2021), *Applied Energy*. 74 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts monthly photovoltaic power at a regional level by integrating meteorological and geographical (topographic) features, to identify suitable regions for new solar plants.
+- **Architecture:** Multi-channel convolutional neural network (CNN) that ingests raster maps of elevation, solar irradiation, temperature, wind speed and precipitation as separate input channels.
+- **Data:** Gridded raster maps of elevation and meteorological variables paired with monthly PV power outputs from 164 sites; product names and region details are not reported in the abstract.
+- **Main result:** Reaches a mean absolute percentage error of 8.639%, versus 16.187% for multiple linear regression and 15.991% for a standard artificial neural network, and transfers to regions not used in training.
+- **Open work:** Extending to finer temporal resolution (daily or hourly) and testing transfer to other climates and larger areas are natural next steps.
+- **Issues:** Monthly resolution only, a modest number of sites, and no uncertainty quantification; the source and resolution of meteorological inputs are not detailed in the abstract.
+- *Basis: abstract*
 
 ### [Short-term load forecasting using neural networks and global climate models: An application to a large-scale electrical power system](https://doi.org/10.1016/j.apenergy.2023.121439)
 Morais et al. (2023), *Applied Energy*. 73 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term electrical load forecasting for a large-scale power system using neural networks with climate information taken from global climate models.
+- **Architecture:** Neural network models (exact family not known from the available metadata) that use climate-model variables as predictors of electricity load.
+- **Data:** Historical load data from a large-scale electrical power system (likely Brazilian, given the authors) and global climate model outputs; details are not available because the abstract is missing.
+- **Main result:** Not reported; the abstract is unavailable.
+- **Open work:** Testing other network architectures and climate drivers and quantifying forecast uncertainty would follow naturally.
+- **Issues:** Abstract missing, so data, horizons and skill cannot be verified; the card is based on the title only.
+- *Basis: assessment*
 
 ### [IrradianceNet: Spatiotemporal deep learning model for satellite-derived solar irradiance short-term forecasting](https://doi.org/10.1016/j.solener.2021.09.073)
 Nielsen et al. (2021), *Solar Energy*. 70 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term forecasting of solar irradiance fields from satellite-derived irradiance, to support solar energy integration.
+- **Architecture:** Spatiotemporal deep learning model (IrradianceNet) based on convolutional LSTM (ConvLSTM) layers that predicts future irradiance maps from past maps.
+- **Data:** Satellite-derived surface solar irradiance fields (to our knowledge the CM SAF SARAH-2 product over Europe); details are not confirmed because the abstract is missing.
+- **Main result:** Not reported in the available metadata; the model is presented as improving on persistence and optical-flow style baselines for short lead times.
+- **Open work:** Longer lead times, inclusion of NWP inputs and probabilistic forecasts would follow naturally.
+- **Issues:** Abstract missing; deterministic deep forecasts tend to blur cloud structures at longer leads, and satellite-derived irradiance carries retrieval errors.
+- *Basis: assessment*
 
 ### [Short-term forecasting of solar irradiance without local telemetry: a generalized model using satellite data](https://doi.org/10.1016/j.solener.2018.07.050)
 Lago et al. (2018), *Solar Energy*. 66 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term solar irradiance forecasting at arbitrary locations without local ground measurements, to support grid integration of dispersed solar generators.
+- **Architecture:** Deep neural network (feed-forward DNN) trained on a subset of sites that uses satellite-based irradiance measurements and weather forecasts to generalize across locations.
+- **Data:** Satellite-based irradiance measurements and NWP weather forecasts with ground measurements at 25 locations in the Netherlands.
+- **Main result:** The general model averages 31.31% rRMSE across locations and horizons, equal to or better than the best local model trained with ground data (32.01% rRMSE).
+- **Open work:** Extending to other climates and larger regions and to probabilistic forecasts would follow naturally.
+- **Issues:** Tested only in the Netherlands with relatively homogeneous climate; deterministic forecasts with no uncertainty.
+- *Basis: abstract*
 
 ### [Day-ahead regional solar power forecasting with hierarchical temporal convolutional neural networks using historical power generation and weather data](https://doi.org/10.1016/j.apenergy.2024.122971)
 Perera et al. (2024), *Applied Energy*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Day-ahead forecasting of total rooftop PV generation in a region by jointly using aggregated and site-level generation series together with weather data.
+- **Architecture:** Two hierarchical temporal convolutional neural network (HTCNN) architectures, applied either as a single regional model or as separate models for weather-based sub-regions whose forecasts are summed.
+- **Data:** One year of solar generation and weather time series from 101 locations across Western Australia.
+- **Main result:** The sub-region HTCNN needs fewer networks and reaches a forecast skill score of 40.2%, reducing error by a statistically significant 6.5% versus the best alternative.
+- **Open work:** Testing over multiple years and other regions and adding probabilistic outputs are natural next steps.
+- **Issues:** Only one year of data, one region, and deterministic forecasts; source of weather data (observed or forecast) is not clear from the abstract.
+- *Basis: abstract*
 
 ### [Short-term electricity demand forecasting using machine learning methods enriched with ground-based climate and ECMWF Reanalysis atmospheric predictors in southeast Queensland, Australia](https://doi.org/10.1016/j.rser.2019.109293)
 Al-Musaylh et al. (2019), *Renewable & Sustainable Energy Reviews*. 61 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term (6-hour and daily) electricity demand forecasting using climate predictors to support energy security in southeast Queensland.
+- **Architecture:** Artificial neural network (MLP) benchmarked against MARS, multiple linear regression and ARIMA; a hybrid ANN combines ANN, MARS and MLR forecasts, with bootstrap for uncertainty.
+- **Data:** Energex demand data at 8 stations in southeast Queensland, six SILO climate variables and 51 ECMWF reanalysis variables, with lagged cross-correlation predictor selection.
+- **Main result:** The ANN beats ARIMA, MARS and MLR, and the hybrid ANN is best, e.g. RRMSE of 3.85% (6-h) and 4.37% (daily) at Redcliffe.
+- **Open work:** Testing in other regions and with forecast rather than reanalysis predictors would be needed for operational use.
+- **Issues:** Uses reanalysis predictors, which are not available in real time; single region; shallow network.
+- *Basis: assessment*
 
 ### [A deep learning model for intra-day forecasting of solar irradiance using satellite-based estimations in the vicinity of a PV power plant](https://doi.org/10.1016/j.solener.2021.02.033)
 Pérez et al. (2021), *Solar Energy*. 54 citations.
 
-*Summary pending.*
+- **Main goal:** Intra-day forecasting of global horizontal irradiance at a PV plant location without real-time ground measurements.
+- **Architecture:** Deep neural network with convolutional and dense layers (CNN) using time series of satellite-derived irradiance estimates around the target plus secondary inputs.
+- **Data:** Satellite-derived irradiance estimates near the target location; benchmarked against ECMWF irradiance forecasts; satellite product not named in the abstract.
+- **Main result:** Achieves state-of-the-art accuracy compared with ECMWF forecasts and similar published approaches, without using irradiance measurements; no numbers in the abstract.
+- **Open work:** Testing at more sites and adding probabilistic outputs would follow.
+- **Issues:** Single site; no quantitative scores in the abstract; inherits satellite retrieval errors.
+- *Basis: abstract*
 
 ### [Probabilistic forecasts of wind power generation in regions with complex topography using deep learning methods: An Arctic case](https://arxiv.org/abs/2203.07080)
 Eikeland et al. (2022), *arXiv*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Probabilistic day-ahead forecasting of wind power generation in complex Arctic terrain to handle uncertainty in electricity markets.
+- **Architecture:** Several deep learning models for probabilistic forecasting (recurrent and related networks producing prediction intervals), compared across covariate sets.
+- **Data:** Power generation from a wind power plant in Northern Norway with measured weather and numerical weather predictions (NWP) as covariates.
+- **Main result:** Prediction interval quality improves when both historical measured weather and NWP are included, allowing the model to correct systematic NWP biases; using either alone performs worse.
+- **Open work:** Testing other sites and calibration methods for prediction intervals would follow.
+- **Issues:** Single wind farm; specific architectures and quantitative scores are not detailed in the abstract.
+- *Basis: assessment*
 
 ### [Improving *day-ahead* Solar Irradiance Time Series Forecasting by Leveraging Spatio-Temporal Context](https://doi.org/10.52202/075280-0109)
 Boussif et al. (2023), *Neural Information Processing Systems*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Improves day-ahead station-level forecasting of global horizontal irradiance (GHI) by adding spatio-temporal cloud context from satellite imagery, aiding grid integration of solar power.
+- **Architecture:** Deep learning model (CrossViViT, a video vision transformer with cross-attention) fusing satellite image sequences with station time series, plus a method to output a predictive distribution per time step.
+- **Data:** New multi-modal dataset of satellite imagery over a large region paired with irradiance and related physical variables from multiple geographically diverse solar stations; held-out stations for zero-shot tests.
+- **Main result:** Robust day-ahead GHI forecasts, including on difficult days with variable cloud and in zero-shot generalization to unobserved stations; a hard/easy test split exposes performance in critical cloudy conditions.
+- **Open work:** Extending to more regions and stations, longer horizons, and coupling with NWP cloud forecasts or operational grid scheduling.
+- **Issues:** Station coverage and satellite domain are limited; uncertainty calibration and value for actual grid operations are not fully assessed.
+- *Basis: abstract+knowledge*
 
 ### [Downscaling ERA5 wind speed data: a machine learning approach considering topographic influences](https://doi.org/10.1088/1748-9326/aceb0a)
 Hu et al. (2023), *Environmental Research Letters*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Downscales ERA5 wind speed to local scale for energy system modeling, such as small wind farms and community energy systems.
+- **Architecture:** Statistical downscaling with machine learning regression applied per region class, after classifying regions into three classes by ERA5 quality, using topographic metrics.
+- **Data:** ERA5 wind speed (about 31 km) downscaled to 1 km using weather station observations and topographic metrics; compared with COSMO-REA6 and independent validation datasets.
+- **Main result:** The approach significantly improves ERA5 wind speed performance in complex terrain, validated against COSMO-REA6 and independent observations.
+- **Open work:** Extending to hub-height winds, other regions and direct use in energy system models.
+- **Issues:** Depends on station density; near-surface winds may differ from turbine hub height; specific regression method and numbers not given in the abstract.
+- *Basis: abstract*
 
 ### [Addressing Intermittency in Medium-Term Photovoltaic and Wind Power Forecasting Using a Hybrid xLSTM-TCCNN Model with Numerical Weather Predictions](https://doi.org/10.1016/j.renene.2025.123618)
 Hang et al. (2025), *Renewable Energy*. 42 citations.
 
-*Summary pending.*
+- **Main goal:** Improves medium-term photovoltaic and wind power forecasting under intermittency by using numerical weather predictions, as implied by the title.
+- **Architecture:** Hybrid xLSTM (extended long short-term memory) and temporal convolutional CNN (TCCNN) deep learning model driven by NWP inputs.
+- **Data:** Not reported in the abstract (abstract unavailable); presumably NWP forecasts and PV and wind farm power records.
+- **Main result:** Not reported in the abstract; the title suggests improved handling of intermittency over baselines.
+- **Open work:** Probabilistic forecasting and transfer to other plants and climates.
+- **Issues:** Abstract unavailable, so data, horizons and skill cannot be verified; likely site-specific evaluation.
+- *Basis: assessment*
 
 ### [Global and direct solar irradiance estimation using deep learning and selected spectral satellite images](https://doi.org/10.1016/j.apenergy.2023.121979)
 Chen et al. (2023), *Applied Energy*. 42 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates global and direct solar irradiance from satellite observations for solar energy applications, as implied by the title.
+- **Architecture:** Deep learning model using selected spectral bands of satellite images; the network design is not available.
+- **Data:** Not reported in the abstract (abstract unavailable); presumably geostationary satellite spectral imagery with ground irradiance measurements.
+- **Main result:** Not reported in the abstract; the title suggests selected spectral bands support accurate global and direct irradiance estimation.
+- **Open work:** Extension to forecasting and other regions and satellites.
+- **Issues:** Abstract unavailable, so satellite, region and accuracy cannot be verified; direct irradiance is sensitive to aerosols and thin clouds.
+- *Basis: assessment*
 
 ### [SKIPP'D: a SKy Images and Photovoltaic Power Generation Dataset for Short-term Solar Forecasting](https://arxiv.org/abs/2207.00913)
 Nie et al. (2022), *arXiv*. 40 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a standardized public benchmark dataset for sky-image-based short-term solar (PV) forecasting with deep learning.
+- **Architecture:** Benchmark dataset with code base for processing and baseline deep learning models (convolutional neural network) for PV nowcasting and forecasting.
+- **Data:** Three years (2017 to 2019) of quality-controlled sky images and PV power from Stanford University, downsampled 64x64 images plus high-resolution images and sky video.
+- **Main result:** Releases ready-to-use sky image and PV data with baselines to enable model comparison and reproducibility.
+- **Open work:** Adding more sites and climates, and benchmarking new architectures and probabilistic forecasts.
+- **Issues:** Single site and climate; short-term horizons only; downsampled images may lose cloud detail.
+- *Basis: abstract+knowledge*
 
 ### [PVNet: A LRCN Architecture for Spatio-Temporal Photovoltaic PowerForecasting from Numerical Weather Prediction](https://arxiv.org/abs/1902.01453)
 Mathe et al. (2019), *arXiv*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts photovoltaic power production 24 and 48 h ahead from numerical weather predictions to reduce reliance on idling backup plants.
+- **Architecture:** Long-term recurrent convolutional network (LRCN), combining CNN and LSTM, using spatio-temporal NWP fields over the area of interest.
+- **Data:** NOAA numerical weather prediction data (likely GFS) and spatially aggregated PV production in Germany.
+- **Main result:** The model is compared with persistence and state-of-the-art methods; the abstract does not report numbers beyond claiming competitive performance.
+- **Open work:** Probabilistic forecasting and extension to other regions and finer spatial targets.
+- **Issues:** Only aggregated national production predicted; coarse NWP input; quantitative improvements not reported in the abstract.
+- *Basis: abstract*
 
 ### [SolNet: Open-source deep learning models for photovoltaic power forecasting across the globe](https://doi.org/10.1016/j.ijforecast.2024.12.003)
 Depoortere et al. (2024), *International Journal of Forecasting*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Enables accurate deep learning PV power forecasting for sites with little observational data.
+- **Architecture:** Two-step pipeline: deep learning forecaster (SolNet) pretrained on synthetic PVGIS data then fine-tuned on observations (transfer learning); network type not specified in the abstract.
+- **Data:** Synthetic PV output from PVGIS plus actual production data from hundreds of sites in the Netherlands, Australia and Belgium, with weather data.
+- **Main result:** SolNet improves forecasts in data-scarce settings and over baselines, with the largest transfer learning gains when observational data are limited.
+- **Open work:** Guidelines on weather inputs, seasonality, synthetic data amount and location mis-specification; application globally.
+- **Issues:** Benefits shrink as observational data grow; sensitive to source location mis-specification and weather data quality.
+- *Basis: abstract*
 
 ### [Selecting effective NWP integration approaches for PV power forecasting with deep learning](https://doi.org/10.1016/j.solener.2025.113939)
 Chen et al. (2025), *Solar Energy*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Compares ways of feeding numerical weather prediction (NWP) forecasts into deep learning models for photovoltaic power forecasting, to identify which integration approach is most effective.
+- **Architecture:** Deep learning PV power forecasting models with alternative NWP integration strategies; the specific network families are not reported since the abstract is unavailable.
+- **Data:** NWP forecast variables and PV plant power records; specific products and sites not reported in the abstract.
+- **Main result:** Not reported in the abstract; the title implies that the choice of NWP integration approach materially affects PV forecast accuracy.
+- **Open work:** Testing the recommended integration approaches across more plants, climates and NWP sources would establish generality.
+- **Issues:** Abstract unavailable; conclusions may depend on the specific NWP product, sites and forecast horizons studied.
+- *Basis: assessment*
 
 ### [Monitoring hydropower reliability in Malawi with satellite data and machine learning](https://doi.org/10.1088/1748-9326/ab6562)
 Falchetta et al. (2020), *Environmental Research Letters*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how hydro-climatic extremes affect hydropower reliability and urban electricity use in data-scarce Malawi, where river gauging and power data are limited.
+- **Architecture:** Random forest regression predicts river discharge in ungauged conditions from satellite predictors, followed by regression analysis linking discharge to hydropower output and nighttime light radiance.
+- **Data:** Satellite altimetry (TOPEX/POSEIDON, OSTM/Jason), VIIRS nighttime lights, MODIS, TMPA precipitation and AMSR-E plus field observations; Malawi 2000–2018 for hydrology and 2012–2018 for power.
+- **Main result:** The validated framework shows significant impacts of hydro-climatic variability and dry extremes on both electricity supply and final electricity use in urban areas.
+- **Open work:** Extending the framework to long-term infrastructure monitoring, other hydropower-dependent countries and climate change scenarios to identify vulnerable populations.
+- **Issues:** Single-country case study; nighttime lights are only an indirect proxy for electricity use, and random forest extrapolation to ungauged conditions may be uncertain under unprecedented extremes.
+- *Basis: abstract*
 
 ### [Solar Irradiance Anticipative Transformer](https://doi.org/10.1109/cvprw59228.2023.00200)
 Mercier et al. (2023), *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term solar irradiance forecasting from sky image sequences for solar energy.
+- **Architecture:** Anticipative transformer: vision transformer encoder of consecutive sky images with a transformer decoder predicting future irradiance.
+- **Data:** A newly introduced all-sky image dataset with irradiance measurements.
+- **Main result:** Forecast skill of 21.45% versus smart persistence at 15 minutes ahead; attention focuses on relevant image features.
+- **Open work:** Testing longer horizons and other sites and sky imagers.
+- **Issues:** Single dataset and site; short horizon only.
+- *Basis: abstract*
 
 ### [Experimental review and recent advances in deep learning techniques for solar irradiance forecasting and prediction](https://doi.org/10.1016/j.solener.2025.114175)
 Otuka et al. (2026), *Solar Energy*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews and experimentally compares deep learning techniques for solar irradiance forecasting and prediction.
+- **Architecture:** Review with experimental comparison of deep learning models for solar irradiance; the models compared are not available in the metadata.
+- **Data:** Not reported; presumably public irradiance datasets.
+- **Main result:** Not available from the abstract.
+- **Open work:** Likely identifies directions such as hybrid physics-ML and multimodal inputs.
+- **Issues:** Abstract missing; content inferred from the title only.
+- *Basis: assessment*
 
 ### [Physics-constrained deep learning bias correction of CMIP6 solar radiation over Africa and its implications for solar power planning in a changing climate](https://doi.org/10.1016/j.renene.2025.124658)
 Adigun et al. (2026), *Renewable Energy*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Bias-corrects CMIP6 solar radiation over Africa using physics-constrained deep learning to inform solar power planning under climate change.
+- **Architecture:** Physics-constrained deep learning bias correction model; architecture not known (abstract not available).
+- **Data:** CMIP6 surface solar radiation over Africa, presumably corrected against reanalysis or satellite products.
+- **Main result:** Not available from the abstract.
+- **Open work:** Likely implications for photovoltaic potential and planning under future scenarios.
+- **Issues:** Abstract missing; content inferred from the title only.
+- *Basis: assessment*
 
 ### [SolarCrossFormer: Improving Day-Ahead Solar Irradiance Forecasting by Integrating Satellite Imagery and Ground Sensors](https://doi.org/10.1109/tste.2025.3624044)
 Schubnel et al. (2025), *IEEE Transactions on Sustainable Energy*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Improves day-ahead solar irradiance forecasting resolution for PV grid integration.
+- **Architecture:** SolarCrossFormer: graph neural network transformer combining satellite images and ground station time series.
+- **Data:** Satellite imagery and ground meteorological station network across Switzerland, one year, 127 locations.
+- **Main result:** Normalized MAE of 6.1% over the horizon, competitive with a commercial numerical weather prediction service.
+- **Open work:** Extend to other regions and longer test periods.
+- **Issues:** One-year evaluation; single country.
+- *Basis: abstract*
 
 ### [Toward accurate forecasting of renewable energy: Building datasets and benchmarking machine learning models for solar and wind power in France](https://doi.org/10.1017/eds.2025.10021)
 Lindas et al. (2025), *Environmental Data Science*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts country-scale daily solar and wind power production in France for grid stability and price prediction, using spatially resolved weather data instead of bottom-up plant-level forecasts.
+- **Architecture:** Benchmark of machine learning models (tree-based gradient boosting, MLP-type neural networks and a convolutional computer vision architecture) with three ways of handling gridded weather: spatial averaging, principal component analysis and CNN input.
+- **Data:** New dataset 2012–2023: daily RTE national solar and wind production as target; ERA5 daily weather, production-site capacity and location, and electricity prices as inputs.
+- **Main result:** Time-series-aware cross-validation gives the lowest errors; neural networks beat tree-based models, which fail to extrapolate under growing capacity. Normalized RMSE is 4–10% at midterm horizon, comparable to single-plant models.
+- **Open work:** Extend to sub-daily resolution and operational forecast inputs rather than reanalysis, and test transfer to other countries.
+- **Issues:** Uses ERA5 reanalysis as input, so skill with real NWP forecasts is untested; daily resolution only; capacity growth makes the target non-stationary.
+- *Basis: abstract*
 
 ### [WindDragon: Enhancing wind power forecasting with Automated Deep Learning](https://arxiv.org/abs/2402.14385)
 Keisler et al. (2024), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Short-term (1–6 h) national-level wind power forecasting to support grid balancing with growing wind capacity.
+- **Architecture:** Automated deep learning (neural architecture search over deep networks, including convolutional models) applied to NWP wind speed maps.
+- **Data:** Numerical weather prediction wind speed maps and national wind power production; country, period and NWP product not reported in the abstract.
+- **Main result:** Abstract claims accurate national short-term forecasts; quantitative gains not reported in the abstract.
+- **Open work:** Extend to probabilistic forecasts and longer horizons; compare against operational benchmarks in more detail.
+- **Issues:** Abstract is brief and gives no metrics; AutoDL search cost and robustness to capacity changes not discussed.
+- *Basis: assessment*
 
 ### [Probabilistic Wind Power Forecasting with Tree-Based Machine Learning and Weather Ensembles](https://arxiv.org/abs/2602.13010)
 Bruninx et al. (2026), *arXiv*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Produces probabilistic wind power forecasts for offshore wind farms to support grid integration.
+- **Architecture:** Gradient boosting trees combined with three probabilistic methods: conformalized quantile regression, natural gradient boosting and conditional diffusion models; baselines are power curve, wake model and variational Gaussian process regression.
+- **Data:** Four years of production data for all Belgian offshore wind farms with an ensemble of weather forecasts from multiple providers.
+- **Main result:** Tree-based models clearly reduce MAE over deterministic baselines; the conditional diffusion model is best, improving MAE by 5% and CRPS by 12% over the GP baseline; using multiple weather forecasts improves point accuracy by 17% on average.
+- **Open work:** Extend to longer horizons, other farm types and spatio-temporal dependence across farms.
+- **Issues:** Single region; four years of data; performance depends on the available weather providers.
+- *Basis: abstract*
 
 ### [Climate change impacts on solar energy generation in the continental United States, forecasts from deep learning](https://doi.org/10.1016/j.envsoft.2025.106535)
 Nichols et al. (2025), *Environmental Modelling & Software*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses climate change impacts on solar energy generation across the continental United States using deep learning, as implied by the title.
+- **Architecture:** Deep learning model (family not known) used to project solar generation; abstract not available.
+- **Data:** Not reported (abstract missing); likely climate model projections over the continental US.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Likely needs multi-model uncertainty quantification and validation against observed generation.
+- **Issues:** Abstract missing; projections depend on climate model biases and the learned mapping's validity under future climate.
+- *Basis: assessment*
 
 ### [SolarSeer: Ultrafast and accurate 24-hour solar irradiance forecasts outperforming numerical weather prediction across the USA](https://arxiv.org/abs/2508.03590)
 Bai et al. (2025), *arXiv*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Provides fast 24-hour solar irradiance forecasting across CONUS without the cost of NWP data assimilation and PDE solving.
+- **Architecture:** SolarSeer, an end-to-end large deep learning model mapping historical satellite observations to future cloud cover and irradiance. Network family not reported in the abstract.
+- **Data:** Historical satellite observations over CONUS; evaluation against HRRR, reanalysis data and 1,800 ground stations.
+- **Main result:** Over 1,500 times faster than NWP, producing 5 km 24-hour forecasts in under 3 s; RMSE reduced by 27.28% vs HRRR on reanalysis and 15.35% across stations.
+- **Open work:** Extend to probabilistic forecasts and longer horizons and other regions.
+- **Issues:** Satellite-only inputs may miss synoptic evolution beyond 24 h; deterministic.
+- *Basis: abstract*
 
 ### [Predicting Australian energy demand variability using weather data and machine learning](https://doi.org/10.1088/1748-9326/ad9b3b)
 Richardson et al. (2024), *Environmental Research Letters*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates long-term weather-driven variability of Australian energy demand, since demand records are short.
+- **Architecture:** Machine learning regression models (type not specified in the abstract) using reanalysis weather predictors.
+- **Data:** Daily demand 2010–2019 for Australian National Electricity Market states; reanalysis weather variables as predictors (product not named in the abstract); demand reconstructed for 1959–2022.
+- **Main result:** Median errors 2–4% on held-out years; extreme-demand probability varies from half to twice across decades and up to 7 times when conditioned on ENSO phase.
+- **Open work:** Include future climate projections and demand trends.
+- **Issues:** Assumes the 2010s weather–demand relationship holds across 1959–2022, ignoring changes in technology, population and rooftop solar; inherits reanalysis biases.
+- *Basis: abstract*
 
 ### [Bridging CORDEX and CMIP6: machine learning downscaling for wind and solar energy droughts in central Europe](https://doi.org/10.1088/3049-4753/aea998)
 Effenberger et al. (2025), *Machine Learning: Earth*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Provides regional climate information for renewable energy planning by emulating CORDEX regional climate models with machine learning, focusing on wind and solar energy droughts.
+- **Architecture:** Machine learning emulators (two models; families not stated in the abstract) mapping GCM to RCM fields.
+- **Data:** CMIP5 and CORDEX for training; CMIP6 for application; Central Europe.
+- **Main result:** The emulator reproduces RCM data with sufficient accuracy and gives plausible results for unseen CMIP6 simulations; the number of low-wind, low-solar energy drought days in Central Europe is likely to decrease.
+- **Open work:** Extend to other regions, variables and impact metrics, and use emulators to enlarge downscaled ensembles.
+- **Issues:** Transfer to CMIP6 cannot be verified directly; emulator inherits RCM biases.
+- *Basis: abstract*
 
 ### [Machine Learning‐Based Denoising of Surface Solar Irradiance Simulated With Monte Carlo Ray Tracing](https://doi.org/10.1029/2024jh000515)
 Reeze et al. (2024), *Journal of Geophysical Research*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces the cost of Monte Carlo ray-traced surface solar irradiance in cloud-resolving models, which needs large sampling budgets to converge.
+- **Architecture:** Denoising autoencoder (convolutional) mapping noisy to well-converged irradiance fields.
+- **Data:** Pairs of noisy and well-converged Monte Carlo ray-traced irradiance fields for an ensemble of simulated cumulus cloud fields and solar angles.
+- **Main result:** Denoising diffuse irradiance from 1 sample per pixel is ten times faster and twice as accurate as 128 samples; adding liquid water path and solar angles halves errors.
+- **Open work:** Improve generalization across resolutions and cloud types; couple online.
+- **Issues:** Errors at cloud shadow edges for direct irradiance; trained on cumulus only.
+- *Basis: abstract*
 
 ### [Fourier Geometric Wind Power Forecasting with Numerical Weather Prediction](https://doi.org/10.1145/3770855.3818905)
 Piao et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Improves short-term wind power forecasting by combining turbine SCADA data with gridded numerical weather prediction forecasts.
+- **Architecture:** Multimodal network with scalar/vector feature decomposition, a geometric encoder giving rotation-invariant wind vector features, and a Fourier Neural Operator for global frequency-domain convolutions.
+- **Data:** Historical SCADA data and gridded NWP forecasts for three real-world wind farms; NWP source and period not reported in the abstract.
+- **Main result:** Consistently outperforms state-of-the-art baselines on all three wind farms; code released.
+- **Open work:** Extend to more farms, probabilistic forecasts and longer horizons.
+- **Issues:** Only three farms; quantitative gains not stated in the abstract; dependence on NWP quality.
+- *Basis: abstract*
 
 ### [Global drought impacts on hydropower integrating physically-based and machine learning modelling](https://doi.org/10.1088/1748-9326/ae7b62)
 Shah et al. (2026), *Environmental Research Letters*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies historical drought impacts on global hydropower generation at plant level.
+- **Architecture:** Hybrid framework coupling physically based hydropower potential simulations with machine learning trained on observed generation, for run-of-river and storage plants; ML family not specified in the abstract.
+- **Data:** Physically based hydropower potential simulations and observed plant-level generation, monthly, global, 1982–2022.
+- **Main result:** Drought reduces global hydropower generation by about 11% relative to the long-term average, with larger declines in western and eastern North America, southeastern South America, the Mediterranean and East Asia.
+- **Open work:** Develop monitoring tools for climate-extreme impacts on hydropower and support water–energy nexus policy.
+- **Issues:** Described as an initial step; observed generation data are uneven across regions; reservoir operations are inferred rather than modeled explicitly.
+- *Basis: abstract*
 
 ### [Integrating Weather Foundation Model and Satellite to Enable Fine-Grained Solar Irradiance Forecasting](https://doi.org/10.1145/3770855.3818436)
 Ma et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Provides day-ahead, kilometer-scale solar irradiance forecasts for grid integration, which NWP lacks in resolution and satellite extrapolation in lead time.
+- **Architecture:** Baguan-solar, a two-stage multimodal deep learning framework fusing forecasts from the Baguan weather foundation model (transformer) with geostationary satellite imagery; first forecasts cloud cover, then irradiance.
+- **Data:** Baguan forecasts and high-resolution geostationary satellite imagery over East Asia; CLDAS used as ground truth.
+- **Main result:** Reduces RMSE by 16.08% versus strong baselines including ECMWF IFS, vanilla Baguan and SolarSeer, better resolving cloud transients; operational in an eastern Chinese province since July 2025.
+- **Open work:** Extend to other regions and probabilistic irradiance forecasts.
+- **Issues:** Evaluated against CLDAS analysis rather than ground pyranometers; regional; deterministic only.
+- *Basis: abstract*
 
 ### [Advanced predictor selection for post-processing of global horizontal irradiance forecasts with stepwise machine learning regression](https://doi.org/10.1016/j.solener.2026.114521)
 Markovics et al. (2026), *Solar Energy*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Improves post-processing of global horizontal irradiance forecasts by selecting the most informative predictors.
+- **Architecture:** Stepwise machine learning regression for predictor selection in GHI forecast post-processing; specific models not available (abstract missing).
+- **Data:** Not reported; likely NWP-based GHI forecasts with ground measurements, but details unknown.
+- **Main result:** Not reported in the abstract (abstract unavailable).
+- **Open work:** Not reported; testing predictor selection across sites and NWP models follows naturally.
+- **Issues:** Abstract unavailable, so data, methods and results cannot be verified.
+- *Basis: assessment*
 
 ### [Characterization and forecasting of national-scale solar power ramp events](https://arxiv.org/abs/2603.26596)
 Lanzilao et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Characterizes national-scale solar power ramp events and evaluates how well forecasting models predict them.
+- **Architecture:** Statistical ramp metrics plus evaluation of deep learning and physics-based nowcasts: SolarSTEPS, SHADECast (diffusion-based), IrradianceNet (ConvLSTM) and IFS-ENS.
+- **Data:** Two years of 15-min PV production from 6434 stations at national scale; IFS-ENS forecasts as physics-based baseline; nowcast inputs not detailed in the abstract.
+- **Main result:** SHADECast is most reliable, with CRPS 10.8% lower than SolarSTEPS at 2-h lead, but forecast RMSE rises by up to 50% during ramps.
+- **Open work:** Develop improved high-resolution spatiotemporal models targeting ramp prediction.
+- **Issues:** Two years only; single country; models struggle on ramp dynamics.
+- *Basis: abstract+knowledge*
 
 <a id="agriculture"></a>
 ## Climate & water for agriculture
@@ -7418,217 +9110,475 @@ Lanzilao et al. (2026), *arXiv*. 0 citations.
 ### [Crop Yield Prediction Using Deep Neural Networks](https://doi.org/10.3389/fpls.2019.00621)
 Khaki et al. (2019), *Frontiers in Plant Science*. 836 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts maize hybrid yield from genotype and environment (weather and soil) data, as part of the 2018 Syngenta Crop Challenge.
+- **Architecture:** Deep neural network (deep feedforward MLP with residual connections) for yield, with a separate model to predict weather, plus DNN-based feature selection.
+- **Data:** Syngenta Crop Challenge 2018 data: genotypes and yields of 2,267 maize hybrids at 2,247 locations, 2008-2016, with weather and soil data; 2017 yields as target.
+- **Main result:** RMSE is 12% of average yield using predicted weather and 11% with perfect weather, outperforming Lasso, shallow neural networks and regression trees; environment matters more than genotype.
+- **Open work:** Improving weather prediction for the growing season and better interpretability of genotype-by-environment interactions.
+- **Issues:** Single competition dataset; results depend on weather predictions; limited interpretability of the deep network.
+- *Basis: abstract*
 
 ### [Random Forests for Global and Regional Crop Yield Predictions](https://doi.org/10.1371/journal.pone.0156571)
 Jeong et al. (2016), *PLOS ONE*. 796 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates random forests for predicting crop yield responses to climate and biophysical variables at global and regional scales.
+- **Architecture:** Random forest regression compared with multiple linear regression as a benchmark.
+- **Data:** Gridded global wheat yield, US county maize grain yield over thirty years, and potato and maize silage yields from the US northeastern seaboard, with climate and biophysical predictors.
+- **Main result:** Random forest RMSE ranges 6-14% of mean observed yield versus 14-49% for multiple linear regression, outperforming the benchmark in all statistics.
+- **Open work:** Testing under climate conditions outside the training range and for climate change impact projection.
+- **Issues:** Random forests lose accuracy at extreme ends and for responses beyond the training data range, limiting extrapolation under future climate.
+- *Basis: abstract*
 
 ### [Deep Gaussian Process for Crop Yield Prediction Based on Remote Sensing Data](https://doi.org/10.1609/aaai.v31i1.11172)
 You et al. (2017), *Proceedings of the AAAI Conference on Artificial Intelligence*. 641 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts crop yield before harvest from inexpensive public remote sensing data to support agricultural monitoring and food security.
+- **Architecture:** Convolutional neural network or LSTM trained on histograms of pixel values (dimensionality reduction), combined with a Gaussian process layer modelling spatio-temporal structure (deep Gaussian process).
+- **Data:** Publicly available remote sensing data (MODIS surface reflectance and land surface temperature) with US county-level soybean yields.
+- **Main result:** Outperforms competing techniques for county-level US soybean yield prediction; the Gaussian process component further improves accuracy.
+- **Open work:** Extending to other crops and to data-scarce developing countries, where the method is aimed.
+- **Issues:** Histogram representation discards spatial location within counties; evaluation limited to US soybean.
+- *Basis: abstract+knowledge*
 
 ### [Integrating satellite and climate data to predict wheat yield in Australia using machine learning approaches](https://doi.org/10.1016/j.agrformet.2019.03.010)
 Cai et al. (2018), *Agricultural and Forest Meteorology*. 543 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts wheat yield across Australia and quantifies the relative contributions of climate and satellite data, comparing regression with machine learning.
+- **Architecture:** LASSO regression benchmark compared with support vector machine, random forest and neural network (MLP) models.
+- **Data:** Wheat yields at statistical division level, 2000-2014; climate data plus MODIS EVI and solar-induced fluorescence from GOME-2 and SCIAMACHY.
+- **Main result:** Machine learning outperforms LASSO; combined climate and satellite data reach R2 ~0.75; EVI beats noisy SIF; optimal prediction about two months before maturity.
+- **Open work:** Extension to other crops and regions and use of higher-resolution SIF products.
+- **Issues:** Coarse spatial units and a short 15-year record; SIF input is noisy and coarse.
+- *Basis: abstract*
 
 ### [Machine learning methods for crop yield prediction and climate change impact assessment in agriculture](https://doi.org/10.1088/1748-9326/aae159)
 Crane-Droesch (2018), *Environmental Research Letters*. 436 citations.
 
-*Summary pending.*
+- **Main goal:** Models the weather-yield relationship for crops to project climate change impacts on agriculture more accurately than classical statistical methods.
+- **Architecture:** Semiparametric deep neural network combining a nonparametric neural network (MLP) with parametric terms and fixed effects for cross-sectional heterogeneity.
+- **Data:** US Midwest corn yield data with weather variables; climate change scenarios from a suite of climate models.
+- **Main result:** Outperforms classical statistical methods and fully nonparametric neural networks on held-out years; projects large negative climate impacts on corn yield, but less severe than classical methods, especially in the warmest regions and scenarios.
+- **Open work:** Applying to other crops and regions and incorporating adaptation.
+- **Issues:** Projections extrapolate beyond observed climate; limited to US Midwest corn; does not account for future adaptation.
+- *Basis: abstract*
 
 ### [Coupling machine learning and crop modeling improves crop yield prediction in the US Corn Belt](https://doi.org/10.1038/s41598-020-80820-1)
 Shahhosseini et al. (2020), *Scientific Reports*. 419 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether coupling a process-based crop model with machine learning improves corn yield predictions in the US Corn Belt.
+- **Architecture:** Hybrid approach: APSIM crop model simulation outputs as input features to linear regression, LASSO, LightGBM, random forest and XGBoost, plus six ensemble models.
+- **Data:** US Corn Belt county corn yields with weather and soil data, plus APSIM-simulated variables (e.g., drought stress, water table depth).
+- **Main result:** Adding APSIM variables reduces RMSE by 7-20%; soil-moisture-related variables, average drought stress and water table depth are most influential.
+- **Open work:** More hydrological inputs and further hybrid designs for operational yield forecasting.
+- **Issues:** Requires running a calibrated crop model; confined to the US Corn Belt.
+- *Basis: abstract*
 
 ### [Modeling reference evapotranspiration using extreme learning machine and generalized regression neural network only with temperature data](https://doi.org/10.1016/j.compag.2017.01.027)
 Feng et al. (2017), *Computers and Electronics in Agriculture*. 229 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates reference evapotranspiration when only temperature data are available, a common situation at weather stations in data-scarce regions.
+- **Architecture:** Extreme learning machine (ELM, single-hidden-layer feedforward network) and generalized regression neural network (GRNN), compared with temperature-based empirical equations such as Hargreaves.
+- **Data:** Not reported in the available metadata; likely daily temperature records from weather stations in China with FAO-56 Penman–Monteith ETo as target.
+- **Main result:** Not reported in the available metadata; the title implies both ML models give acceptable ETo estimates from temperature alone, likely outperforming empirical formulas.
+- **Open work:** Assess spatial transferability to stations not used in training and in other climates.
+- **Issues:** Abstract unavailable, so data and numbers could not be verified; temperature-only inputs cannot capture radiation, humidity and wind effects, limiting accuracy in some climates.
+- *Basis: assessment*
 
 ### [Crop yield prediction integrating genotype and weather variables using deep learning](https://doi.org/10.1371/journal.pone.0252402)
 Shook et al. (2020), *PLoS ONE*. 200 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts soybean yield across multiple environments by combining genotype information and weather, to support breeding under diverse climatic conditions.
+- **Architecture:** Long short-term memory (LSTM) recurrent neural network with a temporal attention mechanism for interpretability, using pedigree relatedness measures plus weekly weather.
+- **Data:** Uniform Soybean Tests (UST) performance records in North America with weekly weather parameters over the growing season.
+- **Main result:** Outperforms SVR with RBF kernel, LASSO regression and the data-driven USDA yield model; attention identifies important time windows in the season.
+- **Open work:** Incorporate genomic markers and soil/management data, and extend to other crops and breeding programs.
+- **Issues:** Pedigree-based relatedness is a coarse genotype representation; weekly weather aggregation may miss extremes; results tied to trial-plot conditions.
+- *Basis: abstract*
 
 ### [Comparative assessment of environmental variables and machine learning algorithms for maize yield prediction in the US Midwest](https://doi.org/10.1088/1748-9326/ab7df9)
 Kang et al. (2020), *Environmental Research Letters*. 196 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses which environmental variables, observation frequencies and algorithms best predict county-level maize yield in the US Midwest.
+- **Architecture:** Comparison of Lasso, support vector regression, random forest, XGBoost (gradient boosting), LSTM and convolutional neural network (CNN).
+- **Data:** County-level maize yields with features from satellite observations, weather data, land surface model outputs, soil maps and crop progress reports (hundreds of features).
+- **Main result:** XGBoost is most accurate and stable while LSTM and CNN are not advantageous; best setup improves accuracy by 5% over a Lasso baseline; reasonable forecasts from early June and better than USDA WASDE early in the season.
+- **Open work:** Extend to other crops and regions and to in-season operational forecasting.
+- **Issues:** County-level aggregation; results specific to the US Midwest; deep models may be data-limited; feature importance is correlational.
+- *Basis: abstract*
 
 ### [Estimating and understanding crop yields with explainable deep learning in the Indian Wheat Belt](https://doi.org/10.1088/1748-9326/ab68ac)
 Wolanin et al. (2020), *Environmental Research Letters*. 174 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates wheat yield while explaining the drivers of yield variability, combining predictive deep learning with interpretability.
+- **Architecture:** Deep neural network (1D convolutional neural network) on multivariate time series, interpreted with regression activation maps; compared with ridge regression and random forest.
+- **Data:** Vegetation (satellite, e.g., MODIS-derived) and meteorological time series with district-level wheat yields in the Indian Wheat Belt.
+- **Main result:** The DL model beats ridge regression and random forest; learned features relate to growing-season length and temperature and light conditions (e.g., high 2012 yields linked to cool, sunny conditions).
+- **Open work:** Apply the approach to other crops and regions.
+- **Issues:** Limited years of yield data; interpretation via activation maps is qualitative; regional scope.
+- *Basis: abstract+knowledge*
 
 ### [New approach to estimate daily reference evapotranspiration based on hourly temperature and relative humidity using machine learning and deep learning](https://doi.org/10.1016/j.agwat.2020.106113)
 Ferreira et al. (2020), *Agricultural Water Management*. 172 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates daily reference evapotranspiration from limited hourly sensor data (temperature and humidity, or temperature only).
+- **Architecture:** Random forest, XGBoost, artificial neural network (MLP) and convolutional neural network (CNN), with different daily vs hourly input strategies.
+- **Data:** 53 weather stations in Minas Gerais, Brazil; targets from daily and summed-hourly ASCE Penman–Monteith ETo; regional and local scenarios.
+- **Main result:** Using 24 h hourly data directly is best; CNN with hourly data plus hourly Ra is best overall, reducing RMSE by up to 28.2% (0.71 to 0.51) regionally and 22.4% locally.
+- **Open work:** Test in other climates and with low-cost sensor networks.
+- **Issues:** Single Brazilian state; targets are computed ETo rather than measured; temperature-only inputs limit accuracy.
+- *Basis: abstract*
 
 ### [A GNN-RNN Approach for Harnessing Geospatial and Temporal Information: Application to Crop Yield Prediction](https://doi.org/10.1609/aaai.v36i11.21444)
 Fan et al. (2021), *AAAI Conference on Artificial Intelligence*. 147 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts county-level crop yields across the US by exploiting both geospatial and temporal information, as climate change raises food-security concerns.
+- **Architecture:** Graph neural network combined with a recurrent neural network (GNN-RNN), where counties are graph nodes and the RNN models year-to-year dynamics.
+- **Data:** Over 2,000 counties in 41 US states, 1981–2019, with weather, land surface and soil features.
+- **Main result:** The GNN-RNN consistently outperforms linear, tree-based and deep learning baselines on multiple metrics, presented as the first nationwide county-level ML yield model embedding geographical knowledge.
+- **Open work:** Extending to other crops and countries, and to projections under climate change scenarios.
+- **Issues:** US-only; yield trends from technology and management may be confounded with weather signal; interpretability of learned spatial relations is limited.
+- *Basis: abstract*
 
 ### [Exploring uncertainties in global crop yield projections in a large ensemble of crop models and CMIP5 and CMIP6 climate scenarios](https://doi.org/10.1088/1748-9326/abd8fc)
 Müller et al. (2021), *Environmental Research Letters*. 143 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies uncertainty in projected global crop yields from both climate models and crop models under climate change.
+- **Architecture:** Statistical crop model emulators of nine process-based global gridded crop models (GGCMI), used to run a large ensemble; not a deep learning method.
+- **Data:** Up to 45 CMIP5 and 34 CMIP6 climate projections under three forcing scenarios, for maize, spring and winter wheat, rice and soybean.
+- **Main result:** Climate and crop models contribute roughly equally to uncertainty; median caloric production impact is more negative under CMIP6 (+1% to -19%) than CMIP5 (+5% to -13%); wheat and maize are dominated by crop-model spread, soybean and rice by climate.
+- **Open work:** Developing consistent, process-level crop model testing and weighting ensembles by plausibility.
+- **Issues:** Unbalanced crop model ensemble with an equal-plausibility assumption; emulators simplify process-model behaviour.
+- *Basis: abstract*
 
 ### [Crop evapotranspiration prediction by considering dynamic change of crop coefficient and the precipitation effect in back-propagation neural network model](https://doi.org/10.1016/j.jhydrol.2021.126104)
 Han et al. (2021), *Journal of Hydrology*. 108 citations.
 
-*Summary pending.*
+- **Main goal:** Improves crop evapotranspiration prediction for agricultural water management by accounting for dynamic crop coefficients and precipitation.
+- **Architecture:** Three-layer back-propagation neural network (MLP, 4-10-1) trained with Levenberg-Marquardt, compared with multiple linear regression.
+- **Data:** Eddy covariance measured crop evapotranspiration with meteorological data (max/min air temperature, sunshine hours, precipitation) and crop coefficients.
+- **Main result:** BP network reaches R2 0.87 and 91.44% accuracy versus 0.79 and 82.96% for regression; dynamic Kc improves accuracy by 19% over FAO-56 Kc, exceeding 95% with precipitation.
+- **Open work:** Applying to other crops, sites and seasons and to irrigation scheduling.
+- **Issues:** Single site and crop details unspecified in the abstract; small network and dataset limit generalization.
+- *Basis: abstract*
 
 ### [Robust Model Predictive Control of Irrigation Systems With Active Uncertainty Learning and Data Analytics](https://doi.org/10.1109/tcst.2019.2916753)
 Shang et al. (2018), *IEEE Transactions on Control Systems Technology*. 89 citations.
 
-*Summary pending.*
+- **Main goal:** Automates irrigation control that keeps soil moisture safe while reducing water use under uncertain evapotranspiration and precipitation forecasts.
+- **Architecture:** Data-driven robust model predictive control combining a mechanistic soil moisture model with uncertainty sets learned from historical forecast errors (support vector clustering for evapotranspiration, tailored set for precipitation) and affine decision rules.
+- **Data:** Historical evapotranspiration and precipitation forecasts and observations used for real-data case studies; specific products not reported in the abstract.
+- **Main result:** Maintains soil moisture above safety levels and cuts total water consumption by 40% relative to tuned open-loop control, outperforming rule-based and certainty-equivalent MPC.
+- **Open work:** Field deployment and extension to multiple fields, crops and longer weather-forecast horizons.
+- **Issues:** Simulation case studies rather than field trials; performance depends on representativeness of historical forecast errors.
+- *Basis: abstract*
 
 ### [The response of maize, sorghum, and soybean yield to growing-phase climate revealed with machine learning](https://doi.org/10.1088/1748-9326/ab7b22)
 Hoffman et al. (2020), *Environmental Research Letters*. 84 citations.
 
-*Summary pending.*
+- **Main goal:** Characterizes how maize, sorghum and soybean yields depend on climate in crop-specific developmental phases, to understand climate change impacts on food systems.
+- **Architecture:** Random forest used as a diagnostic tool with phase-specific climate variables and a time trend for technology.
+- **Data:** County yields and climate variables for the US plains, 1980–2016, aggregated by establishment, critical window and grain-filling phases.
+- **Main result:** Random forest explains 71–86% of yield variance; yields fall sharply above ~29°C (maize) and 30°C (soybean) maximum temperature, while sorghum tolerates up to 32.5°C; maize is sensitive to low humidity during flowering.
+- **Open work:** Projecting shifts in optimal growing regions under warming with soil productivity and adaptation included.
+- **Issues:** Correlative county-level analysis; technology represented only by a time trend; extrapolation to future warming is uncertain.
+- *Basis: abstract*
 
 ### [DeepCropNet: a deep spatial-temporal learning framework for county-level corn yield estimation](https://doi.org/10.1088/1748-9326/ab66cb)
 Lin et al. (2020), *Environmental Research Letters*. 82 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates county-level corn yield from meteorological conditions while capturing temporal cumulative effects and spatial heterogeneity.
+- **Architecture:** DeepCropNet: attention-based long short-term memory (LSTM) for temporal features with multi-task learning output layers for regional spatial features.
+- **Data:** US Corn Belt county yields 1981–2016 with growing degree days, killing degree days and precipitation time series.
+- **Main result:** RMSE of 0.82 Mg/ha versus 1.14 for LASSO and 1.05 for random forest; attention reveals consistent cumulative temporal patterns.
+- **Open work:** Adding soil, management and remote-sensing inputs and testing under future climate.
+- **Issues:** Only three meteorological inputs; no explicit technology or management variables; spatial generalization outside the Corn Belt untested.
+- *Basis: abstract*
 
 ### [Coupling machine learning and weather forecast to predict farmland flood disaster: A case study in Yangtze River basin](https://doi.org/10.1016/j.envsoft.2022.105436)
 Jiang et al. (2022), *Environmental Modelling & Software*. 53 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts farmland flood (waterlogging) disasters by coupling machine learning with weather forecasts, with a case study in the Yangtze River basin.
+- **Architecture:** Machine learning model coupled with weather forecast inputs; specific algorithm not known because the abstract is missing.
+- **Data:** Weather forecast data and farmland flood records in the Yangtze River basin; products not available.
+- **Main result:** Not reported; the abstract is unavailable.
+- **Open work:** Extending lead time and transferring to other agricultural regions would follow.
+- **Issues:** Abstract missing, so the card is based on the title only; skill depends on weather forecast accuracy.
+- *Basis: assessment*
 
 ### [Optimizing Irrigation Efficiency using Deep Reinforcement Learning in the Field](https://doi.org/10.1145/3662182)
 Ding et al. (2023), *ACM Trans. Sens. Networks*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Improves agricultural irrigation efficiency by accounting for future soil moisture loss driven by weather, soil and plants.
+- **Architecture:** Deep reinforcement learning control agent (DRLIC, neural network policy) with an irrigation reward function and a safety mechanism based on a soil moisture predictor.
+- **Data:** In-field testbed of six almond trees with sprinklers, soil moisture sensors and wireless control nodes; weather inputs not specified in the abstract.
+- **Main result:** In a 15-day field experiment DRLIC saves up to 9.52% water compared with a widely used irrigation scheme.
+- **Open work:** Longer, larger deployments and assessment of crop yield impacts would follow.
+- **Issues:** Very short and small experiment (15 days, six trees); no yield or plant-health outcomes reported.
+- *Basis: abstract*
 
 ### [Exploring dynamic response of agrometeorological droughts towards winter wheat yield loss risk using machine learning approach at a regional scale in Pakistan](https://doi.org/10.1016/j.fcr.2023.109057)
 Arshad et al. (2023), *Field crops research (Print)*. 47 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how agrometeorological droughts drive winter wheat yield loss risk at regional scale in Pakistan, as implied by the title.
+- **Architecture:** Machine learning approach linking drought indices to wheat yield loss risk; specific algorithms are not reported in the available metadata.
+- **Data:** Not reported in the abstract (abstract unavailable); presumably regional wheat yield records and agrometeorological drought indices for Pakistan.
+- **Main result:** Not reported in the abstract; the title suggests drought indices dynamically explain wheat yield loss risk regionally.
+- **Open work:** Seasonal drought forecasting for early warning of yield loss and extension to other crops and regions.
+- **Issues:** Abstract unavailable, so methods, data and skill cannot be verified; likely limited yield record length and regional statistics.
+- *Basis: assessment*
 
 ### [Seasonal forecasting of daily mean air temperatures using a coupled global climate model and machine learning algorithm for field-scale agricultural management](https://doi.org/10.1016/j.agrformet.2019.107858)
 Shin et al. (2020), *Agricultural and Forest Meteorology*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Provides daily, field-scale seasonal forecasts of mean air temperature up to 90 days for agricultural decisions such as yield prediction and sowing timing.
+- **Architecture:** Hybrid model coupling the GloSea5GC2 coupled global climate model with a regularized extreme learning machine (a single-hidden-layer neural network), testing 20 frameworks and output blending.
+- **Data:** GloSea5GC2 forecasts and hindcasts with field-scale station temperature observations in Korea.
+- **Main result:** Hybrid model RMSE 1.02 to 3.35 versus climatology 1.61 to 3.37 at all leads; centering with hindcast data improves RMSE by 3 to 20%; output blending works when hindcasts are missing.
+- **Open work:** Extending to minimum and maximum temperature, humidity and other agro-climatic variables at field scale.
+- **Issues:** Single variable and limited sites; modest gains over climatology at long leads; deterministic evaluation without probabilistic skill.
+- *Basis: abstract*
 
 ### [Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback](https://doi.org/10.1371/journal.pwat.0000169)
 Saikai et al. (2023), *PLOS Water*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a practical framework for using deep reinforcement learning to schedule irrigation adaptively from crop and soil sensor information.
+- **Architecture:** Deep reinforcement learning policy (neural network) mapping nine state variables to a probabilistic choice among five daily irrigation amounts, trained in a crop-model environment.
+- **Data:** APSIM-Wheat simulations at Goondiwindi, Australia, trained with 1981 to 2010 weather and tested on each year 2011 to 2020.
+- **Main result:** The learned rule improves profit over the conventional regional rule in every test year, with the largest gain of 17% in 2018.
+- **Open work:** Applying the framework to other cropping systems, real sensor data and field trials.
+- **Issues:** Simulation-only with a crop model as environment; assumes perfect state observations; single site and crop.
+- *Basis: abstract*
 
 ### [How can machine learning help in understanding the impact of climate change on crop yields?](https://doi.org/10.1088/1748-9326/acb164)
 Sidhu et al. (2023), *Environmental Research Letters*. 43 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates whether machine learning improves estimation of crop yield response to climate change compared with linear regression.
+- **Architecture:** Boosted regression trees compared with ordinary least squares linear regression (including quadratic and piece-wise linear specifications).
+- **Data:** Synthetic climate and yield data for tests; historical district crop yields of rice, wheat and pearl millet with climate data in India.
+- **Main result:** BRTs predict better and find climate-yield break points and interactions, but estimate a considerably smaller negative climate change impact than LR, possibly by conflating time and climate.
+- **Open work:** Developing methods that keep ML flexibility while correctly separating trends from climate effects, and using multi-model analyses.
+- **Issues:** Overly flexible models can confound time trends and climate; attribution sensitive to model choice; India-specific.
+- *Basis: abstract*
 
 ### [Multi-modal Data Fusion and Deep Ensemble Learning for Accurate Crop Yield Prediction](https://arxiv.org/abs/2502.06062)
 Yewle et al. (2025), *arXiv*. 40 citations.
 
-*Summary pending.*
+- **Main goal:** Improves rice crop yield prediction by fusing satellite remote sensing and meteorological data.
+- **Architecture:** RicEns-Net: deep ensemble combining multiple machine learning algorithms over 15 selected features from 5 modalities.
+- **Data:** Sentinel-1 SAR, Sentinel-2 and Sentinel-3 optical data, surface temperature and rainfall; field yields from the EY Open Science Challenge 2023 (Vietnam rice).
+- **Main result:** MAE of 341 kg/ha (about 5 to 6% of the lowest average regional yield), outperforming prior models including EY challenge entries.
+- **Open work:** Testing on other crops and regions and with longer yield records.
+- **Issues:** Small single-region dataset; heavy feature engineering risks overfitting; no uncertainty quantification.
+- *Basis: abstract+knowledge*
 
 ### [Uncovering the Past and Future Climate Drivers of Wheat Yield Shocks in Europe With Machine Learning](https://doi.org/10.1029/2020ef001815)
 Zhu et al. (2021), *Earth's Future*. 39 citations.
 
-*Summary pending.*
+- **Main goal:** Attributes past and future European wheat yield shocks to climate drivers to inform food security under climate change.
+- **Architecture:** Data-driven attribution framework based on machine learning with game-theoretic Shapley values, predicting yield-shock probability.
+- **Data:** Subnational wheat yields across Europe 1980 to 2018 with climate data; RCP4.5 and RCP8.5 projections for 2070 to 2099; crop model ensemble yields for comparison.
+- **Main result:** Water limitation drove 32% of past yield shocks; in 2070 to 2099 extreme warming dominates in 46% (RCP4.5) and 54% (RCP8.5) of areas; crop models miss excess-water impacts.
+- **Open work:** Improving crop models to represent excess water and heat extremes, and including adaptation.
+- **Issues:** Statistical extrapolation to future climates beyond the training range; no adaptation or CO2 effects; attribution is associative.
+- *Basis: abstract*
 
 ### [Uncovering Current and Future Variations of Irrigation Water Use Across China Using Machine Learning](https://doi.org/10.1029/2023ef003562)
 Liu et al. (2024), *Earth's Future*. 37 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates current and future irrigation water use across China to inform water allocation under climate change.
+- **Architecture:** Machine learning framework (specific algorithm not named in the abstract) combining multiple datasets, forced with climate and socio-economic projections.
+- **Data:** Prefecture-level reported irrigation water use, multiple climate and socio-economic datasets, 11 cropland validation sites; future emission scenario projections.
+- **Main result:** R2 0.86 to 0.91 and RMSE 0.261 to 0.361 km3/yr against prefecture data; IWU increases 8.5 to 17.1% by 2050s and 6.8 to 34.8% by 2100s, costing US$1.65 to 6.5 billion/year.
+- **Open work:** Transferring the framework to other countries facing rising irrigation demand.
+- **Issues:** Future projections assume stable learned relationships; site validation R2 only 0.67; socio-economic uncertainty large.
+- *Basis: abstract*
 
 ### [An Open and Large-Scale Dataset for Multi-Modal Climate Change-aware Crop Yield Predictions](https://doi.org/10.1145/3637528.3671536)
 Lin et al. (2024), *Knowledge Discovery and Data Mining*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Provides an open, deep-learning-ready multi-modal dataset for county-level crop yield prediction that accounts for both growing-season weather and long-term climate change.
+- **Architecture:** Benchmark dataset (CropNet) with a Python package of three APIs for on-the-fly download; baselines use various deep learning models (CNN, LSTM, transformer-type) for yield prediction.
+- **Data:** Sentinel-2 imagery, WRF-HRRR computed meteorological data and USDA crop yield statistics for over 2200 contiguous US counties, 2017–2022; terabyte scale, released on Hugging Face.
+- **Main result:** Experiments with several deep learning solutions show the dataset is generally applicable and effective for climate change-aware crop yield prediction; no single headline metric is reported in the abstract.
+- **Open work:** Extending coverage beyond the US and beyond six years, adding further modalities, and using the data for climate-scenario yield projection.
+- **Issues:** Only six years of yields limit learning of long-term climate effects; county-level aggregation and HRRR-derived weather may carry model biases; US-only coverage.
+- *Basis: abstract*
 
 ### [Coupling agricultural system models with machine learning to facilitate regional predictions of management practices and crop production](https://doi.org/10.1088/1748-9326/ac9c71)
 Xiao et al. (2022), *Environmental Research Letters*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Overcomes the computational cost of running process-based agricultural system models at regional scale to support nitrogen and water management decisions under climate change.
+- **Architecture:** Machine learning emulators (surrogate models) trained to reproduce the APSIM crop model outputs of yield and soil organic carbon under many management scenarios; specific ML algorithms not named in the abstract.
+- **Data:** APSIM simulations for the Huang-Huai-Hai plain, China, over 101 years (1980–2080) under many nitrogen and irrigation scenarios with climate forcing.
+- **Main result:** Emulators accurately and quickly reproduce APSIM yield and soil carbon predictions at different spatial resolutions with much less input data and identify optimal nitrogen management for yield and carbon sequestration.
+- **Open work:** Extending emulation to other crop models, regions and complex systems, and using it in policy-relevant scenario analysis.
+- **Issues:** Emulators inherit APSIM structural and parameter uncertainty; evaluated against the model rather than observations; validity outside the training scenarios is uncertain.
+- *Basis: abstract*
 
 ### [Estimation of flood-damaged cropland area using a convolutional neural network](https://doi.org/10.1088/1748-9326/abeba0)
 Lazin et al. (2021), *Environmental Research Letters*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates county-level cropland area damaged by flooding to support disaster management and food security under increasing extreme precipitation.
+- **Architecture:** Convolutional neural network (CNN) using remote sensing images and weather fields, with separate early-season and late-season windows.
+- **Data:** Remote sensing imagery and meteorological fields for corn and soybean in the midwestern United States, 2008–2019, with county-level flood damage records.
+- **Main result:** Mean relative error within ±25% and relative RMSE 35–75% in most counties for most years; meteorology-only inputs give acceptable accuracy.
+- **Open work:** Seasonal forecasting of crop flood damage, future climate impact studies and global food security assessment.
+- **Issues:** Relative RMSE up to 75% is large; damage records may be incomplete; limited to two crops in one region.
+- *Basis: abstract*
 
 ### [Impacts of climate change on spatial wheat yield and nutritional values using hybrid machine learning](https://doi.org/10.1088/1748-9326/ad75ab)
 Kheir et al. (2024), *Environmental Research Letters*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies climate change impacts on wheat grain yield and nutritional quality (N, Fe, Zn) for food security under mid-century climate.
+- **Architecture:** Automated machine learning (AutoML) training many models combined into a stacked ensemble, compared with traditional ML models.
+- **Data:** Multi-site, multi-season field experiments with three cultivars and Fe/Zn treatments plus national yield statistics; projections from NEX-GDDP-CMIP6 downscaled GCMs (GFDL-ESM4, HadGEM3-GC31-MM, MRI-ESM2-0) under SSP2-4.5 and SSP5-8.5.
+- **Main result:** Stacked ensemble predicts yield (R² > 0.78), N (> 0.75), Fe and Zn (> 0.71); climate change raises yield 4.5% and protein 0.8% but lowers Fe 5.5% and Zn 4.5% by 2020–2050 versus 1980–2010.
+- **Open work:** Adding adaptation options, more GCMs and cultivars, and extending to other crops and regions.
+- **Issues:** Only three GCMs; limited experimental sites and seasons constrain extrapolation to future climate; CO2 fertilization and management changes may be incompletely represented.
+- *Basis: abstract*
 
 ### [Disentangling the separate and confounding effects of temperature and precipitation on global maize yield using machine learning, statistical and process crop models](https://doi.org/10.1088/1748-9326/ac5716)
 Yin et al. (2022), *Environmental Research Letters*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Disentangles separate and confounding effects of temperature and precipitation on global maize yield and quantifies uncertainty across crop model types.
+- **Architecture:** Comparison of polynomial regression, a long short-term memory (LSTM) network and process-based crop models within a consistent framework under controlled climate perturbations.
+- **Data:** Global maize yield and climate data under 25 climate scenarios combining temperature and precipitation changes; specific yield products not named in the abstract.
+- **Main result:** With precipitation fixed, +1 °C causes global yield loss of 6.88%, 4.86% or 5.61% (regression, LSTM, process models); +10% precipitation mitigates this by 3.98%, 1.05% or 3.10%; uncertainty is larger under drier conditions.
+- **Open work:** Using multiple model types consistently in impact assessments and exploring other crops and adaptation.
+- **Issues:** Simple uniform climate perturbations; statistical and LSTM models may extrapolate poorly outside observed climates; large cross-model discrepancies remain for temperature effects.
+- *Basis: abstract*
 
 ### [Machine-learning methods to assess the effects of a non-linear damage spectrum taking into account soil moisture on winter wheat yields in Germany](https://doi.org/10.5194/hess-25-6523-2021)
 Peichl et al. (2021), *Hydrology and Earth System Sciences*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts and explains winter wheat yield anomalies in Germany from non-linear weather and soil moisture effects to support adaptation decisions.
+- **Architecture:** Random forest with monthly features, clustering of districts and average marginal effects for interpretation.
+- **Data:** District-level winter wheat yields in Germany with monthly meteorological extremes and soil moisture features (soil moisture from a hydrological model such as mHM, given the authors).
+- **Main result:** Test R² about 0.68; March soil moisture is the most important variable with high moisture harmful; soil moisture explains more variance than meteorology; captures 2003, 2018 losses and 2014 gains.
+- **Open work:** Developing targeted decision support and extending to other crops and climate projections.
+- **Issues:** Heat effects are missed if clusters are poorly defined; district aggregation and modelled soil moisture introduce uncertainty.
+- *Basis: abstract+knowledge*
 
 ### [A review of artificial intelligence applications for predicting crop performance and enhancing food security under drought-induced water stress](https://doi.org/10.1016/j.agwat.2026.110212)
 Fares et al. (2026), *Agricultural Water Management*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Review of artificial intelligence applications for predicting crop performance and enhancing food security under drought-induced water stress.
+- **Architecture:** Review of AI and machine learning methods applied to crop yield and drought stress prediction; specific method coverage not reported since the abstract is unavailable.
+- **Data:** Not reported in the abstract; reviewed studies likely draw on remote sensing, weather and field data.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Not reported in the abstract; likely includes data availability, interpretability and transferability of AI crop models.
+- **Issues:** Abstract unavailable; scope and conclusions cannot be verified.
+- *Basis: assessment*
 
 ### [Coupled machine learning–ecosystem ensemble models substantially improve predictions of nitrous oxide (N2O) fluxes from US croplands](https://doi.org/10.1073/pnas.2524808123)
 Sharma et al. (2026), *Proceedings of the National Academy of Sciences of the United States of America*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Improves predictions of nitrous oxide emissions from fertilized US croplands, a major and uncertain greenhouse gas source.
+- **Architecture:** Ensemble modeling system coupling several process-based ecosystem models with several machine learning models; specific learners not reported in the abstract.
+- **Data:** Cropland N2O flux measurements from US food and bioenergy cropping systems across diverse soils and climates; details not reported in the abstract.
+- **Main result:** The coupled ensemble substantially improves cropland N2O flux predictions and yields insights for improving ecosystem models and guiding field measurements.
+- **Open work:** Use the system to refine ecosystem model processes, target measurements and evaluate N2O mitigation strategies.
+- **Issues:** Only the significance statement is available, so data, metrics and skill gains are unspecified; flux observations are sparse and highly episodic.
+- *Basis: assessment*
 
 ### [Predictive drivers and transferability of multi-scale machine learning based crop yield prediction under drought across European and Asian climates](https://doi.org/10.1016/j.agwat.2026.110254)
 Sahu et al. (2026), *Agricultural Water Management*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts crop yield under drought with machine learning across scales and examines predictive drivers and transferability between European and Asian climates.
+- **Architecture:** Machine learning models at multiple scales; specific algorithms are not known from the title (abstract not available).
+- **Data:** Not reported; presumably drought indices, climate and remote sensing predictors with crop yield records in Europe and Asia.
+- **Main result:** Not available; the title implies an analysis of key drivers and of how well models transfer between climates.
+- **Open work:** Likely improving cross-region transferability of yield models under drought.
+- **Issues:** Abstract missing; content inferred from the title only.
+- *Basis: assessment*
 
 ### [Incorporating climate data with machine learning can improve rice phenology estimation](https://doi.org/10.1088/1748-9326/ada56e)
 Liu et al. (2025), *Environmental Research Letters*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Improves estimation of rice phenological dates, since satellite-only methods miss interannual variation driven by climate.
+- **Architecture:** Hybrid random forest model combining growth-stage-specific climate predictors with satellite-derived phenology metrics.
+- **Data:** Satellite vegetation proxies (CSIF solar-induced fluorescence and LAI) plus climate predictors such as temperature indicators; ground phenology observations as reference. Region and period not reported in the abstract.
+- **Main result:** The hybrid model cuts errors by over 60% versus satellite-only methods; climate data add about 13% in R2 on average, with temperature indicators most important; CSIF outperforms LAI.
+- **Open work:** Extend to other crops and regions and use the model to study climate-change effects on phenology.
+- **Issues:** Random forest may not extrapolate to unprecedented climate; relies on quality of ground phenology records; study domain details not given in the abstract.
+- *Basis: abstract*
 
 ### [CMAViT: Integrating Climate, Managment, and Remote Sensing Data for Crop Yield Estimation with Multimodel Vision Transformers](https://arxiv.org/abs/2411.16989)
 Kamangir et al. (2024), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts pixel-level vineyard yield by jointly modeling weather, remote sensing and management practices.
+- **Architecture:** Climate-Management Aware Vision Transformer (CMAViT), a multimodal transformer with cross-attention encoding text-form management practices against time-series weather and imagery.
+- **Data:** Remote sensing imagery and short-term meteorological data over 2,200 ha of vineyards with eight grape cultivars and over 5 million vines, 2016–2019.
+- **Main result:** R2 of 0.84 and MAPE 8.22% on unseen test data, beating UNet-ConvLSTM especially for extreme yields; removing management, climate or both drops R2 to 0.73, 0.70 and 0.72.
+- **Open work:** Test on longer records, other crops and regions, and with seasonal climate forecasts for prospective prediction.
+- **Issues:** Only four seasons from one vineyard operation, limiting interannual climate variability sampled; generalization to other sites is untested.
+- *Basis: abstract*
 
 ### [On the Use of Knowledge‐Informed Machine Learning and Multisource Data for Spatially Explicit Estimation of Irrigation Water Withdrawal](https://doi.org/10.1029/2025ef006704)
 Zhang et al. (2025), *Earth's Future*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Produces spatially explicit irrigation water withdrawal estimates for China, which are scarce and uncertain in process models and remote sensing.
+- **Architecture:** Knowledge-informed explainable random forest with SHAP, plus temporal downscaling to monthly values.
+- **Data:** Irrigated cropland maps, socioeconomic, hydroclimatic and auxiliary predictors; prefecture-level IWW reports for training; independent observations in 150+ basins and counties.
+- **Main result:** Cross-validated R2 above 0.85 and RMSE below 0.45 km3/yr; the resulting CIWW1km product (monthly, 1 km, 2000–2020) explains over 85% of variance in independent data and shows rapid IWW growth in arid China.
+- **Open work:** Use CIWW1km in hydrological, climate and water–food nexus studies; extend in time and to other countries.
+- **Issues:** Training relies on reported statistics of uneven quality; temporal downscaling adds uncertainty; RF limited in extrapolation.
+- *Basis: abstract*
 
 ### [VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting](https://arxiv.org/abs/2508.03589)
 Hasan et al. (2025), *AAAI Conference on Artificial Intelligence*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Improves crop yield forecasts in anomalous years, where models fail due to lack of physically grounded weather–yield data.
+- **Architecture:** VITA, a variational pretraining framework for transformers that predicts latent atmospheric states with a seasonality-aware sinusoidal prior, then fine-tunes on limited weather statistics.
+- **Data:** Large satellite-based weather datasets for pretraining; corn and soybean yields for 763 US Corn Belt counties.
+- **Main result:** State-of-the-art yields across all scenarios, especially extreme years (p < 0.0001), outperforming GNN-RNN without soil data and Chronos-Bolt with less compute.
+- **Open work:** Apply to data-scarce regions and other crops.
+- **Issues:** Single region; county-level yields; evaluation of climate robustness limited to historical extremes.
+- *Basis: abstract*
 
 ### [Evaluating Crop Yield Sensitivity to Climate Change Using a Deep‐Learning Framework Incorporating Vegetation and Groundwater Memory](https://doi.org/10.1029/2026ef008560)
 Baluch et al. (2026), *Earth's Future*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses crop yield sensitivity to climate change in Northeast China while accounting for vegetation and groundwater memory that is only observed in the satellite era.
+- **Architecture:** ReGen-Net reconstruction module extends NDVI and groundwater anomaly records back to 1981; a GATAE-TFT model (graph attention plus Temporal Fusion Transformer) predicts yields, with YieldTransformer baseline and SHAP attribution.
+- **Data:** Crop yield records since 1981 in Northeast China, NDVI, groundwater storage anomalies (GRACE-era), drought indices; bias-adjusted ISIMIP projections 2017–2060 under SSP1-2.6 and SSP5-8.5.
+- **Main result:** Test R2 of 0.857, 0.777, 0.798 and 0.837 for maize, rice, soybean and wheat; projections show gradual declines in maize, rice and wheat and stable soybean.
+- **Open work:** Incorporate management and CO2 effects and extend to other regions.
+- **Issues:** Reconstructed predictors add uncertainty; statistical projections assume stationary relationships under future climate; adaptation and CO2 fertilization are not explicitly represented.
+- *Basis: abstract*
 
 ### [NeuralCrop: Combining physics and machine learning for improved crop yield projections](https://arxiv.org/abs/2512.20177)
 Lin et al. (2025), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Improves crop yield projections under climate change by combining process-based global gridded crop models with machine learning that generalizes out of distribution.
+- **Architecture:** NeuralCrop, a differentiable hybrid global gridded crop model combining an advanced process-based GGCM with neural network components; first trained to emulate a GGCM, then fine-tuned on observations.
+- **Data:** Emulation of a process-based GGCM, then fine-tuning on observed yields; site-level and large-scale simulations including European wheat regions and the US Corn Belt.
+- **Main result:** Accuracy comparable to state-of-the-art GGCMs, better reproduction of yield anomalies especially under drought extremes, and orders of magnitude faster for large-scale long-term runs.
+- **Open work:** Extend to more crops and regions and use for climate-impact risk assessment.
+- **Issues:** Out-of-distribution reliability under future climates remains to be demonstrated; inherits parent GGCM structure; observational yield data quality limits fine-tuning.
+- *Basis: abstract*
 
 ### [Seasonal Pre‐Planting Drought Impact‐Based Forecasting of Crop Yield in India](https://doi.org/10.1029/2025ef007128)
 Shyrokaya et al. (2026), *Earth's Future*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts standardized crop yields in India before planting from drought indices to support impact-based early warning.
+- **Architecture:** Random Forest, XGBoost (gradient boosting) and artificial neural networks (MLP) linking observed and forecast drought indices to yields, at district and cluster levels.
+- **Data:** District-level historical paddy rice and wheat yields in India, observed drought indices at multiple accumulation periods, and ECMWF SEAS5 seasonal forecasts.
+- **Main result:** District models beat cluster models with Random Forest best; over 80% of wheat and 70% of rice districts reach RMSE below 0.2; SEAS5 enables rice predictions up to 6 months ahead; CRPS confirms skill including for extremely low yields.
+- **Open work:** Operationalize for anticipatory action and include non-climatic drivers such as irrigation and management.
+- **Issues:** Short yield records per district; standardized yields remove trends; skill varies with yield variability and lead time.
+- *Basis: abstract*
 
 ### [Evaluating and improving crop-yield forecasting methods during extreme drought](https://arxiv.org/abs/2608.17971)
 Gupta et al. (2026), *arXiv*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates crop-yield forecasting models under the extreme 2012 US Corn Belt drought, when conditions lie outside the training distribution.
+- **Architecture:** Comparison of non-deep ML models with sample weighting and feature selection against the VITA deep learning model.
+- **Data:** County-level US corn yields with 16 meteorological drivers; 2012 drought year as test.
+- **Main result:** Sample weighting and feature selection improve the ML models, VITA gains little from them but still outperforms the ML models.
+- **Open work:** Develop methods robust to distribution shift and spatial/temporal sparsity for extreme years.
+- **Issues:** Single extreme year and single crop; limited predictors; quantitative skill not reported in the abstract.
+- *Basis: abstract*
 
 <a id="benchmarks"></a>
 ## Benchmarks & datasets

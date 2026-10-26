@@ -89,12 +89,21 @@ DATA_SOURCE = [
                                       r"forecast archive|ecmwf (ensemble|forecast)|\bens\b|cosmo|meps|hrrr|cams"),
     ("Hydrological observations", r"streamflow|discharge (records|observations|data)|camels|caravan|\bgrace\b|usgs|"
                                   r"gauging station|river gauge|soil moisture (product|observations|data)|\bsmap\b|"
-                                  r"groundwater (level|well)|water table|lake level|catchment attributes"),
+                                  r"groundwater (level|well)|water table|lake level|catchment attributes|gauged (basins|catchments)|"
+                                  r"\b(river|hydrologic\w*|gauged|ungauged|\d+) basins|catchments|watersheds?|river flow|runoff (data|observations)|"
+                                  r"reservoir (inflow|operation|release)|snow water equivalent|\bswe\b|snotel|"
+                                  r"evapotranspiration|flux tower|eddy covariance|fluxnet|\bgrdc\b|glofas|"
+                                  r"soil moisture|stream temperature|flood (maps|extents|inventor)"),
     ("Energy & power data", r"wind (power|farm|turbine) (data|output|measurements|records)|power output|scada|"
                             r"pv (output|generation|systems?)|photovolt\w* (output|generation|data)|load data|"
-                            r"electricity (demand|consumption|load)|smart meter|solar farm"),
+                            r"electricity (demand|consumption|load)|smart meter|solar farm|power (plants?|measurements|generation data)|"
+                            r"pv (plants?|power|sites?)|photovoltaic (plants?|power|systems?)|wind farms?|wind turbines?|"
+                            r"irradiance (measurements|observations|data|time series)|\bghi\b|\bdni\b|"
+                            r"sky images?|all-sky|hydropower|electricity|power grid|wind speed (time series|measurements|data)"),
     ("Crop & agricultural data", r"yield (data|records|statistics)|crop (yield|statistics|data|model)|usda|nass|"
-                                 r"faostat|field trials?|agricultural (census|statistics)|farm(er)? (data|survey)"),
+                                 r"faostat|field trials?|agricultural (census|statistics)|farm(er)? (data|survey)|yields?\b.*(county|counties|"
+                                 r"district|province|hybrids|records)|genotypes?|cropland|\bcrops?\b|irrigation|"
+                                 r"\bapsim\b|dssat|phenology|maize|wheat|soybean|\brice\b"),
     ("Radar", r"radar|mrms|nexrad|reflectivity"),
     ("Satellite", r"satellite|landsat|goes|himawari|modis|passive microwave|\bsar\b|imerg|\bgpm|persiann|brightness temperature|"
                   r"avhrr|sentinel|viirs|cloudsat|calipso|\bglm\b|\bsst\b product|oisst"),

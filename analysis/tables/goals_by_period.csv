@@ -1,23 +1,23 @@
 task,≤2018,2019–20,2021–22,2023–24,2025–26
-Hydrological prediction,12,33,45,58,64
-Medium-range weather forecasting,6,17,15,50,78
-"Benchmarking, evaluation & feasibility",11,18,23,33,48
-Extreme events,10,23,24,28,47
-Ocean & sea-ice prediction,10,9,17,23,34
-Subseasonal to decadal prediction,5,5,15,13,31
-Process understanding & discovery,4,11,20,18,14
-Climate emulation & projection,5,4,11,22,24
+Hydrological prediction,12,33,48,62,67
+"Benchmarking, evaluation & feasibility",14,30,41,50,66
+Medium-range weather forecasting,6,17,18,52,87
+Extreme events,9,28,25,32,54
+Ocean & sea-ice prediction,10,9,19,23,36
+Process understanding & discovery,4,12,22,22,19
+Subseasonal to decadal prediction,6,6,15,15,34
+Climate emulation & projection,5,4,12,22,25
 Parameterization & physics emulation,9,13,18,13,12
-Data assimilation & state estimation,0,7,10,14,21
-Agricultural prediction,7,9,12,9,11
-Downscaling & super-resolution,5,9,9,12,12
-Computational speed-up,1,5,9,14,18
-Energy forecasting,7,6,8,12,12
-Model error & bias correction,3,6,5,7,12
-Detection & classification,5,10,3,6,7
-Post-processing & calibration,1,5,5,6,12
-Nowcasting (0–12 h),2,7,7,5,5
-Retrieval & estimation from observations,4,6,4,3,8
-Reconstruction & gap filling,0,5,0,5,9
+Data assimilation & state estimation,0,7,10,15,22
+Computational speed-up,1,6,10,15,21
+Agricultural prediction,7,9,13,10,12
+Energy forecasting,7,6,9,13,13
+Downscaling & super-resolution,5,9,10,12,12
+Detection & classification,5,10,7,8,13
+Model error & bias correction,3,6,5,8,13
+Post-processing & calibration,1,6,5,7,14
+Retrieval & estimation from observations,4,6,5,5,11
+Nowcasting (0–12 h),2,7,7,6,5
+Reconstruction & gap filling,0,7,1,5,11
+Climate change detection & attribution,2,5,4,3,4
 Air quality & atmospheric composition,3,3,4,1,6
-Climate change detection & attribution,2,5,3,3,3

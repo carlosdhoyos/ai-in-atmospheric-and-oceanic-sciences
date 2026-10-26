@@ -14,13 +14,13 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 
 ## Headlines
 
-1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were 12% of architecture tags in 2019–20 and 54% in 2025–26. CNN/U-Net went from 33% to 13% over the same periods.
-2. **ERA5 and operational NWP / reforecasts are the main data sources, on par.** ERA5 appears in 8 papers in 2019–20 and 45 in 2025–26, where it is used by 17% of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from 17 papers in 2021–22 to 6 in 2025–26.
-3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: 21% (≤2018), 22% (2019–20), 26% (2021–22), 30% (2023–24), 35% (2025–26).
-4. **Goals have shifted.** Hydrological prediction is the most common goal overall (212 papers). Comparing papers from 2019–20 and 2021–22 with papers from 2023–24 and 2025–26, the fastest-growing goals are Medium-range weather forecasting (+16 pts), Climate emulation & projection (+5 pts), Benchmarking, evaluation & feasibility (+3 pts); the largest declines are Process understanding & discovery (-3 pts), Parameterization & physics emulation (-5 pts).
-5. **Subfields keep distinct architecture signatures.** Dominant group per subfield: Hydrology & water resources: MLP / generic NN (70 of 111 papers); Medium-range weather: Graph & operator nets (37 of 76 papers); Extremes & tropical cyclones: MLP / generic NN (23 of 76 papers); Parameterization & hybrid models: MLP / generic NN (42 of 59 papers); Climate emulation & detection: MLP / generic NN (25 of 58 papers); Ensembles & generative: Generative (diffusion/GAN/VAE) (29 of 48 papers); S2S, ENSO & MJO: MLP / generic NN (17 of 47 papers); Ocean: MLP / generic NN (17 of 43 papers).
-6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: MLP / generic NN: Limited evaluation (9%); CNN / U-Net: Coarse resolution or few variables (19%); Generative (diffusion/GAN/VAE): Depends on reanalysis / NWP analyses (20%); Transformers: Smoothing, blurring or weak extremes (28%); Graph & operator nets: Depends on reanalysis / NWP analyses (28%); Classical ML: Coarse resolution or few variables (14%); RNN / LSTM: Smoothing, blurring or weak extremes (21%). The most common open problems across all papers are Probabilistic forecasts & uncertainty (108), More variables & Earth-system components (106), Operational use (78).
-7. **Citation rates.** Among method papers from 2018–2024, which have had time to collect citations, median citations per year are Transformers 51 (n=28), RNN / LSTM 27 (n=37), Graph & operator nets 23 (n=34), CNN / U-Net 22 (n=97), Classical ML 18 (n=57), Generative (diffusion/GAN/VAE) 16 (n=57), MLP / generic NN 16 (n=134). The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from 2025 on are too recent to compare this way.
+1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were 11% of architecture tags in 2019–20 and 49% in 2025–26. CNN/U-Net went from 29% to 14% over the same periods.
+2. **Operational NWP / reforecasts is now the most common data source, ahead of ERA5.** ERA5 appears in 9 papers in 2019–20 and 53 in 2025–26, where it is used by 21% of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from 17 papers in 2021–22 to 8 in 2025–26.
+3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: 23% (≤2018), 29% (2019–20), 32% (2021–22), 35% (2023–24), 40% (2025–26).
+4. **Goals have shifted.** Hydrological prediction is the most common goal overall (222 papers). Comparing papers from 2019–20 and 2021–22 with papers from 2023–24 and 2025–26, the fastest-growing goals are Medium-range weather forecasting (+17 pts), Climate emulation & projection (+4 pts), Subseasonal to decadal prediction (+3 pts); the largest declines are Agricultural prediction (-2 pts), Parameterization & physics emulation (-5 pts).
+5. **Subfields keep distinct architecture signatures.** Dominant group per subfield: Hydrology & water resources: RNN / LSTM (90 of 200 papers); Extremes & tropical cyclones: CNN / U-Net (32 of 100 papers); Medium-range weather: Graph & operator nets (38 of 78 papers); Climate emulation & detection: MLP / generic NN (26 of 73 papers); Parameterization & hybrid models: MLP / generic NN (49 of 68 papers); S2S, ENSO & MJO: MLP / generic NN (18 of 59 papers); Ensembles & generative: Generative (diffusion/GAN/VAE) (31 of 51 papers); Weather & climate for energy: MLP / generic NN (22 of 43 papers).
+6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: MLP / generic NN: Limited evaluation (16%); CNN / U-Net: Depends on reanalysis / NWP analyses (19%); RNN / LSTM: Limited evaluation (17%); Classical ML: Generalization / out-of-distribution (18%); Generative (diffusion/GAN/VAE): Depends on reanalysis / NWP analyses (21%); Transformers: Depends on reanalysis / NWP analyses (24%); Graph & operator nets: Depends on reanalysis / NWP analyses (29%). The most common open problems across all papers are Probabilistic forecasts & uncertainty (153), Generalization & transfer (151), More variables & Earth-system components (124).
+7. **Citation rates.** Among method papers from 2018–2024, which have had time to collect citations, median citations per year are Transformers 31 (n=37), Graph & operator nets 21 (n=38), CNN / U-Net 20 (n=123), RNN / LSTM 20 (n=94), Classical ML 17 (n=90), Generative (diffusion/GAN/VAE) 17 (n=61), MLP / generic NN 16 (n=123). The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from 2025 on are too recent to compare this way.
 
 ## Figures
 
@@ -32,23 +32,23 @@ The busiest years in the catalog are 2025 (175 papers) and 2024 (124).
 ### Model families
 ![Model families](figures/02_architecture_families.png)
 
-Neural network (unspecified) is the most common family (171 papers), followed by CNN (118) and Transformer (79). "Neural network (unspecified)" (171) mostly covers dense networks whose summaries don't name the layer type. Approaches that sit on top of a model are tagged separately and excluded from this chart: hybrid physics-ML coupling (76), data-assimilation schemes (21), XAI methods (26) and physics-informed constraints (26).
+CNN is the most common family (161 papers), followed by RNN / LSTM (143) and Neural network (unspecified) (121). "Neural network (unspecified)" (121) mostly covers dense networks whose summaries don't name the layer type. Approaches that sit on top of a model are tagged separately and excluded from this chart: hybrid physics-ML coupling (108), data-assimilation schemes (22), XAI methods (38) and physics-informed constraints (34).
 
 ### Architecture shift
 ![Architecture share by period](figures/03_architecture_share_by_period.png)
 
 | Period | Tags | CNN / U-Net | MLP / generic | RNN / LSTM | Classical ML | Generative | Transformers | Graph & operator |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| ≤2018 | 69 | 19% | 38% | 13% | 20% | 10% | 0% | 0% |
-| 2019–20 | 138 | 33% | 25% | 12% | 19% | 8% | 2% | 2% |
-| 2021–22 | 128 | 25% | 35% | 9% | 15% | 8% | 3% | 5% |
-| 2023–24 | 171 | 12% | 29% | 4% | 5% | 21% | 14% | 16% |
-| 2025–26 | 235 | 13% | 25% | 6% | 3% | 17% | 20% | 17% |
+| ≤2018 | 81 | 17% | 37% | 14% | 23% | 9% | 0% | 0% |
+| 2019–20 | 182 | 29% | 20% | 18% | 22% | 7% | 3% | 2% |
+| 2021–22 | 167 | 26% | 21% | 23% | 16% | 6% | 3% | 5% |
+| 2023–24 | 234 | 15% | 20% | 12% | 10% | 17% | 14% | 13% |
+| 2025–26 | 297 | 14% | 19% | 11% | 8% | 15% | 20% | 14% |
 
 ### Data sources
 ![Data sources by period](figures/04_data_sources_by_period.png)
 
-CMIP and other climate-model output appears in 12, 17, 22, 24, 21 papers across the periods (≤2018, 2019–20, 2021–22, 2023–24, 2025–26); it is used for emulation, detection and transfer learning. Operational NWP archives and reforecasts grow alongside ERA5 (3, 7, 13, 27, 47), because ML weather models are verified against and fine-tuned on operational analyses.
+CMIP and other climate-model output appears in 13, 18, 25, 30, 31 papers across the periods (≤2018, 2019–20, 2021–22, 2023–24, 2025–26); it is used for emulation, detection and transfer learning. Operational NWP archives and reforecasts grow alongside ERA5 (5, 8, 18, 34, 61), because ML weather models are verified against and fine-tuned on operational analyses.
 
 ### Research goals over time
 ![Goals by period](figures/09_goals_by_period.png)
@@ -99,8 +99,8 @@ each venue's most influential papers, is [`journals.html`](../journals.html).
 | Renewable & Sustainable Energy Reviews | Energy journals | 5 | 1.36 | 20% | 18.0 | Strong |
 | Geoscientific Model Development | EGU / Copernicus journals | 20 | 1.22 | 5% | 16.3 | Strong |
 | Geophysical Research Letters | AGU journals | 41 | 1.04 | 2% | 13.1 | Strong |
-| Science Advances | Nature & Science | 16 | 1.02 | 19% | 10.1 | Strong |
 | NeurIPS | ML conferences | 26 | 1.02 | 4% | 13.7 | Strong |
+| Science Advances | Nature & Science | 16 | 1.02 | 19% | 10.1 | Strong |
 | Quarterly Journal of the Royal Meteorological Society | RMetS / Royal Society | 7 | 1.00 | 14% | 14.9 | Strong |
 | JGR (section not recorded) | AGU journals | 12 | 1.00 | 0% | 5.7 | Strong |
 | npj Climate and Atmospheric Science | Nature & Science | 22 | 0.92 | 9% | 8.3 | Steady |
@@ -140,4 +140,4 @@ each venue's most influential papers, is [`journals.html`](../journals.html).
 
 **Fixing a category.** For one paper, add a row to `data/category_overrides.csv` (`paper_id,dimension,label,action,note`, where action is `add`, `remove` or `set`). For a systematic problem, edit the regex in `scripts/taxonomy.py`. Then rerun `python3 scripts/build_db.py && python3 analysis/eda.py`. 3 manual corrections are applied.
 
-**Known limitations.** The rules can only see what the summaries say. 129 summaries are partly editorial assessments, and 77 papers had no abstract available. Multi-label tagging means a paper using a U-Net inside a diffusion model counts under both families.
+**Known limitations.** The rules can only see what the summaries say. 177 summaries are partly editorial assessments, and 77 papers had no abstract available. Multi-label tagging means a paper using a U-Net inside a diffusion model counts under both families.
