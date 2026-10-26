@@ -57,6 +57,22 @@ hundred applied candidates per year of window. arXiv asks for one request every 
 background. Raw downloads are cached in `.update/raw_*.json`, so changing the filters does not require
 downloading again (delete the file to force it).
 
+**Fill gaps by citation snowballing.** Keyword searches over a date window miss older work and papers whose
+titles avoid the search terms. After each update (and whenever the user feels papers are missing), mine the
+catalog's own reference lists:
+
+```bash
+cd scripts && python3 snowball.py --min-refs 3 && cd ..   # -> data/candidates_snowball_scored.csv
+python3 scripts/update.py screen-batches --file data/candidates_snowball_scored.csv --top 2000 --n 6 --recent-from 0
+```
+
+It lists ML-related works cited by at least 3 catalog papers that the catalog lacks, from any year, ranked by
+how many catalog papers cite them. `--recent-from 0` gives the screeners every catalog title, which they need
+because Semantic Scholar often keeps a preprint and its published version as separate records (GraphCast,
+FourCastNet). Tell the screeners that older papers are wanted and that generic ML (ResNet, Transformer, random
+forests, diffusion foundations, software) is excluded. References are cached in `.update/cache_refs.json`, so a
+rerun only fetches papers added since.
+
 To add a **new research area**, give it a scope in `SCOPES` in `scripts/discover_recent.py` (journals, arXiv
 query, relevance rule), a subfield key in `TOPICS` in `scripts/build.py`, goal/data/venue rules in
 `scripts/taxonomy.py`, and a section in the screening brief; then run it from an early `--since` (the applied
