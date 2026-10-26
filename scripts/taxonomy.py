@@ -41,7 +41,13 @@ ARCHITECTURE = [
     ("Reservoir computing", r"reservoir|echo state"),
     ("Kernel / GP / SVM", r"gaussian process|support vector|\bsvm|kernel (ridge|method)|\bsvr\b"),
     ("Linear / statistical", r"linear regression|ridge|lasso|elastic[- ]net|logistic regression|\bols\b|regularized regression|"
-                             r"\bpca\b|principal component|kriging|analog"),
+                             r"\bpca\b|principal component|kriging"),
+    ("Nearest neighbour / analog", r"nearest[- ]neighbo|\bk-?nn\b|analog(ue)?s?\b|case[- ]based"),
+    ("Evolutionary (GA / GP)", r"genetic algorithm|genetic programming|gene expression programming|evolutionary|"
+                               r"particle swarm|\bgp\b(?! prior| emulator| regression)"),
+    ("Fuzzy logic", r"fuzzy|neuro[- ]?fuzzy|anfis"),
+    ("Expert / knowledge-based system", r"expert system|knowledge[- ]based|rule[- ]based|rule induction|production rules|"
+                                        r"inference engine"),
     ("Clustering / unsupervised", r"k-means|clustering|self-organizing map|\bsom\b|unsupervised"),
     ("Equation discovery", r"symbolic regression|equation discovery|sparse regression|sindy|relevance vector|closed-form"),
     ("Physics-informed loss / constraints", r"physics-informed|physically constrained|hard[- ]constrain|conservation|"
@@ -58,6 +64,8 @@ ARCH_GROUP = {  # coarser grouping for trend plots
     "RNN / LSTM": "RNN / LSTM", "MLP": "MLP", "Tree ensemble": "Classical ML", "Reservoir computing": "Classical ML",
     "Kernel / GP / SVM": "Classical ML", "Linear / statistical": "Classical ML", "Equation discovery": "Classical ML",
     "Clustering / unsupervised": "Classical ML", "Neural network (unspecified)": "MLP / generic NN",
+    "Nearest neighbour / analog": "Classical ML", "Evolutionary (GA / GP)": "Classical ML",
+    "Fuzzy logic": "Expert systems & fuzzy logic", "Expert / knowledge-based system": "Expert systems & fuzzy logic",
 }
 ARCH_GROUP["MLP"] = "MLP / generic NN"
 # Labels that describe an approach layered on any model, not the network family itself
@@ -333,7 +341,9 @@ OPEN_THEME = [
 
 
 # Trend periods: (label, last year). Shared by the database, the EDA report and both HTML pages.
-PERIODS = [("≤2018", 2018), ("2019–20", 2020), ("2021–22", 2022), ("2023–24", 2024), ("2025–26", 2026)]
+PERIODS = [("≤1999", 1999), ("2000–09", 2009), ("2010–18", 2018), ("2019–20", 2020), ("2021–22", 2022), ("2023–24", 2024),
+           ("2025–26", 2026)]
+BASELINE = "2019–20"  # first period of the deep-learning era with broad coverage; "then vs now" comparisons start here
 
 
 def period(year):

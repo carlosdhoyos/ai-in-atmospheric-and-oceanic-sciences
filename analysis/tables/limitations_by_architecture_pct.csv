@@ -1,8 +1,8 @@
 theme,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets
-Idealized or narrow setting,29.5,9.7,20.1,15.6,28.4,17.3,26.5
-Limited evaluation,18.4,9.3,18.9,10.6,22.2,23.0,19.6
-Depends on reanalysis / NWP analyses,17.7,3.5,9.1,5.9,19.8,23.7,27.5
-"Smoothing, blurring or weak extremes",12.2,2.9,9.8,5.4,11.1,21.6,23.5
+Idealized or narrow setting,29.5,9.8,20.1,15.7,28.4,17.3,26.5
+Limited evaluation,18.4,9.3,18.9,10.7,22.2,23.0,19.6
+Depends on reanalysis / NWP analyses,17.7,3.5,9.1,6.0,19.8,23.7,27.5
+"Smoothing, blurring or weak extremes",12.2,2.9,9.8,5.5,11.1,21.6,23.5
 No or poorly calibrated uncertainty,14.9,4.8,12.1,4.0,13.6,17.3,17.6
 Coarse resolution or few variables,13.9,2.4,4.2,4.0,14.8,16.5,9.8
 Generalization / out-of-distribution,10.4,7.9,10.2,8.7,9.9,5.8,7.8

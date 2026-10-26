@@ -5,6 +5,7 @@ Called at the end of analysis/eda.py. Sentences that depend on the data are gene
 computed, but whether they are still the right headlines is a judgment call.
 """
 import os
+import re
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MODERN = ("Transformers", "Graph & operator nets", "Generative (diffusion/GAN/VAE)")
@@ -21,7 +22,9 @@ def write(con, periods_sql, order):
     y0, y1 = q("SELECT min(year), max(year) FROM papers")[0]
     per_year = dict(q("SELECT year, count(*) FROM papers GROUP BY 1"))
     recent = {y: per_year.get(y, 0) for y in (y1 - 1, y1)}
-    first, last = order[1], order[-1]  # compare against 2019–20, the first period with broad coverage
+    from taxonomy import BASELINE
+    b = order.index(BASELINE)  # "then vs now" comparisons start at the first deep-learning-era period
+    first, last, second = order[b], order[-1], order[b + 1]
 
     # architecture shift
     shares = {}
@@ -32,7 +35,7 @@ def write(con, periods_sql, order):
     tot = {per: sum(v.values()) for per, v in shares.items()}
     share = lambda per, grps: sum(shares.get(per, {}).get(g, 0) for g in grps) / max(1, tot.get(per, 0))  # noqa: E731
     groups = ["CNN / U-Net", "MLP / generic NN", "RNN / LSTM", "Classical ML", "Generative (diffusion/GAN/VAE)",
-              "Transformers", "Graph & operator nets"]
+              "Transformers", "Graph & operator nets", "Expert systems & fuzzy logic"]
     shift_rows = "\n".join(
         f"| {per} | {tot.get(per, 0)} | " + " | ".join(pct(share(per, [g])) for g in groups) + " |" for per in order)
 
@@ -66,10 +69,13 @@ def write(con, periods_sql, order):
     prob = dict(prob)
     prob_line = ", ".join(f"{pct(prob[p])} ({p})" for p in order if p in prob)
 
-    # subfield signatures: dominant architecture group per subfield (papers with a model-family tag)
+    # subfield signatures: dominant architecture group per subfield since the baseline period (older work is
+    # dominated by shallow neural networks everywhere and is described separately in the early-history headline)
+    base_year = min(int(t) for t in re.findall(r"\d{4}", first))
     sig = []
-    for sub, grp, n, total in q("""WITH t AS (SELECT DISTINCT s.label AS sub, a.arch_group, a.paper_id FROM subfields s
-                                             JOIN paper_architecture a USING (paper_id) WHERE a.tag_kind = 'model_family'
+    for sub, grp, n, total in q(f"""WITH t AS (SELECT DISTINCT s.label AS sub, a.arch_group, a.paper_id FROM subfields s
+                                             JOIN paper_architecture a USING (paper_id) JOIN papers p USING (paper_id)
+                                             WHERE a.tag_kind = 'model_family' AND p.year >= {base_year}
                                              AND s.subfield NOT IN ('review', 'methods', 'benchmarks')),
                                      c AS (SELECT sub, arch_group, count(*) n FROM t GROUP BY ALL),
                                      s AS (SELECT sub, count(DISTINCT paper_id) total FROM t GROUP BY 1)
@@ -77,6 +83,13 @@ def write(con, periods_sql, order):
                                 QUALIFY row_number() OVER (PARTITION BY c.sub ORDER BY c.n DESC) = 1
                                 ORDER BY s.total DESC LIMIT 8"""):
         sig.append(f"{sub}: {grp} ({n} of {total} papers)")
+
+    # early history: what ML looked like before the deep-learning era
+    early = q(f"""SELECT a.arch_group, count(DISTINCT p.paper_id) n FROM paper_architecture a JOIN papers p USING (paper_id)
+                  WHERE a.tag_kind = 'model_family' AND p.year < 2010 GROUP BY 1 ORDER BY 2 DESC LIMIT 4""")
+    n_early_all = one("SELECT count(*) FROM papers WHERE year < 2010")
+    early_sub = q("""SELECT s.label, count(*) FROM subfields s JOIN papers p USING (paper_id) WHERE p.year < 2010
+                     AND s.subfield NOT IN ('review', 'methods') GROUP BY 1 ORDER BY 2 DESC LIMIT 3""")
 
     # citation rate by group
     cite_to = y1 - 2  # papers need about two years before citations per year mean much
@@ -87,10 +100,10 @@ def write(con, periods_sql, order):
 
     # goals
     goals_first = dict(q(f"""SELECT task, count(DISTINCT paper_id) FROM paper_task JOIN papers USING (paper_id)
-                            WHERE {periods_sql} IN ('{order[1]}', '{order[2]}') GROUP BY 1"""))
+                            WHERE {periods_sql} IN ('{first}', '{second}') GROUP BY 1"""))
     goals_last = dict(q(f"""SELECT task, count(DISTINCT paper_id) FROM paper_task JOIN papers USING (paper_id)
                            WHERE {periods_sql} IN ('{order[-2]}', '{order[-1]}') GROUP BY 1"""))
-    n_early = one(f"SELECT count(*) FROM papers WHERE {periods_sql} IN ('{order[1]}', '{order[2]}')")
+    n_early = one(f"SELECT count(*) FROM papers WHERE {periods_sql} IN ('{first}', '{second}')")
     n_late = one(f"SELECT count(*) FROM papers WHERE {periods_sql} IN ('{order[-2]}', '{order[-1]}')")
     goal_shift = sorted(((g, goals_last.get(g, 0) / max(1, n_late) - goals_first.get(g, 0) / max(1, n_early))
                          for g in set(goals_first) | set(goals_last)), key=lambda x: -x[1])
@@ -153,12 +166,13 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 ## Headlines
 
 1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were {pct(share(first, MODERN))} of architecture tags in {first} and {pct(share(last, MODERN))} in {last}. CNN/U-Net went from {pct(share(first, ['CNN / U-Net']))} to {pct(share(last, ['CNN / U-Net']))} over the same periods.
-2. **{data_headline}.** ERA5 appears in {era.get(first, 0)} papers in {first} and {era.get(last, 0)} in {last}, where it is used by {pct(era_m_last / max(1, methods_last))} of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from {ideal.get(order[2], 0)} papers in {order[2]} to {ideal.get(last, 0)} in {last}.
+2. **{data_headline}.** ERA5 appears in {era.get(first, 0)} papers in {first} and {era.get(last, 0)} in {last}, where it is used by {pct(era_m_last / max(1, methods_last))} of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from {ideal.get(second, 0)} papers in {second} to {ideal.get(last, 0)} in {last}.
 3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: {prob_line}.
-4. **Goals have shifted.** {top_goal[0]} is the most common goal overall ({top_goal[1]} papers). Comparing papers from {order[1]} and {order[2]} with papers from {order[-2]} and {order[-1]}, the fastest-growing goals are {', '.join(f'{g} (+{round(d * 100)} pts)' for g, d in goal_shift[:3])}; the largest declines are {', '.join(f'{g} ({round(d * 100)} pts)' for g, d in goal_shift[-2:])}.
-5. **Subfields keep distinct architecture signatures.** Dominant group per subfield: {'; '.join(sig)}.
+4. **Goals have shifted.** {top_goal[0]} is the most common goal overall ({top_goal[1]} papers). Comparing papers from {first} and {second} with papers from {order[-2]} and {order[-1]}, the fastest-growing goals are {', '.join(f'{g} (+{round(d * 100)} pts)' for g, d in goal_shift[:3])}; the largest declines are {', '.join(f'{g} ({round(d * 100)} pts)' for g, d in goal_shift[-2:])}.
+5. **Subfields keep distinct architecture signatures.** Dominant group per subfield among papers since {base_year}: {'; '.join(sig)}.
 6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: {'; '.join(f'{g}: {t} ({pct(n / total)})' for g, t, n, total in lim)}. The most common open problems across all papers are {', '.join(f'{t} ({n})' for t, n in open_top)}.
 7. **Citation rates.** Among method papers from 2018–{cite_to}, which have had time to collect citations, median citations per year are {', '.join(f'{g} {m:.0f} (n={n})' for g, m, n in cites)}. The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from {cite_to + 1} on are too recent to compare this way.
+8. **Machine learning in these fields is older than deep learning.** The catalog has {n_early_all} papers from before 2010, starting with {y0} expert systems and pattern-recognition studies. Their methods were mostly {', '.join(f'{g} ({n})' for g, n in early)}, applied above all to {', '.join(f'{l.lower()} ({n})' for l, n in early_sub)}. Many questions now revisited with deep learning (rainfall–runoff, satellite retrievals, emulating model physics, ENSO prediction) were first posed with these shallow models.
 
 ## Figures
 
@@ -175,8 +189,8 @@ The busiest years in the catalog are {peak[0][0]} ({peak[0][1]} papers) and {pea
 ### Architecture shift
 ![Architecture share by period](figures/03_architecture_share_by_period.png)
 
-| Period | Tags | CNN / U-Net | MLP / generic | RNN / LSTM | Classical ML | Generative | Transformers | Graph & operator |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Period | Tags | CNN / U-Net | MLP / generic | RNN / LSTM | Classical ML | Generative | Transformers | Graph & operator | Expert & fuzzy |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 {shift_rows}
 
 ### Data sources

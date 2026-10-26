@@ -87,7 +87,7 @@ d, order = fold(d, "subfield", "n", 7)
 pv = d.pivot_table(index="year", columns="subfield", values="n", aggfunc="sum", fill_value=0)[order]
 table(pv.reset_index(), "papers_per_year_by_subfield.csv")
 fig, ax = plt.subplots(figsize=(10, 4.8))
-stacked_bars(ax, pv, SERIES[:7] + [OTHER])
+stacked_bars(ax, pv, SERIES[:8] + [OTHER])
 ax.set_title("Papers per year, by primary subfield")
 ax.set_ylabel("Papers in catalog")
 ax.xaxis.set_major_locator(MaxNLocator(integer=True))
@@ -114,12 +114,12 @@ d = df(f"""WITH t AS (SELECT DISTINCT a.paper_id, a.arch_group, {PERIODS} AS per
              JOIN papers p USING (paper_id) WHERE tag_kind = 'model_family')
            SELECT period, arch_group, count(*) AS n FROM t GROUP BY ALL""")
 groups = ["CNN / U-Net", "MLP / generic NN", "RNN / LSTM", "Classical ML", "Generative (diffusion/GAN/VAE)",
-          "Transformers", "Graph & operator nets"]
+          "Transformers", "Graph & operator nets", "Expert systems & fuzzy logic"]
 pv = d.pivot_table(index="period", columns="arch_group", values="n", aggfunc="sum", fill_value=0).reindex(PERIOD_ORDER, fill_value=0).reindex(columns=groups, fill_value=0)
 share = pv.div(pv.sum(axis=1), axis=0)
 table(pv.assign(total=pv.sum(axis=1)).reset_index(), "architecture_groups_by_period.csv")
 fig, ax = plt.subplots(figsize=(10, 4.6))
-stacked_bars(ax, share.iloc[::-1], SERIES[:7], horizontal=True)
+stacked_bars(ax, share.iloc[::-1], SERIES[:8], horizontal=True)
 ax.xaxis.set_major_formatter(PercentFormatter(1.0))
 ax.set_xlim(0, 1)
 ax.set_title("Share of architecture tags by period")

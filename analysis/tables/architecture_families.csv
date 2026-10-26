@@ -8,11 +8,11 @@ VAE / flow / autoencoder,64
 U-Net,65
 Diffusion / flow matching,69
 Graph neural network,72
-Kernel / GP / SVM,102
+Kernel / GP / SVM,101
 Tree ensemble,118
-Linear / statistical,122
+Linear / statistical,121
 Transformer,139
 CNN,257
 RNN / LSTM,264
 MLP,304
-Neural network (unspecified),764
+Neural network (unspecified),760

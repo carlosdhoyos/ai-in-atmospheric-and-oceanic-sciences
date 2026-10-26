@@ -1,17 +1,17 @@
-source,≤2018,2019–20,2021–22,2023–24,2025–26
-Hydrological observations,73,48,57,50,40
-Stations / in situ,107,35,23,40,44
-Satellite,125,36,18,32,35
-CMIP / climate model output,26,27,35,47,34
-Operational NWP / reforecasts,15,15,24,48,64
-ERA5,0,13,19,70,54
-Idealized / toy model,31,32,32,23,9
-Radar,41,20,11,12,7
-Km-scale / high-res simulation,7,22,20,20,18
-Reanalysis (unspecified),5,13,10,16,29
-Energy & power data,25,5,8,9,7
-Crop & agricultural data,10,9,8,6,9
-Ocean / sea-ice models & products,7,4,4,15,12
-Other reanalysis,12,10,4,3,3
-Parameterization / scheme output,11,3,5,0,2
-Generic PDE / fluid benchmarks,2,7,2,4,0
+source,≤1999,2000–09,2010–18,2019–20,2021–22,2023–24,2025–26
+Hydrological observations,50,5,18,48,57,50,40
+Stations / in situ,81,3,23,35,23,40,44
+Satellite,100,2,23,36,18,32,35
+CMIP / climate model output,3,3,20,27,35,47,34
+Operational NWP / reforecasts,7,0,8,15,24,48,64
+ERA5,0,0,0,13,19,70,54
+Idealized / toy model,14,0,17,32,32,23,9
+Radar,30,1,10,20,11,12,7
+Km-scale / high-res simulation,0,0,7,22,20,20,18
+Reanalysis (unspecified),0,1,4,13,10,16,29
+Energy & power data,16,0,9,5,8,9,7
+Crop & agricultural data,2,0,8,9,8,6,9
+Ocean / sea-ice models & products,1,0,6,4,4,15,12
+Other reanalysis,7,2,3,10,4,3,3
+Parameterization / scheme output,8,2,1,3,5,0,2
+Generic PDE / fluid benchmarks,0,0,2,7,2,4,0
