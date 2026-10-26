@@ -1,8 +1,8 @@
 arch_group,papers,median_cites_per_year,q25,q75
-MLP / generic NN,228,14.135,8.0975,24.174999999999997
-Generative (diffusion/GAN/VAE),86,15.91,8.877500000000001,29.5825
-Classical ML,102,17.15,8.5825,25.45
-CNN / U-Net,154,18.085,10.0725,33.0025
-RNN / LSTM,128,20.4,11.9,39.195
-Transformers,56,21.0,8.255,54.355000000000004
-Graph & operator nets,44,23.2,7.6,78.18
+MLP / generic NN,209,14.4,8.13,24.62
+CNN / U-Net,208,14.86,8.0,29.64
+Generative (diffusion/GAN/VAE),104,15.14,8.0,28.77
+Classical ML,145,15.69,8.235,26.305
+Transformers,69,17.33,9.11,51.6
+RNN / LSTM,178,19.475,11.7,33.6375
+Graph & operator nets,50,19.799999999999997,7.29,75.58000000000001

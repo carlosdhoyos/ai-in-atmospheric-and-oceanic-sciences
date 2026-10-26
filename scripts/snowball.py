@@ -1,14 +1,15 @@
 """Find papers the catalog cites but does not contain (backward citation snowballing).
 
 Downloads the reference lists of every catalog paper from Semantic Scholar, counts how many catalog papers cite
-each referenced work, and keeps the ML-related ones that are not yet in the catalog. Works for any year, so it
+each referenced work, and keeps those that are not yet in the catalog (datasets, scores and generic ML among them
+are dropped at screening). Works for any year, so it
 catches older landmark papers that keyword searches over recent windows miss. Writes
 data/candidates_snowball_scored.csv in the same format as score_candidates.py, ranked by
     score = catalog papers citing it + log10(1 + total citations)
 so `update.py screen-batches --file data/candidates_snowball_scored.csv` can batch it for screening.
 References are cached in .update/cache_refs.json (resumable; delete it to refetch).
 
-    python3 scripts/snowball.py [--min-refs 3]
+    python3 scripts/snowball.py [--min-refs 3] [--exclude data/candidates_snowball_scored.csv --out data/candidates_snowball2_scored.csv]
 """
 import argparse
 import collections
@@ -26,7 +27,8 @@ CACHE = os.path.join(ROOT, ".update", "cache_refs.json")
 OUT = os.path.join(ROOT, "data", "candidates_snowball_scored.csv")
 REF_FIELDS = "references.paperId,references.title,references.year,references.venue,references.externalIds,references.citationCount"
 LITE = "title,abstract,publicationDate,year,venue,externalIds,citationCount,influentialCitationCount"
-# a referenced work must look like ML/statistical learning by its title; the screening step judges the rest
+# titles that look like ML; used only to report how many candidates do (model-name titles such as
+# "FengWu: Pushing the Skillful Global Medium-range Weather Forecast..." carry no ML term, so it is not a filter)
 ML = re.compile(r"neural|learning|machine|deep|\bai\b|artificial intelligence|data[- ]driven|emulat|surrogate|"
                 r"random forest|support vector|boost|decision tree|gaussian process|kernel|lstm|convolution|transformer|"
                 r"diffusion model|generative|\bgan\b|autoencoder|reservoir comput|self[- ]organi[sz]ing|clustering|"
@@ -48,6 +50,9 @@ def main(a):
     have = {p["s2"] for p in catalog}
     have_doi = {(p.get("doi") or "").lower() for p in catalog} - {""}
     have_arxiv = {p.get("arxiv") for p in catalog} - {None, ""}
+    seen = set()  # candidates already screened in an earlier round
+    for path in a.exclude:
+        seen |= {row["s2"] for row in csv.DictReader(open(path))}
     count, meta = collections.Counter(), {}
     for refs in cache.values():
         for r in {r["paperId"]: r for r in refs}.values():
@@ -59,10 +64,12 @@ def main(a):
         ext = r.get("externalIds") or {}
         if (k < a.min_refs or pid in have or (ext.get("DOI") or "").lower() in have_doi
                 or ext.get("ArXiv") in have_arxiv or NON_FINAL_DOI.match((ext.get("DOI") or "").lower())
-                or not ML.search(r.get("title") or "")):
+                or pid in seen):
             continue
         keep.append(pid)
-    print(f"{len(count)} referenced works; {len(keep)} ML-related, cited by >= {a.min_refs} catalog papers, not in catalog")
+    n_ml = sum(bool(ML.search(meta[p].get("title") or "")) for p in keep)
+    print(f"{len(count)} referenced works; {len(keep)} cited by >= {a.min_refs} catalog papers, not in catalog and not "
+          f"screened before ({n_ml} with ML terms in the title)")
 
     detail = dict(s2.batch(keep, fields=LITE, chunk=200)) if keep else {}
     rows = []
@@ -80,15 +87,17 @@ def main(a):
             "title": d.get("title") or r.get("title"), "abstract": (d.get("abstract") or "").replace("\n", " "),
         })
     rows.sort(key=lambda x: -x["score"])
-    with open(OUT, "w", newline="") as f:
+    with open(a.out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]) if rows else ["score"])
         w.writeheader()
         w.writerows(rows)
     years = collections.Counter((r["date"] or "?")[:4] for r in rows)
-    print(f"wrote {OUT}: {len(rows)} candidates; by year: {dict(sorted(years.items()))}")
+    print(f"wrote {a.out}: {len(rows)} candidates; by year: {dict(sorted(years.items()))}")
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
+    ap.add_argument("--exclude", nargs="*", default=[], help="earlier candidate CSVs whose rows were already screened")
+    ap.add_argument("--out", default=OUT)
     ap.add_argument("--min-refs", type=int, default=3, help="minimum number of catalog papers citing a work")
     main(ap.parse_args())

@@ -62,12 +62,15 @@ titles avoid the search terms. After each update (and whenever the user feels pa
 catalog's own reference lists:
 
 ```bash
-cd scripts && python3 snowball.py --min-refs 3 && cd ..   # -> data/candidates_snowball_scored.csv
-python3 scripts/update.py screen-batches --file data/candidates_snowball_scored.csv --top 2000 --n 6 --recent-from 0
+cd scripts && python3 snowball.py --min-refs 3 --exclude ../data/candidates_snowball*_scored.csv \
+    --out ../data/candidates_snowball_YYYY-MM-DD_scored.csv && cd ..
+python3 scripts/update.py screen-batches --file data/candidates_snowball_YYYY-MM-DD_scored.csv --top 2000 --n 6 --recent-from 0
 ```
 
-It lists ML-related works cited by at least 3 catalog papers that the catalog lacks, from any year, ranked by
-how many catalog papers cite them. `--recent-from 0` gives the screeners every catalog title, which they need
+It lists works cited by at least 3 catalog papers that the catalog lacks, from any year, ranked by how many
+catalog papers cite them; `--exclude` skips candidates screened in earlier rounds. There is deliberately no title
+filter: model papers often have no ML word in the title (FengWu, GenCast), so most of the list is datasets,
+scores and generic ML that the screeners drop. `--recent-from 0` gives the screeners every catalog title, which they need
 because Semantic Scholar often keeps a preprint and its published version as separate records (GraphCast,
 FourCastNet). Tell the screeners that older papers are wanted and that generic ML (ResNet, Transformer, random
 forests, diffusion foundations, software) is excluded. References are cached in `.update/cache_refs.json`, so a
