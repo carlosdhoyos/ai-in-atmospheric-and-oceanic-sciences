@@ -5,7 +5,9 @@ Pipeline:
   2. discover.py     -> data/cache_discovery.json (highly cited candidates, screened into data/additions.tsv)
   3. build.py        -> one Semantic Scholar batch call for metadata + citation counts, then outputs.
 """
+import csv
 import datetime as dt
+import glob
 import json
 import os
 import re
@@ -94,24 +96,33 @@ def main():
         if ax:
             look.append("ARXIV:" + ax["id"])
         entries.append({"seed": title, "topics": [topic], "look": look, "cr": cr, "check": True})
+    # titles of screened candidates, used when Semantic Scholar does not resolve an addition's DOI/arXiv ID
+    hints = {}
+    for path in sorted(glob.glob(D("candidates_*_scored.csv"))):
+        hints.update({r["id"]: r["title"] for r in csv.DictReader(open(path))})
     for topic, pid, *_ in additions:
-        entries.append({"seed": pid, "topics": topic.split(","), "look": [pid], "cr": None, "check": False})
+        entries.append({"seed": pid, "topics": topic.split(","), "look": [pid], "cr": None, "check": False,
+                        "hint": hints.get(pid)})
 
-    fetched = False  # True when this run downloads anything new from Semantic Scholar
     cache_path = D("cache_s2.json")
     s2cache = json.load(open(cache_path)) if os.path.exists(cache_path) else {}
+    today = dt.date.today().isoformat()
+
+    def remember(key, rec):  # cache a lookup and record when the cache last received new data
+        s2cache[key] = rec
+        s2cache["__fetched__"] = today
+
     for e in entries:
         if not e["look"]:
             key = "TITLE:" + e["seed"]
             if key not in s2cache:
-                s2cache[key] = s2.match(e["seed"]); fetched = True
+                remember(key, s2.match(e["seed"]))
                 json.dump(s2cache, open(cache_path, "w"))
             e["look"] = [key]
     all_ids = sorted({i for e in entries for i in e["look"]})
     missing = [i for i in all_ids if i not in s2cache]
-    fetched = fetched or bool(missing)
     for n, (i, rec) in enumerate(s2.batch(missing), 1):
-        s2cache[i] = rec
+        remember(i, rec)
         if n % 50 == 0 or n == len(missing):
             json.dump(s2cache, open(cache_path, "w"))
             print(f"fetched {n}/{len(missing)}", flush=True)
@@ -124,13 +135,14 @@ def main():
             bad = [r for r in recs if sim(e["seed"], r["title"]) < 0.8]
             mismatched.extend((e["seed"], r["title"]) for r in bad)
             recs = [r for r in recs if r not in bad]
-        if not recs and e["check"]:  # identifiers missing or wrong: fall back to a title match
-            key = "TITLE:" + e["seed"]
+        title = e["seed"] if e["check"] else e.get("hint")
+        if not recs and title:  # identifiers missing or wrong: fall back to a title match
+            key = "TITLE:" + title
             if key not in s2cache:
-                s2cache[key] = s2.match(e["seed"]); fetched = True
+                remember(key, s2.match(title))
                 json.dump(s2cache, open(cache_path, "w"))
             r = s2cache[key]
-            recs = [r] if r and sim(e["seed"], r["title"]) >= 0.8 else []
+            recs = [r] if r and sim(title, r["title"]) >= 0.9 else []
         if not recs:
             unresolved.append(e["seed"])
             continue
@@ -196,9 +208,8 @@ def main():
             "task", "issue_theme", "open_theme")
     for p in out:
         p["cat"] = {k: cats[p["s2"]][k] for k in keep}
-    # The retrieval date shown on the pages only advances when this run fetched new metadata/citations
-    previous = json.load(open(D("papers.json"))).get("retrieved") if os.path.exists(D("papers.json")) else None
-    retrieved = dt.date.today().isoformat() if fetched or not previous else previous
+    # The retrieval date shown on the pages is when the metadata cache last received new data
+    retrieved = s2cache.get("__fetched__") or today
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
 

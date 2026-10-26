@@ -998,21 +998,6 @@
    "cites": 103
   }
  },
- "ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting": {
-  "crossref": {
-   "score": 0.0,
-   "doi": "10.5194/egusphere-egu26-4637",
-   "title": "GenEPS: A Generative Foundation Model for Probabilistic Weather Forecasting\u00a0",
-   "type": "posted-content",
-   "venue": "",
-   "cites": 0
-  },
-  "arxiv": {
-   "score": 1.0,
-   "id": "2412.12971",
-   "title": "ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting"
-  }
- },
  "FourCastNet 3: A geometric approach to probabilistic machine-learning weather forecasting at scale": {
   "crossref": {
    "score": 0.0,
@@ -3550,5 +3535,9 @@
    "id": "1612.02095",
    "title": "ExtremeWeather: A large-scale climate dataset for semi-supervised detection, localization, and understanding of extreme weather events"
   }
+ },
+ "ArchesWeatherGen: Skillful and compute-efficient probabilistic weather forecasting with machine learning": {
+  "crossref": null,
+  "arxiv": null
  }
 }

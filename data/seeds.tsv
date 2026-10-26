@@ -86,7 +86,7 @@ probabilistic	Huge Ensembles Part I: Design of Ensemble Weather Forecasts using 
 probabilistic	FuXi-ENS: A machine learning model for medium-range ensemble weather forecasting
 probabilistic	SwinVRNN: A Data-Driven Ensemble Forecasting Model via Learned Distribution Perturbation
 probabilistic	Generative emulation of weather forecast ensembles with diffusion models
-probabilistic	ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting
+probabilistic	ArchesWeatherGen: Skillful and compute-efficient probabilistic weather forecasting with machine learning
 probabilistic	FourCastNet 3: A geometric approach to probabilistic machine-learning weather forecasting at scale
 probabilistic	Ensemble Methods for Neural Network-Based Weather Forecasts
 probabilistic	A generative adversarial network approach to (ensemble) weather prediction

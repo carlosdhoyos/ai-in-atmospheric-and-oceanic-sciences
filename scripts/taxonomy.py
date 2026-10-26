@@ -146,7 +146,7 @@ def classify(paper):
                                                  r"opportunities|tackling|revolution|digital twin|rise of", paper["title"], I):
         ptype = "review"
     else:
-        ptype = next(label for label, rx in PAPER_TYPE if re.search(rx, type_text.strip(), I))
+        ptype = next((label for label, rx in PAPER_TYPE if re.search(rx, type_text.strip(), I)), "method")
     if ptype == "method" and "benchmarks" in paper["topics"]:
         ptype = "dataset_benchmark"
 

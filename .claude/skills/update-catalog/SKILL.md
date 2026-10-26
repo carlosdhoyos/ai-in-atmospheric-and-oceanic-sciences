@@ -83,8 +83,10 @@ python3 scripts/update.py pending-summaries --size 30
 ```
 
 The build prints `UNRESOLVED` (no record found) and `MISMATCH` (the ID resolved to a different title) lines.
-A mismatch is often the same paper published under a new title; if so, update the title in `data/seeds.tsv`.
-Otherwise fix the ID in `data/overrides.tsv` or drop the entry.
+Semantic Scholar misses some DOIs (AIES articles, for example); the build then retries with the title recorded in
+the candidates file, so only a few should remain. A mismatch is often the same paper published under a new
+title; if so, update the title in `data/seeds.tsv` and `data/overrides.tsv` and rename its key in
+`data/cache_ids.json`. Otherwise fix the ID in `data/overrides.tsv` or drop the entry.
 
 Write the summary cards for each batch in `.update/sum_in/` following
 [references/summary-brief.md](references/summary-brief.md) (one subagent per batch works well), then:

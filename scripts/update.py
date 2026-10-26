@@ -82,8 +82,12 @@ def merge(_):
             elif pid not in summ:
                 summ[pid] = {k: card[k] for k in ("goal", "architecture", "data", "result", "open_work", "issues", "basis")}
                 added += 1
+    # cards of records that left the catalog (e.g. a preprint replaced by its published version)
+    orphans = [pid for pid in summ if pid not in papers]
+    for pid in orphans:
+        del summ[pid]
     json.dump(summ, open(os.path.join(ROOT, "data", "summaries.json"), "w"), indent=1, ensure_ascii=False)
-    print(f"merged {added} new summaries; {len(summ)} total")
+    print(f"merged {added} new summaries; removed {len(orphans)} orphaned; {len(summ)} total")
     for p in problems:
         print("  PROBLEM:", p)
     if problems:
