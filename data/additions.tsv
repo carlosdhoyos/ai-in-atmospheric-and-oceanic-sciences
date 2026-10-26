@@ -1445,3 +1445,1068 @@ extremes,weather	bd1e7a2d36a36d69510ad1fc9165c53549f7adf5	Nearest-neighbour (ana
 seaice,remote_sensing	DOI:10.1109/igarss.1996.516260	Automated classification of summer marginal ice zone imagery
 agriculture,hydrology	DOI:10.13031/2013.31428	Expert-system coupling of SOYGRO crop and DRAINMOD water models
 nowcasting	3f10baea4301154dfdaed0e65c4acbb1cf3f9c28	Real-time radar rainfall prediction with neural network and genetic algorithm
+hydrology	DOI:10.1016/j.asoc.2005.02.002	Widely cited comparison of ANN training algorithms for rainfall-runoff modelling
+chemistry	DOI:10.1016/j.engappai.2004.02.002	Highly cited evolutionary-optimised NN for air pollution forecasting
+hydrology	DOI:10.1061/(asce)0733-9429(2006)132:12(1321)	ANN vs fuzzy logic for event rainfall-runoff; well cited
+hydrology,s2s	DOI:10.1623/hysj.52.3.508	Data-driven seasonal inflow forecasts from climate indices
+hydrology,methods	DOI:10.1029/2007wr006734	Multiobjective ANN training for rainfall-runoff
+hydrology,s2s	DOI:10.1002/hyp.6630	Streamflow forecasting with large-scale circulation predictors
+climate,extremes	DOI:10.1175/1520-0442(2000)013<1718:usomti>2.0.co;2	Early influential SOM study of extreme precipitation patterns
+hydrology,remote_sensing	DOI:10.1109/tgrs.2006.876297	SVM upscaling of ET from MODIS and flux towers; TGRS, well cited
+weather	9f307c5212f90eb673250ab5983c707e3045d522	Well-cited ANN temperature forecasting
+hydrology	DOI:10.1016/s0098-3004(00)00136-9	Neural/multi-model data fusion for hydrological forecasting
+hydrology	DOI:10.2166/nh.2009.001	ML imputation of missing precipitation-runoff data
+review,hydrology	DOI:10.1061/(asce)0733-9496(2005)131:1(1)	Review of evolutionary computation in water resources
+weather	9426dc73c68f376a493e66d176060e5e5ad1bb25	ML fog forecasting with imbalanced training data; thin subfield
+downscaling	DOI:10.1175/jhm409.1	Classic temporal NN downscaling of precipitation and temperature
+hydrology,parameterization	DOI:10.1016/j.jhydrol.2005.06.017	Hybrid ANN-conceptual rainfall-runoff modelling
+hydrology	DOI:10.1139/s03-071	Wavelet-ANN rainfall-runoff forecasting; well cited
+downscaling,climate	DOI:10.1002/joc.1719	SVM downscaling of temperature under SRES scenarios
+hydrology	DOI:10.1080/02626660209492964	Comparison of updating models incl. NN for real-time river flow forecasting
+hydrology	DOI:10.1061/(asce)1084-0699(2005)10:2(91)	Combining data-driven models for reservoir inflow forecasts
+energy	DOI:10.1109/tpwrs.2004.835679	Landmark SVM load forecasting (EUNITE) with temperature inputs; highly cited
+hydrology,extremes	da8d4eac778709ae25007f8d124cecb4d853279d	GA-optimised NN flood forecasting
+energy	DOI:10.1109/tec.2003.821865	Highly cited fuzzy wind speed and wind park power prediction
+ocean,remote_sensing	DOI:10.1080/0143116031000103781	NN retrieval of case II water optical parameters
+hydrology	DOI:10.1016/j.jhydrol.2004.10.008	Recurrent NN forecasting of nonstationary hydrological series; well cited
+energy	DOI:10.1016/j.renene.2006.10.005	Well-cited ANN wind speed forecasting
+agriculture,hydrology	DOI:10.1080/01431160701250390	Crop classification from image time series for irrigation ET estimates
+energy	DOI:10.1016/j.ins.2007.05.024	Locally recurrent NN wind speed prediction; well cited
+hydrology,remote_sensing	DOI:10.1109/tgrs.2008.920370	Comparison of NN/Bayesian soil moisture retrieval algorithms from SAR
+chemistry	DOI:10.1016/j.envsoft.2004.12.002	Multi-method (incl. NN) ozone forecasting comparison
+energy	DOI:10.1016/j.jastp.2009.04.009	Comparison of NN/ANFIS models for solar radiation estimation
+chemistry	DOI:10.1016/j.ijar.2006.08.001	Fuzzy lattice classifier for ambient ozone estimation
+hydrology,agriculture	DOI:10.1061/(asce)ir.1943-4774.0000008	ARIMA vs ANN evapotranspiration forecasting
+energy	DOI:10.20965/jaciii.2010.p0069	NN ensemble solar power forecasting
+s2s,ocean	DOI:10.1175/1520-0442(2000)013<0287:scbnna>2.0.co;2	NN vs CCA for tropical Pacific SST/ENSO prediction
+hydrology	DOI:10.1016/s0965-9978(02)00015-7	NN and fuzzy systems for reservoir/dam operation
+ocean,extremes	DOI:10.1016/j.oceaneng.2007.12.006	NN tidal level prediction with meteorological surge effects
+energy	DOI:10.1016/j.apenergy.2004.06.001	ANN estimation of solar energy potential from meteorological data
+downscaling	DOI:10.1029/2004jd004823	Comparison of downscaling approaches for multisite precipitation occurrence
+ocean,remote_sensing	DOI:10.1175/jtech1688.1	Neurovariational inversion of ocean colour imagery
+agriculture	DOI:10.21273/hortsci.19.1.133	Data mining with agrometeorological variables for crop prediction
+energy,probabilistic	DOI:10.1109/mper.2002.4312413	Influential NN load forecasting driven by ECMWF ensemble weather predictions
+chemistry	DOI:10.1080/01431160701250440	ANN prediction of total ozone
+hydrology,extremes	DOI:10.1002/hyp.317	Traditional vs NN flood forecasting comparison
+hydrology	DOI:10.1016/s0098-3004(03)00137-7	Fuzzy clustering real-time hydrological forecasting
+hydrology,extremes	DOI:10.1002/hyp.7471	RBF inflow forecasting during typhoons
+hydrology	DOI:10.1023/b:warm.0000024727.94701.12	Well-cited RNN river flow forecasting
+ocean,s2s	DOI:10.1007/s00382-002-0262-8	Neural NLCCA of tropical Pacific wind stress and SST
+climate,ocean	DOI:10.1016/j.quascirev.2004.02.018	ANN transfer-function reconstruction of glacial SST; well cited
+s2s	DOI:10.1007/s003820050328	ANN prediction of Indian summer monsoon rainfall; well cited
+hydrology	DOI:10.1111/j.1745-6584.2005.0003.x	NN prediction of aquifer water levels; well cited
+ocean,s2s	DOI:10.1029/2001jc001236	Nonlinear PCA of Pacific subsurface variability
+energy	DOI:10.1016/j.applthermaleng.2004.06.017	RNN-wavelet solar irradiance forecasting
+hydrology	DOI:10.1061/(asce)1084-0699(2000)5:4(424)	ANN runoff prediction evaluation; well cited
+energy	DOI:10.1016/j.engappai.2008.02.003	Recurrent wavelet NN solar irradiation forecasting
+remote_sensing	DOI:10.1109/igarss.2001.978006	Probabilistic NN cloud detection; thin subfield in this decade
+energy	DOI:10.1109/cimsa.2009.5069932	ARIMA vs NN wind speed forecasting
+hydrology	DOI:10.1007/s11269-006-9070-y	ANN synthetic streamflow generation
+hydrology	DOI:10.1007/s11269-009-9409-2	Wavelet network inflow prediction at Three Gorges
+remote_sensing	DOI:10.1071/es03003	Fuzzy-logic hydrometeor classification with polarimetric radar
+chemistry	DOI:10.1016/j.simpat.2007.09.005	Computational intelligence air pollution modelling
+remote_sensing	DOI:10.1175/2007jtecha953.1	Automatic detection of insect clutter in cloud radar
+energy	DOI:10.1109/isap.2009.5352820	ML for load, price and wind power prediction
+energy	DOI:10.1016/j.renene.2007.12.020	NN wind speed estimation in complex terrain
+hydrology	847baffd88270b235855d2dac1707af523c0724c	Fuzzy/GA precipitation interpolation
+remote_sensing	DOI:10.1017/s1350482704001173	NN satellite rainfall estimation
+s2s	DOI:10.1002/joc.1588	NN seasonal summer rainfall prediction in Yangtze basin
+chemistry	DOI:10.1016/j.cageo.2008.11.007	Neurocomputing forecast of total ozone
+chemistry,remote_sensing	DOI:10.1109/tgrs.2002.803622	Neural retrieval of ozone profiles from GOME
+ocean	DOI:10.1029/2005gl023697	GA-based wave height prediction
+energy	DOI:10.1109/iceet.2009.571	EMD-LSSVM wind speed and power prediction
+hydrology	DOI:10.1016/s0965-9978(03)0039-5	Linear vs nonlinear (ANN) forecasting of Nile flows
+remote_sensing	DOI:10.1109/artcom.2009.43	SVM cloud classification
+weather	DOI:10.1109/cimsa.2003.1227230	ANN forecast of road ice formation
+remote_sensing	51603062f8adfaae08824f256ae77405028db873	NN quality control of weather radar data
+ocean,remote_sensing	DOI:10.1109/tsmcb.2003.822959	Fuzzy rules for ocean colour retrieval
+s2s	DOI:10.1175/jcli-3291.1	Nonlinear classification of rainfall onset
+hydrology,extremes	53828cae0f680d81643e90cbd3732fc8fa79dc0d	ANN drought forecasting
+chemistry	8db5343475ccdda72017d1b32ee8bd5f715fe692	Hierarchical fuzzy modelling of air quality indices
+extremes,weather	b6d35f9d0243b9c0517237cf32c45dfc5a173b2d	Operational decision-tree avalanche forecasting
+remote_sensing,ocean	DOI:10.1016/j.rse.2005.05.022	NN cloud/glint/SST analysis of ATSR-2
+chemistry	DOI:10.1007/11875581_27	GA input selection for MLP air pollutant prediction
+remote_sensing	DOI:10.1109/igarss.2004.1368559	SOM of spaceborne precipitation radar rain profiles
+hydrology,methods,review	DOI:10.5194/hess-14-1931-2010	Influential HESS comparison of six data-driven techniques (ANN, GP, SVM, etc.) for hydrological prediction
+hydrology	DOI:10.1029/2003wr002355	Highly cited WRR hybrid GA + ANN rainfall-runoff modelling
+hydrology,s2s	DOI:10.1029/2008wr006855	WRR: SVM long-lead streamflow forecasting from ocean-atmosphere oscillation indices
+hydrology,extremes	DOI:10.3189/002214309790152429	J. Glaciology: statistical/ML forecasting of avalanche danger from simulated snow cover and weather
+chemistry	DOI:10.1016/j.chemosphere.2004.10.032	Widely cited early SVM application to air pollutant forecasting
+agriculture	DOI:10.1017/s0021859606006691	Highly cited ANN crop (rice) yield prediction from climate/weather inputs
+s2s,climate	DOI:10.1007/s00382-006-0173-1	Climate Dynamics: neural networks to detect decadal changes in ENSO
+energy,postprocessing	DOI:10.1109/tpwrs.2006.889078	Highly cited NWP-driven fuzzy/NN wind power forecasting method (IEEE TPWRS)
+energy	DOI:10.1016/s0038-092x(99)00064-x	Highly cited AI (ANN) forecasting of hourly solar radiation with meteorological inputs
+hydrology	DOI:10.1016/j.jhydrol.2003.08.011	Highly cited ANN daily rainfall-runoff modelling
+downscaling,climate,hydrology	DOI:10.1002/joc.1529	Highly cited SVM downscaling of precipitation for IPCC SRES scenarios
+hydrology	DOI:10.1061/(asce)1084-0699(2005)10:3(216)	Well cited ANN watershed runoff/streamflow forecasting
+remote_sensing	DOI:10.1175/1520-0477(2000)081<2035:eopsse>2.3.co;2	Landmark BAMS evaluation of PERSIANN neural-network satellite rainfall estimates
+hydrology,extremes	DOI:10.1002/1099-1085(20001015)14:14<2473::aid-hyp109>3.0.co;2-j	Comparison of conceptual, ARMA and neural network flood forecasting models
+hydrology	DOI:10.1002/hyp.1313	Recurrent neural network for multi-step streamflow forecasting
+hydrology,methods	DOI:10.1029/2006wr005298	WRR: effect of missing data on learning algorithms for hydrologic prediction
+chemistry	DOI:10.1016/j.envsoft.2008.04.004	Neural network hourly ozone forecasting for a 24-h horizon
+energy	DOI:10.1109/tec.2008.2006552	Highly cited data-mining (ML) short-term wind farm power prediction with wind inputs
+chemistry	DOI:10.1016/j.atmosenv.2005.01.050	Highly cited operational-style neural network PM10 forecast for Belgium
+downscaling,climate	DOI:10.1029/2002wr001769	Highly cited WRR k-nearest-neighbour weather generator for regional climate scenarios
+hydrology	DOI:10.1016/j.jhydrol.2004.03.027	Highly cited self-organizing RBF neural network streamflow forecasting
+climate,hydrology	DOI:10.1029/2006jg000332	Self-organizing map analysis of synoptic forcing of Arctic basin net precipitation in 21st-century projections
+downscaling,probabilistic	DOI:10.1175/2008jhm960.1	Probabilistic multisite precipitation downscaling with a Bernoulli-gamma conditional density network
+ocean	DOI:10.1029/2007jc004646	Neural-network estimates of North Atlantic surface pCO2 from satellite data; precursor of ML ocean-carbon mapping
+chemistry	DOI:10.1016/j.chemosphere.2005.08.070	ANFIS prediction of daily air pollution levels
+energy	DOI:10.1109/tia.2009.2023571	Load forecasting driven by multiple meteorological inputs
+hydrology,weather	DOI:10.1623/hysj.54.2.234	Wavelet-neural network daily precipitation prediction
+review,hydrology	DOI:10.1061/(asce)1084-0699(2000)5:2(124)	ASCE Task Committee landmark review of ANN hydrologic applications (companion of Part I already in catalog)
+hydrology	DOI:10.1002/hyp.7448	Wavelet-NN modelling of evapotranspiration
+hydrology	DOI:10.1623/hysj.52.2.305	SOM and MLP interpolation of monthly precipitation
+energy	DOI:10.1109/pes.2003.1270992	Early recurrent MLP wind power prediction
+remote_sensing,chemistry,ocean	DOI:10.1016/j.neunet.2006.01.015	Neuro-variational inversion retrieving ocean and absorbing-aerosol constituents from ocean colour sensors
+hydrology,downscaling	DOI:10.1109/tgrs.2008.919819	Wavelet-SVM downscaling and forecasting of evapotranspiration (IEEE TGRS)
+hydrology	DOI:10.1002/1097-0088(200010)20:12<1495::aid-joc549>3.0.co;2-f	Int. J. Climatology: ANN forecasting of Amazonian discharge
+hydrology	DOI:10.2166/hydro.2001.0002	Early adaptive neuro-fuzzy rainfall-runoff modelling
+remote_sensing,ocean	DOI:10.1016/s0034-4257(03)00113-5	Neural classification of top-of-atmosphere ocean colour spectra (aerosol/ocean types)
+s2s,methods	DOI:10.1029/2001jd001250	JGR: nonlinear PCA (neural network) representation of the QBO
+hydrology	DOI:10.2166/nh.2005.0005	Well cited study of backpropagation training and k-fold data partitioning for flow prediction
+remote_sensing	DOI:10.1175/1520-0450(2001)040<2115:refaco>2.0.co;2	ANN rainfall estimation combining TRMM PR and GOES multispectral imagery
+seaice	DOI:10.3189/172756407782871549	Self-organizing map analysis of Antarctic sea ice variability (thin subfield)
+weather	DOI:10.1016/j.renene.2008.07.007	Highly cited ANN daily mean temperature prediction
+hydrology,remote_sensing	DOI:10.1109/tgrs.2007.909951	IEEE TGRS: neural network vs Bayesian soil moisture retrieval from remote sensing
+remote_sensing	DOI:10.1175/2009jhm1139.1	PERSIANN-MSA multispectral neural network satellite precipitation estimation
+downscaling,climate	DOI:10.1002/hyp.6084	Uncertainty comparison of statistical downscaling methods including ANN
+hydrology,extremes	DOI:10.1016/j.jhydrol.2006.09.001	J. Hydrology flood prediction with time-series data mining
+weather,postprocessing	DOI:10.1175/waf994.1	Weather and Forecasting: neural network ceiling and visibility forecasts
+chemistry	DOI:10.1007/s005210170008	Neural prediction of particulate air pollution
+remote_sensing	DOI:10.1029/2004jd005318	Neural-network AMSU-A/B temperature and humidity profiling over land
+hydrology	DOI:10.1016/j.jhydrol.2005.05.007	ANN with weather radar for urban watershed runoff
+hydrology,remote_sensing,agriculture	DOI:10.1109/tgrs.2002.800277	Neural network retrieval of crop biomass and soil moisture from microwave brightness temperatures
+seaice,remote_sensing	DOI:10.1029/2005gl022395	GRL: neural network analysis of Arctic multiyear sea ice from SMMR-SSM/I, 1979-2004
+hydrology	DOI:10.1623/hysj.50.2.319.61793	Fuzzy-optimisation neural network river ice forecasting
+remote_sensing,ocean	DOI:10.1016/s0925-2312(99)00136-8	Bayesian/neural scatterometer wind field retrieval
+remote_sensing	DOI:10.1016/j.rse.2004.08.005	ANN-based CERES top-of-atmosphere flux retrievals
+hydrology	DOI:10.1016/j.jhydrol.2006.02.025	PSO-trained ANN river stage forecasting; highly cited
+chemistry	DOI:10.1016/j.engappai.2006.10.008	Wavelet+SVM air pollution forecasting; well cited
+extremes,hydrology	DOI:10.1029/2009wr007911	SVM forecasting of hourly typhoon rainfall
+hydrology	DOI:10.1016/j.jhydrol.2008.08.026	Recurrent NN vs conceptual model for daily streamflow
+hydrology,extremes	DOI:10.1016/j.jhydrol.2006.01.021	SVR for real-time flood stage forecasting; highly cited
+hydrology,extremes	DOI:10.1111/j.1752-1688.2002.tb01544.x	Early SVM flood stage forecasting; well cited
+ocean,extremes	DOI:10.1016/j.oceaneng.2008.08.004	SVR storm surge prediction; well cited
+energy	DOI:10.1016/j.energy.2004.04.035	ANN input selection for direct solar irradiance modelling
+chemistry	DOI:10.1108/02644400310465317	Improved NN models for air quality forecasting
+s2s,methods	DOI:10.1175/1520-0442(2001)014<2528:nccaot>2.0.co;2	Hsieh's neural nonlinear CCA of tropical Pacific/ENSO variability
+weather,hydrology	DOI:10.1016/s0895-7177(00)00272-7	Widely cited ANN rainfall forecasting study
+energy,probabilistic	8bbdbc04bb5e1d182fb0d18a01e71649740dad4c	Uncertainty estimation for wind power forecasts (NWP-based); well cited
+review,hydrology	DOI:10.1061/(asce)0733-9496(2004)130:2(93)	Landmark review of multireservoir operation incl. ANN, fuzzy and evolutionary methods; very highly cited
+hydrology,probabilistic	DOI:10.1002/hyp.6184	Uncertainty in real-time ANN flood forecasting
+hydrology	DOI:10.1016/s0022-1694(01)00430-9	Fuzzy conceptual rainfall-runoff models
+weather	DOI:10.1175/2007jamc1693.1	ANN dewpoint temperature prediction from weather data
+chemistry	DOI:10.1007/978-94-010-0932-4_30	Hybrid NN air quality forecasting
+energy	DOI:10.1016/j.enbuild.2008.06.013	ANN vs simulation for weather-driven building energy consumption; highly cited
+hydrology,methods	DOI:10.1016/j.neunet.2007.04.019	Modular ANN with global optimisation for hydrological forecasting
+remote_sensing	DOI:10.1080/01431160500106892	Neural network cloud detection in satellite imagery
+weather,hydrology	DOI:10.1016/j.engappai.2008.09.003	Wavelet-neural precipitation prediction; well cited
+hydrology	DOI:10.1016/j.advwatres.2003.10.003	MLP estimation/forecasting of suspended sediment; highly cited
+energy,weather	DOI:10.1016/j.renene.2006.12.001	ANN wind speed prediction from reference stations; highly cited
+chemistry,probabilistic	DOI:10.1016/j.chemosphere.2005.06.047	Bayesian ARD neural model for interval ozone estimation
+climate,probabilistic	DOI:10.1007/s00382-003-0345-1	Knutti et al.: NN emulator for probabilistic climate change projections
+energy	DOI:10.1016/s0306-2619(03)00137-5	ANN mapping of solar potential from meteorological data
+remote_sensing,ocean	DOI:10.1109/tgrs.2003.814658	NN-based global ocean wind speed retrieval from SAR
+hydrology,extremes	DOI:10.1016/s0022-1694(01)00353-5	Quantitative flood forecasting with multisensor data and NNs
+energy	DOI:10.1016/j.enconman.2007.09.021	ANN solar radiation modelling across climates
+hydrology,agriculture	DOI:10.1007/s00271-007-0090-z	ANN vs Hargreaves for reference evapotranspiration
+hydrology,methods	DOI:10.1016/j.jhydrol.2006.07.003	Kernel ridge regression for hydrologic time series forecasting
+energy,weather	DOI:10.1016/j.neucom.2008.09.010	Banks of ANNs for short-term wind speed prediction
+climate,s2s	DOI:10.1002/joc.1934	Classification tree diagnosis of warm-season rainfall variability in Mexico
+hydrology,methods	DOI:10.5194/hess-8-940-2004	NN generalisation via data sampling for streamflow prediction
+hydrology	DOI:10.1002/hyp.1013	ANN short-term reservoir inflow forecasting
+hydrology	DOI:10.1016/j.envsoft.2009.06.008	Bayesian networks for reservoir operating rules
+energy,weather	DOI:10.1007/s12040-008-0045-7	Regression vs NN wind speed prediction
+hydrology,remote_sensing	DOI:10.1109/36.942544	NN soil moisture retrieval from brightness temperatures
+ocean,methods	DOI:10.1016/j.neunet.2007.04.023	Fast NN surrogates for high-dimensional ocean models (early emulator)
+ocean,extremes	DOI:10.1175/2008jamc1907.1	NN storm surge prediction
+remote_sensing	DOI:10.1109/igarss.2000.861666	SVM cloud classification
+hydrology,probabilistic	DOI:10.1623/hysj.48.5.679.51450	Complementary ANN error models for hydrological model uncertainty
+ocean,extremes	DOI:10.1016/j.advengsoft.2007.06.005	ANN typhoon storm surge prediction in Taiwan
+chemistry	DOI:10.1016/j.atmosenv.2005.10.042	MLP ozone forecasting with hybrid training
+hydrology,s2s	DOI:10.1061/(asce)0733-9496(2003)129:2(146)	Seasonal streamflow prediction with error estimation (Bayesian NN)
+hydrology	DOI:10.1061/(asce)0733-9496(2009)135:1(5)	Fuzzy neural network modelling of reservoir operation
+ocean,remote_sensing	DOI:10.1016/s1568-4946(01)00007-2	Genetic programming for ocean colour retrieval
+ocean	DOI:10.1016/j.oceaneng.2007.11.009	ANN real-time tsunami detection in deep-sea level data
+remote_sensing	DOI:10.1175/2009jamc2103.1	Comparison of GOES cloud classification algorithms incl. ML
+hydrology,remote_sensing	DOI:10.1016/j.rse.2003.12.002	ANN retrieval of SWE and snow depth from SSM/I; well cited
+hydrology	DOI:10.1007/s11269-006-9022-6	ANN forecasting of lake level fluctuations; well cited
+downscaling,weather	DOI:10.1007/s00382-006-0184-y	Neural network daily precipitation generator
+hydrology,xai	DOI:10.1002/hyp.6819	ANN evapotranspiration models with physical interpretation; well cited
+hydrology,weather	DOI:10.1080/02626660009492339	Adaptive fuzzy rule-based reconstruction of missing precipitation; well cited
+s2s,methods	DOI:10.1175/1520-0442(2001)013<0219:npcati>2.0.co;2	Hsieh's NLPCA of Indo-Pacific SST and SLP
+hydrology	DOI:10.1016/j.biosystemseng.2006.02.014	ANN simulation of runoff and sediment yield
+ocean,remote_sensing	DOI:10.1109/36.934081	RBF NN retrieval of seawater optical parameters from hyperspectral data
+hydrology	DOI:10.1111/j.1745-6584.2007.00366.x	NN simulation of regional groundwater levels
+remote_sensing	DOI:10.1109/tgrs.2003.815404	Multifeature texture classification of clouds in satellite imagery
+chemistry,xai	DOI:10.1016/j.ecolmodel.2004.07.015	Sensitivity analysis and pruning in NNs for surface ozone
+weather,hydrology	DOI:10.1002/hyp.6323	Recurrent SVR rainfall forecasting
+ocean	169fa91ccef3eaa59bd40181bbbbb67cfb261b45	ANN tide forecasting
+ocean,remote_sensing	DOI:10.1023/b:joce.0000038345.99050.c0	NN retrieval of ocean colour constituents (MERIS-type algorithm)
+ocean	DOI:10.1016/j.cageo.2007.12.004	ANN sea-level prediction
+hydrology,remote_sensing	DOI:10.3390/rs2010166	ANN soil moisture retrieval
+weather	DOI:10.1002/met.71	Comparison of NN learning algorithms for rainfall time series
+downscaling	DOI:10.1175/waf981.1	Linear vs nonlinear (NN) statistical downscaling of rainfall
+chemistry,remote_sensing	DOI:10.1016/j.jqsrt.2004.07.028	NN dimensionality reduction for GOME ozone profile retrieval
+climate	DOI:10.5194/angeo-27-1097-2009	ANN dendroclimatic temperature reconstruction
+weather,postprocessing	DOI:10.1175/waf903.1	ANN snow density diagnosis to improve snowfall forecasts
+climate,downscaling	DOI:10.1111/j.1538-4632.2002.tb01078.x	Neural interpolation of precipitation and temperature surfaces
+weather	42fecf965e045d4bb8807751b4abec741d4bf087	Neurocomputing for Canadian weather analysis
+ocean,da	DOI:10.2166/jh.2006.005	ANN and data assimilation in a wind-wave model for wave forecasting
+hydrology,methods	DOI:10.1002/hyp.6849	Systematic input determination for NN rainfall-runoff models
+ocean,da	DOI:10.2166/hydro.2009.043	Data-driven wave height prediction with ensemble data assimilation
+chemistry	dbe34e3b11dd11dfd5f5000b1657628b5a0b010e	Machine learning tool for PM10 forecasting
+ocean	DOI:10.1007/s11069-008-9299-2	Data-driven inverse estimation of wind from waves
+ocean	DOI:10.1142/s1469026801000020	Hybrid instance-based system for ocean temperature prediction
+remote_sensing	DOI:10.1117/12.804841	NN atmospheric profile retrieval from AIRS/IASI/AMSU in cloudy scenes
+seaice,remote_sensing	c2fbdb2042663e4bfeb28301029d38e1e5b17f7b	Fuzzy SAR sea ice classification; thin subfield
+climate,xai	DOI:10.1127/0941-2948/2002/0011-0335	NN detection and attribution of anthropogenic climate change
+hydrology	DOI:10.1016/j.jhydrol.2005.09.032	Hybrid ANN daily streamflow forecasting; highly cited J. Hydrol.
+hydrology	DOI:10.1016/s0895-7177(00)00274-0	Early genetic programming rainfall-runoff modelling; well cited
+review,remote_sensing,parameterization	DOI:10.1029/2006rg000200	Krasnopolsky Reviews of Geophysics review of NN emulations for atmospheric/oceanic retrievals and model physics
+hydrology,extremes	DOI:10.1016/j.jhydrol.2007.08.029	SVM flood forecasting with network pruning; J. Hydrol.
+hydrology,extremes	DOI:10.1061/(asce)1084-0699(2004)9:6(491)	M5 model trees vs neural networks for flood forecasting; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2008.12.024	ANFIS/ANN suspended sediment estimation from hydro-meteorological data; highly cited
+hydrology,agriculture	DOI:10.1623/hysj.52.3.563	Genetic programming model of evapotranspiration from climate data
+remote_sensing,ocean	DOI:10.1016/j.rse.2006.06.004	Relevance vector machine retrieval of ocean chlorophyll; RSE
+energy	DOI:10.1016/j.solener.2004.11.013	MLP solar radiation mapping from meteorological stations
+energy,weather	DOI:10.1016/s0951-8339(02)00053-9	Neural network wind forecasting; highly cited
+hydrology,methods	DOI:10.1029/2001wr000795	SOLO self-organizing ANN for hydrologic modelling; WRR, highly cited
+energy	DOI:10.1109/tec.2008.2001457	Two-stage NN wind power forecasting from meteorological information; IEEE TEC, highly cited
+hydrology	DOI:10.1016/s0022-1694(02)00313-x	Geomorphology-based ANN for direct runoff
+hydrology	DOI:10.2166/nh.2002.0012	Genetic programming rainfall-runoff modelling
+energy,weather	DOI:10.1109/pica.2001.932320	Fuzzy expert system for wind speed and wind power forecasting; well cited
+hydrology,agriculture	DOI:10.1623/hysj.53.4.893	Explicit neural network formulation for evapotranspiration
+hydrology,s2s	DOI:10.1002/hyp.6571	Long-lead seasonal rainfall forecasting with time-delay recurrent NN
+energy,weather	DOI:10.1016/j.renene.2008.03.014	ANN short-term wind speed forecasting; highly cited
+energy	DOI:10.1016/j.enconman.2003.12.020	ANN solar potential estimation from meteorological data; highly cited
+chemistry	DOI:10.1016/j.atmosenv.2006.01.010	Integrated neural network model for PM10 forecasting; Atmos. Environ., highly cited
+energy,review	DOI:10.1504/ijaisc.2008.021264	Review of AI techniques for solar radiation modelling and forecasting
+hydrology,agriculture	DOI:10.1002/hyp.6403	Neural computing for evapotranspiration from climatic data; well cited
+hydrology	DOI:10.1061/(asce)he.1943-5584.0000053	Wavelet-neural network conjunction model for streamflow forecasting; well cited
+hydrology	DOI:10.1007/11427469_165	ANN long-term discharge prediction for Manwan reservoir; well cited
+chemistry,remote_sensing	DOI:10.1029/2004jd004821	Operational NN-based trace gas retrieval for IASI
+energy,review	3e8e2f69937c148cecf9fce463206aeec05c84c2	State-of-the-art review of short-term wind power prediction methods (ANWEMOS)
+hydrology,methods	DOI:10.1029/2005wr004152	Bayesian training of ANNs for water resources modelling; WRR
+hydrology	DOI:10.1016/j.jaridenv.2008.11.008	Comparison of prediction models (incl. ANN) for groundwater levels; well cited
+hydrology	DOI:10.1002/hyp.5582	ANN with rule curves for real-time reservoir operation
+energy	DOI:10.1002/hyp.7044	Gamma test input selection for ANN daily solar radiation estimation
+ocean,remote_sensing	DOI:10.1109/igarss.2006.335	Marine-radar wind sensor using neural network retrieval
+s2s,xai	DOI:10.1002/joc.811	Sensitivity analysis of ANN Indian monsoon rainfall prediction; early interpretability
+hydrology,xai	DOI:10.1016/s0098-3004(00)00131-x	Saliency analysis of a neural network rainfall-runoff model
+seaice,remote_sensing	DOI:10.1109/36.851768	Multisensor sea ice classification; thin subfield
+hydrology	DOI:10.1111/j.1752-1688.2003.tb03708.x	ANN updating of conceptual rainfall-runoff forecasts
+energy	DOI:10.1109/pesw.2001.917195	Neural networks to estimate wind turbine power from wind data; highly cited
+extremes,weather	DOI:10.1175/2008waf2007067.1	Statistical learning (SVM/ANN) prediction of Boulder downslope windstorms; WAF
+chemistry	DOI:10.1016/s0098-3004(01)00020-6	Fuzzy logic for meteorological impacts on urban air pollution
+energy	DOI:10.1016/j.solener.2007.06.003	ANN estimation of monthly global solar irradiation; highly cited
+remote_sensing	DOI:10.1029/2000jd900408	ANN estimation of rain rate from radar reflectivity; JGR
+hydrology	DOI:10.1016/j.envsoft.2005.09.009	ANN suspended sediment load from hydrometeorological data; highly cited
+hydrology,extremes	DOI:10.1029/2003wr002816	ANN ensembles for pooled flood frequency analysis; WRR, well cited
+remote_sensing,ocean	DOI:10.1080/01431160600962574	Neural-network atmospheric correction for MERIS over case-2 waters; highly cited
+downscaling,weather	DOI:10.5194/npg-12-979-2005	Comparison of MLP/RBF NNs vs regression for temperature prediction and downscaling
+energy	DOI:10.1109/pes.2007.386072	Recurrent NN for PV power forecasting; well cited
+weather,agriculture	60fbe24a54282072cda5d866874bb537ca39fd5f	ANNs for air temperature prediction; well cited
+ocean	DOI:10.1117/12.452757	Neural network forecasting of sea surface height in the Mediterranean; ocean gap
+remote_sensing	DOI:10.1029/2001jd001591	NN simultaneous retrieval of temperature, water vapor and ozone from IASI
+energy	DOI:10.1109/tec.2004.827040	ANN wind speed prediction from neighbouring stations
+extremes,remote_sensing	DOI:10.1016/j.isprsjprs.2009.03.002	ANN tropical cyclone track forecasting from satellite images
+s2s,climate	DOI:10.1175/jcli3372.1	Nonlinear (NN-based) ENSO teleconnection patterns for North American winter; J. Climate
+hydrology	DOI:10.1002/hyp.6320	Data-driven forecasting of flow discharge with lateral inflow
+ocean	DOI:10.1016/j.oceaneng.2003.12.008	Perceptron/Kalman estimation of significant wave height from wind
+hydrology	DOI:10.1002/hyp.102	Counterpropagation fuzzy-neural streamflow reconstruction
+nowcasting,remote_sensing	DOI:10.5194/adgeo-7-97-2006	ANN precipitation nowcasting from satellite imagery
+remote_sensing,review	DOI:10.1016/j.neunet.2006.01.010	Neural network methods for processing Earth observation satellite data
+hydrology	DOI:10.1016/j.advwatres.2008.10.006	Dynamic neuro-fuzzy system for hydrological modelling
+energy	DOI:10.1016/j.renene.2007.09.028	NN generation of hourly global and diffuse irradiance
+hydrology	DOI:10.5194/hess-6-685-2002	Data mining for regionalisation of hydrological variables; HESS
+ocean,seaice	DOI:10.1002/jqs.651	ANN reconstruction of past sea-surface and sea-ice conditions from dinocysts
+seaice	DOI:10.1175/2007jcli1787.1	Neural network model of Arctic sea ice thickness changes; J. Climate
+remote_sensing	DOI:10.1109/tgrs.2004.825580	Backpropagation NN retrieval of water vapor and cloud liquid water from MSMR
+chemistry	DOI:10.1089/ees.2007.0183	ANN prediction of tropospheric ozone
+remote_sensing	498b17decc248e51214fa27eb880133f19527de0	Real-time fuzzy-logic hydrometeor classification for operational radar
+ocean,remote_sensing	DOI:10.1029/2004gl021531	Genetic algorithm estimation of air-sea temperature difference from satellites; GRL
+remote_sensing	DOI:10.1080/01431160500192512	Neural network mesoscale cloud pattern classification over ocean
+weather	DOI:10.1371/journal.pone.0000210	Kohonen SOM classification of circulation weather types
+ocean,remote_sensing	DOI:10.1109/lgrs.2007.900700	Hopfield NN sea-surface velocities from satellite images
+energy	DOI:10.1016/j.enconman.2004.01.006	ANN daily urban load profiles with weather inputs; highly cited
+hydrology	DOI:10.1016/s1364-8152(03)00135-x	ANN vs conceptual rainfall-runoff and record-length sensitivity; well cited
+weather,nowcasting	0b8b30a174464cc05700066a2b14f777ca728718	Case-based reasoning with fuzzy sets for airport weather prediction; early AI forecasting
+ocean,remote_sensing	DOI:10.1109/tgrs.2003.818016	ML to build calibrated global chlorophyll baseline from ocean-colour sensors; IEEE TGRS
+ocean,s2s	DOI:10.1007/s00382-007-0356-4	SOM analysis of tropical Indian Ocean variability (IOD)
+energy	DOI:10.1016/s0306-2619(02)00016-8	ANN solar radiation estimation from meteorological data; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2009.01.009	Evolutionary ANNs for hydrological forecasting; well cited
+energy	DOI:10.1016/j.rser.2007.04.010	Neural prediction of household electricity use with weather sensitivity
+hydrology,weather	DOI:10.1007/s11269-006-9026-2	SVR for rainfall forecasting; well cited
+hydrology,agriculture	DOI:10.13031/2013.7049	Neuro-fuzzy evapotranspiration model
+weather,postprocessing	DOI:10.1175/1520-0434(2003)018<0264:isfbds>2.0.co;2	Roebber et al. ANN snow-density diagnosis improving snowfall forecasts; highly cited
+ocean,extremes	DOI:10.1016/j.oceaneng.2005.04.012	Neural network storm surge prediction; well cited
+hydrology	DOI:10.1016/j.neucom.2008.12.032	Hybrid BP neural network and Xinanjiang rainfall-runoff simulation
+hydrology	DOI:10.1016/j.jhydrol.2004.12.001	ANN groundwater level forecasting; very highly cited
+hydrology,agriculture,da	DOI:10.1007/s00271-009-0193-9	GA-based ET data assimilation for irrigation scheduling
+hydrology,s2s	DOI:10.1029/2004wr003853	Long-lead probabilistic streamflow forecasting from ocean-atmosphere predictors (nonparametric)
+hydrology,remote_sensing	DOI:10.3390/rs1010003	Non-parametric/ML soil moisture retrieval from satellite data
+hydrology	DOI:10.5194/hess-4-215-2000	Seibert's GA multi-criteria calibration of runoff model; highly cited
+chemistry,review	DOI:10.1016/s1352-2310(99)00359-3	Review of statistical/nonlinear (incl. trees, NN) surface ozone models; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2007.12.014	NN and GA for evaporation and ET modelling; highly cited
+hydrology,extremes	DOI:10.1007/s11269-006-0326-4	Intelligent (knowledge-based) decision support for flood management; well cited
+hydrology	DOI:10.1623/hysj.51.6.1092	Kisi GRNN for evapotranspiration; highly cited
+energy	DOI:10.1109/tpwrs.2009.2030291	Entropy-criterion NN training for 3-day wind power forecasting; IEEE TPWRS
+ocean	DOI:10.1016/j.oceaneng.2005.08.007	Recurrent NN ocean wave forecasting; well cited
+energy	DOI:10.1541/ieejpes.128.33	NN 24h-ahead PV power forecasting with weather inputs
+hydrology	DOI:10.2166/hydro.2004.0016	EC-SVM real-time hydrologic forecasting; well cited
+chemistry,benchmarks	DOI:10.1016/s1352-2310(03)00330-3	Rigorous inter-comparison of ozone prediction methods incl. NN (COST/APPETISE)
+hydrology	aff2b36e9d05853c31f146e0cf2083ba7bf62979	ANN vs AR daily river flow forecasting
+chemistry	DOI:10.1016/s0160-4120(03)00013-8	NN maximum daily ozone prediction
+hydrology	DOI:10.1016/j.jhydrol.2006.06.015	Neural approaches to daily flow forecasting
+remote_sensing	DOI:10.1016/s0925-2312(99)00141-1	SOM hierarchical clustering for satellite cloud classification
+agriculture,remote_sensing	DOI:10.14358/pers.73.10.1149	ANN county-level corn/soybean yield prediction from satellite data
+chemistry	DOI:10.1016/j.scitotenv.2008.01.035	SVM ground-level ozone prediction
+hydrology	DOI:10.1002/hyp.6166	Fuzzy logic suspended sediment modelling
+energy	DOI:10.1109/indin.2009.5195808	ANN solar radiation forecasting from meteorological data
+hydrology	DOI:10.1016/j.conengprac.2006.02.011	Neuro-dynamic programming (RL) for reservoir network management
+hydrology,remote_sensing	DOI:10.1029/2005wr004033	Genetic programming soil moisture from RADARSAT
+energy	DOI:10.1109/icmlc.2007.4370612	SVM wind speed forecasting
+chemistry	e332e4106b4c919712dce70719e8fa1a927d4dad	NN ozone prediction near industrial area
+ocean	DOI:10.1016/s0020-0255(02)00203-7	SOM sea level prediction
+remote_sensing	DOI:10.1016/j.rse.2007.09.003	SVR estimation of marine atmospheric moisture transport from satellites
+chemistry,da	DOI:10.1016/j.atmosenv.2008.11.043	GA-based assimilation of concentration observations for source/dispersion modelling (Haupt)
+hydrology,extremes	DOI:10.1061/(asce)0887-3801(2000)14:1(1)	NN river stage forecasting in Bangladesh; highly cited
+s2s	DOI:10.1007/3-540-32400-3_12	Genetic programming applied to El Nino forecasting; fills thin ENSO-ML gap for decade
+hydrology,extremes	DOI:10.1016/j.jhydrol.2004.03.018	Kohonen NN and fuzzy c-means for regional flood frequency analysis
+energy	DOI:10.1016/j.enconman.2007.12.030	Recurrent wavelet NN solar irradiation forecasting
+hydrology	DOI:10.1002/hyp.1492	NN river flow forecasting, Apalachicola
+remote_sensing,hydrology	DOI:10.1175/1525-7541(2003)004<1119:annatr>2.0.co;2	NN real-time satellite rainfall estimation for Africa
+remote_sensing	DOI:10.1175/jtech1913.1	Radar ground-clutter/AP identification via echo characteristics (fuzzy classification)
+energy,weather	DOI:10.1016/j.enconman.2005.05.009	ANN spatial estimation of wind velocity
+hydrology	DOI:10.1002/hyp.6628	Genetic programming flood routing
+ocean	DOI:10.1016/s0029-8018(03)00083-0	Regional NN coastal water level prediction
+hydrology,xai	DOI:10.1061/(asce)1084-0699(2005)10:4(264)	Knowledge extraction from trained NN river flow models
+chemistry	DOI:10.1016/j.compenvurbsys.2009.10.004	Fuzzy-genetic kriging for air pollution prediction
+remote_sensing	DOI:10.1109/tgrs.2007.908302	NN millimetre-wave precipitation retrievals trained on cloud-resolving NWP (Surussavadee & Staelin)
+ocean	DOI:10.1109/tsmcc.2002.806072	Hybrid case-based/neural AI for real-time oceanographic forecasting
+seaice,remote_sensing	DOI:10.1109/tgrs.2005.846882	Multisensor automated sea ice image classification (NN); IEEE TGRS
+hydrology	DOI:10.1016/j.advwatres.2009.08.003	Bayesian stochastic reservoir operation with SVM inflow forecasting
+hydrology	DOI:10.1016/s0341-8162(02)00147-9	ANN soil erosion and runoff prediction from rainfall
+extremes,hydrology	DOI:10.3189/172756401781819247	Nearest-neighbour regional avalanche forecasting from weather/snow data
+energy	DOI:10.1260/0309524001495503	ANN wind speed at different heights
+extremes	DOI:10.1175/2009mwr2897.1	Objective (ML) classification of tornadic vs nontornadic outbreaks
+climate,hydrology	DOI:10.3354/cr025095	SOM clustering/upscaling of station precipitation (Crane & Hewitson)
+downscaling,extremes	DOI:10.1016/j.gloplacha.2008.03.005	Comparison of statistical downscaling approaches (incl. ANN) for Greek extremes
+remote_sensing,ocean	DOI:10.1016/s0034-4257(00)00088-2	Krasnopolsky NN multiparameter SSM/I ocean retrieval algorithm
+energy,remote_sensing	DOI:10.1007/978-3-540-77455-6_9	ANN surface solar radiation estimation
+hydrology	DOI:10.1016/j.jhydrol.2005.03.034	Fuzzy theory and GA for precipitation interpolation
+downscaling	DOI:10.1002/joc.1545	Huth: does nonlinearity (NN) improve statistical downscaling of temperature
+hydrology,extremes	DOI:10.1016/j.jhydrol.2008.05.013	Counterpropagation fuzzy-neural network for urban flood control
+remote_sensing	DOI:10.1002/met.5060020309	Pattern recognition for cloud and cloud-system identification
+chemistry	DOI:10.1016/s1352-2310(01)00446-0	ANN for tracer transport and dispersion in complex terrain
+downscaling,hydrology	DOI:10.1016/j.jhydrol.2008.12.017	NN5 neural network precipitation downscaling
+hydrology	DOI:10.1016/s0165-232x(02)00056-3	NN prediction of ice jam occurrence
+climate,hydrology	DOI:10.1002/joc.1926	SOM synoptic classification of precipitation forcing in Arctic basins
+ocean	DOI:10.1016/j.coastaleng.2009.02.007	Wind-wave spectral modelling combined with NN
+weather,extremes	DOI:10.1117/12.795570	NCAR ML (random forest) diagnosis of thunderstorm turbulence for aviation
+hydrology	DOI:10.1016/j.eswa.2008.09.053	SVM vs ANN generalization for runoff; highly cited
+ocean	DOI:10.1016/j.oceaneng.2008.04.007	Genetic programming for real-time wave forecasting; well cited
+remote_sensing,methods	DOI:10.1109/tgrs.2004.842406	Data-mining virtual sensors to estimate satellite spectra (TGRS)
+chemistry	DOI:10.1016/j.envsoft.2007.11.009	Linear vs AI tropospheric ozone prediction comparison
+energy	DOI:10.1016/j.renene.2008.04.017	AI methods for wind speed forecasting; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2009.09.037	ANN vs regression for stream water temperature forecasting; well cited
+energy	DOI:10.1016/j.renene.2003.11.009	Classic SVM wind speed prediction; very highly cited
+hydrology	DOI:10.1623/hysj.48.3.399.45291	Model trees vs ANN in rainfall-runoff modelling; influential
+energy,remote_sensing	DOI:10.1016/j.apenergy.2008.06.003	ANN solar radiation estimation from satellite data; highly cited
+energy	DOI:10.1016/j.renene.2004.09.020	NN forecasting of solar potential; highly cited
+s2s,hydrology	DOI:10.1175/1520-0450(2000)039<0057:annalr>2.0.co;2	ANN long-range precipitation prediction from climate indices
+hydrology	DOI:10.1016/j.advwatres.2004.07.001	Fuzzy set treatment of precipitation uncertainty in rainfall-runoff
+extremes,hydrology	DOI:10.1016/j.jhydrol.2009.06.047	Hybrid NN typhoon rainfall forecasting
+hydrology,agriculture	DOI:10.1002/clen.200800009	Genetic programming for reference evapotranspiration
+hydrology	DOI:10.1002/hyp.5992	Fuzzy logic runoff estimation
+hydrology	DOI:10.1016/j.jhydrol.2003.12.010	Neuro-fuzzy (ANFIS) hydrological time series modelling; highly cited
+downscaling,s2s	DOI:10.3402/tellusa.v57i3.14672	SOM analysis and downscaling of multi-model seasonal forecasts
+hydrology,methods	DOI:10.1016/j.jhydrol.2004.06.021	Influential input-determination methodology for NN water resources models
+weather	b7ca46857313a42263a5ab20482ae19fa2a9965d	Early connectionist weather monitoring/forecasting system
+hydrology	DOI:10.1007/s11269-006-4007-z	ANN groundwater level forecasting; highly cited
+hydrology	DOI:10.1002/1099-1085(20000815/30)14:11/12<2157::aid-hyp57>3.0.co;2-s	NN vs ARMA river flow forecasting; highly cited
+remote_sensing	DOI:10.1175/1520-0426(2002)019<0673:uotdrs>2.0.co;2	Automated radar non-precipitating echo detection from 3D reflectivity patterns
+chemistry,remote_sensing	DOI:10.1029/2008jd011497	PM2.5 from satellite AOD and meteorology with NN; highly cited
+energy	665b2529d3d74d95dc9e377d3c16dc088972eb48	Wind speed and power forecasting in a wind farm; well cited
+seaice,remote_sensing	DOI:10.1109/tgrs.2004.828179	Neural-network SAR sea ice classification for the Baltic (TGRS)
+energy	DOI:10.1002/we.295	Data-mining wind farm power prediction; well cited
+hydrology	DOI:10.1080/10286600600888565	Comparison of ANN techniques for river flow prediction
+hydrology	DOI:10.5194/hess-6-655-2002	Data fusion of hydrological models incl. NN
+ocean	DOI:10.1016/j.apor.2008.08.002	Inverse modelling of wind from wave measurements; ocean ML thin in decade
+hydrology	DOI:10.1002/hyp.7136	ANN hydrologic prediction at multiple gauges
+ocean,remote_sensing	DOI:10.1080/01431160701601774	NN-based MERIS Case-2 water/atmosphere retrieval processor; widely used
+hydrology,remote_sensing	DOI:10.5589/m02-066	NN retrieval of soil moisture and roughness from SAR
+energy	DOI:10.1016/j.solener.2004.11.006	NN estimation of solar radiation components
+nowcasting,remote_sensing	DOI:10.1016/j.jhydrol.2006.10.021	Dynamic ANN precipitation estimation/forecasting from radar
+hydrology	a6ff187887db578aff9d2dbdc8cc2c9f1cddf3fc	ANN vs ARIMA rainfall prediction
+chemistry	976341dd9d0eabb733eb37d1e1313e242c399bc8	Statistical/ML comparison for urban maximum ozone
+hydrology,methods	DOI:10.5194/hess-7-693-2003	Over-parameterisation of ANNs in hydrology
+weather	DOI:10.1109/tgrs.2003.817225	Hybrid SOFM-MLP atmospheric temperature prediction (TGRS)
+hydrology,methods	DOI:10.2166/hydro.2005.0025	Extrapolation limits of ANN rainfall-runoff models
+energy	DOI:10.1016/j.solener.2006.11.001	ANN solar luminous efficacy
+hydrology	DOI:10.1029/2006wr005792	Decision trees vs neural/fuzzy trees for reservoir operating rules
+ocean	117b608fff62548770cdaabc4427cc895ecbca17	SOM analysis of South China Sea circulation from altimetry
+hydrology	DOI:10.1016/j.neunet.2006.01.009	Neuro-evolution rainfall-runoff modelling
+hydrology	DOI:10.1016/j.jhydrol.2008.05.015	Kinematic wave vs ANN runoff simulation
+hydrology,s2s	DOI:10.1029/2008wr007510	Seasonal multisite river flow forecasting by model combination
+hydrology,extremes	DOI:10.1016/j.jhydrol.2008.07.002	PAI-OFF ANN-based online flash flood forecasting
+energy	DOI:10.1016/j.renene.2007.06.013	ANN wind power prediction; highly cited
+agriculture,hydrology	DOI:10.3923/rjes.2009.439.447	SVM/ANN evapotranspiration in greenhouse
+weather	DOI:10.1007/s12524-008-0025-z	Fuzzy inference fog forecasting
+hydrology	DOI:10.1002/hyp.5763	ANN municipal water demand forecasting with weather inputs; highly cited
+climate	DOI:10.2166/nh.2007.013	Kohonen/fuzzy clustering of Indian meteorological stations
+agriculture	DOI:10.1016/s0925-2312(01)00620-8	NN greenhouse air temperature prediction; well cited
+hydrology	DOI:10.1061/40569(2001)76	Genetic programming runoff forecasting with input selection
+ocean,remote_sensing	DOI:10.1080/01431160412331269661	MLP inversion of ocean colour spectra
+climate	DOI:10.1029/2006jd007460	SOM view of North Atlantic climate variability
+hydrology,extremes	1589921515e61babe21bfa6fb17b25b495856480	ANN rainfall IDF modelling
+hydrology	DOI:10.1061/(asce)1084-0699(2006)11:4(371)	Modified k-NN stochastic streamflow simulation
+energy	DOI:10.1115/1.3142727	Data-mining prediction of wind farm power ramps
+hydrology,methods	DOI:10.5194/hess-13-1235-2009	NN emulation of hydrological model parameter uncertainty
+downscaling	DOI:10.1061/(asce)1084-0699(2007)12:1(42)	k-NN weather generator
+ocean,extremes	DOI:10.1016/s1385-1101(03)00024-8	ANN storm surge forecasting
+agriculture,hydrology	DOI:10.1016/j.biosystemseng.2007.03.003	Neural irrigation water demand forecasting
+hydrology	DOI:10.1016/j.jhydrol.2007.11.024	ANN ice-affected streamflow estimation
+hydrology	DOI:10.30638/eemj.2007.007	Evaluation of ANN techniques for river flow forecasting
+extremes,remote_sensing	DOI:10.1175/1520-0450(2002)041<0461:aamtet>2.0.co;2	Automated TC intensity estimation from SSM/I via pattern recognition
+hydrology,remote_sensing	DOI:10.1117/12.830831	Nonlinear ML soil moisture retrieval from microwave data
+chemistry	DOI:10.1080/10473289.2000.10464024	Ensemble NN surface ozone forecasting
+hydrology,climate	DOI:10.1029/2008wr007201	Nonparametric (k-NN) paleo streamflow reconstruction
+agriculture	DOI:10.1177/0971344120080102	ANN maize yield forecasting
+hydrology	DOI:10.1623/hysj.48.3.363.45282	ANN hydrological forecasting, Kafue basin
+hydrology,extremes	DOI:10.1061/(asce)1084-0699(2006)11:6(589)	Hybrid hydraulic/black-box urban flood forecasting
+energy	33e7bee179d77b49a5b2d274c21e61335547e65a	NN wind speed forecasting for wind farm
+hydrology	DOI:10.1016/s0169-7439(00)00099-x	Training-set selection for neural river flow models
+energy,weather	3bdb1ad7a2d7ea3bbd17cf29b2c77f8d632e16e6	Local short-term NN wind speed prediction
+hydrology	DOI:10.13031/2013.15853	ANN hydrologic modelling of agricultural watersheds
+energy	5f4acd4333c85f2fe4d13f9483ec5cc4129a2a54	Wavelet-based wind farm power prediction
+hydrology	1e0cc029937de2ad52dd7c91f2fe127f959a2005	ANN groundwater level fluctuation
+agriculture	DOI:10.3103/s1068367407060031	Neural network crop yield prediction
+energy	DOI:10.1007/978-3-540-73007-1_90	Hourly solar radiation prediction model
+agriculture	b4e9204c465c92adaeb16e06f9b46ca691c7c78e	ML forewarning of crop diseases from weather
+hydrology	c0ce1ff2876fe83e3e4488cac48cfa3f38a575a4	Gene expression programming combined runoff model
+hydrology,extremes	b54e5096a16fb1742ee5df7f7ccffb7c88baa490	Fuzzy logic ice jam risk forecasting
+energy	b210a1777673deaf7c91767d514f8dbd91b6ced7	ANN wind speed and power output prediction
+energy	DOI:10.1088/1742-6596/75/1/012050	Combining meteorological models for wind farm power forecasts
+ocean	DOI:10.1016/j.ocemod.2007.02.004	Hybrid physical/NN shallow tidal sea dynamics
+weather	DOI:10.1007/s101150200011	Meteorological fuzzy expert system
+hydrology	DOI:10.1007/978-1-4419-0211-5_51	Neural kriging of soil moisture
+energy	DOI:10.1016/s0165-0114(01)00022-7	Fuzzy logic solar irradiance from meteorological variables
+remote_sensing	DOI:10.1109/igarss.2008.4780156	NN precipitation retrievals from ATMS passive microwave
+hydrology	DOI:10.1061/40792(173)481	SVM long-range streamflow forecasting
+energy	f42df55bc339778f70cf8b6ebd1dbaeda3363a8a	Wavelet + cascade-correlation NN wind speed forecasting
+ocean	DOI:10.1007/11504894_83	ANN water level prediction where tide tables fail
+ocean,remote_sensing	DOI:10.1109/igarss.2003.1294076	Ocean wind retrieval from X-band radar image sequences
+energy	DOI:10.1109/icmlc.2008.4620392	Conformal prediction of wind speed
+energy	DOI:10.1109/drpt.2008.4523513	SVM peak load vs meteorological index
+hydrology	DOI:10.1142/9789812702838_0117	Hybrid GA-NN calibration of rainfall-runoff models
+weather	DOI:10.1007/11731177_16	Learning methods for short-term meteorological forecasting
+seaice	0be13d61bed540daad07186140b20a564ec054c3	Knowledge-based sea ice classification system evaluation
+energy	DOI:10.1016/j.renene.2007.08.006	ANN generation of monthly clearness index and daily solar radiation for PV sizing; well cited
+hydrology	DOI:10.2166/hydro.2004.0020	Early SVM rainfall-runoff modelling; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2008.01.023	Genetic programming vs neural networks for streamflow forecasting with climate inputs; well cited
+energy	DOI:10.1109/pes.2007.385812	RBF network estimating wind power production from wind data
+ocean	DOI:10.1029/2004jc002786	Self-organizing map analysis of shelf current variability; influential SOM application in oceanography
+chemistry	DOI:10.1016/j.atmosenv.2003.10.066	ANN air pollution index forecasting; well cited
+chemistry,postprocessing	DOI:10.1016/j.envsoft.2006.08.002	Neural classifiers forecasting ozone peaks from weather predictions
+hydrology,extremes	DOI:10.1016/j.jhydrol.2005.11.059	Neural network flash-flood prediction for a mountainous stream
+remote_sensing	DOI:10.1029/2002rs002856	Microwave radiometric profiler with neural-network retrievals of temperature, humidity and cloud liquid; highly cited
+energy,postprocessing	DOI:10.1016/j.renene.2008.10.017	Hybrid MM5 + ANN short-term wind speed prediction; well cited
+remote_sensing,review	DOI:10.1007/978-1-4020-9119-3_9	Krasnopolsky & Schiller overview of NN for forward/inverse problems in atmospheric and oceanic remote sensing
+hydrology	DOI:10.1061/(asce)1084-0699(2006)11:1(71)	ANN runoff and sediment yield modelling; well cited
+chemistry	DOI:10.1080/10473289.2002.10470836	Evaluation of ANNs for PM10/PM2.5 forecasting
+hydrology,review	DOI:10.5194/hess-11-1563-2007	Abrahart & See on neural network modelling of nonlinear hydrological relationships (HESS)
+nowcasting,weather	DOI:10.1175/waf980.1	ANN fog forecasting at an airport
+hydrology,s2s	DOI:10.1061/(asce)he.1943-5584.0000022	Hybrid drought index with ANN prediction from climate signals
+chemistry	DOI:10.1016/s0304-3800(02)00127-8	Linear models vs neural networks for 1-day-ahead surface ozone
+remote_sensing	DOI:10.3390/s90705558	ANN cloud classification for FY-2C geostationary imagery
+hydrology	DOI:10.1623/hysj.54.6.1114	Data-driven (ANN/ANFIS) meteorological drought analysis
+hydrology	DOI:10.1016/j.asoc.2006.03.002	Hybrid neural network models for hydrologic time series; highly cited
+downscaling,climate	DOI:10.1029/2001wr000291	Multisite nearest-neighbour resampling weather generator for the Rhine basin; highly cited
+energy	DOI:10.1109/tia.2007.908203	ANN wind power estimation integrated into unit commitment with forecast uncertainty; well cited
+weather	DOI:10.1016/j.amc.2007.10.046	Machine learning models (SVR etc.) for rainfall forecasting; well cited
+hydrology,extremes	DOI:10.1623/hysj.48.3.381.45286	ANN flood forecasting on the River Arno; well cited
+energy	DOI:10.1016/j.ijepes.2005.12.007	Neural network load forecasting with temperature via similar-days approach; well cited
+energy	DOI:10.1016/j.solener.2008.02.003	Hourly solar radiation forecasting with neural networks; well cited
+energy	DOI:10.1016/j.solener.2004.12.006	ANN generation of global solar radiation sequences for isolated sites
+energy	DOI:10.1109/72.839015	Combined ANN forecasters for weather-driven natural gas consumption
+weather	DOI:10.1002/met.83	Daily temperature forecasting with three ANN methods; well cited
+ocean,remote_sensing	DOI:10.5589/m09-035	Texture-classifying neural network to delineate ocean oil slicks in SAR
+climate	DOI:10.1002/joc.1305	SOM-based changes in Antarctic synoptic patterns in 20th/21st-century climate
+downscaling,climate	DOI:10.1029/2006wr005714	Semiparametric k-NN multisite weather generator
+hydrology	DOI:10.1016/j.jhydrol.2005.03.032	ANN hydrograph generation from hydro-meteorological parameters
+hydrology	DOI:10.1623/hysj.54.2.247	ANN and ANFIS river flow prediction
+extremes,downscaling	DOI:10.1016/s0965-9978(99)00063-0	Neural network prediction of extreme precipitation and flood occurrence
+remote_sensing	DOI:10.1175/2009jhm1099.1	Bias adjustment of (PERSIANN) satellite precipitation estimates with gauges
+ocean,climate	DOI:10.1007/s00382-010-0843-x	SOM analysis of southern Indian Ocean climate variability
+remote_sensing,extremes	DOI:10.1175/waf956.1	Validation of fuzzy-logic polarimetric hail detection
+hydrology	DOI:10.5194/hess-9-394-2005	Comparison of real-time updating models including ANN for river flow forecasting
+chemistry	DOI:10.1023/a:1020274409612	PSO-trained neural network for pollutant levels in Hong Kong
+extremes,remote_sensing	DOI:10.1109/72.846739	Neural tropical cyclone identification and tracking from satellite imagery
+ocean,remote_sensing	DOI:10.1109/tgrs.2003.819870	SVM retrieval of ocean chlorophyll
+hydrology	DOI:10.1061/(asce)1084-0699(2000)5:2(145)	Neural network regional drought analysis
+remote_sensing	DOI:10.1109/tgrs.2007.906476	Bayesian hydrometeor classification from dual-polarized C-band radar
+chemistry	DOI:10.1016/s1093-0191(00)00042-3	Neural network ozone prediction near an industrial area
+hydrology	DOI:10.5194/hess-9-111-2005	Constraints of ANNs for rainfall-runoff modelling: state representation and evaluation
+hydrology	DOI:10.2166/nh.2007.010	Rainfall-runoff modelling with PCA and neural networks
+hydrology	DOI:10.1016/j.jhydrol.2004.04.010	State-space neural networks for short-term rainfall-runoff forecasting
+s2s,climate	DOI:10.1175/jcli3466.1	Nonlinear (NLPCA) analysis of the ENSO cycle and interdecadal changes
+hydrology	ff2cef07a2c817e6f8768791b4a702acbca41c05	Neural network surrogate of a hydrodynamic model for reservoir operation
+downscaling,extremes	DOI:10.1016/s1464-1917(01)00071-x	Neural network statistical downscaling of short-term extreme rainfall
+remote_sensing	DOI:10.1109/tgrs.2009.2029093	Neural-network AMSU millimetre-wave rain and snowfall retrievals
+hydrology	DOI:10.1061/(asce)1084-0699(2006)11:5(502)	Comparison of ANN designs for monthly rainfall-runoff
+hydrology	DOI:10.1029/2007wr006451	Ensemble genetic programming to quantify hydrologic model structure uncertainty
+energy	DOI:10.1016/j.renene.2004.05.008	ANN classification of wind speed and power across Turkey
+ocean,climate	DOI:10.1016/j.quascirev.2004.07.014	Multi-technique (ANN, modern analogue/k-NN) reconstruction of glacial SSTs from foraminifera; highly cited
+chemistry,remote_sensing	DOI:10.1016/j.rse.2005.10.005	Neural classification retrieval of aerosol type and optical thickness from SeaWiFS
+hydrology	DOI:10.1016/j.jhydrol.2008.07.003	Added value of soil moisture observations for NN streamflow prediction
+s2s,methods	DOI:10.1029/2001jc000957	Neural nonlinear multichannel SSA of tropical Pacific climate variability
+chemistry	DOI:10.1080/10473289.2001.10464338	ANN-derived meteorologically adjusted trends in surface ozone
+remote_sensing	DOI:10.1175/jtech1943.1	Neural network retrieval of water cloud parameters
+agriculture	c40c7f59c871680322bd12d6a08f84f90dc828f1	ML forecasting of rice blast disease from weather variables; well cited
+energy	DOI:10.1016/j.enpol.2008.06.030	ANN prediction of diffuse solar radiation vs empirical models
+ocean	DOI:10.1016/j.ecss.2004.06.004	ANN prediction of sea level variations
+energy	DOI:10.1016/j.renene.2007.09.012	ANN daily solar irradiation estimation over mountainous terrain
+energy	0d1f1517ece7cb2bf5944750a9ce9f40cca1c115	Regression vs ANN for wind turbine power curve estimation
+hydrology,agriculture	DOI:10.1023/a:1015563820136	Neural networks deriving irrigation reservoir operating rules
+chemistry	DOI:10.1016/j.eswa.2004.05.015	Data mining for air pollution management decisions
+chemistry	DOI:10.1016/j.eswa.2006.02.011	Neural and neuro-fuzzy forecasting of airborne pollen from meteorology
+ocean,remote_sensing	DOI:10.1109/tgrs.2003.818020	Novelty detection for applicability of empirical ocean colour algorithms
+energy	DOI:10.1016/j.renene.2008.01.009	ANN prediction of total solar irradiation
+chemistry,remote_sensing	DOI:10.1029/2002jd002784	NNORSY neural network ozone profile retrieval from GOME
+hydrology	DOI:10.1111/j.1365-2427.2008.01943.x	Comparison of approaches incl. ANN for lake water-temperature modelling from air temperature
+energy	DOI:10.1109/tec.2008.2001458	ANN estimation of wind farm energy yield
+chemistry	DOI:10.1007/s00484-005-0260-8	Discriminant analysis and NN forecasting of pollen season severity from weather
+downscaling	DOI:10.1002/joc.1442	ANN statistical downscaling of seasonal precipitation over Greece
+ocean,remote_sensing	DOI:10.1016/j.oceaneng.2005.01.007	ANN translating offshore satellite wave data to coastal locations
+energy,ocean	DOI:10.1016/j.oceaneng.2009.01.003	Time-series and NN models for forecasting ocean wave energy
+remote_sensing	DOI:10.1109/igarss.2007.4422827	SVM cloud detection
+chemistry	DOI:10.1016/j.atmosenv.2008.07.035	Comparison of methods incl. NN for PM2.5 forecasting
+weather	DOI:10.5539/apr.v1n2p37	ANN prediction of monsoon max/min temperature over India
+energy	8d42613752c7091cfba560e3f4c6303120258ce5	Hybrid time-series and neural network short-term wind speed forecasting
+remote_sensing	DOI:10.1109/tgrs.2003.809930	Backpropagation neural net cloud masking for AVHRR
+weather,nowcasting	DOI:10.1109/icmlc.2002.1176719	Fuzzy case-based reasoning for airport weather (ceiling/visibility) prediction
+ocean,extremes	DOI:10.1061/40604(273)155	Neural network storm surge forecasting along the Gulf of Mexico
+climate,methods	DOI:10.1256/qj.01.158	Nonlinear SSA of the tropical stratospheric wind (QBO)
+seaice,remote_sensing	DOI:10.1109/igarss.2000.861674	ARKTOS knowledge-engineering system for satellite sea ice classification
+hydrology	DOI:10.5194/hess-14-1943-2010	Two-part HESS benchmark comparing ANNs, GP and other data-driven models across ET, soil moisture and rainfall-runoff
+hydrology	DOI:10.1002/hyp.5581	Widely cited comparison of ANN types for rainfall-runoff modelling
+hydrology,agriculture	DOI:10.1623/hysj.54.5.918	Early SVM application to evapotranspiration modelling; well cited
+energy	31717f18b992f1d7b6862dfbf145e67425a02220	LS-SVM short-term wind speed forecasting for wind farms; well cited
+ocean,remote_sensing	DOI:10.1016/j.pocean.2003.07.006	Influential SOM pattern extraction from ocean satellite imagery (Prog. Oceanogr.)
+remote_sensing	DOI:10.1364/josaa.25.000029	Sky imager with neural-network cloud classification for cloud cover; highly cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2009.03.032	SVM hourly reservoir inflow forecasting during typhoons
+climate	DOI:10.1002/joc.804	Linear vs neural-network reconstruction of millennial precipitation from proxies (IJoC)
+hydrology,nowcasting	DOI:10.1016/s0022-1694(00)00344-9	Landmark comparison of ANN and other short-term rainfall predictors for flood forecasting; 500+ cites
+weather,hydrology	DOI:10.1016/j.jhydrol.2004.06.028	Highly cited ANN rainfall forecasting for Sao Paulo
+hydrology	DOI:10.1061/(asce)1084-0699(2000)5:2(180)	Influential early review/application of neural networks for hydrological forecasting
+chemistry	DOI:10.1016/j.envsoft.2006.08.007	PCR + ANN ground-level ozone prediction; well cited
+hydrology	DOI:10.1016/j.jhydrol.2008.08.012	ANNs for soil moisture estimation; well cited
+agriculture	99e690a5bf02586296e9e1dc2b552d09cf198600	ANN crop yield prediction across climate zones in Germany; well cited
+energy	cb920c51e9fc5c3e3b2c6ae14e487a18e5872e62	ANN wind power prediction; well cited
+hydrology	DOI:10.1016/j.jhydrol.2005.08.007	Comparing and combining conceptual and neural network monthly runoff models
+hydrology,extremes	DOI:10.1002/(sici)1099-1085(20000228)14:3<431::aid-hyp947>3.0.co;2-0	Fuzzy-reasoning flood forecasting for Bangladesh
+hydrology	DOI:10.1016/s0022-1694(00)00214-6	Landmark ANN daily reservoir inflow forecasting (600+ cites)
+s2s	DOI:10.1007/978-3-540-89853-5_7	KNN data-mining seasonal-to-interannual climate prediction
+weather,hydrology	DOI:10.1016/s0022-1694(99)00165-1	Highly cited study of ANN input lags/spatial inputs for rainfall forecasting
+ocean	DOI:10.1016/s0029-8018(00)00027-5	Seminal neural-network wave forecasting paper (300+ cites)
+chemistry	DOI:10.1016/j.envsoft.2004.07.008	MLP vs regression hourly O3/NO2 forecasting; highly cited
+energy	DOI:10.1016/j.neucom.2006.01.032	Recurrent fuzzy neural network wind speed prediction using spatial correlation; well cited
+hydrology	DOI:10.1016/j.jhydrol.2004.10.005	Neural networks for groundwater level simulation; well cited
+energy	DOI:10.1016/j.ijforecast.2008.08.007	Evolutionary-specified AI models for short-term wind power forecasting (IJF)
+remote_sensing	DOI:10.1175/2009jtecha1160.1	Real-time fuzzy-logic weather radar ground clutter identification (CMD), operational use
+hydrology	DOI:10.1080/02626660109492867	Range-dependent neural network river flow prediction; well cited
+weather	DOI:10.1007/s00024-003-2447-4	Neural-network simulation of urban heat island in Mediterranean climates; well cited
+downscaling	DOI:10.1002/joc.997	Neural-network-based statistical downscaling of monthly precipitation over Turkey (IJoC)
+s2s	DOI:10.2478/s11600-007-0020-8	ANN prediction of Indian summer monsoon rainfall; well cited
+energy	DOI:10.1109/pes.2005.1489526	ANN solar radiation prediction for PV sizing
+chemistry	DOI:10.1007/bf03325972	ANN vs MLR forecasting of total ozone time series
+hydrology	DOI:10.1016/j.jhydrol.2008.03.017	ANN structure and input selection for river level prediction
+chemistry	DOI:10.1016/j.scitotenv.2003.11.009	Fuzzy expert + neural network ozone forecasting
+downscaling,s2s	DOI:10.1175/2007jcli1624.1	Weather-type clustering to downscale GCM rainfall over Senegal (J. Climate)
+hydrology	DOI:10.1016/s0022-1694(00)00268-7	ANN runoff analysis in humid forest catchment
+hydrology,extremes	DOI:10.1109/5326.983936	RBF neural networks for flood forecasting
+climate	DOI:10.1029/2009jd011705	SOM synoptic patterns to evaluate IPCC models' Greenland precipitation (JGR)
+hydrology	DOI:10.1002/hyp.5637	RBF network + SOM for hydrological time series forecasting
+remote_sensing	DOI:10.1175/1520-0426(2001)018<0340:roatpf>2.0.co;2	Neural-network AMSU-A temperature profile retrieval (JTECH)
+chemistry	DOI:10.1016/j.envsoft.2005.12.002	Highly cited MLR vs ANN with principal components for ozone prediction (500+ cites)
+energy	DOI:10.1016/j.energy.2008.01.015	ANN vs Angstrom-Prescott solar radiation models
+methods,remote_sensing	e31f6a80396557e8f4c95f3f7761abfc3c6f0a67	Multicategory SVM theory with satellite radiance (cloud) classification; highly cited
+ocean	DOI:10.1029/2007gl029888	Neural-network SST prediction from satellite observations, western Mediterranean (GRL)
+parameterization,s2s	DOI:10.1007/s003820000119	Neural-network atmospheric model in hybrid coupled ENSO modelling (Clim. Dyn.)
+hydrology	DOI:10.1029/2005wr004622	ANN modelling of lake ice growth (WRR)
+energy	DOI:10.1016/s0196-8904(03)00009-8	ANN solar resource estimation vs correlation models; highly cited
+remote_sensing	DOI:10.1175/jhm574.1	Evaluation of neural-network PERSIANN-CCS satellite rainfall; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2008.06.013	Wavelet-neural network suspended sediment forecasting; highly cited
+hydrology,downscaling	DOI:10.1016/s0022-1694(01)00581-9	Ensemble neural network downscaling of streamflow in British Columbia; highly cited
+remote_sensing	DOI:10.1109/tgrs.2004.843077	Fuzzy-logic dual-pol radar hydrometeor classification with in situ verification (TGRS)
+ocean,extremes	DOI:10.1016/j.engappai.2007.03.002	Back-propagation NN short-term storm surge prediction; well cited
+hydrology	DOI:10.1080/00221680209499899	ANNs for streamflow prediction (J. Hydraulic Res.)
+weather	DOI:10.1016/j.engappai.2004.04.002	Abductive networks for hourly temperature forecasting
+energy	DOI:10.1007/s007040070024	Neural-network solar radiation time series simulation for Athens
+hydrology,extremes	DOI:10.5194/hess-9-313-2005	ANN flood flow simulation in a river system (HESS)
+climate,parameterization	DOI:10.1175/2008jcli1869.1	Neural-network emulation of perturbed-physics ensemble to constrain climate sensitivity (J. Climate)
+climate	DOI:10.1002/joc.702	ANN classification of rainfall variability (IJoC)
+chemistry,postprocessing	DOI:10.1029/2008jd009978	Machine-learning aggregation of ozone ensemble forecasts (JGR)
+energy,remote_sensing	DOI:10.1016/j.energy.2004.04.047	AI estimation of hourly irradiance from satellite cloud index
+chemistry	DOI:10.1080/10473289.2000.10464228	Nonlinear regression vs neural networks for ozone forecasting
+hydrology	DOI:10.1080/00207720310001640241	SVR-based RBF networks for river discharge and rainfall modelling
+energy	DOI:10.1016/j.renene.2005.07.010	ANN beam solar radiation estimation
+energy	DOI:10.1016/j.renene.2007.09.020	Neural-network daily global solar irradiance prediction
+remote_sensing	DOI:10.1029/2001jd000955	IASI compression, denoising and neural-network first-guess retrieval (JGR)
+ocean,extremes	DOI:10.1016/j.oceaneng.2004.09.003	Neural-network hindcasting of storm waves
+extremes	DOI:10.1029/2006gl028353	ANN cyclone track prediction in the north Indian Ocean (GRL)
+weather	DOI:10.1175/2057.1	Neural network classifiers for local wind prediction (JAM)
+chemistry	DOI:10.5194/angeo-24-2105-2006	ANN vs statistical models for daily solar UV radiation (Ann. Geophys.)
+hydrology,extremes	DOI:10.1061/(asce)he.1943-5584.0000123	Physically based vs data-driven flood prediction under input uncertainty
+hydrology,agriculture	00ae152c0e1cc5043744b7637bb6dd73b265b8c0	Neural-network reference ET from limited climate data, Burkina Faso
+s2s	DOI:10.1002/met.127	ANN forecasting of intermittent monthly precipitation in arid regions (Met. Apps)
+ocean	DOI:10.1016/j.marstruc.2005.09.002	Backpropagation NN ocean wave parameter estimation
+agriculture,hydrology	DOI:10.1109/tgrs.2003.817200	Model-trained neural network for wheat cycle and soil moisture monitoring from radar (TGRS)
+ocean,s2s	ba2b986d92ed94b21f1c053e99ee23694ac73209	ANN predictability of Indian Ocean SST anomalies; thin subfield
+chemistry	DOI:10.1016/j.simpat.2008.08.006	SVM and NN forecasting of NO/NO2 concentrations; well cited
+energy,remote_sensing	DOI:10.1016/j.apenergy.2003.11.004	NN model of hourly diffuse solar radiation; 225 citations
+hydrology	DOI:10.1007/s12040-008-0005-2	AI (ANN) rainfall-runoff modelling application; well cited
+downscaling,climate	DOI:10.3354/cr022099	PRISM knowledge-based climate mapping; landmark gridded climate method (~1190 citations)
+chemistry	DOI:10.1016/j.atmosenv.2009.07.048	NN forecasting of hourly air pollutant concentrations with meteorological inputs
+downscaling,climate	DOI:10.1002/joc.1314	Hewitson & Crane empirical (SOM/ANN) precipitation downscaling of GCM projections; highly cited
+hydrology	DOI:10.1061/(asce)1084-0699(2000)5:2(156)	Early ANN vs conceptual precipitation-runoff comparison; highly cited
+seaice,remote_sensing	DOI:10.1029/2004jc002388	NN analysis of SSM/I for Arctic multiyear sea ice distribution, JGR
+hydrology	DOI:10.1016/j.jhydrol.2003.12.033	Comparison of feedforward and feedback NNs for rainfall-runoff; well cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2008.05.028	Distributed SVR for river stage prediction; well cited
+hydrology,probabilistic	DOI:10.1029/2005wr003971	Bayesian neural network for rainfall-runoff, WRR
+remote_sensing	DOI:10.1109/tgrs.2005.855071	NN retrieval of temperature/moisture profiles from hyperspectral sounders, TGRS
+hydrology	DOI:10.1002/hyp.1015	Recurrent NN for streamflow forecasting
+hydrology	DOI:10.1111/j.1752-1688.2002.tb00991.x	Genetic programming for rainfall-runoff modelling
+hydrology	DOI:10.1002/hyp.5932	ANN rainfall-runoff for the Blue Nile
+hydrology,ocean	DOI:10.1016/s0022-1694(02)00289-5	RBF network estuary water-stage forecasting
+weather	DOI:10.1016/j.engappai.2004.08.019	Soft computing models for hourly weather analysis
+hydrology,extremes	DOI:10.1061/(asce)1084-0699(2003)8:6(319)	Wavelet-NN drought forecasting; highly cited
+weather	DOI:10.1007/978-3-540-44999-7_4	Ensembles of neural networks for weather forecasting
+hydrology	DOI:10.1061/(asce)1084-0699(2004)9:1(60)	ANN river flow modelling; highly cited
+hydrology,extremes	DOI:10.1061/(asce)1084-0699(2007)12:6(626)	Hybrid stochastic-NN drought forecasting; highly cited
+energy,review	DOI:10.1109/59.910780	Influential review of NN short-term load forecasting (weather-driven load); >2300 citations
+energy	DOI:10.1016/s0038-092x(99)00071-7	RBF networks for monthly solar radiation estimation; well cited
+downscaling,extremes	DOI:10.1016/j.neunet.2006.01.003	Temporal NNs for downscaling climate variability and extremes
+remote_sensing	DOI:10.1029/2002rs002640	Inversion of atmospheric refractivity from radar sea clutter (GA-based); well cited
+chemistry	DOI:10.1016/j.envint.2007.12.020	Online NN air pollution forecasting system
+remote_sensing	DOI:10.1109/tgrs.2002.808322	NN precipitation retrievals from AIRS/AMSU/HSB, TGRS
+energy	DOI:10.1109/isap.2007.4441657	NN day-ahead PV power forecasting from weather inputs
+extremes	DOI:10.1175/1520-0434(2001)016<0600:abnnfs>2.0.co;2	Bayesian NN for severe hail size prediction, WAF
+seaice,remote_sensing	DOI:10.1109/tgrs.2003.817819	ARKTOS intelligent SAR sea ice classification system, operational use
+hydrology	DOI:10.1002/env.596	ARMA-ANN hybrid flow forecasting
+climate	DOI:10.1175/2008jhm1014.1	SOM-based synoptic climatology of Greenland precipitation
+climate,xai	DOI:10.1175/2009jcli2645.1	SOM attribution of projected Arctic moisture transport changes, J. Climate
+chemistry	DOI:10.1109/ijcnn.2002.1005545	SVM forecasting of air pollutant parameters
+hydrology	DOI:10.1007/s00704-006-0267-z	Fuzzy logic model of lake water level fluctuations
+climate,probabilistic	DOI:10.1007/s00382-006-0182-0	NN + Bayesian projection of precipitation from IPCC models, Clim Dyn
+hydrology	DOI:10.1002/hyp.6251	NN modelling of open-water evaporation
+hydrology	DOI:10.1029/2004wr003891	Sparse Bayesian learning (RVM) for reservoir release management, WRR
+energy	d94eb3a80806c0b4e25bded249a54f615d0c0fb6	ANN characterization of wind farm energy production
+energy	f48fef27b8474b9019897b533b24cad33bd8ae8b	SVR photovoltaic power forecasting
+climate,s2s	DOI:10.1029/2005gl025471	Nonlinear (NN) atmospheric teleconnections, GRL (Hsieh)
+climate	DOI:10.1002/joc.1143	ANN synoptic climate reconstruction from ice cores
+seaice,remote_sensing	DOI:10.1109/tgrs.2002.803728	NN classification of Arctic sea ice, cloud, water and leads, TGRS
+energy	DOI:10.1016/j.enpol.2007.09.033	ANN global solar radiation estimation from temperature and humidity; highly cited
+agriculture,hydrology	DOI:10.5194/hess-13-1467-2009	GA calibration of crop model to irrigation water use, HESS
+extremes	DOI:10.1016/j.cageo.2008.02.032	Decision trees for tropical cyclone development
+energy	DOI:10.1016/j.enconman.2009.03.035	ANN estimation of daily global solar radiation; highly cited
+hydrology	DOI:10.1061/(asce)1084-0699(2005)10:4(336)	GRNN intermittent flow forecasting; well cited
+ocean,review	DOI:10.1533/saos.2004.0005	Review of neural networks in ocean engineering (waves, sea level)
+remote_sensing	DOI:10.1007/3-540-36131-6_5	PCA vs GA feature selection for cloud field classification
+extremes	DOI:10.1360/03yd0144	GA-based tropical cyclone track prediction
+hydrology,remote_sensing	DOI:10.5194/hess-13-1607-2009	ANN river flow forecasting with satellite precipitation, HESS
+hydrology	DOI:10.1002/hyp.6686	ANN groundwater level modelling in coastal aquifer
+hydrology,remote_sensing	DOI:10.1016/s0034-4257(02)00105-0	NN retrieval of soil moisture from microwave radiometry, RSE
+energy,weather	DOI:10.1109/tia.2007.908190	NN load forecasting with front-end weather forecast
+climate	DOI:10.1029/1999gl011111	Regime view of NH variability under warming using nonlinear PCA (NN), GRL
+hydrology,probabilistic	DOI:10.1029/2008wr007030	Bayesian NNs for streamflow uncertainty, WRR
+weather,probabilistic	d36a090c5cb44625528c779a1848481b2f37d7a3	Bayesian networks for probabilistic weather prediction
+chemistry,xai	DOI:10.1016/j.atmosenv.2006.04.067	NN input relevance analysis for ozone prediction
+hydrology	DOI:10.1007/s00254-008-1619-z	ANN groundwater level forecasting
+s2s	DOI:10.1175/2007jas2474.1	Objective (SOM) identification of monsoon intraseasonal oscillation phases, JAS
+hydrology	DOI:10.1016/j.jhydrol.2009.06.014	Data-driven estimation of missing precipitation data
+hydrology	e481a3836a8fc643c62e7089bb95f436c483420c	Wavelet-NN river flow forecasting
+extremes,nowcasting	DOI:10.1175/waf898.1	NN thunderstorm forecasting from sounding indices, WAF
+chemistry	DOI:10.1016/j.chemosphere.2005.11.051	Statistical/NN ozone prediction in Oporto
+extremes,hydrology	DOI:10.1016/s0165-232x(03)00075-2	Nearest-neighbour avalanche forecasting from weather data
+remote_sensing	DOI:10.1109/tgrs.2007.907333	NN separation of land surface emissivity and temperature, TGRS
+hydrology	DOI:10.1080/02626660109492820	GA classification and prediction of precipitation occurrence
+weather	ac6089098807a1bf687cd7ef48c6c651cd25f62c	Soft computing and MARS rainfall forecasting
+hydrology,agriculture	DOI:10.1061/(asce)1084-0699(2009)14:2(131)	GA-NN evapotranspiration estimation
+hydrology	DOI:10.1109/ijcnn.2007.4371334	Echo state network for water inflow forecasting
+parameterization,climate	DOI:10.1175/2008mwr2385.1	Krasnopolsky NN emulation of full radiation for decadal climate simulations, MWR
+remote_sensing,ocean	DOI:10.1029/2004jd005300	Machine-learning estimation of moisture transport over oceans from satellites, JGR
+energy	DOI:10.1109/icps.2005.1436366	Wind power generation prediction for isolated system
+chemistry	DOI:10.1080/10473289.2000.10464105	ANN ozone modelling and prediction, JAWMA
+chemistry	DOI:10.1016/j.compchemeng.2005.01.008	Fuzzy logic modelling of surface ozone
+hydrology	DOI:10.1016/j.envsoft.2007.07.006	Fuzzy logic runoff evaluation in tropical watershed
+weather,energy	DOI:10.1061/(asce)0887-3801(2007)21:6(384)	Combined numerical-NN modelling of topographic wind flow
+downscaling	DOI:10.1007/s11069-008-9339-y	Machine learning topo-climatic mapping (Kanevski)
+chemistry	DOI:10.1080/009083190881526	ANN SO2 forecasting
+energy	DOI:10.1109/isap.2009.5352922	Echo state network solar irradiance prediction
+energy	DOI:10.1109/ijcnn.2006.247139	RBF solar radiation prediction with cloudiness indices
+extremes	DOI:10.1007/s005210070024	Neural network tornado diagnosis
+weather	DOI:10.1109/cec.2008.4631064	NN mesoscale wind forecasting from lidar
+hydrology,extremes	3c32c2479f197f2bf02d07f923ce7760a7e15041	ANN flood forecasting
+weather	DOI:10.2514/6.2004-231	NCAR Forecast Icing Potential fuzzy-logic algorithm (operational)
+hydrology,extremes	DOI:10.1080/02508060708692216	Adaptive NNs for flood routing
+climate	DOI:10.1002/joc.1965	Synoptic (SOM) influences on Melbourne temperature variability
+nowcasting	DOI:10.1109/cimsa.2004.1397226	ANNs for meteorological nowcasting
+remote_sensing	DOI:10.1175/jam2451.1	Instance-based (nearest neighbour) GOES cloud classification, JAM
+remote_sensing	DOI:10.1002/ecjc.20226	SVM/NN precipitation estimation
+hydrology,extremes	DOI:10.1139/l03-025	ANN mapping of river conditions to ice-jam prediction
+ocean,remote_sensing	DOI:10.1016/j.asr.2006.03.039	Neuro-variational inversion of ocean colour
+remote_sensing	DOI:10.1080/17415970600574195	NN inversion of temperature profiles from radiation data
+ocean	DOI:10.1201/b16815-66	ANN sea level estimation in coastal environments
+energy	DOI:10.1109/iciecs.2009.5365740	Wavelet + LSSVM wind speed and power forecasting
+energy,review	DOI:10.3233/ica-2001-8305	Review of AI techniques in wind power generation
+hydrology	DOI:10.1016/s1464-1909(01)85005-x	Widely cited early ANN river flow forecasting study
+hydrology	DOI:10.1016/j.biosystemseng.2009.04.017	SVM simulation of runoff and sediment yield; well cited
+hydrology	DOI:10.5194/hess-13-411-2009	Multi-criteria validation of ANN rainfall-runoff models
+remote_sensing	DOI:10.1175/1520-0426(2000)017<0140:cohbop>2.0.co;2	Fuzzy/neuro-fuzzy hydrometeor classification from polarimetric radar (Liu & Chandrasekar); highly cited
+hydrology,extremes	DOI:10.2166/hydro.2007.027	SVM flood forecasting; highly cited early ML hydrology
+hydrology	DOI:10.1080/02626660009492354	Hybrid multi-model (NN/fuzzy) river level forecasting; well cited
+ocean	DOI:10.1016/j.oceaneng.2008.03.007	Data-driven ML for wind-wave forecasting; well cited
+extremes	0f529dc2b2b2bad22394454d4cba79e2c319f0b0	Data mining forest fire prediction from meteorological data; highly cited
+hydrology	DOI:10.1007/s11269-009-9414-5	ANN-wavelet rainfall-runoff modelling; highly cited
+hydrology	DOI:10.1016/s0022-1694(01)00349-3	Takagi-Sugeno fuzzy combination of rainfall-runoff forecasts; highly cited
+hydrology,xai	DOI:10.1623/hysj.48.2.163.44699	Interpreting hydrological processes inside an ANN; early interpretability work
+hydrology	DOI:10.1061/(asce)1084-0699(2003)8:2(93)	Comparison of deterministic, statistical and ANN rainfall-runoff models
+hydrology	DOI:10.1080/02626660109492832	Fuzzy logic rainfall-runoff model; well cited
+remote_sensing	DOI:10.1175/1520-0426(2002)019<1745:cbldim>2.0.co;2	Fuzzy logic boundary-layer depth retrieval from wind profiler radar
+ocean,remote_sensing	DOI:10.1016/j.rse.2004.11.015	Influential review of satellite oil spill detection including ML classifiers
+downscaling	DOI:10.1175/1520-0493(2004)132<2169:cmfsdi>2.0.co;2	Clustering-based statistical downscaling of short-range weather forecasts
+s2s,ocean	DOI:10.1155/2009/167239	NN and SVR forecasts of tropical Pacific SST (ENSO)
+hydrology,extremes	DOI:10.1002/hyp.6262	Enforced SOM for river flood forecasting
+hydrology,agriculture	DOI:10.1061/(asce)0733-9437(2002)128:4(224)	ANN evapotranspiration estimation; highly cited
+hydrology	DOI:10.1623/hysj.52.3.478	Fuzzy rainfall-runoff model using soil moisture state
+hydrology,agriculture	DOI:10.1061/(asce)0733-9437(2003)129:3(214)	Neural ET estimation from limited climatic data; well cited
+chemistry	DOI:10.1016/s1364-8152(01)00077-9	ANN prediction of tropospheric ozone; well cited
+hydrology	DOI:10.2166/nh.2008.026	Comparison of ANN techniques for river flow forecasting; well cited
+ocean,remote_sensing	DOI:10.1016/j.envsoft.2004.11.010	Automatic oil spill identification in satellite imagery with ML
+hydrology	DOI:10.1016/j.jhydrol.2005.05.008	Neural network streamflow forecasting in Hawaii; well cited
+ocean	DOI:10.1029/2004gl021192	NN estimation of ocean subsurface thermal structure from surface parameters
+energy,weather	DOI:10.1016/j.renene.2005.07.006	Complex-valued NN wind profile forecasting; well cited
+hydrology,s2s	DOI:10.1002/hyp.1359	Fuzzy logic seasonal runoff forecasting
+downscaling	DOI:10.1175/1520-0442(2000)013<0886:siosat>2.0.co;2	ANN spatial interpolation of air temperature for GCM downscaling
+hydrology	DOI:10.1029/2006wr005383	Multistep streamflow forecasting with conceptual vs neural models
+chemistry	2e76e34a29d7154dab36f05554fdb876b28cc66a	ML forecasting of rare ozone days (skewed classes)
+hydrology	DOI:10.1623/hysj.52.3.397	Multi-objective comparison of ANN and conceptual rainfall-runoff model
+remote_sensing	DOI:10.1109/tgrs.2008.2005993	SVR for land and sea surface temperature retrieval (IEEE TGRS)
+chemistry	DOI:10.3155/1047-3289.57.4.480	Regression vs NN forecasting of PM and CO concentrations
+chemistry	DOI:10.1016/s1364-8152(03)00136-1	Operational NN-based ozone warning system (Bordeaux)
+hydrology	DOI:10.1002/hyp.7299	ANN rainfall-runoff integrating hydrometeorological information
+climate,hydrology	DOI:10.1002/joc.1753	SOM synoptic classification of GCM hydroclimatology for Arctic basins
+review,hydrology	DOI:10.1002/0470848944.hsa021	Review of data-driven and computational intelligence methods in hydrology
+ocean	DOI:10.1029/2008gl033468	SOM analysis of IOD impact on equatorial intraseasonal currents
+hydrology	DOI:10.1023/a:1014415503476	ANN water demand forecasting with climatic inputs; highly cited
+weather	5e977c3efcc2b498f33dac06f0e1e18ae60ce86b	Decision-tree visibility and fog forecasting; thin subfield
+ocean	DOI:10.1061/(asce)0733-950x(1999)125:4(195)	BPNN tidal level forecasting; well cited
+hydrology,remote_sensing	DOI:10.1029/1999wr900251	Binary decision tree + geostatistics for mountain snow distribution; well cited
+ocean,postprocessing	DOI:10.1016/j.coastaleng.2006.11.007	ANN correction of global wave model for near-shore swell estimation
+hydrology	DOI:10.1029/2006wr005627	Reinforcement learning for stochastic multireservoir operation
+postprocessing,probabilistic	DOI:10.1175/1520-0434(2002)017<0783:comfpq>2.0.co;2	Comparison of statistical/NN methods for probabilistic QPF
+remote_sensing	DOI:10.1007/s10044-005-0007-5	Automated ground-based cloud type recognition
+hydrology	DOI:10.2166/nh.2006.0006	ANN estimation of suspended sediment in streams; well cited
+remote_sensing	DOI:10.1029/2002jd002301	NN-based all-weather land surface skin temperature retrieval from microwave and IR
+remote_sensing,chemistry	DOI:10.1109/tgrs.2007.901043	Neural-network cloud property retrieval (GOME) for trace gas retrieval
+hydrology	f4fd694ef00d7a1f655e6fe57d022b85ddb04418	Regression, ARIMA and ANN reservoir inflow forecasting from snowmelt
+weather	0719a63450701017c89bfe3d60800485ae72c76b	Fuzzy case-based weather prediction (WIND-1); early AI forecasting
+downscaling,climate	DOI:10.1002/joc.617	ANN and statistical downscaling of New Zealand climate change
+energy	DOI:10.1109/epc.2008.4763386	ANN very short-term wind speed prediction
+hydrology	DOI:10.1623/hysj.52.3.466	M5 model trees for low-flow forecasting
+extremes,remote_sensing	DOI:10.1016/j.eswa.2006.10.013	GA-based automatic tropical cyclone eye fixing from satellite imagery
+hydrology,remote_sensing	DOI:10.1061/(asce)1084-0699(2000)5:2(138)	ANNs in remote sensing of hydrologic processes
+chemistry,remote_sensing	fd856b50ccda1807edf0c41d21c5d6b76c7f6d88	Aerosol optical properties from calibrated sky imager with NN (ACP)
+energy	78396f3d08f53286af77cccfc52491e5c951ecd0	Fuzzy-neural upscaling for regional wind generation forecasting
+hydrology,remote_sensing	DOI:10.1080/01431160600887698	MODIS time series + ANN monitoring Sahelian floodplains
+energy	DOI:10.1109/icps.2008.4606288	Load forecasting combining multiple meteorological inputs
+hydrology,remote_sensing	cd1a52d8ec699ece1fe2809197d54b22dbdd631b	NN retrieval of soil moisture and roughness from SAR
+energy	DOI:10.1007/11752912_13	Neuro-fuzzy + ANN wind power forecasting
+energy	DOI:10.1109/his.2008.36	ANN hybridising global and mesoscale NWP for wind speed prediction
+ocean,extremes	DOI:10.2112/07-0830.1	Neural network storm surge prediction; thin subfield
+energy	DOI:10.1109/tec.2005.847954	Highly cited wind speed/power forecasting with local recurrent NNs (IEEE TEC)
+methods,hydrology	DOI:10.1016/j.jhydrol.2007.04.020	Comparison of NN methods for infilling missing daily weather records; well cited
+hydrology	DOI:10.5194/hess-6-619-2002	ANN flow forecasting evaluation on the Yangtze (HESS)
+hydrology	DOI:10.1080/713827142	ANN vs genetic programming for urban rainfall-runoff
+s2s,methods	DOI:10.5194/npg-15-221-2008	Robust neural NLCCA for seasonal climate forecasting (Hsieh group)
+nowcasting,postprocessing	ed64e22ac3d97eb65eb7cf8c49dc2f04f820d987	Fuzzy case-based (analog) prediction of ceiling and visibility; early AI aviation-weather system
+hydrology	DOI:10.1002/hyp.554	Influential data-driven algorithm for constructing ANN rainfall-runoff models
+hydrology,extremes	DOI:10.1029/2004wr003562	Neurofuzzy short-term flood forecasting (WRR), well cited
+hydrology,agriculture	DOI:10.1061/(asce)0733-9437(2003)129:6(454)	Reference evapotranspiration forecasting with ANNs; well cited
+hydrology	DOI:10.2166/hydro.2001.0014	SSA-SVM rainfall and runoff forecasting; early SVM hydrology
+energy	DOI:10.1016/j.neucom.2005.02.003	Locally recurrent NNs for long-term wind speed and power prediction
+energy,downscaling	DOI:10.1016/s0960-1481(99)00056-7	NN downscaling of GCM output for wind-power climate-change impacts
+weather	DOI:10.1109/5326.941848	Naive Bayesian classifier for rainfall prediction
+energy	9857ba40590902f910ab4e2d9d293416eae822e0	Data mining approach to wind power forecasting
+climate,methods	baca9d264a5c6cbc09dcbd432d8c3284a13506fa	Early data mining/clustering for discovering ocean climate indices
+energy	DOI:10.1016/s0960-1481(99)00125-1	Classic comparison of forecasting techniques incl. ANN/ANFIS for hourly wind speed
+hydrology	1cb5bf0f83575ebdf50cea6eee82fdc81e4e6d29	Wavelet network model for hydrological prediction; highly cited
+remote_sensing	DOI:10.1029/2001jd900085	NN retrieval of water vapour, LWP, surface temperature and emissivity with first guess (JGR)
+chemistry	DOI:10.1016/s0377-2217(99)00069-7	NN vs ARIMA/regression for daily max ozone in Houston; well cited
+hydrology,extremes	DOI:10.1007/s00477-008-0288-5	ANFIS drought forecasting; well cited
+chemistry	DOI:10.1016/j.engappai.2009.04.002	NARX models for forecasting peak air pollution levels
+agriculture,hydrology	DOI:10.1016/j.biosystemseng.2008.09.032	Soft-computing hybrid for irrigation water demand forecasting with climate inputs
+energy	DOI:10.1109/isap.2009.5352853	ANN short-term wind power forecasting in Portugal; well cited
+chemistry	DOI:10.1016/j.envsoft.2007.09.003	NN air pollution forecasting in Bilbao (EMS)
+chemistry	DOI:10.1007/s11270-008-9950-2	Feedforward NN vs RBF vs regression for PM10 forecasting
+hydrology	DOI:10.1016/j.jhydrol.2009.02.004	AI methods for river flow estimation from upstream records
+climate	DOI:10.1029/2009jd011706	SOM synoptic patterns and Greenland precipitation in 20th/21st century climate (JGR)
+hydrology	DOI:10.1623/hysj.54.2.261	Comparison of fuzzy inference systems for streamflow prediction
+review,hydrology	59e35f263cdb8bd7b51ec40869204f5347a4c6ab	ASCE Task Committee landmark review of ANN hydrologic applications
+remote_sensing,extremes	DOI:10.1109/3477.931532	Elastic contour matching for tropical cyclone pattern recognition in satellite imagery
+hydrology	DOI:10.2166/hydro.2008.006	NN groundwater level forecasting with projected precipitation
+methods,remote_sensing	94b295e711ec744583597432c19749a5cd61038e	Multicategory SVM theory applied to satellite radiance (cloud) classification; highly cited
+parameterization,weather	DOI:10.5194/angeo-24-3185-2006	Genetic algorithm parameter estimation for model physics and impact on QPF
+s2s,hydrology	DOI:10.1515/jisys.2007.16.4.307	Regional rainfall forecasting from climate teleconnections with AI techniques
+remote_sensing	DOI:10.1175/2008waf2222205.1	Fuzzy-logic hydrometeor classification for polarimetric WSR-88D; operational, highly cited
+hydrology,methods	DOI:10.1016/j.jhydrol.2005.02.015	Data-driven models for estimating missing precipitation records; highly cited
+energy	DOI:10.1016/j.energy.2006.04.001	NN solar irradiance forecasting with wavelet preprocessing
+remote_sensing	DOI:10.1175/jtech2035.1	Fuzzy logic separation of precipitating vs non-precipitating polarimetric radar echoes
+energy	DOI:10.1016/j.energy.2009.05.009	ANN estimation of monthly global solar radiation in China vs empirical models
+weather,agriculture	DOI:10.1016/j.compag.2009.04.003	ANNs for year-round air temperature prediction for agriculture
+hydrology	DOI:10.1016/j.agwat.2005.02.001	ANN vs regression for watershed sediment loss prediction
+ocean,climate	DOI:10.1029/2000pa000562	ANN vs statistical techniques for paleo-SST from foraminifer census data
+hydrology	DOI:10.1002/hyp.6812	ANFIS for hydrological time-series modelling
+hydrology	DOI:10.1016/j.advengsoft.2005.11.002	NN flood discharge forecasting at ungauged station
+postprocessing,weather	DOI:10.5194/npg-14-211-2007	Linear and nonlinear (NN) post-processing of NWP for alpine minimum temperatures
+hydrology,probabilistic	DOI:10.2166/hydro.2009.037	Assessment tools for NN-based hydrological ensemble forecasts
+energy	DOI:10.1023/a:1012031827871	Recurrent NNs generating synthetic solar radiation series
+energy	DOI:10.1504/ijgei.2004.004704	ANN forecasting of grid-connected PV plant output
+climate,remote_sensing	DOI:10.1175/jcli3839.1	NN analysis of Arctic longwave cloud forcing vs cloud parameters (J. Climate)
+climate,methods	DOI:10.1175/1520-0442(2003)016<2005:tvsowc>2.0.co;2	Nonlinear PCA climate regimes of NH extratropical winter atmosphere (J. Climate)
+ocean,remote_sensing	DOI:10.1029/2002jc001638	ANN pigment retrieval from ocean colour in Case I waters (JGR Oceans)
+hydrology,remote_sensing	DOI:10.1061/(asce)1084-0699(2008)13:6(461)	ANN soil moisture retrieval from ERS-2 SAR
+downscaling,postprocessing	019a5ed54ab5f87d096a35d1bec6e3e0c881a4d3	Comparison of data-driven methods for downscaling ensemble weather forecasts
+energy	DOI:10.1115/1.1413216	Regression vs ANN for wind turbine power curve estimation
+extremes	DOI:10.1175/waf890.1	NN classifier improving statistical tropical cyclogenesis forecasts (WAF)
+s2s,parameterization	DOI:10.2151/jmsj.81.1	Hybrid coupled ENSO model (NN atmosphere) with data assimilation
+ocean,remote_sensing	DOI:10.1007/3-540-44668-0_69	SOM-based topological clustering for ocean colour classification
+climate,methods	323bed98844078a75977f2daf08bb217a24da08b	Nonlinear PCA representation of the QBO (Hsieh group); fills thin decade
+hydrology	DOI:10.1029/2007wr006737	Wu & Chau-style monthly streamflow prediction with data-driven models plus preprocessing; WRR, highly cited
+hydrology	DOI:10.1016/j.mcm.2004.10.012	ANN rainfall-runoff model; well cited early ANN hydrology
+hydrology	DOI:10.1016/j.jhydrol.2009.03.034	Hybrid data-driven runoff prediction scheme; well cited
+weather	DOI:10.1007/s00521-004-0413-4	Ensemble of neural networks for weather forecasting; widely cited early ML weather forecasting
+hydrology	DOI:10.1061/(asce)1084-0699(2001)6:5(367)	Temporal neural networks for multivariate reservoir inflow forecasting (Coulibaly et al.); well cited
+hydrology,s2s	DOI:10.1029/2002wr001373	Seasonal-to-interannual ensemble streamflow forecasts with semiparametric nearest-neighbour method using climate predictors; WRR
+hydrology	DOI:10.1016/j.jhydrol.2007.09.004	PSO-trained neural network for river stage forecasting; well cited
+s2s,climate	DOI:10.1007/s00382-003-0361-1	Nonlinear PCA (neural network) analysis of interdecadal ENSO changes; Climate Dynamics
+hydrology,extremes	DOI:10.1002/joc.1498	ANN drought forecasting from drought-index time series; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2005.06.001	Support vector machines for multi-time-scale streamflow prediction; highly cited
+hydrology	DOI:10.1029/1999wr900264	Bayesian modular neural networks for watershed runoff; WRR, well cited
+hydrology	DOI:10.1111/j.1752-1688.2001.tb00980.x	Genetic programming for real-time runoff forecasting; well cited
+hydrology	DOI:10.1080/02626660209492996	ANN daily rainfall-runoff modelling; well cited
+hydrology,extremes	DOI:10.1002/hyp.5942	Neuro-fuzzy flood forecasting model; well cited
+hydrology,extremes	DOI:10.1623/hysj.52.1.114	Multi-step-ahead neural networks for flood forecasting; well cited
+remote_sensing	DOI:10.1109/36.868889	Neural-network precipitation retrieval from AMSU 54/183 GHz on NOAA-15 (Staelin & Chen); IEEE TGRS
+hydrology	DOI:10.1623/hysj.50.3.439.65025	Improving generalization of ANN rainfall-runoff models; well cited
+downscaling,hydrology	DOI:10.1061/(asce)1084-0699(2004)9:1(1)	Neural networks for rainfall forecasting by atmospheric downscaling; early ML downscaling
+hydrology	DOI:10.1016/j.jhydrol.2008.11.038	Decision-tree learned release rules for real-time multireservoir flood control
+hydrology	DOI:10.5194/hess-10-1-2006	Fuzzy logic vs ANN water-level forecasting; HESS
+chemistry	DOI:10.1016/j.atmosres.2005.11.007	Two-stage neural network predicting daily max ozone from meteorology
+hydrology	c7977af199ff18fdf2af41a92023ab59593fee1c	ANN modelling of reservoir evaporation losses from meteorological inputs
+hydrology	DOI:10.1016/j.pce.2006.03.020	Wavelet and data-partition preprocessing for neural-network river-flow forecasting; highly cited
+hydrology	DOI:10.1623/hysj.48.3.349.45288	ANN estimation, forecasting and extrapolation of river flows; highly cited
+climate	DOI:10.1175/2776.1	Nonlinear (neural network) modes of North American winter climate variability in a GCM
+hydrology	DOI:10.1002/hyp.7129	ANN spatiotemporal groundwater level forecasting; highly cited
+hydrology,agriculture	DOI:10.1061/(asce)0733-9437(2007)133:2(83)	ANN evapotranspiration from minimal climatological data; highly cited
+ocean	DOI:10.1016/s0029-8018(01)00112-3	Neural network wave forecasting across multiple stations; well cited
+hydrology,agriculture	DOI:10.1061/(asce)0733-9437(2007)133:4(368)	Adaptive neuro-fuzzy evapotranspiration estimation from climate data; well cited
+energy,weather	DOI:10.1016/j.renene.2009.01.001	Abductive (GMDH) networks for hourly wind speed forecasting; well cited
+weather,extremes	DOI:10.1016/j.atmosres.2005.10.015	Self-organizing map identification of synoptic patterns causing heavy rainfall in Japan
+ocean	DOI:10.1175/jtech1848.1	Growing hierarchical SOM analysis of West Florida Shelf SST patterns
+weather	DOI:10.1016/j.envsoft.2007.09.011	Modified k-nearest-neighbour weather analogue for real-time daily weather prediction
+ocean	DOI:10.1175/jtech1999.1	SOM analyses of HF radar and ADCP current patterns on the West Florida Shelf
+energy	0bf58f6a8dcd7e343e7e671f6f9ea382e46ea7df	Neural network modelling of global solar radiation
+weather,climate,review	DOI:10.3354/cr022013	Hewitson & Crane SOMs for synoptic climatology; landmark, highly cited
+energy	DOI:10.1061/(asce)0733-9402(2007)133:1(46)	ANN wind power estimation
+agriculture	382d5388db46f59d90353cde72e8f576d3c618be	ANN crop yield prediction across German climate zones
+hydrology	DOI:10.1016/j.neucom.2004.04.016	Neural networks vs M5 model trees for stage-discharge (Bhattacharya & Solomatine); highly cited
+energy,weather	DOI:10.1109/ijcnn.2008.4634019	Reservoir computing for short-term hourly wind speed forecasting
+hydrology,extremes	DOI:10.1029/2006wr005142	ANN in CCA physiographic space for flood frequency at ungauged sites; well cited
+energy	DOI:10.1016/j.apenergy.2008.09.004	ANN estimation of diffuse solar radiation; well cited
+hydrology	DOI:10.1002/hyp.7014	Neuro-wavelet streamflow forecasting; well cited
+remote_sensing	DOI:10.1029/2000rs002561	Neural network inversion of microwave limb sounder atmospheric observations
+weather	DOI:10.1016/s0960-1481(01)00082-9	Neural networks for hourly surface temperature prediction; well cited
+hydrology	DOI:10.1111/j.1752-1688.2006.tb04475.x	Process-based vs ANN streamflow modelling comparison; well cited
+remote_sensing,hydrology	DOI:10.1016/j.rse.2009.08.003	Decision-tree soil freeze/thaw classification from SSM/I; well cited
+hydrology,agriculture	DOI:10.1007/s00484-006-0071-6	Neural-network classification of bioclimatic series for drought risk in southern Italy
+s2s	DOI:10.1029/2003gl018504	Genetic algorithm for seasonal Indian summer monsoon rainfall forecasting
+chemistry	DOI:10.1016/j.scitotenv.2008.12.007	Cost-sensitive neural networks for forecasting ozone episode days
+methods,climate	DOI:10.1002/joc.1236	Nearest-neighbour resampling for homogenizing daily/sub-daily temperature records
+hydrology,s2s	DOI:10.1061/(asce)he.1943-5584.0000028	Neural network forecasting of Palmer drought index from climate indices
+chemistry	DOI:10.30955/gnj.000171	Neural networks for environmental data quality control and air pollution nowcasting
+extremes,remote_sensing	DOI:10.1007/978-3-540-30132-5_90	Genetic algorithm tropical cyclone eye fix from radar imagery
+chemistry	DOI:10.1016/j.atmosenv.2008.05.073	Neural modelling of spatial distribution of air pollutants
+remote_sensing	DOI:10.1016/s0031-3203(03)00165-1	Neural network removal of bird contamination from wind profiler data
+ocean	DOI:10.1109/ijcnn.2009.5178623	SOM (topological map) analysis of Senegalo-Mauritanian upwelling from satellite data
+extremes	DOI:10.1109/ccece.2001.933663	SVM and RBF classification of severe storm cells
+weather	DOI:10.7763/ijcte.2009.v1.9	SVM air temperature forecasting; highly cited early ML weather paper
+hydrology	DOI:10.1016/j.eswa.2008.05.024	GA-evolved neural network for daily rainfall-runoff forecasting; well cited
+hydrology,extremes	DOI:10.1109/tsmcc.2004.843229	Fuzzy-neural coupling for river flood prediction; IEEE SMC
+hydrology,extremes	DOI:10.1061/(asce)1084-0699(2005)10:6(485)	Comparison of ANN/GA-based flood forecasting models on the Yangtze; highly cited
+downscaling,extremes	DOI:10.1016/j.jhydrol.2005.02.020	ANN vs regression multi-site downscaling of heavy precipitation; well cited
+remote_sensing,ocean	DOI:10.1175/1520-0426(2002)019<2030:atpwsa>2.0.co;2	Neural-network two-parameter Ku-band altimeter wind speed algorithm; widely used
+hydrology,s2s	DOI:10.1016/j.jhydrol.2008.05.026	SOM/ANN long-lead drought forecasting in the Murray-Darling
+s2s,parameterization	DOI:10.1007/s00382-002-0231-2	Hybrid coupled model with neural-network atmosphere for ENSO prediction
+s2s	DOI:10.1016/j.crte.2010.06.004	Neurocomputing vs statistical seasonal Indian monsoon rainfall forecast from SST
+energy	DOI:10.1016/j.apenergy.2005.06.003	Adaptive wavelet-network daily solar radiation forecasting; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2007.01.013	ANN vs neuro-fuzzy runoff modelling comparison; well cited
+downscaling,hydrology	DOI:10.1016/j.jhydrol.2005.10.015	Improved KNN weather generator for climate change scenarios
+hydrology	DOI:10.5194/hess-6-627-2002	Neural networks for updating real-time flood forecasts of conceptual models
+energy	DOI:10.1109/ptc.2003.1304289	Fuzzy neural network wind power forecasting with risk assessment; well cited
+hydrology	DOI:10.1016/j.jhydrol.2004.03.011	Box-Jenkins vs neural networks for monthly/daily runoff
+hydrology,review	DOI:10.1201/9780203024119	Overview of neural networks for hydrological modelling
+downscaling,climate	DOI:10.1016/s0304-3800(00)00406-3	Neural-network spatio-temporal interpolation of climatic variables in complex terrain
+hydrology,agriculture	DOI:10.1002/hyp.7153	ANN estimation of reference evapotranspiration from climate factors
+hydrology	DOI:10.1002/0470848944.hsa017	Genetic programming rainfall-runoff modelling
+hydrology,da	DOI:10.1111/j.1752-1688.2007.00082.x	SVM combined with EnKF for soil moisture data assimilation
+chemistry	DOI:10.1016/j.atmosenv.2008.07.020	Hybrid ARIMA-ANN PM forecasting; highly cited air-quality paper
+energy,review	DOI:10.1109/pct.2007.4538368	Widely cited review of wind forecasting technology incl. ANN methods
+hydrology,agriculture	DOI:10.1016/j.agwat.2007.12.011	ANN vs empirical equations for daily reference ET; highly cited
+remote_sensing,hydrology	DOI:10.1175/jhm431.1	Hydrologic evaluation of PERSIANN neural-network satellite precipitation vs gauge/radar; highly cited
+hydrology	DOI:10.1007/s11269-006-9027-1	Neuro-fuzzy inflow forecasting of the Nile at Aswan; well cited
+remote_sensing	DOI:10.1175/jam2460.1	Neural-network quality control of radar reflectivity (operational WDSS-II)
+chemistry	DOI:10.1016/s0048-9697(03)00335-8	Neural networks vs regression for summertime ozone forecasting in Athens
+hydrology	DOI:10.1061/(asce)1084-0699(2003)8:6(348)	ANN groundwater level prediction under climate and pumping forcing
+chemistry	DOI:10.1016/s0304-3800(01)00434-3	ANN urban air pollution forecasting (Perugia)
+ocean	DOI:10.1016/s0029-8018(01)00068-3	ANN tide forecasting; well cited
+hydrology	DOI:10.1029/2005wr004721	Nonparametric KNN space-time streamflow disaggregation
+hydrology	DOI:10.5194/hess-5-577-2001	Neural network updating of river flow forecasts
+chemistry	DOI:10.1016/s0925-2312(02)00623-9	Evolutionary neural network pollutant level prediction in Hong Kong
+hydrology,agriculture	DOI:10.1007/s11269-008-9301-5	Climate-based methods vs ANN for reference ET
+downscaling	DOI:10.1029/2004jd005677	Nonparametric nonhomogeneous HMM for multisite rainfall downscaling
+hydrology	DOI:10.2166/nh.2006.010	Feed-forward neural network evapotranspiration estimation
+hydrology	DOI:10.1016/s0925-2312(03)00387-4	Neural network river flow forecasting for reservoir management
+ocean	DOI:10.1061/(asce)0733-950x(2002)128:1(21)	Neural-network water level predictions including meteorological forcing at Galveston Bay
+hydrology	DOI:10.1623/hysj.52.3.414	Timing error correction for neural network rainfall-runoff models
+weather,nowcasting	DOI:10.1175/2007waf2006017.1	Fuzzy-logic analog forecasting of ceiling and visibility (WAF)
+hydrology	DOI:10.1007/978-3-540-24844-6_20	Comparison of three neural network methods for rainfall-runoff
+chemistry,da	DOI:10.4304/jcp.2.6.85-93	Genetic algorithm source characterisation of atmospheric contaminant release from sensor data
+ocean,remote_sensing	DOI:10.1080/01431160600821127	Neural-network MERIS Case 2 water algorithm; operational ESA product, highly cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2003.12.011	Fuzzy expert system with genetic enhancement for flood frequency pooling
+hydrology	DOI:10.1029/2000wr900368	ANN water table depth modelling with climate inputs; highly cited (WRR)
+extremes,weather	DOI:10.1175/1520-0434(2001)016<0355:btotsa>2.0.co;2	Expert system aid for tropical cyclone track forecasting (WAF)
+energy	DOI:10.1016/j.renene.2008.05.032	Data-mining models for monitoring wind farm power; well cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2007.10.050	ANFIS regional flood frequency analysis at ungauged sites; well cited
+hydrology	2fbdac0c5e3b904baeed023470d473e28a734382	Comparison of backpropagation training algorithms for streamflow and sediment
+ocean,remote_sensing	DOI:10.1109/lgrs.2007.894163	Neural-network subsurface salinity profiles from satellite surface observations
+energy	3c323cabd4d960e605560059194a528cfffa5959	Neural network measure-correlate-predict for wind energy yield
+hydrology	DOI:10.1061/(asce)0733-9496(2000)126:2(57)	Neural-network simulation-optimisation for reservoir operation
+hydrology	DOI:10.1080/10286600500126256	Generalized regression neural network monthly flow forecasting
+hydrology,extremes	DOI:10.1109/ijcnn.2008.4634227	SVM river basin flood prediction
+hydrology	DOI:10.5194/hess-12-123-2008	Comparison of AI techniques for river flow forecasting
+hydrology	DOI:10.1016/s0022-1694(00)00332-2	Neural network streamflow data infilling
+remote_sensing	DOI:10.1109/tgrs.2007.903399	Supervised fuzzy-logic hydrometeor classification for C-band radar (TGRS)
+remote_sensing	DOI:10.1175/1520-0450(2004)043<0576:annftt>2.0.co;2	Neural-network PMW/IR fusion for high-resolution rainfall estimation
+chemistry	DOI:10.1016/j.chemosphere.2004.07.043	Multivariate/neural methods for ambient ozone prediction
+agriculture,hydrology	DOI:10.1061/(asce)0733-9437(2003)129:6(422)	Neural-network demand forecasting for irrigation water distribution
+hydrology,extremes	DOI:10.1029/2002wr001551	Comparison of nonlinear (NN vs nonlinear prediction) flood forecasting methods (WRR)
+energy	21b54793660f2ee4998b8d21e6c1e01dd6eb88f2	Kernel methods for wide-area wind power forecasting from NWP
+ocean,remote_sensing	DOI:10.1109/tgrs.2007.893566	ANN vs regression retrieval of suspended matter from ocean colour (TGRS)
+ocean	DOI:10.2174/1874835x00801010013	AI tools for real-time ocean wave forecasting
+energy	DOI:10.1002/hyp.7372	Input selection for ML solar radiation estimation
+s2s	DOI:10.1007/s00703-008-0335-2	ANN long-lead monsoon rainfall prediction for Indian subdivisions
+hydrology	02430d569a518e6e167c1fd632d230994b170671	Neural networks and M5 model trees for stage-discharge modelling
+ocean,remote_sensing	DOI:10.1080/01431160512331326549	Neural-network ocean colour algorithm for coastal waters
+chemistry,remote_sensing	DOI:10.1029/2004gl019951	Neural-network inversion of aerosol optical properties from SeaWiFS
+remote_sensing	DOI:10.1175/2009jamc2172.1	Neural-network rainfall estimation from polarimetric S-band radar
+chemistry	DOI:10.1080/10473289.2000.10464039	Neural network for peak photochemical pollutant levels
+remote_sensing,ocean	DOI:10.1016/s0925-2312(99)00140-x	Neural network wind retrieval from ERS-1 scatterometer
+energy	DOI:10.1109/ijcnn.2009.5178791	Wavelet-neural wind speed and wind power forecasting
+hydrology,xai	DOI:10.1007/s11269-006-9144-x	Deterministic insight into ANN storm runoff model behaviour
+weather,methods	DOI:10.1016/j.eswa.2007.07.032	Genetic algorithm identification of weather systems in NWP data
+agriculture	DOI:10.1111/j.1365-3059.2004.01044.x	Weather-based ANN prediction of crop disease severity
+ocean,remote_sensing	DOI:10.1364/oe.15.000252	Semianalytical + genetic algorithm ocean colour inversion
+remote_sensing,ocean	DOI:10.1016/s0925-2312(99)00138-1	Structured neural network for scatterometer wind vector retrieval
+energy	DOI:10.1109/ijcnn.2005.1556353	Locally recurrent neural networks for wind speed prediction with spatial correlation
+extremes,remote_sensing	DOI:10.1109/aero.2008.4526521	Automated cyclone identification from QuikSCAT winds
+chemistry	DOI:10.1504/ijep.2003.004262	Coupling neural networks with dispersion models for air pollution
+ocean	1f6d94a134f0a88bd8419fdff531c95d8145d3c4	ANN forecasting of wave parameters
+remote_sensing	DOI:10.1080/10255810390243737	Kernel methods for WSR-88D radar rainfall estimation
+ocean,climate	0e35d126f95c20b86b17b872be33912df2aa281e	ANN paleo-SST estimation from radiolarian assemblages
+ocean	DOI:10.1029/2008jc005201	Data-adaptive (GA) forecasting of scatterometer winds in north Indian Ocean
+hydrology,extremes	DOI:10.2166/hydro.2008.009	Decision tree and ANN urban flooding probability
+ocean	DOI:10.1029/2006gl028288	Genetic algorithm prediction of Bay of Bengal scatterometer wind fields
+weather	DOI:10.1071/es05022	Knowledge-based forecasting system for extended-range predictability at Melbourne
+remote_sensing,ocean	DOI:10.1007/bf02702001	ANN surface humidity and air temperature from MSMR microwave radiometer
+chemistry	DOI:10.1016/s1352-2310(00)00385-x	Highly cited early NN air quality forecasting with periodic components (Atmos. Environ.)
+hydrology,extremes	DOI:10.1061/(asce)he.1943-5584.0000040	Widely cited comparison of ANN, neuro-fuzzy and neuro-GA flood forecasting
+hydrology,methods	DOI:10.1061/(asce)1084-0699(2005)10:1(85)	Large-sample (47 watersheds) evaluation of NN streamflow forecasting
+hydrology	DOI:10.1029/2006wr004930	WRR hybrid intelligent system for rainfall-runoff modelling
+chemistry,postprocessing	DOI:10.1016/j.atmosenv.2005.07.035	MLP coupled with HIRLAM NWP for urban pollutant forecasting
+hydrology	DOI:10.1016/s0022-1694(02)00112-9	Highly cited phase-space reconstruction vs ANN river flow forecasting
+weather,hydrology	DOI:10.1016/j.eswa.2007.08.033	Highly cited GA-ANN rainfall forecasting
+hydrology,agriculture	DOI:10.1002/hyp.6837	Comparison of ANN techniques for evapotranspiration modelling
+hydrology,review	DOI:10.1177/030913330102500104	Landmark review of ANNs in hydrological modelling (~890 cites)
+hydrology,methods	DOI:10.1029/2005wr004317	WRR spiking modular NN for hydrological processes
+hydrology	DOI:10.1016/s0022-1694(01)00350-x	Highly cited counterpropagation fuzzy-neural real-time streamflow prediction
+hydrology,xai	DOI:10.1002/hyp.5502	Early interpretability study of physical processes inside ANN rainfall-runoff models
+remote_sensing	DOI:10.1175/1520-0426(2002)019<0457:alwrua>2.0.co;2	Gated-experts NN retrieval of atmospheric liquid water (JTECH); thin area
+hydrology	DOI:10.1016/j.jhydrol.2003.09.006	Soil moisture index as ANN input for streamflow forecasting
+hydrology	DOI:10.1061/(asce)0733-9496(2000)126:3(156)	Comparison of ANNs and empirical approaches for watershed runoff
+ocean	DOI:10.1175/jtech1932.1	Early ANN ocean wave forecasting
+s2s,climate	DOI:10.5194/hess-13-467-2009	SOM synoptic classification linking climate modes to Victorian rainfall (HESS)
+hydrology,s2s	DOI:10.1002/1099-1085(20001030)14:15<2755::aid-hyp90>3.0.co;2-9	RNN using climate variability indices to forecast annual runoff
+weather,s2s	5ec4d331e620ec57c61976eb74a083130e880792	Weather regime prediction with statistical learning (random forests / nearest neighbours)
+hydrology	DOI:10.1016/j.coldregions.2006.08.009	Neuro-fuzzy river ice breakup forecasting system
+energy	DOI:10.1016/j.solener.2008.08.007	Highly cited comparison of solar radiation forecasting methods incl. ANNs
+hydrology,extremes	DOI:10.1002/hyp.7307	Hybrid multi-model (data-driven) peak flood forecasting
+weather	DOI:10.1016/j.asoc.2006.06.005	Ensemble of connectionist learners for weather analysis/forecasting
+chemistry	DOI:10.1007/s11869-008-0023-x	Data-driven ground-level ozone forecasting
+hydrology,methods	DOI:10.1029/2001wr000266	Highly cited study on data division for NN models in water resources
+extremes,remote_sensing	DOI:10.1007/3-540-44864-0_30	Highly cited SVM tornado detection from radar
+remote_sensing	DOI:10.1175/1520-0442(2002)015<0983:dvotrr>2.0.co;2	PERSIANN NN rainfall from GOES+TRMM to study tropical diurnal cycle (J. Climate)
+remote_sensing	DOI:10.1175/2009jtecha1208.1	Fuzzy-logic hydrometeor identification for X-band polarimetric radar; widely used
+hydrology	DOI:10.1061/(asce)0733-9496(2008)134:2(119)	ANN peak daily water demand forecasting with weather inputs
+hydrology	DOI:10.1061/(asce)1084-0699(2002)7:5(392)	Performance of NNs in daily streamflow forecasting
+ocean,remote_sensing	DOI:10.1109/36.942555	Fuzzy-logic classification for blending ocean colour algorithms (TGRS)
+remote_sensing	DOI:10.1175/jtech1914.1	Fuzzy-logic identification of nonprecipitating radar echoes
+chemistry	DOI:10.1016/j.envsoft.2004.06.011	PM10 forecasting with NNs (Thessaloniki)
+hydrology	b1c263108322a5fc3f305976851ed2bb8ff6d262	ANN groundwater level forecasting
+weather,hydrology	DOI:10.1007/s00477-008-0267-x	ANN monthly precipitation forecasting
+hydrology,agriculture	DOI:10.1007/s00271-008-0119-y	ANN reference evapotranspiration estimation (Irrigation Science)
+hydrology	DOI:10.1007/978-94-015-9341-0_3	ANN streamflow forecasting
+hydrology	DOI:10.1029/2007wr006684	WRR nonparametric (K-NN) streamflow generation combining paleo data
+climate,downscaling	DOI:10.1007/s00382-006-0134-8	NN + Bayesian projections of future climate from IPCC models
+downscaling,extremes	DOI:10.1029/2004gl020075	Genetic programming downscaling of daily extreme temperatures
+climate,xai	DOI:10.1016/j.ecolmodel.2005.08.012	NN analysis of forcing-temperature relationships in the climate system
+s2s	DOI:10.1029/2003gl018885	Nonlinear (NN) analysis of NH winter atmospheric response to ENSO
+energy	DOI:10.1016/j.solener.2004.09.007	Highly cited ANN vs Angstrom global solar radiation estimation
+hydrology,extremes	DOI:10.1016/j.jhydrol.2005.07.032	Highly cited ANN flood estimation at ungauged sites
+chemistry	DOI:10.1080/0232929031000081244	Soft computing for maximum ozone prediction
+hydrology	DOI:10.1002/hyp.226	Highly cited ANFIS real-time reservoir operation
+methods,climate	DOI:10.1080/789610199	Influential SOM vs PCA comparison for climatological pattern extraction
+downscaling,methods	DOI:10.1016/j.neunet.2007.04.002	Nonlinear analog predictor analysis: NN/analog climate downscaling
+chemistry	DOI:10.1016/j.trd.2008.10.004	ANN hourly air pollutant prediction near urban arterials
+hydrology	DOI:10.1016/j.advengsoft.2008.08.002	Highly cited SWAT vs ANN flow forecasting
+hydrology,extremes	a46367eec158497c08ae2e673b1515bae656ce83	Model trees and NNs for flood forecasting (Huai River)
+energy	DOI:10.1016/j.jweia.2008.02.001	Fuzzy-logic wind turbine power curve estimation from wind speed
+nowcasting	DOI:10.1016/s0022-1694(00)00360-7	Large-sample comparison of statistical/NN procedures for radar QPF
+ocean,extremes	DOI:10.1016/j.oceaneng.2006.09.005	ANN typhoon storm surge forecasting
+remote_sensing	DOI:10.1175/1520-0426(2004)021<0159:ccosrd>2.0.co;2	Multicategory SVM cloud classification of satellite radiances
+ocean,parameterization	DOI:10.1016/j.ocemod.2003.12.008	NN emulation of nonlinear wave-wave interactions in wave models
+energy	DOI:10.1109/psce.2006.296487	RNN wind power forecasting
+hydrology	DOI:10.5589/m04-041	ANN soil moisture estimation
+hydrology	DOI:10.1007/s11269-008-9382-1	RBF NN inflow forecasting at Aswan High Dam
+extremes,nowcasting	DOI:10.1016/j.atmosres.2005.10.021	NN thunderstorm and rainfall forecasts from sounding indices
+weather	559d0ebab46656f64c6eb5e347de891be2170b1d	ML short-term rain forecasting system
+chemistry	DOI:10.1080/10473289.2000.10463997	NN vs Box-Jenkins for air quality forecasting
+energy	DOI:10.1080/15435070903228050	Piecewise SVM short-term wind power prediction
+energy	DOI:10.1109/supergen.2009.5348160	NN wind power prediction
+s2s	DOI:10.1007/s00382-004-0470-5	Nonlinear (NN) ENSO-Euro-Atlantic SLP association
+ocean,remote_sensing	DOI:10.1109/igarss.2008.4779875	NN upwelling detection in AVHRR SST imagery
+ocean,remote_sensing	DOI:10.1080/01431160802175355	SVM ocean primary productivity estimation
+ocean,remote_sensing	DOI:10.1080/01431160110070825	NN latent heat flux over oceans from satellite
+ocean,remote_sensing	DOI:10.1175/mwr3292.1	NN retrieval of ocean surface parameters from SSM/I
+remote_sensing	DOI:10.1007/bf02918492	NN temperature profile retrieval from AMSU-A
+remote_sensing	DOI:10.1109/tgrs.2005.857910	Soft computing rainfall retrieval from TRMM TMI
+hydrology,s2s	DOI:10.3354/cr028133	Expert-system seasonal forecasts of low river flows
+ocean,weather	DOI:10.1109/tgrs.2006.888093	Forecasting surface wind fields from scatterometer observations (TGRS)
+climate,xai	DOI:10.1007/s00704-003-0008-5	Nonlinear NN-based detection and attribution of anthropogenic climate change
+s2s	DOI:10.1002/cjg2.1290	GA-optimised nonlinear forecast model of ENSO index
+downscaling,climate	DOI:10.1002/9780470021699.ch8	Hewitson & Crane SOM climate analysis and downscaling
+ocean,remote_sensing	6c7e0f9813998d90d42e6175cd17f05fbb895120	ANN retrieval of oceanic constituents with RT simulations
