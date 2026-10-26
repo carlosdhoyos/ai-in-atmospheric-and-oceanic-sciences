@@ -97,7 +97,7 @@ save(fig, "01_papers_per_year_by_subfield.png",
 # 2. Architecture families (model families only), method + benchmark papers
 d = table(df("""SELECT family, count(DISTINCT paper_id) AS papers FROM paper_architecture a JOIN papers p USING (paper_id)
                 WHERE tag_kind = 'model_family' AND p.paper_type IN ('method', 'dataset_benchmark', 'evaluation')
-                GROUP BY family ORDER BY papers"""), "architecture_families.csv")
+                GROUP BY family ORDER BY papers, family DESC"""), "architecture_families.csv")
 fig, ax = plt.subplots(figsize=(8, 5.6))
 ax.barh(d["family"], d["papers"], color=SERIES[0], height=0.62)
 for y, v in enumerate(d["papers"]):
