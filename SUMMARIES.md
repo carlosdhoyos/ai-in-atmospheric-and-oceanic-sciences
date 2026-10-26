@@ -580,6 +580,11 @@ Shi et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conferen
 - **Issues:** Literature review without new experiments; coverage may date quickly in a rapidly moving field.
 - *Basis: abstract*
 
+### [Physics-aware Machine Learning Revolutionizes Scientific Paradigm for Machine Learning and Process-based Hydrology](https://arxiv.org/abs/2310.05227)
+Xu et al. (2023), *arXiv*. 31 citations.
+
+*Summary pending.*
+
 ### [Applications of Machine Learning and Artificial Intelligence in Tropospheric Ozone Research](https://doi.org/10.5194/gmd-18-8777-2025)
 Hickman et al. (2025), *Geoscientific Model Development*. 17 citations.
 
@@ -2036,6 +2041,11 @@ Price et al. (2022), *International Conference on Artificial Intelligence and St
 - **Issues:** Trained on radar-rich CONUS; GAN training can be unstable; still slightly below the regional model.
 - *Basis: abstract+knowledge*
 
+### [Unsupervised deep learning bias correction of CMIP6 global ensemble precipitation predictions with cycle generative adversarial network](https://doi.org/10.1088/1748-9326/ad66e6)
+Huang et al. (2024), *Environmental Research Letters*. 14 citations.
+
+*Summary pending.*
+
 ### [Improving Medium Range Severe Weather Prediction through Transformer Post-processing of AI Weather Forecasts](https://doi.org/10.1175/aies-d-25-0045.1)
 Hua et al. (2025), *Artificial Intelligence for the Earth Systems*. 7 citations.
 
@@ -2489,6 +2499,11 @@ Wang et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 - **Open work:** Likely further interpretability analysis and extension of lead times.
 - **Issues:** Content not verifiable without the abstract.
 - *Basis: assessment*
+
+### [Exascale Hybrid Numerical-AI Ensembles for Operational Flood-Season Forecasting in East Asia: 15-km Decadal Hindcasts and 1-km High-Resolution Capability](https://arxiv.org/abs/2605.24896)
+Chen et al. (2026), *arXiv*. 0 citations.
+
+*Summary pending.*
 
 <a id="climate"></a>
 ## Climate emulation & detection
@@ -4430,6 +4445,11 @@ Lee et al. (2025), *Proceedings of the National Academy of Sciences of the Unite
 - **Issues:** Quantitative accuracy and comparison baselines not given in the abstract; depends on quality of cloud labels.
 - *Basis: abstract*
 
+### [Deep Learning for Multi-Satellite Precipitation Retrievals: Impact of Tomorrow.io’s Microwave Sounders](https://doi.org/10.1175/jhm-d-25-0007.1)
+Cannon et al. (2026), *Journal of Hydrometeorology*. 3 citations.
+
+*Summary pending.*
+
 <a id="extremes"></a>
 ## Extremes & tropical cyclones
 
@@ -6034,6 +6054,11 @@ Jung et al. (2019), *Biogeosciences*. 672 citations.
 
 *Summary pending.*
 
+### [A Comprehensive Review of Deep Learning Applications in Hydrology and Water Resources](https://doi.org/10.31223/osf.io/xs36g)
+Sit et al. (2020), *Water Science and Technology*. 532 citations.
+
+*Summary pending.*
+
 ### [Enhancing Streamflow Forecast and Extracting Insights Using Long‐Short Term Memory Networks With Data Integration at Continental Scales](https://doi.org/10.1029/2019wr026793)
 Feng et al. (2019), *Water Resources Research*. 468 citations.
 
@@ -6059,6 +6084,21 @@ Frame et al. (2021), *Hydrology and Earth System Sciences*. 341 citations.
 
 *Summary pending.*
 
+### [Evaluation of global terrestrial evapotranspiration using state-of-the-art approaches in remote sensing, machine learning and land surface modeling](https://doi.org/10.5194/hess-24-1485-2020)
+Pan et al. (2019), *Hydrology and Earth System Sciences*. 325 citations.
+
+*Summary pending.*
+
+### [Drought assessment and monitoring through blending of multi-sensor indices using machine learning approaches for different climate regions](https://doi.org/10.1016/j.agrformet.2015.10.011)
+Park et al. (2016), *Agricultural and Forest Meteorology*. 324 citations.
+
+*Summary pending.*
+
+### [Rainfall-Runoff Prediction at Multiple Timescales with a Single Long Short-Term Memory Network](https://doi.org/10.5194/hess-2020-540)
+Gauch et al. (2020), *Hydrology and Earth System Sciences*. 319 citations.
+
+*Summary pending.*
+
 ### [Groundwater level forecasting with artificial neural networks: a comparison of long short-term memory (LSTM), convolutional neural networks (CNNs), and non-linear autoregressive networks with exogenous input (NARX)](https://doi.org/10.5194/hess-25-1671-2021)
 Wunsch et al. (2021), *Hydrology and Earth System Sciences*. 313 citations.
 
@@ -6079,13 +6119,1018 @@ Kratzert et al. (2023), *Scientific Data*. 290 citations.
 
 *Summary pending.*
 
+### [Machine learning algorithms for modeling groundwater level changes in agricultural regions of the U.S.](https://doi.org/10.1002/2016wr019933)
+Sahoo et al. (2017), *Water Resources Research*. 265 citations.
+
+*Summary pending.*
+
+### [Developing reservoir monthly inflow forecasts using artificial intelligence and climate phenomenon information](https://doi.org/10.1002/2017wr020482)
+Yang et al. (2017), *Water Resources Research*. 264 citations.
+
+*Summary pending.*
+
+### [Machine learning methods for empirical streamflow simulation: a comparison of model accuracy, interpretability, and uncertainty in seasonal watersheds](https://doi.org/10.5194/hess-20-2611-2016)
+Shortridge et al. (2016), *Hydrology and Earth System Sciences*. 264 citations.
+
+*Summary pending.*
+
+### [Differentiable, Learnable, Regionalized Process‐Based Models With Multiphysical Outputs can Approach State‐Of‐The‐Art Hydrologic Prediction Accuracy](https://doi.org/10.1029/2022wr032404)
+Feng et al. (2022), *Water Resources Research*. 263 citations.
+
+*Summary pending.*
+
 ### [Flood forecasting with machine learning models in an operational framework](https://doi.org/10.5194/hess-2021-554)
 Nevo et al. (2021), *Hydrology and Earth System Sciences*. 245 citations.
 
 *Summary pending.*
 
+### [Estimating daily reference evapotranspiration based on limited meteorological data using deep learning and classical machine learning methods](https://doi.org/10.1016/j.jhydrol.2020.125286)
+Chen et al. (2020), *Journal of Hydrology*. 232 citations.
+
+*Summary pending.*
+
+### [Meteorological drought forecasting for ungauged areas based on machine learning: Using long-range climate forecast and remote sensing data](https://doi.org/10.1016/j.agrformet.2017.02.011)
+Rhee et al. (2017), *Agricultural and Forest Meteorology*. 226 citations.
+
+*Summary pending.*
+
+### [A physical process and machine learning combined hydrological model for daily streamflow simulations of large watersheds with limited observation data](https://doi.org/10.1016/j.jhydrol.2020.125206)
+Yang et al. (2020), *Journal of Hydrology*. 221 citations.
+
+*Summary pending.*
+
+### [Continuous streamflow prediction in ungauged basins: long short-term memory neural networks clearly outperform traditional hydrological models](https://doi.org/10.5194/hess-27-139-2023)
+Arsenault et al. (2023), *Hydrology and Earth System Sciences*. 221 citations.
+
+*Summary pending.*
+
+### [Hybrid forecasting: blending climate predictions with AI models](https://doi.org/10.5194/hess-27-1865-2023)
+Slater et al. (2023), *Hydrology and Earth System Sciences*. 215 citations.
+
+*Summary pending.*
+
+### [Deep learning shows declining groundwater levels in Germany until 2100 due to climate change](https://doi.org/10.1038/s41467-022-28770-2)
+Wunsch et al. (2021), *Nature Communications*. 208 citations.
+
+*Summary pending.*
+
+### [U-FLOOD – Topographic deep learning for predicting urban pluvial flood water depth](https://doi.org/10.1016/j.jhydrol.2021.126898)
+Löwe et al. (2021), *Journal of Hydrology*. 208 citations.
+
+*Summary pending.*
+
 ### [Uncertainty Estimation with Deep Learning for Rainfall-Runoff Modelling](https://doi.org/10.31223/x5js4t)
 Klotz et al. (2020), *Hydrology and Earth System Sciences*. 195 citations.
+
+*Summary pending.*
+
+### [Uncovering Flooding Mechanisms Across the Contiguous United States Through Interpretive Deep Learning on Representative Catchments](https://doi.org/10.1029/2021wr030185)
+Jiang et al. (2021), *Water Resources Research*. 189 citations.
+
+*Summary pending.*
+
+### [Data‐driven flood emulation: Speeding up urban flood predictions by deep convolutional neural networks](https://doi.org/10.1111/jfr3.12684)
+Guo et al. (2020), *Journal of Flood Risk Management*. 187 citations.
+
+*Summary pending.*
+
+### [Daily reference evapotranspiration estimates by artificial neural networks technique and empirical equations using limited input climate variables](https://doi.org/10.1016/j.compag.2016.11.011)
+Antonopoulos et al. (2017), *Computers and Electronics in Agriculture*. 184 citations.
+
+*Summary pending.*
+
+### [Combining Physically Based Modeling and Deep Learning for Fusing GRACE Satellite Data: Can We Learn From Mismatch?](https://doi.org/10.1029/2018wr023333)
+Sun et al. (2019), *Water Resources Research*. 183 citations.
+
+*Summary pending.*
+
+### [Using a long short-term memory (LSTM) neural network to boost river streamflow forecasts over the western United States](https://doi.org/10.5194/hess-2022-53)
+Hunt et al. (2022), *Hydrology and Earth System Sciences*. 174 citations.
+
+*Summary pending.*
+
+### [Training Machine Learning Surrogate Models From a High‐Fidelity Physics‐Based Model: Application for Real‐Time Street‐Scale Flood Prediction in an Urban Coastal Community](https://doi.org/10.1029/2019wr027038)
+Zahura et al. (2020), *Water Resources Research*. 170 citations.
+
+*Summary pending.*
+
+### [The suitability of differentiable, physics-informed machine learning hydrologic models for ungauged regions and climate change impact assessment](https://doi.org/10.5194/hess-27-2357-2023)
+Feng et al. (2023), *Hydrology and Earth System Sciences*. 170 citations.
+
+*Summary pending.*
+
+### [Hydrologically Informed Machine Learning for Rainfall-Runoff Modelling: Towards Distributed Modelling](https://doi.org/10.5194/hess-2020-487)
+Herath et al. (2020), *Hydrology and Earth System Sciences*. 158 citations.
+
+*Summary pending.*
+
+### [A note on leveraging synergy in multiple meteorological data sets with deep learning for rainfall–runoff modeling](https://doi.org/10.31223/osf.io/pjm5a)
+Kratzert et al. (2020), *Hydrology and Earth System Sciences*. 152 citations.
+
+*Summary pending.*
+
+### [A comprehensive study of deep learning for soil moisture prediction](https://doi.org/10.5194/hess-28-917-2024)
+Wang et al. (2024), *Hydrology and Earth System Sciences*. 151 citations.
+
+*Summary pending.*
+
+### [Enhancing predictive skills in physically-consistent way: Physics Informed Machine Learning for Hydrological Processes](https://doi.org/10.1016/j.jhydrol.2022.128618)
+Bhasme et al. (2021), *Journal of Hydrology*. 143 citations.
+
+*Summary pending.*
+
+### [Evaluation of random forests for short-term daily streamflow forecasting in rainfall- and snowmelt-driven watersheds](https://doi.org/10.5194/hess-25-2997-2021)
+Pham et al. (2021), *Hydrology and Earth System Sciences*. 140 citations.
+
+*Summary pending.*
+
+### [Evaluation and machine learning improvement of global hydrological model-based flood simulations](https://doi.org/10.1088/1748-9326/ab4d5e)
+Yang et al. (2019), *Environmental Research Letters*. 136 citations.
+
+*Summary pending.*
+
+### [The Data Synergy Effects of Time‐Series Deep Learning Models in Hydrology](https://doi.org/10.1029/2021wr029583)
+Fang et al. (2021), *Water Resources Research*. 135 citations.
+
+*Summary pending.*
+
+### [Using machine learning models, remote sensing, and GIS to investigate the effects of changing climates and land uses on flood probability](https://doi.org/10.1016/j.jhydrol.2020.125663)
+Avand et al. (2020), *Journal of Hydrology*. 134 citations.
+
+*Summary pending.*
+
+### [Can artificial intelligence and data-driven machine learning models match or even replace process-driven hydrologic models for streamflow simulation?: A case study of four watersheds with different hydro-climatic regions across the CONUS](https://doi.org/10.1016/j.jhydrol.2021.126423)
+Kim et al. (2021), *Journal of Hydrology*. 132 citations.
+
+*Summary pending.*
+
+### [Deep learning hybrid model with Boruta-Random forest optimiser algorithm for streamflow forecasting with climate mode indices, rainfall, and periodicity](https://doi.org/10.1016/j.jhydrol.2021.126350)
+Ahmed et al. (2021), *Journal of Hydrology*. 131 citations.
+
+*Summary pending.*
+
+### [Explore Spatio‐Temporal Learning of Large Sample Hydrology Using Graph Neural Networks](https://doi.org/10.1029/2021wr030394)
+Sun et al. (2021), *Water Resources Research*. 129 citations.
+
+*Summary pending.*
+
+### [Simulation and prediction of suprapermafrost groundwater level variation in response to climate change using a neural network model](https://doi.org/10.1016/j.jhydrol.2015.09.038)
+Chang et al. (2015), *Journal of Hydrology*. 127 citations.
+
+*Summary pending.*
+
+### [Machine-learning methods for stream water temperature prediction](https://doi.org/10.5194/hess-25-2951-2021)
+Feigl et al. (2021), *Hydrology and Earth System Sciences*. 118 citations.
+
+*Summary pending.*
+
+### [Hydrologically Informed Machine Learning for Rainfall‐Runoff Modeling: A Genetic Programming‐Based Toolkit for Automatic Model Induction](https://doi.org/10.1029/2019wr026933)
+Chadalawada et al. (2020), *Water Resources Research*. 116 citations.
+
+*Summary pending.*
+
+### [Challenges in Applying Machine Learning Models for Hydrological Inference: A Case Study for Flooding Events Across Germany](https://doi.org/10.1029/2019wr025924)
+Schmidt et al. (2020), *Water Resources Research*. 116 citations.
+
+*Summary pending.*
+
+### [Reconstruction of GRACE Total Water Storage Through Automated Machine Learning](https://doi.org/10.1029/2020wr028666)
+Sun et al. (2020), *Water Resources Research*. 114 citations.
+
+*Summary pending.*
+
+### [NeuralHydrology - Interpreting LSTMs in Hydrology](https://doi.org/10.1007/978-3-030-28954-6_19)
+Kratzert et al. (2019), *Explainable AI*. 109 citations.
+
+*Summary pending.*
+
+### [Assessing the Physical Realism of Deep Learning Hydrologic Model Projections Under Climate Change](https://doi.org/10.1029/2022wr032123)
+Wi et al. (2022), *Water Resources Research*. 106 citations.
+
+*Summary pending.*
+
+### [Distributed Hydrological Modeling With Physics‐Encoded Deep Learning: A General Framework and Its Application in the Amazon](https://doi.org/10.1029/2023wr036170)
+Wang et al. (2024), *Water Resources Research*. 102 citations.
+
+*Summary pending.*
+
+### [Improving Snow Water Equivalent Maps With Machine Learning of Snow Survey and Lidar Measurements](https://doi.org/10.1029/2018wr024146)
+Broxton et al. (2019), *Water Resources Research*. 101 citations.
+
+*Summary pending.*
+
+### [Estimating propagation probability from meteorological to ecological droughts using a hybrid machine learning copula method](https://doi.org/10.5194/hess-27-559-2023)
+Jiang et al. (2023), *Hydrology and Earth System Sciences*. 99 citations.
+
+*Summary pending.*
+
+### [Evaluation of artificial intelligence models for flood and drought forecasting in arid and tropical regions](https://doi.org/10.1016/j.envsoft.2021.105136)
+Adikari et al. (2021), *Environmental Modelling & Software*. 98 citations.
+
+*Summary pending.*
+
+### [Streamflow simulation in data-scarce basins using Bayesian and physics-informed machine learning models](https://doi.org/10.1175/jhm-d-20-0082.1)
+Lu et al. (2021), *Journal of Hydrometeorology*. 97 citations.
+
+*Summary pending.*
+
+### [Continental-scale streamflow modeling of basins with reservoirs: Towards a coherent deep-learning-based strategy](https://doi.org/10.1016/j.jhydrol.2021.126455)
+Ouyang et al. (2021), *arXiv*. 96 citations.
+
+*Summary pending.*
+
+### [A graph neural network (GNN) approach to basin-scale river network learning: the role of physics-based connectivity and data fusion](https://doi.org/10.5194/hess-26-5163-2022)
+Sun et al. (2022), *Hydrology and Earth System Sciences*. 96 citations.
+
+*Summary pending.*
+
+### [Machine-learning- and deep-learning-based streamflow prediction in a hilly catchment for future scenarios using CMIP6 GCM data](https://doi.org/10.5194/hess-27-1047-2023)
+Singh et al. (2023), *Hydrology and Earth System Sciences*. 95 citations.
+
+*Summary pending.*
+
+### [A spatial–temporal graph deep learning model for urban flood nowcasting leveraging heterogeneous community features](https://doi.org/10.1038/s41598-023-32548-x)
+Farahmand et al. (2021), *Scientific Reports*. 94 citations.
+
+*Summary pending.*
+
+### [Prediction of coastal flooding risk under climate change impacts in South Korea using machine learning algorithms](https://doi.org/10.1088/1748-9326/aba5b3)
+Park et al. (2020), *Environmental Research Letters*. 91 citations.
+
+*Summary pending.*
+
+### [Rapid spatio-temporal flood modelling via hydraulics-based graph neural networks](https://doi.org/10.5194/hess-27-4227-2023)
+Bentivoglio et al. (2023), *Hydrology and Earth System Sciences*. 89 citations.
+
+*Summary pending.*
+
+### [Groundwater Storage Loss Associated With Land Subsidence in Western United States Mapped Using Machine Learning](https://doi.org/10.1029/2019wr026621)
+Smith et al. (2020), *Water Resources Research*. 86 citations.
+
+*Summary pending.*
+
+### [Global high-resolution total water storage anomalies from self-supervised data assimilation using deep learning algorithms](https://doi.org/10.1038/s44221-024-00194-w)
+Gou et al. (2024), *Nature Water*. 86 citations.
+
+*Summary pending.*
+
+### [Improving Streamflow Prediction Using Multiple Hydrological Models and Machine Learning Methods](https://doi.org/10.1029/2024wr038192)
+Solanki et al. (2025), *Water Resources Research*. 86 citations.
+
+*Summary pending.*
+
+### [Constructing high-resolution groundwater drought at spatio-temporal scale using GRACE satellite data based on machine learning in the Indus Basin](https://doi.org/10.1016/j.jhydrol.2022.128295)
+Ali et al. (2022), *Journal of Hydrology*. 85 citations.
+
+*Summary pending.*
+
+### [River flooding mechanisms and their changes in Europe revealed by explainable machine learning](https://doi.org/10.5194/hess-26-6339-2022)
+Jiang et al. (2022), *Hydrology and Earth System Sciences*. 84 citations.
+
+*Summary pending.*
+
+### [Ensemble streamflow forecasting over a cascade reservoir catchment with integrated hydrometeorological modeling and machine learning](https://doi.org/10.5194/hess-2021-393-rc1)
+Liu et al. (2021), *Hydrology and Earth System Sciences*. 84 citations.
+
+*Summary pending.*
+
+### [Improving Urban Flood Prediction using LSTM-DeepLabv3+ and Bayesian Optimization with Spatiotemporal feature fusion](https://doi.org/10.1016/j.jhydrol.2024.130743)
+Situ et al. (2023), *Journal of Hydrology*. 83 citations.
+
+*Summary pending.*
+
+### [High temporal resolution rainfall–runoff modeling using long-short-term-memory (LSTM) networks](https://doi.org/10.1007/s00521-020-05010-6)
+Li et al. (2020), *Neural computing & applications (Print)*. 83 citations.
+
+*Summary pending.*
+
+### [Short-term flood probability density forecasting using a conceptual hydrological model with machine learning techniques](https://doi.org/10.1016/j.jhydrol.2021.127255)
+Zhou et al. (2021), *Journal of Hydrology*. 80 citations.
+
+*Summary pending.*
+
+### [A deep-learning-technique-based data-driven model for accurate and rapid flood predictions in temporal and spatial dimensions](https://doi.org/10.5194/hess-27-1791-2023)
+Zhou et al. (2023), *Hydrology and Earth System Sciences*. 80 citations.
+
+*Summary pending.*
+
+### [Scalable flood level trend monitoring with surveillance cameras using a deep convolutional neural network](https://doi.org/10.5194/hess-23-4621-2019)
+Vitry et al. (2019), *Hydrology and Earth System Sciences*. 80 citations.
+
+*Summary pending.*
+
+### [Leveraging machine learning for predicting flash flood damage in the Southeast US](https://doi.org/10.1088/1748-9326/ab6edd)
+Alipour et al. (2020), *Environmental Research Letters*. 80 citations.
+
+*Summary pending.*
+
+### [Improving River Routing Using a Differentiable Muskingum‐Cunge Model and Physics‐Informed Machine Learning](https://doi.org/10.1029/2023wr035337)
+Bindas et al. (2024), *Water Resources Research*. 76 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal deep learning rainfall-runoff forecasting combined with remote sensing precipitation products in large scale basins](https://doi.org/10.1016/j.jhydrol.2022.128727)
+Zhu et al. (2022), *Journal of Hydrology*. 72 citations.
+
+*Summary pending.*
+
+### [Robust Runoff Prediction With Explainable Artificial Intelligence and Meteorological Variables From Deep Learning Ensemble Model](https://doi.org/10.1029/2023wr035676)
+Wu et al. (2023), *Water Resources Research*. 71 citations.
+
+*Summary pending.*
+
+### [Transformer Versus LSTM: A Comparison of Deep Learning Models for Karst Spring Discharge Forecasting](https://doi.org/10.1029/2022wr032602)
+Pölz et al. (2024), *Water Resources Research*. 68 citations.
+
+*Summary pending.*
+
+### [Robust Meteorological Drought Prediction Using Antecedent SST Fluctuations and Machine Learning](https://doi.org/10.1029/2020wr029413)
+Li et al. (2021), *Water Resources Research*. 68 citations.
+
+*Summary pending.*
+
+### [Development of a Distributed Physics‐Informed Deep Learning Hydrological Model for Data‐Scarce Regions](https://doi.org/10.1029/2023wr036333)
+Zhong et al. (2024), *Water Resources Research*. 68 citations.
+
+*Summary pending.*
+
+### [Flash Drought: Review of Concept, Prediction and the Potential for Machine Learning, Deep Learning Methods](https://doi.org/10.1029/2022ef002723)
+Tyagi et al. (2022), *Earth's Future*. 66 citations.
+
+*Summary pending.*
+
+### [Karst spring discharge modeling based on deep learning using spatially distributed input data](https://doi.org/10.5194/hess-2021-403)
+Wunsch et al. (2021), *Hydrology and Earth System Sciences*. 66 citations.
+
+*Summary pending.*
+
+### [Multi‐Task Deep Learning of Daily Streamflow and Water Temperature](https://doi.org/10.1029/2021wr030138)
+Sadler et al. (2021), *Water Resources Research*. 60 citations.
+
+*Summary pending.*
+
+### [Large-scale flood modeling and forecasting with FloodCast](https://arxiv.org/abs/2403.12226)
+Xu et al. (2024), *arXiv*. 60 citations.
+
+*Summary pending.*
+
+### [Gap Filling of High‐Resolution Soil Moisture for SMAP/Sentinel‐1: A Two‐Layer Machine Learning‐Based Framework](https://doi.org/10.1029/2019wr024902)
+Mao et al. (2019), *Water Resources Research*. 59 citations.
+
+*Summary pending.*
+
+### [Neural networks for extreme quantile regression with an application to forecasting of flood risk](https://doi.org/10.1214/24-aoas1907)
+Pasche et al. (2022), *Annals of Applied Statistics*. 59 citations.
+
+*Summary pending.*
+
+### [Developing a Physics‐Informed Deep Learning Model to Simulate Runoff Response to Climate Change in Alpine Catchments](https://doi.org/10.1029/2022wr034118)
+Zhong et al. (2023), *Water Resources Research*. 56 citations.
+
+*Summary pending.*
+
+### [Capabilities of Deep Learning Models on Learning Physical Relationships: Case of Rainfall-Runoff Modeling with LSTM](https://doi.org/10.1016/j.scitotenv.2021.149876)
+Yokoo et al. (2021), *Science of the Total Environment*. 55 citations.
+
+*Summary pending.*
+
+### [Hybrid modeling of evapotranspiration: inferring stomatal and aerodynamic resistances using combined physics-based and machine learning](https://doi.org/10.1088/1748-9326/acbbe0)
+ElGhawi et al. (2023), *Environmental Research Letters*. 52 citations.
+
+*Summary pending.*
+
+### [Regionalization in a Global Hydrologic Deep Learning Model: From Physical Descriptors to Random Vectors](https://doi.org/10.1029/2021wr031794)
+Li et al. (2022), *Water Resources Research*. 51 citations.
+
+*Summary pending.*
+
+### [Physics Guided Machine Learning Methods for Hydrology](https://arxiv.org/abs/2012.02854)
+Khandelwal et al. (2020), *arXiv*. 51 citations.
+
+*Summary pending.*
+
+### [On the need for physical constraints in deep learning rainfall–runoff projections under climate change: a sensitivity analysis to warming and shifts in potential evapotranspiration](https://doi.org/10.5194/hess-28-479-2024)
+Wi et al. (2024), *Hydrology and Earth System Sciences*. 51 citations.
+
+*Summary pending.*
+
+### [Coupling Machine Learning Into Hydrodynamic Models to Improve River Modeling With Complex Boundary Conditions](https://doi.org/10.1029/2022wr032183)
+Huang et al. (2022), *Water Resources Research*. 50 citations.
+
+*Summary pending.*
+
+### [A Machine Learning Framework for Predicting and Understanding the Canadian Drought Monitor](https://doi.org/10.1029/2022wr033847)
+Mardian et al. (2023), *Water Resources Research*. 50 citations.
+
+*Summary pending.*
+
+### [From RNNs to Transformers: benchmarking deep learning architectures for hydrologic prediction](https://doi.org/10.5194/hess-29-6811-2025)
+Liu et al. (2025), *Hydrology and Earth System Sciences*. 49 citations.
+
+*Summary pending.*
+
+### [Unveiling the limits of deep learning models in hydrological extrapolation tasks](https://doi.org/10.5194/hess-29-5871-2025)
+Baste et al. (2025), *Hydrology and Earth System Sciences*. 48 citations.
+
+*Summary pending.*
+
+### [Improved Understanding of How Catchment Properties Control Hydrological Partitioning Through Machine Learning](https://doi.org/10.1029/2021wr031412)
+Cheng et al. (2022), *Water Resources Research*. 47 citations.
+
+*Summary pending.*
+
+### [Towards interpreting machine learning models for predicting soil moisture droughts](https://doi.org/10.1088/1748-9326/acdbe0)
+Huang et al. (2023), *Environmental Research Letters*. 46 citations.
+
+*Summary pending.*
+
+### [Long-term drought prediction using deep neural networks based on geospatial weather data](https://arxiv.org/abs/2309.06212)
+Grabar et al. (2023), *arXiv*. 45 citations.
+
+*Summary pending.*
+
+### [Quantifying cascading uncertainty in compound flood modeling with linked process-based and machine learning models](https://doi.org/10.5194/hess-28-2531-2024)
+Muñoz et al. (2024), *Hydrology and Earth System Sciences*. 45 citations.
+
+*Summary pending.*
+
+### [Explaining the Mechanism of Multiscale Groundwater Drought Events: A New Perspective From Interpretable Deep Learning Model](https://doi.org/10.1029/2023wr035139)
+Cai et al. (2024), *Water Resources Research*. 45 citations.
+
+*Summary pending.*
+
+### [Explainable deep learning for insights in El Niño and river flows](https://doi.org/10.1038/s41467-023-35968-5)
+Liu et al. (2022), *Nature Communications*. 44 citations.
+
+*Summary pending.*
+
+### [HydroNets: Leveraging River Structure for Hydrologic Modeling](https://arxiv.org/abs/2007.00595)
+Moshe et al. (2020), *arXiv*. 44 citations.
+
+*Summary pending.*
+
+### [A Deep Learning Approach Based on Physical Constraints for Predicting Soil Moisture in Unsaturated Zones](https://doi.org/10.1029/2023wr035194)
+Wang et al. (2023), *Water Resources Research*. 44 citations.
+
+*Summary pending.*
+
+### [Analysis of flash droughts in China using machine learning](https://doi.org/10.5194/hess-26-3241-2022)
+Zhang et al. (2022), *Hydrology and Earth System Sciences*. 44 citations.
+
+*Summary pending.*
+
+### [Detecting the State of the Climate System via Artificial Intelligence to Improve Seasonal Forecasts and Inform Reservoir Operations](https://doi.org/10.1029/2019wr025035)
+Giuliani et al. (2019), *Water Resources Research*. 43 citations.
+
+*Summary pending.*
+
+### [Deep learning for monthly rainfall–runoff modelling: a large-sample comparison with conceptual models across Australia](https://doi.org/10.5194/hess-28-1191-2024)
+Clark et al. (2024), *Hydrology and Earth System Sciences*. 41 citations.
+
+*Summary pending.*
+
+### [H2O-Net: Self-Supervised Flood Segmentation via Adversarial Domain Adaptation and Label Refinement](https://doi.org/10.1109/wacv48630.2021.00016)
+Akiva et al. (2020), *IEEE Workshop/Winter Conference on Applications of Computer Vision*. 40 citations.
+
+*Summary pending.*
+
+### [High‐Resolution National‐Scale Water Modeling Is Enhanced by Multiscale Differentiable Physics‐Informed Machine Learning](https://doi.org/10.1029/2024wr038928)
+Song et al. (2025), *Water Resources Research*. 38 citations.
+
+*Summary pending.*
+
+### [Using Machine Learning to Identify Hydrologic Signatures With an Encoder–Decoder Framework](https://doi.org/10.1029/2022wr033091)
+Botterill et al. (2023), *Water Resources Research*. 38 citations.
+
+*Summary pending.*
+
+### [When ancient numerical demons meet physics-informed machine learning: adjoint-based gradients for implicit differentiable modeling](https://doi.org/10.5194/hess-28-3051-2024)
+Song et al. (2024), *Hydrology and Earth System Sciences*. 37 citations.
+
+*Summary pending.*
+
+### [Regionalizing Root‐Zone Soil Moisture Estimates From ESA CCI Soil Water Index Using Machine Learning and Information on Soil, Vegetation, and Climate](https://doi.org/10.1029/2020wr029249)
+Grillakis et al. (2021), *Water Resources Research*. 36 citations.
+
+*Summary pending.*
+
+### [Design flood estimation for global river networks based on machine learning models](https://doi.org/10.5194/hess-2020-594)
+Zhao et al. (2020), *Hydrology and Earth System Sciences*. 36 citations.
+
+*Summary pending.*
+
+### [A robust gap-filling approach for European Space Agency Climate Change Initiative (ESA CCI) soil moisture integrating satellite observations, model-driven knowledge, and spatiotemporal machine learning](https://doi.org/10.5194/hess-27-577-2023)
+Liu et al. (2023), *Hydrology and Earth System Sciences*. 34 citations.
+
+*Summary pending.*
+
+### [Causality-Structured Deep Learning for Soil Moisture Predictions](https://doi.org/10.1175/jhm-d-21-0206.1)
+Li et al. (2022), *Journal of Hydrometeorology*. 34 citations.
+
+*Summary pending.*
+
+### [Kuro Siwo: 33 billion m2 under the water. A global multi-temporal satellite dataset for rapid flood mapping](https://doi.org/10.52202/079017-1204)
+Bountos et al. (2023), *Neural Information Processing Systems*. 33 citations.
+
+*Summary pending.*
+
+### [On the challenges of global entity-aware deep learning models for groundwater level prediction](https://doi.org/10.5194/hess-28-525-2024)
+Heudorfer et al. (2024), *Hydrology and Earth System Sciences*. 32 citations.
+
+*Summary pending.*
+
+### [Generative Adversarial Network for Real‐Time Flash Drought Monitoring: A Deep Learning Study](https://doi.org/10.1029/2023wr035600)
+Foroumandi et al. (2024), *Water Resources Research*. 30 citations.
+
+*Summary pending.*
+
+### [A Novel Physics‐Aware Machine Learning‐Based Dynamic Error Correction Model for Improving Streamflow Forecast Accuracy](https://doi.org/10.1029/2022wr033318)
+Roy et al. (2023), *Water Resources Research*. 30 citations.
+
+*Summary pending.*
+
+### [Robust Inverse Framework using Knowledge-guided Self-Supervised Learning: An application to Hydrology](https://doi.org/10.1145/3534678.3539448)
+Ghosh et al. (2021), *Knowledge Discovery and Data Mining*. 30 citations.
+
+*Summary pending.*
+
+### [A distributed hybrid physics–AI framework for learning corrections of internal hydrological fluxes and enhancing high-resolution regionalized flood modeling](https://doi.org/10.5194/hess-29-3589-2025)
+Huynh et al. (2025), *Hydrology and Earth System Sciences*. 30 citations.
+
+*Summary pending.*
+
+### [Uncovering the Dynamic Drivers of Floods Through Interpretable Deep Learning](https://doi.org/10.1029/2024ef004751)
+Xu et al. (2024), *Earth's Future*. 29 citations.
+
+*Summary pending.*
+
+### [Improving regional climate simulations based on a hybrid data assimilation and machine learning method](https://doi.org/10.5194/hess-27-1583-2023)
+He et al. (2023), *Hydrology and Earth System Sciences*. 29 citations.
+
+*Summary pending.*
+
+### [Rapid Flood Inundation Forecast Using Fourier Neural Operator](https://doi.org/10.1109/iccvw60793.2023.00401)
+Sun et al. (2023), *2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)*. 28 citations.
+
+*Summary pending.*
+
+### [Implementing generative adversarial network (GAN) as a data-driven multi-site stochastic weather generator for flood frequency estimation](https://doi.org/10.1016/j.envsoft.2023.105896)
+Ji et al. (2023), *Environmental Modelling & Software*. 28 citations.
+
+*Summary pending.*
+
+### [A flood predictability study for Hurricane Harvey with the CREST-iMAP model using high-resolution quantitative precipitation forecasts and U-Net deep learning precipitation nowcasts](https://doi.org/10.1016/j.jhydrol.2022.128168)
+Chen et al. (2022), *Journal of Hydrology*. 28 citations.
+
+*Summary pending.*
+
+### [Machine-learning-based downscaling of modelled climate change impacts on groundwater table depth](https://doi.org/10.5194/hess-26-5859-2022)
+Schneider et al. (2022), *Hydrology and Earth System Sciences*. 26 citations.
+
+*Summary pending.*
+
+### [Machine Learning for Postprocessing Ensemble Streamflow Forecasts](https://doi.org/10.2166/hydro.2022.114)
+Sharma et al. (2021), *Journal of Hydroinformatics*. 26 citations.
+
+*Summary pending.*
+
+### [Metamorphic testing of machine learning and conceptual hydrologic models](https://doi.org/10.5194/hess-28-2505-2024)
+Reichert et al. (2024), *Hydrology and Earth System Sciences*. 26 citations.
+
+*Summary pending.*
+
+### [Deep Learning‐Based Approach for Enhancing Streamflow Prediction in Watersheds With Aggregated and Intermittent Observations](https://doi.org/10.1029/2024wr037331)
+Mangukiya et al. (2024), *Water Resources Research*. 24 citations.
+
+*Summary pending.*
+
+### [Deep-learning-based sub-seasonal precipitation and streamflow ensemble forecasting over the source region of the Yangtze River](https://doi.org/10.5194/hess-29-2023-2025)
+Dong et al. (2025), *Hydrology and Earth System Sciences*. 24 citations.
+
+*Summary pending.*
+
+### [Reinforcement learning–based adaptive strategies for climate change adaptation: An application for coastal flood risk management](https://doi.org/10.1073/pnas.2402826122)
+Feng et al. (2025), *Proceedings of the National Academy of Sciences of the United States of America*. 23 citations.
+
+*Summary pending.*
+
+### [Streamflow Prediction in Human‐Regulated Catchments Using Multiscale Deep Learning Modeling With Anthropogenic Similarities](https://doi.org/10.1029/2023wr036853)
+Tursun et al. (2024), *Water Resources Research*. 23 citations.
+
+*Summary pending.*
+
+### [Machine learning‐based streamflow forecasting using CMIP6 scenarios: Assessing performance and improving hydrological projections and climate change](https://doi.org/10.1002/hyp.15204)
+Kartal (2024), *Hydrological Processes*. 23 citations.
+
+*Summary pending.*
+
+### [Using Temporal Deep Learning Models to Estimate Daily Snow Water Equivalent Over the Rocky Mountains](https://doi.org/10.1029/2023wr035009)
+Duan et al. (2024), *Water Resources Research*. 23 citations.
+
+*Summary pending.*
+
+### [Probabilistic Diffusion Models Advance Extreme Flood Forecasting](https://doi.org/10.1029/2025gl115705)
+Ou et al. (2024), *Geophysical Research Letters*. 22 citations.
+
+*Summary pending.*
+
+### [High-resolution European daily soil moisture derived with machine learning (2003–2020)](https://doi.org/10.1038/s41597-022-01785-6)
+O et al. (2022), *Scientific Data*. 22 citations.
+
+*Summary pending.*
+
+### [Hydrological Projections in the Third Pole Using Artificial Intelligence and an Observation‐Constrained Cryosphere‐Hydrology Model](https://doi.org/10.1029/2023ef004222)
+Long et al. (2024), *Earth's Future*. 21 citations.
+
+*Summary pending.*
+
+### [Accelerating Urban Flood Inundation Simulation Under Spatio‐Temporally Varying Rainstorms Using ConvLSTM Deep Learning Model](https://doi.org/10.1029/2025wr040433)
+Liao et al. (2025), *Water Resources Research*. 21 citations.
+
+*Summary pending.*
+
+### [Towards Interpretable Physical‐Conceptual Catchment‐Scale Hydrological Modeling Using the Mass‐Conserving‐Perceptron](https://doi.org/10.1029/2024wr037224)
+Wang et al. (2024), *Water Resources Research*. 20 citations.
+
+*Summary pending.*
+
+### [Assessing the adequacy of traditional hydrological models for climate change impact studies: a case for long short-term memory (LSTM) neural networks](https://doi.org/10.5194/hess-29-2811-2025)
+Martel et al. (2025), *Hydrology and Earth System Sciences*. 19 citations.
+
+*Summary pending.*
+
+### [Accelerating flood warnings by 10 hours: the power of river network topology in AI-enhanced flood forecasting](https://doi.org/10.1038/s44304-025-00083-6)
+Wang et al. (2024), *npj Natural Hazards*. 18 citations.
+
+*Summary pending.*
+
+### [Demonstrating a Hybrid Machine Learning Approach for Snow Characteristic Estimation Throughout the Western United States](https://doi.org/10.1029/2023wr035805)
+Steele et al. (2024), *Water Resources Research*. 18 citations.
+
+*Summary pending.*
+
+### [Interrogating process deficiencies in large-scale hydrologic models with interpretable machine learning](https://doi.org/10.5194/hess-29-4457-2025)
+Husic et al. (2025), *Hydrology and Earth System Sciences*. 18 citations.
+
+*Summary pending.*
+
+### [Exploring the ability of LSTM-based hydrological models to simulate streamflow time series for flood frequency analysis](https://doi.org/10.5194/hess-29-4951-2025)
+Martel et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
+
+*Summary pending.*
+
+### [Synergizing Intuitive Physics and Big Data in Deep Learning: Can We Obtain Process Insights While Maintaining State‐Of‐The‐Art Hydrological Prediction Capability?](https://doi.org/10.1029/2024wr037582)
+He et al. (2024), *Water Resources Research*. 17 citations.
+
+*Summary pending.*
+
+### [A Quantum-Empowered SPEI Drought Forecasting Algorithm Using Spatially Aware Mamba Network](https://doi.org/10.1109/tgrs.2025.3583578)
+Tang et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 17 citations.
+
+*Summary pending.*
+
+### [CH-RUN: a deep-learning-based spatially contiguous runoff reconstruction for Switzerland](https://doi.org/10.5194/hess-29-1061-2025)
+Kraft et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
+
+*Summary pending.*
+
+### [Remote Sensing of River Discharge From Medium‐Resolution Satellite Imagery Based on Deep Learning](https://doi.org/10.1029/2023wr036880)
+Hao et al. (2024), *Water Resources Research*. 16 citations.
+
+*Summary pending.*
+
+### [Towards a global spatial machine learning model for seasonal groundwater level predictions in Germany](https://doi.org/10.5194/hess-29-3405-2025)
+Kunz et al. (2025), *Hydrology and Earth System Sciences*. 16 citations.
+
+*Summary pending.*
+
+### [High-resolution rainfall-runoff modeling using graph neural network](https://arxiv.org/abs/2110.10833)
+Xiang et al. (2021), *arXiv*. 16 citations.
+
+*Summary pending.*
+
+### [Harnessing Generative Deep Learning for Enhanced Ensemble Data Assimilation](https://doi.org/10.1029/2025wr040078)
+Foroumandi et al. (2025), *Water Resources Research*. 16 citations.
+
+*Summary pending.*
+
+### [The Merit of River Network Topology for Neural Flood Forecasting](https://doi.org/10.5555/3692070.3693060)
+Kirschstein et al. (2024), *International Conference on Machine Learning*. 16 citations.
+
+*Summary pending.*
+
+### [Enforcing Water Balance in Multitask Deep Learning Models for Hydrological Forecasting](https://doi.org/10.1175/jhm-d-23-0073.1)
+Li et al. (2024), *Journal of Hydrometeorology*. 15 citations.
+
+*Summary pending.*
+
+### [Toward Optimal Rainfall for Flood Prediction in Headwater Basins—Orographic QPE Error Modeling Using Machine Learning](https://doi.org/10.1029/2023wr034456)
+Liao et al. (2023), *Water Resources Research*. 15 citations.
+
+*Summary pending.*
+
+### [Leveraging Next‐Generation Satellite Remote Sensing‐Based Snow Data to Improve Seasonal Water Supply Predictions in a Practical Machine Learning‐Driven River Forecast System](https://doi.org/10.1029/2023wr035785)
+Fleming et al. (2024), *Water Resources Research*. 15 citations.
+
+*Summary pending.*
+
+### [A Deep State Space Model for Rainfall‐Runoff Simulations](https://doi.org/10.1029/2025wr039888)
+Wang et al. (2025), *Water Resources Research*. 14 citations.
+
+*Summary pending.*
+
+### [Global soil moisture from in-situ measurements using machine learning - SoMo.ml](https://doi.org/10.6084/m9.figshare.c.5142185.v1)
+Sungmin et al. (2020), *arXiv*. 14 citations.
+
+*Summary pending.*
+
+### [Reanalysis and Forecasting of Total Water Storage and Hydrological States by Combining Machine Learning With CLM Model Simulations and GRACE Data Assimilation](https://doi.org/10.1029/2024wr037926)
+Li et al. (2025), *Water Resources Research*. 13 citations.
+
+*Summary pending.*
+
+### [Learning Distributed Parameters of Land Surface Hydrologic Models Using a Generative Adversarial Network](https://doi.org/10.1029/2024wr037380)
+Sun et al. (2024), *Water Resources Research*. 13 citations.
+
+*Summary pending.*
+
+### [An explainable deep learning model based on hydrological principles for flood simulation and forecasting](https://doi.org/10.5194/hess-29-7217-2025)
+Xiang et al. (2025), *Hydrology and Earth System Sciences*. 12 citations.
+
+*Summary pending.*
+
+### [Global Flood Projection and Socioeconomic Implications Under a Deep Learning Framework](https://doi.org/10.1029/2024wr037139)
+Kang et al. (2025), *Water Resources Research*. 12 citations.
+
+*Summary pending.*
+
+### [Machine-learning-constrained projection of bivariate hydrological drought magnitudes and socioeconomic risks over China](https://doi.org/10.5194/hess-28-3305-2024)
+Liu et al. (2024), *Hydrology and Earth System Sciences*. 12 citations.
+
+*Summary pending.*
+
+### [Improved 30‐m Evapotranspiration Estimates Over 145 Eddy Covariance Sites in the Contiguous United States: The Role of ECOSTRESS, Harmonized Landsat Sentinel‐2 Imagery, Climate Reanalysis, and Deep Neural Network Postprocessing](https://doi.org/10.1029/2023wr036313)
+Rashid et al. (2024), *Water Resources Research*. 12 citations.
+
+*Summary pending.*
+
+### [Physics-Aware Downsampling with Deep Learning for Scalable Flood Modeling](https://arxiv.org/abs/2106.07218)
+Giladi et al. (2021), *Neural Information Processing Systems*. 12 citations.
+
+*Summary pending.*
+
+### [Saudi Rainfall (SaRa): hourly 0.1° gridded rainfall (1979–present) for Saudi Arabia via machine learning fusion of satellite and model data](https://doi.org/10.5194/hess-29-4983-2025)
+Wang et al. (2025), *Hydrology and Earth System Sciences*. 11 citations.
+
+*Summary pending.*
+
+### [Extended-range forecasting of stream water temperature with deep-learning models](https://doi.org/10.5194/hess-29-1685-2025)
+Padrón et al. (2025), *Hydrology and Earth System Sciences*. 10 citations.
+
+*Summary pending.*
+
+### [RiverMamba: A State Space Model for Global River Discharge and Flood Forecasting](https://arxiv.org/abs/2505.22535)
+Eddin et al. (2025), *Neural Information Processing Systems*. 10 citations.
+
+*Summary pending.*
+
+### [Effective Deep Learning Seasonal Prediction Model for Summer Drought Over China](https://doi.org/10.1029/2023ef004409)
+Liu et al. (2024), *Earth's Future*. 10 citations.
+
+*Summary pending.*
+
+### [Evaluating the Functional Realism of Deep Learning Rainfall‐Runoff Models Using Catchment Hydrology Principles](https://doi.org/10.1029/2025wr040076)
+Bayati et al. (2025), *Water Resources Research*. 9 citations.
+
+*Summary pending.*
+
+### [Investigating Deep Learning Knowledge Transfer in Streamflow Prediction From Global to Local Catchment](https://doi.org/10.1029/2025wr041194)
+Ougahi et al. (2026), *Water Resources Research*. 8 citations.
+
+*Summary pending.*
+
+### [Hierarchical Deep Learning for Consistent Multi‐Timescale Hydrological Forecasting](https://doi.org/10.1029/2024wr038105)
+Jahangir et al. (2025), *Water Resources Research*. 8 citations.
+
+*Summary pending.*
+
+### [Global Runoff Partitioning Based on Budyko‐Constrained Machine Learning](https://doi.org/10.1029/2025wr039863)
+Cheng et al. (2025), *Water Resources Research*. 8 citations.
+
+*Summary pending.*
+
+### [Improving streamflow predictions across CONUS by integrating advanced machine learning models and diverse data](https://doi.org/10.1088/1748-9326/ad6fb7)
+Tayal et al. (2024), *Environmental Research Letters*. 8 citations.
+
+*Summary pending.*
+
+### [Knowledge‐Guided Machine Learning for Operational Flood Forecasting](https://doi.org/10.1029/2024wr039064)
+McEachran et al. (2025), *Water Resources Research*. 8 citations.
+
+*Summary pending.*
+
+### [Flash drought prediction using deep learning](https://doi.org/10.1088/1748-9326/addb65)
+Jacob et al. (2025), *Environmental Research Letters*. 8 citations.
+
+*Summary pending.*
+
+### [Improving Subseasonal Soil Moisture and Evaporative Stress Index Forecasts through Machine Learning: The Role of Initial Land State versus Dynamical Model Output](https://doi.org/10.1175/jhm-d-23-0074.1)
+Lorenz et al. (2024), *Journal of Hydrometeorology*. 7 citations.
+
+*Summary pending.*
+
+### [Infilling of missing rainfall radar data with a memory-assisted deep learning approach](https://doi.org/10.5194/hess-29-3687-2025)
+Meuer et al. (2025), *Hydrology and Earth System Sciences*. 7 citations.
+
+*Summary pending.*
+
+### [DroughtSet: Understanding Drought Through Spatial-Temporal Learning](https://arxiv.org/abs/2412.15075)
+Tan et al. (2024), *AAAI Conference on Artificial Intelligence*. 7 citations.
+
+*Summary pending.*
+
+### [FROSTBYTE: a reproducible data-driven workflow for probabilistic seasonal streamflow forecasting in snow-fed river basins across North America](https://doi.org/10.5194/hess-28-4127-2024)
+Arnal et al. (2024), *Hydrology and Earth System Sciences*. 7 citations.
+
+*Summary pending.*
+
+### [Automated classification of atmospheric circulation types for compound flood risk assessment: CMIP6 model analysis utilising a deep learning ensemble](https://doi.org/10.1088/1748-9326/adddcb)
+Heinrich et al. (2025), *Environmental Research Letters*. 6 citations.
+
+*Summary pending.*
+
+### [Utilizing Earth Foundation Models to Enhance the Simulation Performance of Hydrological Models with AlphaEarth Embeddings](https://arxiv.org/abs/2601.01558)
+Qu et al. (2026), *arXiv*. 6 citations.
+
+*Summary pending.*
+
+### [Deep Learning Identification of the Governing Equation for Water Flow in Heterogeneous Soils From Data](https://doi.org/10.1029/2024wr037786)
+Song et al. (2025), *Water Resources Research*. 6 citations.
+
+*Summary pending.*
+
+### [Skilful probabilistic predictions of UK flood risk months ahead using a large-sample machine learning model trained on multimodel ensemble climate forecasts](https://doi.org/10.5194/hess-29-2393-2025)
+Moulds et al. (2025), *Hydrology and Earth System Sciences*. 6 citations.
+
+*Summary pending.*
+
+### [Generative AI-Downscaling of Large Ensembles Project Unprecedented Future Droughts](https://arxiv.org/abs/2509.21844)
+Lewis et al. (2025), *arXiv*. 5 citations.
+
+*Summary pending.*
+
+### [Update hydrological states or meteorological forcings? Comparing data assimilation methods for differentiable hydrologic models](https://arxiv.org/abs/2502.16444)
+Jamaat et al. (2025), *arXiv*. 5 citations.
+
+*Summary pending.*
+
+### [AIFL: A Global Daily Streamflow Forecasting Model Using Deterministic LSTM Pre-trained on ERA5-Land and Fine-tuned on IFS](https://doi.org/10.1016/j.jhydrol.2026.136064)
+Taccari et al. (2026), *Journal of Hydrology*. 4 citations.
+
+*Summary pending.*
+
+### [Quantifying Historical and Future Surface Soil Moisture Drying Using Deep Learning and Remote Sensing](https://doi.org/10.1029/2025ef006261)
+Bo et al. (2026), *Earth's Future*. 4 citations.
+
+*Summary pending.*
+
+### [Diffusion‐Based Probabilistic Modeling for Hourly Streamflow Prediction and Assimilation](https://doi.org/10.1029/2025wr042720)
+Yang et al. (2025), *Water Resources Research*. 4 citations.
+
+*Summary pending.*
+
+### [BiasCast: learning and adjusting real time biases from meteorological forecasts to enhance runoff predictions](https://doi.org/10.5194/hess-30-5067-2026)
+Konold et al. (2026), *Hydrology and Earth System Sciences*. 4 citations.
+
+*Summary pending.*
+
+### [Spatially Resolved Meteorological and Ancillary Data in Central Europe for Rainfall Streamflow Modeling](https://arxiv.org/abs/2506.03819)
+Vischer et al. (2025), *arXiv*. 4 citations.
+
+*Summary pending.*
+
+### [Fine Flood Forecasts: Incorporating local data into global models through fine-tuning](https://arxiv.org/abs/2504.12559)
+Ryd et al. (2025), *arXiv*. 4 citations.
+
+*Summary pending.*
+
+### [DUALFloodGNN: Physics-informed Graph Neural Network for Operational Flood Modeling](https://doi.org/10.24963/ijcai.2026/713)
+Acosta et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence*. 3 citations.
+
+*Summary pending.*
+
+### [Increased Streamflow Intermittence in Europe Due To Climate Change Projected by Combining Global Hydrological Modeling and Machine Learning](https://doi.org/10.1029/2024ef005868)
+Abbasi et al. (2025), *Earth's Future*. 3 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal Dynamics of Active Root Zone Storage Revealed From Hybrid Machine Learning](https://doi.org/10.1029/2025wr042803)
+Blougouras et al. (2026), *Water Resources Research*. 2 citations.
+
+*Summary pending.*
+
+### [Strategies for incorporating static features into global deep learning models](https://doi.org/10.5194/hess-30-1877-2026)
+Liesch et al. (2026), *Hydrology and Earth System Sciences*. 2 citations.
+
+*Summary pending.*
+
+### [HydroAgent: Closing the Gap Between Frontier LLMs and Human Experts in Hydrologic Model Calibration via Simulator-Grounded RL](https://arxiv.org/abs/2605.17792)
+Li et al. (2026), *arXiv*. 2 citations.
+
+*Summary pending.*
+
+### [Harnessing Deep Learning for Dual Gains in S2S‐Scale Soil Moisture Forecasting and Flash Drought Mechanisms](https://doi.org/10.1029/2025wr041466)
+Yang et al. (2026), *Water Resources Research*. 2 citations.
+
+*Summary pending.*
+
+### [Near real-time estimation of daytime and nighttime evapotranspiration using GOES-R observations and machine learning models](https://doi.org/10.5194/hess-30-4927-2026)
+Ranjbar et al. (2026), *Hydrology and Earth System Sciences*. 1 citations.
+
+*Summary pending.*
+
+### [PERSIANN-Unet: A Global Deep Learning Framework for Near-Real-Time Precipitation Estimation Using Infrared Data](https://doi.org/10.1175/jhm-d-25-0162.1)
+Nguyen et al. (2026), *Journal of Hydrometeorology*. 1 citations.
+
+*Summary pending.*
+
+### [Deep Learning Reveals the Role of Climate Drivers in Shaping Hydrological Droughts](https://doi.org/10.1029/2025wr042855)
+Tripathy et al. (2026), *Water Resources Research*. 1 citations.
+
+*Summary pending.*
+
+### [Interpretable Deep Learning Reveals Influence and Interactions of Hydroclimatic Drivers on Floods Across India](https://doi.org/10.1029/2026ef008397)
+Tripathi et al. (2026), *Earth's Future*. 1 citations.
+
+*Summary pending.*
+
+### [Interpretable soil moisture prediction with a knowledge-guided deep learning approach](https://doi.org/10.5194/hess-30-2973-2026)
+Wang et al. (2026), *Hydrology and Earth System Sciences*. 1 citations.
+
+*Summary pending.*
+
+### [Prediction of Drought and Flash Drought in Africa at the Seasonal-to-Subseasonal Scale using the Community Research Earth Digital Intelligence Twin Framework](https://arxiv.org/abs/2605.05255)
+Edris et al. (2026), *arXiv*. 1 citations.
+
+*Summary pending.*
+
+### [Integrating Satellite Retrievals, Numerical Models, and Machine Learning for Global Groundwater Recharge Estimation](https://doi.org/10.1029/2025wr040312)
+Soylu et al. (2026), *Water Resources Research*. 1 citations.
+
+*Summary pending.*
+
+### [Lightweight Wrappers for Adapting Time Series Foundation Models to Regional Drought Forecasting](https://doi.org/10.1145/3770855.3818835)
+Gao et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 1 citations.
+
+*Summary pending.*
+
+### [Hydrology in the Age of Artificial Intelligence: From Fragmentation to Coherent Terrestrial Hydrosphere Science](https://doi.org/10.1029/2026wr043509)
+Painter et al. (2026), *Water Resources Research*. 0 citations.
+
+*Summary pending.*
+
+### [The Role of Assimilating Deep Learning‐Enhanced AMSR‐E/2 Observations in European Soil Moisture Reanalysis](https://doi.org/10.1029/2026wr043561)
+Sivaprasad et al. (2026), *Water Resources Research*. 0 citations.
+
+*Summary pending.*
+
+### [Attention‐Based Stochastic Simulation of Climate‐Informed Spatiotemporal Flood Risk for Multisite Insurance Portfolios](https://doi.org/10.1029/2026gl123701)
+Nayak et al. (2025), *Geophysical Research Letters*. 0 citations.
+
+*Summary pending.*
+
+### [Predicting streamflow drought in the conterminous United States using machine learning and a donor-gage approach, 1982–2020](https://doi.org/10.5194/hess-30-5925-2026)
+Heldmyer et al. (2026), *Hydrology and Earth System Sciences*. 0 citations.
+
+*Summary pending.*
+
+### [Hapi: A Multivariable Land-Surface Transformer for Medium-Range Hydrological Forecasting at Continental Scale](https://arxiv.org/abs/2609.22702)
+Zhang et al. (2026), *arXiv*. 0 citations.
+
+*Summary pending.*
+
+### [Integrating meteorological forcings and satellite-derived observations to emulate snow water equivalent in the Colorado Rocky Mountains using a spatiotemporal deep learning model](https://doi.org/10.1175/jhm-d-25-0208.1)
+Akor et al. (2026), *Journal of Hydrometeorology*. 0 citations.
+
+*Summary pending.*
+
+### [Probabilistic Deep Learning for Drought Forecasting: Role of Internal Climate Variability](https://arxiv.org/abs/2608.01864)
+Funk et al. (2026), *arXiv*. 0 citations.
+
+*Summary pending.*
+
+### [Probabilistic Seasonal Streamflow Forecasting Across California's Sierra Nevada Watersheds with Agentic AI](https://arxiv.org/abs/2605.16178)
+Lopez-Gomez et al. (2026), *arXiv*. 0 citations.
+
+*Summary pending.*
+
+### [Skillful Data-Driven Subseasonal Soil Moisture Forecasting: Prospects and Limits for Flash Drought Prediction](https://arxiv.org/abs/2610.07060)
+Otero et al. (2026), *arXiv*. 0 citations.
+
+*Summary pending.*
+
+### [Hourly U.S.-wide flood simulation beyond the limits of traditional and data-driven models](https://arxiv.org/abs/2609.06794)
+Yang et al. (2026), *arXiv*. 0 citations.
 
 *Summary pending.*
 
@@ -6102,8 +7147,268 @@ Wang et al. (2019), *Energy Conversion and Management*. 1,073 citations.
 
 *Summary pending.*
 
+### [A review of wind speed and wind power forecasting with deep neural networks](https://doi.org/10.1016/j.apenergy.2021.117766)
+Wang et al. (2021), *Applied Energy*. 890 citations.
+
+*Summary pending.*
+
 ### [Deep Learning for solar power forecasting — An approach using AutoEncoder and LSTM Neural Networks](https://doi.org/10.1109/smc.2016.7844673)
 Gensler et al. (2016), *IEEE International Conference on Systems, Man and Cybernetics*. 568 citations.
+
+*Summary pending.*
+
+### [Comparison of machine learning methods for photovoltaic power forecasting based on numerical weather prediction](https://doi.org/10.1016/j.rser.2022.112364)
+Markovics et al. (2022), *Renewable & Sustainable Energy Reviews*. 441 citations.
+
+*Summary pending.*
+
+### [Hourly forecasting of solar irradiance based on CEEMDAN and multi-strategy CNN-LSTM neural networks](https://doi.org/10.1016/j.renene.2020.09.141)
+Gao et al. (2020), *Renewable Energy*. 324 citations.
+
+*Summary pending.*
+
+### [Long short term memory–convolutional neural network based deep hybrid approach for solar irradiance forecasting](https://doi.org/10.1016/j.apenergy.2021.117061)
+Kumari et al. (2021), *Applied Energy*. 273 citations.
+
+*Summary pending.*
+
+### [Predicting solar energy generation through artificial neural networks using weather forecasts for microgrid control](https://doi.org/10.1016/j.renene.2018.03.070)
+Rodríguez et al. (2018), *Renewable Energy*. 235 citations.
+
+*Summary pending.*
+
+### [A transformer-based deep neural network with wavelet transform for forecasting wind speed and wind energy](https://doi.org/10.1016/j.energy.2023.127678)
+Nascimento et al. (2023), *Energy*. 204 citations.
+
+*Summary pending.*
+
+### [Hybrid deep neural model for hourly solar irradiance forecasting](https://doi.org/10.1016/j.renene.2021.02.161)
+Huang et al. (2021), *Renewable Energy*. 182 citations.
+
+*Summary pending.*
+
+### [A Transformer-based multimodal-learning framework using sky images for ultra-short-term solar irradiance forecasting](https://doi.org/10.1016/j.apenergy.2023.121160)
+Liu et al. (2023), *Applied Energy*. 181 citations.
+
+*Summary pending.*
+
+### [Short term solar irradiance forecasting using a mixed wavelet neural network](https://doi.org/10.1016/j.renene.2016.01.020)
+Sharma et al. (2016), *Renewable Energy*. 167 citations.
+
+*Summary pending.*
+
+### [Machine learning for solar irradiance forecasting of photovoltaic system](https://doi.org/10.1016/j.renene.2015.12.069)
+Li et al. (2016), *Renewable Energy*. 164 citations.
+
+*Summary pending.*
+
+### [Forecasting daily global solar irradiance generation using machine learning](https://doi.org/10.1016/j.rser.2017.08.066)
+Sharma et al. (2018), *Renewable & Sustainable Energy Reviews*. 140 citations.
+
+*Summary pending.*
+
+### [Forecast for surface solar irradiance at the Brazilian Northeastern region using NWP model and artificial neural networks](https://doi.org/10.1016/j.renene.2015.11.005)
+Lima et al. (2016), *Renewable Energy*. 138 citations.
+
+*Summary pending.*
+
+### [Evaluating neural network models in site-specific solar PV forecasting using numerical weather prediction data and weather observations](https://doi.org/10.1016/j.renene.2023.02.130)
+Brester et al. (2023), *Renewable Energy*. 110 citations.
+
+*Summary pending.*
+
+### [Benchmarking of Deep Learning Irradiance Forecasting Models from Sky Images - an in-depth Analysis](https://doi.org/10.1016/j.solener.2021.05.056)
+Paletta et al. (2021), *Solar Energy*. 110 citations.
+
+*Summary pending.*
+
+### [Deep learning algorithms for very short term solar irradiance forecasting: A survey](https://doi.org/10.1016/j.rser.2023.113362)
+Ajith et al. (2023), *Renewable & Sustainable Energy Reviews*. 87 citations.
+
+*Summary pending.*
+
+### [Sky image-based solar irradiance prediction methodologies using artificial neural networks](https://doi.org/10.1016/j.renene.2018.11.056)
+Kamadinata et al. (2019), *Renewable Energy*. 85 citations.
+
+*Summary pending.*
+
+### [Enhancing solar PV output forecast by integrating ground and satellite observations with deep learning](https://doi.org/10.1016/j.rser.2022.112680)
+Qin et al. (2022), *Renewable & Sustainable Energy Reviews*. 81 citations.
+
+*Summary pending.*
+
+### [Development and assessment of artificial neural network models for direct normal solar irradiance forecasting using operational numerical weather prediction data](https://doi.org/10.1016/j.egyai.2023.100314)
+Pereira et al. (2023), *Energy and AI*. 76 citations.
+
+*Summary pending.*
+
+### [Multi-channel convolutional neural network for integration of meteorological and geographical features in solar power forecasting](https://doi.org/10.1016/j.apenergy.2021.117083)
+Heo et al. (2021), *Applied Energy*. 74 citations.
+
+*Summary pending.*
+
+### [Short-term load forecasting using neural networks and global climate models: An application to a large-scale electrical power system](https://doi.org/10.1016/j.apenergy.2023.121439)
+Morais et al. (2023), *Applied Energy*. 73 citations.
+
+*Summary pending.*
+
+### [IrradianceNet: Spatiotemporal deep learning model for satellite-derived solar irradiance short-term forecasting](https://doi.org/10.1016/j.solener.2021.09.073)
+Nielsen et al. (2021), *Solar Energy*. 70 citations.
+
+*Summary pending.*
+
+### [Short-term forecasting of solar irradiance without local telemetry: a generalized model using satellite data](https://doi.org/10.1016/j.solener.2018.07.050)
+Lago et al. (2018), *Solar Energy*. 66 citations.
+
+*Summary pending.*
+
+### [Day-ahead regional solar power forecasting with hierarchical temporal convolutional neural networks using historical power generation and weather data](https://doi.org/10.1016/j.apenergy.2024.122971)
+Perera et al. (2024), *Applied Energy*. 64 citations.
+
+*Summary pending.*
+
+### [Short-term electricity demand forecasting using machine learning methods enriched with ground-based climate and ECMWF Reanalysis atmospheric predictors in southeast Queensland, Australia](https://doi.org/10.1016/j.rser.2019.109293)
+Al-Musaylh et al. (2019), *Renewable & Sustainable Energy Reviews*. 61 citations.
+
+*Summary pending.*
+
+### [A deep learning model for intra-day forecasting of solar irradiance using satellite-based estimations in the vicinity of a PV power plant](https://doi.org/10.1016/j.solener.2021.02.033)
+Pérez et al. (2021), *Solar Energy*. 54 citations.
+
+*Summary pending.*
+
+### [Probabilistic forecasts of wind power generation in regions with complex topography using deep learning methods: An Arctic case](https://arxiv.org/abs/2203.07080)
+Eikeland et al. (2022), *arXiv*. 50 citations.
+
+*Summary pending.*
+
+### [Improving *day-ahead* Solar Irradiance Time Series Forecasting by Leveraging Spatio-Temporal Context](https://doi.org/10.52202/075280-0109)
+Boussif et al. (2023), *Neural Information Processing Systems*. 49 citations.
+
+*Summary pending.*
+
+### [Downscaling ERA5 wind speed data: a machine learning approach considering topographic influences](https://doi.org/10.1088/1748-9326/aceb0a)
+Hu et al. (2023), *Environmental Research Letters*. 44 citations.
+
+*Summary pending.*
+
+### [Addressing Intermittency in Medium-Term Photovoltaic and Wind Power Forecasting Using a Hybrid xLSTM-TCCNN Model with Numerical Weather Predictions](https://doi.org/10.1016/j.renene.2025.123618)
+Hang et al. (2025), *Renewable Energy*. 42 citations.
+
+*Summary pending.*
+
+### [Global and direct solar irradiance estimation using deep learning and selected spectral satellite images](https://doi.org/10.1016/j.apenergy.2023.121979)
+Chen et al. (2023), *Applied Energy*. 42 citations.
+
+*Summary pending.*
+
+### [SKIPP'D: a SKy Images and Photovoltaic Power Generation Dataset for Short-term Solar Forecasting](https://arxiv.org/abs/2207.00913)
+Nie et al. (2022), *arXiv*. 40 citations.
+
+*Summary pending.*
+
+### [PVNet: A LRCN Architecture for Spatio-Temporal Photovoltaic PowerForecasting from Numerical Weather Prediction](https://arxiv.org/abs/1902.01453)
+Mathe et al. (2019), *arXiv*. 26 citations.
+
+*Summary pending.*
+
+### [SolNet: Open-source deep learning models for photovoltaic power forecasting across the globe](https://doi.org/10.1016/j.ijforecast.2024.12.003)
+Depoortere et al. (2024), *International Journal of Forecasting*. 23 citations.
+
+*Summary pending.*
+
+### [Selecting effective NWP integration approaches for PV power forecasting with deep learning](https://doi.org/10.1016/j.solener.2025.113939)
+Chen et al. (2025), *Solar Energy*. 22 citations.
+
+*Summary pending.*
+
+### [Monitoring hydropower reliability in Malawi with satellite data and machine learning](https://doi.org/10.1088/1748-9326/ab6562)
+Falchetta et al. (2020), *Environmental Research Letters*. 22 citations.
+
+*Summary pending.*
+
+### [Solar Irradiance Anticipative Transformer](https://doi.org/10.1109/cvprw59228.2023.00200)
+Mercier et al. (2023), *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)*. 15 citations.
+
+*Summary pending.*
+
+### [Experimental review and recent advances in deep learning techniques for solar irradiance forecasting and prediction](https://doi.org/10.1016/j.solener.2025.114175)
+Otuka et al. (2026), *Solar Energy*. 7 citations.
+
+*Summary pending.*
+
+### [Physics-constrained deep learning bias correction of CMIP6 solar radiation over Africa and its implications for solar power planning in a changing climate](https://doi.org/10.1016/j.renene.2025.124658)
+Adigun et al. (2026), *Renewable Energy*. 6 citations.
+
+*Summary pending.*
+
+### [SolarCrossFormer: Improving Day-Ahead Solar Irradiance Forecasting by Integrating Satellite Imagery and Ground Sensors](https://doi.org/10.1109/tste.2025.3624044)
+Schubnel et al. (2025), *IEEE Transactions on Sustainable Energy*. 5 citations.
+
+*Summary pending.*
+
+### [Toward accurate forecasting of renewable energy: Building datasets and benchmarking machine learning models for solar and wind power in France](https://doi.org/10.1017/eds.2025.10021)
+Lindas et al. (2025), *Environmental Data Science*. 5 citations.
+
+*Summary pending.*
+
+### [WindDragon: Enhancing wind power forecasting with Automated Deep Learning](https://arxiv.org/abs/2402.14385)
+Keisler et al. (2024), *arXiv*. 5 citations.
+
+*Summary pending.*
+
+### [Probabilistic Wind Power Forecasting with Tree-Based Machine Learning and Weather Ensembles](https://arxiv.org/abs/2602.13010)
+Bruninx et al. (2026), *arXiv*. 4 citations.
+
+*Summary pending.*
+
+### [Climate change impacts on solar energy generation in the continental United States, forecasts from deep learning](https://doi.org/10.1016/j.envsoft.2025.106535)
+Nichols et al. (2025), *Environmental Modelling & Software*. 3 citations.
+
+*Summary pending.*
+
+### [SolarSeer: Ultrafast and accurate 24-hour solar irradiance forecasts outperforming numerical weather prediction across the USA](https://arxiv.org/abs/2508.03590)
+Bai et al. (2025), *arXiv*. 3 citations.
+
+*Summary pending.*
+
+### [Predicting Australian energy demand variability using weather data and machine learning](https://doi.org/10.1088/1748-9326/ad9b3b)
+Richardson et al. (2024), *Environmental Research Letters*. 2 citations.
+
+*Summary pending.*
+
+### [Bridging CORDEX and CMIP6: machine learning downscaling for wind and solar energy droughts in central Europe](https://doi.org/10.1088/3049-4753/aea998)
+Effenberger et al. (2025), *Machine Learning: Earth*. 2 citations.
+
+*Summary pending.*
+
+### [Machine Learning‐Based Denoising of Surface Solar Irradiance Simulated With Monte Carlo Ray Tracing](https://doi.org/10.1029/2024jh000515)
+Reeze et al. (2024), *Journal of Geophysical Research*. 1 citations.
+
+*Summary pending.*
+
+### [Fourier Geometric Wind Power Forecasting with Numerical Weather Prediction](https://doi.org/10.1145/3770855.3818905)
+Piao et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 0 citations.
+
+*Summary pending.*
+
+### [Global drought impacts on hydropower integrating physically-based and machine learning modelling](https://doi.org/10.1088/1748-9326/ae7b62)
+Shah et al. (2026), *Environmental Research Letters*. 0 citations.
+
+*Summary pending.*
+
+### [Integrating Weather Foundation Model and Satellite to Enable Fine-Grained Solar Irradiance Forecasting](https://doi.org/10.1145/3770855.3818436)
+Ma et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*. 0 citations.
+
+*Summary pending.*
+
+### [Advanced predictor selection for post-processing of global horizontal irradiance forecasts with stepwise machine learning regression](https://doi.org/10.1016/j.solener.2026.114521)
+Markovics et al. (2026), *Solar Energy*. 0 citations.
+
+*Summary pending.*
+
+### [Characterization and forecasting of national-scale solar power ramp events](https://arxiv.org/abs/2603.26596)
+Lanzilao et al. (2026), *arXiv*. 0 citations.
 
 *Summary pending.*
 
@@ -6132,6 +7437,196 @@ Cai et al. (2018), *Agricultural and Forest Meteorology*. 543 citations.
 
 ### [Machine learning methods for crop yield prediction and climate change impact assessment in agriculture](https://doi.org/10.1088/1748-9326/aae159)
 Crane-Droesch (2018), *Environmental Research Letters*. 436 citations.
+
+*Summary pending.*
+
+### [Coupling machine learning and crop modeling improves crop yield prediction in the US Corn Belt](https://doi.org/10.1038/s41598-020-80820-1)
+Shahhosseini et al. (2020), *Scientific Reports*. 419 citations.
+
+*Summary pending.*
+
+### [Modeling reference evapotranspiration using extreme learning machine and generalized regression neural network only with temperature data](https://doi.org/10.1016/j.compag.2017.01.027)
+Feng et al. (2017), *Computers and Electronics in Agriculture*. 229 citations.
+
+*Summary pending.*
+
+### [Crop yield prediction integrating genotype and weather variables using deep learning](https://doi.org/10.1371/journal.pone.0252402)
+Shook et al. (2020), *PLoS ONE*. 200 citations.
+
+*Summary pending.*
+
+### [Comparative assessment of environmental variables and machine learning algorithms for maize yield prediction in the US Midwest](https://doi.org/10.1088/1748-9326/ab7df9)
+Kang et al. (2020), *Environmental Research Letters*. 196 citations.
+
+*Summary pending.*
+
+### [Estimating and understanding crop yields with explainable deep learning in the Indian Wheat Belt](https://doi.org/10.1088/1748-9326/ab68ac)
+Wolanin et al. (2020), *Environmental Research Letters*. 174 citations.
+
+*Summary pending.*
+
+### [New approach to estimate daily reference evapotranspiration based on hourly temperature and relative humidity using machine learning and deep learning](https://doi.org/10.1016/j.agwat.2020.106113)
+Ferreira et al. (2020), *Agricultural Water Management*. 172 citations.
+
+*Summary pending.*
+
+### [A GNN-RNN Approach for Harnessing Geospatial and Temporal Information: Application to Crop Yield Prediction](https://doi.org/10.1609/aaai.v36i11.21444)
+Fan et al. (2021), *AAAI Conference on Artificial Intelligence*. 147 citations.
+
+*Summary pending.*
+
+### [Exploring uncertainties in global crop yield projections in a large ensemble of crop models and CMIP5 and CMIP6 climate scenarios](https://doi.org/10.1088/1748-9326/abd8fc)
+Müller et al. (2021), *Environmental Research Letters*. 143 citations.
+
+*Summary pending.*
+
+### [Crop evapotranspiration prediction by considering dynamic change of crop coefficient and the precipitation effect in back-propagation neural network model](https://doi.org/10.1016/j.jhydrol.2021.126104)
+Han et al. (2021), *Journal of Hydrology*. 108 citations.
+
+*Summary pending.*
+
+### [Robust Model Predictive Control of Irrigation Systems With Active Uncertainty Learning and Data Analytics](https://doi.org/10.1109/tcst.2019.2916753)
+Shang et al. (2018), *IEEE Transactions on Control Systems Technology*. 89 citations.
+
+*Summary pending.*
+
+### [The response of maize, sorghum, and soybean yield to growing-phase climate revealed with machine learning](https://doi.org/10.1088/1748-9326/ab7b22)
+Hoffman et al. (2020), *Environmental Research Letters*. 84 citations.
+
+*Summary pending.*
+
+### [DeepCropNet: a deep spatial-temporal learning framework for county-level corn yield estimation](https://doi.org/10.1088/1748-9326/ab66cb)
+Lin et al. (2020), *Environmental Research Letters*. 82 citations.
+
+*Summary pending.*
+
+### [Coupling machine learning and weather forecast to predict farmland flood disaster: A case study in Yangtze River basin](https://doi.org/10.1016/j.envsoft.2022.105436)
+Jiang et al. (2022), *Environmental Modelling & Software*. 53 citations.
+
+*Summary pending.*
+
+### [Optimizing Irrigation Efficiency using Deep Reinforcement Learning in the Field](https://doi.org/10.1145/3662182)
+Ding et al. (2023), *ACM Trans. Sens. Networks*. 49 citations.
+
+*Summary pending.*
+
+### [Exploring dynamic response of agrometeorological droughts towards winter wheat yield loss risk using machine learning approach at a regional scale in Pakistan](https://doi.org/10.1016/j.fcr.2023.109057)
+Arshad et al. (2023), *Field crops research (Print)*. 47 citations.
+
+*Summary pending.*
+
+### [Seasonal forecasting of daily mean air temperatures using a coupled global climate model and machine learning algorithm for field-scale agricultural management](https://doi.org/10.1016/j.agrformet.2019.107858)
+Shin et al. (2020), *Agricultural and Forest Meteorology*. 46 citations.
+
+*Summary pending.*
+
+### [Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback](https://doi.org/10.1371/journal.pwat.0000169)
+Saikai et al. (2023), *PLOS Water*. 45 citations.
+
+*Summary pending.*
+
+### [How can machine learning help in understanding the impact of climate change on crop yields?](https://doi.org/10.1088/1748-9326/acb164)
+Sidhu et al. (2023), *Environmental Research Letters*. 43 citations.
+
+*Summary pending.*
+
+### [Multi-modal Data Fusion and Deep Ensemble Learning for Accurate Crop Yield Prediction](https://arxiv.org/abs/2502.06062)
+Yewle et al. (2025), *arXiv*. 40 citations.
+
+*Summary pending.*
+
+### [Uncovering the Past and Future Climate Drivers of Wheat Yield Shocks in Europe With Machine Learning](https://doi.org/10.1029/2020ef001815)
+Zhu et al. (2021), *Earth's Future*. 39 citations.
+
+*Summary pending.*
+
+### [Uncovering Current and Future Variations of Irrigation Water Use Across China Using Machine Learning](https://doi.org/10.1029/2023ef003562)
+Liu et al. (2024), *Earth's Future*. 37 citations.
+
+*Summary pending.*
+
+### [An Open and Large-Scale Dataset for Multi-Modal Climate Change-aware Crop Yield Predictions](https://doi.org/10.1145/3637528.3671536)
+Lin et al. (2024), *Knowledge Discovery and Data Mining*. 34 citations.
+
+*Summary pending.*
+
+### [Coupling agricultural system models with machine learning to facilitate regional predictions of management practices and crop production](https://doi.org/10.1088/1748-9326/ac9c71)
+Xiao et al. (2022), *Environmental Research Letters*. 34 citations.
+
+*Summary pending.*
+
+### [Estimation of flood-damaged cropland area using a convolutional neural network](https://doi.org/10.1088/1748-9326/abeba0)
+Lazin et al. (2021), *Environmental Research Letters*. 23 citations.
+
+*Summary pending.*
+
+### [Impacts of climate change on spatial wheat yield and nutritional values using hybrid machine learning](https://doi.org/10.1088/1748-9326/ad75ab)
+Kheir et al. (2024), *Environmental Research Letters*. 20 citations.
+
+*Summary pending.*
+
+### [Disentangling the separate and confounding effects of temperature and precipitation on global maize yield using machine learning, statistical and process crop models](https://doi.org/10.1088/1748-9326/ac5716)
+Yin et al. (2022), *Environmental Research Letters*. 19 citations.
+
+*Summary pending.*
+
+### [Machine-learning methods to assess the effects of a non-linear damage spectrum taking into account soil moisture on winter wheat yields in Germany](https://doi.org/10.5194/hess-25-6523-2021)
+Peichl et al. (2021), *Hydrology and Earth System Sciences*. 17 citations.
+
+*Summary pending.*
+
+### [A review of artificial intelligence applications for predicting crop performance and enhancing food security under drought-induced water stress](https://doi.org/10.1016/j.agwat.2026.110212)
+Fares et al. (2026), *Agricultural Water Management*. 14 citations.
+
+*Summary pending.*
+
+### [Coupled machine learning–ecosystem ensemble models substantially improve predictions of nitrous oxide (N2O) fluxes from US croplands](https://doi.org/10.1073/pnas.2524808123)
+Sharma et al. (2026), *Proceedings of the National Academy of Sciences of the United States of America*. 11 citations.
+
+*Summary pending.*
+
+### [Predictive drivers and transferability of multi-scale machine learning based crop yield prediction under drought across European and Asian climates](https://doi.org/10.1016/j.agwat.2026.110254)
+Sahu et al. (2026), *Agricultural Water Management*. 8 citations.
+
+*Summary pending.*
+
+### [Incorporating climate data with machine learning can improve rice phenology estimation](https://doi.org/10.1088/1748-9326/ada56e)
+Liu et al. (2025), *Environmental Research Letters*. 5 citations.
+
+*Summary pending.*
+
+### [CMAViT: Integrating Climate, Managment, and Remote Sensing Data for Crop Yield Estimation with Multimodel Vision Transformers](https://arxiv.org/abs/2411.16989)
+Kamangir et al. (2024), *arXiv*. 5 citations.
+
+*Summary pending.*
+
+### [On the Use of Knowledge‐Informed Machine Learning and Multisource Data for Spatially Explicit Estimation of Irrigation Water Withdrawal](https://doi.org/10.1029/2025ef006704)
+Zhang et al. (2025), *Earth's Future*. 3 citations.
+
+*Summary pending.*
+
+### [VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting](https://arxiv.org/abs/2508.03589)
+Hasan et al. (2025), *AAAI Conference on Artificial Intelligence*. 3 citations.
+
+*Summary pending.*
+
+### [Evaluating Crop Yield Sensitivity to Climate Change Using a Deep‐Learning Framework Incorporating Vegetation and Groundwater Memory](https://doi.org/10.1029/2026ef008560)
+Baluch et al. (2026), *Earth's Future*. 0 citations.
+
+*Summary pending.*
+
+### [NeuralCrop: Combining physics and machine learning for improved crop yield projections](https://arxiv.org/abs/2512.20177)
+Lin et al. (2025), *arXiv*. 0 citations.
+
+*Summary pending.*
+
+### [Seasonal Pre‐Planting Drought Impact‐Based Forecasting of Crop Yield in India](https://doi.org/10.1029/2025ef007128)
+Shyrokaya et al. (2026), *Earth's Future*. 0 citations.
+
+*Summary pending.*
+
+### [Evaluating and improving crop-yield forecasting methods during extreme drought](https://arxiv.org/abs/2608.17971)
+Gupta et al. (2026), *arXiv*. 0 citations.
 
 *Summary pending.*
 

@@ -160,7 +160,8 @@ JOURNAL_ALIASES = [
     (r"knowledge discovery|\bkdd\b", "KDD"),
     (r"artificial intelligence and statistics|aistats", "AISTATS"),
     (r"joint conference on artificial intelligence|ijcai", "IJCAI"),
-    (r"high performance computing, networking", "SC (Supercomputing)"),
+    (r"high performance computing, networking|software composition", "SC (Supercomputing)"),  # S2 mislabels SC'25
+    (r"^journal of comput(er|ational) science", "Journal of Computational Science"),
     (r"bulletin of the american meteorological", "Bulletin of the American Meteorological Society"),
     (r"proceedings of the national academy", "PNAS"),
     (r"philosophical transactions of the royal society a", "Philosophical Transactions of the Royal Society A"),

@@ -1,18 +1,18 @@
 family,papers
 Equation discovery,7
-Reservoir computing,8
 Kernel / GP / SVM,8
-Clustering / unsupervised,8
+Clustering / unsupervised,9
+Reservoir computing,12
 Linear / statistical,16
-GAN,18
-Neural operator,25
-Tree ensemble,28
-VAE / flow / autoencoder,37
-RNN / LSTM,38
-MLP,38
-U-Net,41
-Graph neural network,49
-Diffusion / flow matching,49
-Transformer,70
-Neural network (unspecified),88
-CNN,110
+GAN,23
+Neural operator,26
+Tree ensemble,30
+VAE / flow / autoencoder,38
+MLP,41
+U-Net,43
+Diffusion / flow matching,51
+Graph neural network,55
+RNN / LSTM,56
+Transformer,79
+CNN,118
+Neural network (unspecified),171
