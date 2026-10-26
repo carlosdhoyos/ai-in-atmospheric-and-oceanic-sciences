@@ -1,0 +1,20 @@
+task,≤2018,2019–20,2021–22,2023–24,2025–26
+Medium-range weather forecasting,3,15,13,43,50
+Ocean & sea-ice prediction,9,8,17,20,30
+"Benchmarking, evaluation & feasibility",11,17,21,22,10
+Extreme events,8,13,11,13,19
+Parameterization & physics emulation,9,13,18,11,9
+Subseasonal to decadal prediction,3,3,14,8,20
+Climate emulation & projection,5,4,9,14,12
+Downscaling & super-resolution,5,9,8,11,9
+Data assimilation & state estimation,0,7,10,10,14
+Process understanding & discovery,3,8,14,9,7
+Computational speed-up,1,4,8,8,6
+Detection & classification,5,9,3,4,4
+Model error & bias correction,3,6,5,5,3
+Nowcasting (0–12 h),2,7,5,5,3
+Air quality & atmospheric composition,3,3,4,1,8
+Post-processing & calibration,1,4,4,3,7
+Retrieval & estimation from observations,4,6,4,1,1
+Climate change detection & attribution,2,4,3,3,2
+Reconstruction & gap filling,0,3,0,2,2

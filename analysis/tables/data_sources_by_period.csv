@@ -1,14 +1,14 @@
-source,≤2018,2019–20,2021–22,2023–26
-CMIP / climate model output,12,17,22,20
-ERA5,0,8,11,41
-Idealized / toy model,11,16,17,7
-Operational NWP / reforecasts,3,7,13,26
-Satellite,5,15,10,11
-Km-scale / high-res simulation,6,10,14,9
-Stations / in situ,6,12,4,12
-Radar,5,12,9,6
-Reanalysis (unspecified),4,6,7,8
-Ocean / sea-ice models & products,4,3,3,8
-Other reanalysis,0,7,1,3
-Parameterization / scheme output,3,2,4,0
-Generic PDE / fluid benchmarks,1,4,0,2
+source,≤2018,2019–20,2021–22,2023–24,2025–26
+CMIP / climate model output,12,17,22,18,2
+ERA5,0,8,11,35,5
+Idealized / toy model,11,16,17,7,0
+Operational NWP / reforecasts,3,7,13,23,3
+Satellite,5,15,10,10,1
+Km-scale / high-res simulation,6,10,14,9,0
+Stations / in situ,6,12,4,11,1
+Radar,5,12,9,6,0
+Reanalysis (unspecified),4,6,7,7,1
+Ocean / sea-ice models & products,4,3,3,7,1
+Other reanalysis,0,7,1,2,1
+Parameterization / scheme output,3,2,4,0,0
+Generic PDE / fluid benchmarks,1,4,0,2,0
