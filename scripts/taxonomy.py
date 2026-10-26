@@ -27,12 +27,14 @@ ARCHITECTURE = [
     ("Transformer", r"transformer|self-attention|\bvit\b|swin|attention-based|\battention\b|perceiver|earthformer"),
     ("Graph neural network", r"graph neural|\bgnn|graph network|message[- ]passing|graphcast|multimesh|graph-based"),
     ("Neural operator", r"neural operator|\bfno\b|\bsfno\b|\bafno\b|fourier neural|deeponet|spherical fourier"),
-    ("Diffusion model", r"diffusion model|\bdiffusion\b|score-based|denoising diffusion|dyffusion"),
+    ("Diffusion / flow matching", r"diffusion model|\bdiffusion\b|score-based|denoising diffusion|dyffusion|flow matching|"
+                                  r"rectified flow|consistency model|stochastic interpolant"),
     ("GAN", r"\bgan\b|gans\b|generative adversarial|adversarial"),
     ("VAE / flow / autoencoder", r"autoencoder|variational encoder|\bvae\b|normalizing flow|encoder-decoder|encoder–decoder"),
     ("U-Net", r"u-?net"),
     ("CNN", r"convolution|\bcnn|resnet|residual (network|block)|super[- ]resolution (cnn|network)|srcnn|deeplab|capsule"),
-    ("RNN / LSTM", r"lstm|\bgru\b|recurrent|\brnn|convlstm|predrnn|trajgru|temporal convolutional|\btcn\b"),
+    ("RNN / LSTM", r"lstm|\bgru\b|recurrent|\brnn|convlstm|predrnn|trajgru|temporal convolutional|\btcn\b|mamba|"
+                   r"state[- ]space model"),
     ("MLP", r"feed[- ]?forward|fully[- ]connected|\bmlp|multilayer perceptron|dense (neural )?network|shallow neural|"
             r"single[- ]hidden|deep neural network"),
     ("Tree ensemble", r"random forest|gradient[- ]boost|xgboost|lightgbm|catboost|decision tree|extremely randomized|boosted trees"),
@@ -51,7 +53,7 @@ ARCHITECTURE = [
 ]
 ARCH_GROUP = {  # coarser grouping for trend plots
     "Transformer": "Transformers", "Graph neural network": "Graph & operator nets", "Neural operator": "Graph & operator nets",
-    "Diffusion model": "Generative (diffusion/GAN/VAE)", "GAN": "Generative (diffusion/GAN/VAE)",
+    "Diffusion / flow matching": "Generative (diffusion/GAN/VAE)", "GAN": "Generative (diffusion/GAN/VAE)",
     "VAE / flow / autoencoder": "Generative (diffusion/GAN/VAE)", "U-Net": "CNN / U-Net", "CNN": "CNN / U-Net",
     "RNN / LSTM": "RNN / LSTM", "MLP": "MLP", "Tree ensemble": "Classical ML", "Reservoir computing": "Classical ML",
     "Kernel / GP / SVM": "Classical ML", "Linear / statistical": "Classical ML", "Equation discovery": "Classical ML",

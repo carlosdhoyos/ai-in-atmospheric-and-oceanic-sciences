@@ -66,6 +66,14 @@ No API keys are needed; the scripts back off automatically when rate-limited.
 
 **About citation counts.** Counts are from Semantic Scholar (or Crossref, whichever is higher) on the retrieval date shown on the page. Google Scholar counts are typically higher. Use them to compare papers rather than as absolute figures.
 
+## Updating
+
+The whole update (find new papers, screen them, summarize, recategorize, rebuild the database, EDA and pages,
+verify) is packaged as a Claude Code skill in [`.claude/skills/update-catalog/`](.claude/skills/update-catalog/SKILL.md);
+ask Claude to "update the catalog" in this repository. The mechanical steps are also available directly through
+`python3 scripts/update.py {status,screen-batches,pending-summaries,merge-summaries,build,verify}`. Past updates are
+recorded in [`data/updates.md`](data/updates.md).
+
 ## Contributing
 
 Suggestions are welcome: open an issue or a pull request adding a line to `data/additions.tsv` with the subfield and DOI or arXiv ID.

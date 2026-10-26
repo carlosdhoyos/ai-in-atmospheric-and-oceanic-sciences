@@ -15,10 +15,10 @@ FROM paper_architecture a JOIN subfields s USING (paper_id)
 WHERE a.tag_kind = 'model_family'
 GROUP BY ALL ORDER BY subfield, papers DESC;
 
--- 4. Trend of one family: diffusion models per year
+-- 4. Trend of one family: diffusion and flow-matching models per year
 SELECT p.year, count(*) AS papers
 FROM paper_architecture a JOIN papers p USING (paper_id)
-WHERE a.family = 'Diffusion model' GROUP BY ALL ORDER BY year;
+WHERE a.family = 'Diffusion / flow matching' GROUP BY ALL ORDER BY year;
 
 -- 5. Most-cited papers trained on ERA5 that produce probabilistic output
 SELECT p.title, p.year, p.citations

@@ -756,8 +756,9 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
         return `Share of method papers with probabilistic output: ${by.join(" → ")}. Generative models (diffusion, GANs) and ensembles drive the recent rise.`; } },
     { key: "impact", label: "Citation impact",
       set: { tl: "model_family", tr: "arch_group", trMode: "count", rf: "arch_group", im: "arch_group", imVal: "Transformers", pvRow: "arch_group", pvCol: "period", pvMetric: "cpy", voice: "issue_theme" },
-      note: r => { const g = counts("arch_group", r).filter(([, n]) => n >= 5).map(([v, n]) => [v, median(r.filter(p => p.cat.arch_group.includes(v)).map(p => p.rate)), n]).sort((a, b) => b[1] - a[1]);
-        return g.length ? `Median citations per year: ${g.map(([v, m, n]) => `${esc(v)} ${m.toFixed(0)} (n=${n})`).join(", ")}. Recent groups are carried by a few landmark models, so compare the spread in the scatter, not only the medians.` : ""; } },
+      note: r => { const cut = maxY - 2, old = r.filter(p => p.year <= cut);  // recent papers have not had time to be cited
+        const g = counts("arch_group", old).filter(([, n]) => n >= 5).map(([v, n]) => [v, median(old.filter(p => p.cat.arch_group.includes(v)).map(p => p.rate)), n]).sort((a, b) => b[1] - a[1]);
+        return g.length ? `Median citations per year for papers up to ${cut}: ${g.map(([v, m, n]) => `${esc(v)} ${m.toFixed(0)} (n=${n})`).join(", ")}. Papers after ${cut} are too recent to compare by citation rate. Leading groups are carried by a few landmark models, so compare the spread in the scatter, not only the medians.` : ""; } },
     { key: "venues", label: "Where it is published",
       set: { tl: "venue_family", tr: "venue_family", trMode: "share", rf: "venue_family", im: "venue_family", imVal: "ML conferences", pvRow: "venue_family", pvCol: "period", pvMetric: "n", voice: "issue_theme" },
       note: r => { const v = counts("venue_family", r).slice(0, 3); return `Main homes: ${v.map(([x, n]) => `<b>${esc(x)}</b> (${n})`).join(", ")}. Rising since 2022: ${listUp("venue_family", r)}.`; } },

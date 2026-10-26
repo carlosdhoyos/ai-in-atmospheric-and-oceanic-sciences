@@ -327,7 +327,13 @@ Chantry et al. (2021), *Philosophical Transactions of the Royal Society A: Mathe
 ### [Early warning of complex climate risk with integrated artificial intelligence](https://doi.org/10.1038/s41467-025-57640-w)
 Reichstein et al. (2025), *Nature Communications*. 149 citations.
 
-*Summary pending.*
+- **Main goal:** Argues how integrated AI can strengthen multi-hazard early warning systems for complex climate risks, covering hazard forecasting, risk communication and decision support.
+- **Architecture:** Review and perspective, not a new model; discusses meteorological and geospatial foundation models, causal AI, generative methods and climate ensembles for impact-based warnings.
+- **Data:** No new data; draws on the literature on AI weather and Earth observation foundation models, climate ensembles and early warning practice.
+- **Main result:** Advocates user-centric, causal and responsible AI guided by FATES principles, and proposes decadal early warning systems built on climate ensembles and generative models.
+- **Open work:** Building and validating integrated impact models, causal approaches that avoid spurious predictions, and operational decadal warning systems with community feedback.
+- **Issues:** Perspective without quantitative evaluation; proposed systems and governance principles remain largely untested in operational settings.
+- *Basis: abstract*
 
 ### [Bridging observations, theory and numerical simulation of the ocean using machine learning](https://doi.org/10.1088/1748-9326/ac0eb0)
 Sonnewald et al. (2021), *Environmental Research Letters*. 143 citations.
@@ -563,37 +569,79 @@ McGovern et al. (2023), *Artificial Intelligence for the Earth Systems*. 38 cita
 ### [Deep Learning and Foundation Models for Weather Prediction: A Survey](https://arxiv.org/abs/2501.06907)
 Shi et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence*. 32 citations.
 
-*Summary pending.*
+- **Main goal:** Surveys deep learning and foundation models for weather prediction to organize a fast-growing field.
+- **Architecture:** Review organized by training paradigm: deterministic predictive learning, probabilistic generative learning, and pre-training plus fine-tuning, covering transformer, graph neural network, diffusion and other architectures.
+- **Data:** No new data; summarizes benchmark datasets such as ERA5 and WeatherBench and provides a curated repository of papers and code.
+- **Main result:** Synthesizes strengths and limitations of each paradigm and offers a categorized resource of papers, open-source code and benchmarks.
+- **Open work:** New tasks and models, weather data storage and management, and operational deployment of foundation models.
+- **Issues:** Literature review without new experiments; coverage may date quickly in a rapidly moving field.
+- *Basis: abstract*
 
 ### [Applications of Machine Learning and Artificial Intelligence in Tropospheric Ozone Research](https://doi.org/10.5194/gmd-18-8777-2025)
 Hickman et al. (2025), *Geoscientific Model Development*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Synthesizes progress in machine learning for tropospheric ozone research since Phase 1 of the Tropospheric Ozone Assessment Report.
+- **Architecture:** Review covering short-term ozone forecasting, emulation of atmospheric chemistry and remote sensing-based ozone estimation with ML.
+- **Data:** Literature review; covers studies using atmospheric, environmental and satellite data relevant to ozone.
+- **Main result:** ML complements existing ozone research, with the most activity in forecasting, chemistry emulation and remote sensing retrieval.
+- **Open work:** Define suitable benchmarks, build robust and explainable models, address poorly observed precursors, and foster collaboration across chemistry, ML and computing.
+- **Issues:** Review without new quantitative results; field limited by sparse precursor observations and lack of benchmarks.
+- *Basis: abstract*
 
 ### [Artificial intelligence to support cross-disciplinary climate change research](https://doi.org/10.1038/s41558-026-02624-x)
 Ou et al. (2026), *Nature Climate Change*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Discusses, as the title implies, how artificial intelligence can support cross-disciplinary climate change research linking physical science, impacts and mitigation.
+- **Architecture:** Perspective or review of AI methods and their role in climate change research; no specific model is reported.
+- **Data:** Not reported; no abstract available.
+- **Main result:** Not reported; no abstract available.
+- **Open work:** Likely calls for better integration of AI tools across climate disciplines and assessment communities.
+- **Issues:** Content cannot be verified without an abstract; card is inferred from the title only.
+- *Basis: assessment*
 
 ### [Rewiring climate modeling with machine learning emulators](https://doi.org/10.1038/s43247-026-03238-z)
 Vankatwyk et al. (2026), *Communications Earth & Environment*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Argues for closer collaboration between climate simulator and ML emulator communities to accelerate climate science.
+- **Architecture:** Perspective on machine learning emulators of Earth system models; no new model is presented.
+- **Data:** Not applicable; discusses simulator outputs, ML-ready benchmarks and data products in general terms.
+- **Main result:** Proposes three priorities: co-design of simulators and emulators, shared ML-ready benchmarks emphasizing physical fidelity, and treating emulators as reliable documented software components.
+- **Open work:** Build shared benchmarks, data partitions and deployment pathways for emulators in scenario exploration and uncertainty decomposition.
+- **Issues:** Opinion piece without quantitative evaluation; practical implementation across modeling centers remains open.
+- *Basis: abstract*
 
 ### [Recommendations for Comprehensive and Independent Evaluation of Machine Learning‐Based Earth System Models](https://doi.org/10.1029/2024jh000496)
 Ullrich et al. (2025), *Journal of Geophysical Research*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Argues for comprehensive, standardized and independent evaluation of ML-based Earth system models to build trust, especially for unobserved future or paleoclimate states.
+- **Architecture:** Review and perspective putting forward five recommendations for evaluating ML-based Earth system models; no new model.
+- **Data:** Not applicable; draws on the literature on ML weather and climate models and physics-based model evaluation.
+- **Main result:** Proposes five recommendations to build evidence of physical consistency and credibility of ML-based ESMs to promote their wider use.
+- **Open work:** Community implementation of standardized evaluation protocols, benchmarks and independent evaluation infrastructure.
+- **Issues:** Recommendations are qualitative; adoption depends on community coordination and funding; does not itself test any model.
+- *Basis: abstract*
 
 ### [2026 ECMWF-ESA workshop report: current status, progress and opportunities in machine learning for Earth system observation and prediction](https://doi.org/10.1038/s41612-026-01486-6)
 Bonavita et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Summarizes the 2026 ECMWF-ESA workshop on machine learning for Earth system observation and prediction, as implied by the title.
+- **Architecture:** Review and workshop report on the current status, progress and opportunities of machine learning for Earth system observation and prediction.
+- **Data:** Not applicable; abstract not available.
+- **Main result:** Not reported; abstract not available.
+- **Open work:** Likely highlights opportunities in ML for data assimilation, observation processing and Earth system prediction.
+- **Issues:** Workshop report rather than original research; content not verifiable without the abstract.
+- *Basis: assessment*
 
 ### [Artificial intelligence for atmospheric chemistry: from observation to process understanding](https://doi.org/10.1038/s41612-026-01559-6)
 Wang et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews the use of artificial intelligence in atmospheric chemistry, from observations to process understanding, as implied by the title.
+- **Architecture:** Review of AI and machine learning methods applied to atmospheric chemistry observation, modeling and process understanding.
+- **Data:** Not applicable; abstract not available.
+- **Main result:** Not reported; abstract not available.
+- **Open work:** Likely points to interpretable, physics-informed ML and better integration with chemical transport models.
+- **Issues:** Review; content not verifiable without the abstract.
+- *Basis: assessment*
 
 <a id="weather"></a>
 ## Medium-range weather
@@ -887,7 +935,13 @@ Nipen et al. (2024), *Artificial Intelligence for the Earth Systems*. 58 citatio
 ### [Fixing the Double Penalty in Data-Driven Weather Forecasting Through a Modified Spherical Harmonic Loss Function](https://arxiv.org/abs/2501.19374)
 Subich et al. (2025), *International Conference on Machine Learning*. 57 citations.
 
-*Summary pending.*
+- **Main goal:** Removes the fine-scale smoothing that MSE training causes in data-driven weather models through the double-penalty effect.
+- **Architecture:** Parameter-free modified spherical harmonic loss that separates decorrelation error from spectral amplitude error, used to fine-tune GraphCast, a graph neural network.
+- **Data:** GraphCast fine-tuned on ERA5 reanalysis; evaluated on global medium-range forecasts including tropical cyclones and surface wind extremes.
+- **Main result:** Produces sharp deterministic forecasts, raising effective resolution from 1,250 km to 160 km, improving ensemble spread and tropical cyclone strength and surface wind extreme predictions.
+- **Open work:** Applying the loss to other architectures and to training from scratch, and assessing its effect on probabilistic and longer-range forecasts.
+- **Issues:** Sharper fields may raise RMSE relative to MSE-trained models; demonstrated mainly through fine-tuning a single model.
+- *Basis: abstract+knowledge*
 
 ### [Kilometer-scale convection-allowing model emulation using generative diffusion modeling](https://doi.org/10.1126/sciadv.adv0423)
 Pathak et al. (2024), *Science Advances*. 56 citations.
@@ -914,7 +968,13 @@ Han et al. (2024), *arXiv*. 52 citations.
 ### [OneForecast: A Universal Framework for Global and Regional Weather Forecasting](https://arxiv.org/abs/2502.00338)
 Gao et al. (2025), *International Conference on Machine Learning*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a single data-driven framework that provides both global and high-resolution regional weather forecasts, with better extreme event prediction and less smoothing.
+- **Architecture:** Graph neural network with multi-scale mesh graphs densified over the target region, adaptive message passing with dynamic gating units, and a neural nested grid method for regional boundaries.
+- **Data:** Reanalysis data, presumably ERA5, for global forecasts plus regional high-resolution data; exact datasets and periods are not given in the abstract.
+- **Main result:** Performs well from global to regional scales and from short to long lead times, especially for extreme events, according to the authors.
+- **Open work:** Operational regional deployment, probabilistic extensions, and tests on more regions and extreme event types.
+- **Issues:** Abstract gives no quantitative scores or baselines; nested regional forecasts depend on global model boundary information.
+- *Basis: assessment*
 
 ### [Graph-based Neural Weather Prediction for Limited Area Modeling](https://arxiv.org/abs/2309.17370)
 Oskarsson et al. (2023), *arXiv*. 38 citations.
@@ -930,7 +990,13 @@ Oskarsson et al. (2023), *arXiv*. 38 citations.
 ### [Leveraging data-driven weather models for improving numerical weather prediction skill through large-scale spectral nudging](https://doi.org/10.1175/waf-d-24-0139.1)
 Husain et al. (2024), *arXiv*. 35 citations.
 
-*Summary pending.*
+- **Main goal:** Combines the large-scale skill of AI weather models with the fine-scale detail and full variable set of physics-based NWP.
+- **Architecture:** Hybrid NWP-AI system: the GEM model's temperature and horizontal winds are spectrally nudged at large scales toward GraphCast (graph neural network) forecasts.
+- **Data:** Global forecasts from the Canadian GEM model and GraphCast; verification against analyses in physical and spectral space and tropical cyclone tracks.
+- **Main result:** GraphCast large scales beat GEM at longer leads; the hybrid improves GEM skill, keeps a full power spectrum and physically consistent fields, and improves tropical cyclone tracks without changing intensity.
+- **Open work:** Operationalization of the hybrid system at the Canadian Meteorological Centre.
+- **Issues:** Fine scales still come from GEM so its biases remain; tropical cyclone intensity is not improved; depends on the AI model's large-scale accuracy.
+- *Basis: abstract*
 
 ### [Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling](https://arxiv.org/abs/2405.13796)
 Xu et al. (2024), *Neural Information Processing Systems*. 32 citations.
@@ -946,22 +1012,46 @@ Xu et al. (2024), *Neural Information Processing Systems*. 32 citations.
 ### [An artificial intelligence-based limited area model for forecasting of surface meteorological variables](https://doi.org/10.1038/s43247-025-02347-5)
 Xu et al. (2025), *Communications Earth & Environment*. 32 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a high-resolution data-driven limited area model for surface weather forecasting, an area much less studied than global AI models.
+- **Architecture:** YingLong-weather, a deep learning limited area model with parallel global-local structures for multiscale features, driven by global AI model forecasts as lateral boundaries.
+- **Data:** Trained on high-resolution (3 km, hourly) regional analysis data over two limited areas; specific analysis product not named in the abstract.
+- **Main result:** Beats dynamical models for surface wind speed but underperforms for surface temperature and pressure, which reach comparable skill with better lateral boundary conditions.
+- **Open work:** Better lateral boundary conditions, optimal boundary width and blending of fine and coarse predictions, and expansion to more variables and regions.
+- **Issues:** Skill depends strongly on boundary conditions; only two domains; weaker for temperature and pressure.
+- *Basis: abstract*
 
 ### [Improving AI Weather Prediction Models Using Global Mass and Energy Conservation Schemes](https://doi.org/10.1029/2025ms005138)
 Sha et al. (2025), *Journal of Advances in Modeling Earth Systems*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Makes AI weather prediction models obey global conservation of mass, moisture and energy for physical consistency.
+- **Architecture:** Modular physics-based conservation schemes applied during training and inference, demonstrated in FuXi, a transformer-based weather model adapted to 1° grid.
+- **Data:** ERA5 reanalysis at 1° grid spacing for training and verification.
+- **Main result:** Forecasts obey conservation laws, skill improves for upper-air and surface variables especially at longer leads, and precipitation improves strongly via reduced drizzle bias.
+- **Open work:** Implementing other physics-based schemes and integrating more atmospheric domain knowledge into AI models.
+- **Issues:** Global-integral constraints only, not local conservation; demonstrated at coarse resolution on one architecture.
+- *Basis: abstract+knowledge*
 
 ### [Building Machine Learning Limited Area Models: Kilometer-Scale Weather Forecasting in Realistic Settings](https://arxiv.org/abs/2504.09340)
 Adamov et al. (2025), *arXiv*. 25 citations.
 
-*Summary pending.*
+- **Main goal:** Studies design choices for kilometer-scale ML limited area weather models in realistic forecasting settings.
+- **Architecture:** Graph neural network limited area model with rectangular and triangular mesh graphs, flexible boundary forcing and multi-step rollout training.
+- **Data:** Danish and Swiss km-scale domains with boundaries from reanalysis or operational forecasts; verified against gridded analyses and in situ stations, including storm Ciara 2020.
+- **Main result:** Both models skilful across many variables; the Swiss model beats the NWP baseline for key surface variables at much lower cost.
+- **Open work:** Probabilistic extensions, operational deployment and further design exploration.
+- **Issues:** Deterministic forecasts; performance varies with domain and boundary choices; limited case studies.
+- *Basis: assessment*
 
 ### [Analyzing and Exploring Training Recipes for Large-Scale Transformer-Based Weather Prediction](https://arxiv.org/abs/2404.19630)
 Willard et al. (2024), *arXiv*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies which training choices matter most for transformer-based data-driven weather prediction.
+- **Architecture:** Minimally modified SwinV2 transformer with systematic ablations of loss functions, model size, depth, patch size and multi-step training.
+- **Data:** ERA5 reanalysis; compared against ECMWF IFS deterministic forecasts.
+- **Main result:** Off-the-shelf architecture and moderate compute beat IFS on deterministic MSE; ablations give practical guidance and scaling insights.
+- **Open work:** Probabilistic forecasting, larger-scale scaling studies and metrics beyond RMSE and ACC.
+- **Issues:** Deterministic MSE-trained models smooth fine scales; results tied to ERA5 resolution.
+- *Basis: assessment*
 
 ### [Robustness of AI-based weather forecasts in a changing climate](https://arxiv.org/abs/2409.18529)
 Rackow et al. (2024), *arXiv*. 21 citations.
@@ -977,7 +1067,13 @@ Rackow et al. (2024), *arXiv*. 21 citations.
 ### [HRRRCast: a data-driven emulator for regional weather forecasting at convection allowing scales](https://doi.org/10.1175/aies-d-25-0061.1)
 Abdi et al. (2025), *Artificial Intelligence for the Earth Systems*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a computationally efficient data-driven emulator of the convection-allowing HRRR model for regional weather forecasting over CONUS.
+- **Architecture:** ResHRRR: a ResNet-style convolutional neural network with squeeze-and-excitation blocks and FiLM, with probabilistic forecasts via a DDIM diffusion model; an alternative graph neural network (GraphHRRR) is also built.
+- **Data:** HRRR analyses over the full CONUS domain, with future GFS forecast states as inputs; verification of composite reflectivity against HRRR analyses.
+- **Main result:** With 3-10 member ensembles, ResHRRR beats HRRR at the 20 dBZ threshold and is competitive at 30 dBZ, with better storm placement, lower frequency bias and sharper spectra than deterministic baselines.
+- **Open work:** Improve skill at moderate and high reflectivity thresholds and longer leads, and move toward operational data-driven regional ensemble prediction.
+- **Issues:** Depends on GFS inputs at long leads, trained and verified on HRRR analyses, and lags HRRR at higher reflectivity thresholds; greedy rollout can accumulate error.
+- *Basis: abstract*
 
 ### [Neural general circulation models optimized to predict satellite-based precipitation observations](https://arxiv.org/abs/2412.11973)
 Yuval et al. (2024), *arXiv*. 17 citations.
@@ -993,32 +1089,68 @@ Yuval et al. (2024), *arXiv*. 17 citations.
 ### [Comparative Analysis of Precipitation Forecasts between the ECMWF Artificial Intelligence System AIFS and Its Integrated Forecast System IFS](https://doi.org/10.1175/waf-d-24-0227.1)
 Pan et al. (2025), *Weather and forecasting*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Compares precipitation forecast performance of ECMWF's AI model AIFS with the physics-based IFS over China.
+- **Architecture:** Verification study comparing AIFS (machine-learned forecast model) with the IFS numerical model; no new ML model is developed.
+- **Data:** Precipitation observations from 2,415 stations in China and ERA5 reanalysis.
+- **Main result:** AIFS has much lower 1-5 day RMSE, but underestimates amounts and extremes, overpredicts light rain frequency, does better for heavy rain above 25 mm in TS/ETS, while IFS wins on SEEPS.
+- **Open work:** Improve AIFS representation of moisture transport and vertical velocity to better capture extremes and variability.
+- **Issues:** Regional evaluation over China only; weak simulated moisture transport and vertical velocity suggested as cause, not proven.
+- *Basis: abstract*
 
 ### [An update to ECMWF's machine-learned weather forecast model AIFS](https://arxiv.org/abs/2509.18994)
 Moldovan et al. (2025), *arXiv*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Describes improvements to ECMWF's machine-learned forecasting model AIFS Single, now operational.
+- **Architecture:** AIFS: graph neural network encoder-decoder with a transformer processor, now with physical bounding layers, an updated training schedule and more variables.
+- **Data:** ERA5 and ECMWF operational analyses for training; verification against analyses and observations.
+- **Main result:** Bounding layers substantially improve precipitation forecasts, new variables are skillful and upper-air headline scores improve; operational since 25 February 2025.
+- **Open work:** Further expand variables and physical constraints and develop ensemble versions.
+- **Issues:** Deterministic single model, prone to smoothing; few quantitative details in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [Community Research Earth Digital Intelligence Twin: a scalable framework for AI-driven Earth System Modeling](https://doi.org/10.1038/s41612-025-01125-6)
 Schreck et al. (2024), *npj Climate and Atmospheric Science*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Provides an open, scalable research platform for training and deploying AI weather prediction models and addresses artifacts from training data and timestep choices.
+- **Architecture:** CREDIT framework with WXFormer, a multiscale vision transformer using spectral normalization, intelligent padding and multi-step training; FuXi also trained for comparison.
+- **Data:** ERA5 on hybrid sigma-pressure (model) levels sampled at 6-hour intervals; verification against IFS HRES 10-day forecasts.
+- **Main result:** Both WXFormer and FuXi trained in CREDIT generally outperform IFS HRES on 10-day forecasts.
+- **Open work:** Use the modular framework for community experimentation with models, datasets and training options, including probabilistic and coupled extensions.
+- **Issues:** Deterministic models trained on reanalysis inherit ERA5 biases and likely smooth at long leads; comparison limited to standard global metrics.
+- *Basis: abstract*
 
 ### [FastNet: Improving the physical consistency of machine-learning weather prediction models through loss function design](https://doi.org/10.1175/aies-d-25-0090.1)
 Dunstan et al. (2025), *Artificial Intelligence for the Earth Systems*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Improves the physical consistency of deterministic ML weather predictions, which are blurred and contain artifacts under MSE training.
+- **Architecture:** FastNet, a graph neural network global forecast model, trained with alternative losses: modified spherical harmonic spectral loss, horizontal gradient terms, and a speed-direction wind representation.
+- **Data:** Global reanalysis-style gridded training data; the specific product is not reported in the abstract.
+- **Main result:** Combined spectral and gradient losses keep MSE close to an MSE-trained model while greatly improving spectral fidelity and physical consistency; the wind representation improves wind speed and reduces directional bias.
+- **Open work:** Further embedding domain knowledge through losses and moving toward operational readiness, possibly combined with probabilistic training.
+- **Issues:** Deterministic model; spectral losses can slightly degrade RMSE alone; remaining physical inconsistencies not fully addressed.
+- *Basis: assessment*
 
 ### [Efficient fine-tuning of 37-level GraphCast with the Canadian global deterministic analysis](https://doi.org/10.1175/aies-d-24-0101.1)
 Subich (2024), *Artificial Intelligence for the Earth Systems*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Efficiently fine-tunes GraphCast to a different operational analysis system (ECCC GDPS) with limited training data and compute.
+- **Architecture:** GraphCast graph neural network, 37-level 0.25° version, fine-tuned with an abbreviated curriculum and an empirically determined vertical error weighting.
+- **Data:** ECCC GDPS analyses July 2019–December 2021 for fine-tuning; a control fine-tuned on ERA5 for comparison.
+- **Main result:** The GDPS-tuned model significantly outperforms both the operational GDPS forecast and unmodified GraphCast when initialized from GDPS analyses over 1–10 day leads in the troposphere.
+- **Open work:** Extending to other analysis systems, longer training periods and operational deployment, and handling the stratosphere and surface variables.
+- **Issues:** Short training period; verification against its own GDPS analysis; deterministic model with smoothing at longer leads.
+- *Basis: abstract*
 
 ### [Learning Coupled Earth System Dynamics with GraphDOP](https://arxiv.org/abs/2510.20416)
 Boucher et al. (2025), *arXiv*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Shows that an observation-driven ML model can capture coupled Earth-system interactions without explicit coupling between component models.
+- **Architecture:** GraphDOP, a graph neural network that embeds diverse satellite and in-situ observations into a shared latent space and forecasts directly in observation space.
+- **Data:** Raw satellite and in-situ observations spanning atmosphere, ocean, land and cryosphere, without reanalysis or NWP inputs; case studies of Arctic freezing, Hurricane Ian (2022) and the 2022 European heat wave.
+- **Main result:** Case studies show GraphDOP captures rapid Arctic sea-ice freezing, mixing-induced ocean surface cooling under Hurricane Ian, and the 2022 European heat wave.
+- **Open work:** Systematic quantitative evaluation of coupled processes and progress toward end-to-end data-driven Earth-system prediction.
+- **Issues:** Evidence is case-study based without broad statistical verification; physical consistency of implicit coupling is not guaranteed.
+- *Basis: abstract*
 
 ### [ArchesWeather: An efficient AI weather forecasting model at 1.5° resolution](https://arxiv.org/abs/2405.14527)
 Couairon et al. (2024), *arXiv*. 8 citations.
@@ -1034,57 +1166,123 @@ Couairon et al. (2024), *arXiv*. 8 citations.
 ### [Atmospheric Predictability Beyond 30 Days with Machine Learning](https://doi.org/10.1175/aies-d-26-0009.1)
 Vonich et al. (2025), *Artificial Intelligence for the Earth Systems*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Challenges the roughly two-week intrinsic predictability limit by optimizing initial conditions for an ML weather model.
+- **Architecture:** Gradient-based initial-condition optimization through GraphCast (graph neural network); optimized states also tested in Pangu-Weather (transformer).
+- **Data:** Twice-daily forecasts through 2020 initialized from reanalysis (ERA5) and verified against it.
+- **Main result:** Optimized initial conditions reduce 10-day error by 86% on average with skill beyond 30 days; corrections intensify the Hadley circulation; transferred to Pangu-Weather they yield 21% error reduction peaking at day 4.
+- **Open work:** Whether such initial conditions can be identified in real time for operational forecasting.
+- **Issues:** Optimization uses verifying future data, so it is not a forecast; corrections partly compensate model error; results tied to GraphCast.
+- *Basis: abstract+knowledge*
 
 ### [AIFS-DOP: End-to-End Medium-Range Weather Prediction from Observations Alone with Machine Learning](https://arxiv.org/abs/2606.19093)
 Pinnington et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether a data-driven model trained only on observations, without NWP reanalysis or model data, can produce competitive medium-range forecasts.
+- **Architecture:** AIFS-based machine learning forecasting system (AIFS-DOP) for direct observation prediction; details beyond the AIFS framework (graph neural network encoder-decoder with transformer processor) not given in the abstract.
+- **Data:** 40-year harmonized dataset of gridded observations for training; one-year forecast period across 2021/2022 verified against observations and compared with ECMWF IFS.
+- **Main result:** First observation-only data-driven model competitive with IFS at medium range for several key upper-air and surface headline scores when verified against observations.
+- **Open work:** Extend observation coverage and variables, and close remaining gaps with IFS for all scores.
+- **Issues:** Competitive only for several headline scores; gridded observations have coverage gaps; one-year evaluation period.
+- *Basis: abstract+knowledge*
 
 ### [Northern Hemisphere Midlatitude Cyclone Intensity Biases in Machine Learning Weather Prediction Models](https://doi.org/10.1175/bams-d-25-0129.1)
 Dacre et al. (2025), *Bulletin of The American Meteorological Society - (BAMS)*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how well ML weather prediction models forecast the intensity and winds of Northern Hemisphere midlatitude cyclones.
+- **Architecture:** Feature-based evaluation using cyclone tracking applied to seven MLWP models and the ECMWF IFS; not a new model.
+- **Data:** Over 1000 Northern Hemisphere cyclones tracked from 1 October 2023 to 31 March 2024 in MLWP and IFS forecasts; verification data not detailed in the abstract.
+- **Main result:** MLWP tracks match IFS accuracy to 10 days, but MLWP models underestimate cyclone depth by more than 5 hPa at day 10 and underpredict peak 10-m winds even at short leads, unlike IFS.
+- **Open work:** Develop MLWP training or architectures that preserve extremes and sharp features such as peak winds.
+- **Issues:** Single winter season; results specific to the model versions tested; reasons for biases (e.g., smoothing from MSE training) not fully diagnosed.
+- *Basis: abstract*
 
 ### [On the effective resolution of AI weather prediction models](https://doi.org/10.1175/aies-d-25-0121.1)
 Selz et al. (2026), *Artificial Intelligence for the Earth Systems*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Understand the effective resolution of deterministic AI weather models and how their smoothing affects comparisons with physics-based models.
+- **Architecture:** Theoretical analysis and evaluation of deterministic AI models (Aurora, Pangu-Weather, GraphCast) and diffusion-based GenCast against ECMWF physics-based forecasts; not a new ML model.
+- **Data:** Forecast output from Aurora, Pangu-Weather, GraphCast, GenCast and ECMWF ensemble and deterministic forecasts.
+- **Main result:** An ideal, perfectly trained deterministic AI model approximately follows the forecast-distribution mean over the lead times in its loss, reducing effective resolution and favouring it on mean-square error; a simple method for fairer comparison is proposed.
+- **Open work:** Adoption of resolution-aware verification and training objectives that preserve small-scale variability.
+- **Issues:** Analysis centres on deterministic MSE-trained models; quantitative effective-resolution values are not reported in the abstract.
+- *Basis: abstract*
 
 ### [Can AI‐Based Weather Prediction Models Simulate the Butterfly Effect? The Role of Architecture and Implementation](https://doi.org/10.1029/2025jh001180)
 Selz et al. (2026), *Journal of Geophysical Research*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Test whether AI weather prediction models reproduce the butterfly effect, the fast upscale growth of tiny initial perturbations that sets the intrinsic predictability limit.
+- **Architecture:** Perturbation-growth experiments with several AI weather prediction models compared with a physics-based model at various resolutions; not a new ML model.
+- **Data:** Forecasts from several state-of-the-art AI models trained on analysis data (e.g. ERA5) and a conventional NWP model; specific models not named in the abstract.
+- **Main result:** One group of AI models reproduces none of six butterfly-effect characteristics; another reproduces some, but via numerical noise, physically inconsistent and in some cases dependent on CPU versus GPU execution.
+- **Open work:** Training on higher-resolution or differently designed data that resolves small-scale error growth.
+- **Issues:** Attributes the failure to training data limitations rather than architecture; model list and quantitative growth rates are not given in the abstract.
+- *Basis: abstract*
 
 ### [Representing the Surface Ocean in ECMWF's data-driven forecasting system AIFS](https://arxiv.org/abs/2604.25559)
 Hahner et al. (2026), *arXiv*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Extend ECMWF's data-driven AIFS to jointly forecast the atmosphere and surface ocean, including waves and sea ice, to improve medium-range forecasts and enable marine applications.
+- **Architecture:** Extension of the AIFS (graph neural network encoder-decoder with transformer processor) that models atmosphere and surface ocean in a single component-agnostic network, with loss scaling and handling of missing values over land.
+- **Data:** Tailored atmospheric and marine datasets, likely ERA5 and ECMWF ocean/wave analyses (details not in the abstract).
+- **Main result:** For nearly all marine variables, about one day gain in forecast skill at medium range compared with physics-based models; captures swell and TC cold wakes and responds physically to idealized out-of-distribution initial conditions.
+- **Open work:** Developing data-driven coupled Earth system models with greater flexibility and physical fidelity.
+- **Issues:** Limited to the surface ocean; impact on atmospheric skill and exact datasets are not quantified in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [Operational Verification of Artificial Intelligence Weather Prediction](https://doi.org/10.1175/bams-d-26-0054.1)
 Casati et al. (2026), *Bulletin of The American Meteorological Society - (BAMS)*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** As the title implies, addresses how AI weather prediction models should be verified in an operational context.
+- **Architecture:** Likely a review or perspective on verification practices for AI weather prediction; no abstract available.
+- **Data:** Not reported (no abstract).
+- **Main result:** Not reported (no abstract).
+- **Open work:** Presumably developing verification methods suited to AI forecasts, such as physical consistency and extremes.
+- **Issues:** No abstract available; content inferred from the title only.
+- *Basis: assessment*
 
 ### [WeatherNext 3: Increasing resolution and performance of global weather models with raw observations](https://arxiv.org/abs/2609.03582)
 Rasp et al. (2026), *arXiv*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Overcome the coarse resolution of AI weather models and their reliance on analysis data by directly ingesting raw observations for higher-resolution probabilistic forecasting.
+- **Architecture:** WeatherNext 3, a probabilistic AI weather model that ingests geostationary satellite data and predicts satellite precipitation, tropical cyclone and station observations; specific network family not given in the abstract.
+- **Data:** Low-latency geostationary satellite observations, analysis data, satellite-derived precipitation estimates, tropical cyclone observations and surface station data; evaluated including unseen stations.
+- **Main result:** New state of the art in probabilistic medium-range skill, with hourly forecasts at 0.1° for single-level variables and lower 2 m temperature and dewpoint errors at stations than competing global models.
+- **Open work:** Further merging data assimilation, forecasting and post-processing into a single learned system.
+- **Issues:** Still partly dependent on analysis data; quantitative scores not given in the abstract; arXiv preprint.
+- *Basis: abstract*
 
 ### [Integration of Emerging Data-Driven Models into the NOAA Research-to-Operations Pipeline for Numerical Weather Prediction](https://doi.org/10.1175/bams-d-24-0062.1)
 Frolov et al. (2025), *Bulletin of The American Meteorological Society - (BAMS)*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Define a roadmap for integrating emerging deep learning weather prediction tools into NOAA's research-to-operations pipeline.
+- **Architecture:** Meeting report (AI4NWP workshop) on priorities for integrating data-driven models into NOAA production; not an ML model.
+- **Data:** Not applicable; workshop discussion.
+- **Main result:** Identifies a research and development roadmap and priorities; specifics not given in the abstract.
+- **Open work:** Implementing the roadmap in NOAA operational systems.
+- **Issues:** Meeting summary with little technical detail in the abstract.
+- *Basis: abstract*
 
 ### [Assessing the ability of a stretched‐grid deep‐learning weather prediction model to capture physical balances](https://doi.org/10.1002/qj.70315)
 Pasquini et al. (2026), *Quarterly Journal of the Royal Meteorological Society*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluate whether a regional stretched-grid deep learning weather model produces physically consistent forecasts during an extreme event.
+- **Architecture:** Analysis of Bris, Met Norway's stretched-grid deep learning weather prediction model (graph neural network-based), versus the MEPS control run; diagnostic study of atmospheric balances.
+- **Data:** Forecasts of severe extratropical cyclone Poly (Netherlands, 5 July 2023) from deterministic Bris and the MetCoOp Ensemble Prediction System control.
+- **Main result:** Despite good RMSE, Bris misses important mesoscale features and significantly disrupts atmospheric balances, mainly due to fine-scale noise causing unrealistic gradients.
+- **Open work:** Improving AI models for extreme events and enforcing physical consistency.
+- **Issues:** Single case study; conclusions may not generalize to other events or model versions.
+- *Basis: abstract+knowledge*
 
 ### [Bridging short- and medium-range weather forecasting with machine learning](https://arxiv.org/abs/2608.26822)
 Smith et al. (2026), *arXiv*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Proposes unifying short- and medium-range forecasting at NOAA in a single AI system instead of independent prediction systems for different products.
+- **Architecture:** Nested-EAGLE: a deterministic data-driven global weather model at 0.25° with a nested 6 km limited-area refinement over CONUS; network family is not specified in the abstract.
+- **Data:** Global training data at 0.25° (reanalysis/analysis) combined with high-resolution regional analysis data over CONUS; compared against NOAA GFS and HRRR forecasts.
+- **Main result:** Achieves significantly lower mean-squared error than GFS and HRRR for near-surface and low-level fields over CONUS while staying competitive globally; gains stem from nesting in regional analyses; best storm-location forecasts at longer leads.
+- **Open work:** Authors plan to extend the skill gains beyond CONUS and improve precipitation representation, for instance through probabilistic or ensemble training.
+- **Issues:** Deterministic training blurs extremes and makes precipitation amounts less skillful than HRRR; gains are confined to the high-resolution CONUS region; arXiv preprint not yet peer reviewed.
+- *Basis: abstract*
 
 <a id="probabilistic"></a>
 ## Ensembles & generative
@@ -1213,7 +1411,13 @@ Brenowitz et al. (2024), *Geophysical Research Letters*. 54 citations.
 ### [Uncertainty quantification for data-driven weather models](https://doi.org/10.1175/aies-d-24-0049.1)
 Bulte et al. (2024), *Artificial Intelligence for the Earth Systems*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Systematically compares ways to turn a deterministic data-driven weather model into calibrated probabilistic forecasts.
+- **Architecture:** Pangu-Weather (transformer) combined with initial-condition perturbation ensembles and with post-hoc statistical and machine learning uncertainty quantification methods.
+- **Data:** Pangu-Weather trained on ERA5 reanalysis; medium-range case study over Europe for selected variables, compared with the ECMWF ensemble.
+- **Main result:** Pangu-Weather with uncertainty quantification methods gives probabilistic forecasts that improve on the ECMWF physics-based ensemble for lead times up to 5 days.
+- **Open work:** Extending to more variables, regions and longer leads, and to multivariate and spatially coherent uncertainty.
+- **Issues:** Advantage holds only up to about 5 days; limited regional and variable scope; post-hoc methods may not give physically coherent ensembles.
+- *Basis: assessment*
 
 ### [Continuous Ensemble Weather Forecasting with Diffusion models](https://arxiv.org/abs/2410.05431)
 Andrae et al. (2024), *International Conference on Learning Representations*. 40 citations.
@@ -1251,42 +1455,90 @@ Mahesh et al. (2025), *Geoscientific Model Development*. 29 citations.
 ### [A fast physics-based perturbation generator of machine learning weather model for efficient ensemble forecasts of tropical cyclone track](https://doi.org/10.1038/s41612-025-01009-9)
 Pu et al. (2025), *npj Climate and Atmospheric Science*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Develops efficient, physically reasonable initial perturbations for ensemble tropical cyclone track forecasts with AI weather models.
+- **Architecture:** Physics-constrained perturbation generator based on self-evolution dynamics of an AI weather model, conditioned on amplitude and spatial structure.
+- **Data:** AI weather model trained on reanalysis; tropical cyclone track cases compared with ECMWF ensemble forecasts. Specific model and cases not named in the abstract.
+- **Main result:** AI ensemble track forecasts beat ECMWF on deterministic and probabilistic metrics; 2000-member ensembles further improve probability and extreme track scenarios.
+- **Open work:** Applying the scheme to intensity and other high-impact weather and to other AI models.
+- **Issues:** Focus on track only; perturbation dynamics are learned rather than fully physical; AI models still struggle with TC intensity.
+- *Basis: assessment*
 
 ### [ArchesWeatherGen: Skillful and compute-efficient probabilistic weather forecasting with machine learning](https://doi.org/10.1126/sciadv.adx2372)
 Couairon et al. (2026), *Science Advances*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Builds skillful probabilistic medium-range weather forecasts at reduced computational cost by leveraging existing deterministic ML weather models.
+- **Architecture:** ArchesWeatherGen: a flow matching generative model, a variant of diffusion models, that maps deterministic transformer-based ArchesWeather forecasts to the distribution of ERA5 states.
+- **Data:** ERA5 reanalysis for training (about 1.5 degree resolution in the ArchesWeather family); evaluation on WeatherBench headline variables against IFS ENS and NeuralGCM.
+- **Main result:** Surpasses IFS ENS and NeuralGCM on all WeatherBench headline variables except NeuralGCM geopotential, with low training and inference cost.
+- **Open work:** Extend the approach to higher resolution and more variables, and broaden access to generative ML forecasting research.
+- **Issues:** Trained and verified on ERA5, so it inherits reanalysis biases; coarse resolution limits representation of local extremes.
+- *Basis: abstract+knowledge*
 
 ### [Diffusion-LAM: Probabilistic Limited Area Weather Forecasting with Diffusion](https://arxiv.org/abs/2502.07532)
 Larsson et al. (2025), *arXiv*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Develops probabilistic limited-area weather forecasting with ML, an area less explored than global ML models, to capture forecast uncertainty regionally.
+- **Architecture:** Diffusion-LAM: a conditional diffusion model that generates forecasts inside a limited area conditioned on boundary data from surrounding regions.
+- **Data:** MEPS limited-area dataset (MetCoOp Ensemble Prediction System over the Nordic region).
+- **Main result:** Delivers accurate probabilistic limited-area forecasts on MEPS; detailed scores are not reported in the abstract.
+- **Open work:** Extend to larger domains, longer leads and operational boundary forcing, and compare with operational limited-area ensembles.
+- **Issues:** Evaluated only on one dataset and relies on known boundary data; diffusion sampling is computationally costlier than deterministic models.
+- *Basis: abstract+knowledge*
 
 ### [Swift: an autoregressive consistency model for efficient weather forecasting](https://doi.org/10.1088/3049-4753/ae802a)
 Stock et al. (2025), *Machine Learning: Earth*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Makes diffusion-based probabilistic weather forecasting cheaper, since iterative sampling makes long, high-frequency rollouts expensive.
+- **Architecture:** Swift: a single-step consistency model (probability flow, diffusion family) fine-tuned autoregressively with a CRPS objective, without multi-model ensembling or parameter perturbations.
+- **Data:** Global reanalysis training data (product and resolution not reported in the abstract); evaluation against a diffusion baseline and IFS ENS.
+- **Main result:** Requires 39 times fewer neural function evaluations per step than diffusion baselines, matches their 6-hourly skill, is competitive with IFS ENS and stays stable for 75-day rollouts.
+- **Open work:** Exploit post-training calibration and extend toward subseasonal and higher-resolution forecasting.
+- **Issues:** Skill only competitive with, not clearly exceeding, IFS ENS; resolution and evaluation details are not given in the abstract.
+- *Basis: abstract*
 
 ### [AERIS: Argonne Earth Systems Model for Reliable and Skillful Predictions](https://doi.org/10.1145/3712285.3772094)
 Hatanpää et al. (2025), *International Conference on Software Composition*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Scales diffusion-based weather and climate prediction stably to billions of parameters at high resolution.
+- **Architecture:** AERIS: a 1.3-80B parameter pixel-level Swin diffusion transformer, with SWiPe parallelism combining window, sequence and pipeline parallelism.
+- **Data:** ERA5 at 0.25 degree with 1x1 patch size; trained on the Aurora supercomputer.
+- **Main result:** Sustains 10.21 ExaFLOPS (peak 11.21) with 95.5% weak and 81.6% strong scaling efficiency; outperforms IFS ENS and stays stable to 90 days.
+- **Open work:** Exploit billion-parameter diffusion models for seasonal and climate prediction.
+- **Issues:** Very high computational cost; trained on ERA5 so inherits its biases; forecast evaluation details are limited in the abstract.
+- *Basis: abstract*
 
 ### [Demystifying Data-Driven Probabilistic Medium-Range Weather Forecasting](https://arxiv.org/abs/2601.18111)
 Kossaifi et al. (2026), *arXiv*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Clarifies the drivers of skill in data-driven probabilistic medium-range forecasting by showing simple scalable designs suffice.
+- **Architecture:** Generic framework with a downsampled latent space and history-conditioned local projector, supporting stochastic interpolants, diffusion models and CRPS ensemble training.
+- **Data:** Global reanalysis data (not specified in the abstract); compared with IFS and GenCast.
+- **Main result:** Achieves statistically significant improvements over IFS and GenCast on most variables, robust to the probabilistic estimator.
+- **Open work:** Scale the general-purpose model further and test at other timescales.
+- **Issues:** Training data and resolution not given in the abstract; trained on reanalysis so inherits its biases.
+- *Basis: abstract*
 
 ### [High-Resolution Probabilistic Data-Driven Weather Modeling with a Stretched-Grid](https://arxiv.org/abs/2511.23043)
 Nordhagen et al. (2025), *arXiv*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Produces high-resolution probabilistic data-driven weather ensembles for a regional domain of interest within a global model.
+- **Architecture:** Stochastic data-driven model on a global stretched grid (graph neural network encoder-processor-decoder) trained with a CRPS loss in grid-point and spectral space.
+- **Data:** Global stretched grid with 2.5 km over the Nordic region and 31 km elsewhere, 6-hourly, 87 variables; evaluated against surface station observations and MEPS ensemble forecasts.
+- **Main result:** Lower CRPS than MEPS for 2 m temperature (13%) and mean sea-level pressure (10%), smaller differences for wind and precipitation; spectral loss is needed for spatially coherent fields.
+- **Open work:** Improve representation of strong winds and precipitation and extend evaluation to more extreme events.
+- **Issues:** Underestimates peak winds in Storm Dave; little gain for wind speed and precipitation.
+- *Basis: abstract+knowledge*
 
 ### [U-Cast: A Surprisingly Simple and Efficient Frontier Probabilistic AI Weather Forecaster](https://arxiv.org/abs/2604.09041)
 Cachay et al. (2026), *arXiv*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Shows that frontier probabilistic AI weather forecasting does not require specialized architectures or massive compute.
+- **Architecture:** U-Cast: a standard U-Net backbone with deterministic MAE pre-training followed by short CRPS fine-tuning using Monte Carlo Dropout for ensemble stochasticity.
+- **Data:** Global data at 1.5° resolution (reanalysis); compared with GenCast and IFS ENS; specific training periods are not reported in the abstract.
+- **Main result:** Matches or exceeds GenCast and IFS ENS probabilistic skill at 1.5°, with over 10x less training compute than CRPS-based models and 10x lower latency than diffusion; trains in under 12 H200 GPU-days, 15-day ensemble in 3 seconds.
+- **Open work:** Scale to higher resolutions and broaden access to training frontier probabilistic models.
+- **Issues:** Evaluated at coarse 1.5° resolution; Monte Carlo Dropout may limit ensemble spread realism and extreme-event representation.
+- *Basis: abstract*
 
 ### [Probabilistic Weather Forecasting with Hierarchical Graph Neural Networks](https://doi.org/10.52202/079017-1316)
 Deisenroth et al. (2024), *Advances in Neural Information Processing Systems 37*. 9 citations.
@@ -1302,17 +1554,35 @@ Deisenroth et al. (2024), *Advances in Neural Information Processing Systems 37*
 ### [Hybrid ensemble forecasting combining physics-based and machine-learning predictions through spectral nudging](https://arxiv.org/abs/2603.05570)
 Polichtchouk et al. (2026), *arXiv*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Combines physics-based and machine-learned ensemble forecasts to gain the large-scale skill of ML while keeping physically governed mesoscale structure.
+- **Architecture:** Spectral nudging of IFS-ENS large-scale virtual temperature and vorticity toward the machine-learned AIFS-ENS ensemble (a transformer-based probabilistic model).
+- **Data:** ECMWF IFS-ENS and AIFS-ENS ensemble forecasts; verification period not reported in the abstract.
+- **Main result:** Predictive skill extends by up to two days in the tropics and about half a day in the extratropics relative to IFS-ENS; tropical cyclone tracks improve without degrading intensity or spread.
+- **Open work:** Operational implementation and tuning of nudging scales and variables.
+- **Issues:** Relies on running two ensemble systems; gains limited to large scales; nudging applied only to upper-air fields.
+- *Basis: abstract+knowledge*
 
 ### [(Sparse) Attention to the Details: Preserving Spectral Fidelity in ML-based Weather Forecasting Models](https://arxiv.org/abs/2604.16429)
 Zhdanov et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses spectral degradation (damping, aliasing, high-frequency leakage) in ML weather forecasts that blurs small scales.
+- **Architecture:** Probabilistic transformer (Mosaic) with mesh-aligned block-sparse attention on native grids and ensemble generation through learned functional perturbations; 214M parameters.
+- **Data:** Global reanalysis at 1.5° resolution (presumably ERA5); compared against models trained at 6x finer resolution.
+- **Main result:** Matches or beats finer-resolution models on key variables, achieves state-of-the-art among 1.5° models with well-calibrated ensembles and near-perfect spectral alignment; 24-member 10-day forecast in under 12 s on one H100.
+- **Open work:** Scale to finer resolutions such as 0.25° and evaluate on extremes and longer leads.
+- **Issues:** Coarse 1.5° resolution limits resolved scales; scores likely against reanalysis rather than observations.
+- *Basis: abstract*
 
 ### [Rigorous uncertainty quantification of probabilistic AI weather forecasts with conformal prediction](https://arxiv.org/abs/2606.19642)
 Asch et al. (2026), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Assess whether probabilistic AI weather forecasts are truly calibrated, especially for extremes, and provide post-processing with guaranteed statistical coverage.
+- **Architecture:** Online conformal prediction, a distribution-free statistical post-processing method, applied to ensemble outputs of diffusion-based GenCast, hybrid NeuralGCM and AIFS-ENS.
+- **Data:** Temperature and precipitation forecasts, including extremes, from GenCast, NeuralGCM and AIFS-ENS; verification data not specified in the abstract (likely ERA5).
+- **Main result:** The AI ensembles show coverage shortfalls, particularly for extreme events; online conformal prediction restores calibrated coverage without degrading other probabilistic metrics.
+- **Open work:** Applying conformal methods to multivariate and spatially coherent forecasts, more variables and operational settings.
+- **Issues:** Conformal guarantees are marginal (on average over time), not conditional on each event; coverage intervals do not restore physically consistent ensemble members. Lead times and quantitative gains are not reported in the abstract.
+- *Basis: abstract*
 
 <a id="foundation"></a>
 ## Foundation models
@@ -1364,12 +1634,24 @@ Schmude et al. (2024), *arXiv*. 53 citations.
 ### [Earth System Foundation Model (ESFM): A unified framework for heterogeneous data integration and forecasting](https://arxiv.org/abs/2605.00850)
 Ozdemir et al. (2026), *arXiv*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Builds an open Earth-system foundation model able to integrate heterogeneous gridded, satellite and station data for diverse downstream forecasting tasks.
+- **Architecture:** ESFM, a transformer foundation model on Aurora's 3D Swin U-Net backbone with axial attention, per-variable tokenization and adaptive layer-norm ensembles for probabilistic output.
+- **Data:** ERA5, CMIP6, regionally masked dense data, sparse gridded MODIS satellite data and station data.
+- **Main result:** Competitive or superior to state-of-the-art benchmarks; predicts variables where no initial data exist and captures Super Typhoon Doksuri (2023) and 2024 sudden stratospheric warmings accurately.
+- **Open work:** Fine-tuning for further downstream climate-science tasks and extensions with new variables and data sources.
+- **Issues:** Benchmark details and quantitative margins not given in the abstract; training heavy; reanalysis-trained components inherit their biases.
+- *Basis: abstract*
 
 ### [Fine‐Tuning a Weather Foundation Model With Lightweight Decoders for Unseen Physical Processes](https://doi.org/10.1029/2025jh000837)
 Lehmann et al. (2026), *Journal of Geophysical Research*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluate whether a weather foundation model can be cheaply extended to physical variables unseen in pretraining, here hydrological variables.
+- **Architecture:** Lightweight shallow decoders trained on latent representations of the pretrained Aurora transformer foundation model, compared with full fine-tuning and a U-Net baseline.
+- **Data:** Aurora pretrained model with new hydrological target variables, likely from ERA5 (not detailed in the abstract).
+- **Main result:** Decoders need 43% less training time and 53% less memory than full fine-tuning, keep autoregressive stability and beat U-Net, climatology and persistence on variables correlated with pretraining variables.
+- **Open work:** Using extensibility to new variables as a quality metric for Earth-science foundation models and testing other models and domains.
+- **Issues:** Decoder accuracy degrades for variables weakly related to pretraining variables; exact dataset and resolution not given in the abstract.
+- *Basis: abstract*
 
 <a id="nowcasting"></a>
 ## Nowcasting
@@ -1586,32 +1868,68 @@ Foresti et al. (2019), *Weather and forecasting*. 48 citations.
 ### [WoFSCast: A Machine Learning Model for Predicting Thunderstorms at Watch‐to‐Warning Scales](https://doi.org/10.1029/2024gl112383)
 Flora et al. (2025), *Geophysical Research Letters*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Extends AI-NWP to rapidly evolving storm-scale phenomena, since global ERA5-trained models do not resolve thunderstorms.
+- **Architecture:** WoFSCast: Google's GraphCast graph neural network adapted to limited-area, storm-scale domains.
+- **Data:** Archived Warn-on-Forecast System (WoFS) convection-allowing ensemble forecasts at 5-min output; verified against WoFS and observed storms.
+- **Main result:** Matches 70-80% of WoFS storms out to 2 h with only modest blurring, and similar contingency statistics and fractions skill scores to WoFS against observations.
+- **Open work:** Reduce blurring, extend lead times and integrate into operational warn-on-forecast workflows.
+- **Issues:** Emulates WoFS so inherits its errors; some blurring and limited lead times up to 2 h.
+- *Basis: abstract*
 
 ### [FlowCast: Advancing Precipitation Nowcasting with Conditional Flow Matching](https://arxiv.org/abs/2511.09731)
 Ribeiro et al. (2025), *arXiv*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Delivers fast probabilistic radar precipitation nowcasting, as diffusion models are accurate but slow for time-critical use.
+- **Architecture:** FlowCast, a generative model using Conditional Flow Matching in a compressed latent space (autoencoder latent) for direct noise-to-data generation.
+- **Data:** Radar precipitation image sequences; specific datasets are not reported in the abstract.
+- **Main result:** New state of the art in probabilistic performance, exceeding deterministic baselines; the flow matching objective is more accurate and efficient than diffusion on the same architecture with fewer sampling steps.
+- **Open work:** Apply flow matching to other high-dimensional spatiotemporal forecasting tasks.
+- **Issues:** Datasets and lead times are not specified in the abstract; latent compression may lose small-scale extremes.
+- *Basis: abstract*
 
 ### [An Operational Deep Learning System for Satellite-Based High-Resolution Global Nowcasting](https://arxiv.org/abs/2510.13050)
 Agrawal et al. (2025), *arXiv*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Provides skillful precipitation nowcasts globally, especially in the Global South where radar coverage is sparse.
+- **Architecture:** Global MetNet, an operational deep neural network nowcasting model; specific network family not detailed in the abstract.
+- **Data:** GPM CORRA precipitation dataset, geostationary satellite data and global NWP data; validated with ground radar and satellite data.
+- **Main result:** Forecasts 12 h at about 0.05° and 15 min resolution, outperforms industry-standard hourly forecasts in CSI and FSS, and is deployed on Google Search for millions of users.
+- **Open work:** Improving skill in data-sparse regions and integrating more sparse high-resolution satellite observations.
+- **Issues:** Targets from GPM CORRA are sparse and imperfect; verification is limited where ground truth is scarce; probabilistic calibration details not reported.
+- *Basis: assessment*
 
 ### [Four-hour thunderstorm nowcasting using a deep diffusion model for satellite data](https://doi.org/10.1073/pnas.2517520122)
 Dai et al. (2024), *Proceedings of the National Academy of Sciences of the United States of America*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Extends storm nowcasting to 4 hours with more accurate prediction of storm growth and decay using satellite data.
+- **Architecture:** Deep diffusion model for satellite imagery nowcasting.
+- **Data:** Geostationary satellite observations; the specific satellite, region and period are not reported in the available text.
+- **Main result:** Provides storm nowcasts up to 4 h ahead with more accurate and detailed growth and decay than baselines (specific metrics not given).
+- **Open work:** Global application and integration into operational warning systems.
+- **Issues:** Abstract text is only the significance statement; quantitative skill, region and baselines not reported here.
+- *Basis: assessment*
 
 ### [Learning Accurate Storm-Scale Evolution from Observations](https://arxiv.org/abs/2601.17268)
 Pathak et al. (2026), *arXiv*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts storm-scale cloud and precipitation evolution directly from observations, bridging extrapolation nowcasting and costly mesoscale NWP.
+- **Architecture:** Stormscope, a family of transformer-based generative diffusion models producing ensemble forecasts.
+- **Data:** High-resolution multi-band geostationary satellite imagery and ground-based weather radar over the continental United States.
+- **Main result:** Forecasts at 10 min and 6 km resolution are competitive with operational mesoscale NWP up to 6 h, leading deterministic and probabilistic metrics over 1–6 h.
+- **Open work:** Extension to oceanic regions and countries without mesoscale modelling using globally available satellite data.
+- **Issues:** Trained and evaluated over CONUS only; reliance on radar where available; skill beyond 6 h untested.
+- *Basis: assessment*
 
 ### [Generative machine learning for skilful 3D radar nowcasting](https://doi.org/10.1038/s41612-026-01407-7)
 Wan et al. (2026), *npj Climate and Atmospheric Science*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Improves radar nowcasting by exploiting 3D radar volumes and remaining robust when observations are occluded or missing.
+- **Architecture:** EchoCast-3D: generative ensemble probabilistic nowcasting model based on a mask diffusion transformer backbone.
+- **Data:** 3D radar echo (reflectivity) data; region and radar network not specified in the abstract; evaluated on real rainstorm cases.
+- **Main result:** Compared with strong 2D nowcasting systems, improves CRPS by 34.5%, MAE by 14.5% and CSI at 40 dBZ by 17.6%; stays stable with 15% missing data.
+- **Open work:** Authors see it as a foundation for future nowcasting research and operational deployment.
+- **Issues:** Evaluation details and region are limited in the abstract; diffusion sampling cost for ensembles may hinder real-time use; case studies focus on rainstorms.
+- *Basis: abstract*
 
 <a id="postprocessing"></a>
 ## Post-processing
@@ -1718,27 +2036,57 @@ Price et al. (2022), *International Conference on Artificial Intelligence and St
 ### [Improving Medium Range Severe Weather Prediction through Transformer Post-processing of AI Weather Forecasts](https://doi.org/10.1175/aies-d-25-0045.1)
 Hua et al. (2025), *Artificial Intelligence for the Earth Systems*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Improves medium-range (3–8 day) severe weather guidance by post-processing AI weather model forecasts instead of conventional NWP output.
+- **Architecture:** Decoder-only transformer that treats forecast lead times as sequential tokens, compared with a dense neural network (MLP) baseline; feature attribution for interpretability.
+- **Data:** Pangu-Weather forecasts (including runs initialized from high-resolution analysis) and GFS forecasts as predictors, with and without convective parameters; severe weather reports as targets (source not detailed in abstract).
+- **Main result:** Transformer post-processing significantly improves skill over dense networks; Pangu-Weather-based guidance outperforms GFS at medium range even without explicit convective parameters.
+- **Open work:** Apply to other AI weather models and ensembles, add convective-scale information, and extend to longer leads or hazard-specific guidance.
+- **Issues:** Relies on report-based targets with known reporting biases; dependent on a single AI model's skill and initialization; region likely limited to the contiguous US.
+- *Basis: abstract*
 
 ### [Postprocessing East African Rainfall Forecasts Using a Generative Machine Learning Model](https://doi.org/10.1029/2024ms004796)
 Antonio et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Improves poorly skilled convective rainfall forecasts over East Africa using generative ML post-processing.
+- **Architecture:** Conditional generative adversarial network (cGAN) combined with a neighborhood quantile mapping, producing ensembles for probabilistic forecasts.
+- **Data:** Hourly ECMWF IFS forecasts at 6–18 h lead times at 0.1° resolution as input; satellite-based precipitation observations (likely IMERG) as truth, including the March–May 2018 season.
+- **Main result:** cGAN substantially improves the rainfall diurnal cycle and predictions up to the 99.9th percentile (~10 mm/h), and generalizes to the extremely wet March–May 2018 season.
+- **Open work:** Improve ensemble calibration and extend to longer lead times and other tropical regions.
+- **Issues:** Ensemble spread shows a mix of under- and over-dispersion; short lead times only; observational target has its own errors.
+- *Basis: abstract*
 
 ### [A composite‐loss graph neural network for the multivariate post‐processing of ensemble weather forecasts](https://doi.org/10.1002/qj.70119)
 Lakatos (2025), *Quarterly Journal of the Royal Meteorological Society*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Multivariate post-processing of ensemble forecasts to correct biases while restoring realistic spatial and inter-variable dependencies, which univariate calibration methods typically destroy.
+- **Architecture:** Dual graph neural network (dualGNN) trained with a composite loss combining the energy score and the variogram score, producing multivariate calibrated ensembles; compared with ensemble copula coupling and Schaake shuffle.
+- **Data:** WRF-based solar irradiance ensemble forecasts over northern Chile and ECMWF ensemble visibility forecasts over central Europe.
+- **Main result:** The dualGNN consistently outperforms empirical copula-based methods and networks trained only on CRPS or energy score in multivariate verification metrics; adding the variogram score also improves univariate skill.
+- **Open work:** Extending the approach to higher-dimensional settings, more variables and longer lead-time dependencies, and testing on other ensemble systems.
+- **Issues:** Evaluated on two variables and two regional datasets only; verification relies on proper multivariate scores whose discrimination ability is known to be limited. Quantitative gains are not reported in the abstract.
+- *Basis: abstract*
 
 ### [Statistical post-processing yields accurate probabilistic forecasts from Artificial Intelligence weather models](https://doi.org/10.1175/aies-d-25-0037.1)
 Trotta et al. (2025), *Artificial Intelligence for the Earth Systems*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Test whether an existing NWP statistical post-processing system can correct biases and produce probabilistic forecasts from AI weather models.
+- **Architecture:** Bureau of Meteorology's IMPROVER statistical post-processing and blending system applied unmodified to deterministic AIFS; non-ML post-processing.
+- **Data:** ECMWF AIFS deterministic forecasts compared with post-processed ECMWF HRES and ENS; verification region and period not detailed in the abstract (Bureau of Meteorology domain).
+- **Main result:** Post-processing yields accuracy improvements for AIFS comparable to NWP; blending AIFS with NWP improves overall skill even when AIFS alone is not best.
+- **Open work:** Incremental incorporation of AI forecasts into operational workflows and testing additional AI models.
+- **Issues:** Single AI model and region; quantitative scores not given in the abstract.
+- *Basis: abstract*
 
 ### [Improving Subseasonal to Seasonal Global 2-meter Temperature and Precipitation Forecasts Using a Deep-Learning-Based Post-Processing Approach](https://doi.org/10.1175/mwr-d-25-0179.1)
 Mengist et al. (2026), *Monthly Weather Review*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Improves subseasonal-to-seasonal (S2S) probabilistic forecasts of global 2 m temperature and precipitation beyond two weeks, where NWP skill is poor.
+- **Architecture:** ResUnet (residual U-Net convolutional neural network) post-processing deterministic predictors into tercile probability forecasts.
+- **Data:** ECMWF weekly S2S reforecasts: five upper-air variables at 250, 500 and 850 hPa plus six surface variables; forecasts for weeks 1–6 and biweekly weeks 3–4 and 5–6.
+- **Main result:** ResUnet tercile forecasts outperform ECMWF S2S probabilistic forecasts up to six weeks; MSL, Z850, T850 and T2M dominate early T2M leads, while SST, Z200 and T200 dominate weeks 4–6.
+- **Open work:** Incorporating more ocean and teleconnection predictors and testing in real-time operational settings.
+- **Issues:** Uses only deterministic ECMWF inputs, so ensemble information is not exploited; skill scores are not quantified in the abstract; tercile categories give limited information on extremes.
+- *Basis: abstract*
 
 <a id="s2s"></a>
 ## S2S, ENSO & MJO
@@ -1900,7 +2248,13 @@ Wang et al. (2022), *Neurocomputing*. 44 citations.
 ### [Skilful global seasonal predictions from a machine learning weather model trained on reanalysis data](https://doi.org/10.1038/s41612-025-01198-3)
 Kent et al. (2025), *npj Climate and Atmospheric Science*. 35 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether an ML weather model trained on reanalysis can produce skilful global seasonal forecasts.
+- **Architecture:** ACE2, an autoregressive ML atmosphere emulator (spherical Fourier neural operator) with 6-hourly steps, run as a lagged ensemble with persisted SST and sea-ice anomalies.
+- **Data:** ACE2 trained on ERA5; seasonal hindcasts initialised around 1 November for winters 1993/94 to 2015/16, compared with a leading physics-based seasonal system.
+- **Main result:** Skilful winter NAO prediction (correlation 0.47, p = 0.02), realistic skill distribution and spread, predictability patterns like the physics model, and a signal-to-noise error.
+- **Open work:** Coupling to an interactive ocean, better representing extremes beyond the training data, and studying the signal-to-noise paradox with ML models.
+- **Issues:** Persisted SST and sea-ice anomalies; limited skill for extreme seasons outside training data such as winter 2009/2010; only one start date per year.
+- *Basis: abstract+knowledge*
 
 ### [An Interpretable Deep Learning Model for ENSO Forecast](https://doi.org/10.34133/olar.0012)
 Wang et al. (2023), *Ocean-Land-Atmosphere Research*. 30 citations.
@@ -1938,22 +2292,46 @@ Delaunay et al. (2022), *Geophysical Research Letters*. 26 citations.
 ### [CirT: Global Subseasonal-to-Seasonal Forecasting with Geometry-inspired Transformer](https://arxiv.org/abs/2502.19750)
 Liu et al. (2025), *International Conference on Learning Representations*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Improves subseasonal-to-seasonal forecasting by encoding spherical geometry rather than treating weather fields as planar images.
+- **Architecture:** CirT, a transformer with latitude-based circular patches as tokens and Fourier transform in self-attention for spatial periodicity.
+- **Data:** ERA5 reanalysis for training and evaluation.
+- **Main result:** Significantly improves over Pangu-Weather, GraphCast and ECMWF S2S systems; ablations confirm the design choices.
+- **Open work:** Probabilistic S2S forecasts and extending to more variables and coupled inputs.
+- **Issues:** Deterministic predictions; S2S skill metrics and baselines not detailed in the abstract.
+- *Basis: assessment*
 
 ### [Toward long-range ENSO prediction with an explainable deep learning model](https://doi.org/10.1038/s41612-025-01159-w)
 Chen et al. (2025), *npj Climate and Atmospheric Science*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Extends ENSO prediction lead time and reduces the spring predictability barrier while providing physically interpretable insights.
+- **Architecture:** CTEFNet: a hybrid convolutional neural network and transformer using multiple oceanic and atmospheric predictors, with gradient-based sensitivity analysis.
+- **Data:** Multivariate oceanic and atmospheric predictor fields; training and evaluation datasets are not reported in the abstract.
+- **Main result:** Extends effective ENSO forecast lead to 20 months, outperforming dynamical models and prior deep learning methods, and identifies inter-basin precursors.
+- **Open work:** Further explore Pacific-Atlantic-Indian inter-basin interactions and apply the model to other climate modes.
+- **Issues:** Long-lead skill evaluated on limited historical ENSO events; gradient-based sensitivities may not imply causality.
+- *Basis: abstract*
 
 ### [Combined dynamical-deep learning ENSO forecasts](https://doi.org/10.1038/s41467-025-59173-8)
 Chen et al. (2025), *Nature Communications*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Improves ENSO prediction by combining the strengths of deep learning and dynamical model forecasts.
+- **Architecture:** Convolutional neural network and 3D-Geoformer (transformer) ENSO forecasts combined with dynamical model forecasts through two combination strategies.
+- **Data:** Dynamical model ensemble forecasts and DL forecasts; specific datasets are not reported in the abstract.
+- **Main result:** DL forecasts match the dynamical multi-model mean, and both combined dynamical-DL strategies significantly outperform individual DL or dynamical forecasts across lead times.
+- **Open work:** Extend the combination approach to other climate forecasting problems.
+- **Issues:** Gains depend on the specific dynamical and DL members; limited historical verification sample.
+- *Basis: abstract*
 
 ### [Projection of ENSO using observation-informed deep learning](https://doi.org/10.1038/s41467-025-63157-z)
 Zhu et al. (2025), *Nature Communications*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces the large inter-model spread in projected 21st-century ENSO SST variability by constraining projections with observed ENSO physics.
+- **Architecture:** Artificial neural networks (ANN, MLP-type) trained to map tropical Pacific warming patterns to ENSO SST variability response, with interpretability analysis and a model-as-truth test.
+- **Data:** Climate model simulations (CMIP-class) and observations; projections under a high-emission scenario.
+- **Main result:** Reduces ENSO projection uncertainty by 54%, from a range of 0.59 °C to 0.27 °C; warming in the far-eastern and central equatorial Pacific is key to ENSO change.
+- **Open work:** Integrate machine learning with observational constraints for other climate projection uncertainties.
+- **Issues:** Relies on short observational records and on the assumption that the observed ENSO-warming-pattern relationship holds in future; constraint conditional on projected warming patterns.
+- *Basis: abstract*
 
 ### [Explained predictions of strong eastern Pacific El Niño events using deep learning](https://doi.org/10.1038/s41598-023-45739-3)
 Tello et al. (2023), *Scientific Reports*. 12 citations.
@@ -1969,12 +2347,24 @@ Tello et al. (2023), *Scientific Reports*. 12 citations.
 ### [OmniCast: A Masked Latent Diffusion Model for Weather Forecasting Across Time Scales](https://arxiv.org/abs/2510.18707)
 Nguyen et al. (2025), *Neural Information Processing Systems*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Unifies probabilistic weather forecasting from medium range to subseasonal-to-seasonal scales, where autoregressive models suffer error accumulation.
+- **Architecture:** OmniCast: a VAE encoding weather into a latent space and a masked diffusion transformer (per-token diffusion head) generating future latent token sequences jointly across space and time.
+- **Data:** Global reanalysis data (ERA5); evaluated on medium-range and subseasonal-to-seasonal benchmarks.
+- **Main result:** Competitive with leading probabilistic medium-range methods while 10x to 20x faster; state of the art at S2S scales across accuracy, physics-based and probabilistic metrics; stable rollouts up to 100 years.
+- **Open work:** Extend to coupled components and higher resolutions for seasonal and climate-scale forecasting.
+- **Issues:** Latent compression may lose fine-scale detail; trained on reanalysis so inherits its biases; 100-year stability does not imply correct climate response to forcing.
+- *Basis: abstract+knowledge*
 
 ### [Advancing seasonal prediction of tropical cyclone activity with a hybrid AI-physics climate model](https://doi.org/10.1088/1748-9326/adf864)
 Zhang et al. (2025), *Environmental Research Letters*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Explores whether hybrid ML-physics atmospheric models can deliver useful seasonal predictions of large-scale circulation and Northern Hemisphere tropical cyclone activity.
+- **Architecture:** NeuralGCM, a hybrid model combining a differentiable dynamical core with neural network physics, run with persisted-anomaly SST and sea ice boundary conditions.
+- **Data:** Seasonal hindcasts for July–November 1990–2023 verified against observed TC records; NeuralGCM was trained on ERA5 reanalysis.
+- **Main result:** Simulates 100 days in about 8 minutes on one GPU; predicted North Atlantic and East Pacific TC frequency correlates with observations at r of about 0.7, comparable to physical GCMs, with significant skill for ACE and sub-basin tracks.
+- **Open work:** Coupling to ocean models or better boundary forcing, higher resolution, and seamless weather-climate prediction of TC risk.
+- **Issues:** Coarse resolution limits TC representation; simplified persisted-anomaly SST forcing; skill assessed on a modest number of seasons.
+- *Basis: abstract+knowledge*
 
 ### [Testing the reliability of interpretable neural networks in geoscience using the Madden–Julian oscillation](https://doi.org/10.5194/gmd-14-4495-2021)
 Toms et al. (2021), *Geoscientific Model Development*. 10 citations.
@@ -1990,52 +2380,112 @@ Toms et al. (2021), *Geoscientific Model Development*. 10 citations.
 ### [Data-driven seasonal climate predictions via variational inference and transformers](https://doi.org/10.1038/s41612-026-01320-z)
 Palma et al. (2025), *npj Climate and Atmospheric Science*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Provides data-driven global seasonal predictions of temperature and rainfall anomalies comparable to operational products while separating skill from climate-change trends.
+- **Architecture:** Transformer combined with variational inference for probabilistic seasonal prediction.
+- **Data:** Trained on CMIP6 model output; tested against ERA5 reanalysis; benchmarked against ECMWF SEAS5.
+- **Main result:** Temperature forecasts show skill beyond climatology and trend, outperforming SEAS5 in some ocean and land areas; precipitation skill is more limited.
+- **Open work:** Improve precipitation skill and investigate shared predictability sources with dynamical systems.
+- **Issues:** Limited precipitation skill; trained on CMIP6 so inherits model biases and domain shift to ERA5; short verification record.
+- *Basis: abstract*
 
 ### [Using Deep Learning to Identify Initial Error Sensitivity for Interpretable ENSO Forecasts](https://doi.org/10.1175/aies-d-24-0045.1)
 Toride et al. (2024), *Artificial Intelligence for the Earth Systems*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Creates interpretable ENSO forecasts while identifying regions where initial errors matter most.
+- **Architecture:** Optimized model-analog method in which a convolutional neural network estimates state-dependent weights for selecting analogs from a model simulation library.
+- **Data:** CESM2 Large Ensemble as analog library and training data; evaluation also against a reanalysis dataset at seasonal-to-annual leads.
+- **Main result:** Significantly improves on unweighted model-analogs and matches a standalone neural network; El Niño forecasts are sensitive to winter tropical Pacific SST, La Niña to summer zonal wind stress.
+- **Open work:** Apply to other phenomena such as regional temperature and precipitation.
+- **Issues:** Limited by the analog library's model biases; reanalysis verification record is short.
+- *Basis: abstract*
 
 ### [Predicting Atlantic and Benguela Niño events with deep learning](https://doi.org/10.1126/sciadv.ads5185)
 Bachèlery et al. (2025), *Science Advances*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Predict Atlantic and Benguela Niño events, which dynamical forecasting systems predict poorly, and test tropical Atlantic predictability.
+- **Architecture:** Simple convolutional neural network (CNN) forecasting the event indices from ocean-state precursors.
+- **Data:** Not specified in the abstract; likely ocean reanalysis or model output of sea surface and subsurface fields.
+- **Main result:** Atlantic/Benguela Niños predicted 3–4 months ahead and peak-season events up to 5 months; the model exploits known precursors such as long-wave ocean dynamics.
+- **Open work:** Extending lead times, probabilistic forecasts and use for process understanding of tropical Atlantic variability.
+- **Issues:** Few events in the observational record limit robust skill assessment; training data details not given in the abstract.
+- *Basis: abstract*
 
 ### [Prediction Beyond the Medium Range With an Atmosphere‐Ocean Model That Combines Physics‐Based Modeling and Machine Learning](https://doi.org/10.1029/2024ms004480)
 Patel et al. (2024), *Journal of Advances in Modeling Earth Systems*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether a hybrid physics–machine learning atmosphere-ocean model can deliver useful weather and climate-variability prediction beyond the medium range, extending earlier hybrid SPEEDY work.
+- **Architecture:** Hybrid model coupling the low-resolution SPEEDY atmospheric general circulation model with reservoir computing (a recurrent neural network variant), plus purely ML prognostic variables for 6 h precipitation, SST and upper-300 m ocean heat content.
+- **Data:** Trained on reanalysis (ERA5) and ocean data; evaluated on hindcasts of ENSO, equatorial waves, MJO and tropical precipitation.
+- **Main result:** Predicts the El Niño cycle and its precipitation teleconnections for 3–7 months depending on season; equatorial precipitation skill reaches 15 days in the East Pacific and 11.5 days in the West Pacific, comparable to high-resolution operational models.
+- **Open work:** Increasing resolution, adding further ML-based Earth system components and extending toward seasonal-to-subseasonal operational use are natural next steps.
+- **Issues:** Low spatial resolution and simplified physics of SPEEDY; ocean is represented only by ML-predicted SST and heat content rather than full ocean dynamics; comparison with operational models relies on published scores.
+- *Basis: abstract+knowledge*
 
 ### [Advancing subseasonal forecasting with machine learning](https://doi.org/10.1038/s41586-026-11126-x)
 Guan et al. (2026), *Nature*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Counters the sharp drop of forecast skill at subseasonal (2–6 week) leads caused by compounding errors and systematic model biases.
+- **Architecture:** Probabilistic bias correction: a machine learning framework that learns to correct historical probabilistic forecasts of dynamical and AI models; specific network family not stated in the abstract.
+- **Data:** Historical probabilistic forecasts from ECMWF's dynamical ensemble and AI Forecasting System (AIFS); evaluated on pressure, temperature and precipitation targets and in ECMWF's 2025 real-time subseasonal forecasting competition.
+- **Main result:** Doubles AIFS subseasonal skill and improves the operationally debiased dynamical model for 91% of pressure, 92% of temperature and 98% of precipitation targets; best global forecasts for all variables and leads in the 2025 ECMWF competition.
+- **Open work:** Applying the framework to other centres' models and translating gains into extreme-event and sector-specific decision support.
+- **Issues:** Skill remains modest in absolute terms at subseasonal leads; correction depends on long, consistent hindcast archives; methodological details are not given in the abstract.
+- *Basis: abstract*
 
 ### [Deep learning reveals enhanced ENSO predictability under historical anthropogenic forcing](https://doi.org/10.1126/sciadv.aec9518)
 Lin et al. (2026), *Science Advances*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates how ENSO predictability changes under historical anthropogenic forcing, relevant for future climate projections.
+- **Architecture:** Convolutional neural network (CNN) forecast model with a leave-one-model-out strategy, used as a predictability diagnostic.
+- **Data:** CMIP6 historical and preindustrial control simulations.
+- **Main result:** ENSO predictability is enhanced by 14.0 ± 1.8% under historical forcing, linked to a shoaling equatorial Pacific thermocline that strengthens advective and thermocline feedbacks.
+- **Open work:** Extending the analysis to future scenarios and observations, and checking robustness to model choice.
+- **Issues:** Relies on CMIP6 models with known ENSO biases; CNN-derived predictability may reflect model-specific dynamics rather than the real climate system.
+- *Basis: abstract*
 
 ### [Tropical basin interactions reduce spring predictability barrier of ENSO in a deep learning model](https://doi.org/10.1126/sciadv.aeb0901)
 Zhou et al. (2026), *Science Advances*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates whether tropical basin interactions among the Indian, Atlantic and Pacific Oceans can reduce the ENSO spring predictability barrier in a deep learning model.
+- **Architecture:** GL-Geoformer: a transformer-based deep learning model for global tropical ocean-atmosphere prediction of wind and three-dimensional temperature anomalies, with pacemaker experiments.
+- **Data:** Tropical ocean-atmosphere wind and 3D temperature anomaly fields; specific training and evaluation products not reported in the abstract.
+- **Main result:** Including tropical basin interactions substantially reduces the spring predictability barrier, giving skillful ENSO predictions up to 16 months ahead from spring initializations; quantifies IOD and Atlantic Niño contributions via subsurface heat transport and Walker circulation.
+- **Open work:** Extending to other modes of variability and using the framework to further diagnose interbasin mechanisms.
+- **Issues:** Attribution via pacemaker experiments within a data-driven model may not reflect true causality; training data source and length not stated in the abstract.
+- *Basis: abstract*
 
 ### [Deep learning with spatio-temporal conditioning improves global subseasonal precipitation forecasts](https://doi.org/10.1038/s41612-026-01430-8)
 Noh et al. (2026), *npj Climate and Atmospheric Science*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Improves global subseasonal (1–5 week) precipitation forecasts by correcting systematic NWP biases with geographic and seasonal conditioning.
+- **Architecture:** ReST: U-Net backbone with spatio-temporal adaptive modulation combining SPADE and FiLM conditioning layers; compared with quantile mapping, random forest and Res34-Unet.
+- **Data:** GEFSv12 reforecasts 2000–2019 for training; evaluated against a global station precipitation dataset from 63,588 stations.
+- **Main result:** Consistently improves skill over raw forecasts and conventional post-processing and yields more spatially coherent fields; gains largest in weeks 1–2, with predictability declining rapidly beyond week 2.
+- **Open work:** Extending conditioning to probabilistic outputs and other variables or models.
+- **Issues:** Limited gains beyond week 2; station-based verification is uneven globally; single forecast system (GEFSv12).
+- *Basis: abstract*
 
 ### [On the importance of historical context and bias correction in deep learning MJO prediction models](https://doi.org/10.1038/s41612-026-01459-9)
 Virji et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Examines whether extended historical context and bias correction improve deep learning forecasts of the Madden-Julian Oscillation.
+- **Architecture:** Deep learning MJO prediction models with varying historical input context plus bias-correction methods; specific network family not stated in the abstract.
+- **Data:** Not reported in the abstract; MJO indices and atmospheric fields presumably from reanalysis.
+- **Main result:** MJO predictability is governed by the current state rather than prior propagation; bias correction helps DL models only beyond 3 weeks, cutting errors by 11% in weeks 5–6 and extending skill from 37 to 40 days.
+- **Open work:** Developing correction methods that target model deficiencies rather than dataset inconsistencies.
+- **Issues:** Data sources and architecture are unclear from the abstract; conclusions may depend on the specific DL models tested.
+- *Basis: abstract*
 
 ### [Skillful and interpretable ENSO prediction via a glass-box dynamical-deep learning model](https://doi.org/10.1038/s41612-026-01513-6)
 Wang et al. (2026), *npj Climate and Atmospheric Science*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Aims at skillful and interpretable ENSO prediction by combining dynamical modeling with deep learning, as implied by the title.
+- **Architecture:** Glass-box hybrid dynamical–deep learning model for ENSO; exact network family not known without the abstract.
+- **Data:** Not reported; abstract not available.
+- **Main result:** Not reported; abstract not available.
+- **Open work:** Likely further interpretability analysis and extension of lead times.
+- **Issues:** Content not verifiable without the abstract.
+- *Basis: assessment*
 
 <a id="climate"></a>
 ## Climate emulation & detection
@@ -2197,17 +2647,35 @@ Bassetti et al. (2024), *Journal of Advances in Modeling Earth Systems*. 37 cita
 ### [CAMulator: Fast Emulation of the Community Atmosphere Model](https://arxiv.org/abs/2504.06007)
 Chapman et al. (2025), *arXiv*. 32 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast, stable ML emulator of the CAM6 atmosphere to generate large climate ensembles cheaply.
+- **Architecture:** Autoregressive deep learning emulator predicting the next atmospheric state given prescribed SST and solar forcing, with explicit conservation of dry air mass, moisture and total energy.
+- **Data:** CAM6 simulations with prescribed sea surface temperatures; evaluated on climatology, variability modes and out-of-distribution SST forcing.
+- **Main result:** Stable over indefinite integrations, reproduces CAM6 climatology and ENSO, NAO and PNA with slightly muted variability, at 350 times speedup.
+- **Open work:** Adding interactive land and sea ice, reducing the cold bias under new forcing, and coupling to other components.
+- **Issues:** Systematic high-latitude cold bias under out-of-distribution SST, especially boreal winter; slightly muted variability; emulates CAM6 so inherits its biases.
+- *Basis: abstract*
 
 ### [SamudrACE: Fast and Accurate Coupled Climate Modeling With 3D Ocean and Atmosphere Emulators](https://doi.org/10.1029/2025gl119340)
 Duncan et al. (2025), *Geophysical Research Letters*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fully coupled ML climate emulator of atmosphere, ocean and sea ice for fast centuries-long simulations.
+- **Architecture:** SamudrACE couples the ACE2 atmosphere emulator (spherical Fourier neural operator) and the Samudra 3D ocean emulator (convolutional U-Net style), exchanging fluxes like a traditional coupler.
+- **Data:** Trained on output of a physics-based coupled climate model (GFDL CM4); 1° resolution, 6-hourly atmosphere and 5-daily ocean, 145 2D fields.
+- **Main result:** Highly stable over centuries with low climate biases comparable to uncoupled components, and realistic coupled variability including ENSO.
+- **Open work:** Response to changing forcings such as CO2, extension to other components, and training on observations.
+- **Issues:** Emulates a single climate model so inherits its biases; generalization to forced climate change is not shown in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [The Impact of Internal Variability on Benchmarking Deep Learning Climate Emulators](https://doi.org/10.1029/2024ms004619)
 Lutjens et al. (2024), *Journal of Advances in Modeling Earth Systems*. 28 citations.
 
-*Summary pending.*
+- **Main goal:** Examines how internal variability affects benchmarking of deep learning climate emulators on ClimateBench.
+- **Architecture:** Comparison of deep learning emulators, including the ClimaX transformer foundation model, with linear pattern scaling regression.
+- **Data:** ClimateBench (NorESM2 scenario runs) and a new benchmark with 50-member ensemble means from MPI-ESM1.2-LR.
+- **Main result:** Linear pattern scaling beats ClimaX on 3 of 4 variables; deep learning overfits internal variability; with ensemble-mean targets, deep learning wins on precipitation but not temperature.
+- **Open work:** Benchmarks that account for internal variability with large ensembles, and emulators that represent variability rather than only means.
+- **Issues:** Results limited to a few models and variables; emulators target annual regional means, not extremes or daily variability.
+- *Basis: abstract*
 
 ### [Application of the AI2 Climate Emulator to E3SMv2's Global Atmosphere Model, With a Focus on Precipitation Fidelity](https://doi.org/10.1029/2024jh000136)
 Duncan et al. (2024), *Journal of Geophysical Research: Machine Learning and Computation*. 19 citations.
@@ -2223,7 +2691,13 @@ Duncan et al. (2024), *Journal of Geophysical Research: Machine Learning and Com
 ### [HiRO-ACE: Fast and skillful AI emulation and downscaling trained on a 3 km global storm-resolving model](https://arxiv.org/abs/2512.18224)
 Perkins et al. (2025), *arXiv*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Emulates expensive km-scale global storm-resolving simulations to produce local high-resolution precipitation for climate adaptation and extreme risk assessment.
+- **Architecture:** Two-stage framework: ACE2S, a stochastic autoregressive global atmosphere emulator at 1 degree, followed by HiRO, a diffusion model for 32x downscaling to 3 km.
+- **Data:** A decade of X-SHiELD 3 km global storm-resolving model output, with paired high-resolution and coarsened (100 km) fields.
+- **Main result:** Reproduces extreme precipitation up to the 99.99th percentile with time-mean biases below 10% almost everywhere, and generates decades of 6-hourly 3 km precipitation per day on one H100 GPU.
+- **Open work:** Extend to more variables and validate against observations and other km-scale models for climate change applications.
+- **Issues:** Trained on a single model's decade of output, so it inherits X-SHiELD biases; performance under future forcing is not shown in the abstract.
+- *Basis: abstract*
 
 ### [Detection of Forced Change Within Combined Climate Fields Using Explainable Neural Networks](https://doi.org/10.1029/2021ms002941)
 Rader et al. (2021), *Journal of Advances in Modeling Earth Systems*. 17 citations.
@@ -2250,7 +2724,13 @@ Bouabid et al. (2023), *Journal of Advances in Modeling Earth Systems*. 16 citat
 ### [Reconstructing historical climate fields with deep learning](https://doi.org/10.1126/sciadv.adp0558)
 Bochow et al. (2023), *Science Advances*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Fills gaps in sparse historical climate records to reconstruct complete climate fields before the satellite era.
+- **Architecture:** Image inpainting deep learning network based on Fourier convolutions, trained on climate model output.
+- **Data:** Numerical climate model output (CMIP simulations) for training; applied to historical observational temperature records.
+- **Main result:** Reconstructs large irregular missing areas and known strong El Nino and La Nina events, outperforming kriging and other ML methods, and generalizes to higher resolutions and unseen masks.
+- **Open work:** Apply to more climate variables and longer reconstructions with uncertainty estimates.
+- **Issues:** Trained on model output so inherits model biases; no uncertainty quantification mentioned in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [Probablistic Emulation of a Global Climate Model with Spherical DYffusion](https://doi.org/10.52202/079017-4052)
 Cachay et al. (2024), *Neural Information Processing Systems*. 15 citations.
@@ -2266,52 +2746,112 @@ Cachay et al. (2024), *Neural Information Processing Systems*. 15 citations.
 ### [ACE2‐SOM: Coupling an ML Atmospheric Emulator to a Slab Ocean and Learning the Sensitivity of Climate to Changed CO2](https://doi.org/10.1029/2024jh000575)
 Clark et al. (2025), *Journal of Geophysical Research*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether an autoregressive ML climate emulator can learn the sensitivity of climate to substantially changed CO2, which prior emulators trained on present-day climate cannot.
+- **Architecture:** ACE2-SOM: the Ai2 Climate Emulator version 2 (a spherical Fourier neural operator emulator) coupled to a slab ocean model, trained autoregressively with CO2 as forcing.
+- **Data:** Output from equilibrium-climate physics-based reference simulations (atmosphere with slab ocean) at multiple CO2 levels; tested on seen and unseen CO2 concentrations, 2%/year ramps and abrupt 4xCO2.
+- **Main result:** Reproduces equilibrium patterns of surface temperature and precipitation change for 2x, 3x and 4xCO2, warming profiles and extreme precipitation up to the 99.9999th percentile; transient runs match global trends but show stratospheric jumps.
+- **Open work:** Improve generalization to non-equilibrium and diverse climate change scenarios, including energy-conserving transient behavior.
+- **Issues:** Abrupt 4xCO2 runs transition unrealistically fast, violate global energy conservation and show unphysical radiative flux sensitivities; stratospheric fields jump in gradual-forcing runs; slab ocean only.
+- *Basis: abstract+knowledge*
 
 ### [Reanalysis‐Based Global Radiative Response to Sea Surface Temperature Patterns: Evaluating the Ai2 Climate Emulator](https://doi.org/10.1029/2025gl115432)
 Loon et al. (2025), *Geophysical Research Letters*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates the top-of-atmosphere radiative response to SST patterns and uses it to evaluate whether ML climate emulators capture causal physical relationships.
+- **Architecture:** Green's function perturbation experiments with the Ai2 Climate Emulator (ACE2, a neural operator emulator), compared with other ACE versions and conventional climate models.
+- **Data:** ACE2 trained on ERA5 reanalysis (ACE2-ERA5), forced with locally perturbed SST boundary conditions; two additional ACE versions and traditional climate models for comparison.
+- **Main result:** ACE2-ERA5 produces a sensitivity map of TOA radiative response consistent with physical understanding of feedbacks but likely underestimates the response to historical warming.
+- **Open work:** Use Green's function experiments as a standard test of causal and out-of-distribution behaviour of ML emulators.
+- **Issues:** Out-of-distribution perturbations may exceed emulator training range; underestimated radiative response limits use for climate sensitivity.
+- *Basis: abstract*
 
 ### [The Equilibrium Response of Atmospheric Machine‐Learning Models to Uniform Sea Surface Temperature Warming](https://doi.org/10.1029/2026ms005815)
 Zhang et al. (2025), *Journal of Advances in Modeling Earth Systems*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether atmospheric ML climate models generalize out of distribution by evaluating their equilibrium response to a uniform sea surface temperature warming benchmark.
+- **Architecture:** Evaluation study of existing ML atmosphere models: ACE2-ERA5 (spherical Fourier neural operator), NeuralGCM (hybrid differentiable GCM with neural network physics) and cBottle (diffusion model), against the physics-based GFDL AM4 GCM.
+- **Data:** Uniform SST warming experiments forcing the ML models and GFDL AM4; the ML models were trained mainly on ERA5 reanalysis.
+- **Main result:** ML models reproduce key aspects of the AM4 response, especially precipitation, but some show notable departures in radiative responses and land warming.
+- **Open work:** Improving out-of-sample generalization of ML climate models for climate-change applications, e.g. training with warmer climates or physical constraints.
+- **Issues:** Single idealized forcing benchmark; AM4 is used as the reference, so its own biases define the target; ML models trained on present-day reanalysis struggle outside that distribution.
+- *Basis: abstract+knowledge*
 
 ### [Score‐Based Generative Emulation of Impact‐Relevant Earth System Model Outputs](https://doi.org/10.1029/2025ms005558)
 Bouabid et al. (2025), *Journal of Advances in Modeling Earth Systems*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Builds cheap generative emulators of Earth system model outputs to supply impact models with joint distributions of climate variables under alternative future scenarios.
+- **Architecture:** Score-based diffusion model on a spherical mesh, conditioned on forcing, running on a single mid-range GPU.
+- **Data:** Monthly ESM fields of near-surface temperature, precipitation, relative humidity and wind speed from three CMIP-class Earth system models in pre-industrial and forced regimes.
+- **Main result:** Emulated distributions closely match the parent ESMs and capture key forced responses; errors are small relative to internal variability, though failures occur for variables with strong seasonal-cycle regime shifts.
+- **Open work:** Extending to daily resolution, finer spatial scales and bias-aware training.
+- **Issues:** Monthly coarse output only; mismatches for variables with seasonal regime shifts; emulates ESMs, so it inherits ESM biases.
+- *Basis: abstract*
 
 ### [Probing forced responses and causality in data-driven climate emulators: conceptual limitations and the role of reduced-order models](https://arxiv.org/abs/2506.22552)
 Falasca (2025), *arXiv*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Examines why neural climate emulators struggle to reproduce forced responses and how emulators can support causal studies such as Green's function experiments.
+- **Architecture:** Linear response theory analysis of a simplified multiscale dynamical system, plus a stochastic neural network reduced-order model with data-inferred multiplicative noise.
+- **Data:** Simplified dynamical system simulations and a real-world dataset of surface temperature fields and radiative fluxes (product not specified in the abstract).
+- **Main result:** Reproducing perturbed statistics depends on an appropriate coarse-grained representation and parameterization of unresolved processes; the neural model largely reproduces the probability distribution and enables forced-response studies.
+- **Open work:** Developing goal-specific coarse-grained stochastic emulators and using response theory to guide emulator design.
+- **Issues:** Largely conceptual; real-world model has acknowledged limitations; findings from simplified systems may not transfer directly to full general-purpose emulators.
+- *Basis: abstract*
 
 ### [Convolutional Neural Networks Trained on Internal Variability Predict Forced Response of TOA Radiation by Learning the Pattern Effect](https://doi.org/10.1029/2024gl109581)
 Rugenstein et al. (2025), *Geophysical Research Letters*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Seeks to predict forced long-term radiative feedbacks from internal variability by learning the pattern effect linking surface temperature patterns to TOA radiation.
+- **Architecture:** Convolutional neural network (CNN) mapping near-surface temperature maps to global-mean TOA radiation anomalies, compared with regularized linear regression and analysed with explainable AI.
+- **Data:** Climate model simulations: internal variability (e.g. control runs) for training and strongly forced climate-change runs for testing, within and across models.
+- **Main result:** Trained only on internal variability, the CNN predicts radiation under strong climate change, beats linear regression, and works across models, drawing skill from physically meaningful but smaller-scale regions.
+- **Open work:** Applying to observations to constrain feedbacks and climate sensitivity, and studying the identified small-scale regions physically.
+- **Issues:** Annual global-mean target; relies on climate models whose feedbacks may differ from reality; application to short observational records untested.
+- *Basis: abstract*
 
 ### [Disentangling the effects of sea surface temperature and CO$_2$ in global machine learned weather-climate emulators](https://arxiv.org/abs/2606.07928)
 Clark et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Separates the effects of SST and CO2 forcing in ML climate emulators, which fail for AMIP +4 K or abrupt 4xCO2 because training data correlate the two.
+- **Architecture:** Ai2 Climate Emulator (ACE), a Spherical Fourier Neural Operator-based autoregressive emulator, with a total energy conservation constraint.
+- **Data:** Balanced mix of AMIP, equilibrium-climate and new random-CO2 reference simulations where SST and CO2 vary independently, from a physics-based atmospheric model (with slab-ocean coupling).
+- **Main result:** More data-efficient model that matches previous ACE skill and also accurately emulates AMIP +4 K and slab-ocean abrupt 4xCO2 scenarios where earlier versions behaved unphysically.
+- **Open work:** Add interactive ocean, land and sea ice components and expose other climate drivers such as aerosols as forcings.
+- **Issues:** Simplified or prescribed ocean, land and sea ice; few forcings; trained only on physics-model output so inherits its biases relative to observations.
+- *Basis: abstract+knowledge*
 
 ### [Modulation of Tropical Cyclogenesis by the Convectively Coupled Kelvin Waves: Insights From Data‐Driven Climate Emulator ACE2](https://doi.org/10.1029/2025gl117387)
 Chien et al. (2026), *Geophysical Research Letters*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Resolve whether convectively coupled Kelvin waves modulate tropical cyclogenesis, which observations alone cannot settle due to limited sample size.
+- **Architecture:** Uses the deep-learning climate emulator ACE2 (Ai2 Climate Emulator version 2) to generate large ensembles for process analysis.
+- **Data:** Ten ACE2 simulations over 2001–2010 (100 years total), with ACE2 trained on reanalysis (ERA5).
+- **Main result:** Robust Kelvin-wave modulation of tropical cyclogenesis in all basins; genesis preferentially occurs about one day after peak Kelvin-wave precipitation in the Indian Ocean and Western Pacific, via enhanced column humidity and vorticity.
+- **Open work:** Applying emulator large ensembles to other weather and climate variability relationships.
+- **Issues:** Conclusions depend on the emulator realistically representing Kelvin waves and TC-like vortices at coarse resolution; inherits reanalysis biases.
+- *Basis: abstract*
 
 ### [Evaluating Skill and Stability of ArchesWeather and ArchesWeatherGen under Multi-Decadal Climate Simulations](https://arxiv.org/abs/2605.29976)
 Singh et al. (2026), *arXiv*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Test whether weather-forecasting ML models can be adapted into stable forced atmospheric models for multi-decadal climate simulation.
+- **Architecture:** Deterministic ArchesWeather (transformer-based) and probabilistic flow-matching ArchesWeatherGen, extended with conditioning on monthly SST and sea ice cover as boundary conditions.
+- **Data:** ERA5 training and reference; AIMIP Phase 1 protocol (AMIP-like) with prescribed SST and sea ice; comparison with numerical climate models.
+- **Main result:** Forced configurations produce stable long-term simulations with a stable annual cycle, capture drifts of many variables, and reproduce ERA5 climatology, large-scale circulation, interannual variability and distribution tails.
+- **Open work:** Coupling to ocean models and testing out-of-distribution warming scenarios.
+- **Issues:** Atmosphere-only with prescribed boundary conditions; skill under unseen future climates is not established; quantitative errors not given in the abstract.
+- *Basis: abstract+knowledge*
 
 ### [Extratropical Atmospheric Circulation Response to ENSO in Deep Learning Pacific Pacemaker Experiments](https://doi.org/10.1175/aies-d-25-0114.1)
 Hua et al. (2025), *Artificial Intelligence for the Earth Systems*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluate extratropical teleconnection responses to ENSO in a coupled deep learning climate emulator that has weak intrinsic ENSO variability.
+- **Architecture:** Pacific pacemaker experiments with the coupled atmosphere-ocean deep learning emulator DLESyM.
+- **Data:** Observed tropical Pacific SST forcing imposed in DLESyM; emulator trained on reanalysis (likely ERA5); comparison to observations.
+- **Main result:** Internal atmospheric variability is realistic, but the forced ENSO teleconnection is significantly amplified, causing overestimated blocking frequency and duration and underestimated peak intensity.
+- **Open work:** Process-based evaluation of coupled DL climate models analogous to traditional numerical models.
+- **Issues:** Single emulator evaluated; amplified response may reflect training data limitations.
+- *Basis: abstract*
 
 <a id="parameterization"></a>
 ## Parameterization & hybrid models
@@ -2737,12 +3277,24 @@ Clark et al. (2022), *Journal of Advances in Modeling Earth Systems*. 40 citatio
 ### [Using Machine Learning to Generate a GISS ModelE Calibrated Physics Ensemble (CPE)](https://doi.org/10.1029/2024ms004713)
 Elsaesser et al. (2025), *Journal of Advances in Modeling Earth Systems*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Calibrates the GISS ModelE3 atmosphere's physics parameters with observations to produce radiatively balanced, observationally constrained configurations.
+- **Architecture:** Neural network (MLP-type) surrogate of ModelE3 trained on a perturbed parameter ensemble, used in MCMC Bayesian inference to produce a calibrated physics ensemble.
+- **Data:** Perturbed parameter ensemble over 45 parameters and 36 outputs; global satellite products of clouds, environment and radiation with explicit treatment of product discrepancies.
+- **Main result:** Improves shallow cumulus and Amazon rainfall without degrading radiation; product discrepancies strongly affect calibration; two configurations were used for CMIP6 submissions.
+- **Open work:** Revisiting how parameter importance is judged in PPEs and extending calibration to coupled models.
+- **Issues:** Surrogate accuracy and choice of observational targets bound calibration; parameters deemed unimportant in PPE screening were needed, complicating dimension reduction.
+- *Basis: abstract*
 
 ### [Simulating Atmospheric Processes in Earth System Models and Quantifying Uncertainties With Deep Learning Multi‐Member and Stochastic Parameterizations](https://doi.org/10.1029/2024ms004272)
 Behrens et al. (2024), *Journal of Advances in Modeling Earth Systems*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Learns stochastic subgrid convection, turbulence and surface radiative flux parameterizations with calibrated uncertainty for an Earth system model, beyond idealized deterministic settings.
+- **Architecture:** Three stochastic deep neural network (MLP) parameterizations: Monte Carlo dropout, a multi-member ensemble of networks, and a variational encoder-decoder with latent perturbations.
+- **Data:** Superparameterized Community Atmosphere Model (SPCAM) embedded in CESM as training data and coupled host model.
+- **Main result:** Multi-member parameterization improves boundary-layer convection; full coupling crashes within days, but partial coupling stays stable for 5 months and improves tropical extreme precipitation over traditional convection schemes.
+- **Open work:** Achieve stable fully coupled hybrid simulations and reduce thermodynamic and precipitation biases while retaining stochasticity.
+- **Issues:** Instability when coupled online; partial coupling relies on the superparameterization and lowers efficiency; hybrid runs show thermodynamic biases.
+- *Basis: abstract+knowledge*
 
 ### [Machine‐Learned Climate Model Corrections From a Global Storm‐Resolving Model: Performance Across the Annual Cycle](https://doi.org/10.1029/2022ms003400)
 Kwa et al. (2022), *Journal of Advances in Modeling Earth Systems*. 17 citations.
@@ -2769,62 +3321,134 @@ Hu et al. (2024), *Journal of Advances in Modeling Earth Systems*. 17 citations.
 ### [Perspectives on Systematic Cloud Microphysics Scheme Development With Machine Learning](https://doi.org/10.1029/2025ms005341)
 Lamb et al. (2025), *Journal of Advances in Modeling Earth Systems*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Outlines how machine learning can address parametric and structural uncertainty in cloud microphysics schemes for weather and climate models.
+- **Architecture:** Review and perspective on data-driven and ML methods for cloud microphysics parameterization, including differentiable programming, ML-enhanced sampling and uncertainty decomposition.
+- **Data:** Discusses high-fidelity simulations (e.g. Lagrangian particle-based and bin models), observations and the need for large-scale benchmark datasets.
+- **Main result:** Synthesizes progress and identifies aleatoric and epistemic error roles, bottom-up and top-down observational constraints and key opportunities.
+- **Open work:** Build benchmark datasets, use differentiable programming and observational constraints, and improve consistency across temporal and spatial scales.
+- **Issues:** Perspective paper without new quantitative results; recommendations depend on the availability of high-fidelity data and observations.
+- *Basis: abstract*
 
 ### [CondensNet: enabling stable long-term climate simulations via hybrid deep learning models with adaptive physical constraints](https://doi.org/10.1038/s41612-025-01269-5)
 Wang et al. (2025), *npj Climate and Atmospheric Science*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Enables stable long-term hybrid ML-GCM climate simulations, identifying water vapor oversaturation during condensation as a key instability source.
+- **Architecture:** CondensNet, a neural network architecture with a self-adaptive physical constraint correcting unphysical condensation, coupled to a GCM as PCNN-GCM (hybrid physics-ML model).
+- **Data:** Training data from cloud-resolving super-parameterization simulations; details are not reported in the abstract.
+- **Main result:** Mitigates oversaturation and enables long-term stable simulations in real-world configurations including ocean and land, with accuracy maintained and lower cost than super-parameterization.
+- **Open work:** Apply adaptive physical constraints to other processes and to more complex climate models.
+- **Issues:** Accuracy is judged against super-parameterization rather than observations; quantitative skill and climate change generalization are not reported in the abstract.
+- *Basis: abstract*
 
 ### [Beyond the Training Data: Confidence‐Guided Mixing of Parameterizations in a Hybrid AI‐Climate Model](https://doi.org/10.1029/2025ms005544)
 Heuer et al. (2025), *Journal of Advances in Modeling Earth Systems*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Achieves stable, transferable ML convection parameterization in a hybrid Earth system model despite distribution shift between models.
+- **Architecture:** Physics-informed neural network convection parameterization that predicts its own error, enabling confidence-guided mixing with a conventional convection scheme in ICON-A.
+- **Data:** ClimSim superparameterized data with radiative tendencies subtracted; tested in ICON-A AMIP-style simulations.
+- **Main result:** Several hybrid configurations outperform the default convection scheme (e.g., precipitation statistics); with input noise during training both hybrid and pure-ML runs remain stable and physically consistent for at least 20 years.
+- **Open work:** Tune mixing parameters against observations and reanalysis and extend transfer to other ESMs and coupled setups.
+- **Issues:** Proof of concept; distribution shift between ClimSim and ICON-A remains; evaluation in AMIP-style setups only.
+- *Basis: abstract*
 
 ### [Tuning the ICON-A 2.6.4 climate model with machine-learning-based emulators and history matching](https://doi.org/10.5194/gmd-18-3681-2025)
 Bonnet et al. (2025), *Geoscientific Model Development*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces the cost and subjectivity of climate model tuning by using ML emulators to calibrate free parameterization parameters of ICON-A.
+- **Architecture:** ML-based emulator fitted to a perturbed parameter ensemble, combined with history matching and sequential parameter selection via Sobol sensitivity indices.
+- **Data:** Perturbed parameter ensemble of ICON-A 2.6.4 at 80 km resolution; reference Earth observations of radiation, cloud cover, water vapour path, zonal winds and ocean wind stress.
+- **Main result:** One iteration yields TOA net radiation within 0 to 1 W m-2 and radiation metrics and water vapour path consistent with observations; key parameters are upper-tropospheric critical relative humidity, cloud-to-rain conversion and ice sedimentation velocity.
+- **Open work:** Further iterations, higher resolutions and additional tuning targets including regional metrics and coupled configurations.
+- **Issues:** Global-mean targets may hide regional errors; emulator accuracy limited by small ensemble size; tuning to observations can compensate structural errors.
+- *Basis: abstract*
 
 ### [SuperdropNet: A Stable and Accurate Machine Learning Proxy for Droplet‐Based Cloud Microphysics](https://doi.org/10.1029/2024ms004279)
 Sharma et al. (2024), *Journal of Advances in Modeling Earth Systems*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Builds an accurate and stable ML emulator of droplet-based Lagrangian cloud microphysics to bridge the gap between costly superdroplet schemes and bulk schemes.
+- **Architecture:** SuperdropNet, a neural network emulator trained with multi-step autoregressive prediction, physical constraints and controlled stochasticity.
+- **Data:** Lagrangian superdroplet simulation datasets of warm-rain microphysics (box-model setting).
+- **Main result:** SuperdropNet predicts hydrometeor states and cloud-to-rain transition times more accurately than previous ML emulators and matches or beats bulk moment schemes in many cases.
+- **Open work:** Coupling into full atmospheric models and testing online in storm-resolving simulations.
+- **Issues:** Evaluated in idealized settings; online stability in a 3D model not demonstrated; limited to processes in the training simulations.
+- *Basis: assessment*
 
 ### [Data‐Driven Probabilistic Air‐Sea Flux Parameterization](https://doi.org/10.1029/2025gl120472)
 Wu et al. (2025), *Geophysical Research Letters*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Represents the variability and uncertainty of air-sea turbulent fluxes, missing from deterministic bulk algorithms.
+- **Architecture:** Artificial neural networks predicting Gaussian mean and variance of fluxes, trained with negative log-likelihood; used as a stochastic parameterization.
+- **Data:** Eddy-covariance air-sea flux measurements; tested in a single-column forced upper-ocean model.
+- **Main result:** NNs provide alternative mean flux estimates with uncertainty; flux algorithm choice affects SST and mixed layer depth seasonally, with largest ensemble spread during spring restratification.
+- **Open work:** Testing in coupled weather and climate models and non-Gaussian flux distributions.
+- **Issues:** Gaussian assumption; limited eddy-covariance sampling; only single-column tests.
+- *Basis: abstract*
 
 ### [Adjoint‐Based Online Learning of Two‐Layer Quasi‐Geostrophic Baroclinic Turbulence](https://doi.org/10.1029/2024ms004857)
 Yan et al. (2024), *Journal of Advances in Modeling Earth Systems*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates online training of machine-learned ocean eddy parameterizations, where the fluid model is involved during training, versus standard offline regression.
+- **Architecture:** Neural network (convolutional) subgrid closure trained with a full adjoint-based online approach using a differentiable solver, and an approximately online approach that avoids requiring differentiability.
+- **Data:** Idealized two-layer quasi-geostrophic baroclinic turbulence simulations, coarse-grained from high-resolution reference runs.
+- **Main result:** The full adjoint-based online approach, without additional constraints, generally yields more skillful models than the approximate online approach; effects of window size, model setup and loss design are documented.
+- **Open work:** Transfer online training to realistic ocean models and Earth system models, including those without differentiable code.
+- **Issues:** Idealized QG setting only; full online approach requires a differentiable dynamical model, which most operational ocean models lack.
+- *Basis: abstract*
 
 ### [A Decadal Hybrid GCM Simulation Using Deep‐Learning‐Based Cloud and Convection Parameterization Generalized to a Warm Climate](https://doi.org/10.1029/2025ms005231)
 Han et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether a neural-network cloud and convection parameterization trained on present-day climate can run stably and accurately in a warmer climate with real geography.
+- **Architecture:** Deep neural network moist-physics parameterization (following Han et al. 2023, residual network style) with added inputs including convective memory, radiative variables and land fraction, coupled online in a GCM (CAM5 framework).
+- **Data:** Trained on present-day superparameterized CAM (SPCAM) data; evaluated in decade-long online runs with +4 K SST against SPCAM and CAM5 simulations.
+- **Main result:** Achieves a stable decade-long +4 K simulation that captures precipitation, temperatures, vertical structure and extremes, with climate response similar to SPCAM and CAM5 and no accuracy degradation.
+- **Open work:** Test under coupled ocean and transient warming scenarios, and other climate states beyond uniform SST warming.
+- **Issues:** Prescribed uniform +4 K SST is an idealized warming; removing convective memory causes instability; evaluation is against model references, not observations.
+- *Basis: abstract+knowledge*
 
 ### [CERA: A Framework for Improved Generalization of Machine Learning Models to Changed Climates](https://doi.org/10.1029/2025ms005431)
 Liu et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Improves out-of-distribution generalization of ML moist-physics parameterizations to warmer climates without labeled warm-climate training data or manual climate-invariant features.
+- **Architecture:** Autoencoder with explicit latent-space representation alignment (CERA) followed by a predictor network for process tendencies.
+- **Data:** Labeled control-climate data and unlabeled +4 K climate inputs from climate model simulations (specific model not stated in the abstract).
+- **Main result:** Outperforms raw-input and physically informed baselines on moisture and energy tendencies in the +4 K climate, capturing vertical and meridional structures and precipitation intensity shifts including extremes.
+- **Open work:** Apply to online hybrid simulations and other tasks such as statistical downscaling.
+- **Issues:** Reduced skill remains in the boundary layer; evaluated offline only; requires unlabeled inputs from the target climate.
+- *Basis: abstract*
 
 ### [Revisiting Machine Learning Approaches for Short‐ and Longwave Radiation Inference in Weather and Climate Models](https://doi.org/10.1029/2025ms004956)
 Bertoli et al. (2025), *Journal of Advances in Modeling Earth Systems*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates ML radiative transfer parameterizations coupled online to ICON on GPUs, for accuracy, stability and speed.
+- **Architecture:** Five ML models: MLP, U-Net, bidirectional LSTM (recurrent neural network), vision transformer and random forest, coupled via the PyTorch-Fortran coupler.
+- **Data:** ICON aquaplanet simulations at about 80 km with ecRad as the reference radiative transfer scheme.
+- **Main result:** BiLSTM with physics-informed normalization, heating-rate penalty and smoothing is most accurate and enables stable multi-week aquaplanet runs; cost is comparable to GPU-optimized ecRad.
+- **Open work:** Test in realistic configurations with land, aerosols and longer climate runs.
+- **Issues:** Aquaplanet only, weeks-long runs; stability needs ad hoc smoothing and upper-level fixes; no clear speed-up over GPU-optimized physics.
+- *Basis: abstract*
 
 ### [Stable Simulation of the Community Atmosphere Model Using Machine‐Learning Physical Parameterization Trained With Experience Replay](https://doi.org/10.1029/2024ms004722)
 Chen et al. (2025), *Journal of Advances in Modeling Earth Systems*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Solve the online instability of machine-learning physics parameterizations when coupled to a general circulation model for long simulations.
+- **Architecture:** Deep neural network physics package trained with experience replay and multistep training, reusing the model's own recent erroneous tendency predictions so it learns from its own errors.
+- **Data:** Training data from Multi-scale Modeling Framework (superparameterized) high-resolution simulations; coupled online in CAM5.
+- **Main result:** Three 6-year online CAM5 simulations remain stable and show better precipitation, surface temperature and zonal-mean fields than standard CAM5 and a benchmark model, without extra constraints or tuning.
+- **Open work:** Longer multi-decadal runs, climate-change tests and application to other GCMs and ML architectures.
+- **Issues:** Online runs are only 6 years long; generalization to warmer climates is untested; skill bounded by the MMF training simulations.
+- *Basis: abstract*
 
 ### [Offline Performance of a Nonlocal Deep Learning Parameterization for Climate Model Representation of Atmospheric Gravity Waves](https://doi.org/10.1029/2025ms004977)
 Gupta et al. (2025), *Journal of Advances in Modeling Earth Systems*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Learns gravity wave flux parameterizations that include nonlocal (horizontal) effects missing from current climate-model gravity wave schemes, to reduce middle-atmosphere circulation biases.
+- **Architecture:** Three neural networks with increasing horizontal nonlocality: a 1×1 MLP (ANN), a 3×3 ANN-CNN and an Attention U-Net; transfer learning to high-resolution model output.
+- **Data:** Multiple years of high-resolution ERA5 reanalysis for training; transfer learning on gravity wave fluxes from a 1.4 km global climate model simulation.
+- **Main result:** All networks recreate the global flux distribution in troposphere and stratosphere; the Attention U-Net best predicts transient flux evolution over orographic and nonorographic hotspots; transfer learning preserves ERA5 learning while rescaling fluxes.
+- **Open work:** Coupling the parameterizations online in a climate model and testing their effect on circulation biases are the logical next steps.
+- **Issues:** Offline-only evaluation; ERA5 resolves only part of gravity wave fluxes, and the high-resolution data used for transfer learning are limited in length.
+- *Basis: abstract*
 
 <a id="downscaling"></a>
 ## Downscaling
@@ -3041,7 +3665,13 @@ Wang et al. (2023), *Geoscientific Model Development*. 74 citations.
 ### [Fast, scale-adaptive and uncertainty-aware downscaling of Earth system model fields with generative machine learning](https://doi.org/10.1038/s42256-025-00980-5)
 Hess et al. (2024), *Nature Machine Intelligence*. 73 citations.
 
-*Summary pending.*
+- **Main goal:** Downscales coarse Earth system model fields to high resolution cheaply and probabilistically, without retraining for each ESM and while extrapolating to unseen climates.
+- **Architecture:** Generative consistency model (related to diffusion models) applied zero-shot to arbitrary ESM output, giving probabilistic downscaled fields with controllable scale adaptation.
+- **Data:** Observational reference data at high resolution for training; applied to Earth system model simulations including future climate states. Exact products not detailed in the abstract.
+- **Main result:** Outperforms state-of-the-art diffusion models at a fraction of the computational cost, stays controllable, and generalizes to climate states unseen in training without explicit physical constraints.
+- **Open work:** Extending to more variables and multivariate consistency, and testing across more ESMs, regions and extreme statistics.
+- **Issues:** Resolution is bounded by the observational reference; zero-shot transfer assumes the ESM-to-observation mapping is learnable without bias correction, and physical consistency is not enforced.
+- *Basis: assessment*
 
 ### [High-resolution meteorology with climate change impacts from global climate model data using generative machine learning](https://doi.org/10.1038/s41560-024-01507-9)
 Buster et al. (2024), *Nature Energy*. 70 citations.
@@ -3123,52 +3753,112 @@ Addison et al. (2024), *Journal of Advances in Modeling Earth Systems*. 29 citat
 ### [Potential for machine learning emulators to augment regional climate simulations in provision of local climate change information](https://doi.org/10.1175/bams-d-24-0114.1)
 Kendon et al. (2025), *Bulletin of The American Meteorological Society - (BAMS)*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether machine learning emulators can augment costly high-resolution regional climate simulations to produce local climate change information quickly and cheaply for climate services.
+- **Architecture:** Review and perspective that explores the skill of ML-based regional climate model emulators across a range of architectures and proposes validation methods for them.
+- **Data:** Regional and km-scale climate simulation ensembles from coordinated international initiatives; the specific simulations and domains are not reported in the abstract.
+- **Main result:** ML emulation shows promise to augment regional-to-local climate projections within 5-10 years, but issues remain with extremes, multivariate coherence, climate memory and transfer to out-of-sample global models.
+- **Open work:** Integrate climate expertise into emulator development, run the highest-resolution and most complex simulations affordable for training, and sample the full range of conditions including high-end scenarios.
+- **Issues:** Perspective paper with few quantitative results in the abstract; emulator readiness depends on unresolved extremes, multivariate consistency and out-of-sample GCM generalization.
+- *Basis: abstract*
 
 ### [EnScale: Temporally‐Consistent Multivariate Generative Downscaling via Proper Scoring Rules](https://doi.org/10.1029/2025ms005593)
 Schillinger et al. (2025), *Journal of Advances in Modeling Earth Systems*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Emulates expensive regional climate models by learning the full conditional distribution of high-resolution RCM fields given coarse GCM output.
+- **Architecture:** EnScale: a two-step generative model trained with the energy score (a proper scoring rule), first correcting large-scale GCM mismatch then super-resolving with sparse local stochastic layers; EnScale-t adds temporal consistency.
+- **Data:** Multiple pairs of GCM and corresponding RCM simulations over Central Europe; variables are temperature, precipitation, solar radiation and wind.
+- **Main result:** Competitive with state-of-the-art ML downscaling across calibration, spatial and temporal structure, extremes and multivariate dependence, at about one order of magnitude lower computational cost.
+- **Open work:** Test transfer to other regions and GCM-RCM combinations, and use the evaluation framework as a common benchmark for RCM emulators.
+- **Issues:** Restricted to Central Europe and to the GCM-RCM pairs seen in training; extrapolation to unseen GCMs and future climates is not demonstrated in the abstract.
+- *Basis: abstract*
 
 ### [Satellite Observations Guided Diffusion Model for Accurate Meteorological States at Arbitrary Resolution](https://doi.org/10.1109/cvpr52734.2025.02614)
 Tu et al. (2025), *Computer Vision and Pattern Recognition*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Obtains accurate high-resolution surface meteorological states at arbitrary locations by downscaling reanalysis with guidance from satellite and station observations.
+- **Architecture:** SGD: a conditional diffusion model with attention-based fusion of satellite observations, zero-shot guided sampling with optimizable convolutional kernels for the upscaling operator, and patch-based sampling for arbitrary resolution.
+- **Data:** ERA5 reanalysis for pre-training conditioned on GridSat satellite observations; weather station observations used as sampling guidance.
+- **Main result:** Achieves accurate downscaling of meteorological states to 6.25 km resolution; specific error statistics are not reported in the abstract.
+- **Open work:** Extend to more variables, regions and finer resolutions, and assess performance for extremes.
+- **Issues:** Relies on ERA5 as training target and on station availability for guidance; diffusion sampling is computationally expensive.
+- *Basis: abstract*
 
 ### [Are Deep Learning Methods Suitable for Downscaling Global Climate Projections? An Intercomparison for Temperature and Precipitation over Spain](https://doi.org/10.1175/aies-d-24-0121.1)
 González-Abad et al. (2024), *Artificial Intelligence for the Earth Systems*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether deep learning perfect-prognosis downscaling models can plausibly extrapolate to future emission scenarios.
+- **Architecture:** Intercomparison of existing deep learning downscaling models, mainly convolutional neural networks, under a common experimental framework with multiple training replicas.
+- **Data:** Observation-based training for minimum and maximum temperature and precipitation over Spain; applied to global climate projections. Specific datasets are not reported in the abstract.
+- **Main result:** Identifies differences in extrapolation capability and sensitivity to training replicas across models; detailed numbers are not given in the abstract.
+- **Open work:** Develop methods that extrapolate more reliably to unseen future conditions and support operational use.
+- **Issues:** Limited to Spain and three variables; extrapolation cannot be fully verified against future observations.
+- *Basis: abstract*
 
 ### [Regional climate risk assessment from climate models using probabilistic machine learning](https://doi.org/10.1038/s42256-026-01308-7)
 Wan et al. (2024), *Nature Machine Intelligence*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Bridges the resolution gap between coarse climate projections and fine-scale information needed for regional climate risk assessment, including compound extremes, without temporally paired training data.
+- **Architecture:** GenFocal, a probabilistic generative AI framework (diffusion-based generative model) that debiases and downscales coarse climate model output to fine-scale weather without paired simulated-observed events.
+- **Data:** Coarse free-running climate model projections as input and fine-scale reanalysis or observations as target; specific products and resolutions are not reported in the abstract.
+- **Main result:** Generates statistically accurate fine-scale weather, synthesizes long-lived hazards such as heatwaves and tropical cyclones even when poorly represented in coarse projections, and samples rare high-impact events more accurately than leading methods.
+- **Open work:** Extend to more regions, variables and climate models, and use the generated ensembles for adaptation and resilience planning.
+- **Issues:** Statistical (unpaired) training cannot be verified event by event; fidelity under future climates relies on distributional assumptions and on the quality of the reference data.
+- *Basis: abstract*
 
 ### [ORBIT-2: Scaling Exascale Vision Foundation Models for Weather and Climate Downscaling](https://doi.org/10.1145/3712285.3771989)
 Wang et al. (2025), *International Conference on Software Composition*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Provides robust, generalizable and scalable AI downscaling of weather and climate fields to hyper-resolution for regional decision making.
+- **Architecture:** ORBIT-2, a vision transformer foundation model using a Residual Slim ViT (Reslim) with Bayesian regularization and TILES tile-wise sequence scaling that reduces self-attention cost from quadratic to linear.
+- **Data:** Global climate and weather data for downscaling down to 0.9 km; evaluated on 7 km resolution benchmarks against observation data; specific datasets are not reported in the abstract.
+- **Main result:** Scales to 10 billion parameters on 65,536 GPUs with up to 4.1 ExaFLOPS sustained and 74–98% strong scaling efficiency; reaches R2 of 0.98–0.99 against observations on 7 km benchmarks.
+- **Open work:** Demonstrate generalization across variables and geographies in operational downscaling and evaluate physical consistency at hyper-resolution.
+- **Issues:** Emphasis on computational scaling; R2 summarizes skill poorly for extremes and fine-scale structure; requires exascale resources.
+- *Basis: abstract*
 
 ### [An intercomparison of generative machine learning methods for downscaling precipitation at fine spatial scales](https://arxiv.org/abs/2512.13987)
 Rampal et al. (2025), *arXiv*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Compares generative ML methods for downscaling daily precipitation, including their ability to reproduce climate change signals of extremes.
+- **Architecture:** Intercomparison of generative adversarial networks (GANs), flow matching and diffusion models in multiple configurations, with higher-order ODE solvers to reduce sampling steps.
+- **Data:** Regional climate model (RCM) daily precipitation simulations over New Zealand for present-day and future climates.
+- **Main result:** All methods are competitive; diffusion and flow matching give higher fidelity and better-calibrated ensembles than under-dispersive GANs; most underestimate end-of-century extreme precipitation change, which only one GAN and one flow-matching setup reproduce.
+- **Open work:** Improving extrapolation of climate change signals and evaluating across comprehensive metrics.
+- **Issues:** Emulates a single RCM over one region; perfect-model framework; visual realism and standard skill do not guarantee correct change signals.
+- *Basis: abstract*
 
 ### [Universal Diffusion-Based Probabilistic Downscaling](https://arxiv.org/abs/2602.11893)
 Molinaro et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Creates a single model-agnostic downscaler that turns deterministic coarse weather forecasts into probabilistic high-resolution forecasts without per-model fine-tuning.
+- **Architecture:** Conditional diffusion model trained on paired coarse (~25 km) inputs and high-resolution targets, applied zero-shot to forecasts from multiple upstream models.
+- **Data:** High-resolution (~5 km) regional reanalysis targets; downscaled forecasts from several AI and NWP systems evaluated against in situ station observations up to 90 h lead.
+- **Main result:** Ensemble mean of downscaled forecasts consistently improves on each model's raw deterministic forecast, with larger gains in probabilistic skill (CRPS).
+- **Open work:** Extend to more variables, longer leads and other regions, and combine with ensemble upstream forecasts.
+- **Issues:** Focused on near-surface variables and one region; zero-shot transfer may degrade for upstream models with very different biases; regional reanalysis product not named in the abstract.
+- *Basis: abstract*
 
 ### [Intelligent Shanghai Typhoon Model (ISTM): A Diffusion‐Based Downscaling Emulator From AIFS to Kilometer‐Scale Regional Reanalysis for Typhoon Forecasts](https://doi.org/10.1029/2025jh001072)
 Niu et al. (2026), *Journal of Geophysical Research*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses the systematic underestimation of typhoon intensity by AI weather models trained on coarse ERA5 by downscaling their forecasts to kilometre scale.
+- **Architecture:** Intelligent Shanghai Typhoon Model (ISTM): regression–residual emulator in which a deterministic network predicts the conditional mean and a conditional diffusion model stochastically generates residuals; compared with U-Net baselines.
+- **Data:** Bespoke 9 km typhoon reanalysis (HiRes) built by dynamically downscaling ERA5 with the Shanghai Typhoon Model (SHTM); fine-tuned to downscale ECMWF AIFS forecasts.
+- **Main result:** ISTM improves wind and precipitation intensity and organization over ERA5 and deterministic U-Net; downscaling AIFS keeps track errors comparable while reducing 72 h mean intensity error by about 39.5% relative to AIFS.
+- **Open work:** Extending to longer lead times, other basins and ensemble downscaling of AI forecasts.
+- **Issues:** Inherits the biases of the SHTM-based HiRes reanalysis used as truth; track errors are bounded by the driving AIFS forecasts; regional focus on typhoons affecting Shanghai's domain.
+- *Basis: abstract*
 
 ### [Applying a standardised benchmarking framework to evaluate AI methods for precipitation downscaling over Australia](https://doi.org/10.1175/aies-d-25-0048.1)
 Hobeichi et al. (2025), *Artificial Intelligence for the Earth Systems*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a standardised benchmarking framework to evaluate AI-based precipitation downscaling against regional climate models, which was previously lacking.
+- **Architecture:** Benchmark evaluation of three ML downscaling models (generative diffusion model, vision transformer, recurrent neural network) against 24 regional climate model (RCM) simulations using minimum-standard metrics.
+- **Data:** Observational precipitation data over Australia and 24 RCM simulations; specific observational products and periods not reported in the abstract. The study releases a benchmark dataset of ML and RCM outputs.
+- **Main result:** All three ML models and ten RCMs meet minimum benchmarks for total precipitation, spatial distribution, seasonal cycle and trends; ML models perform comparably to RCMs at much lower computational cost.
+- **Open work:** Using ML downscaling to enlarge projection ensembles and improve uncertainty quantification; applying the framework to new AI downscaling methods.
+- **Issues:** Minimum-standard metrics focus on mean rainfall characteristics and may not capture extremes or physical consistency; Australia-only evaluation.
+- *Basis: abstract*
 
 <a id="da"></a>
 ## Data assimilation
@@ -3407,72 +4097,156 @@ McNally et al. (2024), *arXiv*. 33 citations.
 ### [Physically consistent global atmospheric data assimilation with machine learning in latent space](https://doi.org/10.1126/sciadv.aea4248)
 Fan et al. (2025), *Science Advances*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Produces physically balanced atmospheric analyses without hand-tuned covariances by doing data assimilation in a learned latent space.
+- **Architecture:** Latent data assimilation: Bayesian DA performed in the latent space of an autoencoder trained on multivariate global atmospheric states.
+- **Data:** Multivariate global atmospheric data, likely ERA5 reanalysis, with idealized and real observations; exact products not named in the abstract.
+- **Main result:** Latent DA yields balanced analyses and improves analysis quality and forecast skill over model-space DA, robust across latent dimensions and with autoencoders trained on imperfect forecasts.
+- **Open work:** Operational-scale tests with full observing systems and coupling with ML forecast models in cycled systems.
+- **Issues:** Autoencoder reconstruction error bounds analysis accuracy; balance is learned rather than guaranteed; comparison against traditional DA configurations may be limited.
+- *Basis: assessment*
 
 ### [Generative assimilation and prediction for weather and climate](https://arxiv.org/abs/2503.03038)
 Yang et al. (2025), *arXiv*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Unifies data assimilation, weather prediction and climate simulation in one generative ML framework that avoids long-rollout error accumulation.
+- **Architecture:** GAP, a deep generative model learning the distribution of atmospheric states under observational, predictive and forcing constraints.
+- **Data:** Reanalysis atmospheric data and observations; specific products not named in the abstract.
+- **Main result:** Competitive with state-of-the-art ensemble assimilation, probabilistic weather forecasts and seasonal prediction; stable millennial simulations reproducing daily to decadal variability.
+- **Open work:** Coupling with ocean components and operational assimilation with real observing systems.
+- **Issues:** Details of observations and benchmarks not given in the abstract; climate response to forcing not demonstrated.
+- *Basis: assessment*
 
 ### [Appa: Bending Weather Dynamics with Latent Diffusion Models for Global Data Assimilation](https://arxiv.org/abs/2504.18720)
 Andry et al. (2025), *arXiv*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Infers the current and past global atmospheric state from observations, a prerequisite for accurate forecasts, using a single probabilistic generative model.
+- **Architecture:** Appa: a 565M-parameter latent diffusion model performing score-based data assimilation, conditioned on arbitrary observations without retraining.
+- **Data:** ERA5 at 0.25 degree resolution and 1-hour intervals for training; assimilation experiments with various observation inputs.
+- **Main result:** A single model handles reanalysis, filtering and forecasting, producing physically consistent global trajectories from diverse inputs.
+- **Open work:** Develop latent score-based data assimilation into a foundation for operational global atmospheric modeling systems, including tests with real observing networks.
+- **Issues:** Trained on ERA5 so it inherits reanalysis biases; quantitative skill against operational assimilation systems is not reported in the abstract.
+- *Basis: abstract*
 
 ### [Learning to Infer Weather States Using Partial Observations](https://doi.org/10.1029/2024jh000260)
 Chao et al. (2025), *Journal of Geophysical Research*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Uses the low-dimensional climatological structure of atmospheric circulation as a prior for estimating weather states from sparse observations and designing observation networks.
+- **Architecture:** Deep generative model learning the climatological distribution, combined with station observations for Bayesian posterior state estimation; specific generative family not stated in the abstract.
+- **Data:** Climate reanalysis or simulation output for training; case study of 2 m temperature spatial patterns with few station observations.
+- **Main result:** Learned prior reproduces climatology statistics; posterior estimates are spatially coherent, adaptive to observations and uncertainty-aware, enabling ranking of observation value.
+- **Open work:** Extend to multivariate, three-dimensional states and to operational observation network design.
+- **Issues:** Demonstrated only for 2 m temperature patterns; trained on reanalysis or simulations so inherits their biases.
+- *Basis: abstract*
 
 ### [Data Assimilation with Machine Learning Surrogate Models: A Case Study with FourCastNet](https://arxiv.org/abs/2405.13180)
 Adrian et al. (2024), *arXiv*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether ML weather surrogates, unstable for long rollouts, can support accurate long-term state estimation when combined with sparse noisy observations.
+- **Architecture:** FourCastNet (Fourier neural operator based surrogate) integrated in a variational data assimilation framework, with theoretical analysis of filtering stability.
+- **Data:** Partial, noisy synthetic observations from ERA5.
+- **Main result:** Filtering estimates remain accurate over a year-long assimilation window and provide effective initial conditions for forecasts, including extreme events.
+- **Open work:** Test with real observing systems and other surrogates, and compare with operational assimilation.
+- **Issues:** Uses synthetic observations from ERA5 rather than real observations; idealized setting relative to operational DA.
+- *Basis: abstract+knowledge*
 
 ### [PhyDA: Physics-Guided Diffusion Models for Data Assimilation in Atmospheric Systems](https://arxiv.org/abs/2505.12882)
 Wang et al. (2025), *arXiv*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Makes diffusion-model-based atmospheric data assimilation physically consistent, since purely data-driven reconstructions can violate governing dynamics and harm downstream use.
+- **Architecture:** PhyDA, a physics-guided diffusion model with a physically regularized diffusion objective penalizing PDE residuals and a Virtual Reconstruction Encoder mapping sparse observations to structured latent representations.
+- **Data:** ERA5 reanalysis with sparse synthetic observations; details on resolution, variables and periods are not reported in the abstract.
+- **Main result:** Achieves higher reconstruction accuracy and better physical plausibility than state-of-the-art data assimilation baselines.
+- **Open work:** Apply the approach to real observing systems and operational data assimilation, and extend the set of physical constraints.
+- **Issues:** Evaluated on ERA5 with simulated observations rather than real observation streams; physical constraints are approximate PDE penalties, not hard guarantees.
+- *Basis: abstract*
 
 ### [4D‐Var Using Hessian Approximation and Backpropagation Applied to Automatically Differentiable Numerical and Machine Learning Models](https://doi.org/10.1029/2024ms004608)
 Solvik et al. (2024), *Journal of Advances in Modeling Earth Systems*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Simplifies 4D-Var data assimilation by avoiding hand-written tangent linear and adjoint models when the forecast model supports automatic differentiation.
+- **Architecture:** Non-ML data assimilation method: 4D-Var approximating Gauss-Newton via backpropagation combined with a Hessian approximation, applicable to autodiff physical models or ML surrogate models.
+- **Data:** Idealized Lorenz-96 and quasi-geostrophic models with synthetic observations.
+- **Main result:** The approach is efficient and in some cases more accurate than incremental 4D-Var.
+- **Open work:** Integrate with operational-scale differentiable weather models and ML surrogates in next-generation forecast systems.
+- **Issues:** Tested only on idealized low-dimensional systems; scalability and robustness with real observations and full NWP models remain undemonstrated.
+- *Basis: abstract*
 
 ### [Using data assimilation tools to dissect GraphDOP](https://arxiv.org/abs/2510.27388)
 Laloyaux et al. (2025), *arXiv*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Transfers data assimilation diagnostics such as Forecast Sensitivity-based Observation Impact (FSOI) to machine-learning weather models to make the observation-driven GraphDOP model interpretable and explainable.
+- **Architecture:** Graph neural network (GraphDOP, ECMWF) with a sliding attention window, analysed through adjoint-style sensitivities obtained by automatic differentiation; FSOI computed via gradients of forecast error.
+- **Data:** Conventional in-situ and satellite observations ingested directly by GraphDOP at ECMWF; no reanalysis input. Specific periods not reported in the abstract.
+- **Main result:** The attention window learns meteorological features and spatial relationships, e.g. storm-system movement; FSOI shows GraphDOP builds an internal Earth-system representation combining conventional and satellite observations.
+- **Open work:** Using these diagnostics to guide observing-system design and model development for observation-driven ML forecasting, and comparing ML and NWP observation impacts.
+- **Issues:** Mainly qualitative case-based diagnostics; gradient-based sensitivities of a neural network may be noisy and do not guarantee physical causality.
+- *Basis: assessment*
 
 ### [A novel latent space data assimilation framework with Autoencoder-Observation to Latent space (AE-O2L) network. Part I: the observation-only analysis method](https://doi.org/10.1175/mwr-d-24-0057.1)
 Fan et al. (2025), *Monthly Weather Review*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Reduces the computational burden of data assimilation by performing analysis in a learned latent space directly from observations.
+- **Architecture:** Autoencoder learning a latent space of atmospheric states plus O2Lnet, a neural network mapping observations into the latent space, decoded to obtain the analysis (LSDA-OOA).
+- **Data:** WRF-FDDA analyses (and alternatively forecasts) for training; idealized and real 2 m temperature observations on 1 km grids.
+- **Main result:** LSDA-OOA yields high-quality T2 analyses robust to observation errors, comparable to WRF-FDDA accuracy and much better when background forecasts have large errors.
+- **Open work:** Part II of the series combining background information; extension to more variables and 3D fields.
+- **Issues:** Only 2 m temperature tested; observation-only analysis needs sufficient observations; performance tied to WRF training data.
+- *Basis: abstract*
 
 ### [A Four‐Dimensional Variational Informed Generative Adversarial Network for Data Assimilation](https://doi.org/10.1029/2024ms004437)
 Wang et al. (2025), *Journal of Advances in Modeling Earth Systems*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Accelerates 4DVar data assimilation for data-driven weather prediction while keeping analyses accurate and stable.
+- **Architecture:** 4DVarGAN: conditional generative adversarial network solving the 4DVar cost function non-iteratively, with cycle-consistent adversarial data augmentation and 4DVar-based adaptive adjustment.
+- **Data:** WeatherBench 500 hPa geopotential fields.
+- **Main result:** 73-fold acceleration versus 4DVar with the DDWP model, lowest analysis and forecast errors among DL-based DA methods, and stable results across background qualities.
+- **Open work:** Extension to multivariate, 3D and real observation settings.
+- **Issues:** Single variable (Z500) at coarse resolution; simulated observations; idealized relative to operational DA.
+- *Basis: abstract*
 
 ### [Four-dimensional variational data assimilation with a sea-ice thickness emulator](https://doi.org/10.5194/tc-19-5613-2025)
 Durand et al. (2025), *The Cryosphere*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a variational data assimilation system for Arctic sea-ice thickness, since the neXtSIM brittle-rheology sea-ice model has no adjoint for 4D-Var.
+- **Architecture:** Neural network emulator of neXtSIM sea-ice thickness (convolutional, U-Net-like) whose automatic-differentiation adjoint drives a 4D-Var system, testing two background covariance approximations.
+- **Data:** Arctic-wide neXtSIM mesoscale (~10 km) simulations for emulator training; twin experiments plus assimilation of real CS2SMOS satellite thickness retrievals; comparison with operational neXtSIM-F forecasts.
+- **Main result:** Twin experiments reduce sea-ice thickness RMSE by 0.8 m on average versus the free run and improve marginal ice zone positioning; with CS2SMOS the system corrects forecast bias and matches neXtSIM-F performance.
+- **Open work:** Extend to more variables (concentration, drift), assimilate higher-resolution observations, and refine background covariance modelling for emulator-based 4D-Var.
+- **Issues:** Assimilating smooth CS2SMOS retrievals amplifies loss of small-scale information; emulator covers thickness only and inherits neXtSIM biases; the adjoint is that of the emulator, not the physical model.
+- *Basis: abstract+knowledge*
 
 ### [Evaluating Machine Learning Weather Models for Data Assimilation: Fundamental Limitations in Tangent Linear and Adjoint Properties](https://doi.org/10.1029/2025gl119402)
 Tian et al. (2026), *Geophysical Research Letters*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether ML weather models have physically meaningful tangent linear and adjoint properties required for data assimilation.
+- **Architecture:** Evaluation of tangent linear and adjoint models of GraphCast (graph neural network) and NeuralGCM (hybrid differentiable dynamical core with neural network physics) versus the MPAS-A numerical model.
+- **Data:** Perturbation response experiments with GraphCast, NeuralGCM and MPAS-A; specific initial conditions not detailed in the abstract.
+- **Main result:** ML models show unphysical adjoint sensitivities, persistent localized responses and excessive noise, unlike physically consistent MPAS-A patterns.
+- **Open work:** Improve linearization properties of ML weather models before operational DA use.
+- **Issues:** Only two ML models tested; implications for DA systems are inferred rather than demonstrated in cycled assimilation.
+- *Basis: abstract+knowledge*
 
 ### [A Unified Neural Background‐Error Covariance Model for Midlatitude and Tropical Atmospheric Data Assimilation](https://doi.org/10.1029/2025ms005360)
 Melinc et al. (2025), *Journal of Advances in Modeling Earth Systems*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Model background-error covariances for variational data assimilation that respect physical balances in both midlatitudes and tropics, where standard balance operators are poorly suited.
+- **Architecture:** Neural-network autoencoder whose reduced latent space is used to estimate background-error covariances and perform variational data assimilation in latent space.
+- **Data:** Autoencoder trained on 40 years of ERA5 reanalysis; single-observation experiments (500 hPa geopotential, total column water vapour) and tests with synthetic and operational ensembles of data assimilations.
+- **Main result:** Latent-space DA produces localized, flow-dependent increments consistent with geostrophic and thermal-wind balance in midlatitudes and heating-induced responses in the tropics; forecasts from these analyses evolve realistically, including a Kelvin wave.
+- **Open work:** Developing ensemble-based latent-space 4D-Var and full cycling experiments with real observations.
+- **Issues:** Autoencoder compression causes significant variance loss in some variables; demonstrations rely mainly on single-observation and idealized experiments.
+- *Basis: abstract*
 
 ### [ADAF: An Artificial Intelligence Data Assimilation Framework for Weather Forecasting](https://doi.org/10.1029/2024ms004839)
 Xiang et al. (2025), *Journal of Advances in Modeling Earth Systems*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast AI-based data assimilation framework to produce kilometre-scale near-surface analyses from real multi-source observations at low computational cost.
+- **Architecture:** ADAF: a deep learning data assimilation framework that maps a background field plus sparse observations to an analysis; network family not specified in the abstract.
+- **Data:** Real-world sparse surface weather observations and satellite imagery over CONUS for four near-surface variables; compared with HRRRDAS-initialized forecasts.
+- **Main result:** Analyses align closely with observations, reconstruct extremes such as tropical cyclone wind fields, remain good with poor backgrounds and very sparse observations, run in about 2 s on an AMD MI200 GPU, and improve 0–6 h AI forecasts over HRRRDAS initialization.
+- **Open work:** Extending to more variables, upper-air fields and operational cycling with forecast models.
+- **Issues:** Limited to four near-surface variables over CONUS; verification partly against the same observation types assimilated; no explicit uncertainty estimate.
+- *Basis: abstract*
 
 <a id="remote_sensing"></a>
 ## Remote sensing & clouds
@@ -3623,17 +4397,35 @@ Kurihana et al. (2021), *IEEE Transactions on Geoscience and Remote Sensing*. 23
 ### [Fusion of multi-source precipitation records via coordinate-based generative models](https://doi.org/10.1038/s41467-025-67987-9)
 Sun et al. (2025), *Nature Communications*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Fuses gauges, satellites and model precipitation records, each with different trade-offs, into a unified, more accurate precipitation product.
+- **Architecture:** PRIMER, a coordinate-based diffusion model learning from arbitrary locations, trained in two stages and used for posterior sampling for bias correction, downscaling and data assimilation.
+- **Data:** Gridded satellite and reanalysis precipitation plus irregular rain gauge observations; also applied to operational forecasts and future scenario fields; specific products are not reported in the abstract.
+- **Main result:** Reduces errors at most gauge sites when correcting existing datasets, downscales reanalysis, produces improved analyses with extra gauges, and generalizes without retraining to forecasts and future scenarios.
+- **Open work:** Extend to more regions and variables and use the learned prior in operational data assimilation.
+- **Issues:** Depends on gauge density and quality; generalization to future climates assumes stationarity of the learned prior.
+- *Basis: abstract*
 
 ### [MSWEP V3: Machine Learning-Powered Global Precipitation Estimates at 0.1$^\circ$ Hourly Resolution (1979-Present)](https://arxiv.org/abs/2602.01436)
 Wang et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Produces a global, near-real-time, hourly precipitation dataset from 1979 to present using machine learning to merge multiple sources.
+- **Architecture:** Dataset paper: machine learning model stacks merge satellite and (re)analysis precipitation and temperature with static variables, followed by gauge-based correction; specific learner types not named in the abstract.
+- **Data:** Trained on 15,959 hourly/daily gauges; corrected with 57,666 daily and 86,000 monthly stations; evaluated on 15,958 independent gauges against ERA5, IMERG-L V7, GSMaP V8, CHIRP and others.
+- **Main result:** MSWEP V3 baseline reaches median daily KGE 0.69, beating ERA5 (0.61), IMERG-L (0.46), GSMaP (0.38) and CHIRP (0.31); gauge correction adds 0.09 to median daily correlation.
+- **Open work:** Use for monitoring, forecasting and water-risk management; continued updates with ~2-hour latency.
+- **Issues:** Gauge-sparse regions remain less constrained; evaluation at gauges may not reflect grid-scale accuracy; early-period skill depends on available inputs.
+- *Basis: abstract*
 
 ### [SpecTf: Transformers enable data-driven imaging spectroscopy cloud detection](https://doi.org/10.1073/pnas.2502903122)
 Lee et al. (2025), *Proceedings of the National Academy of Sciences of the United States of America*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Detects clouds, including thin cirrus, in hyperspectral VSWIR imaging spectroscopy where clouds distort quantitative retrievals.
+- **Architecture:** Spectroscopic Transformer (SpecTf), a transformer operating on per-pixel spectra with interpretable attention.
+- **Data:** EMIT imaging spectrometer data with cloud labels; tested for transfer to other imaging spectrometers (details not in the abstract).
+- **Main result:** Produces highly accurate, robust cloud masks, learns physically meaningful spectral features and generalizes between instruments.
+- **Open work:** Develop instrument-agnostic models for new orbital imaging spectrometers.
+- **Issues:** Quantitative accuracy and comparison baselines not given in the abstract; depends on quality of cloud labels.
+- *Basis: abstract*
 
 <a id="extremes"></a>
 ## Extremes & tropical cyclones
@@ -3817,7 +4609,13 @@ Muszynski et al. (2019), *Geoscientific Model Development*. 71 citations.
 ### [Validating Deep-Learning Weather Forecast Models on Recent High-Impact Extreme Events](https://doi.org/10.1175/aies-d-24-0033.1)
 Pasche et al. (2024), *Artificial Intelligence for the Earth Systems*. 71 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether ML weather prediction models forecast rare, high-impact extremes and compound impacts as well as operational NWP, beyond standard benchmark scores.
+- **Architecture:** Evaluation study comparing GraphCast (graph neural network), Pangu-Weather and FourCastNet (transformer/neural operator models) with ECMWF HRES through impact-centric case studies.
+- **Data:** Case studies of the 2021 Pacific Northwest heatwave, the 2023 South Asian humid heatwave and the 2021 North American winter storm; forecasts verified against reanalysis or analysis fields.
+- **Main result:** ML models match HRES locally on the Pacific Northwest heatwave but underperform when aggregated over space and time, forecast the compound winter storm substantially better, and underestimate humid-heat danger over Bangladesh.
+- **Open work:** Wider case-study-driven, impact-centric verification of ML models, and adding the variables needed for health-risk metrics such as humid heat.
+- **Issues:** Only three events, so conclusions are not statistically general; ML models lack key variables (humidity-related heat indices), requiring substitute variables.
+- *Basis: abstract*
 
 ### [Hurricane Forecasting: A Novel Multimodal Machine Learning Framework](https://doi.org/10.1175/waf-d-21-0091.1)
 Boussioux et al. (2020), *Weather and Forecasting*. 64 citations.
@@ -3921,22 +4719,46 @@ Chen et al. (2023), *Atmospheric Science Letters*. 44 citations.
 ### [Benchmark dataset and deep learning method for global tropical cyclone forecasting](https://doi.org/10.1038/s41467-025-61087-4)
 Huang et al. (2025), *Nature Communications*. 35 citations.
 
-*Summary pending.*
+- **Main goal:** Improves deep learning tropical cyclone track and intensity forecasts by providing an open multimodal dataset and a meteorology-informed model.
+- **Architecture:** Benchmark dataset (TCND) plus deep learning model TCNM with modules such as a Generator Chooser Network and Environment-Time Net, integrating meteorological knowledge.
+- **Data:** TCND: 70 years of multi-source tropical cyclone data across six ocean basins, combining best-track records with environmental fields. Exact source products are not detailed in the abstract.
+- **Main result:** TCNM outperforms existing deep learning methods and official meteorological forecasts on multiple track and intensity metrics.
+- **Open work:** Community use of the released dataset and model to advance data-driven tropical cyclone prediction, including rapid intensification.
+- **Issues:** Abstract gives no numerical skill; comparison with official forecasts may depend on lead time, basin and inputs available in real time.
+- *Basis: abstract*
 
 ### [Numerical models outperform AI weather forecasts of record-breaking extremes](https://arxiv.org/abs/2508.15724)
 Zhang et al. (2025), *arXiv*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether AI weather models can forecast unprecedented record-breaking heat, cold and wind extremes.
+- **Architecture:** Evaluation study comparing ECMWF HRES with GraphCast (graph neural network), Pangu-Weather (transformer) and FuXi, including operational versions.
+- **Data:** Record-breaking events identified in recent years; forecasts verified against reanalysis or analysis. Exact periods are not given in the abstract.
+- **Main result:** HRES consistently outperforms AI models for record heat, cold and wind at nearly all leads; AI models underestimate record frequency and intensity, with errors growing with record exceedance.
+- **Open work:** Rigorous verification on extremes and model development for extrapolation beyond the training range.
+- **Issues:** Limited to deterministic models in the abstract; record events are by definition rare, so samples are limited.
+- *Basis: abstract*
 
 ### [Advancing forecasting capabilities: A contrastive learning model for forecasting tropical cyclone rapid intensification](https://doi.org/10.1073/pnas.2415501122)
 Wang et al. (2025), *Proceedings of the National Academy of Sciences of the United States of America*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Improves forecasting of tropical cyclone rapid intensification, which is rare and poorly predicted.
+- **Architecture:** Deep learning model using contrastive learning, handling sample imbalance and incorporating TC structural features from multimodal inputs.
+- **Data:** Satellite, atmospheric and oceanic data; tested on 1,149 TC periods in the Northwest Pacific, 2020–2021.
+- **Main result:** 92.3% accuracy for rapid intensification and false alarm rate of 8.9%, three times lower than prior best deep learning methods.
+- **Open work:** Testing in other basins and in real-time operational settings, and extending to intensity magnitude prediction.
+- **Issues:** Evaluated on two seasons in one basin; operational input latency not discussed in the abstract.
+- *Basis: assessment*
 
 ### [AI-Boosted Rare Event Sampling to Characterize Extreme Weather.](https://doi.org/10.1103/b1gc-9c2q)
 Lancelin et al. (2025), *Physical Review Letters*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Characterizes the statistics and physics of very rare weather extremes, such as millennial heat waves, which are hard to sample with observations or costly climate models.
+- **Architecture:** AI+RES: couples fast AI weather forecasts with a high-fidelity physics model inside a rare-event sampling algorithm; the specific AI architecture is not reported in the abstract.
+- **Data:** Not reported in the abstract; uses a high-fidelity physics-based climate model together with AI weather forecasts.
+- **Main result:** Enables study of once-per-millennium heat waves at two orders of magnitude lower computational cost than direct simulation.
+- **Open work:** Apply the framework to other extremes and fields concerned with rare events, and to changing-climate scenarios.
+- **Issues:** Reliability depends on the AI forecasts representing extreme dynamics well; details of models and validation are not given in the abstract.
+- *Basis: assessment*
 
 ### [Semi-Supervised Detection of Extreme Weather Events in Large Climate Datasets](https://arxiv.org/abs/1612.02095)
 Racah et al. (2016), *arXiv*. 17 citations.
@@ -3952,87 +4774,189 @@ Racah et al. (2016), *arXiv*. 17 citations.
 ### [Evaluation of Tropical Cyclone Track and Intensity Forecasts from Artificial Intelligence Weather Prediction (AIWP) Models](https://arxiv.org/abs/2409.06735)
 DeMaria et al. (2024), *arXiv*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates the utility of AI weather prediction models for operational tropical cyclone track and intensity forecasting.
+- **Architecture:** Verification of four open-source AI models (FourCastNet v1, FourCastNet v2-small, GraphCast-operational, Pangu-Weather) using the NHC verification procedure.
+- **Data:** Northern Hemisphere tropical cyclones, May-November 2023, verified against NHC best tracks and operational models.
+- **Main result:** Track errors comparable to the best operational models and reduce consensus track errors by up to 11%, but intensity errors exceed climatology-persistence with a strong low bias.
+- **Open work:** Develop bias corrections or reformulations for accurate TC intensity forecasts.
+- **Issues:** Only one season; coarse AI models underestimate intensity systematically.
+- *Basis: abstract*
 
 ### [Comparison of AI and NWP Models in Operational Severe Weather Forecasting: A Study on Tropical Cyclone Predictions](https://doi.org/10.1029/2024jh000481)
 Shi et al. (2025), *Journal of Geophysical Research*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses whether AI weather prediction models are reliable for severe weather by comparing operational tropical cyclone forecasts from Pangu-Weather with physics-based NWP.
+- **Architecture:** Evaluation study of Pangu-Weather, a 3D Earth-specific transformer, run from different initial conditions and compared with ECMWF and NCEP numerical weather prediction models; no new model is trained.
+- **Data:** Western Pacific tropical cyclones of 2023 in an operational context, with Pangu-Weather initialized from ECMWF and NCEP analyses and verified against best-track and analysis fields.
+- **Main result:** Pangu-Weather beats NWP for TC track and environmental fields, especially at longer leads, but underestimates intensity and produces a weakened dynamic-thermodynamic TC structure with low sensitivity to initial conditions.
+- **Open work:** Develop hybrid models combining physical processes with data-driven approaches and higher-resolution initial conditions to improve AI forecasts of TC intensity and structure.
+- **Issues:** Overly smooth forecasts and coarse-resolution initial conditions underestimate intensity; single season, single basin and essentially one AI model limit generality.
+- *Basis: abstract+knowledge*
 
 ### [Predicting Beyond Training Data via Extrapolation versus Translocation: AI Weather Models and Dubai's Unprecedented 2024 Rainfall](https://arxiv.org/abs/2505.10241)
 Sun et al. (2025), *arXiv*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates whether and how AI weather models forecast gray swan extremes lying beyond their regional training data, using the unprecedented April 2024 Dubai rainfall.
+- **Architecture:** Analysis of graph neural network and transformer AI weather models (GraphCast, AIFS, FuXi) with fine-tuning experiments and receptive field analyses to separate extrapolation from translocation.
+- **Data:** Operational-style forecasts of the 2024 Dubai storm, whose rainfall was twice the regional training maximum; models trained on ERA5 reanalysis.
+- **Main result:** GraphCast and AIFS forecast the event up to 8 days ahead, FuXi underestimates rainfall; success stems from translocation (learning from similar events elsewhere), with no evidence of extrapolation; global-tail events remain poorly forecast.
+- **Open work:** Improve AI models for tails by addressing data imbalance and spectral bias, and use mechanism-level understanding to improve gray swan forecasting.
+- **Issues:** Single case study; tail errors arise from both generalization error and spectral bias (optimization error), so skill for truly unprecedented global extremes is not demonstrated.
+- *Basis: abstract*
 
 ### [Performance of the Pangu‐Weather Deep Learning Model in Forecasting Tornadic Environments](https://doi.org/10.1029/2024gl109611)
 Hua et al. (2025), *Geophysical Research Letters*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates whether deep learning weather models can forecast severe convective (tornadic) environments, an application not yet explored.
+- **Architecture:** Evaluation of Pangu-Weather, a transformer-based deep learning weather model, against the GFS numerical weather prediction model using derived convective parameters; no new model is trained.
+- **Data:** One-day lead forecasts of CAPE, 0–6 km bulk wind difference and 0–3 km storm-relative helicity at tornado storm-report locations, compared with GFS forecasts.
+- **Main result:** Pangu-Weather generally outperforms GFS for BWD6 and SRH3 at the storm grid point and hour, but underpredicts maximum values of all convective parameters in the 1–2 h before storms over surrounding points.
+- **Open work:** Extend to longer lead times, other DL models and direct prediction of convective hazards.
+- **Issues:** Underprediction of convective parameter maxima reflects smoothing; limited to one-day leads and coarse model resolution that cannot resolve storm-scale processes.
+- *Basis: abstract*
 
 ### [Deep Learning Atmospheric Models Reliably Simulate Out‐of‐Sample Land Heat and Cold Wave Frequencies](https://doi.org/10.1029/2025gl117990)
 Meng et al. (2025), *Geophysical Research Letters*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether deep learning GCMs reproduce extreme heat and cold wave frequencies outside their training period.
+- **Architecture:** Evaluation of the hybrid NeuralGCM and the purely data-driven DLESyM deep learning models against the conventional HiRAM high-resolution model.
+- **Data:** All models forced with observed SST and sea ice over 1900–2020, focusing on out-of-sample 1900–1960.
+- **Main result:** Both DL models reproduce the frequency and spatial patterns of land heatwaves and coldwaves with skill comparable to HiRAM; all perform poorly over parts of North Asia and North America in 1940–1960.
+- **Open work:** Improve temperature persistence in data-driven models and test generalization to future warming.
+- **Issues:** DLESyM overestimates event frequencies due to excessive temperature autocorrelation; early-century observations are uncertain; out-of-sample period is cooler, not warmer.
+- *Basis: abstract*
 
 ### [Evaluating Global Machine Learning Models for Tropical Cyclone Dynamics and Thermodynamics](https://doi.org/10.1029/2025jh000594)
 Sahu et al. (2025), *Journal of Geophysical Research*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Comprehensively evaluates machine learning weather models for tropical cyclone track, intensity and physical structure before they replace NWP.
+- **Architecture:** Evaluation of GraphCast (graph neural network), Pangu-Weather, Aurora and FourCastNet (transformer and neural operator models) against three NWP models and observations.
+- **Data:** Tropical cyclones across all tropical ocean basins; verification against observations (best track) and NWP forecasts.
+- **Main result:** All MLWP models have mean track errors below 200 km at 96 h but underestimate maximum winds; they capture vorticity advection, low-level convergence and warm cores with weaker magnitude; Aurora performs best.
+- **Open work:** Reduce intensity bias by addressing training data biases and the double penalty effect, e.g. through higher resolution or probabilistic training.
+- **Issues:** Intensity low bias linked to reanalysis training data and double penalization; weaker structure magnitudes than observed.
+- *Basis: abstract*
 
 ### [Constructing extreme heatwave storylines with differentiable climate models](https://doi.org/10.5194/wcd-7-393-2026)
 Whittaker et al. (2025), *Weather and Climate Dynamics*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Constructs plausible worst-case heatwave storylines to probe the upper bounds of extreme events for climate risk assessment at low cost.
+- **Architecture:** Gradient-based optimization of initial conditions through the differentiable hybrid climate model NeuralGCM (dynamical core plus neural network physics).
+- **Data:** Case study of the 2021 Pacific Northwest heatwave; compared with a 75-member ensemble. Initial-condition source not detailed in the abstract.
+- **Main result:** Optimized trajectories produce heatwave intensity up to 3.7 °C above the most extreme of 75 ensemble members, with intensified blocking and amplified Rossby waves.
+- **Open work:** Applying the method to other extremes and warmer climates, and quantifying the plausibility and likelihood of optimized storylines.
+- **Issues:** Single event; physical plausibility depends on NeuralGCM fidelity at extremes; optimized initial conditions may be unrealistic and the likelihood of storylines is not quantified.
+- *Basis: abstract*
 
 ### [Harnessing AI data-driven global weather models for climate attribution: An analysis of the 2017 Oroville Dam extreme atmospheric river](https://arxiv.org/abs/2409.11605)
 Baño-Medina et al. (2024), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Explores AI weather models for fast storyline-based climate attribution, using the February 2017 Oroville Dam atmospheric river as a case.
+- **Architecture:** Pretrained AI global weather models (GraphCast, Pangu-Weather, FourCastNet, SFNO) run with initial conditions perturbed by climate change signals; compared to a dynamical model.
+- **Data:** Initial conditions perturbed with pre-industrial and late-21st-century temperature change signals; dynamical model simulations as pseudo-reality; AI ensembles over 500 members.
+- **Main result:** AI models project a 5–6% increase in integrated water vapor over Oroville versus pre-industrial, consistent with the dynamical model, but generally weaker attribution signals, especially for late-21st-century.
+- **Open work:** Use explainable AI to build confidence in physical responses and enable real-time attribution.
+- **Issues:** Reduced extrapolation skill to out-of-distribution climates; models differ in geopotential-moisture-temperature dependencies; single event studied.
+- *Basis: abstract*
 
 ### [FuXi-TC: a generative framework integrating deep learning and physics-based models for improved tropical cyclone forecasts](https://doi.org/10.1038/s41612-026-01501-w)
 Guo et al. (2025), *npj Climate and Atmospheric Science*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Improve tropical cyclone intensity and precipitation forecasts, which AI weather models underestimate because of reanalysis biases, while keeping their track skill.
+- **Architecture:** Diffusion model (FuXi-TC) conditioned on large-scale FuXi forecasts to generatively downscale fine-grained wind and precipitation fields, learning intensity from NWP simulations.
+- **Data:** FuXi global forecasts as conditioning; NWP simulations as high-resolution targets; evaluation on 2024 Western North Pacific TCs and zero-shot on North Atlantic hurricanes.
+- **Main result:** Matches ECMWF deterministic TC intensity skill with better precipitation forecasts at much lower cost, generalizes zero-shot to the North Atlantic, and yields well-dispersed ensembles with FuXi ensemble input.
+- **Open work:** Longer evaluation periods, other basins and coupling with ensemble systems operationally.
+- **Issues:** Evaluation covers a single season; intensity skill is bounded by the NWP simulations used as targets; numbers not given in the abstract.
+- *Basis: abstract*
 
 ### [Global Forecasting of Tropical Cyclone Intensity Using Neural Weather Models](https://doi.org/10.1175/aies-d-25-0073.1)
 Gomez et al. (2025), *Artificial Intelligence for the Earth Systems*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Produce accurate global tropical cyclone intensity forecasts from neural weather models, whose 0.25° outputs smooth out TC extremes.
+- **Architecture:** Hierarchy of post-processing models, from linear regression and MLP to convolutional networks with spatial masking, applied to neural weather model outputs; tracking-independent.
+- **Data:** Pangu-Weather and FourCastNet v2 forecasts as inputs; observational best estimates of maximum wind and minimum sea-level pressure (best-track data) as targets.
+- **Main result:** Accurate and reliable TC intensity forecasts up to five days ahead; even linear models extract information beyond initial conditions, and convolutional models show no clear advantage over MLPs.
+- **Open work:** Extending to longer lead times, other neural weather models and operational deployment.
+- **Issues:** Quantitative skill versus operational NWP is not stated in the abstract; inherits track and structure errors from the underlying neural weather models.
+- *Basis: abstract*
 
 ### [On the Predictive Skill of Artificial Intelligence-based Weather Models for Extreme Events using Uncertainty Quantification](https://doi.org/10.1175/aies-d-25-0113.1)
 Almeida et al. (2025), *Artificial Intelligence for the Earth Systems*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Assess how deterministic AI weather models respond to initial-condition perturbations and how well the resulting ensembles forecast extreme events.
+- **Architecture:** Ensembles from deterministic AI models FuXi, GraphCast and SFNO (spherical Fourier neural operator) generated with Gaussian, Perlin noise, Hemispheric Centered Bred Vectors and Huge Ensembles perturbations.
+- **Data:** 50-member ensembles for the August 2022 Pakistan floods and China heatwave plus a global threshold-based evaluation, verified against ERA5 and compared with IFS ENS and AIFS ENS.
+- **Main result:** Simple Gaussian and Perlin perturbations give spread and skill similar to flow-based methods; the gap to NWP ensembles and native probabilistic models narrows but remains. Model choice dominates; temperature extremes are captured better than precipitation.
+- **Open work:** Improving perturbation strategies and comparing with natively probabilistic AI models for early-warning systems.
+- **Issues:** Case studies limited to two events; verification against ERA5 which underrepresents extremes.
+- *Basis: abstract*
 
 ### [Global performance benchmarking of artificial intelligence models in atmospheric river forecasting](https://doi.org/10.1038/s43247-025-02823-y)
 Zhang et al. (2025), *Communications Earth & Environment*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Benchmark AI weather models for atmospheric river forecasting globally and regionally to guide their use and development.
+- **Architecture:** Benchmark evaluation of five AI weather models including FuXi and hybrid NeuralGCM; not a new ML model.
+- **Data:** Forecasts from five AI models verified against reanalysis (likely ERA5); case studies on North and South American coasts.
+- **Main result:** FuXi performs best globally at 10-day lead for meteorological fields and AR metrics; NeuralGCM better predicts AR intensity and shape regionally. Landfall location beyond one week remains difficult.
+- **Open work:** Refining AI models for region-specific AR forecasts and landfall prediction.
+- **Issues:** Limited to deterministic forecasts and a few case studies; the other three models are not named in the abstract.
+- *Basis: abstract*
 
 ### [Quantifying Very Extreme Precipitation and Temperature Using Huge Ensembles Generated by Machine Learning-based Climate Model Emulators](https://doi.org/10.1175/bams-d-25-0178.1)
 Paciorek et al. (2025), *Bulletin of The American Meteorological Society - (BAMS)*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Assess statistically whether huge ML emulator ensembles can estimate very extreme precipitation and temperature quantiles, e.g. for Probable Maximum Precipitation.
+- **Architecture:** Extreme value statistical analysis (threshold-exceedance methods) applied to a huge ensemble from the ACE2 ML climate emulator; not a new ML model.
+- **Data:** 10,560-year ACE2 ensemble trained on ERA5, over the contiguous United States.
+- **Main result:** Very extreme quantiles can be estimated practically with threshold-exceedance methods at high thresholds; results are robust across seasons and storm types, and statistical uncertainty is well constrained. The emulator produces extremes beyond the ERA5 range.
+- **Open work:** Determining whether emulators are physically fit for quantifying extreme climatology, and applying the methods to improved emulators.
+- **Issues:** Emulator fidelity for extremes is not established; coarse ACE2 resolution limits local precipitation extremes.
+- *Basis: abstract*
 
 ### [Severe weather forecasts from artificial intelligence weather prediction models](https://doi.org/10.1175/aies-d-25-0065.1)
 White et al. (2026), *Artificial Intelligence for the Earth Systems*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Generate severe weather guidance at 1–8 day leads, mimicking SPC convective outlooks, from AI weather prediction model environments.
+- **Architecture:** Random forest models using environments from PanguWeather, FourCastNet v2-small and GraphCast, including median-combined inputs and RF ensembles.
+- **Data:** Severe weather reports as targets; AIWP model forecasts as inputs; evaluation over 2024 against GEFS Machine Learning Probabilities guidance.
+- **Main result:** Skillful individual hazard forecasts out to day 7, though operational GEFS ML guidance is often better at some leads; median-combined inputs and ensembles improve skill, with Pangu-based RF competitive.
+- **Open work:** Exploiting ensembles of AIWP-based guidance and longer evaluation periods.
+- **Issues:** Evaluated on one year; AIWP smoothing of convective environments may limit skill.
+- *Basis: abstract*
 
 ### [Evaluating machine learning and numerical models for wintertime atmospheric blocking prediction](https://doi.org/10.1175/aies-d-25-0067.1)
 Huang et al. (2026), *Artificial Intelligence for the Earth Systems*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates for the first time how well machine learning weather prediction models forecast Northern Hemisphere winter atmospheric blocking, a driver of weather extremes.
+- **Architecture:** Benchmark evaluation of four ML weather models (Pangu-Weather transformer, FuXi transformer, GraphCast graph neural network, NeuralGCM hybrid physics–ML) against ECMWF HRES.
+- **Data:** Winter forecasts 2018–2022 over the Northern Hemisphere, verified against ERA5 reanalysis.
+- **Main result:** FuXi has lowest Z500 RMSE but underestimates blocking frequency, especially in the Pacific; NeuralGCM has the best blocking skill (73.68% at day 5, 39.59% at day 9); HRES remains competitive in the Pacific; skill degrades rapidly beyond day 5.
+- **Open work:** Incorporating key boundary conditions and improving interpretability of ML models for blocking prediction.
+- **Issues:** Deterministic forecasts only; limited five-winter sample; verification against ERA5 which some ML models were trained on.
+- *Basis: abstract*
 
 ### [Atmospheric Rivers in Machine Learning Weather Models](https://doi.org/10.1175/waf-d-25-0142.1)
 Swenson et al. (2026), *Weather and forecasting*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how machine learning weather prediction models represent atmospheric rivers, filamentary high-impact features that may be smoothed by ML loss functions.
+- **Architecture:** Evaluation study comparing GraphCast (graph neural network) and Pangu-Weather (transformer) with operational NWP models GFS and IFS, using grid-point, object-based and storm-relative composite verification.
+- **Data:** Wintertime North Pacific atmospheric river forecasts at 1–10 day leads, verified against reanalysis.
+- **Main result:** ML models represent ARs well by aggregate metrics but ARs are slightly too weak and too small relative to reanalysis and NWP, with systematic differences in dynamic and thermodynamic biases within strong ARs.
+- **Open work:** Using phenomenon-specific diagnostics to guide forecaster interpretation and improvements to both MLWP and NWP models.
+- **Issues:** Only two deterministic ML models and one region and season; reanalysis used for verification may be close to ML training targets.
+- *Basis: abstract*
 
 ### [Evaluation of AI-based tropical cyclone forecasts in the western North Pacific: Insights from the 2024 Typhoon Committee ET-AITC multi model dataset](https://doi.org/10.1175/aies-d-25-0097.1)
 Lee et al. (2026), *Artificial Intelligence for the Earth Systems*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates AI-based tropical cyclone track and intensity forecasts for the 2024 western North Pacific season from models shared through the Typhoon Committee ET-AITC.
+- **Architecture:** Verification study of 19 forecast configurations from AI global weather forecasting models with vortex-tracking algorithms, assessed by model and initial conditions.
+- **Data:** 2024 western North Pacific typhoon forecasts verified against RSMC Tokyo best-track data; compared with NWP models and official forecasts.
+- **Main result:** Top 25% of AI-TC forecasts have track errors comparable to or smaller than NWP and official forecasts, beating NWP mean position errors in about 71% of cases; intensity shows a substantial low bias, with about 76% worse than NWP.
+- **Open work:** Bias correction of intensity, further model development and broader data sharing for operational use.
+- **Issues:** Single season; AI models underestimate intensity throughout the forecast; configurations differ in initial conditions and trackers, complicating attribution.
+- *Basis: abstract*
 
 <a id="xai"></a>
 ## Explainability & causality
@@ -4194,7 +5118,13 @@ Ebert-Uphoff et al. (2020), *Bulletin of the American Meteorological Society*. 6
 ### [Are AI weather models learning atmospheric physics? A sensitivity analysis of cyclone Xynthia](https://doi.org/10.1038/s41612-025-00949-6)
 Baño-Medina et al. (2025), *npj Climate and Atmospheric Science*. 38 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether AI weather models learn physically meaningful dynamics by using them for initial-condition sensitivity analysis of an extreme cyclone.
+- **Architecture:** Backpropagation gradients of a forecast metric through an AI weather model with respect to initial fields, compared with an adjoint of a dynamical NWP model.
+- **Data:** Cyclone Xynthia (2010) case at 36-hour lead time; the AI model is trained on reanalysis. Specific model and data products are not named in the abstract.
+- **Main result:** AI-model sensitivities closely resemble adjoint sensitivities, and evolved perturbations produce similar impacts, indicating physically meaningful learned spatio-temporal links.
+- **Open work:** Using AI gradients for observing network design and dynamics studies at nonlinear lead times beyond 5 days.
+- **Issues:** Single case study at one lead time; agreement with an adjoint does not prove physical realism in general.
+- *Basis: abstract*
 
 ### [Learning Closed‐Form Equations for Subgrid‐Scale Closures From High‐Fidelity Data: Promises and Challenges](https://doi.org/10.1029/2023ms003874)
 Jakhar et al. (2023), *Journal of Advances in Modeling Earth Systems*. 29 citations.
@@ -4210,17 +5140,35 @@ Jakhar et al. (2023), *Journal of Advances in Modeling Earth Systems*. 29 citati
 ### [Moving beyond post hoc explainable artificial intelligence: a perspective paper on lessons learned from dynamical climate modeling](https://doi.org/10.5194/gmd-18-787-2025)
 O’Loughlin et al. (2025), *Geoscientific Model Development*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Argues that trust in AI climate models should be built not only through post hoc explainable AI but also via lessons from physics-based dynamical climate model development.
+- **Architecture:** Review and perspective proposing instrumental, statistical and component-level understanding as a framework for evaluating trust in dynamical and AI models; non-ML conceptual method.
+- **Data:** No new data; draws on the history of climate model intercomparison projects and examples from the AI climate science literature.
+- **Main result:** Post hoc XAI mainly adds statistical understanding; component-level understanding, as achieved through intercomparison projects, requires AI models with interpretable components.
+- **Open work:** Build AI climate models with interpretable, modular components amenable to component-level diagnosis and intercomparison.
+- **Issues:** Conceptual paper without quantitative tests; cited successes in component-level understanding of AI models remain limited.
+- *Basis: abstract*
 
 ### [Towards mechanistic understanding in a data-driven weather model: internal activations reveal interpretable physical features](https://arxiv.org/abs/2512.24440)
 MacMillan et al. (2025), *arXiv*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates whether the internal representations of a data-driven weather model are interpretable and physically consistent, toward mechanistic understanding.
+- **Architecture:** Mechanistic interpretability of GraphCast, a graph neural network, using sparse autoencoders on intermediate layer activations, plus feature interventions during prediction.
+- **Data:** GraphCast activations from forecasts initialized from ERA5-like global states; specific periods are not reported in the abstract.
+- **Main result:** Finds interpretable features for tropical cyclones, atmospheric rivers, diurnal and seasonal cycles, precipitation patterns, geography and sea ice; editing a cyclone feature produces physically consistent hurricane changes.
+- **Open work:** Extend interpretability analyses to other data-driven models and use feature interventions for scientific discovery and trust assessment.
+- **Issues:** Qualitative case-study evidence; features found may depend on sparse autoencoder settings, and physical consistency of interventions is assessed for few cases.
+- *Basis: abstract*
 
 ### [Learning Physically Interpretable Atmospheric Models From Data With WSINDy](https://doi.org/10.1029/2025jh000602)
 Minor et al. (2024), *Journal of Geophysical Research*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Discovers interpretable governing equations for atmospheric phenomena as an alternative to opaque neural weather models.
+- **Architecture:** Weak-form sparse identification of nonlinear dynamics (WSINDy), a sparse-regression equation-discovery method (not a neural network), adapted to high-dimensional fluid data.
+- **Data:** Simulated atmospheric data and assimilated (reanalysis) data; specific products not reported in the abstract.
+- **Main result:** WSINDy learns effective symbolic PDE models of atmospheric dynamics from both simulated and assimilated data.
+- **Open work:** Scaling to more complex, multivariate and 3D atmospheric systems and assessing forecast skill of discovered models.
+- **Issues:** Demonstration-focused without detailed skill comparison against ML models; library choice constrains discoverable physics.
+- *Basis: assessment*
 
 <a id="ocean"></a>
 ## Ocean
@@ -4492,77 +5440,167 @@ Zhang et al. (2023), *Journal of Advances in Modeling Earth Systems*. 35 citatio
 ### [Extended Reconstructed Sea Surface Temperature Version 6 (ERSSTv6): Part I. An Artificial Neural Network Approach](https://doi.org/10.1175/jcli-d-23-0707.1)
 Huang et al. (2025), *Journal of Climate*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Improves NOAA's ERSST reconstruction, especially low SST variability in data-sparse regions before the 1950s.
+- **Architecture:** Artificial neural network (MLP-type ANN) interpolation replacing the empirical orthogonal teleconnection method, with the 3-month running average removed.
+- **Data:** In situ SST observations (ICOADS-based) used to build ERSSTv6; evaluated against validation, testing and observation datasets and compared with ERSSTv5.
+- **Main result:** Spatial correlation with observations rises by 5% and RMSD falls by 0.03°C relative to ERSSTv5, with larger gains in the tropical Pacific and 30°S–60°S.
+- **Open work:** Part II addresses the low skill against in situ observations after the 1970s; further uncertainty quantification of the reconstruction.
+- **Issues:** Improvements are modest; reconstruction in sparse early periods remains uncertain and depends on training-period covariances.
+- *Basis: abstract+knowledge*
 
 ### [Data-driven global ocean modeling for seasonal to decadal prediction](https://doi.org/10.1126/sciadv.adu2488)
 Guo et al. (2024), *Science Advances*. 32 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a data-driven 3D global ocean model for seasonal to decadal prediction, where numerical models remain costly and limited.
+- **Architecture:** ORCA-DL, a deep learning three-dimensional global ocean model; the specific network family is not stated in the abstract.
+- **Data:** Global ocean training data from simulations and/or reanalysis; specific products and periods are not given in the abstract.
+- **Main result:** Simulates 3D ocean structure with high physical consistency, outperforms state-of-the-art numerical models on ENSO and upper-ocean heatwaves, and stays stable at decadal scales.
+- **Open work:** Skilful decadal predictions and climate projections, and coupling with atmospheric components.
+- **Issues:** Decadal and projection skill is suggested rather than fully demonstrated; reliance on limited ocean observations and reanalysis for training.
+- *Basis: abstract*
 
 ### [GLONET: Mercator's End‐to‐End Neural Global Ocean Forecasting System](https://doi.org/10.1029/2025jh000686)
 Aouni et al. (2024), *Journal of Geophysical Research*. 25 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a neural global ocean forecasting system matching physics-based systems at lower cost.
+- **Architecture:** GLONET, a neural network combining neural operators and networks to capture local-global interactions in a scalable framework.
+- **Data:** Trained on GLORYS12 reanalysis; benchmarked against Mercator's GLO12 1/12° system and another GLORYS12-trained neural system.
+- **Main result:** Promising preliminary performance for temperature, sea surface height, salinity and currents, with tailored validation metrics beyond point-wise errors.
+- **Open work:** Fuller evaluation, operational use via EDITO, and coupling to data assimilation.
+- **Issues:** Preliminary evaluation; trained on reanalysis so inherits its biases; relies on GLORYS initial states.
+- *Basis: abstract*
 
 ### [Ocean Wave Forecasting With Deep Learning as Alternative to Conventional Models](https://doi.org/10.1029/2025ms005285)
 Zhang et al. (2024), *Journal of Advances in Modeling Earth Systems*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Tests deep learning as an efficient alternative to conventional spectral wave models for operational ocean wave forecasting.
+- **Architecture:** OceanCastNet: a deep neural network forecasting significant wave height, mean wave period and mean wave direction from wind and wave fields; network family not detailed in the abstract.
+- **Data:** Wind and wave fields as inputs (training dataset not stated); validation with NDBC buoys and Jason-3 satellite altimetry against ECWAM.
+- **Main result:** Better than ECWAM at 24 NDBC stations versus 10, similar accuracy against Jason-3 through 228 h, and errors within about 0.5 m during Typhoon Goni.
+- **Open work:** Extend to coupled wind-wave forecasting and operational deployment.
+- **Issues:** Depends on wind forcing quality; extreme-event evaluation is a single typhoon case.
+- *Basis: abstract*
 
 ### [NeuralOM: Neural Ocean Model for Subseasonal-to-Seasonal Simulation](https://arxiv.org/abs/2505.21020)
 Gao et al. (2025), *AAAI Conference on Artificial Intelligence*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Enables stable long-term ML simulation of slow ocean dynamics for subseasonal-to-seasonal prediction, where autoregressive errors accumulate.
+- **Architecture:** NeuralOM: a neural operator framework with progressive residual correction and a physics-guided graph neural network with adaptive message passing.
+- **Data:** Global ocean S2S simulation data; the specific reanalysis product is not reported in the abstract.
+- **Main result:** Outperforms state-of-the-art models in accuracy and stability, with 13.3% lower RMSE than the best baseline at 60-day lead, and better extreme events.
+- **Open work:** Extend to coupled ocean-atmosphere and longer climate timescales.
+- **Issues:** Evaluation details and data source not given in the abstract; likely trained on reanalysis so inherits its biases.
+- *Basis: abstract*
 
 ### [Generalizable Neural‐Network Parameterization of Mesoscale Eddies in Idealized and Global Ocean Models](https://doi.org/10.1029/2025gl117046)
 Perezhogin et al. (2025), *Geophysical Research Letters*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Improves generalization of data-driven mesoscale eddy parameterizations in ocean models across grid resolutions, depths and configurations.
+- **Architecture:** Neural network (ANN) parameterization of mesoscale eddy fluxes with physics constraints and local dimensional scaling of inputs and outputs using grid spacing as a length scale.
+- **Data:** High-resolution ocean simulations coarse-grained for training; tested offline in the global ocean and online in idealized and global ocean models (MOM6-based configurations).
+- **Main result:** Dimensional scaling enables offline generalization to unseen resolutions and depths and improves kinetic and potential energy in online idealized and global simulations relative to baselines.
+- **Open work:** Apply the general dimensional-scaling algorithm to other data-driven parameterizations and further reduce global ocean biases.
+- **Issues:** Impact on global ocean biases is mixed and discussed rather than uniformly positive; trained on specific simulation data, so remaining structural errors are possible.
+- *Basis: abstract+knowledge*
 
 ### [FuXi-Ocean: A Global Ocean Forecasting System with Sub-Daily Resolution](https://arxiv.org/abs/2506.03210)
 Huang et al. (2025), *Neural Information Processing Systems*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Provides efficient sub-daily, eddy-resolving global ocean forecasts, as numerical models are costly and data-driven models typically work at daily resolution.
+- **Architecture:** FuXi-Ocean, a transformer-type model with context-aware feature extraction and stacked attention blocks, plus a Mixture-of-Time module that adaptively combines predictions from multiple temporal contexts.
+- **Data:** Global ocean data at 1/12° resolution, six-hourly, down to 1500 m; specific reanalysis products are not reported in the abstract.
+- **Main result:** First data-driven global ocean model with six-hourly 1/12° forecasts; superior skill for temperature, salinity and currents across depths.
+- **Open work:** Extend to deeper levels, coupled ocean-atmosphere forecasting and longer lead times.
+- **Issues:** Trained on ocean reanalysis, so inherits its biases; quantitative skill margins and uncertainty are not reported in the abstract.
+- *Basis: abstract*
 
 ### [Regional Modeling of Storm Surges Using Localized Features and Transfer Learning](https://doi.org/10.1029/2025jh000650)
 Nagaraj et al. (2025), *Journal of Geophysical Research*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Produces long storm surge time series along coastlines, including at ungauged locations, for extreme value and hazard analysis.
+- **Architecture:** Regional long short-term memory (LSTM) recurrent neural network with dynamic atmospheric and oceanic predictors and static local features, using transfer learning.
+- **Data:** Storm surge observations from 31 Florida tide gauges as predictand; atmospheric and oceanic predictors; static shelf width, nearshore slope, shelter factor and tidal range; compared with a hydrodynamic hindcast.
+- **Main result:** Static attributes increase Pearson correlation by 20% and reduce RMSE by 22% in cross-validation; outperforms a state-of-the-art hydrodynamic hindcast at most locations.
+- **Open work:** Generate hindcasts and future projections to analyse trends, decadal variability and return levels.
+- **Issues:** Limited to Florida; tide gauge records are short and gappy; skill for the most extreme surges and at ungauged sites is less certain.
+- *Basis: abstract*
 
 ### [A Data‐Driven Approach for Parameterizing Ocean Submesoscale Buoyancy Fluxes](https://doi.org/10.1029/2025ms004991)
 Bodner et al. (2023), *Journal of Advances in Modeling Earth Systems*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a data-driven parameterization of unresolved submesoscale vertical buoyancy fluxes in the ocean mixed layer for GCMs.
+- **Architecture:** Convolutional neural network (CNN) predicting mixed-layer vertical buoyancy flux from large-scale variables, compared with a physics-based submesoscale parameterization.
+- **Data:** 12 regions sampled from the global high-resolution MITgcm LLC4320 simulation, coarse-grained at several filter scales.
+- **Main result:** The CNN shows high offline skill across regions, seasons and filter scales, though lower in winter and spring when submesoscales are most active; it depends on the large-scale strain field.
+- **Open work:** Online implementation in GCMs and adding strain/frontogenesis dependence to physics-based parameterizations.
+- **Issues:** Offline-only evaluation; trained on a single model simulation; reduced skill in seasons of strongest submesoscale activity.
+- *Basis: abstract*
 
 ### [A Machine Learning‐Based Model Infers the Sea Surface Velocity of Surface Water and Ocean Topography (SWOT)](https://doi.org/10.1029/2024gl110731)
 Zhou et al. (2025), *Geophysical Research Letters*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Infers total sea surface velocity, including ageostrophic components, from SWOT sea surface height for submesoscale studies.
+- **Architecture:** Machine-learning model mapping SWOT-derived fields to drifter-observed velocities; model type not specified in the abstract.
+- **Data:** SWOT satellite sea surface height and geostrophic velocity with drifter velocities as targets; compared with reanalysis kinetic energy.
+- **Main result:** Errors relative to drifter velocities are reduced by about 50% versus SWOT geostrophic velocity; kinetic energy agrees better with reanalysis, especially at low latitudes.
+- **Open work:** Global application to produce high-resolution SSV products and study submesoscale dynamics.
+- **Issues:** Drifters are sparse and include wind-driven components; short SWOT record; validation against reanalysis is indirect.
+- *Basis: assessment*
 
 ### [Online Learning in Idealized Ocean Gyres](https://doi.org/10.1029/2024ms004883)
 Maddison (2024), *Journal of Advances in Modeling Earth Systems*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Tests online (end-to-end) learning of neural network eddy parameterizations in an idealized ocean gyre.
+- **Architecture:** Neural network forcing an automatically differentiable barotropic dynamical solver, trained online through the hybrid system dynamics.
+- **Data:** High-resolution simulations of the idealized barotropic Stommel-Munk wind-driven gyre as reference.
+- **Main result:** A suitably trained NN yields a stable coarse model with reasonable mean state and intrinsic variability, with some generalization to modified wind forcing.
+- **Open work:** Enforcing symmetries and extending online learning to more realistic baroclinic ocean models.
+- **Issues:** Highly idealized barotropic setting; the NN parameterized model fails to respect an intrinsic symmetry of the system.
+- *Basis: abstract*
 
 ### [ORCAst: Operational High-Resolution Current Forecasts](https://arxiv.org/abs/2501.12054)
 Garcia et al. (2025), *arXiv*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Produces operational, high-resolution global nowcasts and week-long forecasts of ocean surface currents from incomplete satellite and in situ observations.
+- **Architecture:** Multi-stage, multi-arm encoder-decoder neural network (ORCAst) that first predicts sea surface height and geostrophic currents, then total surface currents.
+- **Data:** Trained entirely on observations: nadir and SWOT altimetry for SSH and geostrophic currents, and sparse drifter velocities for surface currents; regional training variants.
+- **Main result:** Achieves stronger nowcast and forecast skill for ocean surface currents than various state-of-the-art methods; region-specific training further improves performance.
+- **Open work:** Integrate more observation types, extend lead times and improve global generalization without regional retraining.
+- **Issues:** Drifter ground truth is sparse and unevenly distributed; quantitative gains and baselines are not detailed in the abstract.
+- *Basis: abstract*
 
 ### [A deep learning global ocean forecasting model with sub-daily and eddy-resolving resolution](https://doi.org/10.1038/s41612-026-01444-2)
 Niu et al. (2026), *npj Climate and Atmospheric Science*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Delivers global ocean forecasts at sub-daily, eddy-resolving resolution with deep learning, independent of NWP atmospheric forcing.
+- **Architecture:** Deep learning ocean forecasting model (FuXi-Ocean) that adaptively fuses forecasts across multiple temporal windows to limit autoregressive error growth; network family not specified in the abstract.
+- **Data:** Global 1/12° ocean data to 1500 m depth at 6-hourly steps (likely an ocean reanalysis such as GLORYS); near-surface atmospheric variables for initialization; evaluation for 2022.
+- **Main result:** Stable 10-day forecasts despite four times more autoregressive steps than daily models, outperforming WenHai for temperature, salinity, currents, SST and sea level anomaly.
+- **Open work:** Extend lead times and fully couple with AI atmospheric models.
+- **Issues:** Evaluated over a single year, likely against reanalysis; omits deeper ocean below 1500 m; NWP-independence limits use of atmospheric forecast information.
+- *Basis: abstract*
 
 ### [Neural prediction of Lagrangian drift trajectories on the sea surface](https://doi.org/10.1175/aies-d-24-0052.1)
 Botvynko et al. (2025), *Artificial Intelligence for the Earth Systems*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates Lagrangian drift trajectories at the sea surface more accurately than model-based and learning-based methods.
+- **Architecture:** DriftNet, a deep convolutional neural network inspired by the Eulerian Fokker-Planck representation, taking Eulerian surface currents and an encoded initial position.
+- **Data:** Two benchmarks with fully simulated ocean data and one combining operational ocean reanalysis with in situ drifters; North East Pacific and Gulf Stream regions; SSH inputs from model and observations.
+- **Main result:** DriftNet outperforms state-of-the-art model-based and learning-based drift methods; the study also quantifies the influence of SSH inputs on drift simulation.
+- **Open work:** Extend to global domains, longer trajectories and observation-only inputs.
+- **Issues:** Two regions only; depends on quality of input current fields; quantitative gains not given in the abstract.
+- *Basis: abstract*
 
 ### [Data-driven global ocean model resolving atmospherically forced ocean dynamics](https://doi.org/10.1126/sciadv.aed1225)
 Kim et al. (2025), *Science Advances*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a deep learning global 3D ocean model able to simulate oceanic responses to atmospheric forcing, as a step toward coupled DL climate models.
+- **Architecture:** KIST-Ocean: a deep learning global three-dimensional ocean general circulation model forced by atmospheric fields; network family not specified in the abstract.
+- **Data:** Global ocean reanalysis and atmospheric forcing data; specific products not reported in the abstract.
+- **Main result:** Shows robust, efficient ocean simulation and reproduces Kelvin and Rossby wave propagation and wind-stress-curl-driven vertical motions underlying ENSO.
+- **Open work:** Coupling with DL atmosphere models toward integrated Earth system simulation and long-range climate prediction.
+- **Issues:** Quantitative skill metrics and data sources are not given in the abstract; trained on reanalysis so inherits its biases; uncoupled ocean-only setting.
+- *Basis: abstract*
 
 <a id="seaice"></a>
 ## Sea ice
@@ -4636,7 +5674,13 @@ Durand et al. (2024), *The Cryosphere*. 25 citations.
 ### [SICNetseason V1.0: a transformer-based deep learning model for seasonal Arctic sea ice prediction by incorporating sea ice thickness data](https://doi.org/10.5194/gmd-18-2665-2025)
 Ren et al. (2025), *Geoscientific Model Development*. 25 citations.
 
-*Summary pending.*
+- **Main goal:** Improves seasonal Arctic sea ice prediction across the spring predictability barrier.
+- **Architecture:** SICNetseason, a transformer-based deep learning model predicting sea ice concentration, using spring sea ice thickness as input.
+- **Data:** Sea ice concentration and thickness data; 2000–2019 test and 2020–2023 generalization tests, compared with ECMWF SEAS5 and persistence.
+- **Main result:** Detrended ACC of September extent improves by 7.7% and 10.61% over SEAS5 for May and April starts, and over 41% and 36% versus persistence.
+- **Open work:** Better sea ice thickness observations and extension to other seasons and Antarctic.
+- **Issues:** Relies on sea ice thickness products of limited quality; short test period; skill on extremes not detailed.
+- *Basis: assessment*
 
 ### [Deep learning subgrid-scale parametrisations for short-term forecasting of sea-ice dynamics with a Maxwell elasto-brittle rheology](https://doi.org/10.5194/tc-17-2965-2023)
 Finn et al. (2023), *The Cryosphere*. 19 citations.
@@ -4652,42 +5696,90 @@ Finn et al. (2023), *The Cryosphere*. 19 citations.
 ### [Developing a deep learning forecasting system for short-term and high-resolution prediction of sea ice concentration](https://doi.org/10.5194/tc-19-4149-2025)
 Kvanum et al. (2025), *The Cryosphere*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Provides skilful, high-resolution short-term sea ice forecasts for maritime users in the Arctic.
+- **Architecture:** Computationally lightweight deep learning model (convolutional U-Net) predicting regional ice charts from atmospheric forecasts, ice charts and passive microwave sea ice concentration.
+- **Data:** Operational atmospheric forecasts, ice charts and passive microwave sea ice concentration as predictors; future ice charts as targets; East Greenland and Barents seas at 1 km.
+- **Main result:** Lower sea ice concentration contour errors at 1–3 day leads than persistence, free drift, linear trend and dynamical systems neXtSIM and Barents-2.5, across all seasons.
+- **Open work:** Extend coverage, lead time and probabilistic output for operational use.
+- **Issues:** Regional domain only; limited to 1–3 day leads; ice chart targets are subjective analyses; deterministic output.
+- *Basis: abstract+knowledge*
 
 ### [Seasonal forecasting of Pan-Arctic sea ice with state space model](https://doi.org/10.1038/s41612-025-01058-0)
 Wang et al. (2025), *npj Climate and Atmospheric Science*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Improves seasonal forecasting of Pan-Arctic sea ice concentration, where dynamical models are costly and deep learning struggles with seasonal variation and uncertainty.
+- **Architecture:** IceMamba, a state space model (Mamba) deep learning architecture integrating attention mechanisms.
+- **Data:** Pan-Arctic sea ice concentration data; specific products and periods are not reported in the abstract; compared with 25 dynamical, statistical and deep learning forecast models.
+- **Main result:** Best average RMSE and anomaly correlation coefficient among all tested models and second in Integrated Ice Edge Error.
+- **Open work:** Improve ice-edge skill and quantify forecast uncertainty for climate adaptation applications.
+- **Issues:** Not best on ice-edge error; uncertainty quantification and physical interpretability are not reported in the abstract.
+- *Basis: abstract*
 
 ### [IceBench: A Benchmark for Deep Learning based Sea Ice Type Classification](https://arxiv.org/abs/2503.17877)
 Taleghan et al. (2025), *arXiv*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a standardized benchmark for deep learning sea ice type classification, since lack of one prevents consensus on the best models.
+- **Architecture:** Benchmark framework (IceBench) comparing pixel-based (segmentation, e.g. U-Net-style) and patch-based (CNN classifier) deep learning methods with a comprehensive set of metrics.
+- **Data:** AI4Arctic Sea Ice Challenge Dataset (Sentinel-1 SAR with AMSR2 passive microwave and ice charts).
+- **Main result:** Comparative study identifies best-performing models under different conditions and studies transferability across seasons and locations, downsampling and preprocessing.
+- **Open work:** Integrate further methods into the open-source framework and improve spatial and temporal transferability.
+- **Issues:** Limited to one dataset and its ice chart labels; transfer to other regions and sensors is uncertain.
+- *Basis: abstract+knowledge*
 
 ### [Advancing global sea ice prediction capabilities using a fully coupled climate model with integrated machine learning](https://doi.org/10.1126/sciadv.ady8957)
 Gregory et al. (2025), *Science Advances*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Improves seasonal sea ice prediction by embedding machine-learning sea ice bias correction online in a fully coupled climate model.
+- **Architecture:** Hybrid model: neural network bias-correction inference embedded in GFDL SPEAR; compares HybridCPL (trained with coupled ice-atmosphere-ocean feedbacks) and HybridIO (trained in ice-ocean configuration without feedbacks).
+- **Data:** GFDL SPEAR global fully coupled 1-year retrospective forecasts; training data from SPEAR data-assimilation increments (details not reported in the abstract).
+- **Main result:** HybridCPL reduces Arctic seasonal errors and Antarctic errors for May to December targets, with more than 2x error reduction at 4–6 month leads for Antarctic winter extent; HybridIO drifts to ice-free Antarctic summers.
+- **Open work:** Extending online ML corrections to other components and longer forecasts, and improving robustness of ML corrections to coupled feedbacks.
+- **Issues:** Training without coupled feedbacks causes out-of-sample instability; gains are confined to sea ice within one model system and forecast length is one year.
+- *Basis: abstract*
 
 ### [FloeNet: A Mass‐Conserving Global Sea Ice Emulator That Generalizes Across Climates](https://doi.org/10.1029/2026gl122981)
 Gregory et al. (2026), *Geophysical Research Letters*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a fast global sea-ice emulator that conserves mass and generalizes across climates, for coupling with existing atmosphere and ocean ML emulators.
+- **Architecture:** Graph neural network (FloeNet) that predicts 6-hourly mass and area budget tendencies for sea ice and snow on sea ice (growth, melt, advection), ensuring mass conservation.
+- **Data:** Output of the GFDL SIS2 sea ice model from a reanalysis-forced ice-ocean simulation for training; tested on pre-industrial and 1% CO2 forcing runs.
+- **Main result:** Outperforms a non-conservative model in mean state, trends and variability, with volume anomaly correlations above 0.96 (Antarctic) and 0.76 (Arctic) across forcings, and reproduces coupling fluxes.
+- **Open work:** Couple FloeNet with atmosphere and ocean emulators to improve polar processes in coupled ML climate models.
+- **Issues:** Emulates a single physical model and inherits its biases; Arctic skill lower than Antarctic; tested offline with prescribed forcing rather than in a fully coupled emulator.
+- *Basis: abstract*
 
 ### [MET-AICE v1.0: an operational data-driven sea ice prediction system for the European Arctic](https://doi.org/10.5194/gmd-18-9751-2025)
 Palerme et al. (2025), *Geoscientific Model Development*. 3 citations.
 
-*Summary pending.*
+- **Main goal:** Provide reliable short-term sea ice concentration forecasts for maritime operations in the European Arctic via an operational data-driven system.
+- **Architecture:** Operational deep learning sea ice prediction system (MET-AICE); network family not specified in the abstract (likely a U-Net-style convolutional network).
+- **Data:** Trained to predict AMSR2 sea ice concentration observations at 5 km resolution; compared with TOPAZ5, Barents-2.5 km and ECMWF IFS forecasts.
+- **Main result:** After one year of operation, 10-day forecasts have errors about 30% lower than AMSR2 persistence on average and outperform the dynamical models.
+- **Open work:** Extending to other regions, variables (e.g. ice drift, thickness) and probabilistic forecasts.
+- **Issues:** Targets are satellite retrievals with their own errors; evaluation covers one operational year.
+- *Basis: abstract*
 
 ### [Hybrid physics–data‐driven modeling for sea ice thermodynamics and transfer learning](https://doi.org/10.1002/qj.70200)
 Cillis et al. (2026), *Quarterly Journal of the Royal Meteorological Society*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Develops hybrid physics–data-driven sea-ice column models in which machine learning corrects state-dependent forecast errors, and examines how to handle physical model updates via transfer learning.
+- **Architecture:** Neural networks (NNs) trained as state-dependent parametrizations of forecast error added to a sea-ice column thermodynamics model; transfer learning between model configurations and feature-importance analysis.
+- **Data:** Model-generated forecast errors from sea-ice column physics configurations with perturbed snow thermodynamics and radiative properties; specific products not reported in the abstract.
+- **Main result:** NN hybrids are stable, robust to initial condition and forcing errors and consistently outperform a climatological error-correction benchmark at long leads; ice-layer enthalpies matter most, atmospheric forcing inputs have negligible influence.
+- **Open work:** Extending to full three-dimensional sea-ice models and real observations, and refining guidelines for when pretrained networks should be transferred after model updates.
+- **Issues:** Single-column, largely idealized setting with synthetic truth; generalization to coupled sea-ice-ocean models and observed errors is untested.
+- *Basis: abstract*
 
 ### [Machine Learning Eliminates Reanalysis Warm Bias and Reveals Weaker Winter Surface Cooling Over Arctic Sea Ice](https://doi.org/10.1029/2025gl121289)
 Hossain et al. (2026), *Geophysical Research Letters*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Corrects biases in reanalysis surface energy fluxes over Arctic sea ice, where observations are sparse and errors affect estimates of ice growth.
+- **Architecture:** Neural network bias correction of hourly ERA5 surface fluxes trained on observational data; architecture details beyond neural network not given.
+- **Data:** Hourly ERA5 fluxes over ice-covered Arctic (≥70°N, sea-ice concentration >80%) for 1994–2024; training on observations spanning two seasonal cycles; validated with SMOS–CryoSat thickness.
+- **Main result:** Reduces RMSE by about 40% for net shortwave, 16% for downward longwave and 55% for the total surface energy budget, removing ERA5's ~4 K winter warm bias; winter cooling halves, giving 80–120 cm ice growth consistent with SMOS–CryoSat.
+- **Open work:** Using the corrected fluxes to study Arctic climatology, evaluate climate models and force sea-ice-ocean models.
+- **Issues:** Training observations are limited to a few campaigns and regimes, so generalization across the Arctic and decades is uncertain.
+- *Basis: abstract*
 
 <a id="chemistry"></a>
 ## Air quality & chemistry
@@ -4816,42 +5908,90 @@ Harder et al. (2022), *Environmental Data Science*. 31 citations.
 ### [Advancing operational global aerosol forecasting with machine learning](https://doi.org/10.1038/s41586-026-10234-y)
 Gui et al. (2026), *Nature*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Improves global aerosol forecasting, which is costlier and more uncertain than weather forecasting due to aerosol-meteorology interactions.
+- **Architecture:** AI-GAMFS: backbone combining a vision transformer and a U-Net with global attention and spatiotemporal encoding.
+- **Data:** 42 years of aerosol reanalysis (MERRA-2) for training; initialized with GEOS-FP analyses; evaluated with ground-based observations.
+- **Main result:** Delivers 5-day, 3-hourly forecasts in 1 minute, beats CAMS and regional dust models for AOD and dust, and has lower global AOD RMSE than GEOS-FP.
+- **Open work:** Use for early warning of dust storms and wildfire smoke, and extend to more species and coupled meteorology.
+- **Issues:** Trained on reanalysis so inherits its biases, and depends on GEOS-FP initialization; dust skill only comparable to GEOS-FP.
+- *Basis: abstract+knowledge*
 
 ### [Enabling fast greenhouse gas emissions inference from satellites with GATES: a Graph-Neural-Network Atmospheric Transport Emulation System](https://doi.org/10.5194/gmd-19-1893-2026)
 Fillola et al. (2026), *Geoscientific Model Development*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Overcomes the computational bottleneck of Lagrangian particle dispersion models in satellite-based inverse estimation of greenhouse gas emissions.
+- **Architecture:** Graph neural network emulator (GATES) of an LPDM that predicts source-receptor footprints from meteorology and surface data.
+- **Data:** LPDM footprints over South America for training; GOSAT methane observations for 2016 and 2018 used in a Brazil emissions inversion.
+- **Main result:** GATES is about 1000x faster than the LPDM and yields Brazilian methane emissions consistent in space and time with the physics-driven estimate.
+- **Open work:** Scaling to denser satellite datasets (e.g. TROPOMI) and other regions and gases, and operational inventory evaluation.
+- **Issues:** Emulator errors propagate into flux estimates; demonstrated over one region and two years; skill depends on the training LPDM and meteorology.
+- *Basis: abstract*
 
 ### [Advancing Sophisticated Photochemistry Simulation in Atmospheric Numerical Models With Artificial Intelligence PhotoChemistry (AIPC) Scheme Using the Feature‐Mapping Subspace Self‐Attention Algorithm](https://doi.org/10.1029/2024ms004646)
 Xia et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Accelerates full atmospheric photochemistry simulation in 3D models by replacing a complex chemical solver with a stable AI scheme.
+- **Architecture:** Transformer-style Feature-Mapping Subspace Self-Attention (FMSSA) network forming the AIPC scheme, compared with MLP and ResNet baselines; coupled online in WRF-Chem.
+- **Data:** WRF-Chem simulations with the full SAPRC-99 mechanism (79 species, 229 reactions); monthly online tests in August and February.
+- **Main result:** FMSSA cuts attention cost by 91%, reaches mean NRMSE of 3.09% for 69 species offline, and runs stably online in August with 77% faster computation than the numerical solver.
+- **Open work:** Expand training data, refine the architecture and test across broader spatiotemporal regimes.
+- **Issues:** Performance degrades in February for all AIPC schemes, showing poor generalization across distinct atmospheric regimes; limited temporal testing.
+- *Basis: abstract*
 
 ### [mloz: A Highly Efficient Machine Learning‐Based Ozone Parameterization for Climate Sensitivity Simulations](https://doi.org/10.1029/2025ms005459)
 Ma et al. (2025), *Journal of Advances in Modeling Earth Systems*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Provide interactive tropospheric and stratospheric ozone in climate models that lack costly chemistry schemes, for climate sensitivity simulations where ozone feedbacks matter.
+- **Architecture:** Machine-learning ozone parameterization (mloz) that predicts daily ozone from atmospheric temperature profiles only, coupled online in climate models; network family not specified in the abstract.
+- **Data:** Trained on UKESM simulations with interactive chemistry; transferred online to the ICON model without chemistry.
+- **Main result:** Stable decadal online simulations with high fidelity, including two-way ozone–QBO interactions; about 31 times faster than UKESM chemistry and under 4% of total model runtime.
+- **Open work:** Adoption in CMIP-class models without interactive chemistry and evaluation under a wider range of forcing scenarios.
+- **Issues:** Temperature-only input omits explicit dependence on ozone-depleting substances and emissions, so applicability is targeted at climate sensitivity experiments; inherits biases of the UKESM chemistry it learned from.
+- *Basis: abstract*
 
 ### [Zeeman: A Deep Learning Framework for Regional Atmospheric Chemistry Forecasting](https://doi.org/10.1029/2025gl117459)
 Pang et al. (2026), *Geophysical Research Letters*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Forecast multiple interacting atmospheric pollutants regionally, accounting for emissions and meteorology, faster than numerical chemical transport models.
+- **Architecture:** Deep learning framework (Zeeman) for multi-species atmospheric chemistry forecasting; network family not specified in the abstract.
+- **Data:** Not reported in the abstract; presumably trained against a regional chemical transport model with emission and meteorological inputs (PM2.5, ozone and other species).
+- **Main result:** Rivals the numerical model in forecast skill while running 68.5 times faster.
+- **Open work:** Integration with data assimilation for emission estimation and concentration forecasting.
+- **Issues:** Abstract gives few details on region, species, training data or evaluation; skill may be bounded by the numerical model it emulates.
+- *Basis: abstract*
 
 ### [A deep learning model for predicting daily PM2.5 concentration in response to emission reduction](https://doi.org/10.1126/sciadv.aef5759)
 Liu et al. (2026), *Science Advances*. 2 citations.
 
-*Summary pending.*
+- **Main goal:** Rapidly simulate daily PM2.5 and its chemical composition in response to emission reductions, replacing costly chemical transport model runs for policy evaluation.
+- **Architecture:** CleanAir, a residual symmetric three-dimensional U-Net emulating a chemical transport model.
+- **Data:** 2416 emission scenarios simulated by the CMAQ model over China at 36 km resolution.
+- **Main result:** Agrees well with CMAQ for PM2.5 and emission-induced changes, generalizes to unseen meteorology and emissions, and simulates a year in 10 s on GPU, three to four orders of magnitude faster than CTMs.
+- **Open work:** Extending to other regions, pollutants and higher resolution for emission-control and mitigation planning.
+- **Issues:** Emulates CMAQ and inherits its biases; 36 km resolution limits urban-scale applications.
+- *Basis: abstract*
 
 ### [Deep Learning Ensemble Emulation for NASA’s Goddard Earth Observing System (GEOS) Composition Forecast](https://doi.org/10.1175/aies-d-24-0117.1)
 Sleeman et al. (2025), *Artificial Intelligence for the Earth Systems*. 1 citations.
 
-*Summary pending.*
+- **Main goal:** Emulates ensembles of NASA's GEOS Composition Forecast to extend air-quality forecasts beyond five days and provide probabilistic estimates at low cost.
+- **Architecture:** Air quality conditional generative adversarial network (AQcGAN) emulating ensemble mean and spread; FourCastNet-type models are shown to be inadequate and unstable for composition.
+- **Data:** GEOS-CF composition forecasts and ensembles for carbon monoxide, nitric oxide, nitrogen dioxide and ozone.
+- **Main result:** AQcGAN forecasts ten days ahead, generating ensemble mean and spread in seconds with competitive low RMSE against true ensemble statistics; used as the ensemble in an operational data assimilation study.
+- **Open work:** Authors plan integration with data assimilation methods and the operational GEOS-CF system.
+- **Issues:** Trained and verified against GEOS-CF model output rather than observations; GAN training can be unstable; limited set of species.
+- *Basis: abstract*
 
 ### [A chemistry-informed deep learning network for mitigating the stratospheric OH data gap](https://doi.org/10.1126/sciadv.aee2319)
 Yin et al. (2026), *Science Advances*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Fills the gap in global stratospheric hydroxyl (OH) observations, absent from satellites since 2009, which is key for ozone chemistry.
+- **Architecture:** DRCAT: a chemistry-informed deep learning network predicting stratospheric OH profiles from coincident satellite observations of chemically related species.
+- **Data:** Satellite observations of OH and related species, trained on only 2 years of data, producing a reconstruction from late 2004 to present; specific instruments not named in the abstract.
+- **Main result:** Outperforms a chemical transport model and an observation-constrained steady-state approximation, and captures anomalous OH enhancements after the 2022 Hunga eruption outside the training regime.
+- **Open work:** Applying the framework to reconstruct other short-lived chemical species.
+- **Issues:** Very short training period; reconstruction depends on continued availability of the input satellite species; uncertainty not described in the abstract.
+- *Basis: abstract*
 
 <a id="benchmarks"></a>
 ## Benchmarks & datasets
@@ -5002,42 +6142,90 @@ Ashkboos et al. (2022), *Neural Information Processing Systems*. 25 citations.
 ### [Probabilistic measures afford fair comparisons of AIWP and NWP model output](https://doi.org/10.1175/aies-d-25-0054.1)
 Gneiting et al. (2025), *Artificial Intelligence for the Earth Systems*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a fair way to compare single-valued output from AI and physics-based weather models, since pre-specified loss functions can favour some competitors.
+- **Architecture:** Non-ML statistical method: potential continuous ranked probability score (PCRPS), computed by post-processing deterministic forecasts with isotonic distributional regression and taking the mean CRPS.
+- **Data:** WeatherBench 2 forecasts including GraphCast, ECMWF HRES, GenCast and the operational ECMWF ensemble.
+- **Main result:** GraphCast outperforms ECMWF HRES under PCRPS; PCRPS for HRES and GenCast aligns very well with the mean CRPS of the ECMWF ensemble and GenCast ensemble.
+- **Open work:** Use PCRPS in benchmarks and other application domains where loss functions are not pre-specified.
+- **Issues:** Measures potential rather than realized skill and is invariant to monotone transformations, so it ignores calibration and bias of raw output; requires enough training data for the post-processing.
+- *Basis: abstract*
 
 ### [A Benchmark Dataset for Tornado Detection and Prediction using Full-Resolution Polarimetric Weather Radar Data](https://arxiv.org/abs/2401.16437)
 Veillette et al. (2024), *arXiv*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Supports development of ML tornado detection and prediction from radar, where rare events make training dataset design critical.
+- **Architecture:** Benchmark dataset (TorNet) with ML baselines, including a deep learning convolutional neural network that processes raw polarimetric radar imagery, plus non-DL and operational baselines.
+- **Data:** Full-resolution polarimetric Level-II WSR-88D (NEXRAD) radar data sampled from 9 years of reported storm events.
+- **Main result:** The DL baseline, without manual feature engineering, shows higher detection performance than non-DL and operational baselines; dataset, code and weights are released.
+- **Open work:** Use TorNet for tornado prediction (lead time) and improved architectures, and examine robustness for operational acceptance.
+- **Issues:** Labels depend on storm reports, which are incomplete and biased; tornadoes remain rare, and detection skill is still limited.
+- *Basis: abstract+knowledge*
 
 ### [Extreme Weather Bench: A framework and benchmark for evaluation of high-impact weather](https://arxiv.org/abs/2605.01126)
 McGovern et al. (2026), *arXiv*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a standardized way to verify AI and NWP weather models on high-impact hazards rather than only global-mean scores or hand-picked cases.
+- **Architecture:** Benchmark framework and open-source code (Extreme Weather Bench) containing curated case studies, observational data and impact-based metrics; not a forecast model.
+- **Data:** Standard set of high-impact event case studies spanning multiple spatial and temporal scales and hazard types, with associated observational datasets; specific products not listed in the abstract.
+- **Main result:** Introduces EWB as a community-driven benchmark enabling like-for-like comparisons across AI and NWP models on specific high-impact phenomena.
+- **Open work:** Add more phenomena, test cases and metrics together with the forecast verification community.
+- **Issues:** Case-study-based evaluation has limited sample sizes per hazard; results depend on chosen cases, observations and metrics; no benchmark results are reported in the abstract.
+- *Basis: abstract*
 
 ### [Can AI Weather Models Predict Beyond Two Weeks? A Quantitative Benchmark and Analysis of Long Rollouts](https://arxiv.org/abs/2605.30184)
 Lehmann et al. (2026), *arXiv*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Characterizes why AI weather models become unstable when rolled out beyond two weeks and establishes a taxonomy of failure modes.
+- **Architecture:** Benchmark and analysis of nine state-of-the-art AI weather models in year-long rollouts, with ablations on Vision Transformer (ViT) architectural design choices.
+- **Data:** Year-long autoregressive rollouts of pretrained AI weather models; training and verification data presumably ERA5 reanalysis, not specified in the abstract.
+- **Main result:** Failures fall into blow-up, drift and loss of seasonality; stable models damp high-frequency energy and act as denoisers yet still produce distinct trajectories conditioned on initial state.
+- **Open work:** Use the taxonomy and spectral diagnostics to design architectures that remain stable for subseasonal to climate time scales.
+- **Issues:** Ablations limited to ViT-style architectures; seasonality and drift diagnostics do not establish climate fidelity; models lack ocean coupling or forcing changes.
+- *Basis: abstract*
 
 ### [PhysMetrics.Weather: An Evaluation Framework for Physical Consistency in ML Weather Models](https://arxiv.org/abs/2606.10642)
 Kasteleyn et al. (2026), *arXiv*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Provides a way to assess physical consistency of ML weather prediction models beyond pixel-wise error metrics such as RMSE.
+- **Architecture:** Evaluation framework (PhysMetrics.Weather) with conservation, spectral and dynamical metrics; open-source code, not a forecast model.
+- **Data:** Applied to MLWP model forecasts; specific models and datasets not listed in the abstract.
+- **Main result:** Introduces a tool quantifying physical realism of MLWP forecasts to guide physics-informed architecture development and operational reliability assessment.
+- **Open work:** Extend metrics and apply systematically across MLWP models to inform physics-informed design.
+- **Issues:** Abstract reports no quantitative findings; physical metrics depend on reference datasets and diagnostic choices.
+- *Basis: abstract*
 
 ### [WP-MIP: An Artificial Intelligence, Hybrid, and Physically Based Model Intercomparison Project for Weather Prediction](https://doi.org/10.1175/bams-d-26-0012.1)
 McTaggart-Cowan et al. (2026), *Bulletin of The American Meteorological Society - (BAMS)*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Establish a systematic intercomparison of AI, hybrid and physics-based weather prediction models to assess physical consistency and skill across all forecast fields and conditions.
+- **Architecture:** Model intercomparison project (WP-MIP) supported by the WMO: a centralized database of physically based, machine-learning and hybrid global deterministic forecasts; not a new ML model.
+- **Data:** Global deterministic forecasts contributed by institutions on six continents, using center-specific and common initializations.
+- **Main result:** Describes the project design; aims to develop AI-ready verification techniques and best-practice guidance for model developers and national weather centres.
+- **Open work:** Extending to ensemble and other forecast types and publishing results of the distributed evaluation.
+- **Issues:** Project overview without results yet; first phase limited to deterministic global forecasts.
+- *Basis: abstract*
 
 ### [CORDEX-ML-Bench: A Benchmark for Data-Driven Regional Climate Downscaling -Experiment Design and Overview](https://arxiv.org/abs/2606.29172)
 Rampal et al. (2026), *arXiv*. 4 citations.
 
-*Summary pending.*
+- **Main goal:** Provide standardised training and evaluation protocols for ML regional climate downscaling across multiple domains, enabling intercomparison and operational readiness under CMIP7.
+- **Architecture:** Benchmark (CORDEX-ML-Bench) with perfect-model design evaluating 40 ML configurations: traditional ML, convolutional U-Nets, vision transformers, graph neural networks, diffusion, flow matching and generative adversarial networks.
+- **Data:** CORDEX-aligned regional climate model simulations driven by GCMs, downscaling daily maximum temperature and precipitation to about 10 km (20x) over the European Alps, New Zealand and Southern Africa; historical and future periods.
+- **Main result:** Generative models outperform deterministic ones for precipitation, especially fine-scale variability and extremes; for temperature deterministic models remain competitive. Historically trained models underestimate future climate-change signals.
+- **Open work:** Further benchmark phases with more regions, variables and rigorous extrapolation testing to support operational use.
+- **Issues:** Perfect-model framework does not test transfer to real observations; only two variables and three pilot regions.
+- *Basis: abstract*
 
 ### [NNJA—a curated archive of Earth system observations from 1970s to present for reanalysis and data-driven model development](https://doi.org/10.1175/bams-d-25-0157.1)
 Frolov et al. (2026), *Bulletin of The American Meteorological Society - (BAMS)*. 0 citations.
 
-*Summary pending.*
+- **Main goal:** Creates a curated, publicly accessible archive of historical Earth system observations to support reanalysis production and AI model development.
+- **Architecture:** Dataset paper describing NNJA (NOAA-NASA Joint Archive) and its ML-ready companion NNJA-AI in Apache Parquet format, with a three-tier verification process.
+- **Data:** Satellite radiances, conventional atmospheric observations, in-situ ocean profiles, sea ice concentration and freeboard and land observations from over 60 sensors, 1979 to near-real time, distributed on AWS.
+- **Main result:** Atmospheric records grow from about 10^6 per day in 1979 to about 10^8 today; data are verified and come with channel-level quality lists compatible with data assimilation systems.
+- **Open work:** Supporting next-generation U.S. reanalyses and end-to-end AI forecasting from observations.
+- **Issues:** Authors document known limitations in coverage and quality; historical satellite records are inhomogeneous over time.
+- *Basis: abstract*
 
 <a id="methods"></a>
 ## Core ML methods
@@ -5166,9 +6354,21 @@ Chattopadhyay et al. (2019), *Nonlinear Processes in Geophysics*. 204 citations.
 ### [Scaling Laws of Global Weather Models](https://arxiv.org/abs/2602.22962)
 Yu et al. (2026), *arXiv*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses empirical scaling laws for data-driven weather models to guide efficient allocation of model size, data and compute.
+- **Architecture:** Benchmark of scaling behavior across several global weather models including Aurora (transformer) and GraphCast (graph neural network), varying parameters, data and compute.
+- **Data:** Global weather training datasets of varying size; specific reanalysis products not reported in the abstract.
+- **Main result:** Aurora scales best with data (10x more data reduces validation loss up to 3.2x); GraphCast is most parameter-efficient but has poor hardware utilization; wider rather than deeper models are favoured.
+- **Open work:** Building wider architectures with larger effective training datasets and testing scaling on downstream forecast skill.
+- **Issues:** Uses validation loss rather than forecast skill metrics; limited range of model sizes and compute; conclusions may depend on the datasets used.
+- *Basis: abstract*
 
 ### [Stop using root-mean-square error as a precipitation target!](https://doi.org/10.1175/aies-d-25-0083.1)
 Hunt (2025), *Artificial Intelligence for the Earth Systems*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Argues that RMSE is a misspecified training loss for precipitation, which is zero-inflated, non-negative and heavy-tailed, and proposes a better likelihood-based alternative.
+- **Architecture:** Tweedie deviance loss (compound Poisson–Gamma, 1<p<2) applied to a diffusion model for downscaling and a ConvLSTM for nowcasting, compared with RMSE training.
+- **Data:** Precipitation data across temporal aggregations to estimate the Tweedie power p; downscaling case over Beijing and nowcasting case over Kolkata (specific products not given in the abstract).
+- **Main result:** Tweedie loss improves wet-pixel MAE and 99th-percentile extreme recall (0.611 vs 0.566) in downscaling; in nowcasting MAE gains grow from 3.5% at t+1 to 8.7% at t+4.
+- **Open work:** Test Tweedie losses in global data-driven weather models and other semi-continuous variables, and learn p adaptively.
+- **Issues:** Only two regional case studies; extreme recall at the 99.9th percentile is not significantly better at short leads; choice of p adds a tuning step.
+- *Basis: abstract*

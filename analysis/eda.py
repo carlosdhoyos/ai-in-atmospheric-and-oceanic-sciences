@@ -179,7 +179,8 @@ d = table(df("""SELECT a.arch_group, count(DISTINCT p.paper_id) AS papers,
                   median(p.citations_per_year) AS median_cites_per_year,
                   quantile_cont(p.citations_per_year, 0.25) AS q25, quantile_cont(p.citations_per_year, 0.75) AS q75
                 FROM paper_architecture a JOIN papers p USING (paper_id)
-                WHERE a.tag_kind = 'model_family' AND p.paper_type = 'method' AND p.year >= 2018
+                WHERE a.tag_kind = 'model_family' AND p.paper_type = 'method'
+                  AND p.year BETWEEN 2018 AND (SELECT max(year) - 2 FROM papers)
                 GROUP BY ALL ORDER BY median_cites_per_year"""), "citations_by_architecture.csv")
 fig, ax = plt.subplots(figsize=(8, 4.4))
 y = range(len(d))
@@ -187,7 +188,7 @@ ax.hlines(y, d["q25"], d["q75"], color=SEQ[2], linewidth=2)
 ax.plot(d["median_cites_per_year"], y, "o", color=SERIES[0], markersize=8, markeredgecolor=SURFACE, markeredgewidth=2)
 ax.set_yticks(list(y), [f"{g}  (n={n})" for g, n in zip(d["arch_group"], d["papers"])])
 ax.set_xlabel("Citations per year (dot = median, bar = interquartile range)")
-ax.set_title("Citation rate by architecture group, method papers since 2018")
+ax.set_title("Citation rate by architecture group, method papers 2018 to two years ago")
 ax.grid(axis="y", visible=False)
 save(fig, "06_citations_by_architecture.png")
 

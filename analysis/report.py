@@ -37,6 +37,8 @@ def write(con, periods_sql, order):
         f"| {per} | {tot.get(per, 0)} | " + " | ".join(pct(share(per, [g])) for g in groups) + " |" for per in order)
 
     # data sources
+    top_src = q(f"""SELECT source, count(DISTINCT paper_id) n FROM paper_data_source JOIN papers USING (paper_id)
+                    WHERE {periods_sql} = '{last}' GROUP BY 1 ORDER BY 2 DESC LIMIT 2""")
     era = dict(q(f"SELECT {periods_sql} AS period, count(DISTINCT paper_id) FROM paper_data_source JOIN papers USING (paper_id) "
                  f"WHERE source = 'ERA5' GROUP BY 1"))
     methods_last = one(f"SELECT count(*) FROM papers WHERE paper_type = 'method' AND {periods_sql} = '{last}'")
@@ -48,6 +50,16 @@ def write(con, periods_sql, order):
                   f"WHERE source = 'CMIP / climate model output' GROUP BY 1"))
     nwp = dict(q(f"SELECT {periods_sql} AS period, count(DISTINCT paper_id) FROM paper_data_source JOIN papers USING (paper_id) "
                  f"WHERE source = 'Operational NWP / reforecasts' GROUP BY 1"))
+
+    era_last = dict(top_src).get("ERA5", era.get(last, 0))
+    if not top_src:
+        data_headline = "Training data"
+    elif top_src[0][0] == "ERA5":
+        data_headline = "ERA5 is the most common training set"
+    elif era_last >= 0.9 * top_src[0][1]:
+        data_headline = f"ERA5 and {top_src[0][0].lower().replace('nwp', 'NWP')} are the main data sources, on par"
+    else:
+        data_headline = f"{top_src[0][0]} is now the most common data source, ahead of ERA5"
 
     # probabilistic
     prob = q(f"SELECT {periods_sql} AS period, avg(probabilistic::INT) FROM papers WHERE paper_type = 'method' GROUP BY 1")
@@ -67,9 +79,11 @@ def write(con, periods_sql, order):
         sig.append(f"{sub}: {grp} ({n} of {total} papers)")
 
     # citation rate by group
-    cites = q("""SELECT a.arch_group, median(p.citations_per_year), count(DISTINCT p.paper_id) FROM paper_architecture a
-                 JOIN papers p USING (paper_id) WHERE a.tag_kind = 'model_family' AND p.paper_type = 'method' AND p.year >= 2018
-                 GROUP BY 1 ORDER BY 2 DESC""")
+    cite_to = y1 - 2  # papers need about two years before citations per year mean much
+    cites = q(f"""SELECT a.arch_group, median(p.citations_per_year), count(DISTINCT p.paper_id) FROM paper_architecture a
+                  JOIN papers p USING (paper_id) WHERE a.tag_kind = 'model_family' AND p.paper_type = 'method'
+                  AND p.year BETWEEN 2018 AND {cite_to} GROUP BY 1 HAVING count(DISTINCT p.paper_id) >= 5 ORDER BY 2 DESC""")
+
 
     # goals
     goals_first = dict(q(f"""SELECT task, count(DISTINCT paper_id) FROM paper_task JOIN papers USING (paper_id)
@@ -127,12 +141,12 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 ## Headlines
 
 1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were {pct(share(first, MODERN))} of architecture tags in {first} and {pct(share(last, MODERN))} in {last}. CNN/U-Net went from {pct(share(first, ['CNN / U-Net']))} to {pct(share(last, ['CNN / U-Net']))} over the same periods.
-2. **ERA5 is the default training set.** It appears in {era.get(first, 0)} papers in {first} and {era.get(last, 0)} in {last}, where it is used by {pct(era_m_last / max(1, methods_last))} of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from {ideal.get(order[2], 0)} papers in {order[2]} to {ideal.get(last, 0)} in {last}.
+2. **{data_headline}.** ERA5 appears in {era.get(first, 0)} papers in {first} and {era.get(last, 0)} in {last}, where it is used by {pct(era_m_last / max(1, methods_last))} of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from {ideal.get(order[2], 0)} papers in {order[2]} to {ideal.get(last, 0)} in {last}.
 3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: {prob_line}.
 4. **Goals have shifted.** {top_goal[0]} is the most common goal overall ({top_goal[1]} papers). Comparing papers from {order[1]} and {order[2]} with papers from {order[-2]} and {order[-1]}, the fastest-growing goals are {', '.join(f'{g} (+{round(d * 100)} pts)' for g, d in goal_shift[:3])}; the largest declines are {', '.join(f'{g} ({round(d * 100)} pts)' for g, d in goal_shift[-2:])}.
 5. **Subfields keep distinct architecture signatures.** Dominant group per subfield: {'; '.join(sig)}.
 6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: {'; '.join(f'{g}: {t} ({pct(n / total)})' for g, t, n, total in lim)}. The most common open problems across all papers are {', '.join(f'{t} ({n})' for t, n in open_top)}.
-7. **Citation rates follow the architecture shift, led by a few flagship models.** Since 2018, median citations per year for method papers: {', '.join(f'{g} {m:.0f} (n={n})' for g, m, n in cites)}. The interquartile ranges are wide and overlap.
+7. **Citation rates.** Among method papers from 2018–{cite_to}, which have had time to collect citations, median citations per year are {', '.join(f'{g} {m:.0f} (n={n})' for g, m, n in cites)}. The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from {cite_to + 1} on are too recent to compare this way.
 
 ## Figures
 
@@ -172,7 +186,7 @@ Each cell is the share of a group's papers whose summary reports that limitation
 ### Citation rate by architecture
 ![Citations by architecture](figures/06_citations_by_architecture.png)
 
-Citations per year are total citations divided by years since publication (minimum one year). This favours recent landmark papers. Compare medians, not means.
+Method papers from 2018 to {cite_to}. Citations per year are total citations divided by years since publication (minimum one year); more recent papers are left out because they have not had time to be cited. Compare medians, not means.
 
 ### Probabilistic output
 ![Probabilistic share](figures/07_probabilistic_share.png)

@@ -108,9 +108,13 @@ review what changed, because the numbers are computed but the interpretation is 
 
 - **Headlines in `analysis/EDA.md`.** They are regenerated from the data. Read them and check they still make
   sense (for example, a period with very few papers produces misleading shares).
+- **Recency bias.** Papers from the last two years have had little time to be cited, so citation-rate
+  comparisons (report headline 7, figure 6, the "Citation impact" guided view) only use papers up to two years
+  before the newest. Keep it that way when you change those parts, and read any new comparison with this in mind.
 - **Periods.** `PERIODS` in `scripts/taxonomy.py` drives the database, the report and both pages. When a new
   year starts, extend the last period or open a new one once it has enough papers (roughly 40+).
-- **Categories.** New vocabulary can escape the keyword rules. Look at papers with no architecture, goal or
+- **Categories.** New vocabulary can escape the keyword rules (in 2026, flow matching and Mamba/state-space
+  models needed adding). Grep the recent summaries' architecture text for terms that do not map to a family. Look at papers with no architecture, goal or
   data-source tag:
   ```bash
   python3 -c "import duckdb;c=duckdb.connect('data/papers.duckdb',read_only=True);print(c.sql(\"SELECT title, architectures, tasks, data_sources FROM v_papers_wide WHERE year >= 2025 AND paper_type='method' AND (len(architectures)=0 OR len(tasks)=0 OR len(data_sources)=0)\"))"
