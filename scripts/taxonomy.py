@@ -87,6 +87,14 @@ DATA_SOURCE = [
                               r"two-dimensional turbulence|kolmogorov|kuramoto|shallow water|low-order|synthetic"),
     ("Operational NWP / reforecasts", r"operational|\bifs\b|\bhres\b|\bgfs\b|gefs|reforecast|ensemble forecast|nwp|"
                                       r"forecast archive|ecmwf (ensemble|forecast)|\bens\b|cosmo|meps|hrrr|cams"),
+    ("Hydrological observations", r"streamflow|discharge (records|observations|data)|camels|caravan|\bgrace\b|usgs|"
+                                  r"gauging station|river gauge|soil moisture (product|observations|data)|\bsmap\b|"
+                                  r"groundwater (level|well)|water table|lake level|catchment attributes"),
+    ("Energy & power data", r"wind (power|farm|turbine) (data|output|measurements|records)|power output|scada|"
+                            r"pv (output|generation|systems?)|photovolt\w* (output|generation|data)|load data|"
+                            r"electricity (demand|consumption|load)|smart meter|solar farm"),
+    ("Crop & agricultural data", r"yield (data|records|statistics)|crop (yield|statistics|data|model)|usda|nass|"
+                                 r"faostat|field trials?|agricultural (census|statistics)|farm(er)? (data|survey)"),
     ("Radar", r"radar|mrms|nexrad|reflectivity"),
     ("Satellite", r"satellite|landsat|goes|himawari|modis|passive microwave|\bsar\b|imerg|\bgpm|persiann|brightness temperature|"
                   r"avhrr|sentinel|viirs|cloudsat|calipso|\bglm\b|\bsst\b product|oisst"),
@@ -117,6 +125,15 @@ VENUE_FAMILY = [
     ("ML conferences", r"neural information|neurips|international conference on machine learning|learning representations|"
                        r"knowledge discovery|aaai|computer vision|artificial intelligence and statistics|ijcai"),
     ("arXiv preprint", r"^arxiv"),
+    ("Hydrology & water journals", r"journal of hydrology|hydrological processes|advances in water resources|"
+                                   r"hydroinformatics|hydrological sciences|water resources management|journal of flood|"
+                                   r"water research|^water$|nature water|hydrology research|vadose|groundwater"),
+    ("Energy journals", r"applied energy|renewable energy|solar energy|^energy$|energy and ai|energy conversion|"
+                        r"renewable and sustainable energy|wind energy|energy reports|sustainable energy|"
+                        r"electric power|power systems|energies|nature energy|journal of renewable"),
+    ("Agricultural journals", r"agricultural and forest meteorology|agricultural water management|field crops|"
+                              r"computers and electronics in agriculture|agricultural systems|european journal of agronomy|"
+                              r"nature food|agronomy|precision agriculture|plant science|global food security"),
     ("PNAS & multidisciplinary", r"proceedings of the national academy|scientific reports|science bulletin|"
                                  r"environmental research letters|wires|annual review|acm computing surveys"),
     ("IEEE & remote sensing", r"ieee|remote sensing of environment|geoscience and remote sensing|pattern recogni"),
@@ -130,6 +147,41 @@ VENUE_FAMILY = [
                                   r"atmospheric environment|environment international|environmental pollution|"
                                   r"atmospheric pollution|climate informatics"),
 ]
+
+
+# Canonical journal / venue names (first match wins); anything else keeps its own name, cleaned up.
+JOURNAL_ALIASES = [
+    (r"^arxiv", "arXiv (preprint only)"),
+    (r"neural information processing|neurips|\bnips\b", "NeurIPS"),
+    (r"international conference on machine learning|^icml", "ICML"),
+    (r"learning representations|^iclr", "ICLR"),
+    (r"computer vision and pattern recognition|\bcvpr", "CVPR"),
+    (r"\baaai\b", "AAAI"),
+    (r"knowledge discovery|\bkdd\b", "KDD"),
+    (r"artificial intelligence and statistics|aistats", "AISTATS"),
+    (r"joint conference on artificial intelligence|ijcai", "IJCAI"),
+    (r"high performance computing, networking", "SC (Supercomputing)"),
+    (r"bulletin of the american meteorological", "Bulletin of the American Meteorological Society"),
+    (r"proceedings of the national academy", "PNAS"),
+    (r"philosophical transactions of the royal society a", "Philosophical Transactions of the Royal Society A"),
+    (r"journal of applied meteorology", "Journal of Applied Meteorology and Climatology"),
+    (r"journal of geophysical research: machine learning", "JGR: Machine Learning and Computation"),
+    (r"journal of geophysical research: atmospheres", "JGR: Atmospheres"),
+    (r"journal of geophysical research: oceans", "JGR: Oceans"),
+    (r"^journal of geophysical research$", "JGR (section not recorded)"),
+    (r"^chaos", "Chaos"),
+    (r"^weather and forecasting$", "Weather and Forecasting"),
+    (r"^atmospheric research$", "Atmospheric Research"),
+]
+
+
+def journal_name(venue):
+    import html
+    v = re.sub(r"\s+", " ", html.unescape(venue or "")).strip()
+    for rx, name in JOURNAL_ALIASES:
+        if re.search(rx, v, I):
+            return name
+    return v or "Unknown venue"
 
 
 def match_all(rules, text):
@@ -166,7 +218,8 @@ def classify(paper):
                                                             s.get("result", ""), paper["title"]]), I))
     venue = next((label for label, rx in VENUE_FAMILY if re.search(rx, paper["venue"] or "", I)), "Other venues")
     return {"paper_type": ptype, "architecture": arch, "data_source": data,
-            "probabilistic": probabilistic and ptype == "method", "venue_family": venue}
+            "probabilistic": probabilistic and ptype == "method", "venue_family": venue,
+            "journal": journal_name(paper["venue"])}
 
 
 # Research goal / task (multi-label), matched against the goal field and title.
@@ -199,6 +252,13 @@ TASK = [
     ("Extreme events", r"extreme|heatwave|heat wave|hail|tornado|tropical cyclone|hurricane|typhoon|severe|gray swan|flood"),
     ("Air quality & atmospheric composition", r"air quality|pm2|pm10|ozone|pollut|chemistry|aerosol|dust"),
     ("Ocean & sea-ice prediction", r"ocean|sea surface|sea ice|eddy|eddies|sea level|wave|storm surge|carbon (sink|uptake)"),
+    ("Hydrological prediction", r"streamflow|runoff|flood|groundwater|soil moisture|evapotranspiration|hydrolog|"
+                                r"snowmelt|snow water|water (level|table|storage|resource|supply)|catchment|watershed|"
+                                r"reservoir|river (flow|discharge)|drought"),
+    ("Energy forecasting", r"wind power|wind energy|wind farm|solar (power|energy|irradiance|radiation)|photovolt|"
+                           r"energy (demand|load|consumption|system)|electricity|load forecast|hydropower|renewable"),
+    ("Agricultural prediction", r"crop|yield|agricultur|wheat|maize|corn\b|rice|soybean|irrigation|food security|"
+                                r"phenolog|grassland|pasture|gross primary production"),
     ("Benchmarking, evaluation & feasibility", r"benchmark|dataset|^(\w+ )?(evaluat|assess|compar|test|ask|examin|investigat|quantif)|"
                                   r"intercompar|whether"),
     ("Computational speed-up", r"speed|accelerat|faster|cheap|computational (cost|efficien)|cost-effective|efficient"),

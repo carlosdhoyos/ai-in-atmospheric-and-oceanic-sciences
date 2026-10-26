@@ -25,7 +25,15 @@ const root = process.argv[2] || '.';
     if (!note) errs.push(`eda.html: guided view "${v}" has an empty note`);
     notes.push(`${v}: ${note.slice(0, 110)}…`);
   }
-  for (const f of ['index.html', 'eda.html']) {
+  const jp = await page('journals.html');
+  const venues = await jp.locator('#j-table tr.vrow').count();
+  if (!venues) errs.push('journals.html: scorecard is empty');
+  if (!(await jp.locator('#j-scatter svg circle').count())) errs.push('journals.html: volume/impact chart is empty');
+  if (!(await jp.isHidden('#insights')) || !(await jp.isHidden('#list'))) errs.push('journals.html: other views are visible');
+  await jp.click('#j-table th[data-sort="n"]'); await jp.click('#j-table tr.vrow');
+  if (!(await jp.locator('#j-table tr.detail').count())) errs.push('journals.html: venue details do not open');
+  notes.push(`journals: ${venues} venues; ${(await jp.textContent('#j-findings')).slice(0, 110)}…`);
+  for (const f of ['index.html', 'eda.html', 'journals.html']) {
     const m = await page(f, 390);
     if (await m.evaluate(() => document.documentElement.scrollWidth > innerWidth)) errs.push(`${f}: horizontal overflow at 390px`);
   }

@@ -16,7 +16,8 @@ from resolve_ids import norm
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = lambda *p: os.path.join(ROOT, "data", *p)  # noqa: E731
-TOPICS = set(json.load(open(D("papers.json")))["topics"])
+from build import TOPICS as _TOPICS  # noqa: E402  (source of truth for subfield keys)
+TOPICS = set(_TOPICS)
 
 
 def best_match(title, options):

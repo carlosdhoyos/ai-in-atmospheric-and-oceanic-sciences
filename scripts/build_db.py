@@ -1,7 +1,7 @@
 """Build data/papers.duckdb from data/papers.json (+ summaries) with homogenized categories.
 
 Tables
-  papers            one row per paper (metadata, citations, primary subfield, paper type, venue family, flags)
+  papers            one row per paper (metadata, citations, primary subfield, paper type, journal, venue family, flags)
   authors           paper_id, position, name
   subfields         paper_id, subfield, label, is_primary
   summaries         paper_id, goal, architecture, data, result, open_work, issues, basis
@@ -42,7 +42,7 @@ def main():
         pid = p["s2"]
         c = cats[pid]
         age = max(1, int(retrieved[:4]) - p["year"] + 0.5) if p["year"] else None
-        rows.append((pid, p["title"], p["year"], p["date"], p["venue"], c["venue_family"], p["kind"], c["paper_type"],
+        rows.append((pid, p["title"], p["year"], p["date"], p["venue"], c["journal"], c["venue_family"], p["kind"], c["paper_type"],
                      p["topics"][0], topics[p["topics"][0]], c["probabilistic"], p["doi"], p["arxiv"], p["cites"],
                      p["infl"], round(p["cites"] / age, 2) if age else None, len(p["authors"]),
                      p["authors"][0] if p["authors"] else None, p["abstract"], p["pdf"] is not None))
@@ -61,11 +61,11 @@ def main():
         os.remove(DB)
     con = duckdb.connect(DB)
     con.execute("""CREATE TABLE papers (
-        paper_id VARCHAR PRIMARY KEY, title VARCHAR, year INTEGER, pub_date DATE, venue VARCHAR, venue_family VARCHAR,
+        paper_id VARCHAR PRIMARY KEY, title VARCHAR, year INTEGER, pub_date DATE, venue VARCHAR, journal VARCHAR, venue_family VARCHAR,
         kind VARCHAR, paper_type VARCHAR, primary_subfield VARCHAR, primary_subfield_label VARCHAR, probabilistic BOOLEAN,
         doi VARCHAR, arxiv VARCHAR, citations INTEGER, influential_citations INTEGER, citations_per_year DOUBLE,
         n_authors INTEGER, first_author VARCHAR, abstract VARCHAR, open_access_pdf BOOLEAN)""")
-    con.executemany("INSERT INTO papers VALUES (" + ",".join("?" * 20) + ")", rows)
+    con.executemany("INSERT INTO papers VALUES (" + ",".join("?" * 21) + ")", rows)
     con.execute("CREATE TABLE authors (paper_id VARCHAR, position INTEGER, name VARCHAR)")
     con.executemany("INSERT INTO authors VALUES (?,?,?)", auth)
     con.execute("CREATE TABLE subfields (paper_id VARCHAR, subfield VARCHAR, label VARCHAR, is_primary BOOLEAN)")

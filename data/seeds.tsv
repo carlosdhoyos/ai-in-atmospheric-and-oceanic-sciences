@@ -323,3 +323,29 @@ nowcasting	PredRNN: Recurrent Neural Networks for Predictive Learning using Spat
 methods	Hybrid Forecasting of Chaotic Processes: Using Machine Learning in Conjunction with a Knowledge-Based Model
 methods	Adaptive Fourier Neural Operators: Efficient Token Mixers for Transformers
 review	Deep Learning-Based Weather Prediction: A Survey
+hydrology	Rainfall–runoff modelling using Long Short-Term Memory (LSTM) networks
+hydrology	Towards learning universal, regional, and local hydrological behaviors via machine learning applied to large-sample datasets
+hydrology	Toward Improved Predictions in Ungauged Basins: Exploiting the Power of Machine Learning
+hydrology	A Transdisciplinary Review of Deep Learning Research and Its Relevance for Water Resources Scientists
+hydrology	Global prediction of extreme floods in ungauged watersheds
+hydrology	What Role Does Hydrological Science Play in the Age of Machine Learning?
+hydrology	Enhancing Streamflow Forecast and Extracting Insights Using Long-Short Term Memory Networks With Data Integration at Continental Scales
+hydrology	From calibration to parameter learning: Harnessing the scaling effects of big data in geoscientific modeling
+hydrology	Differentiable modelling to unify machine learning and physical models for geosciences
+hydrology	Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network
+hydrology	Flood forecasting with machine learning models in an operational framework
+hydrology	Process-Guided Deep Learning Predictions of Lake Water Temperature
+hydrology	Uncertainty estimation with deep learning for rainfall–runoff modeling
+hydrology	Deep learning rainfall–runoff predictions of extreme events
+hydrology	Groundwater level forecasting with artificial neural networks: a comparison of long short-term memory (LSTM), convolutional neural networks (CNNs), and non-linear autoregressive networks with exogenous input (NARX)
+hydrology	Caravan - A global community dataset for large-sample hydrology
+hydrology	Flood Prediction Using Machine Learning Models: Literature Review
+hydrology	Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach
+energy	Machine learning methods for solar radiation forecasting: A review
+energy	A review of deep learning for renewable energy forecasting
+energy	Deep learning for solar power forecasting — An approach using AutoEncoder and LSTM Neural Networks
+agriculture	Crop Yield Prediction Using Deep Neural Networks
+agriculture	Random Forests for Global and Regional Crop Yield Predictions
+agriculture	Integrating satellite and climate data to predict wheat yield in Australia using machine learning approaches
+agriculture	Deep Gaussian Process for Crop Yield Prediction Based on Remote Sensing Data
+agriculture	Machine learning methods for crop yield prediction and climate change impact assessment in agriculture

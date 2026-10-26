@@ -3504,7 +3504,11 @@
    "venue": "",
    "cites": 0
   },
-  "arxiv": null
+  "arxiv": {
+   "score": 1.0,
+   "id": "2304.07029",
+   "title": "Challenges of learning multi-scale dynamics with AI weather models: Implications for stability and one solution"
+  }
  },
  "Stable Machine-Learning Parameterization of Subgrid Processes in a Comprehensive Atmospheric Model Learned From Embedded Convection-Permitting Simulations": {
   "crossref": {
@@ -3539,5 +3543,271 @@
  "ArchesWeatherGen: Skillful and compute-efficient probabilistic weather forecasting with machine learning": {
   "crossref": null,
   "arxiv": null
+ },
+ "Rainfall\u2013runoff modelling using Long Short-Term Memory (LSTM) networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/hess-22-6005-2018",
+   "title": "Rainfall\u2013runoff modelling using Long Short-Term Memory (LSTM) networks",
+   "type": "journal-article",
+   "venue": "Hydrology and Earth System Sciences",
+   "cites": 1818
+  }
+ },
+ "Towards learning universal, regional, and local hydrological behaviors via machine learning applied to large-sample datasets": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/hess-23-5089-2019",
+   "title": "Towards learning universal, regional, and local hydrological behaviors via machine learning applied to large-sample datasets",
+   "type": "journal-article",
+   "venue": "Hydrology and Earth System Sciences",
+   "cites": 870
+  }
+ },
+ "Toward Improved Predictions in Ungauged Basins: Exploiting the Power of Machine Learning": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019wr026065",
+   "title": "Toward Improved Predictions in Ungauged Basins: Exploiting the Power of Machine Learning",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 772
+  }
+ },
+ "A Transdisciplinary Review of Deep Learning Research and Its Relevance for Water Resources Scientists": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2018wr022643",
+   "title": "A Transdisciplinary Review of Deep Learning Research and Its Relevance for Water Resources Scientists",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 1182
+  }
+ },
+ "Global prediction of extreme floods in ungauged watersheds": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41586-024-07145-1",
+   "title": "Global prediction of extreme floods in ungauged watersheds",
+   "type": "journal-article",
+   "venue": "Nature",
+   "cites": 375
+  }
+ },
+ "What Role Does Hydrological Science Play in the Age of Machine Learning?": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2020wr028091",
+   "title": "What Role Does Hydrological Science Play in the Age of Machine Learning?",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 721
+  }
+ },
+ "Enhancing Streamflow Forecast and Extracting Insights Using Long-Short Term Memory Networks With Data Integration at Continental Scales": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019wr026793",
+   "title": "Enhancing Streamflow Forecast and Extracting Insights Using Long\u2010Short Term Memory Networks With Data Integration at Continental Scales",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 468
+  }
+ },
+ "From calibration to parameter learning: Harnessing the scaling effects of big data in geoscientific modeling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41467-021-26107-z",
+   "title": "From calibration to parameter learning: Harnessing the scaling effects of big data in geoscientific modeling",
+   "type": "journal-article",
+   "venue": "Nature Communications",
+   "cites": 217
+  }
+ },
+ "Differentiable modelling to unify machine learning and physical models for geosciences": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s43017-023-00450-9",
+   "title": "Differentiable modelling to unify machine learning and physical models for geosciences",
+   "type": "journal-article",
+   "venue": "Nature Reviews Earth &amp; Environment",
+   "cites": 406
+  }
+ },
+ "Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1002/2017gl075619",
+   "title": "Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network",
+   "type": "journal-article",
+   "venue": "Geophysical Research Letters",
+   "cites": 304
+  }
+ },
+ "Flood forecasting with machine learning models in an operational framework": {
+  "crossref": {
+   "score": 0.672,
+   "doi": "10.3390/books978-3-03897-549-6",
+   "title": "Flood Forecasting Using Machine Learning Methods",
+   "type": "edited-book",
+   "venue": "",
+   "cites": 10
+  },
+  "arxiv": {
+   "score": 1.0,
+   "id": "2111.02780",
+   "title": "Flood forecasting with machine learning models in an operational framework"
+  }
+ },
+ "Process-Guided Deep Learning Predictions of Lake Water Temperature": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1029/2019wr024922",
+   "title": "Process\u2010Guided Deep Learning Predictions of Lake Water Temperature",
+   "type": "journal-article",
+   "venue": "Water Resources Research",
+   "cites": 394
+  }
+ },
+ "Uncertainty estimation with deep learning for rainfall\u2013runoff modeling": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/hess-26-1673-2022",
+   "title": "Uncertainty estimation with deep learning  for rainfall\u2013runoff modeling",
+   "type": "journal-article",
+   "venue": "Hydrology and Earth System Sciences",
+   "cites": 176
+  }
+ },
+ "Deep learning rainfall\u2013runoff predictions of extreme events": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/hess-26-3377-2022",
+   "title": "Deep learning rainfall\u2013runoff predictions of extreme events",
+   "type": "journal-article",
+   "venue": "Hydrology and Earth System Sciences",
+   "cites": 295
+  }
+ },
+ "Groundwater level forecasting with artificial neural networks: a comparison of long short-term memory (LSTM), convolutional neural networks (CNNs), and non-linear autoregressive networks with exogenous input (NARX)": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/hess-25-1671-2021",
+   "title": "Groundwater level forecasting with artificial neural networks:  a comparison of long short-term memory (LSTM),  convolutional neural networks (CNNs), and non-linear  autoregressive networks with exogenous input (NARX)",
+   "type": "journal-article",
+   "venue": "Hydrology and Earth System Sciences",
+   "cites": 313
+  }
+ },
+ "Caravan - A global community dataset for large-sample hydrology": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1038/s41597-023-01975-w",
+   "title": "Caravan - A global community dataset for large-sample hydrology",
+   "type": "journal-article",
+   "venue": "Scientific Data",
+   "cites": 207
+  }
+ },
+ "Flood Prediction Using Machine Learning Models: Literature Review": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3390/w10111536",
+   "title": "Flood Prediction Using Machine Learning Models: Literature Review",
+   "type": "journal-article",
+   "venue": "Water",
+   "cites": 1291
+  }
+ },
+ "Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.5194/bg-17-1343-2020",
+   "title": "Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach",
+   "type": "journal-article",
+   "venue": "Biogeosciences",
+   "cites": 628
+  }
+ },
+ "Machine learning methods for solar radiation forecasting: A review": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.renene.2016.12.095",
+   "title": "Machine learning methods for solar radiation forecasting: A review",
+   "type": "journal-article",
+   "venue": "Renewable Energy",
+   "cites": 1705
+  }
+ },
+ "A review of deep learning for renewable energy forecasting": {
+  "crossref": {
+   "score": 0.814,
+   "doi": "10.5958/2278-4853.2021.00832.6",
+   "title": "Deep learning for renewable energy forecasting: A review",
+   "type": "journal-article",
+   "venue": "Asian Journal of Multidimensional Research",
+   "cites": 2
+  },
+  "arxiv": null
+ },
+ "Deep learning for solar power forecasting \u2014 An approach using AutoEncoder and LSTM Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1109/smc.2016.7844673",
+   "title": "Deep Learning for solar power forecasting \u2014 An approach using AutoEncoder and LSTM Neural Networks",
+   "type": "proceedings-article",
+   "venue": "2016 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+   "cites": 468
+  }
+ },
+ "Crop Yield Prediction Using Deep Neural Networks": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.3389/fpls.2019.00621",
+   "title": "Crop Yield Prediction Using Deep Neural Networks",
+   "type": "journal-article",
+   "venue": "Frontiers in Plant Science",
+   "cites": 836
+  }
+ },
+ "Random Forests for Global and Regional Crop Yield Predictions": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1371/journal.pone.0156571",
+   "title": "Random Forests for Global and Regional Crop Yield Predictions",
+   "type": "journal-article",
+   "venue": "PLOS ONE",
+   "cites": 796
+  }
+ },
+ "Integrating satellite and climate data to predict wheat yield in Australia using machine learning approaches": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1016/j.agrformet.2019.03.010",
+   "title": "Integrating satellite and climate data to predict wheat yield in Australia using machine learning approaches",
+   "type": "journal-article",
+   "venue": "Agricultural and Forest Meteorology",
+   "cites": 543
+  }
+ },
+ "Deep Gaussian Process for Crop Yield Prediction Based on Remote Sensing Data": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1609/aaai.v31i1.11172",
+   "title": "Deep Gaussian Process for Crop Yield Prediction Based on Remote Sensing Data",
+   "type": "journal-article",
+   "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+   "cites": 380
+  }
+ },
+ "Machine learning methods for crop yield prediction and climate change impact assessment in agriculture": {
+  "crossref": {
+   "score": 1.0,
+   "doi": "10.1088/1748-9326/aae159",
+   "title": "Machine learning methods for crop yield prediction and climate change impact assessment in agriculture",
+   "type": "journal-article",
+   "venue": "Environmental Research Letters",
+   "cites": 436
+  }
  }
 }

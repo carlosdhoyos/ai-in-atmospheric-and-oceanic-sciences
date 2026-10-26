@@ -101,6 +101,7 @@ def screen_batches(a):
     rows = list(csv.DictReader(open(path)))[:a.top]
     titles = [p["title"] for p in load("data/papers.json")["papers"] if p["year"] >= max(1, a.recent_from)]
     shutil.rmtree(os.path.join(WORK, "screen_in"), ignore_errors=True)
+    shutil.rmtree(os.path.join(WORK, "screen_out"), ignore_errors=True)  # never re-apply decisions from an earlier round
     os.makedirs(os.path.join(WORK, "screen_in"), exist_ok=True)
     os.makedirs(os.path.join(WORK, "screen_out"), exist_ok=True)
     keys = ("score", "cites", "months", "id", "venue", "date", "title")
@@ -133,7 +134,7 @@ def verify(_):
     n_db = con.sql("SELECT count(*) FROM papers").fetchall()[0][0]
     if n_db != len(papers):
         errors.append(f"database has {n_db} papers, papers.json has {len(papers)} (rerun build)")
-    for page in ("index.html", "eda.html"):
+    for page in ("index.html", "eda.html", "journals.html"):
         html = open(os.path.join(ROOT, page)).read()
         n_page = len(json.loads(re.search(r'<script id="data" type="application/json">(.*?)</script>', html, re.S)
                                 .group(1).replace("<\\/", "</"))["papers"])

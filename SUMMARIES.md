@@ -21,6 +21,9 @@ Each paper is summarized as main goal, architecture, data, main result, open wor
 - [Ocean](#ocean)
 - [Sea ice](#seaice)
 - [Air quality & chemistry](#chemistry)
+- [Hydrology & water resources](#hydrology)
+- [Weather & climate for energy](#energy)
+- [Climate & water for agriculture](#agriculture)
 - [Benchmarks & datasets](#benchmarks)
 - [Core ML methods](#methods)
 
@@ -5992,6 +5995,145 @@ Yin et al. (2026), *Science Advances*. 0 citations.
 - **Open work:** Applying the framework to reconstruct other short-lived chemical species.
 - **Issues:** Very short training period; reconstruction depends on continued availability of the input satellite species; uncertainty not described in the abstract.
 - *Basis: abstract*
+
+<a id="hydrology"></a>
+## Hydrology & water resources
+
+### [Rainfall–runoff modelling using Long Short-Term Memory (LSTM) networks](https://doi.org/10.5194/hess-22-6005-2018)
+Kratzert et al. (2018), *Hydrology and Earth System Sciences*. 1,818 citations.
+
+*Summary pending.*
+
+### [Flood Prediction Using Machine Learning Models: Literature Review](https://doi.org/10.3390/w10111536)
+Mosavi et al. (2018), *Water*. 1,514 citations.
+
+*Summary pending.*
+
+### [A Transdisciplinary Review of Deep Learning Research and Its Relevance for Water Resources Scientists](https://doi.org/10.1029/2018wr022643)
+Shen (2017), *Water Resources Research*. 1,182 citations.
+
+*Summary pending.*
+
+### [Towards learning universal, regional, and local hydrological behaviors via machine learning applied to large-sample datasets](https://doi.org/10.5194/hess-23-5089-2019)
+Kratzert et al. (2019), *Hydrology and Earth System Sciences*. 1,021 citations.
+
+*Summary pending.*
+
+### [Toward Improved Predictions in Ungauged Basins: Exploiting the Power of Machine Learning](https://doi.org/10.1029/2019wr026065)
+Kratzert et al. (2019), *Water Resources Research*. 772 citations.
+
+*Summary pending.*
+
+### [What Role Does Hydrological Science Play in the Age of Machine Learning?](https://doi.org/10.1029/2020wr028091)
+Nearing et al. (2020), *Water Resources Research*. 721 citations.
+
+*Summary pending.*
+
+### [Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach](https://doi.org/10.5194/bg-2019-368)
+Jung et al. (2019), *Biogeosciences*. 672 citations.
+
+*Summary pending.*
+
+### [Enhancing Streamflow Forecast and Extracting Insights Using Long‐Short Term Memory Networks With Data Integration at Continental Scales](https://doi.org/10.1029/2019wr026793)
+Feng et al. (2019), *Water Resources Research*. 468 citations.
+
+*Summary pending.*
+
+### [Differentiable modelling to unify machine learning and physical models for geosciences](https://doi.org/10.1038/s43017-023-00450-9)
+Shen et al. (2023), *Nature Reviews Earth &amp; Environment*. 450 citations.
+
+*Summary pending.*
+
+### [Global prediction of extreme floods in ungauged watersheds](https://doi.org/10.1038/s41586-024-07145-1)
+Nearing et al. (2024), *Nature*. 441 citations.
+
+*Summary pending.*
+
+### [Process‐Guided Deep Learning Predictions of Lake Water Temperature](https://doi.org/10.1029/2019wr024922)
+Read et al. (2019), *Water Resources Research*. 394 citations.
+
+*Summary pending.*
+
+### [Deep learning rainfall-runoff predictions of extreme events](https://doi.org/10.5194/hess-2021-423)
+Frame et al. (2021), *Hydrology and Earth System Sciences*. 341 citations.
+
+*Summary pending.*
+
+### [Groundwater level forecasting with artificial neural networks: a comparison of long short-term memory (LSTM), convolutional neural networks (CNNs), and non-linear autoregressive networks with exogenous input (NARX)](https://doi.org/10.5194/hess-25-1671-2021)
+Wunsch et al. (2021), *Hydrology and Earth System Sciences*. 313 citations.
+
+*Summary pending.*
+
+### [Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network](https://doi.org/10.1002/2017gl075619)
+Fang et al. (2017), *Geophysical Research Letters*. 304 citations.
+
+*Summary pending.*
+
+### [From calibration to parameter learning: Harnessing the scaling effects of big data in geoscientific modeling](https://doi.org/10.1038/s41467-021-26107-z)
+Tsai et al. (2020), *Nature Communications*. 298 citations.
+
+*Summary pending.*
+
+### [Caravan - A global community dataset for large-sample hydrology](https://doi.org/10.1038/s41597-023-01975-w)
+Kratzert et al. (2023), *Scientific Data*. 290 citations.
+
+*Summary pending.*
+
+### [Flood forecasting with machine learning models in an operational framework](https://doi.org/10.5194/hess-2021-554)
+Nevo et al. (2021), *Hydrology and Earth System Sciences*. 245 citations.
+
+*Summary pending.*
+
+### [Uncertainty Estimation with Deep Learning for Rainfall-Runoff Modelling](https://doi.org/10.31223/x5js4t)
+Klotz et al. (2020), *Hydrology and Earth System Sciences*. 195 citations.
+
+*Summary pending.*
+
+<a id="energy"></a>
+## Weather & climate for energy
+
+### [Machine learning methods for solar radiation forecasting: A review](https://doi.org/10.1016/j.renene.2016.12.095)
+Voyant et al. (2017), *Renewable Energy*. 1,705 citations.
+
+*Summary pending.*
+
+### [A review of deep learning for renewable energy forecasting](https://doi.org/10.1016/j.enconman.2019.111799)
+Wang et al. (2019), *Energy Conversion and Management*. 1,073 citations.
+
+*Summary pending.*
+
+### [Deep Learning for solar power forecasting — An approach using AutoEncoder and LSTM Neural Networks](https://doi.org/10.1109/smc.2016.7844673)
+Gensler et al. (2016), *IEEE International Conference on Systems, Man and Cybernetics*. 568 citations.
+
+*Summary pending.*
+
+<a id="agriculture"></a>
+## Climate & water for agriculture
+
+### [Crop Yield Prediction Using Deep Neural Networks](https://doi.org/10.3389/fpls.2019.00621)
+Khaki et al. (2019), *Frontiers in Plant Science*. 836 citations.
+
+*Summary pending.*
+
+### [Random Forests for Global and Regional Crop Yield Predictions](https://doi.org/10.1371/journal.pone.0156571)
+Jeong et al. (2016), *PLOS ONE*. 796 citations.
+
+*Summary pending.*
+
+### [Deep Gaussian Process for Crop Yield Prediction Based on Remote Sensing Data](https://doi.org/10.1609/aaai.v31i1.11172)
+You et al. (2017), *Proceedings of the AAAI Conference on Artificial Intelligence*. 641 citations.
+
+*Summary pending.*
+
+### [Integrating satellite and climate data to predict wheat yield in Australia using machine learning approaches](https://doi.org/10.1016/j.agrformet.2019.03.010)
+Cai et al. (2018), *Agricultural and Forest Meteorology*. 543 citations.
+
+*Summary pending.*
+
+### [Machine learning methods for crop yield prediction and climate change impact assessment in agriculture](https://doi.org/10.1088/1748-9326/aae159)
+Crane-Droesch (2018), *Environmental Research Letters*. 436 citations.
+
+*Summary pending.*
 
 <a id="benchmarks"></a>
 ## Benchmarks & datasets

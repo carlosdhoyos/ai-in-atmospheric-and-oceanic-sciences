@@ -1,11 +1,12 @@
 # AI in Atmospheric and Oceanic Sciences
 
-A curated, citation-ranked catalog of machine-learning research for weather, climate, ocean and sea ice, covering peer-reviewed journals, major ML conferences and arXiv preprints.
+A curated, citation-ranked catalog of machine-learning research for weather, climate, ocean and sea ice, and for the water, energy and agriculture problems tied to them, covering peer-reviewed journals, major ML conferences and arXiv preprints.
 
-**Browse it:** two self-contained pages, each a single HTML file you can open in a browser or serve with GitHub Pages:
+**Browse it:** three self-contained pages, each a single HTML file you can open in a browser or serve with GitHub Pages:
 
 - [`index.html`](index.html) is the **paper catalog**, with search, filters, summaries and BibTeX, plus an Insights tab.
 - [`eda.html`](eda.html) is the **interactive exploratory analysis**. Guided views (architecture shift, research goals, training data, limitations by architecture, open problems, probabilistic turn, citation impact, venues) set up every chart to answer one question, with notes computed from the current selection. Every view can be bookmarked by its hash, e.g. `eda.html#data`.
+- [`journals.html`](journals.html) is the **journal assessment**: which journals and conferences publish the most influential ML work in the catalog, measured by a year-normalized impact index and the share of top-10% papers, with a sortable scorecard, tiers, trends and each venue's subfield mix. All numbers follow the filters.
 
 The page lets you:
 
@@ -41,7 +42,9 @@ python3 analysis/eda.py       # regenerate figures and tables (needs duckdb, pan
 
 ## Subfields
 
-Reviews & perspectives · Medium-range weather · Ensembles & generative models · Foundation models · Nowcasting · Post-processing · S2S, ENSO & MJO · Climate emulation & detection · Parameterization & hybrid models · Downscaling · Data assimilation · Remote sensing & clouds · Extremes & tropical cyclones · Explainability & causality · Ocean · Sea ice · Air quality & chemistry · Benchmarks & datasets · Core ML methods
+Reviews & perspectives · Medium-range weather · Ensembles & generative models · Foundation models · Nowcasting · Post-processing · S2S, ENSO & MJO · Climate emulation & detection · Parameterization & hybrid models · Downscaling · Data assimilation · Remote sensing & clouds · Extremes & tropical cyclones · Explainability & causality · Ocean · Sea ice · Air quality & chemistry · Benchmarks & datasets · Core ML methods · Hydrology & water resources · Weather & climate for energy · Climate & water for agriculture
+
+The last three (the "applied" scope) include only work tied to water, weather or climate: for example streamflow and flood prediction, wind and solar forecasting from meteorological inputs, or climate-driven crop yield prediction.
 
 A paper can belong to more than one subfield.
 

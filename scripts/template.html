@@ -51,6 +51,7 @@ d.lang=l||'es';})()
   }
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }  /* the standalone pages have no host reset, and components set display */
 body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -199,6 +200,22 @@ table.pivot .tot { color: var(--muted); background: transparent; cursor: default
 .preset-note { margin: 14px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--chip); font-size: 14px; max-width: 85ch; }
 .preset-note:empty { display: none; }
 .preset-note b { font-weight: 600; }
+table.score { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.score th { text-align: left; font: 500 11.5px var(--f-mono); color: var(--muted); padding: 8px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; cursor: pointer; user-select: none; }
+table.score th[aria-sort="descending"]::after { content: " ↓"; color: var(--accent); }
+table.score th[aria-sort="ascending"]::after { content: " ↑"; color: var(--accent); }
+table.score td { padding: 8px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.score td.num { text-align: right; font-family: var(--f-mono); }
+table.score tr.vrow { cursor: pointer; }
+table.score tr.vrow:hover td { background: var(--chip); }
+table.score tr.detail td { background: var(--chip); font-size: 13px; }
+table.score .name { font-weight: 500; min-width: 150px; max-width: 280px; }
+table.score .fam { display: block; font-size: 11.5px; color: var(--muted); font-weight: 400; }
+.mbar { display: inline-block; height: 6px; border-radius: 3px; background: var(--grad); vertical-align: middle; margin-left: 6px; }
+.tier { display: inline-block; font: 500 11px var(--f-mono); padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.t-lead { color: var(--s1); } .t-strong { color: var(--s3); } .t-steady { color: var(--muted); } .t-low { color: var(--muted); opacity: .7; } .t-few { color: var(--muted); border-style: dashed; }
+ul.method { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 8px; font-size: 14px; max-width: 90ch; }
+.detail ol { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; }
 /* ---- carlosdhoyos.github.io component layer ---- */
 body { background: var(--bg); color: var(--fg); font-family: var(--f-body); -webkit-font-smoothing: antialiased; transition: background-color var(--ease), color var(--ease); }
 .wrap { max-width: 1024px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -414,6 +431,55 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
       <p class="note">Themes come from keyword rules over the summaries' issues and open-work fields; many of these are editorial assessments rather than the authors' own statements.</p>
     </div>
   </section>
+  <section id="journals" hidden aria-label="Journal assessment">
+    <div class="findings">
+      <h2>Which venues publish the strongest work</h2>
+      <div class="kpis" id="j-kpis"></div>
+      <ul id="j-findings"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>Volume and impact</h3>
+      <p class="sub">Each dot is a journal or conference. Across: papers in the current selection. Up: impact index, the median of its papers' citation rates relative to papers from the same year (1 = typical for the catalog). Click a dot to open it in the scorecard.</p>
+      <div class="opts">
+        <label>Show <select id="j-kind" aria-label="Venue type"><option value="all">Journals and conferences</option><option value="journal">Journals only</option><option value="conference">Conferences only</option></select></label>
+        <label>At least <select id="j-min" aria-label="Minimum papers"><option value="1">1 paper</option><option value="3" selected>3 papers</option><option value="5">5 papers</option><option value="10">10 papers</option></select></label>
+      </div>
+      <div class="chart" id="j-scatter"></div>
+      <div class="legend" id="j-legend"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Scorecard</h3>
+      <p class="sub">Sort by any column. Select a row to see its most influential papers in this selection. Index: impact index; Top 10% / Top 2%: share and count of its papers among the most cited for their year; Cites/yr: median citations per year; Open: share with an open PDF; ≥ year: share of recent papers. Tiers apply to venues with at least 5 papers.</p>
+      <div class="pivot-wrap" id="j-table"></div>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h3>Where the most-cited papers appear</h3>
+        <p class="sub">Papers in the top 10% of the catalog for their year, by venue group and period.</p>
+        <div class="chart" id="j-top"></div>
+        <div class="legend" id="j-top-legend"></div>
+      </div>
+      <div class="panel">
+        <h3>What each venue publishes</h3>
+        <p class="sub">Share of each venue's papers by subfield (the 12 venues with most papers).</p>
+        <div class="pivot-wrap" id="j-mix"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>How to read this</h3>
+      <ul class="method">
+        <li><b>Scope.</b> These numbers describe the venues' papers <em>in this catalog</em>, a curated set of ML/AI work for weather, climate, ocean, water, energy and agriculture. They are not journal-wide statistics and are not the Clarivate Journal Impact Factor.</li>
+        <li><b>Impact index.</b> For each paper, citations per year divided by the median citations per year of all catalog papers published in the same year. A venue's index is the median over its papers, so a single landmark paper cannot dominate it. Citation counts come from Semantic Scholar and Crossref.</li>
+        <li><b>Top-10% share.</b> The share of a venue's papers whose relative citation rate is in the top 10% of the catalog.</li>
+        <li><b>Tiers</b> (venues with 5+ papers): <span class="tier t-lead">Leading</span> index ≥ 1.5 and top-10% share ≥ 20%; <span class="tier t-strong">Strong</span> index ≥ 1.0; <span class="tier t-steady">Steady</span> index ≥ 0.6; <span class="tier t-low">Lower impact</span> below that.</li>
+        <li><b>Caveats.</b> Selection favoured well-cited and well-placed work, which flatters strong venues. Papers from the last year have had little time to be cited, and preprint-only work is listed separately.</li>
+      </ul>
+    </div>
+  </section>
   <footer>
     <p>Metadata and citation counts were retrieved from Semantic Scholar, Crossref and arXiv on <span id="asof2"></span>. Counts differ between indexes (Google Scholar is usually higher), so use them to compare papers, not as absolute numbers. Papers with both an arXiv preprint and a published version are listed once under the published venue.</p>
   </footer>
@@ -488,6 +554,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     ["subfield", "Subfield", p => p.topics.map(t => T[t])],
     ["paper_type", "Paper type", p => [TYPE_LABEL[p.cat.paper_type]]],
     ["output", "Output", p => p.cat.paper_type === "method" ? [p.cat.probabilistic ? "Probabilistic" : "Deterministic"] : []],
+    ["journal", "Journal / venue", p => [p.cat.journal]],
     ["venue_family", "Venue family", p => [p.cat.venue_family]],
     ["kind", "Publication type", p => [KIND_LABEL[p.kind]]],
     ["period", "Period", p => [period(p.year)]],
@@ -538,6 +605,8 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
     $("list").hidden = state.tab !== "papers";
     $("insights").hidden = state.tab !== "insights";
+    $("journals").hidden = state.tab !== "journals";
+    if (state.tab === "journals") return renderJournals(rows);
     $("tab-papers").setAttribute("aria-selected", state.tab === "papers");
     $("tab-insights").setAttribute("aria-selected", state.tab === "insights");
     if (state.tab === "insights") return renderInsights(rows);
@@ -692,7 +761,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   const SER = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)", "var(--s7)"];
   const NS = 'xmlns="http://www.w3.org/2000/svg"';
   const CHART_DIMS = ["model_family", "arch_group", "approach", "task", "data_source", "issue_theme", "open_theme", "subfield",
-    "paper_type", "output", "venue_family", "kind"];
+    "paper_type", "output", "journal", "venue_family", "kind"];
   const ins = { tl: "model_family", tr: "arch_group", trMode: "share", rf: "task", im: "arch_group", imVal: "Transformers",
     pvRow: "task", pvCol: "arch_group", pvMetric: "n", voice: "issue_theme", voiceTheme: null };
   const pct = x => `${Math.round(x * 100)}%`;
@@ -1040,7 +1109,178 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     tip.style.left = Math.max(8, x) + "px"; tip.style.top = y + "px";
   });
   $("insights").addEventListener("pointerleave", () => tip.hidden = true);
-  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => state.tab === "insights" && render(), 150); });
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => state.tab !== "papers" && render(), 150); });
+
+  /* ---------- Journal assessment ---------- */
+  // Relative citation rate: a paper's citations/yr over the median for catalog papers of the same year
+  const yearMed = {};
+  [...new Set(P.map(p => p.year))].forEach(y => { yearMed[y] = Math.max(0.1, median(P.filter(p => p.year === y).map(p => p.rate))); });
+  P.forEach(p => { p.rel = p.rate / yearMed[p.year]; });
+  const quant = (a, q) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(q * s.length))] : 0; };
+  const TOP10 = quant(P.map(p => p.rel), 0.9), TOP2 = quant(P.map(p => p.rel), 0.98);
+  const TIERS = [["Leading", "t-lead"], ["Strong", "t-strong"], ["Steady", "t-steady"], ["Lower impact", "t-low"], ["Too few papers", "t-few"]];
+  const tierOf = v => v.n < 5 ? 4 : v.index >= 1.5 && v.top10 >= 0.2 ? 0 : v.index >= 1.0 ? 1 : v.index >= 0.6 ? 2 : 3;
+  const jstate = { sort: "index", dir: -1, open: null };
+
+  function venueStats(rows) {
+    const by = new Map();
+    rows.forEach(p => { const k = p.cat.journal; if (!by.has(k)) by.set(k, []); by.get(k).push(p); });
+    return [...by].map(([name, ps]) => {
+      const v = { name, papers: ps, n: ps.length, kind: ps.filter(p => p.kind === "journal").length >= ps.length / 2 ? "journal" : ps[0].kind,
+        family: ps[0].cat.venue_family, index: median(ps.map(p => p.rel)), top10: ps.filter(p => p.rel >= TOP10).length / ps.length,
+        landmarks: ps.filter(p => p.rel >= TOP2).length, rate: median(ps.map(p => p.rate)),
+        oa: ps.filter(p => p.pdf).length / ps.length, recent: ps.filter(p => p.year >= maxY - 2).length / ps.length,
+        prob: (() => { const m = ps.filter(p => p.cat.paper_type === "method"); return m.length ? m.filter(p => p.cat.probabilistic).length / m.length : 0; })(),
+        periods: PERIODS.map(([per]) => ps.filter(p => period(p.year) === per).length),
+        subs: counts("subfield", ps).slice(0, 3), arch: counts("arch_group", ps).slice(0, 2) };
+      v.tier = tierOf(v);
+      return v;
+    });
+  }
+
+  function spark(vals) {
+    const w = 64, h = 18, mx = Math.max(1, ...vals), bw = w / vals.length;
+    return `<svg ${NS} width="${w}" height="${h}" aria-hidden="true">${vals.map((v, i) =>
+      `<rect x="${i * bw + 1}" y="${h - (v / mx) * h}" width="${bw - 2}" height="${(v / mx) * h}" rx="1" fill="var(--s1)" opacity="${v ? 0.85 : 0.15}"/>`).join("")}</svg>`;
+  }
+
+  function renderJournals(rows) {
+    const kind = $("j-kind").value, minN = +$("j-min").value;
+    const all = venueStats(rows.filter(p => p.kind !== "preprint"));
+    const vs = all.filter(v => (kind === "all" || v.kind === kind) && v.n >= minN);
+    const ranked = all.filter(v => v.n >= 5).sort((a, b) => b.index - a.index);
+    const pre = rows.filter(p => p.kind === "preprint");
+    // findings
+    const tops = rows.filter(p => p.rel >= TOP10), topVen = venueStats(tops).sort((a, b) => b.n - a.n);
+    const conc = all.sort((a, b) => b.n - a.n).slice(0, 5).reduce((a, v) => a + v.n, 0) / Math.max(1, rows.length - pre.length);
+    const confTop = tops.filter(p => p.kind === "conference").length / Math.max(1, tops.length);
+    $("j-kpis").innerHTML = [
+      [fmt(all.length), "journals and conferences"],
+      [ranked.filter(v => v.tier === 0).length, "leading venues (5+ papers)"],
+      [pct(conc), "of papers in the 5 largest venues"],
+      [pct(confTop), "of top-10% papers at ML conferences"],
+      [pct(pre.length / Math.max(1, rows.length)), "of papers are arXiv-only"],
+    ].map(([b, t]) => `<div class="kpi"><b>${esc(String(b))}</b><span>${esc(t)}</span></div>`).join("");
+    const f = [];
+    if (ranked.length) f.push(`Highest impact index among venues with 5+ papers: ${ranked.slice(0, 4).map(v => `<b>${esc(v.name)}</b> (${v.index.toFixed(2)}, ${v.n} papers)`).join(", ")}.`);
+    const big = [...all].sort((a, b) => b.n - a.n).slice(0, 3);
+    if (big.length) f.push(`Largest venues: ${big.map(v => `${esc(v.name)} (${v.n} papers, index ${v.index.toFixed(2)})`).join(", ")}.`);
+    if (topVen.length) f.push(`The most-cited papers (top 10% for their year) appear most often in ${topVen.slice(0, 4).map(v => `<b>${esc(v.name)}</b> (${v.n})`).join(", ")}.`);
+    const rising = venueStats(rows.filter(p => p.year >= maxY - 2 && p.kind !== "preprint")).sort((a, b) => b.n - a.n).slice(0, 3);
+    if (rising.length) f.push(`Most papers from ${maxY - 2} on: ${rising.map(v => `${esc(v.name)} (${v.n})`).join(", ")}.`);
+    f.push(`Scores describe each venue's papers in this catalog, normalized by publication year; see "How to read this".`);
+    $("j-findings").innerHTML = f.map(x => `<li>${x}</li>`).join("");
+    renderJScatter(vs); renderJTable(vs); renderJTop(tops); renderJMix(all, rows);
+  }
+
+  function renderJScatter(vs) {
+    if (!vs.length) { $("j-scatter").innerHTML = `<p class="note">No venues match. Lower the minimum number of papers.</p>`; $("j-legend").innerHTML = ""; return; }
+    const W = width("j-scatter"), H = 340, L = 46, B = 30, T = 10, R = 12;
+    const xs = vs.map(v => v.n), xmax = Math.max(...xs) * 1.15, lx = v => Math.log10(v);
+    const lo = Math.min(0.25, ...vs.map(v => Math.max(0.05, v.index))), hi = Math.max(4, ...vs.map(v => v.index)) * 1.1;
+    const X = n => L + (lx(n) - lx(0.8)) / (lx(xmax) - lx(0.8)) * (W - L - R);
+    const Y = v => T + (H - T - B) * (1 - (Math.log2(Math.max(lo, v)) - Math.log2(lo)) / (Math.log2(hi) - Math.log2(lo)));
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Venues by number of papers and impact index">`;
+    [0.25, 0.5, 1, 2, 4, 8].filter(t => t >= lo && t <= hi).forEach(t => s += `<line x1="${L}" x2="${W - R}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--grid)"${t === 1 ? ' stroke-width="1.5"' : ""}/><text x="${L - 6}" y="${Y(t) + 4}" text-anchor="end">${t}</text>`);
+    [1, 2, 5, 10, 20, 50, 100, 200].filter(t => t <= xmax).forEach(t => s += `<text x="${X(t)}" y="${H - 10}" text-anchor="middle">${t}</text>`);
+    s += `<text x="${W - R}" y="${Y(1) - 5}" text-anchor="end">typical for the catalog</text>`;
+    const col = v => v.tier === 0 ? "var(--s1)" : v.tier === 1 ? "var(--s3)" : "var(--s-other)";
+    // label the largest and the highest-impact venues, skipping any label that would collide with one already placed
+    const want = [...vs].sort((a, b) => b.n - a.n).slice(0, 6).concat([...vs].filter(v => v.n >= 5).sort((a, b) => b.index - a.index).slice(0, 6));
+    const placed = [{ x0: W - R - 150, x1: W - R, y0: Y(1) - 16, y1: Y(1) }];  // the "typical" caption
+    const labels = [];
+    want.forEach(v => {
+      if (labels.some(l => l.v === v)) return;
+      const r = 4 + Math.sqrt(v.landmarks) * 2.2, text = short(v.name, 28), w = text.length * 6.2, cx = X(v.n), cy = Y(v.index);
+      const right = cx + r + 4 + w < W - R, x0 = right ? cx + r + 4 : cx - r - 4 - w, box = { x0, x1: x0 + w, y0: cy - 9, y1: cy + 4 };
+      if (placed.some(b => b.x0 < box.x1 && box.x0 < b.x1 && b.y0 < box.y1 && box.y0 < b.y1)) return;
+      placed.push(box); labels.push({ v, x: right ? x0 : x0 + w, anchor: right ? "start" : "end", y: cy + 4, text });
+    });
+    [...vs].sort((a, b) => a.tier === b.tier ? 0 : b.tier - a.tier).forEach(v => {
+      const cx = X(v.n), cy = Y(v.index), r = 4 + Math.sqrt(v.landmarks) * 2.2;
+      s += `<circle class="clickable" data-venue="${esc(v.name)}" cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="${col(v)}" fill-opacity="${v.tier === 4 ? 0.25 : 0.85}" stroke="var(--surface)" stroke-width="2" ${tipAttr(`<b>${esc(v.name)}</b><br>${v.n} papers · index ${v.index.toFixed(2)} · top 10%: ${pct(v.top10)}<br>${TIERS[v.tier][0]}`)}/>`;
+    });
+    labels.forEach(l => s += `<text x="${l.x}" y="${l.y}" text-anchor="${l.anchor}" class="lab" style="font-size:11px">${esc(l.text)}</text>`);
+    $("j-scatter").innerHTML = s + "</svg>";
+    $("j-legend").innerHTML = `<span><i style="background:var(--s1)"></i> Leading</span><span><i style="background:var(--s3)"></i> Strong</span><span><i style="background:var(--s-other)"></i> Steady, lower impact or too few papers</span><span>Dot size: highly cited papers (top 2%)</span>`;
+  }
+
+  const JCOLS = [["name", "Venue"], ["n", "Papers"], ["index", "Index"], ["top10", "Top 10%"], ["landmarks", "Top 2%"],
+    ["rate", "Cites/yr"], ["oa", "Open"], ["recent", `≥${maxY - 2}`], ["periods", "Trend"], ["tier", "Tier"]];
+  function renderJTable(vs) {
+    const k = jstate.sort, d = jstate.dir;
+    const sorted = [...vs].sort((a, b) => k === "name" ? d * a.name.localeCompare(b.name) : k === "tier" ? d * (b.tier - a.tier) || b.index - a.index
+      : k === "periods" ? d * (a.recent - b.recent) : d * (a[k] - b[k]) || b.n - a.n);
+    const mx = Math.max(1, ...vs.map(v => v.index));
+    let h = `<table class="score"><thead><tr>${JCOLS.map(([key, l]) => `<th data-sort="${key}" ${key === k ? `aria-sort="${d < 0 ? "descending" : "ascending"}"` : ""}>${l}</th>`).join("")}</tr></thead><tbody>`;
+    sorted.forEach(v => {
+      h += `<tr class="vrow" data-venue="${esc(v.name)}"><td class="name">${esc(v.name)}<span class="fam">${esc(v.family)} · ${v.subs.slice(0, 2).map(([x]) => esc(x)).join(", ")}</span></td>
+        <td class="num">${v.n}</td><td class="num">${v.index.toFixed(2)}<span class="mbar" style="width:${Math.round(40 * Math.min(1, v.index / mx))}px"></span></td>
+        <td class="num">${pct(v.top10)}</td><td class="num">${v.landmarks}</td><td class="num">${v.rate.toFixed(1)}</td>
+        <td class="num">${pct(v.oa)}</td><td class="num">${pct(v.recent)}</td><td>${spark(v.periods)}</td>
+        <td><span class="tier ${TIERS[v.tier][1]}">${TIERS[v.tier][0]}</span></td></tr>`;
+      if (jstate.open === v.name) {
+        const best = [...v.papers].sort((a, b) => b.rel - a.rel).slice(0, 6);
+        h += `<tr class="detail"><td colspan="${JCOLS.length}"><b>Most influential papers in this selection</b> (by citation rate relative to their year):<ol>${best.map(p =>
+          `<li><a href="${esc(p.doi ? "https://doi.org/" + p.doi : "https://arxiv.org/abs/" + p.arxiv)}" target="_blank" rel="noopener">${esc(p.title)}</a> (${p.year}, ${fmt(p.cites)} citations, ${p.rel.toFixed(1)}× typical)</li>`).join("")}</ol>
+          <p class="note" style="margin:6px 0 0">Architectures: ${v.arch.map(([x, n]) => `${esc(x)} (${n})`).join(", ") || "–"} · probabilistic share of method papers: ${pct(v.prob)} · papers per period (${PERIODS.map(([x]) => x).join(", ")}): ${v.periods.join(", ")}</p></td></tr>`;
+      }
+    });
+    $("j-table").innerHTML = h + "</tbody></table>";
+  }
+
+  function renderJTop(tops) {
+    const fams = counts("venue_family", tops).slice(0, 6).map(([v]) => v), keys = [...fams, "Other"];
+    const W = width("j-top"), H = 240, L = 34, B = 24, T = 8, per = PERIODS.map(([p]) => p), bw = (W - L - 6) / per.length;
+    const table = per.map(pp => { const r = Object.fromEntries(keys.map(k => [k, 0])); tops.filter(p => period(p.year) === pp).forEach(p => r[fams.includes(p.cat.venue_family) ? p.cat.venue_family : "Other"]++); return r; });
+    const mx = Math.max(1, ...table.map(r => Object.values(r).reduce((a, b) => a + b, 0)));
+    const y = v => T + (H - T - B) * (1 - v / mx);
+    let s = `<svg ${NS} width="${W}" height="${H}" role="img" aria-label="Top-cited papers by venue group and period">`;
+    niceTicks(mx).forEach(t => s += `<line x1="${L}" x2="${W - 4}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${L - 6}" y="${y(t) + 4}" text-anchor="end">${t}</text>`);
+    table.forEach((r, i) => {
+      let acc = 0; const x = L + i * bw + 3;
+      keys.forEach((k, ki) => { const v = r[k]; if (!v) return; const yt = y(acc + v), hh = y(acc) - yt;
+        s += `<rect x="${x}" y="${yt}" width="${bw - 6}" height="${Math.max(0, hh - 1)}" rx="${hh > 6 ? 2 : 0}" fill="${k === "Other" ? "var(--s-other)" : SER[ki]}" ${tipAttr(`<b>${per[i]} · ${esc(k)}</b><br>${v} top-10% papers`)}/>`; acc += v; });
+      s += `<text x="${x + (bw - 6) / 2}" y="${H - 6}" text-anchor="middle">${per[i]}</text>`;
+    });
+    $("j-top").innerHTML = s + "</svg>";
+    $("j-top-legend").innerHTML = keys.map((k, i) => `<span><i style="background:${k === "Other" ? "var(--s-other)" : SER[i]}"></i>${esc(k)}</span>`).join("");
+  }
+
+  function renderJMix(all, rows) {
+    const vs = [...all].sort((a, b) => b.n - a.n).slice(0, 12), subs = counts("subfield", rows).slice(0, 8).map(([v]) => v);
+    let h = `<table class="pivot"><thead><tr><th>Venue</th>${subs.map(x => `<th>${esc(short(x, 28))}</th>`).join("")}</tr></thead><tbody>`;
+    vs.forEach(v => {
+      h += `<tr><th title="${esc(v.name)}">${esc(short(v.name, 34))}</th>`;
+      subs.forEach(sb => { const n = v.papers.filter(p => DIM.subfield.get(p).includes(sb)).length, t = n / v.n;
+        h += n ? `<td style="background:color-mix(in oklab, var(--heat) ${Math.round(8 + Math.sqrt(t) * 80)}%, var(--surface));color:${t > 0.45 ? "var(--on-heat)" : "var(--ink)"}" data-cell2="${esc(v.name)}\u0001${esc(sb)}" ${tipAttr(`<b>${esc(v.name)}</b><br>${esc(sb)}: ${n} of ${v.n} papers`)}>${pct(t)}</td>` : `<td class="zero">·</td>`; });
+      h += `</tr>`;
+    });
+    $("j-mix").innerHTML = h + "</tbody></table>";
+  }
+
+  $("journals").addEventListener("click", e => {
+    const th = e.target.closest("th[data-sort]");
+    if (th) { const k = th.dataset.sort; jstate.dir = jstate.sort === k ? -jstate.dir : (k === "name" ? 1 : -1); jstate.sort = k; render(); return; }
+    const row = e.target.closest("[data-venue]");
+    if (row && !e.target.closest("a")) { const n = row.dataset.venue; jstate.open = jstate.open === n ? null : n; render();
+      if (row.tagName === "circle") { const tr = document.querySelector(`#j-table tr[data-venue="${CSS.escape(n)}"]`); if (tr) tr.scrollIntoView({ block: "center" }); } return; }
+    const c = e.target.closest("[data-cell2]");
+    if (c) { const [v, sb] = c.dataset.cell2.split("\u0001"); addFacet("journal", v); addFacet("subfield", sb); render(); }
+  });
+  $("journals").addEventListener("pointermove", e => {
+    const t = e.target.closest("[data-tip]"); if (!t) { tip.hidden = true; return; }
+    tip.innerHTML = t.dataset.tip; tip.hidden = false;
+    const r = tip.getBoundingClientRect(); tip.style.left = Math.max(8, Math.min(e.clientX + 14, innerWidth - r.width - 8)) + "px";
+    tip.style.top = (e.clientY + 16 + r.height > innerHeight ? e.clientY - r.height - 12 : e.clientY + 16) + "px";
+  });
+  $("journals").addEventListener("pointerleave", () => tip.hidden = true);
+  $("j-kind").onchange = $("j-min").onchange = () => render();
+  if (PAGE.mode === "journals") {
+    state.tab = "journals";
+    document.querySelector(".tabs").hidden = true;
+    $("bib-all").hidden = true;
+  }
 
   $("theme-btn").onclick = () => {
     const d = document.documentElement, next = d.dataset.theme === "dark" ? "light" : "dark";

@@ -107,6 +107,18 @@ def write(con, periods_sql, order):
             QUALIFY row_number() OVER (PARTITION BY c.arch_group ORDER BY c.n DESC) = 1 ORDER BY t.total DESC""")
     open_top = q("SELECT theme, count(*) FROM paper_open_theme GROUP BY 1 ORDER BY 2 DESC LIMIT 3")
 
+    # journals: impact index = median over a venue's papers of citations/yr relative to the same-year catalog median
+    jrows = q("""WITH ym AS (SELECT year, greatest(0.1, median(citations_per_year)) m FROM papers GROUP BY 1),
+                 r AS (SELECT p.*, p.citations_per_year / ym.m AS rel FROM papers p JOIN ym USING (year)),
+                 cut AS (SELECT quantile_cont(rel, 0.9) t10 FROM r)
+            SELECT journal, venue_family, count(*) n, median(rel) idx, avg((rel >= (SELECT t10 FROM cut))::INT) top10,
+                   median(citations_per_year) cpy
+            FROM r WHERE kind <> 'preprint' GROUP BY 1, 2 HAVING count(*) >= 5 ORDER BY idx DESC""")
+    def tier(idx, top):
+        return "Leading" if idx >= 1.5 and top >= 0.2 else "Strong" if idx >= 1.0 else "Steady" if idx >= 0.6 else "Lower impact"
+    journal_rows = "\n".join(f"| {j} | {fam} | {n} | {idx:.2f} | {pct(t)} | {c:.1f} | {tier(idx, t)} |"
+                              for j, fam, n, idx, t, c in jrows)
+
     # figure captions
     peak = sorted(per_year.items(), key=lambda x: -x[1])[:2]
     fam = q("""SELECT family, count(DISTINCT paper_id) FROM paper_architecture a JOIN papers p USING (paper_id)
@@ -195,6 +207,18 @@ Method papers from 2018 to {cite_to}. Citations per year are total citations div
 ![Venue families](figures/08_venue_families.png)
 
 The main homes of the catalog's papers are {', '.join(f'{v} ({n})' for v, n in venues[:3])}. ML conferences account for {vd.get('ML conferences', 0)} papers, and {vd.get('arXiv preprint', 0)} exist only on arXiv.
+
+## Journals
+
+Venues with at least 5 papers in the catalog, ranked by **impact index**: the median, over a venue's papers, of
+citations per year relative to the median for catalog papers from the same year (1 = typical). **Top 10%** is the
+share of its papers among the most cited for their year. These describe each venue's papers in this catalog, not
+the journal as a whole, and are not the Journal Impact Factor. The interactive version, with filters, trends and
+each venue's most influential papers, is [`journals.html`](../journals.html).
+
+| Venue | Group | Papers | Impact index | Top 10% | Median cites/yr | Tier |
+|---|---|---:|---:|---:|---:|---|
+{journal_rows}
 
 ## Categories
 

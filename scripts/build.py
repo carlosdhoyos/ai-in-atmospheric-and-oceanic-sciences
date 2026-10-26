@@ -39,6 +39,9 @@ TOPICS = {
     "ocean": "Ocean",
     "seaice": "Sea ice",
     "chemistry": "Air quality & chemistry",
+    "hydrology": "Hydrology & water resources",
+    "energy": "Weather & climate for energy",
+    "agriculture": "Climate & water for agriculture",
     "benchmarks": "Benchmarks & datasets",
     "methods": "Core ML methods",
 }
@@ -51,16 +54,24 @@ PREPRINT_VENUES = re.compile(r"arxiv|essoar|ess open archive|research square|pre
 PAGES = [
     {"mode": "catalog", "file": "index.html", "fragment": "ai-aos-papers.html", "title": "Atmosphere–Ocean AI Papers",
      "eyebrow": "Literature catalog", "h1": "AI in Atmospheric &amp; Oceanic Sciences",
-     "lede": "Peer-reviewed papers and arXiv preprints on machine learning for weather, climate, ocean and sea ice. "
+     "lede": "Peer-reviewed papers and arXiv preprints on machine learning for weather, climate, ocean and sea ice, "
+             "and for the water, energy and agriculture problems that depend on them. "
              "Citation counts come from Semantic Scholar and Crossref. Search titles, authors and abstracts, then filter "
              "by subfield, year or publication type.",
-     "xlink": '<a class="back" href="eda.html">Exploratory analysis →</a>'},
+     "xlink": '<a class="back" href="eda.html">Exploratory analysis →</a><a class="back" href="journals.html">Journal assessment →</a>'},
     {"mode": "eda", "file": "eda.html", "fragment": "ai-aos-eda.html", "title": "Atmosphere–Ocean AI Trends",
      "eyebrow": "Exploratory analysis", "h1": "How AI for the atmosphere and ocean is changing",
      "lede": "An interactive analysis of the catalog: which architectures, goals and data dominate, since when, what is "
              "rising or fading, what limits current models and what the papers say comes next. Every chart follows the "
              "filters, and any chart element can be clicked to slice the data.",
-     "xlink": '<a class="back" href="index.html">Paper catalog →</a>'},
+     "xlink": '<a class="back" href="index.html">Paper catalog →</a><a class="back" href="journals.html">Journal assessment →</a>'},
+    {"mode": "journals", "file": "journals.html", "fragment": "ai-aos-journals.html", "title": "Atmosphere–Ocean AI Journals",
+     "eyebrow": "Journal assessment", "h1": "Where the strongest AI work for weather, climate and water is published",
+     "lede": "Which journals and conferences publish the most influential machine-learning research in the catalog, how "
+             "that has changed over time, and what each venue specializes in. Impact is measured within the catalog and "
+             "normalized by publication year, so recent papers are compared with papers of their own age. Every number "
+             "follows the filters.",
+     "xlink": '<a class="back" href="index.html">Paper catalog →</a><a class="back" href="eda.html">Exploratory analysis →</a>'},
 ]
 
 
@@ -204,7 +215,7 @@ def main():
             p["summary"] = summaries[p["s2"]]
     # Homogenized categories (same rules as the DuckDB database) for the Insights view
     cats = categorize(out, summaries, load_overrides(D("category_overrides.csv")))
-    keep = ("paper_type", "venue_family", "probabilistic", "model_family", "arch_group", "approach", "data_source",
+    keep = ("paper_type", "venue_family", "journal", "probabilistic", "model_family", "arch_group", "approach", "data_source",
             "task", "issue_theme", "open_theme")
     for p in out:
         p["cat"] = {k: cats[p["s2"]][k] for k in keep}
