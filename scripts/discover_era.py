@@ -39,14 +39,17 @@ def main(a):
     os.makedirs(os.path.join(ROOT, ".update"), exist_ok=True)
     raw_path = os.path.join(ROOT, ".update", f"raw_era_{a.years}.json")
     raw = json.load(open(raw_path)) if os.path.exists(raw_path) else {}
-    queries = [f"{m} + {d}" for m in METHODS for d in DOMAINS]
+    # few broad OR-queries (each returns up to 1,000 hits) instead of one per method x domain pair:
+    # the bulk endpoint is rate limited, so hundreds of small queries take hours
+    mgroups = [METHODS[i:i + 6] for i in range(0, len(METHODS), 6)]
+    dgroups = [DOMAINS[i:i + 9] for i in range(0, len(DOMAINS), 9)]
+    queries = [f"({' | '.join(m)}) + ({' | '.join(d)})" for m in mgroups for d in dgroups]
     for n, q in enumerate(queries, 1):
         if q in raw:
             continue
         raw[q] = s2.bulk_search(q, year=a.years, limit=a.per_query, fields=FIELDS)
-        if n % 25 == 0 or n == len(queries):
-            json.dump(raw, open(raw_path, "w"))
-            print(f"queries {n}/{len(queries)}", flush=True)
+        json.dump(raw, open(raw_path, "w"))
+        print(f"queries {n}/{len(queries)}: {len(raw[q])} hits", flush=True)
     json.dump(raw, open(raw_path, "w"))
 
     catalog = json.load(open(os.path.join(ROOT, "data", "papers.json")))["papers"]
@@ -83,6 +86,6 @@ def main(a):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--years", default="1980-1999", help="Semantic Scholar year range, e.g. 1980-1999")
-    ap.add_argument("--per-query", type=int, default=100, help="most-cited hits kept per query")
+    ap.add_argument("--per-query", type=int, default=1000, help="most-cited hits kept per query")
     ap.add_argument("--min-cites", type=int, default=5)
     main(ap.parse_args())
