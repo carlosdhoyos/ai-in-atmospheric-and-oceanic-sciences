@@ -139,6 +139,28 @@ mark { background: var(--accent-soft); color: inherit; padding: 0 1px; border-ra
 .tabs button + button { border-left: 1px solid var(--line); }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--surface); }
 
+/* Key reviews */
+#reviews { padding-block: 20px 60px; display: grid; gap: 22px; }
+#reviews .findings .sub { color: var(--muted); font-size: 13.5px; margin: 6px 0 0; max-width: 80ch; }
+.rgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 12px; }
+.rcard { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.rcard h4 { font: 600 15px/1.35 var(--f-body); margin: 0; text-wrap: pretty; }
+.rcard h4 a { color: var(--ink); text-decoration: none; }
+.rcard h4 a:hover { color: var(--accent); text-decoration: underline; }
+.rcard .rmeta { font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
+.rcard .rnum { font-family: var(--f-mono, monospace); font-size: 12.5px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rcard .rgoal { font-size: 13px; color: var(--ink); margin: 0; }
+.rcard .rtags { display: flex; flex-wrap: wrap; gap: 4px; }
+.rcard .rtags span { font-size: 11px; background: var(--chip); border-radius: 999px; padding: 1px 8px; color: var(--muted); }
+.rcard button.link { justify-self: start; font: 500 12.5px var(--f-body); background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; }
+.rcard button.link:hover { text-decoration: underline; }
+.rsub { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px 22px; }
+.rsub h5 { font: 600 13px var(--f-body); margin: 0 0 6px; color: var(--ink); }
+.rsub ol { margin: 0; padding-left: 18px; display: grid; gap: 5px; font-size: 13px; }
+.rsub ol a { color: var(--ink); }
+.rsub ol a:hover { color: var(--accent); }
+.rsub ol span { color: var(--muted); font-variant-numeric: tabular-nums; }
+
 /* Insights */
 #insights { padding-block: 20px 60px; display: grid; gap: 22px; }
 .findings { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
@@ -349,6 +371,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     <div class="row">
       <div class="tabs" role="tablist" aria-label="View">
         <button type="button" role="tab" id="tab-papers" aria-selected="true" aria-controls="list">Papers</button>
+        <button type="button" role="tab" id="tab-reviews" aria-selected="false" aria-controls="reviews">Key reviews</button>
         <button type="button" role="tab" id="tab-insights" aria-selected="false" aria-controls="insights">Insights</button>
       </div>
       <button class="btn primary" id="bib-all" type="button">BibTeX for shown papers</button>
@@ -360,6 +383,29 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
 <div class="wrap">
   <main id="list" aria-live="polite"></main>
+  <section id="reviews" hidden aria-label="Key reviews">
+    <div class="findings">
+      <h2>Highly cited reviews and perspectives</h2>
+      <p class="sub">Start here: the reviews, surveys and perspective pieces that the field cites most. They follow the
+        search, subfield and year filters above. Citation counts favour older reviews, so the second list ranks recent
+        ones by citations per year.</p>
+      <div class="kpis" id="r-kpis"></div>
+    </div>
+    <div class="panel">
+      <h3>Most cited</h3>
+      <div class="rgrid" id="r-top"></div>
+    </div>
+    <div class="panel">
+      <h3>Rising: recent reviews gaining citations fastest</h3>
+      <p class="sub" id="r-rising-sub"></p>
+      <div class="rgrid" id="r-rising"></div>
+    </div>
+    <div class="panel">
+      <h3>By subfield</h3>
+      <p class="sub">The three most cited reviews for each subfield (a review can appear under several).</p>
+      <div class="rsub" id="r-bysub"></div>
+    </div>
+  </section>
   <section id="insights" hidden aria-label="Insights">
     <div class="panel guide" id="guide" hidden>
       <h3>Guided views</h3>
@@ -605,11 +651,14 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
     $("list").hidden = state.tab !== "papers";
     $("insights").hidden = state.tab !== "insights";
+    $("reviews").hidden = state.tab !== "reviews";
     $("journals").hidden = state.tab !== "journals";
     if (state.tab === "journals") return renderJournals(rows);
     $("tab-papers").setAttribute("aria-selected", state.tab === "papers");
     $("tab-insights").setAttribute("aria-selected", state.tab === "insights");
+    $("tab-reviews").setAttribute("aria-selected", state.tab === "reviews");
     if (state.tab === "insights") return renderInsights(rows);
+    if (state.tab === "reviews") return renderReviews(rows);
     renderList(rows);
   }
 
@@ -756,6 +805,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   });
   $("tab-papers").onclick = () => { state.tab = "papers"; render(); };
   $("tab-insights").onclick = () => { state.tab = "insights"; render(); };
+  $("tab-reviews").onclick = () => { state.tab = "reviews"; render(); };
 
   /* ---------- Insights ---------- */
   const SER = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)", "var(--s7)"];
@@ -784,6 +834,43 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   $("im-val").onchange = e => { ins.imVal = e.target.value; render(); };
   document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { ins.trMode = b.dataset.mode; render(); });
   document.querySelectorAll("[data-voice]").forEach(b => b.onclick = () => { ins.voice = b.dataset.voice; ins.voiceTheme = null; render(); });
+
+  /* ---------- Key reviews ---------- */
+  const paperUrl = p => p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
+  const rateTxt = r => r >= 10 ? Math.round(r) : r.toFixed(1);
+  const firstSentence = s => { const m = String(s || "").match(/^.*?[.!?](\s|$)/); return (m ? m[0] : String(s || "")).trim(); };
+  function reviewCard(p) {
+    const au = p.authors.length > 2 ? `${p.authors[0]} et al.` : p.authors.join(" & ");
+    return `<article class="rcard">
+      <h4><a href="${esc(paperUrl(p))}" target="_blank" rel="noopener">${esc(p.title)}</a></h4>
+      <div class="rmeta">${esc(au)} · ${p.year} · ${esc(p.cat.journal)}</div>
+      <div class="rnum">${fmt(p.cites)} citations · ${rateTxt(p.rate)}/yr</div>
+      ${p.summary && p.summary.goal ? `<p class="rgoal">${esc(firstSentence(p.summary.goal))}</p>` : ""}
+      <div class="rtags">${p.topics.filter(t => t !== "review").map(t => `<span>${esc(T[t])}</span>`).join("")}</div>
+      <button class="link" type="button" data-open="${p.id}">Summary and BibTeX →</button>
+    </article>`;
+  }
+  function renderReviews(rows) {
+    const R = rows.filter(p => p.cat.paper_type === "review");
+    const recentFrom = maxY - 3;
+    const rising = R.filter(p => p.year >= recentFrom).sort((a, b) => b.rate - a.rate).slice(0, 6);
+    const med = R.length ? R.map(p => p.cites).sort((a, b) => a - b)[Math.floor(R.length / 2)] : 0;
+    $("r-kpis").innerHTML = [
+      [fmt(R.length), "reviews and perspectives in the selection"],
+      [fmt(med), "median citations"],
+      [R.length ? Math.min(...R.map(p => p.year)) : "–", "oldest"],
+      [fmt(R.filter(p => p.year >= recentFrom).length), `published ${recentFrom} or later`],
+    ].map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+    const empty = `<p class="note">No reviews match these filters.</p>`;
+    $("r-top").innerHTML = R.length ? [...R].sort((a, b) => b.cites - a.cites).slice(0, 9).map(reviewCard).join("") : empty;
+    $("r-rising-sub").textContent = `Reviews from ${recentFrom} on, ranked by citations per year.`;
+    $("r-rising").innerHTML = rising.length ? rising.map(reviewCard).join("") : empty;
+    const groups = topicKeys.filter(t => t !== "review").map(t => [t, R.filter(p => p.topics.includes(t)).sort((a, b) => b.cites - a.cites)])
+      .filter(([, xs]) => xs.length).sort((a, b) => b[1].length - a[1].length);
+    $("r-bysub").innerHTML = groups.length ? groups.map(([t, xs]) => `<div><h5>${esc(T[t])} <span class="note">(${xs.length})</span></h5><ol>${
+      xs.slice(0, 3).map(p => `<li><a href="${esc(paperUrl(p))}" target="_blank" rel="noopener">${esc(p.title)}</a> <span>${p.year} · ${fmt(p.cites)}</span></li>`).join("")}</ol></div>`).join("") : empty;
+  }
+  $("reviews").addEventListener("click", e => { const b = e.target.closest("[data-open]"); if (b) openPaper(b.dataset.open); });
 
   function openPaper(id) {
     state.tab = "papers"; state.sum.add(id); render();
@@ -1291,6 +1378,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   const hash = location.hash.slice(1);
   if (PAGE.mode === "eda") state.tab = "insights";
   if (hash === "insights") state.tab = "insights";
+  else if (hash === "reviews") state.tab = "reviews";
   else if (hash && T[hash]) { state.topics.add(hash); syncChips(); }
   if (PAGE.mode === "eda") applyPreset(PRESETS.some(x => x.key === hash) ? hash : "architectures");
   else render();

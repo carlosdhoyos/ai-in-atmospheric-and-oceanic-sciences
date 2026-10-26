@@ -4,7 +4,7 @@ A curated, citation-ranked catalog of machine-learning research for weather, cli
 
 **Browse it:** three self-contained pages, each a single HTML file you can open in a browser or serve with GitHub Pages:
 
-- [`index.html`](index.html) is the **paper catalog**, with search, filters, summaries and BibTeX, plus an Insights tab.
+- [`index.html`](index.html) is the **paper catalog**, with search, filters, summaries and BibTeX, plus a **Key reviews** tab (the most cited reviews and perspectives overall, the fastest-rising recent ones, and the top three per subfield; open it directly with `index.html#reviews`) and an Insights tab.
 - [`eda.html`](eda.html) is the **interactive exploratory analysis**. Guided views (architecture shift, research goals, training data, limitations by architecture, open problems, probabilistic turn, citation impact, venues) set up every chart to answer one question, with notes computed from the current selection. Every view can be bookmarked by its hash, e.g. `eda.html#data`.
 - [`journals.html`](journals.html) is the **journal assessment**: which journals and conferences publish the most influential ML work in the catalog, measured by a year-normalized impact index and the share of top-10% papers, with a sortable scorecard, tiers, trends and each venue's subfield mix. All numbers follow the filters.
 

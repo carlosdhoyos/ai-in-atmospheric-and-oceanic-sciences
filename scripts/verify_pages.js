@@ -17,6 +17,12 @@ const root = process.argv[2] || '.';
   if (!n) errs.push('index.html: no papers rendered');
   await idx.click('#tab-insights'); await idx.waitForTimeout(200);
   for (const id of ['#timeline svg', '#trend svg', '#pivot table']) if (!(await idx.locator(id).count())) errs.push(`index.html: ${id} missing`);
+  await idx.click('#tab-reviews'); await idx.waitForTimeout(200);
+  const nRev = await idx.locator('#r-top .rcard').count();
+  if (!nRev || !(await idx.locator('#r-bysub h5').count())) errs.push('index.html: key reviews section is empty');
+  await idx.click('#r-top .rcard button[data-open]');
+  if (!(await idx.isVisible('#list'))) errs.push('index.html: review "Summary" link does not open the paper');
+  notes.push(`reviews: ${nRev} top cards, ${await idx.locator('#r-bysub h5').count()} subfields`);
   const eda = await page('eda.html');
   const views = await eda.locator('[data-preset]').evaluateAll(bs => bs.map(b => b.dataset.preset));
   for (const v of views) {
