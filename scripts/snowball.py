@@ -19,6 +19,7 @@ import os
 import re
 
 import s2
+from resolve_ids import NON_FINAL_DOI
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CACHE = os.path.join(ROOT, ".update", "cache_refs.json")
@@ -57,7 +58,8 @@ def main(a):
         r = meta[pid]
         ext = r.get("externalIds") or {}
         if (k < a.min_refs or pid in have or (ext.get("DOI") or "").lower() in have_doi
-                or ext.get("ArXiv") in have_arxiv or not ML.search(r.get("title") or "")):
+                or ext.get("ArXiv") in have_arxiv or NON_FINAL_DOI.match((ext.get("DOI") or "").lower())
+                or not ML.search(r.get("title") or "")):
             continue
         keep.append(pid)
     print(f"{len(count)} referenced works; {len(keep)} ML-related, cited by >= {a.min_refs} catalog papers, not in catalog")

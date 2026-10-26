@@ -33,7 +33,7 @@ def get(url, tries=6):
 
 
 # DOIs of conference abstracts and preprint servers, which often share the published paper's title
-NON_FINAL_DOI = re.compile(r"^10\.(5194/egusphere|5194/ems|31223/|2139/ssrn|1002/essoar|22541/|21203/|20944/|48550/|1101/|36227/|31219/)")
+NON_FINAL_DOI = re.compile(r"^10\.(5194/[a-z]+-\d{4}-\d+$|5281/zenodo|5194/egusphere|5194/ems|31223/|2139/ssrn|1002/essoar|22541/|21203/|20944/|48550/|1101/|36227/|31219/)")
 TYPE_RANK = {"journal-article": 0, "proceedings-article": 1, "book-chapter": 2}
 
 

@@ -1,17 +1,17 @@
 venue_family,journal,conference,preprint
-Agricultural journals,11,0,0
-MDPI & Frontiers,13,0,0
-IEEE & remote sensing,13,3,0
-Physics & applied math,16,0,0
-RMetS / Royal Society,19,0,0
-Hydrology & water journals,21,0,0
-Other geoscience journals,21,1,0
-Other venues,19,5,0
-Energy journals,34,0,0
-PNAS & multidisciplinary,54,0,0
-ML conferences,3,56,0
-AMS journals,83,0,0
-Nature & Science,95,0,0
-EGU / Copernicus journals,99,0,0
-arXiv preprint,1,0,104
-AGU journals,226,0,0
+Agricultural journals,15,0,0
+Physics & applied math,27,0,0
+MDPI & Frontiers,28,0,0
+IEEE & remote sensing,25,6,0
+RMetS / Royal Society,31,0,0
+Other geoscience journals,40,1,0
+Energy journals,43,0,0
+PNAS & multidisciplinary,69,0,0
+ML conferences,3,72,0
+Hydrology & water journals,82,0,0
+AMS journals,109,0,0
+Nature & Science,115,0,0
+Other venues,101,12,5
+EGU / Copernicus journals,134,0,0
+arXiv preprint,1,0,157
+AGU journals,290,0,0
