@@ -7,6 +7,8 @@ so every chart has a table view. Run after scripts/build_db.py:
 """
 import os
 
+import sys
+
 import duckdb
 import matplotlib
 
@@ -15,6 +17,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator, PercentFormatter
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+from taxonomy import PERIODS as TAXONOMY_PERIODS, period_sql  # noqa: E402
 FIG = os.path.join(ROOT, "analysis", "figures")
 TAB = os.path.join(ROOT, "analysis", "tables")
 os.makedirs(FIG, exist_ok=True)
@@ -25,10 +29,8 @@ SERIES = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#62
 OTHER = "#a8a7a1"
 SEQ = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
 SURFACE, INK, INK2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e6e5e0"
-# Periods used for trend comparisons. 2025–26 is thinly covered by the catalog, so it is merged into the last period.
-PERIODS = "CASE WHEN year <= 2018 THEN '≤2018' WHEN year <= 2020 THEN '2019–20' WHEN year <= 2022 THEN '2021–22' " \
-          "ELSE '2023–26' END"
-PERIOD_ORDER = ["≤2018", "2019–20", "2021–22", "2023–26"]
+PERIODS = period_sql()
+PERIOD_ORDER = [label for label, _ in TAXONOMY_PERIODS]
 
 plt.rcParams.update({
     "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
@@ -92,7 +94,7 @@ ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 ax.grid(axis="x", visible=False)
 ax.legend(loc="upper left", fontsize=8.5, ncol=2)
 save(fig, "01_papers_per_year_by_subfield.png",
-     "Curated catalog (373 papers), not a census of the field. Papers from 2025 onward are thinly covered.")
+     f"Curated catalog ({int(pv.values.sum())} papers since 2012), not a census of the field.")
 
 # 2. Architecture families (model families only), method + benchmark papers
 d = table(df("""SELECT family, count(DISTINCT paper_id) AS papers FROM paper_architecture a JOIN papers p USING (paper_id)
@@ -113,7 +115,7 @@ d = df(f"""WITH t AS (SELECT DISTINCT a.paper_id, a.arch_group, {PERIODS} AS per
            SELECT period, arch_group, count(*) AS n FROM t GROUP BY ALL""")
 groups = ["CNN / U-Net", "MLP / generic NN", "RNN / LSTM", "Classical ML", "Generative (diffusion/GAN/VAE)",
           "Transformers", "Graph & operator nets"]
-pv = d.pivot_table(index="period", columns="arch_group", values="n", aggfunc="sum", fill_value=0).reindex(PERIOD_ORDER)[groups]
+pv = d.pivot_table(index="period", columns="arch_group", values="n", aggfunc="sum", fill_value=0).reindex(PERIOD_ORDER, fill_value=0).reindex(columns=groups, fill_value=0)
 share = pv.div(pv.sum(axis=1), axis=0)
 table(pv.assign(total=pv.sum(axis=1)).reset_index(), "architecture_groups_by_period.csv")
 fig, ax = plt.subplots(figsize=(10, 4.6))
@@ -130,7 +132,7 @@ save(fig, "03_architecture_share_by_period.png")
 # 4. Data sources by period (heatmap, sequential)
 d = df(f"""SELECT {PERIODS} AS period, source, count(DISTINCT paper_id) AS n FROM paper_data_source
            JOIN papers USING (paper_id) GROUP BY ALL""")
-pv = d.pivot_table(index="source", columns="period", values="n", aggfunc="sum", fill_value=0)[PERIOD_ORDER]
+pv = d.pivot_table(index="source", columns="period", values="n", aggfunc="sum", fill_value=0).reindex(columns=PERIOD_ORDER, fill_value=0)
 pv = pv.loc[pv.sum(axis=1).sort_values(ascending=False).index]
 table(pv.reset_index(), "data_sources_by_period.csv")
 fig, ax = plt.subplots(figsize=(8.5, 5.4))
@@ -219,4 +221,58 @@ ax.grid(axis="y", visible=False)
 ax.legend(["Journal", "Conference", "arXiv only"], loc="lower right")
 save(fig, "08_venue_families.png")
 
+
+
+def heat(ax, pv, fmt=lambda v: v, scale=None):
+    """Sequential heatmap with cell labels (table view lives in analysis/tables/)."""
+    from matplotlib.colors import BoundaryNorm, ListedColormap
+    vals = pv.values.astype(float)
+    top = scale or max(1.0, vals.max())
+    bounds = [0] + [top * f for f in (0.02, 0.1, 0.2, 0.35, 0.5, 0.7)] + [top * 1.0001]
+    cm = ListedColormap(["#f3f2ee"] + SEQ[:6])
+    ax.imshow(vals, cmap=cm, norm=BoundaryNorm(bounds, cm.N), aspect="auto")
+    ax.grid(False)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    for i in range(vals.shape[0]):
+        for j in range(vals.shape[1]):
+            v = vals[i, j]
+            if v:
+                ax.text(j, i, fmt(v), ha="center", va="center", fontsize=8.5, color="#ffffff" if v >= top * 0.35 else INK)
+
+
+# 9. Research goals by period (papers)
+d = df(f"""SELECT {PERIODS} AS period, task, count(DISTINCT paper_id) AS n FROM paper_task JOIN papers USING (paper_id)
+           GROUP BY ALL""")
+pv = d.pivot_table(index="task", columns="period", values="n", aggfunc="sum", fill_value=0).reindex(columns=PERIOD_ORDER, fill_value=0)
+pv = pv.loc[pv.sum(axis=1).sort_values(ascending=False).index]
+table(pv.reset_index(), "goals_by_period.csv")
+fig, ax = plt.subplots(figsize=(8.5, 6.4))
+heat(ax, pv, fmt=lambda v: f"{v:.0f}")
+ax.set_xticks(range(len(PERIOD_ORDER)), PERIOD_ORDER)
+ax.set_yticks(range(len(pv.index)), pv.index)
+ax.set_title("Research goals over time (papers)")
+save(fig, "09_goals_by_period.png")
+
+# 10. Limitation themes by architecture group (% of each group's papers)
+d = df("""WITH g AS (SELECT DISTINCT a.paper_id, a.arch_group FROM paper_architecture a JOIN papers p USING (paper_id)
+                    WHERE a.tag_kind = 'model_family' AND p.paper_type <> 'review')
+          SELECT g.arch_group, i.theme, count(*) AS n, any_value((SELECT count(*) FROM g g2 WHERE g2.arch_group = g.arch_group)) AS total
+          FROM g JOIN paper_issue_theme i USING (paper_id)
+          WHERE i.theme NOT IN ('Summary uncertain (no abstract)', 'Review dates quickly') GROUP BY ALL""")
+d["share"] = d["n"] / d["total"]
+groups_present = [g for g in groups if g in set(d["arch_group"])]
+pv = d.pivot_table(index="theme", columns="arch_group", values="share", aggfunc="sum", fill_value=0)[groups_present]
+pv = pv.loc[pv.mean(axis=1).sort_values(ascending=False).index]
+table((pv * 100).round(1).reset_index(), "limitations_by_architecture_pct.csv")
+fig, ax = plt.subplots(figsize=(10, 6.2))
+heat(ax, pv * 100, fmt=lambda v: f"{v:.0f}%", scale=50)
+ax.set_xticks(range(len(groups_present)), [g.replace(" (", "\n(") for g in groups_present], fontsize=8.5)
+ax.set_yticks(range(len(pv.index)), pv.index)
+ax.set_title("Reported limitations by architecture group (% of the group's papers)")
+save(fig, "10_limitations_by_architecture.png")
+
 print("figures:", sorted(os.listdir(FIG)))
+
+import report  # noqa: E402  (writes analysis/EDA.md from the same database)
+report.write(con, PERIODS, PERIOD_ORDER)

@@ -260,8 +260,17 @@ OPEN_THEME = [
 ]
 
 
+# Trend periods: (label, last year). Shared by the database, the EDA report and both HTML pages.
+PERIODS = [("≤2018", 2018), ("2019–20", 2020), ("2021–22", 2022), ("2023–24", 2024), ("2025–26", 2026)]
+
+
 def period(year):
-    return "≤2018" if year <= 2018 else "2019–20" if year <= 2020 else "2021–22" if year <= 2022 else "2023–26"
+    return next((label for label, last in PERIODS if year <= last), PERIODS[-1][0])
+
+
+def period_sql(col="year"):
+    whens = " ".join(f"WHEN {col} <= {last} THEN '{label}'" for label, last in PERIODS[:-1])
+    return f"CASE {whens} ELSE '{PERIODS[-1][0]}' END"
 
 
 def categorize(papers, summaries, overrides=()):

@@ -9,3 +9,5 @@ Artificial intelligence for modeling and understanding extreme weather and clima
 Challenges of learning multi-scale dynamics with AI weather models: Implications for stability and one solution	ARXIV:2304.07029
 Stable Machine-Learning Parameterization of Subgrid Processes in a Comprehensive Atmospheric Model Learned From Embedded Convection-Permitting Simulations	ARXIV:2407.00124
 A foundation model for the Earth system	DOI:10.1038/s41586-025-09005-y
+ArchesWeather & ArchesWeatherGen: a deterministic and generative model for efficient ML weather forecasting	DOI:10.1126/sciadv.adx2372
+FuXi-ENS: A machine learning model for medium-range ensemble weather forecasting	DOI:10.1126/sciadv.adu2854

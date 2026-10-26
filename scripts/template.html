@@ -475,7 +475,8 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   // Categories for slicing: every dimension returns a list of values per paper (multi-label safe)
   const TYPE_LABEL = { method: "Method", review: "Review / perspective", dataset_benchmark: "Dataset / benchmark", evaluation: "Evaluation" };
   const KIND_LABEL = { journal: "Journal", conference: "Conference", preprint: "arXiv only" };
-  const period = y => y <= 2018 ? "≤2018" : y <= 2020 ? "2019–20" : y <= 2022 ? "2021–22" : "2023–26";
+  const PERIODS = DATA.periods || [["≤2018", 2018], ["2019–20", 2020], ["2021–22", 2022], ["2023–26", 9999]];
+  const period = y => (PERIODS.find(([, last]) => y <= last) || PERIODS[PERIODS.length - 1])[0];
   const DIMS = [
     ["model_family", "Architecture", p => p.cat.model_family],
     ["arch_group", "Architecture group", p => p.cat.arch_group],
@@ -751,7 +752,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
       note: r => { const o = counts("open_theme", r).slice(0, 3); return o.length ? `The research agenda the papers point to: ${o.map(([v, n]) => `<b>${esc(v)}</b> (${n})`).join(", ")}. The cross-tab shows what each research goal still needs.` : ""; } },
     { key: "probabilistic", label: "Probabilistic turn",
       set: { tl: "model_family", tr: "output", trMode: "share", rf: "model_family", im: "output", imVal: "Probabilistic", pvRow: "output", pvCol: "period", pvMetric: "col", voice: "open_theme" },
-      note: r => { const m = r.filter(p => p.cat.paper_type === "method"), by = ["≤2018", "2019–20", "2021–22", "2023–26"].map(per => { const x = m.filter(p => period(p.year) === per); return x.length ? `${per}: ${pct(x.filter(p => p.cat.probabilistic).length / x.length)}` : null; }).filter(Boolean);
+      note: r => { const m = r.filter(p => p.cat.paper_type === "method"), by = PERIODS.map(([per]) => per).map(per => { const x = m.filter(p => period(p.year) === per); return x.length ? `${per}: ${pct(x.filter(p => p.cat.probabilistic).length / x.length)}` : null; }).filter(Boolean);
         return `Share of method papers with probabilistic output: ${by.join(" → ")}. Generative models (diffusion, GANs) and ensembles drive the recent rise.`; } },
     { key: "impact", label: "Citation impact",
       set: { tl: "model_family", tr: "arch_group", trMode: "count", rf: "arch_group", im: "arch_group", imVal: "Transformers", pvRow: "arch_group", pvCol: "period", pvMetric: "cpy", voice: "issue_theme" },

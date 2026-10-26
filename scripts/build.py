@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import s2
 from resolve_ids import sim
-from taxonomy import categorize, load_overrides
+from taxonomy import PERIODS, categorize, load_overrides
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = lambda *p: os.path.join(ROOT, "data", *p)
@@ -205,7 +205,8 @@ def main():
     template = open(os.path.join(ROOT, "scripts", "template.html")).read()
     frag_dir = os.environ.get("FRAGMENT_DIR")
     for page in PAGES:
-        blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out, "page": {"mode": page["mode"]}},
+        blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out, "page": {"mode": page["mode"]},
+                           "periods": PERIODS},
                           ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         tpl = template.replace("/*DATA*/", blob)
         for k in ("TITLE", "EYEBROW", "H1", "LEDE"):

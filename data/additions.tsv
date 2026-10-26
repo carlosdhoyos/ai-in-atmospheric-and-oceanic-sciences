@@ -49,3 +49,203 @@ s2s,xai	DOI:10.34133/olar.0012
 seaice,remote_sensing	DOI:10.5194/essd-13-2723-2021
 seaice	DOI:10.3390/rs9121305
 xai,seaice	DOI:10.1175/jcli-d-20-0293.1
+review,extremes	DOI:10.1038/s41467-025-57640-w	Highly cited Nat Commun perspective on AI/foundation models for multi-hazard climate early warning
+downscaling,probabilistic,climate	DOI:10.1038/s42256-025-00980-5	Generative scale-adaptive ESM downscaling; Nat Mach Intell, strong citations
+weather,methods	ARXIV:2501.19374	Spectral harmonic loss fixing double penalty in ML weather models; ICML, well cited
+s2s	DOI:10.1038/s41467-025-59173-8	Combined dynamical-deep learning ENSO forecasts; Nat Commun
+weather	DOI:10.1038/s43247-025-02347-5	AI limited-area model for surface variables; well cited
+parameterization,review	DOI:10.1029/2025ms005341	JAMES perspective on ML-based cloud microphysics scheme development
+downscaling,climate,review	DOI:10.1175/bams-d-24-0114.1	BAMS assessment of ML emulators for regional climate information
+ocean	DOI:10.1038/s41612-026-01444-2	Eddy-resolving sub-daily DL global ocean forecasting model; npj CAS
+seaice,s2s	DOI:10.5194/gmd-18-2665-2025	SICNet-season transformer seasonal Arctic sea ice prediction; GMD, well cited
+benchmarks,weather	DOI:10.1175/aies-d-25-0054.1	PCRPS measure for fair AIWP vs NWP comparison; AIES
+ocean,parameterization	DOI:10.1029/2025gl117046	Generalizable NN mesoscale eddy parameterization in idealized and global ocean models; GRL
+weather	DOI:10.1175/waf-d-24-0139.1	Spectral nudging NWP toward AI weather models; WAF, well cited
+climate	ARXIV:2504.06007	CAMulator emulator of CAM6 (NCAR); well cited
+downscaling,climate	DOI:10.1175/aies-d-24-0121.1	Intercomparison of DL perfect-prognosis downscaling for climate projections; AIES
+chemistry	DOI:10.1126/sciadv.aef5759	DL model for PM2.5 response to emission reduction as CTM surrogate; Sci Adv
+weather,foundation	DOI:10.1038/s41612-025-01125-6	NCAR CREDIT framework for AI Earth system modeling; npj CAS
+ocean	DOI:10.1029/2025ms005285	OceanCastNet wave forecasting vs operational ECWAM; JAMES
+parameterization,climate	DOI:10.1029/2025ms005231	Decadal hybrid GCM with DL convection generalized to warm climate; JAMES
+extremes,climate	DOI:10.1103/b1gc-9c2q	AI-boosted rare event sampling for extreme weather; PRL
+review,weather,foundation	ARXIV:2501.06907	Survey of DL and foundation models for weather prediction; IJCAI, well cited
+weather,s2s	DOI:10.1175/aies-d-26-0009.1	GraphCast-based predictability beyond 30 days via optimized initial conditions; AIES
+climate,xai	DOI:10.1029/2024gl109581	CNN learns pattern effect to predict forced TOA radiation response; GRL
+xai,review	DOI:10.5194/gmd-18-787-2025	Perspective on XAI lessons from dynamical climate modeling; GMD
+da	DOI:10.1029/2024ms004437	4DVar-informed GAN data assimilation for data-driven weather prediction; JAMES
+parameterization,ocean,probabilistic	DOI:10.1029/2025gl120472	Probabilistic data-driven air-sea flux parameterization; GRL
+weather	DOI:10.1175/aies-d-24-0101.1	Fine-tuning GraphCast to ECCC GDPS analysis; operational centre
+chemistry,parameterization,climate	DOI:10.1029/2025ms005459	mloz ML interactive ozone parameterization for climate sensitivity runs; JAMES
+ocean,extremes	DOI:10.1029/2025jh000650	Regional storm surge modeling with transfer learning; well cited
+extremes,weather,probabilistic	DOI:10.1175/aies-d-25-0113.1	Evaluation of AI weather models for extremes with UQ; AIES
+da,methods	DOI:10.1029/2025ms005360	Unified neural background-error covariance model for variational DA; JAMES
+remote_sensing	DOI:10.1073/pnas.2502903122	SpecTf transformer cloud detection for imaging spectroscopy; PNAS
+weather,methods	DOI:10.1029/2025ms005138	Global mass/energy conservation schemes for AI weather models; JAMES, well cited
+extremes,climate,probabilistic	DOI:10.1175/bams-d-25-0178.1	BAMS: huge ML-emulator ensembles to quantify very extreme events
+weather	ARXIV:2509.18994	ECMWF AIFS Single update; operational system
+seaice	DOI:10.5194/tc-19-4149-2025	DL short-term high-resolution sea ice concentration forecasting system; well cited
+extremes,weather	DOI:10.1175/aies-d-25-0097.1	WMO ET-AITC multimodel evaluation of AI TC forecasts in 2024 WNP season
+s2s	DOI:10.1038/s41612-026-01459-9	DL MJO prediction with historical context and bias correction; npj CAS
+probabilistic,weather	ARXIV:2604.16429	Mosaic probabilistic ML weather model preserving spectral fidelity
+parameterization,climate	DOI:10.1029/2025ms005544	Confidence-guided mixing of ML/physics parameterizations in hybrid climate model; JAMES
+seaice	DOI:10.5194/gmd-18-9751-2025	MET-AICE operational data-driven sea ice prediction system (MET Norway); GMD
+downscaling,probabilistic,benchmarks	ARXIV:2512.13987	Intercomparison of generative ML methods for precipitation downscaling
+weather,da	ARXIV:2510.20416	ECMWF GraphDOP learning coupled Earth system dynamics from observations
+seaice,s2s	DOI:10.1038/s41612-025-01058-0	State space model seasonal pan-Arctic sea ice forecasting; npj CAS
+nowcasting,remote_sensing	ARXIV:2510.13050	Operational satellite-based global nowcasting system for Global South
+downscaling,probabilistic	ARXIV:2602.11893	Universal diffusion downscaling of arbitrary deterministic forecasts
+da,seaice	DOI:10.5194/tc-19-5613-2025	4DVar with neXtSIM sea-ice thickness emulator; The Cryosphere
+extremes,benchmarks	DOI:10.1038/s41467-025-61087-4	TropiCycloneNet TC dataset and model; Nat Commun, 35 cites
+s2s,weather	DOI:10.1038/s41586-026-11126-x	ML subseasonal forecasting in Nature
+review,climate	DOI:10.1038/s41558-026-02624-x	Perspective on AI for climate change research; Nat Clim Change
+s2s,climate	DOI:10.1038/s41467-025-63157-z	Observation-informed DL ENSO projection; Nat Commun
+weather,methods	DOI:10.1175/aies-d-25-0121.1	Effective resolution / blurring of deterministic AI weather models; AIES
+ocean,s2s	DOI:10.1126/sciadv.adu2488	ORCA-DL data-driven global ocean model for seasonal-decadal prediction; Sci Adv
+review,chemistry	DOI:10.5194/gmd-18-8777-2025	Review of ML in tropospheric ozone research (TOAR); GMD
+extremes,weather	ARXIV:2508.15724	Shows HRES beats AI models on record-breaking extremes; highly cited
+chemistry,methods	DOI:10.5194/gmd-19-1893-2026	GNN atmospheric transport emulator for GHG flux inversion; GMD
+chemistry	DOI:10.1029/2025gl117459	Zeeman multi-pollutant regional chemistry forecasting; GRL
+probabilistic,weather	ARXIV:2601.18111	Simple scalable probabilistic medium-range framework; 15 cites
+benchmarks,weather	DOI:10.1175/bams-d-26-0012.1	WP-MIP intercomparison of AI/hybrid/physical weather models; BAMS
+ocean	DOI:10.1029/2025jh000686	GLONET, Mercator operational neural global ocean forecast
+parameterization	DOI:10.1029/2024ms004722	Stable online ML physics in CAM via experience replay; JAMES
+downscaling,probabilistic	DOI:10.1029/2025ms005593	EnScale generative multivariate downscaling; JAMES, 20 cites
+parameterization	DOI:10.1029/2025ms004956	ML radiation parameterizations coupled in GPU ICON; JAMES
+parameterization,methods	DOI:10.1029/2025ms005431	CERA framework for climate-invariant generalization; JAMES
+postprocessing,extremes	DOI:10.1175/aies-d-25-0045.1	Transformer postprocessing of Pangu forecasts for severe weather; AIES
+weather,da	ARXIV:2606.19093	ECMWF AIFS-DOP forecasting from observations alone
+extremes,weather	DOI:10.1029/2024jh000481	AI vs NWP operational TC forecast comparison; 15 cites
+da	DOI:10.1029/2024jh000260	Learning to infer weather states from partial observations; 17 cites
+weather	ARXIV:2504.09340	Km-scale ML limited area models in realistic settings; 25 cites
+weather,xai	DOI:10.1029/2025jh001180	Follow-up on butterfly effect in AI weather models: role of architecture
+parameterization,ocean	DOI:10.1029/2024ms004857	Adjoint-based online learning of QG turbulence closures; JAMES
+foundation	ARXIV:2605.00850	ESFM open Earth system foundation model extending Aurora
+extremes	DOI:10.1038/s41612-026-01501-w	FuXi-TC hybrid generative TC forecasting; npj CAS
+s2s,probabilistic	DOI:10.1038/s41612-026-01320-z	Data-driven seasonal prediction with variational transformers; npj CAS
+s2s,climate	DOI:10.1126/sciadv.aec9518	DL reveals forced change in ENSO predictability; Sci Adv
+benchmarks,extremes	ARXIV:2605.01126	Extreme Weather Bench for high-impact event evaluation
+extremes,climate	DOI:10.1175/aies-d-24-0090.1	AI weather models for storyline climate attribution of an AR; AIES
+review,climate	DOI:10.1038/s43247-026-03238-z	Perspective on ML emulators in climate modelling; Commun Earth Environ
+probabilistic,weather	ARXIV:2603.05570	Hybrid IFS-ENS/AIFS-ENS ensemble via spectral nudging (ECMWF)
+da,probabilistic	ARXIV:2504.18720	Appa latent diffusion global data assimilation; 21 cites
+extremes,weather	DOI:10.1175/aies-d-25-0067.1	Evaluation of ML weather models for atmospheric blocking; AIES
+methods,weather	ARXIV:2602.22962	Empirical scaling laws for global weather models
+weather,review	DOI:10.1175/bams-d-24-0062.1	NOAA research-to-operations integration of data-driven NWP; BAMS
+downscaling,benchmarks	DOI:10.1175/aies-d-25-0048.1	Standardized benchmarking of AI precipitation downscaling; AIES
+remote_sensing,ocean,foundation	DOI:10.1175/aies-d-25-0003.1	WV-Net foundation model for Sentinel-1 SAR ocean imagery; AIES
+review	DOI:10.1038/s41612-026-01486-6	ECMWF-ESA 2026 workshop report on ML for Earth system prediction; npj CAS
+s2s,probabilistic	ARXIV:2510.18707	OmniCast masked latent diffusion across timescales; NeurIPS
+seaice,climate	DOI:10.1029/2026gl122981	FloeNet mass-conserving global sea ice emulator (GFDL); GRL
+weather,xai	DOI:10.1002/qj.70315	Physical balances in stretched-grid DLWP model; QJRMS
+remote_sensing,probabilistic	DOI:10.1038/s41467-025-67987-9	Generative fusion of multi-source precipitation; Nat Commun
+extremes,weather	DOI:10.1175/waf-d-25-0142.1	Atmospheric rivers in ML weather models; WAF
+seaice,benchmarks	ARXIV:2503.17877	IceBench sea-ice type classification benchmark
+extremes,climate	DOI:10.5194/wcd-7-393-2026	Heatwave storylines via differentiable climate model (NeuralGCM)
+chemistry,weather	DOI:10.1038/s41586-026-10234-y	ML operational global aerosol forecasting; Nature
+extremes,weather	DOI:10.1175/aies-d-24-0033.1	Validation of AI weather models on high-impact extremes; AIES, well cited
+xai,weather	DOI:10.1038/s41612-025-00949-6	Gradient sensitivity tests of physics learned by AI weather models; npj CAS, well cited
+weather	ARXIV:2502.00338	Unified global/regional ML forecasting framework; ICML, 50 cites
+parameterization,climate	DOI:10.1029/2024ms004713	NN surrogate for calibrated physics ensemble of GISS ModelE; JAMES
+weather,nowcasting	DOI:10.1175/aies-d-25-0061.1	Data-driven emulator of operational HRRR at convection-allowing scale; AIES
+downscaling,climate,probabilistic	DOI:10.1038/s42256-026-01308-7	Probabilistic ML downscaling for regional climate risk; Nat Mach Intell
+climate,benchmarks	DOI:10.1029/2024ms004619	Shows internal variability confounds climate emulator benchmarks; JAMES
+da,weather	DOI:10.1029/2024ms004839	AI data assimilation framework for weather forecasting; JAMES
+s2s,xai	DOI:10.1038/s41612-025-01159-w	Explainable deep learning for long-range ENSO prediction; npj CAS
+xai,weather	ARXIV:2512.24440	Mechanistic interpretability of GraphCast internal activations; strong early citations
+foundation,weather	DOI:10.1029/2025jh000837	Fine-tuning a weather foundation model for unseen physical processes
+weather,methods	DOI:10.1175/aies-d-25-0090.1	Loss design for physical consistency in MLWP; AIES
+extremes,climate	DOI:10.1029/2025gl117990	Tests NGCM and DL GCMs on out-of-sample heat/cold waves; GRL
+climate	DOI:10.1029/2024jh000575	ACE2 coupled to slab ocean learns climate sensitivity to CO2
+parameterization,climate	DOI:10.1038/s41612-025-01269-5	Hybrid DL model with physical constraints for stable long climate runs; npj CAS
+ocean,remote_sensing	DOI:10.1029/2024gl110731	ML inference of sea surface velocity from SWOT; GRL
+parameterization,probabilistic	DOI:10.1029/2024ms004272	Stochastic/multi-member DL convection parameterizations in ESM; JAMES
+methods	DOI:10.1175/aies-d-25-0083.1	Argues against RMSE losses for precipitation; proposes proper likelihoods; AIES
+da,methods	DOI:10.1029/2024ms004608	4D-Var using autodiff with numerical and ML models; JAMES
+benchmarks,extremes,remote_sensing	DOI:10.1175/aies-d-24-0006.1	TorNet polarimetric radar tornado benchmark dataset; AIES
+climate	DOI:10.1126/sciadv.adp0558	Deep learning reconstruction of historical climate fields; Sci Adv
+probabilistic,s2s	DOI:10.1088/3049-4753/ae802a	Autoregressive consistency model for fast probabilistic S2S forecasting
+weather,benchmarks	DOI:10.1175/bams-d-26-0054.1	Operational verification of AI weather prediction; BAMS
+ocean,parameterization	DOI:10.1029/2024ms004883	Online learning of ocean turbulence closures in gyres; JAMES
+extremes,weather	DOI:10.1175/aies-d-24-0085.1	NHC-style evaluation of AIWP TC track and intensity; AIES
+ocean	DOI:10.1175/aies-d-24-0052.1	DriftNet deep learning for Lagrangian sea-surface drift; AIES
+climate	ARXIV:2606.07928	ACE update disentangling SST and CO2 forcing for wider scenario range (Ai2)
+probabilistic,weather	DOI:10.1145/3712285.3772094	AERIS large-scale diffusion Earth system model (Argonne); SC'25
+weather,methods	DOI:10.1175/aies-d-24-0061.1	Systematic study of training recipes for transformer weather models; AIES
+nowcasting,extremes	DOI:10.1073/pnas.2517520122	4-h thunderstorm nowcasting with diffusion on satellite data; PNAS
+s2s	ARXIV:2502.19750	Geometry-inspired transformer for global S2S forecasting; ICLR
+probabilistic,weather	ARXIV:2511.23043	Probabilistic stretched-grid ML model at 2.5 km (follow-up to catalog stretched-grid paper)
+climate,s2s	DOI:10.1175/aies-d-25-0114.1	First Pacific pacemaker experiments with coupled DL Earth system model; AIES
+s2s,xai	DOI:10.1175/aies-d-24-0045.1	Interpretable optimized model-analog ENSO forecasting; AIES
+parameterization,climate	DOI:10.5194/gmd-18-3681-2025	ML emulators plus history matching to tune ICON-A; GMD
+extremes,weather	DOI:10.1029/2025jh000594	Evaluates MLWP TC dynamics and thermodynamics; JGR MLC
+ocean	DOI:10.1175/aies-d-25-0002.1	Operational high-resolution ocean surface current forecasts; AIES
+chemistry	DOI:10.1175/aies-d-24-0117.1	DL ensemble emulation of NASA GEOS-CF composition forecast; AIES
+benchmarks,downscaling	ARXIV:2606.29172	CORDEX-ML-Bench standardized regional climate downscaling benchmark
+chemistry,remote_sensing	DOI:10.1126/sciadv.aee2319	Chemistry-informed DL filling stratospheric OH data gap; Sci Adv
+ocean,s2s	ARXIV:2505.21020	Neural ocean model for S2S simulation; AAAI
+da,xai	ARXIV:2510.27388	DA diagnostics applied to ECMWF GraphDOP
+review,benchmarks	DOI:10.1029/2024jh000496	Recommendations for evaluating ML Earth system models
+da,probabilistic	ARXIV:2505.12882	Physics-guided diffusion data assimilation
+extremes,weather	ARXIV:2505.10241	AI weather models on out-of-distribution 2024 Dubai rainfall
+downscaling,foundation	DOI:10.1145/3712285.3771989	ORBIT-2 exascale foundation model for downscaling; SC'25
+ocean	ARXIV:2506.03210	FuXi-Ocean sub-daily global ocean forecasting; NeurIPS
+climate,xai	ARXIV:2506.22552	Conceptual limits of forced responses/causality in climate emulators
+climate,weather	ARXIV:2605.29976	Multi-decadal climate stability of ArchesWeather/Gen
+s2s,climate	DOI:10.1038/s41612-025-01198-3	ACE2 ML weather/climate model gives skilful global seasonal predictions; npj CAS, well cited
+probabilistic,weather	DOI:10.1175/aies-d-24-0049.1	Systematic UQ comparison for data-driven weather models; AIES, highly cited
+da,weather	DOI:10.1126/sciadv.aea4248	Global atmospheric DA in latent space with physical consistency; Sci Adv
+probabilistic,extremes	DOI:10.1038/s41612-025-01009-9	Physics-based perturbation generator for ML-model ensembles of TC tracks; npj CAS, well cited
+extremes	DOI:10.1073/pnas.2415501122	Contrastive learning for TC rapid intensification forecasting; PNAS
+climate,ocean	DOI:10.1029/2025gl119340	SamudrACE coupled 3D ocean-atmosphere emulator (Ai2/GFDL); GRL
+probabilistic,weather	ARXIV:2604.09041	Simple, efficient frontier probabilistic AI weather forecaster; fast citations
+nowcasting,extremes	DOI:10.1029/2024gl112383	WoFSCast ML emulator of Warn-on-Forecast convection-allowing ensemble; GRL
+climate	DOI:10.1029/2026ms005815	Tests ML atmosphere models' response to uniform SST warming (out-of-distribution); JAMES
+extremes,weather	DOI:10.1029/2024gl109611	Evaluation of Pangu-Weather for tornadic environments; GRL
+climate,downscaling	ARXIV:2512.18224	HiRO-ACE emulation + downscaling trained on 3 km storm-resolving model; Ai2
+s2s,ocean	DOI:10.1126/sciadv.ads5185	Deep learning prediction of Atlantic and Benguela Nino; Sci Adv
+seaice,parameterization	DOI:10.1126/sciadv.ady8957	Online ML sea-ice bias correction in GFDL SPEAR coupled model; Sci Adv
+weather,extremes	DOI:10.1175/bams-d-25-0129.1	Feature-based evaluation of midlatitude cyclone intensity biases in MLWP models; BAMS
+da,weather	DOI:10.1029/2025gl119402	Shows tangent-linear/adjoint limitations of GraphCast/NeuralGCM for DA; GRL
+ocean,benchmarks	DOI:10.1175/jcli-d-23-0707.1	ERSSTv6: operational NOAA SST reconstruction using ANN; widely used product
+benchmarks,weather	ARXIV:2605.30184	Benchmark/taxonomy of AI weather model instabilities in long rollouts
+chemistry,parameterization	DOI:10.1029/2024ms004646	AI photochemistry scheme for atmospheric models; JAMES
+da,weather	DOI:10.1175/aies-d-24-0050.1	Data assimilation with FourCastNet surrogate; AIES
+s2s,xai	DOI:10.1126/sciadv.aeb0901	Deep learning shows tropical basin interactions reduce ENSO spring predictability barrier; Sci Adv
+benchmarks,weather	ARXIV:2606.10642	Evaluation framework for physical consistency of ML weather models
+postprocessing,probabilistic	DOI:10.1029/2024ms004796	Generative ML postprocessing of East African rainfall; JAMES, data-sparse region
+ocean,parameterization	DOI:10.1029/2025ms004991	Data-driven parameterization of ocean submesoscale buoyancy fluxes; JAMES
+extremes,weather	DOI:10.1175/aies-d-25-0073.1	Global TC intensity forecasting with neural weather models; AIES
+parameterization	DOI:10.1029/2024ms004279	SuperdropNet stable ML proxy for droplet-based cloud microphysics; JAMES
+extremes,weather	DOI:10.1175/aies-d-25-0065.1	Severe weather outlooks from AI weather prediction models; AIES
+nowcasting,probabilistic	DOI:10.1038/s41612-026-01407-7	Generative ML for 3D radar nowcasting; npj CAS
+da,s2s,probabilistic	ARXIV:2503.03038	Generative coupled assimilation and prediction for weather and climate; well cited
+nowcasting,probabilistic	ARXIV:2511.09731	Conditional flow matching for precipitation nowcasting; well cited
+postprocessing,probabilistic	DOI:10.1175/aies-d-25-0037.1	Statistical postprocessing of AI weather models for probabilistic forecasts; AIES
+ocean,s2s	DOI:10.1126/sciadv.aed1225	Data-driven global ocean model resolving atmospherically forced dynamics; Sci Adv
+s2s,parameterization	DOI:10.1029/2024ms004480	Hybrid physics-ML coupled atmosphere-ocean model beyond medium range; JAMES
+benchmarks,da	DOI:10.1175/bams-d-25-0157.1	NNJA NOAA-NASA curated observation archive for reanalysis and AI model development; BAMS
+review,chemistry	DOI:10.1038/s41612-026-01559-6	Review of AI for atmospheric chemistry; npj CAS
+weather,foundation	ARXIV:2609.03582	WeatherNext 3 (Google): higher-resolution global model trained on raw observations
+probabilistic,weather	ARXIV:2502.07532	Diffusion-based limited-area probabilistic weather forecasting; well cited
+downscaling,remote_sensing	DOI:10.1109/cvpr52734.2025.02614	Satellite-guided diffusion for arbitrary-resolution meteorological states; CVPR
+xai,methods	DOI:10.1029/2025jh000602	Weak-form SINDy learning of interpretable atmospheric models; JGR MLC
+nowcasting	ARXIV:2601.17268	Learning storm-scale evolution directly from observations
+climate,probabilistic	DOI:10.1029/2025ms005558	Score-based generative emulation of ESM impact-relevant outputs; JAMES
+extremes,benchmarks	DOI:10.1038/s43247-025-02823-y	Global benchmarking of AI models for atmospheric river forecasting
+remote_sensing,benchmarks	ARXIV:2602.01436	MSWEP V3 ML-powered global hourly precipitation dataset
+weather,nowcasting	ARXIV:2608.26822	NOAA single ML system bridging short- and medium-range forecasting
+weather,ocean,seaice	ARXIV:2604.25559	ECMWF AIFS extended to surface ocean, waves and sea ice
+climate	DOI:10.1029/2025gl115432	Evaluates ACE radiative response to SST patterns (Green's functions); GRL
+s2s,extremes	DOI:10.1088/1748-9326/adf864	NeuralGCM hybrid model for seasonal TC activity prediction; ERL
+seaice,remote_sensing	DOI:10.1029/2025gl121289	Restored after screening trim: ML removes ERA5 warm bias over Arctic sea ice (GRL); sea ice thinly covered
+seaice,parameterization	DOI:10.1002/qj.70200	Restored after screening trim: hybrid ML sea-ice thermodynamics (QJRMS)
+parameterization	DOI:10.1029/2025ms004977	Restored after screening trim: deep learning gravity-wave parameterization (JAMES)
+postprocessing,s2s	DOI:10.1175/mwr-d-25-0179.1	Restored after screening trim: DL post-processing of S2S temperature and precipitation (MWR)
+weather,postprocessing	DOI:10.1175/waf-d-24-0227.1	Restored after screening trim: AIFS vs IFS precipitation evaluation (WAF)
+climate,extremes	DOI:10.1029/2025gl117387	Restored after screening trim: ACE2 Kelvin waves and tropical cyclogenesis (GRL)
+da	DOI:10.1175/mwr-d-24-0057.1	Restored after screening trim: latent-space data assimilation AE-O2L (MWR)
+postprocessing,probabilistic	DOI:10.1002/qj.70119	Restored after screening trim: graph-network ensemble post-processing (QJRMS)
+s2s	DOI:10.1038/s41612-026-01430-8	Restored after screening trim: ML subseasonal precipitation forecasts (npj CAS)
+s2s,xai	DOI:10.1038/s41612-026-01513-6	Restored after screening trim: glass-box interpretable ENSO prediction (npj CAS)
+probabilistic,weather	ARXIV:2606.19642	Restored after screening trim: conformal prediction for AI weather forecasts
+downscaling,extremes	DOI:10.1029/2025jh001072	Restored after screening trim: typhoon downscaling from AIFS forecasts (JGR ML&C)
