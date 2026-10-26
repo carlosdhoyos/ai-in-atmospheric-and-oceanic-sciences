@@ -2,7 +2,10 @@
 
 A curated, citation-ranked catalog of machine-learning research for weather, climate, ocean and sea ice, covering peer-reviewed journals, major ML conferences and arXiv preprints.
 
-**Browse it:** open [`index.html`](index.html) in a browser (it is a single self-contained file), or enable GitHub Pages on this repository.
+**Browse it:** two self-contained pages, each a single HTML file you can open in a browser or serve with GitHub Pages:
+
+- [`index.html`](index.html) is the **paper catalog**, with search, filters, summaries and BibTeX, plus an Insights tab.
+- [`eda.html`](eda.html) is the **interactive exploratory analysis**. Guided views (architecture shift, research goals, training data, limitations by architecture, open problems, probabilistic turn, citation impact, venues) set up every chart to answer one question, with notes computed from the current selection. Every view can be bookmarked by its hash, e.g. `eda.html#data`.
 
 The page lets you:
 

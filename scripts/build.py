@@ -46,6 +46,22 @@ CONFERENCES = re.compile(r"neural information processing|neurips|nips|internatio
 PREPRINT_VENUES = re.compile(r"arxiv|essoar|ess open archive|research square|preprint|ssrn|biorxiv|egusphere", re.I)
 
 
+PAGES = [
+    {"mode": "catalog", "file": "index.html", "fragment": "ai-aos-papers.html", "title": "Atmosphere–Ocean AI Papers",
+     "eyebrow": "Literature catalog", "h1": "AI in Atmospheric &amp; Oceanic Sciences",
+     "lede": "Peer-reviewed papers and arXiv preprints on machine learning for weather, climate, ocean and sea ice. "
+             "Citation counts come from Semantic Scholar and Crossref. Search titles, authors and abstracts, then filter "
+             "by subfield, year or publication type.",
+     "xlink": '<a class="back" href="eda.html">Exploratory analysis →</a>'},
+    {"mode": "eda", "file": "eda.html", "fragment": "ai-aos-eda.html", "title": "Atmosphere–Ocean AI Trends",
+     "eyebrow": "Exploratory analysis", "h1": "How AI for the atmosphere and ocean is changing",
+     "lede": "An interactive analysis of the catalog: which architectures, goals and data dominate, since when, what is "
+             "rising or fading, what limits current models and what the papers say comes next. Every chart follows the "
+             "filters, and any chart element can be clicked to slice the data.",
+     "xlink": '<a class="back" href="index.html">Paper catalog →</a>'},
+]
+
+
 def clean_title(t):
     t = t.replace("{\\deg}", "°").replace("\\deg", "°")
     return re.sub(r"\s+", " ", t).strip()
@@ -182,18 +198,24 @@ def main():
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
 
-    blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out}, ensure_ascii=False, separators=(",", ":"))
-    blob = blob.replace("</", "<\\/")
-    tpl = open(os.path.join(ROOT, "scripts", "template.html")).read().replace("/*DATA*/", blob)
-    # Standalone page for the repo / GitHub Pages; the bare fragment is what the artifact viewer wraps itself.
-    head, _, body = tpl.partition('<div class="wrap">')
-    standalone = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
-                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n"
-                  + head + "</head>\n<body>\n<div class=\"wrap\">" + body + "</body>\n</html>\n")
-    open(os.path.join(ROOT, "index.html"), "w").write(standalone)
+    template = open(os.path.join(ROOT, "scripts", "template.html")).read()
     frag_dir = os.environ.get("FRAGMENT_DIR")
-    if frag_dir:
-        open(os.path.join(frag_dir, "ai-aos-papers.html"), "w").write(tpl)
+    for page in PAGES:
+        blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out, "page": {"mode": page["mode"]}},
+                          ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        tpl = template.replace("/*DATA*/", blob)
+        for k in ("TITLE", "EYEBROW", "H1", "LEDE"):
+            tpl = tpl.replace(f"__{k}__", page[k.lower()])
+        # Standalone page for the repo / GitHub Pages, with a link to its sibling page
+        repo = tpl.replace("__XLINK__", page["xlink"])
+        head, _, body = repo.partition('<div class="wrap">')
+        open(os.path.join(ROOT, page["file"]), "w").write(
+            "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n"
+            + head + "</head>\n<body>\n<div class=\"wrap\">" + body + "</body>\n</html>\n")
+        # The artifact viewer wraps a bare fragment itself; sibling links are relative files, so they are dropped there
+        if frag_dir:
+            open(os.path.join(frag_dir, page["fragment"]), "w").write(tpl.replace("__XLINK__", ""))
 
     write_summaries_md(out)
     with open(os.path.join(ROOT, "papers.bib"), "w") as f:

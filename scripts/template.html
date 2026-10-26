@@ -1,4 +1,4 @@
-<title>Atmosphere–Ocean AI Papers</title>
+<title>__TITLE__</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="A curated, searchable catalog of machine-learning research in atmospheric and oceanic sciences, with citation counts.">
 <script>
@@ -193,6 +193,12 @@ table.pivot .tot { color: var(--muted); background: transparent; cursor: default
 @media (max-width: 820px) { .two { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
+.crumbs { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.presets .btn[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.preset-note { margin: 14px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--chip); font-size: 14px; max-width: 85ch; }
+.preset-note:empty { display: none; }
+.preset-note b { font-weight: 600; }
 /* ---- carlosdhoyos.github.io component layer ---- */
 body { background: var(--bg); color: var(--fg); font-family: var(--f-body); -webkit-font-smoothing: antialiased; transition: background-color var(--ease), color var(--ease); }
 .wrap { max-width: 1024px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -268,7 +274,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
 <div class="wrap">
   <div class="topbar">
-    <a class="back" href="https://carlosdhoyos.github.io/cursos/hidrologia/">← Hidrología</a>
+    <nav class="crumbs"><a class="back" href="https://carlosdhoyos.github.io/cursos/hidrologia/">← Hidrología</a>__XLINK__</nav>
     <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -276,9 +282,9 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   </div>
   <header class="masthead">
     <div>
-      <p class="eyebrow">Literature catalog · <span id="asof"></span></p>
-      <h1>AI in Atmospheric &amp; Oceanic Sciences</h1>
-      <p class="lede">Peer-reviewed papers and arXiv preprints on machine learning for weather, climate, ocean and sea ice. Citation counts come from Semantic Scholar and Crossref. Search titles, authors and abstracts, then filter by subfield, year or publication type.</p>
+      <p class="eyebrow">__EYEBROW__ · <span id="asof"></span></p>
+      <h1>__H1__</h1>
+      <p class="lede">__LEDE__</p>
     </div>
     <div>
       <div class="stats">
@@ -338,6 +344,12 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 <div class="wrap">
   <main id="list" aria-live="polite"></main>
   <section id="insights" hidden aria-label="Insights">
+    <div class="panel guide" id="guide" hidden>
+      <h3>Guided views</h3>
+      <p class="sub">Each view sets up every chart below to answer one question. The filters above still apply, so you can pick a view and then narrow it to a subfield, period or architecture.</p>
+      <div class="presets" id="presets" role="group" aria-label="Guided views"></div>
+      <p class="preset-note" id="preset-note"></p>
+    </div>
     <div class="findings">
       <h2>What the selection shows</h2>
       <div class="kpis" id="kpis"></div>
@@ -690,7 +702,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
   function setupSelect(id, keys, key) {
     $(id).innerHTML = dimOptions(keys, ins[key]);
-    $(id).onchange = e => { ins[key] = e.target.value; if (key === "im") ins.imVal = null; render(); };
+    $(id).onchange = e => { ins[key] = e.target.value; ins.preset = null; if (key === "im") ins.imVal = null; render(); };
   }
   setupSelect("tl-dim", CHART_DIMS, "tl");
   setupSelect("tr-dim", CHART_DIMS.concat("period"), "tr");
@@ -698,7 +710,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   setupSelect("im-dim", CHART_DIMS, "im");
   setupSelect("pv-row", CHART_DIMS.concat("period"), "pvRow");
   setupSelect("pv-col", CHART_DIMS.concat("period"), "pvCol");
-  $("pv-metric").onchange = e => { ins.pvMetric = e.target.value; render(); };
+  $("pv-metric").onchange = e => { ins.pvMetric = e.target.value; ins.preset = null; render(); };
   $("im-val").onchange = e => { ins.imVal = e.target.value; render(); };
   document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { ins.trMode = b.dataset.mode; render(); });
   document.querySelectorAll("[data-voice]").forEach(b => b.onclick = () => { ins.voice = b.dataset.voice; ins.voiceTheme = null; render(); });
@@ -709,7 +721,64 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     if (el) el.scrollIntoView({ block: "center" });
   }
 
+  /* ---------- Guided views (EDA page) ---------- */
+  const PAGE = DATA.page || { mode: "catalog" };
+  const SYNC = { "tl-dim": "tl", "tr-dim": "tr", "rf-dim": "rf", "im-dim": "im", "pv-row": "pvRow", "pv-col": "pvCol", "pv-metric": "pvMetric" };
+  const share = (rows, dim, v) => rows.length ? rows.filter(p => DIM[dim].get(p).includes(v)).length / rows.length : 0;
+  const listUp = (dim, rows, n = 3) => shift(dim, rows).filter(x => x[1] > 0.02).slice(0, n)
+    .map(([v, d]) => `<b>${esc(v)}</b> (+${Math.round(d * 100)} pts)`).join(", ") || "nothing clearly";
+  const listDown = (dim, rows, n = 3) => shift(dim, rows).filter(x => x[1] < -0.02).slice(-n).reverse()
+    .map(([v, d]) => `${esc(v)} (${Math.round(d * 100)} pts)`).join(", ") || "nothing clearly";
+  const PRESETS = [
+    { key: "architectures", label: "Architecture shift",
+      set: { tl: "model_family", tr: "arch_group", trMode: "share", rf: "model_family", im: "arch_group", imVal: "Transformers", pvRow: "model_family", pvCol: "period", pvMetric: "col", voice: "issue_theme" },
+      note: r => `Since 2022 the catalog shifts toward ${listUp("model_family", r)}, while ${listDown("model_family", r)} lose share. The timeline shows when each family first appeared; the cross-tab gives each family's share of the papers in each period.` },
+    { key: "goals", label: "Research goals",
+      set: { tl: "task", tr: "task", trMode: "count", rf: "task", im: "task", imVal: null, pvRow: "task", pvCol: "arch_group", pvMetric: "n", voice: "open_theme" },
+      note: r => { const g = counts("task", r)[0]; return g ? `The most common goal is <b>${esc(g[0])}</b> (${g[1]} papers). Growing since 2022: ${listUp("task", r)}. Shrinking: ${listDown("task", r)}. The cross-tab shows which architectures each goal relies on.` : ""; } },
+    { key: "data", label: "Training data",
+      set: { tl: "data_source", tr: "data_source", trMode: "share", rf: "data_source", im: "data_source", imVal: "ERA5", pvRow: "data_source", pvCol: "period", pvMetric: "n", voice: "issue_theme" },
+      note: r => { const m = r.filter(p => p.cat.paper_type === "method"), a = m.filter(p => p.year >= 2023), b = m.filter(p => p.year < 2023);
+        return `ERA5 appears in ${pct(share(a, "data_source", "ERA5"))} of method papers from 2023 on, against ${pct(share(b, "data_source", "ERA5"))} before. Rising sources: ${listUp("data_source", r)}. Fading: ${listDown("data_source", r)}.`; } },
+    { key: "limitations", label: "Limitations by architecture",
+      set: { tl: "issue_theme", tr: "issue_theme", trMode: "share", rf: "issue_theme", im: "issue_theme", imVal: null, pvRow: "arch_group", pvCol: "issue_theme", pvMetric: "row", voice: "issue_theme", voiceTheme: null },
+      note: r => { const parts = counts("arch_group", r).filter(([, n]) => n >= 5).map(([g]) => {
+          const gr = r.filter(p => p.cat.arch_group.includes(g)), t = counts("issue_theme", gr).filter(([v]) => !/Summary uncertain|Review dates/.test(v)).slice(0, 2);
+          return t.length ? `${esc(g)}: ${t.map(([v, n]) => `<b>${esc(v)}</b> ${pct(n / gr.length)}`).join(", ")}` : null; }).filter(Boolean);
+        return `Two most frequent limitations per architecture group. ${parts.join("; ")}. Read the cross-tab by row (% of each group's papers). The quotes come from the most-cited papers with each theme.`; } },
+    { key: "open-problems", label: "Open problems",
+      set: { tl: "open_theme", tr: "open_theme", trMode: "share", rf: "open_theme", im: "open_theme", imVal: null, pvRow: "task", pvCol: "open_theme", pvMetric: "row", voice: "open_theme", voiceTheme: null },
+      note: r => { const o = counts("open_theme", r).slice(0, 3); return o.length ? `The research agenda the papers point to: ${o.map(([v, n]) => `<b>${esc(v)}</b> (${n})`).join(", ")}. The cross-tab shows what each research goal still needs.` : ""; } },
+    { key: "probabilistic", label: "Probabilistic turn",
+      set: { tl: "model_family", tr: "output", trMode: "share", rf: "model_family", im: "output", imVal: "Probabilistic", pvRow: "output", pvCol: "period", pvMetric: "col", voice: "open_theme" },
+      note: r => { const m = r.filter(p => p.cat.paper_type === "method"), by = ["≤2018", "2019–20", "2021–22", "2023–26"].map(per => { const x = m.filter(p => period(p.year) === per); return x.length ? `${per}: ${pct(x.filter(p => p.cat.probabilistic).length / x.length)}` : null; }).filter(Boolean);
+        return `Share of method papers with probabilistic output: ${by.join(" → ")}. Generative models (diffusion, GANs) and ensembles drive the recent rise.`; } },
+    { key: "impact", label: "Citation impact",
+      set: { tl: "model_family", tr: "arch_group", trMode: "count", rf: "arch_group", im: "arch_group", imVal: "Transformers", pvRow: "arch_group", pvCol: "period", pvMetric: "cpy", voice: "issue_theme" },
+      note: r => { const g = counts("arch_group", r).filter(([, n]) => n >= 5).map(([v, n]) => [v, median(r.filter(p => p.cat.arch_group.includes(v)).map(p => p.rate)), n]).sort((a, b) => b[1] - a[1]);
+        return g.length ? `Median citations per year: ${g.map(([v, m, n]) => `${esc(v)} ${m.toFixed(0)} (n=${n})`).join(", ")}. Recent groups are carried by a few landmark models, so compare the spread in the scatter, not only the medians.` : ""; } },
+    { key: "venues", label: "Where it is published",
+      set: { tl: "venue_family", tr: "venue_family", trMode: "share", rf: "venue_family", im: "venue_family", imVal: "ML conferences", pvRow: "venue_family", pvCol: "period", pvMetric: "n", voice: "issue_theme" },
+      note: r => { const v = counts("venue_family", r).slice(0, 3); return `Main homes: ${v.map(([x, n]) => `<b>${esc(x)}</b> (${n})`).join(", ")}. Rising since 2022: ${listUp("venue_family", r)}.`; } },
+  ];
+  ins.preset = null;
+  function applyPreset(key) {
+    const pr = PRESETS.find(x => x.key === key); if (!pr) return;
+    Object.assign(ins, { imVal: null, voiceTheme: null }, pr.set); ins.preset = key; state.tab = "insights"; render();
+  }
+  if (PAGE.mode === "eda") {
+    $("guide").hidden = false;
+    $("presets").innerHTML = PRESETS.map(x => `<button type="button" class="btn" data-preset="${x.key}" aria-pressed="false">${x.label}</button>`).join("");
+    $("presets").addEventListener("click", e => { const b = e.target.closest("[data-preset]"); if (b) applyPreset(b.dataset.preset); });
+  }
+
   function renderInsights(rows) {
+    Object.entries(SYNC).forEach(([id, k]) => { if ($(id).value !== ins[k]) $(id).value = ins[k]; });
+    if (PAGE.mode === "eda") {
+      document.querySelectorAll("[data-preset]").forEach(b => b.setAttribute("aria-pressed", b.dataset.preset === ins.preset));
+      const pr = PRESETS.find(x => x.key === ins.preset);
+      $("preset-note").innerHTML = pr && rows.length ? pr.note(rows) : "";
+    }
     if (!rows.length) {
       $("findings").innerHTML = "<li>No papers match the current filters. Remove a filter to see insights.</li>";
       $("kpis").innerHTML = "";
@@ -978,8 +1047,10 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
   };
 
   const hash = location.hash.slice(1);
+  if (PAGE.mode === "eda") state.tab = "insights";
   if (hash === "insights") state.tab = "insights";
   else if (hash && T[hash]) { state.topics.add(hash); syncChips(); }
-  render();
+  if (PAGE.mode === "eda") applyPreset(PRESETS.some(x => x.key === hash) ? hash : "architectures");
+  else render();
 })();
 </script>

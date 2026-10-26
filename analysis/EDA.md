@@ -2,7 +2,7 @@
 
 Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py). Every figure has its data in [`analysis/tables/`](tables/).
 
-**Interactive version.** Open [`index.html`](../index.html) and switch to the **Insights** tab. Every chart there recalculates for the current selection: search, subfield, years, and any number of "Slice by" filters (architecture, goal, data source, limitation, open problem, venue…). It includes:
+**Interactive version.** Open [`eda.html`](../eda.html), the interactive EDA page with guided views, or the **Insights** tab of [`index.html`](../index.html). Every chart there recalculates for the current selection: search, subfield, years, and any number of "Slice by" filters (architecture, goal, data source, limitation, open problem, venue…). It includes:
 - a timeline of when each architecture, goal or data source first appeared
 - trends by year
 - what is rising and what is fading since 2022
