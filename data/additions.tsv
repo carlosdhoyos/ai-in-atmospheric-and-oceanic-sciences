@@ -546,5 +546,482 @@ hydrology,da	ARXIV:2502.16444	Compares DA strategies for differentiable hydrolog
 hydrology,benchmarks	ARXIV:2506.03819	Spatially resolved meteorological dataset for rainfall-streamflow modelling; ESSD
 hydrology,extremes	ARXIV:2504.12559	Fine-tuning global ML flood models with local data
 energy,weather	ARXIV:2508.03590	SolarSeer: 24-h AI irradiance forecasts outperforming NWP across the USA
-hydrology,benchmarks	DOI:10.6084/m9.figshare.c.5142185.v1	SoMo.ml global ML soil moisture dataset
+hydrology,benchmarks	DOI:10.1038/s41597-021-00964-1	SoMo.ml global ML soil moisture dataset
 energy	ARXIV:2402.14385	WindDragon: AutoDL wind power forecasting from NWP wind maps
+parameterization,climate	DOI:10.1155/2013/485913	Early NN-ensemble stochastic convection parameterization learned from CRM data (Krasnopolsky et al.)
+methods,ocean	DOI:10.1088/1742-5468/ab3195	Physics-informed advection-diffusion deep model for SST forecasting; influential physics-guided DL paper
+hydrology,methods	DOI:10.21105/joss.04050	NeuralHydrology library, widely used for LSTM rainfall-runoff research
+hydrology	DOI:10.1175/jhm-d-19-0169.1	LSTM near-real-time forecasting of SMAP soil moisture with data integration kernel; well cited
+parameterization,methods	DOI:10.1029/2018ms001597	ML empirical model-error correction for chaotic system (Lorenz 96); JAMES
+hydrology,agriculture	DOI:10.1016/j.jhydrol.2018.04.065	LSTM water table depth prediction in agricultural areas; highly cited (700+)
+postprocessing,probabilistic	DOI:10.1002/qj.4180	Distribution-based NN combination for weather forecast probabilities; QJRMS
+hydrology,parameterization	DOI:10.1029/2020wr029328	DL process parameterization of turbulent heat fluxes in hydrologic models; WRR
+methods	ARXIV:2007.00016	Solver-in-the-loop hybrid differentiable-physics learning; influential for hybrid ML-solver models
+hydrology,review	DOI:10.1002/9781119646181.ch19	Book chapter reviewing deep learning in hydrology
+downscaling,extremes	DOI:10.1029/2022jd038163	DL downscaling of tropical cyclone rainfall to hazard-relevant scales; JGR-A
+hydrology	DOI:10.1002/hyp.14400	LSTM stream temperature prediction in data-scarce/dammed basins with meteorological forcing
+remote_sensing,review	DOI:10.1109/mgrs.2017.2762307	Highly cited review of deep learning in remote sensing (2000+ cites)
+hydrology,extremes	DOI:10.1016/j.jhydrol.2019.05.087	Rapid spatio-temporal flood prediction with UQ using deep learning
+weather,climate,methods	ARXIV:2404.10024	ClimODE physics-informed neural ODE weather/climate forecasting; ICLR
+review,remote_sensing	DOI:10.1016/j.gsf.2015.07.003	Early highly cited review of ML in geosciences and remote sensing
+methods	DOI:10.23919/eusipco.2018.8553492	Bilinear residual NN for identification/forecasting of geophysical dynamics (Fablet et al.)
+hydrology,extremes	DOI:10.1016/j.atmosres.2014.10.016	Extreme learning machine for monthly drought index prediction; Atmos. Res., 300+ cites
+hydrology,xai,extremes	DOI:10.1016/j.scitotenv.2021.149797	Explainable ML model for spatial drought prediction; well cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2019.05.066	Ensemble NN real-time urban flood prediction from rainfall
+extremes,methods	DOI:10.1073/pnas.1917285117	ML prediction of extreme events in complex/turbulent systems; PNAS
+downscaling	DOI:10.5194/gmd-2020-420	Convolutional conditional neural processes for multisite climate downscaling; GMD
+parameterization,methods	DOI:10.1016/j.jcp.2022.111559	Ensemble Kalman inversion for sparse learning of dynamics from time-averaged data (CliMA)
+da	DOI:10.1002/qj.4708	3D-Var data assimilation in VAE latent space; QJRMS
+da,methods	DOI:10.3934/fods.2020015	Online learning of state and dynamics with ensemble Kalman filters (Bocquet et al.)
+weather,extremes	ARXIV:2402.01295	ExtremeCast: improving extreme value prediction in global ML weather forecasting
+hydrology,review	DOI:10.1177/0309133312444943	Review of two decades of neural network river forecasting; highly cited
+ocean,climate	ARXIV:2402.04342	Building ocean climate emulators with ML; early global ocean emulation work
+hydrology,extremes	DOI:10.1016/j.atmosres.2015.12.017	ML with wavelets and bootstrap/boosting ensembles for drought prediction
+extremes,methods	DOI:10.1007/s00477-018-1573-6	Monotone composite quantile regression NN for rainfall extremes (Cannon)
+hydrology	DOI:10.1016/j.jhydrol.2009.06.019	Comparison of AI methods for monthly discharge forecasting; 800+ cites
+hydrology	DOI:10.1016/j.jhydrol.2024.131389	Transformer probing hydrologic predictability limits; J. Hydrol.
+downscaling	DOI:10.1007/s00704-020-03489-6	DL downscaling of Indian summer monsoon rainfall
+nowcasting,review	ARXIV:2005.04988	Review of radar-based precipitation nowcasting and ML techniques
+postprocessing,probabilistic,extremes	DOI:10.1175/mwr-d-21-0106.1	DL post-processing for probabilistic atmospheric river forecasts; MWR
+weather,benchmarks	DOI:10.1038/s41612-024-00769-0	Evaluation of five global AI weather models over East Asia/West Pacific; npj CAS
+s2s,probabilistic	DOI:10.1029/2019gl086423	Probabilistic ENSO forecasting with density/quantile NN ensembles; GRL
+review	DOI:10.1029/2021rg000742	Reviews of Geophysics review of deep learning for geophysics
+downscaling,probabilistic	ARXIV:2404.14416	Conditional diffusion models for downscaling and bias correction of ESM precipitation; GMD
+methods,benchmarks	DOI:10.1017/eds.2023.22	Environmental sensor placement with convolutional Gaussian neural processes
+s2s,xai,climate	DOI:10.1029/2021gl093842	Explainable NNs to assess decadal predictability in an ESM; GRL
+parameterization	DOI:10.1029/2022ms003508	Ensemble NN moist physics parameterization with stable integration; JAMES
+da	DOI:10.1029/2023ms003687	4D-Var constrained NN data assimilation; JAMES
+hydrology,remote_sensing	DOI:10.1029/2018jd028447	ML upscaling of evapotranspiration from flux towers; JGR-A
+s2s,xai	DOI:10.1007/s00376-024-3316-6	ResoNet hybrid CNN-Transformer explainable ENSO forecasts
+extremes	DOI:10.1007/s10707-019-00355-0	Hybrid CNN-LSTM typhoon formation forecasting
+review	DOI:10.1017/eds.2022.5	Ethical, responsible and trustworthy AI for environmental science (McGovern et al.)
+foundation,da,xai	ARXIV:2508.18018	Analysis of GraphDOP's learned Earth-system representations (ECMWF)
+climate	DOI:10.1029/2025jh000774	ACE2 emulator for SST Green's functions of E3SMv3
+hydrology,da	DOI:10.1029/2019wr026226	Data assimilation for streamflow forecasting with ELM and MLP; WRR
+chemistry,methods	DOI:10.5194/gmd-2021-402	Conservation-law-enforcing NN for atmospheric photochemistry; GMD
+hydrology,xai,s2s	DOI:10.1016/j.jhydrol.2021.126782	NRCS explainable ML water supply forecast model for the American West
+hydrology,xai,review	DOI:10.1098/rsta.2024.0287	Challenges/opportunities of ML and XAI in large-sample hydrology
+hydrology,extremes	DOI:10.5194/nhess-23-809-2023	Transferability of data-driven urban pluvial flood depth models
+nowcasting,weather	DOI:10.1029/2022gl097904	Short-term precipitation prediction over CONUS with DL; GRL
+downscaling,probabilistic	DOI:10.5194/gmd-18-2051-2025	Latent diffusion model mimicking km-scale COSMO-CLM dynamical downscaling; GMD
+hydrology,extremes,climate	DOI:10.1007/s00477-022-02378-w	LSTM combined with climate models for drought prediction
+hydrology,extremes,probabilistic	DOI:10.3390/w14192980	Deep ensembles for flood hazard map uncertainty
+methods	DOI:10.1145/3323057.3323059	neural-fortran framework, used for coupling NNs into Fortran climate/weather models
+hydrology,benchmarks	DOI:10.5281/zenodo.4555820	Benchmark of LSTM vs conceptual rainfall-runoff models in Great Britain (CAMELS-GB)
+foundation,climate	DOI:10.1109/sc41406.2024.00007	ORBIT exascale Earth-system foundation model; SC'24
+methods	DOI:10.5194/egusphere-egu21-5507	ML preconditioners for linear solvers in atmosphere/ocean models
+seaice,remote_sensing,ocean	DOI:10.1038/s41467-024-51900-x	GPSat probabilistic ML interpolation of satellite altimetry (sea ice freeboard); Nat Commun
+postprocessing,weather	DOI:10.1175/mwr-d-24-0005.1	Physics vs data-driven probabilistic precipitation forecasts for tropical Africa; MWR
+seaice,parameterization	DOI:10.5194/gmd-15-803-2022	Hybrid ML parameterization of wave-induced sea ice floe fracture; GMD
+seaice,parameterization	DOI:10.1016/j.jocs.2024.102231	NN emulation of sea ice melt pond parametrisation
+probabilistic,weather	ARXIV:2002.05398	Ensemble NN weather forecasts via SVD perturbations (Scher & Messori)
+hydrology	DOI:10.1029/2019wr025326	Seq2seq LSTM rainfall-runoff model; WRR, widely cited
+foundation,weather,probabilistic	ARXIV:2308.13280	AtmoRep: early stochastic foundation model of atmospheric dynamics
+hydrology	DOI:10.1029/2021gl092999	Ensemble DL streamflow in data-sparse regions with soft data; GRL
+hydrology	DOI:10.5194/hess-28-4187-2024	HESS opinion on training LSTMs on many basins; influential
+methods,review	6965bc6d26fc910a6387cd6d423b35fd9e1d358b	Widely cited survey of physics-ML integration, heavily environmental
+hydrology,benchmarks	DOI:10.5194/hess-25-5517-2021	Benchmark of LSTM vs conceptual rainfall-runoff models across GB
+ocean,parameterization	DOI:10.1029/2023ms003890	NN parameterization of ocean surface boundary layer mixing; JAMES
+climate	DOI:10.1175/jcli-d-13-00099.1	Statistical emulation of GCM projections; J. Climate
+extremes,weather,probabilistic	DOI:10.1007/s11430-023-1427-x	FuXi-Extreme: diffusion refinement for extreme rain/wind forecasts
+review	DOI:10.1109/tkde.2018.2861006	Karpatne et al. ML for geosciences challenges; widely cited
+hydrology	DOI:10.3390/w10111543	Early LSTM rainfall-runoff simulation; highly cited
+ocean	DOI:10.1126/sciadv.aba1482	Satellite-driven DL forecast of tropical instability waves; Science Advances
+hydrology,review	DOI:10.1002/hyp.13805	Beven perspective on DL and uniqueness of place in hydrology
+hydrology,extremes	DOI:10.1016/j.jhydrol.2022.127535	Spatial DL short-term flood prediction; J. Hydrology
+methods,parameterization	DOI:10.1063/5.0005541	Hybrid reservoir computing + knowledge-based model for forecasting and subgrid closure
+downscaling,climate	DOI:10.1016/j.jhydrol.2006.04.030	SVM precipitation downscaling for climate scenarios; classic
+hydrology,climate	DOI:10.3389/frwa.2020.00028	CNN streamflow projection under climate in California
+parameterization,remote_sensing	ARXIV:1903.10274	CNN encoder-decoder precipitation parameterization from reanalysis
+hydrology	DOI:10.1016/j.jhydrol.2011.10.039	ML daily streamflow forecasting with weather/climate inputs; classic
+methods,probabilistic	DOI:10.1016/j.jcp.2019.109209	Statistically constrained GANs for chaotic dynamical systems (climate-oriented)
+downscaling,probabilistic	DOI:10.1145/3219819.3219996	Bayesian DL uncertainty for precipitation downscaling; KDD
+review,parameterization	DOI:10.1007/978-94-007-6073-8	Krasnopolsky NN emulations in Earth system sciences
+review	DOI:10.1016/s1352-2310(97)00447-0	Gardner & Dorling MLP review in atmospheric sciences; classic
+hydrology,review	DOI:10.1016/s1364-8152(99)00007-9	Maier & Dandy NN water-resources review; landmark
+hydrology	DOI:10.3390/w11051098	LSTM/RNN groundwater table forecasting in flood-prone city
+nowcasting	DOI:10.1109/icdm.2017.49	Multi-task CNN short-term rainfall prediction
+hydrology,extremes	DOI:10.1016/j.xinn.2024.100617	Global cross-region DL streamflow/flood forecasting; The Innovation
+parameterization,methods	DOI:10.1029/2020ms002084	DL super-parameterization and transfer learning in multiscale Lorenz 96; JAMES
+parameterization,xai	DOI:10.1093/pnasnexus/pgad015	Physics of transfer learning in data-driven turbulence closures; PNAS Nexus
+probabilistic,weather	ARXIV:2112.08217	Generative networks trained by scoring rules for weather forecasting; JMLR
+postprocessing,probabilistic	DOI:10.1214/23-aoas1784	Generative ML for multivariate ensemble post-processing; AoAS
+energy,review	DOI:10.1016/j.jclepro.2021.128566	Comprehensive review of DL solar irradiance forecasting
+hydrology	DOI:10.1007/s00477-018-1560-y	LSTM-ALO monthly runoff forecasting; well cited
+hydrology	DOI:10.2166/hydro.2020.095	CNN rainfall-runoff modelling
+hydrology,review,xai	DOI:10.1002/essoar.10506045.1	DL fundamentals, explainability and bridge to process-based modelling
+hydrology,postprocessing	DOI:10.31223/osf.io/53te4	LSTM post-processing of conceptual rainfall-runoff model
+hydrology	DOI:10.1109/access.2020.2974406	DL daily streamflow simulation with adjusted window
+weather	ARXIV:2410.07472	Systematic study of DL weather forecasting design space
+hydrology	ARXIV:2305.12335	Temporal Fusion Transformer for streamflow
+ocean,parameterization	DOI:10.1016/s1463-5003(02)00010-0	Krasnopolsky NN emulation to speed ocean model physics; early hybrid
+energy	DOI:10.1016/j.energy.2018.01.177	LSTM day-ahead solar irradiance using weather forecasts; highly cited
+benchmarks	ARXIV:2307.01909	ClimateLearn benchmark library for weather/climate ML; NeurIPS
+hydrology,xai	DOI:10.5194/hess-26-795-2022	ConvLSTM regional hydrological modelling with interpretation; HESS
+parameterization,methods	DOI:10.1103/physrevfluids.6.024607	Physically invariant NN subgrid-scale flux closure
+hydrology,extremes	DOI:10.1017/eds.2024.19	FloodGNN-GRU spatio-temporal GNN flood prediction
+extremes	44c74b5a8dab90153dd81394d43a9de718478dbd	DL segmentation/tracking of extreme climate events
+da,methods	DOI:10.3389/fams.2023.1133226	Surrogate modeling with ML and data assimilation (review)
+climate,parameterization	DOI:10.1126/sciadv.adf2758	ML-assisted climate model tuning preserving uncertainty; Science Advances
+hydrology,review	DOI:10.1016/j.jhydrol.2018.12.037	Review of AI for groundwater level modelling
+weather,methods	DOI:10.1145/3429309.3429325	Deep spatial transformers for data-driven geophysical turbulence forecasting
+s2s	DOI:10.3389/fclim.2022.1058677	DL long-lead ENSO forecasts
+energy	DOI:10.1016/j.rser.2019.02.006	Automatic hourly solar forecasting with ML; RSER
+s2s,benchmarks	DOI:10.1175/bams-d-22-0046.1	WMO prize challenge on AI S2S prediction; BAMS
+energy,nowcasting	DOI:10.1016/j.solener.2018.10.024	Deep PV nowcasting from sky images
+hydrology,review	DOI:10.1016/j.jhydrol.2023.130141	Review of hybrid DL streamflow forecasting
+hydrology,climate	DOI:10.1038/s41467-022-29543-7	Hybrid DL model of global terrestrial evaporation; Nature Comms
+extremes	DOI:10.1609/aaai.v33i01.3301468	RNN hurricane trajectory prediction; AAAI
+da,xai	DOI:10.1029/2023ms004033	Interpretable model-error discovery from DA increments; JAMES
+postprocessing,probabilistic	ARXIV:2106.13924	Self-attentive ensemble transformer for ensemble post-processing
+hydrology	DOI:10.1007/s12145-020-00477-2	DL hydrological time-series prediction, Gilgit basin
+hydrology	DOI:10.1016/j.catena.2019.02.012	Weekly soil moisture forecasting with hybrid ML
+hydrology,extremes	DOI:10.1016/j.jhydrol.2014.07.036	Regional flood inundation nowcast with SOM+NN
+hydrology,climate	DOI:10.1016/j.jhydrol.2016.04.041	SVR regional flood frequency under future climate
+hydrology	DOI:10.1007/s10898-020-00912-0	Surrogate optimization of DNNs for groundwater prediction
+methods,parameterization	DOI:10.1090/cams/10	Levine & Stuart framework for learning model error in dynamical systems
+energy	DOI:10.3390/su122410295	PV power prediction with ANN and NWP
+downscaling	DOI:10.3389/fclim.2021.656479	Spatio-temporal CNN downscaling of climate data
+review	DOI:10.1111/risa.14245	Trustworthy AI research agenda for environmental sciences
+seaice	DOI:10.3390/jmse9030330	ConvLSTM daily Arctic sea ice concentration prediction
+climate,extremes	DOI:10.1126/sciadv.adl3242	ML-based extreme event attribution; Science Advances
+hydrology,xai	DOI:10.1016/j.hydroa.2024.100185	Responsible use of XAI in hydrology and water resources
+parameterization,methods	DOI:10.1093/imatrm/tnab003	Learning stochastic closures with ensemble Kalman inversion
+postprocessing,extremes	DOI:10.1175/mwr-d-20-0194.1	ML calibration of Warn-on-Forecast severe weather guidance; MWR
+extremes,remote_sensing	ARXIV:1708.03417	CNN typhoon eye tracking from satellite imagery
+downscaling,probabilistic	DOI:10.1038/s41612-025-01103-y	Generative AI global ERA5 precipitation downscaling to km/sub-hourly; npj CAS
+ocean,remote_sensing	DOI:10.1080/01431160500462170	NN eddy identification from SST maps; early ocean ML
+s2s	DOI:10.1109/lgrs.2021.3100485	Transformer for ENSO prediction
+downscaling	DOI:10.20944/preprints202010.0502.v1	CliGAN precipitation downscaling from multi-model ensembles
+da	DOI:10.1175/mwr-d-21-0288.1	DL-augmented DA reconstructing missing information; MWR
+remote_sensing,xai	DOI:10.1029/2020ea001423	Explainable data-driven satellite precipitation retrievals
+hydrology	DOI:10.1016/j.jhydrol.2025.133161	Mass-conserving LSTM streamflow across CONUS
+climate,review	DOI:10.1146/annurev-environ-012125-085838	Annual Review of climate model output emulators
+seaice,s2s	DOI:10.1029/2023jd039521	DL seasonal sea ice forecast with atmospheric conditions; JGR
+hydrology,probabilistic	ARXIV:1906.04595	Aleatoric/epistemic uncertainty of DL soil moisture models
+benchmarks,weather	DOI:10.1175/bams-d-24-0057.1	Community access to AI weather model output for evaluation; BAMS
+weather	ARXIV:2403.17016	HEAL-ViT: spherical-mesh ViT for medium-range forecasting
+s2s,benchmarks	DOI:10.1088/3049-4753/adf649	AI Weather Quest S2S competition
+hydrology,methods	ARXIV:2101.05186	Mass-conserving LSTM developed for and demonstrated on rainfall-runoff; influential hydrology DL architecture
+da,methods	DOI:10.5194/npg-26-143-2019	Bocquet et al.: DA as learning tool to infer ODE models; foundational DA-ML link (NPG)
+downscaling,climate,probabilistic	ARXIV:2211.16116	Diffusion-based emulation of UK convection-permitting climate model for precipitation downscaling
+weather,probabilistic	DOI:10.48448/zn7f-fc64	SwinRDM: SwinRNN + diffusion for high-resolution global medium-range forecasting (AAAI)
+extremes,weather,benchmarks	DOI:10.5194/gmd-17-7915-2024	GMD evaluation of Pangu-Weather and GraphCast vs IFS HRES for weather extremes
+da,probabilistic	DOI:10.1109/cvprw63382.2024.00050	Score-based generative data assimilation with multimodal observations
+parameterization,methods	DOI:10.1016/j.neunet.2006.01.002	Krasnopolsky & Fox-Rabinovitz 2006: early hybrid NN-physics framework for climate/NWP
+methods	DOI:10.21203/rs.3.rs-55125/v1	Universal Differential Equations; widely used framework for hybrid differentiable physics-ML models
+parameterization,s2s	DOI:10.1175/2009mwr3149.1	NN radiation emulation in NCEP CFS for climate simulation and seasonal prediction (MWR 2010)
+downscaling	DOI:10.1002/joc.655	Classic comparison of regression and ANN statistical downscaling of temperature and precipitation (2001)
+downscaling	DOI:10.3390/w11050977	CNN-LSTM statistical downscaling of monsoon precipitation from GCMs; well cited
+downscaling	DOI:10.1007/s10994-021-06022-6	TRU-NET: deep learning downscaling of climate-model rainfall to high resolution
+s2s,ocean	DOI:10.1038/s41467-022-35412-0	Multi-task ML for multi-seasonal Indian Ocean Dipole prediction (Nature Communications)
+climate	DOI:10.1029/2010gl045137	Early dimensionally-reduced statistical emulation of an AOGCM for integrated assessment (GRL 2010)
+hydrology,extremes,review	DOI:10.5194/hess-2021-614	HESS review of deep learning for flood mapping; highly cited
+weather,da	ARXIV:2312.12462	End-to-end AI weather system coupling ML data assimilation with FengWu forecasting
+seaice,probabilistic	DOI:10.1029/2024ms004395	Generative diffusion surrogate for regional sea-ice simulations (JAMES)
+methods	ARXIV:2308.05732	PDE-Refiner: diffusion-style refinement for stable long neural PDE rollouts; widely cited in AI weather
+agriculture,extremes	DOI:10.1016/j.agrformet.2019.05.018	ML combined with crop model to assess climate-extreme impacts on wheat yield
+agriculture,climate	DOI:10.1088/1748-9326/ab7b24	ERL intercomparison of ML, regression and process-based crop yield models under climate variability
+climate,xai	DOI:10.1175/jcli-d-18-0882.1	Statistical learning dynamical adjustment to extract forced response from single ensemble member (J. Climate)
+hydrology,review	DOI:10.1016/j.asoc.2014.02.002	Review of SVM applications in hydrology; well cited
+parameterization,climate	DOI:10.1029/2020ms002225	ML-based (history matching/emulator) calibration of climate model from SCM to global (JAMES)
+methods	DOI:10.1016/j.neunet.2020.02.016	Vlachas et al.: reservoir computing vs BPTT RNNs for chaotic spatiotemporal dynamics (Lorenz-96, KS)
+s2s	DOI:10.1029/2021gl093531	Residual CNN with transfer learning for ENSO amplitude and type forecasting (GRL)
+postprocessing,probabilistic	DOI:10.1098/rsta.2020.0099	Met Office ML framework for probabilistic post-processing across models and lead times
+hydrology,extremes,xai	DOI:10.1016/j.neucom.2020.04.110	Interpretable spatio-temporal attention LSTM for flood forecasting; highly cited
+hydrology,parameterization	DOI:10.5194/isprs-archives-xliii-b2-2020-1537-2020	Hybrid DL + physics global hydrological model (Kraft et al.)
+agriculture	DOI:10.1111/gcb.14885	Deep learning conflating weather, soil and satellite data for county-level corn yield (GCB)
+nowcasting	DOI:10.1109/cvpr.2015.7299117	Dynamic convolutional layer for short-range weather (radar) prediction; early DL nowcasting (CVPR 2015)
+hydrology,extremes	DOI:10.1016/j.jenvman.2021.111979	LSTM SPEI drought forecasting; well cited
+energy,nowcasting	DOI:10.1039/c7ee03420b	CNN solar PV output nowcasting from sky video streams
+parameterization,probabilistic	DOI:10.1029/2024ms004292	Uncertainty quantification of ML gravity-wave parameterization (JAMES)
+remote_sensing	DOI:10.1175/jam2173.1	PERSIANN-CCS: ANN cloud-classification satellite precipitation estimation; landmark (JAM 2004)
+hydrology	DOI:10.1080/02626669609491511	Landmark 1996 study of ANNs as rainfall-runoff models
+downscaling,hydrology	DOI:10.3389/frwa.2020.536743	Attention-based CNN downscaling of satellite and reanalysis precipitation
+hydrology,review	DOI:10.1016/j.jhydrol.2015.10.038	Review of AI streamflow forecasting models 2000-2015; highly cited
+methods	DOI:10.1063/1.5039508	Lu, Hunt, Ott: attractor reconstruction with reservoir computing; influential for chaotic-system ML
+hydrology	DOI:10.1175/jhm-d-22-0220.1	LSTM with data integration for snow water equivalent prediction (J. Hydrometeorology)
+parameterization,methods	DOI:10.1029/2021ms002554	Deep emulators for differentiation, forecasting and parametrization in Earth system simulators (JAMES)
+methods,hydrology	DOI:10.1145/3447814	Physics-guided ML (PGNN) for lake temperature profiles; seminal knowledge-guided ML paper
+ocean,parameterization	DOI:10.1002/9781119646181.ch20	Zanna & Bolton chapter on deep learning of unresolved ocean turbulence for climate models
+remote_sensing,review	DOI:10.1109/mgrs.2015.2510084	Comprehensive survey of Gaussian processes for Earth-observation data analysis
+weather,xai	DOI:10.1038/s42256-023-00667-9	Corrformer: interpretable unified deep model for worldwide station weather forecasting (Nat. Mach. Intell.)
+seaice,remote_sensing	DOI:10.1109/tgrs.2016.2543660	Early CNN sea ice concentration estimation from dual-pol SAR during melt (TGRS)
+hydrology	DOI:10.1007/s11269-017-1598-5	NARX neural networks for daily groundwater level forecasting with meteorological inputs; well cited
+extremes	DOI:10.1038/s41598-019-42339-y	GAN typhoon track prediction from satellite images
+xai,review	DOI:10.1029/2024ef004540	Interpretable ML for process understanding in geosciences (Earth's Future); highly cited
+hydrology,remote_sensing	DOI:10.5194/bg-14-4101-2017	WECANN: ANN-based global surface turbulent fluxes/ET and GPP from SIF
+ocean	DOI:10.1029/2023ms004137	FNO emulation of baroclinic double-gyre ocean simulation (JAMES)
+s2s,ocean	DOI:10.1016/j.neunet.2006.01.004	Classic NN forecasts of tropical Pacific SST/ENSO (Wu, Hsieh et al. 2006)
+nowcasting	DOI:10.3390/atmos10050244	Image quality metrics as losses for DL radar precipitation nowcasting
+extremes	DOI:10.1145/2908812.2908834	Sparse RNN for Atlantic hurricane trajectory prediction
+hydrology,extremes	DOI:10.3390/w12030884	Deep learning flood prediction with uncertainty estimation
+seaice,remote_sensing	DOI:10.3390/rs9050408	CNN sea ice concentration from SAR during freeze-up
+hydrology,s2s	DOI:10.1016/j.jhydrol.2022.128706	Dynamic-LSTM hybrid models for seasonal drought prediction over China
+extremes,probabilistic	DOI:10.1017/eds.2022.4	evtGAN: combining extreme value theory with GANs for spatial climate extremes
+parameterization,extremes	DOI:10.1029/2018ms001561	Evaluation of ML classifiers for predicting deep convection (JAMES)
+da,methods	DOI:10.1016/j.physd.2020.132615	Reduced Order Deep Data Assimilation (RODDA) combining ROM, DA and ML
+seaice,s2s	DOI:10.5194/egusphere-egu2020-3485	ConvLSTM extended-range Arctic sea ice forecasting
+parameterization	DOI:10.1016/j.neunet.2007.12.019	Krasnopolsky et al. 2008 compound NN parameterization with quality control
+climate	DOI:10.5194/gmd-12-1477-2019	Fldgen: ESM emulator with internal variability and space-time correlation (GMD)
+climate,parameterization	DOI:10.5194/gmd-14-7659-2021	ESEm: open scalable Earth system emulator for model calibration (GMD)
+parameterization	DOI:10.1007/s10546-022-00727-4	ML for improving surface-layer flux estimates (Boundary-Layer Meteorology)
+nowcasting	DOI:10.5194/isprs-archives-xlii-3-w9-89-2019	AENN: GAN for weather radar echo extrapolation
+s2s,ocean	DOI:10.1016/j.scib.2024.04.048	Transformer-based coupled ocean-atmosphere model for ENSO (Science Bulletin)
+da,weather	DOI:10.1029/2024gl111136	FuXi-En4DVar: ensemble 4DVar assimilation built on ML weather model (GRL)
+weather,methods	ARXIV:2401.04125	DeepPhysiNet: physics-constrained continuous deep weather modelling
+parameterization	DOI:10.1029/2021ms002847	Deep learning SGS turbulence model for LES of convective atmospheric boundary layer (JAMES)
+methods,probabilistic	ARXIV:2109.07250	Barnes et al.: simple heteroscedastic uncertainty for NN regression in geosciences
+parameterization	DOI:10.1029/2019gl083646	NN single-column emulation of marine boundary layer from ERA5 (GRL)
+hydrology	DOI:10.5194/hess-29-1749-2025	Single LSTM cell handling multiple temporal frequencies for rainfall-runoff (HESS)
+hydrology,s2s	DOI:10.1111/1752-1688.13007	Operational PCR/ML seasonal water supply forecasting (JAWRA)
+hydrology	82bde64714f7f1b5c1234df2d77768eff16c5577	Global differentiable physics-informed hydrologic model (dHBV-globe1.0-hydroDL)
+hydrology	DOI:10.1088/1748-9326/aba927	ML-assisted hybrid models for streamflow across CONUS; ERL
+hydrology	DOI:10.1088/1748-9326/abd501	LSTM stream temperature model using meteorological forcing at continental scale
+benchmarks,probabilistic,weather	ARXIV:2205.00865	WeatherBench Probability: probabilistic extension of WeatherBench benchmark
+methods	DOI:10.1038/s41467-018-07210-0	Deep Koopman linear embeddings of nonlinear dynamics; influential for data-driven dynamical modelling
+da,methods	ARXIV:1707.01415	Formal equivalence between deep learning and statistical data assimilation
+climate,downscaling	DOI:10.1029/2021ms002509	Learning to correct climate projection biases; JAMES
+hydrology	DOI:10.31223/osf.io/vs4x8	Distributed hourly streamflow prediction with deep learning across Iowa
+methods	DOI:10.5194/npg-26-381-2019	Generalization of NNs trained on Lorenz systems; NPG, early weather-ML study
+hydrology,remote_sensing	DOI:10.1029/2021gl096847	Multiscale deep learning soil moisture model fusing satellite and in situ data; GRL
+methods	DOI:10.1145/3394486.3403198	TF-Net physics-informed turbulent flow prediction; widely cited in spatiotemporal forecasting
+parameterization,review	DOI:10.1002/9781119646181.ch21	Book chapter overview of deep learning for subgrid parameterization in climate models
+weather,da	ARXIV:2412.15687	GraphDOP: ECMWF observation-driven forecasting model without reanalysis
+extremes,review	DOI:10.1088/1748-9326/ac9d4e	Perspective calling for ML focus on weather/climate extremes; ERL
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125481	CNN for rapid fluvial flood inundation prediction
+agriculture,remote_sensing	DOI:10.1145/3209811.3212707	Deep transfer learning for crop yield prediction from remote sensing
+parameterization,methods	DOI:10.1016/j.physd.2022.133568	Physics-constrained SGS closures for LES of 2D turbulence in small-data regime
+parameterization,methods	DOI:10.1007/s00162-019-00512-z	A priori deep learning SGS parameterization for Kraichnan (2D) turbulence
+downscaling,climate	DOI:10.1029/2022ms003593	Comparison of perfect-prognosis vs emulator training frameworks for RCM emulators; JAMES
+parameterization	DOI:10.1109/igarss39084.2020.9324569	Physically consistent data-driven convection models (Brenowitz et al.)
+parameterization,weather	DOI:10.1029/2022gl102649	Hybrid atmospheric model with ML correction capturing missing dynamical processes; GRL
+parameterization	DOI:10.1029/2023ms003606	NN parameterization of subgrid momentum transport; JAMES
+hydrology	DOI:10.1016/j.jhydrol.2014.01.023	Gaussian process regression for monthly streamflow forecasting
+ocean,remote_sensing	DOI:10.5194/gmd-13-1609-2020	DINCAE: CNN reconstruction of gappy SST satellite data with error estimates; GMD
+methods	DOI:10.1145/3648506	Physics-informed neural operator; influential neural-operator method
+nowcasting,extremes	DOI:10.3390/atmos11030267	Precipitation nowcasting with stacked generalization for extremes
+parameterization	DOI:10.1098/rsta.2020.0095	NN prediction of atmospheric optical properties for radiative transfer
+seaice,parameterization	DOI:10.1029/2023gl106776	Online ML sea ice bias correction in global ice-ocean model; GRL
+methods,review	DOI:10.1146/annurev-fluid-010719-060214	Annual Review: ML for fluid mechanics; highly cited reference
+energy,probabilistic	ARXIV:2302.00170	Diffusion models for high-resolution solar forecasts
+probabilistic,extremes,weather	DOI:10.5194/gmd-18-5605-2025	Huge ensembles Part 2: properties of SFNO huge ensemble hindcasts; GMD
+weather,postprocessing	DOI:10.1175/1520-0434(1999)014<0338:pfuann>2.0.co;2	Early (1999) neural network precipitation forecasting; WAF
+hydrology,extremes	DOI:10.1007/s12652-022-03701-7	Deep learning model for meteorological drought forecasting; well cited
+methods	f3c546e922a85839c1f19cd0a96a25c4986dbce8	Neural Operator framework (JMLR); basis for FNO-based weather models
+hydrology,review	DOI:10.1061/(asce)1084-0699(2000)5:2(115)	ASCE task committee landmark on ANNs in hydrology (2000)
+hydrology	DOI:10.1016/j.jhydrol.2019.02.051	Data-driven models for water table (groundwater) fluctuations
+hydrology	DOI:10.1029/2018wr023254	Probabilistic random forest regionalization for ungauged catchments; WRR
+hydrology,xai	DOI:10.1016/j.mlwa.2021.100192	Explainable AI for drought forecasting
+hydrology	DOI:10.1016/j.jhydrol.2023.130038	Transfer learning for hydrological prediction in Alpine regions
+hydrology	DOI:10.1623/hysj.51.4.599	Early SVM long-term discharge prediction (2006)
+xai,methods	DOI:10.1098/rspa.2016.0446	Sparse-regression discovery of PDEs from data (Schaeffer); equation discovery
+hydrology	DOI:10.3389/frwa.2023.1166124	LSTM streamflow prediction with global datasets
+agriculture	DOI:10.1175/aies-d-22-0002.1	ML crop yield from meteorological features vs process-based model; AIES
+hydrology	DOI:10.1061/(asce)1084-0699(2007)12:5(532)	Comparison of ANN algorithms for streamflow forecasting (2007)
+agriculture,remote_sensing	DOI:10.1016/j.agrformet.2019.107886	Satellite + weather ML soybean yield forecast in Brazil
+energy	DOI:10.1016/j.apenergy.2019.113541	CNN-LSTM solar radiation forecasting; Applied Energy
+benchmarks,parameterization	ARXIV:2111.14671	ClimART benchmark for emulating radiative transfer; NeurIPS D&B
+hydrology	DOI:10.1061/(asce)he.1943-5584.0001850	Conceptual hydrological model enhanced with ANN/GA
+agriculture,remote_sensing	DOI:10.1016/j.agrformet.2015.11.003	Crop yield forecasting on Canadian Prairies with vegetation indices and ML
+hydrology	DOI:10.1016/j.jhydrol.2020.125376	Long lead-time streamflow forecasting with ML
+hydrology	DOI:10.1016/j.jhydrol.2018.07.004	ML streamflow models coupled with base-flow separation
+seaice	DOI:10.5194/tc-18-2161-2024	Deep learning short-term sea ice concentration forecasts; The Cryosphere
+methods,benchmarks	DOI:10.1038/s42256-024-00897-5	Weak baselines/reporting bias in ML for fluid PDEs; Nature MI
+s2s,xai	ARXIV:1902.04621	Deep learning for scientific inference using MJO as test case
+hydrology	DOI:10.1016/j.jhydrol.2015.11.011	Deep feature learning hybrid for daily reservoir inflow forecasting
+da	ARXIV:2406.00390	AI-based data assimilation learning the analysis functional
+review	DOI:10.1007/978-1-4020-9119-3	Early textbook on AI methods in environmental sciences (Haupt, Pasini, Marzban)
+hydrology,review	DOI:10.1016/j.asoc.2021.108080	Scientometric review of ANNs for drought prediction
+extremes,remote_sensing	DOI:10.1175/waf-d-18-0136.1	CNN tropical cyclone intensity estimation from satellite imagery; WAF
+extremes	DOI:10.1109/wacv.2019.00192	Deep-Hurricane-Tracker for tracking/forecasting extreme climate events
+weather,review	ARXIV:2304.04664	Inductive biases in deep learning weather prediction models
+hydrology,review	DOI:10.1111/gwat.12557	Early perspective on deep learning for hydrological inference
+methods,weather	ARXIV:2306.10619	Stability of autoregressive neural operators; relevant to long rollouts
+parameterization	DOI:10.1029/2018gl081646	DNN surrogate for SP-E3SM radiative transfer; GRL
+downscaling,probabilistic	DOI:10.1038/s41612-024-00679-1	Diffusion probabilistic downscaling for 180-year East Asian reconstruction; npj CAS
+remote_sensing	DOI:10.1029/2019gl082532	GAN reconstruction of cloud vertical structure; GRL
+nowcasting,probabilistic	DOI:10.1007/s10489-024-06048-y	Generative diffusion precipitation nowcasting
+postprocessing,s2s	DOI:10.3390/atmos11080823	ML post-processing of extended-range temperature forecasts
+downscaling,probabilistic	DOI:10.1029/2024ms004668	Reliable GAN for climate downscaling and weather generation; JAMES
+postprocessing	DOI:10.5194/npg-2019-65	Operational ML ensemble post-processing at Meteo-France; NPG
+climate	DOI:10.1029/2019jg005619	ML constraint on projected gross primary production uncertainty
+review	DOI:10.1109/mcse.2013.50	Climate informatics overview (2013)
+review,weather	DOI:10.1038/d41586-023-02084-9	Nature commentary on outlook of AI weather prediction
+s2s	DOI:10.1029/2022ms003132	ENSO-GTC deep learning ENSO forecast with teleconnection coupler; JAMES
+downscaling,climate	DOI:10.1002/asl.1195	Limitations of DL downscaling: transferability/extrapolation
+da,parameterization	DOI:10.1002/qj.4235	DA + ML to estimate convective-scale model parameters; QJRMS
+review	DOI:10.1038/s41612-022-00269-z	ESA-ECMWF 2022 report on ML for Earth system observation and prediction; npj CAS
+seaice	DOI:10.1175/waf-d-19-0107.1	Regional September sea ice forecasting with complex networks and GPs; WAF
+s2s	e36ec5cde4d45f06dc096900b213a02d96d03992	Forecasting El Nino with CNNs and RNNs
+weather,extremes	DOI:10.1038/s41612-025-01265-9	Regional high-res AI weather model for atmospheric rivers; npj CAS
+weather,probabilistic,remote_sensing	ARXIV:2404.06517	DiffObs: diffusion forecasting of satellite observations
+downscaling,climate,extremes	DOI:10.1007/s00382-026-08269-y	AI downscaling reveals internal variability role in fine-scale extremes
+weather,da	ARXIV:2412.18239	OMG-HD end-to-end forecasting from observations
+climate	DOI:10.5194/gmd-2021-252	MAGICC-MESMER emulator chain for spatially resolved projections; GMD
+downscaling,probabilistic,weather	ARXIV:2607.11457	HourGlass probabilistic temporal downscaler
+methods,hydrology	DOI:10.1029/2020gl088229	Physics-AI hybrid (Zhao et al.) for geoscience awareness; GRL, widely cited
+hydrology,xai	DOI:10.5194/hess-2021-566	Interpreting hydrological concepts inside LSTM rainfall-runoff models; HESS
+hydrology,remote_sensing	DOI:10.1109/tgrs.2018.2872131	Deep learning extends SMAP soil moisture record; landmark LSTM soil moisture paper
+review	DOI:10.1098/rsta.2020.0085	Balaji perspective on ML and the future of computational climate science
+methods,xai	DOI:10.1126/sciadv.1602614	PDE-FIND sparse-regression equation discovery; influential for data-driven closures
+chemistry,parameterization	DOI:10.1088/1748-9326/aae2be	ML temperature-based ozone parameterization for climate sensitivity runs (precursor to mloz)
+parameterization	DOI:10.1029/2020ms002301	ML for warm-rain microphysics (Seifert & Rasp); JAMES
+review	DOI:10.1175/1520-0477(1998)079<1855:annmtp>2.0.co;2	Hsieh & Tang BAMS: early landmark review of neural networks in meteorology and oceanography
+weather,methods	DOI:10.1038/s41598-020-57897-9	CNNs for predicting clustered weather patterns; early influential spatio-temporal climate DL
+s2s,probabilistic	DOI:10.1029/2021ms002766	Probabilistic deep learning improving seasonal forecasts; JAMES
+downscaling	DOI:10.1109/escience.2018.00130	DeepDownscale: early CNN downscaling of weather forecasts
+methods	DOI:10.5555/3648699.3648788	Neural Operator framework (JMLR) underlying FNO/SFNO weather models
+downscaling	DOI:10.1002/2016wr019034	Prec-DWARF random-forest precipitation downscaling; WRR
+hydrology,extremes	DOI:10.1016/j.jhydrol.2015.06.008	Random-forest flood hazard risk assessment; highly cited
+hydrology,review	DOI:10.3390/w11050910	Review of random forests in water resources
+hydrology,remote_sensing	DOI:10.1016/j.advwatres.2009.10.008	Early ML soil-moisture estimation from remote sensing
+parameterization	DOI:10.1029/2021ms002550	ML emulation of 3D cloud radiative effects; JAMES
+review,hydrology	DOI:10.1016/j.jhydrol.2023.130458	Review of deep learning in hydrology and water resources
+review	DOI:10.1002/9781119646181	Book: Deep Learning for the Earth Sciences (Camps-Valls et al.), domain-specific reference
+nowcasting	DOI:10.1016/j.procs.2019.02.036	All-convolutional radar precipitation nowcasting (precursor to RainNet)
+hydrology,extremes	DOI:10.3390/w13162255	floodGAN real-time pluvial flood prediction
+seaice	DOI:10.1109/tgrs.2022.3177600	Data-driven weekly pan-Arctic sea ice concentration prediction; TGRS
+review	DOI:10.1038/s41561-021-00865-3	Nature Geoscience perspective on ML education/policy in Earth and environmental science
+downscaling,climate	DOI:10.1007/s00382-022-06552-2	Hybrid statistical-dynamical RCM emulator over Western Europe
+hydrology,s2s	DOI:10.5194/hess-27-501-2023	Seasonal ensemble hybrid data-driven hydrological forecasting; HESS
+hydrology	DOI:10.1016/j.jhydrol.2021.127297	LSTM post-processing of WRF-Hydro streamflow
+parameterization,ocean	DOI:10.1029/2023ms003795	Small local NN turbulence closure for beta-plane flows; JAMES
+review	d53cd4dc81a93f496c92864509de9c9c8ca4513e	Hsieh textbook on ML methods in environmental sciences; field-specific landmark
+review,hydrology,extremes	DOI:10.1016/j.envsoft.2022.105327	Review of ML for drought monitoring and forecasting
+hydrology	DOI:10.1016/j.geoderma.2021.115651	Attention LSTM for soil moisture and soil temperature prediction
+da	DOI:10.1109/icdmw69685.2025.00103	Multi-modal masked autoencoders for global atmospheric data assimilation
+postprocessing,weather	DOI:10.5194/npg-31-247-2024	Evaluation of data-driven global model with probabilistic post-processing at stations; NPG
+parameterization	DOI:10.1029/2023ms004145	Gravity-wave emulation in WACCM: imbalance, UQ, transfer learning; JAMES
+hydrology	DOI:10.3390/w12010005	ANN/DL groundwater level estimation from hydrological components
+hydrology,s2s	DOI:10.1038/s41598-021-90964-3	Yangtze streamflow prediction with ENSO-informed deep learning
+hydrology	DOI:10.1016/j.jhydrol.2021.126433	Nested hybrid ML-conceptual rainfall-runoff model
+downscaling,climate	DOI:10.5194/gmd-15-6747-2022	DeepESD multi-model CORDEX downscaling with deep learning; GMD
+s2s,postprocessing,probabilistic	DOI:10.1175/mwr-d-20-0096.1	ANN probabilistic subseasonal precipitation over California; MWR
+hydrology	DOI:10.1016/j.jhydrol.2022.128608	Attention DL long-term streamflow prediction in poorly gauged basin
+s2s	DOI:10.1007/s00376-021-1368-4	Hybrid NN-POP model for ENSO prediction
+probabilistic,methods,extremes	ARXIV:2410.14171	Heavy-tailed diffusion models for extreme weather generation (NVIDIA)
+s2s	DOI:10.1007/s10015-019-00540-2	ENSO forecasting with LSTM and complex networks
+hydrology,extremes	DOI:10.1016/j.jhydrol.2013.10.052	Wavelet NN/SVR long-term SPI drought forecasting
+downscaling,probabilistic	DOI:10.1016/j.cageo.2010.07.005	Cannon QRNN: quantile regression neural networks for precipitation downscaling
+ocean,remote_sensing,review	DOI:10.1093/nsr/nwaa047	Deep learning for ocean remote-sensing imagery; NSR review
+remote_sensing,benchmarks	ARXIV:1911.04227	Cumulo: dataset for ML cloud classification
+hydrology	DOI:10.1111/j.1752-1688.2006.tb04512.x	Early SVM soil moisture prediction with meteorological inputs
+methods	ARXIV:2106.09757	CIRA guide to custom loss functions for environmental-science NNs
+hydrology,extremes	DOI:10.1016/j.advwatres.2020.103562	ML drought prediction over Pakistan
+downscaling	DOI:10.1016/j.jhydrol.2010.01.021	SVM statistical downscaling of daily precipitation
+energy	DOI:10.1016/j.solener.2016.05.051	SVR PV power forecasting with NWP and cloud motion vs physical model
+downscaling,climate	DOI:10.1007/s00382-023-06912-6	CNN downscaling of temperatures over southern South America under climate change
+postprocessing	DOI:10.1175/1520-0434(1998)013<1194:lpffan>2.0.co;2	1998 ANN post-processing of NWP for localized precipitation forecasts; WAF
+agriculture,hydrology	DOI:10.1016/j.scitotenv.2019.134230	ML spatial modelling of agricultural drought in Queensland
+seaice,parameterization	DOI:10.5194/gmd-2021-281	WIFF1.0 hybrid ML parameterization of wave-induced sea-ice floe fracture
+hydrology	DOI:10.3390/w14060993	CNN-LSTM rainfall-runoff flow prediction
+review,downscaling	DOI:10.1016/j.isprsjprs.2023.12.011	Systematic review of deep learning statistical downscaling; ISPRS
+hydrology,extremes	DOI:10.1016/j.jhydrol.2021.126371	SAE-LSTM regional multistep flood inundation forecasting
+nowcasting,remote_sensing	DOI:10.1371/journal.pone.0230114	Convcast: ConvLSTM satellite precipitation nowcasting
+ocean	DOI:10.1126/sciadv.aay4740	Unsupervised learning of global marine eco-provinces; Science Advances
+review,hydrology,extremes	DOI:10.1098/rsta.2021.0288	Drought forecasting perspectives with AI and hybrid methods
+downscaling,climate	DOI:10.5194/gmd-17-229-2024	DL downscaling of CMIP6 over Iberia; GMD
+hydrology	DOI:10.5194/hess-26-5793-2022	Regime information in LSTM runoff models; HESS
+ocean,parameterization	DOI:10.1017/jfm.2018.980	Deep learning of diapycnal mixing in stratified turbulence; JFM
+hydrology,climate	DOI:10.1175/jhm-d-20-0072.1	Robustness of process-based vs LSTM rainfall-runoff models under changing climate
+weather,da	DOI:10.5194/gmd-2021-71	Physically consistent DDWP with DA and equivariance-preserving transformers
+chemistry,benchmarks	DOI:10.5194/essd-13-3013-2021	AQ-Bench: ML benchmark for global air quality metrics
+seaice	DOI:10.3390/rs11091071	ANN short-term Arctic sea ice concentration prediction
+climate,methods	3b71291a4d38c34f2d77420080c01a9fe7832334	ESEm open Earth system emulator for model calibration; GMD
+review	DOI:10.1038/s43017-023-00468-z	Nat Rev Earth Env perspective on deep learning and the changing economy of weather/climate prediction
+hydrology	DOI:10.3389/frwa.2020.574917	LSTM SWE prediction with meteorological inputs
+da,methods	DOI:10.5194/npg-28-111-2021	Training CNN to conserve mass in data assimilation; NPG
+s2s,xai	DOI:10.1175/aies-d-21-0011.1	Deep learning for understanding ENSO dynamics; AIES
+parameterization	DOI:10.5194/gmd-12-2033-2019	NN for surface-layer turbulent fluxes; GMD
+da	ARXIV:2406.01645	Fourier Neural Processes for arbitrary-resolution data assimilation; NeurIPS
+review,parameterization	DOI:10.1002/essoar.10506925.1	Review chapter on ML for clouds and climate (Beucler et al.)
+benchmarks,climate	ARXIV:2605.06944	AIMIP phase 1: intercomparison of AI weather and climate models
+probabilistic,weather	5d508c0d643311038ebcedd5b5440fed7d71dd9c	Calibration/uncertainty of large neural weather models (FourCastNet)
+parameterization	71dfebd2303c30bf8e52df7f42375cda87b276cf	Stable hybrid ML parameterization with real geography and full-physics emulation (ClimSim follow-up)
+parameterization,xai	DOI:10.1029/2024jh000501	Interpretable ML radiation emulation for ICON; JGR
+methods,parameterization	DOI:10.1155/2020/8888811	Fortran-Keras bridge built to couple NNs into climate/weather models; widely used for online parameterization
+methods,hydrology	ARXIV:1710.11431	Physics-guided neural networks (PGNN) introduced on lake temperature modeling; influential physics-guided ML
+parameterization,methods	ARXIV:1906.06622	Early energy-conserving NN emulators of cloud processes for climate models (Beucler et al.)
+hydrology,methods	DOI:10.1029/2019gl085291	Physics-constrained hybrid ML of evapotranspiration; GRL
+extremes,postprocessing	DOI:10.1175/waf-d-17-0010.1	Storm-based probabilistic hail forecasting with ML on convection-allowing ensembles; WAF
+hydrology,review	DOI:10.5194/hess-22-5639-2018	HESS Opinions on deep learning in hydrologic science; community agenda
+methods	DOI:10.1063/1.5010300	Reservoir computing replicating chaotic attractors and Lyapunov exponents (Pathak et al.); foundational for ML of chaotic dynamics
+s2s,ocean,climate	ARXIV:2406.08632	Coupled ocean-atmosphere ML Earth system model for seasonal prediction
+hydrology,extremes	DOI:10.1016/j.jhydrol.2021.127043	Physics-guided deep learning for rainfall-runoff with extremes and monotonicity
+hydrology,methods	DOI:10.5194/hess-26-5085-2022	Neural ODE hybrid hydrologic models; HESS
+hydrology,extremes	DOI:10.3390/w11071387	LSTM for flood forecasting from discharge and rainfall; highly cited
+extremes,weather,xai	DOI:10.1029/2024gl110651	Predictability limit of 2021 PNW heatwave via deep-learning weather model sensitivity; GRL
+hydrology	DOI:10.1007/s11269-021-02937-w	LSTM vs conventional ML for streamflow forecasting; highly cited comparison
+hydrology	DOI:10.1029/95wr01955	Landmark 1995 ANN rainfall-runoff modeling (Hsu, Gupta, Sorooshian); WRR
+parameterization	DOI:10.1029/2020ms002217	ML-based calibration tool for parameterization development in climate models; JAMES
+postprocessing,extremes	DOI:10.1029/2019gl083662	CNN postprocessing of GFS atmospheric river (IVT) forecasts; GRL
+hydrology,s2s	DOI:10.1016/j.jhydrol.2016.06.026	Hybrid hydrological model + Bayesian ANN monthly streamflow forecasting
+agriculture,review	DOI:10.1016/j.compag.2020.105709	Systematic review of ML for crop yield prediction (weather/soil features); very highly cited
+parameterization	DOI:10.1002/qj.49712656318	Neural-network longwave radiation scheme in the ECMWF model (Chevallier et al. 2000); landmark emulation
+hydrology,review	DOI:10.1016/j.envsoft.2010.02.003	Review of neural network development for water resource variable prediction in rivers (Maier et al.)
+postprocessing,probabilistic	DOI:10.1175/aies-d-23-0027.1	Hierarchical ensemble transformers for post-processing medium-range ensembles; AIES
+hydrology,extremes	DOI:10.1016/j.jhydrol.2023.129956	Transformer transfer learning for flood forecasting in data-sparse basins
+hydrology,extremes	DOI:10.1016/j.jhydrol.2022.128577	Encoder-decoder LSTM flood prediction in ungauged catchments
+hydrology	1b0d45d6f8da899aa2a1fd0272e7373e370f0492	HESS Opinions: Never train an LSTM on a single basin; influential large-sample guidance
+hydrology	DOI:10.1029/2021wr030993	Hybrid physically based + deep learning modeling of snow-dominated karst watershed; WRR
+da,methods	DOI:10.1016/j.cma.2020.113291	Convolutional autoencoders for reduced-space 3D-Var data assimilation
+parameterization,climate	ARXIV:2011.03081	Offline vs online performance of ML climate model dynamics (Brenowitz et al.)
+downscaling,xai,climate	ARXIV:2311.03378	Transferability and explainability of deep learning RCM emulators; AIES
+weather	DOI:10.1145/2783258.2783275	Early deep hybrid model for weather forecasting; KDD 2015
+hydrology,extremes	DOI:10.1109/access.2021.3065939	ConvLSTM hybrid flood forecast model
+hydrology,downscaling	DOI:10.1029/2022wr033168	PINNs of Saint-Venant equations for downscaling a large-scale river model; WRR
+energy	DOI:10.1016/j.apenergy.2019.113315	Comparison of deep learning day-ahead PV power forecasting models with weather inputs; Applied Energy
+xai,review	DOI:10.1007/978-3-031-04083-2_16	XAI in meteorology and climate science: fine-tuning, trust and new science
+methods,da	ARXIV:1712.07003	Bilinear residual NN for identification/forecasting of geophysical dynamical systems (Fablet et al.)
+hydrology,extremes	DOI:10.1016/j.ecolmodel.2006.04.017	Drought forecasting with recursive neural networks (2006); highly cited early work
+foundation,review	ARXIV:2309.10808	Review of AI foundation models for weather and climate: applications, design, implementation
+methods,da	ARXIV:1903.10335	EM-like learning of chaotic dynamics from noisy partial observations (DA + ML)
+parameterization,xai	DOI:10.1029/2023gl106324	Explainable offline-online training of NN gravity-wave parameterization in QBO testbed; GRL
+seaice	ARXIV:2210.08877	Data-driven short-term operational regional sea ice forecasting
+hydrology,extremes	DOI:10.1109/access.2021.3074305	ML estimation of SPEI meteorological drought
+probabilistic,weather	DOI:10.1029/2024ms004734	Calibrated ensembles of neural weather model forecasts; JAMES
+energy,nowcasting	DOI:10.1109/tii.2020.2987916	Sky-image deep learning multistep solar forecasting for PV ramp control
+extremes,nowcasting	DOI:10.1007/s13131-018-1219-z	LSTM nowcasting of typhoon tracks
+xai	ARXIV:2303.00652	Guide for evaluating and ranking XAI methods in climate science; AIES
+extremes,nowcasting	DOI:10.1175/waf-d-17-0038.1	ML real-time prediction of damaging straight-line convective wind; WAF
+ocean,remote_sensing	DOI:10.1109/lgrs.2017.2665603	Self-organizing maps reconstruct subsurface ocean velocities from satellite observations
+energy,probabilistic	DOI:10.1016/j.apenergy.2016.11.111	Deep learning ensemble for probabilistic wind power forecasting; highly cited
+ocean,remote_sensing	DOI:10.1038/s41467-020-20779-9	Deep learning infers eddy heat fluxes from SSH; Nature Communications
+climate	DOI:10.1080/02664763.2015.1016412	Statistical emulation and interpretation of high-dimensional climate model outputs
+methods,hydrology	DOI:10.5194/bg-20-2671-2023	Differentiable physics-informed ecosystem modeling for large-scale inverse problems (photosynthesis, water cycle)
+hydrology,downscaling	DOI:10.1016/j.advwatres.2007.07.005	Statistical downscaling of GCM simulations to streamflow with relevance vector machine
+downscaling,climate	DOI:10.1007/s00382-024-07350-8	CNN RCM-emulator for fine spatio-temporal precipitation; Climate Dynamics
+parameterization	DOI:10.1029/2023ms003668	NN parameterization of subgrid physics from realistic-geography global storm-resolving simulation; JAMES
+hydrology,review	DOI:10.1002/wat2.1533	Introductory overview of ML for hydrologic sciences; WIREs Water
+hydrology	DOI:10.1016/j.jhydrol.2010.02.037	Ungauged streamflow prediction using ANNs
+parameterization	DOI:10.1109/ijcnn.2010.5596766	NN convection parameterizations from cloud-resolving simulations (Krasnopolsky et al. 2010); early landmark
+hydrology,extremes	DOI:10.1016/j.scitotenv.2019.01.431	Meteorological drought forecasting with ML techniques; highly cited
+hydrology,postprocessing	DOI:10.1016/j.jhydrol.2021.126526	Attention-based LSTM post-processor for streamflow prediction
+energy,nowcasting	DOI:10.1016/j.solener.2020.03.083	SolarNet: sky-image CNN for intra-hour solar forecasting
+methods,weather	DOI:10.1016/j.jcp.2022.111024	PINNs for shallow-water equations on the sphere in meteorological context
+hydrology,extremes	DOI:10.1007/s00500-019-04120-1	LSTM drought prediction based on SPI/SPEI
+hydrology,extremes	DOI:10.1038/s41598-020-65232-5	Hybrid hydraulics + ML flood depth modeling
+hydrology,methods	DOI:10.1029/2020wr027642	PINNs with monotonicity constraints for Richards equation soil-water flux; WRR
+hydrology,downscaling	DOI:10.1016/j.jhydrol.2022.128838	Deep learning downscaling of GRACE TWS anomalies for drought monitoring
+hydrology,extremes	DOI:10.1007/s11069-021-04782-x	ML models for rapid urban flood inundation forecasting
+benchmarks,extremes	DOI:10.23919/icif.2018.8455276	Worldwide tropical/extratropical cyclone labels for training ML
+energy,postprocessing	DOI:10.3390/en13061372	NCAR wind power forecasting system integrating AI and NWP
+hydrology,xai	DOI:10.5194/hess-28-945-2024	Interpretable LSTM-based hydrological modeling; HESS
+hydrology,probabilistic	DOI:10.1007/s00477-021-01980-8	Dropout ensemble uncertainty quantification for NN hydrological models
+hydrology	DOI:10.1016/j.jhydrol.2023.129682	Transfer learning for LSTM streamflow prediction with data integration
+hydrology,extremes	DOI:10.31223/osf.io/e9xqr	Decentralized flood forecasting with deep neural networks
+methods,s2s	DOI:10.1029/2020ms002290	Reservoir computing as a tool for climate predictability studies; JAMES
+hydrology,xai	DOI:10.3390/agriculture13050971	Interpreting Conv-LSTM for spatio-temporal soil moisture prediction
+benchmarks,methods	ARXIV:2405.03376	CRA5: extreme compression of ERA5 for portable ML weather/climate research
+s2s,extremes	DOI:10.1175/mwr-d-21-0024.1	Learning forecasts of sudden stratospheric warmings from short simulations; MWR
+hydrology	ARXIV:2306.12384	Transformer network probing limits of hydrologic predictability
+remote_sensing,downscaling	DOI:10.3390/atmos10090555	GAN super-resolution of weather radar echo images
+s2s	DOI:10.1038/s41598-022-10839-z	STANet spatiotemporal attention network for El Nino forecasts
+downscaling,extremes	DOI:10.1029/2020gl090309	ML-enabled smart dynamical downscaling of extreme precipitation; GRL
+xai,da	DOI:10.1063/5.0091282	Discovering interpretable model errors via Bayesian sparse regression + data assimilation
+extremes,probabilistic	ARXIV:2310.01690	Cascaded diffusion models for tropical cyclone forecasting
+probabilistic,weather	ARXIV:2412.08377	Generative superensemble boosting AI weather forecasts
+downscaling,weather	ARXIV:2406.17977	AI weather prediction models evaluated as downscaling tools
+da,remote_sensing	DOI:10.1007/978-3-030-10997-4_4	ML for targeted assimilation of satellite data
+methods	DOI:10.5194/npg-2019-23	Generalization properties of NNs trained on Lorenz systems; NPG
