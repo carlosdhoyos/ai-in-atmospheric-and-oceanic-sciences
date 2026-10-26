@@ -960,7 +960,13 @@ Chen et al. (2023), *npj Climate and Atmospheric Science*. 598 citations.
 ### [A k‐nearest‐neighbor simulator for daily precipitation and other weather variables](https://doi.org/10.1029/1999wr900028)
 Rajagopalan et al. (1999), *Water Resources Research*. 449 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates daily precipitation and other weather variables for impact studies while preserving their joint dependence without parametric assumptions.
+- **Architecture:** k-nearest neighbour resampling weather generator conditioned on the previous day's state; nonparametric, not a neural network.
+- **Data:** Daily weather records (precipitation, solar radiation, maximum and minimum temperature, dew point, wind speed) at Salt Lake City, Utah.
+- **Main result:** The simulator reproduces key statistics and cross-correlations of the observed variables comparably to or better than a parametric generator.
+- **Open work:** Multisite extension and conditioning on climate signals.
+- **Issues:** Cannot produce values outside the historical record; depends on choice of k and record length.
+- *Basis: abstract+knowledge*
 
 ### [Challenges and design choices for global weather and climate models based on machine learning](https://doi.org/10.5194/gmd-11-3999-2018)
 Dueben et al. (2018), *Geoscientific Model Development*. 393 citations.
@@ -1009,7 +1015,13 @@ Weyn et al. (2020), *Journal of Advances in Modeling Earth Systems*. 352 citatio
 ### [Searching for analogues, how long must we wait?](https://doi.org/10.3402/tellusa.v46i3.15481)
 Dool (1994), *Tellus A*. 342 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates how long an observational record is needed to find good atmospheric analogues for analogue forecasting.
+- **Architecture:** Analysis of analogue (nearest-neighbour) forecasting based on the dimensionality of atmospheric states; non-ML statistical method.
+- **Data:** Historical atmospheric analyses of Northern Hemisphere circulation fields.
+- **Main result:** Finding close analogues for the full hemispheric state would require an impractically long record, on the order of 10^30 years, so analogues are only useful in small domains or few dimensions.
+- **Open work:** Constructed analogues and dimension reduction to make analogue methods useful.
+- **Issues:** Estimates depend on assumed degrees of freedom and similarity measures.
+- *Basis: abstract+knowledge*
 
 ### [Can Machines Learn to Predict Weather? Using Deep Learning to Predict Gridded 500‐hPa Geopotential Height From Historical Weather Data](https://doi.org/10.1029/2019ms001705)
 Weyn et al. (2019), *Journal of Advances in Modeling Earth Systems*. 325 citations.
@@ -1223,7 +1235,13 @@ Chen et al. (2023), *AAAI Conference on Artificial Intelligence*. 84 citations.
 ### Rainfall Prediction Using Artificial Neural Networks
 Lee (1998), *Preprint*. 77 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts rainfall amounts at unsampled locations from a subset of gauge observations, as part of a spatial interpolation comparison.
+- **Architecture:** Artificial neural networks, using radial basis function networks for part of the domain and linear regression elsewhere.
+- **Data:** Daily rainfall from a Swiss gauge network (Spatial Interpolation Comparison 97 data), with a subset of stations used for training.
+- **Main result:** The neural network approach gives reasonable rainfall estimates at unsampled stations; quantitative results are not reported here.
+- **Open work:** Inclusion of elevation and other covariates and comparison with geostatistical methods are natural next steps.
+- **Issues:** Few training stations and a single day's field; spatial interpolation, not temporal forecasting.
+- *Basis: assessment*
 
 ### [Dynamical Tests of a Deep-Learning Weather Prediction Model](https://arxiv.org/abs/2309.10867)
 Hakim et al. (2023), *Artificial Intelligence for the Earth Systems*. 70 citations.
@@ -1283,7 +1301,13 @@ Subich et al. (2025), *International Conference on Machine Learning*. 57 citatio
 ### [Modeling ambient air temperature time series using neural networks](https://doi.org/10.1029/98jd02002)
 Mihalakakou et al. (1998), *Journal of Geophysical Research*. 57 citations.
 
-*Summary pending.*
+- **Main goal:** Models and forecasts ambient air temperature time series, useful for building energy and climate applications.
+- **Architecture:** Artificial neural network (multilayer perceptron) trained on past temperature values for time-series prediction.
+- **Data:** Hourly or daily air temperature records from Athens, Greece; periods not reported in the available metadata.
+- **Main result:** The neural networks reproduce and predict air temperature with good accuracy; exact error statistics not reported here.
+- **Open work:** Multi-station testing and inclusion of other meteorological predictors.
+- **Issues:** Single-site data; autoregressive network may not handle unusual conditions or long horizons.
+- *Basis: assessment*
 
 ### [Kilometer-scale convection-allowing model emulation using generative diffusion modeling](https://doi.org/10.1126/sciadv.adv0423)
 Pathak et al. (2024), *Science Advances*. 56 citations.
@@ -1332,7 +1356,13 @@ Gao et al. (2025), *International Conference on Machine Learning*. 50 citations.
 ### Modelling Seasonality and Trends in Daily Rainfall Data
 Williams (1997), *Neural Information Processing Systems*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Models seasonality and long-term trends in daily rainfall occurrence and amount, to characterise climate variation.
+- **Architecture:** Neural network (multilayer perceptron) whose outputs parameterise a mixed distribution of rain occurrence and gamma-distributed amount.
+- **Data:** Long daily rainfall station records; station details not reported in the available metadata.
+- **Main result:** The model captures seasonal cycles and trends in rainfall probability and amount.
+- **Open work:** Extension to multiple stations and spatial dependence.
+- **Issues:** Single-station analysis and no spatial dependence.
+- *Basis: abstract+knowledge*
 
 ### [GraphDOP: Towards skilful data-driven medium-range weather forecasts learnt and initialised directly from observations](https://arxiv.org/abs/2412.15687)
 Alexe et al. (2024), *arXiv*. 48 citations.
@@ -1348,7 +1378,13 @@ Alexe et al. (2024), *arXiv*. 48 citations.
 ### Synthesizing Weather Forecasts From Formatted Data
 Kittredge et al. (1986), *International Conference on Computational Linguistics*. 47 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically generates readable weather forecast texts from formatted forecast data, to reduce the manual effort of writing routine bulletins.
+- **Architecture:** Rule-based natural language generation system (RAREAS) producing English and French marine forecasts; a linguistic, non-machine-learning method.
+- **Data:** Formatted marine forecast data supplied by forecasters at Environment Canada; no training data in the statistical sense.
+- **Main result:** Demonstrates that bilingual marine weather bulletins can be synthesized from structured data with a sublanguage grammar, producing text comparable in style to human-written forecasts.
+- **Open work:** Extending coverage to other forecast types and regions and evaluating generated texts operationally with forecasters.
+- **Issues:** Hand-written grammar and rules tied to a narrow sublanguage; quantitative evaluation of text quality is limited.
+- *Basis: abstract+knowledge*
 
 ### [Towards physically consistent data-driven weather forecasting: Integrating data assimilation with equivariance-preserving deep spatial transformers](https://doi.org/10.5194/gmd-2021-71)
 Chattopadhyay et al. (2021), *arXiv*. 42 citations.
@@ -1386,7 +1422,13 @@ Chen et al. (2023), *arXiv*. 38 citations.
 ### Predicting Weather Using a Genetic Memory: A Combination of Kanerva's Sparse Distributed Memory with Holland's Genetic Algorithms
 Rogers (1989), *Neural Information Processing Systems*. 36 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts weather (rain occurrence) by learning which combinations of observed variables are predictive, using an adaptive associative memory.
+- **Architecture:** Genetic memory: Kanerva's sparse distributed memory (an associative neural memory) whose address locations are evolved with Holland's genetic algorithm.
+- **Data:** Historical surface weather observations (pressure readings from stations, reportedly Australian data) used to predict rainfall; exact period not reported.
+- **Main result:** The genetic algorithm improves the sparse distributed memory by selecting informative input features, giving better prediction than the memory with random addresses.
+- **Open work:** Scaling to more variables and comparing with conventional statistical forecasting would follow naturally.
+- **Issues:** Early proof of concept with a small dataset; skill relative to operational methods is not established.
+- *Basis: abstract+knowledge*
 
 ### [Leveraging data-driven weather models for improving numerical weather prediction skill through large-scale spectral nudging](https://doi.org/10.1175/waf-d-24-0139.1)
 Husain et al. (2024), *arXiv*. 35 citations.
@@ -1413,7 +1455,13 @@ Chattopadhyay et al. (2020), *International Conference on Climate Informatics*. 
 ### [Short-range visibility forecast by means of neural-network modelling: a case-study](https://doi.org/10.1007/bf02506781)
 Pasini et al. (1995), *Il Nuovo Cimento C*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-range visibility at a site, an important aviation and road-safety variable that is hard to predict with dynamical models.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Local surface meteorological observations at a single site (case study, location not reported here).
+- **Main result:** Not reported in the available metadata; the case study suggests the network gives useful short-range visibility forecasts.
+- **Open work:** Extension to more sites, fog events and comparison with statistical baselines would follow naturally.
+- **Issues:** Single-site case study; few low-visibility events limit evaluation of the most important cases.
+- *Basis: assessment*
 
 ### [Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling](https://arxiv.org/abs/2405.13796)
 Xu et al. (2024), *Neural Information Processing Systems*. 32 citations.
@@ -1451,12 +1499,24 @@ Xu et al. (2024), *arXiv*. 31 citations.
 ### [Modeling and Forecasting the Daily Maximum Temperature Using Abductive Machine Learning](https://doi.org/10.1175/1520-0434(1995)010<0310:maftdm>2.0.co;2)
 Abdel-Aal et al. (1995), *Weather and Forecasting*. 31 citations.
 
-*Summary pending.*
+- **Main goal:** Models and forecasts next-day daily maximum air temperature for a site using machine learning.
+- **Architecture:** Abductive machine learning: abductive (polynomial) networks built with the AIM algorithm, a GMDH-type self-organising network.
+- **Data:** Daily surface meteorological observations at Dhahran, Saudi Arabia, over several years for training and evaluation.
+- **Main result:** The abductive network models give accurate next-day maximum temperature forecasts, competitive with or better than regression and persistence.
+- **Open work:** Extension to other variables and sites would follow naturally.
+- **Issues:** Single-site study; skill during unusual synoptic events is not established.
+- *Basis: abstract+knowledge*
 
 ### [Objective Guidance for 0–24-Hour and 24–48-Hour Mesoscale Forecasts of Lake-Effect Snow Using CART](https://doi.org/10.1175/1520-0434(1991)006<0357:ogfhah>2.0.co;2)
 Burrows (1991), *Weather and Forecasting*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Provides objective guidance for 0–24 h and 24–48 h mesoscale forecasts of lake-effect snow.
+- **Architecture:** Classification and regression trees (CART), a decision tree method, applied to model output predictors.
+- **Data:** NWP model output predictors and observed snowfall for lake-effect events in the Great Lakes region (Ontario, Canada).
+- **Main result:** CART produces useful objective guidance for lake-effect snow occurrence and amount at both lead ranges.
+- **Open work:** Use of more predictors and newer models would follow naturally.
+- **Issues:** Trained on a limited number of seasons; tied to the NWP model used for predictors.
+- *Basis: assessment*
 
 ### [Improving AI Weather Prediction Models Using Global Mass and Energy Conservation Schemes](https://doi.org/10.1029/2025ms005138)
 Sha et al. (2025), *Journal of Advances in Modeling Earth Systems*. 26 citations.
@@ -1494,7 +1554,13 @@ Adamov et al. (2025), *arXiv*. 25 citations.
 ### [Machine Learning of Maritime Fog Forecast Rules](https://doi.org/10.1175/1520-0450(1996)035<0714:mlomff>2.0.co;2)
 Tag et al. (1996), *Journal of Applied Meteorology*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Learns maritime fog forecast rules automatically from data to support Navy forecasters, replacing hand-crafted rules.
+- **Architecture:** Machine learning rule induction (decision-tree style learning of forecast rules) from meteorological observations and model fields.
+- **Data:** Maritime meteorological observations and numerical model output for fog cases; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the learned rules are reported to forecast fog with useful skill.
+- **Open work:** More cases, other regions and integration of learned rules into operational expert systems.
+- **Issues:** Fog cases are rare and imbalanced; learned rules may be site-specific and sensitive to the training sample.
+- *Basis: assessment*
 
 ### [Analyzing and Exploring Training Recipes for Large-Scale Transformer-Based Weather Prediction](https://arxiv.org/abs/2404.19630)
 Willard et al. (2024), *arXiv*. 23 citations.
@@ -1510,12 +1576,24 @@ Willard et al. (2024), *arXiv*. 23 citations.
 ### [APPLICATION OF AN ARTIFICIAL NEURAL NETWORK TO IMPROVE SHORT-TERM ROAD ICE FORECASTS](https://doi.org/10.1016/s0957-4174(98)00006-2)
 Shao (1998), *Expert Systems With Applications*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Improves short-term road ice forecasts, which are needed for winter road maintenance and gritting decisions.
+- **Architecture:** Artificial neural network used to improve or correct short-term road surface condition forecasts.
+- **Data:** Road weather station observations and forecast data; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the neural network improves road ice forecasts over the baseline.
+- **Open work:** Testing over more stations and winters and integration in operational road weather systems.
+- **Issues:** No abstract available; skill likely depends on the station network and the quality of input weather forecasts.
+- *Basis: assessment*
 
 ### Artificial neural networks in forecasting minimum temperature (weather)
 Schizas et al. (1991), *Preprint*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts minimum air temperature with artificial neural networks, important for frost warnings and agriculture.
+- **Architecture:** Artificial neural networks (multilayer perceptron trained by backpropagation) using meteorological predictors.
+- **Data:** Surface meteorological observations, likely from Cyprus; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the paper presents an early demonstration of neural network minimum temperature forecasting.
+- **Open work:** Comparison with statistical forecasting methods and extension to other stations and variables.
+- **Issues:** No abstract available; small datasets and limited verification typical of early studies.
+- *Basis: assessment*
 
 ### [Robustness of AI-based weather forecasts in a changing climate](https://arxiv.org/abs/2409.18529)
 Rackow et al. (2024), *arXiv*. 21 citations.
@@ -1542,12 +1620,24 @@ Abdi et al. (2025), *Artificial Intelligence for the Earth Systems*. 20 citation
 ### [Artificial neural networks in weather forecasting](https://doi.org/10.1109/rnns.1992.268635)
 Diyankov et al. (1992), *[Proceedings] 1992 RNNS/IEEE Symposium on Neuroinformatics and Neurocomputers*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Applies artificial neural networks to weather forecasting as an alternative to statistical methods.
+- **Architecture:** Artificial neural networks for weather forecasting (specific architecture not reported).
+- **Data:** Not reported in the available metadata.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Systematic comparison with statistical and numerical forecasts.
+- **Issues:** No abstract available; symposium paper with unknown data and verification.
+- *Basis: assessment*
 
 ### [Dynamical Recurrent Neural Networks and Pattern Recognition Methods for Time Series Prediction - Application to Seeing and Temperature Forecasting in the Context of Eso's VLT Astronomical Weather Station](https://doi.org/10.1016/0083-6656(94)90047-7)
 Aussem et al. (1994), *Vistas in Astronomy*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts astronomical seeing and temperature for ESO's Very Large Telescope site to aid observation scheduling and telescope operation.
+- **Architecture:** Dynamical recurrent neural networks (time-delay recurrent networks) compared with pattern recognition methods such as nearest-neighbour time series prediction.
+- **Data:** Time series from the astronomical weather station at the VLT site (Cerro Paranal); exact record length not reported here.
+- **Main result:** Reports short-term predictability of temperature and seeing with recurrent networks; specific error values are not reported here.
+- **Open work:** Longer records, additional meteorological predictors and operational deployment for scheduling.
+- **Issues:** Seeing is highly variable and only partly predictable from local station data; limited data length and site-specific results.
+- *Basis: abstract+knowledge*
 
 ### [Neural general circulation models optimized to predict satellite-based precipitation observations](https://arxiv.org/abs/2412.11973)
 Yuval et al. (2024), *arXiv*. 17 citations.
@@ -1574,7 +1664,13 @@ Pan et al. (2025), *Weather and forecasting*. 17 citations.
 ### [METEOR: An Artificial Intelligence System for Convective Storm Forecasting](https://doi.org/10.1175/1520-0426(1987)004<0019:maaisf>2.0.co;2)
 Elio et al. (1987), *Journal of Atmospheric and Oceanic Technology*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Develops METEOR, an artificial intelligence system to support forecasting of convective storms, codifying expert forecaster reasoning.
+- **Architecture:** Expert system (rule-based knowledge-based system) encoding forecaster heuristics for convective storm prediction.
+- **Data:** Meteorological soundings and observations from Alberta, Canada, used to build and test the knowledge base; details not reported here.
+- **Main result:** Demonstrates a working expert system for convective storm forecasting; quantitative verification is not reported here.
+- **Open work:** Broader operational verification and extension of the knowledge base.
+- **Issues:** Knowledge acquisition is laborious and rules may not transfer to other regions; limited verification.
+- *Basis: abstract+knowledge*
 
 ### [An update to ECMWF's machine-learned weather forecast model AIFS](https://arxiv.org/abs/2509.18994)
 Moldovan et al. (2025), *arXiv*. 15 citations.
@@ -1634,22 +1730,46 @@ Stock et al. (2024), *arXiv*. 13 citations.
 ### SIGMAR : A Fuzzy Expert System for Critiquing Marine Forecasts
 Hansen (1997), *Preprint*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a system that critiques human-written marine weather forecasts, flagging inconsistencies to help forecasters improve forecast quality.
+- **Architecture:** Fuzzy expert system (fuzzy logic, rule-based) that encodes forecasting knowledge and compares forecast text against guidance or observations.
+- **Data:** Marine forecasts and associated weather data from a Canadian forecasting office; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Validation with operational forecasters and broader rule coverage follow naturally.
+- **Issues:** No abstract available; knowledge acquisition effort and limited, hand-crafted rule base typical of expert systems.
+- *Basis: assessment*
 
 ### [Knowledge Based Classification of Circulation Patterns for Stochastic Precipitation Modeling](https://doi.org/10.1007/978-94-017-3083-9_2)
 Bárdossy et al. (1994), *Preprint*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies daily atmospheric circulation patterns to drive stochastic precipitation models that link large-scale circulation to local rainfall.
+- **Architecture:** Knowledge-based classification of circulation patterns, rule-based with fuzzy rules in the related work of the same authors; non-neural method.
+- **Data:** Daily pressure fields and station precipitation series; region and period not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Use for downscaling climate model output follows naturally.
+- **Issues:** No abstract available; classification rules are partly subjective and region-specific.
+- *Basis: assessment*
 
 ### [Knowledge based system for weather information processing and forecasting](https://doi.org/10.1109/igarss.1996.516580)
 Siddiqui et al. (1996), *IGARSS '96. 1996 International Geoscience and Remote Sensing Symposium*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Automates processing of weather information and forecasting with a knowledge-based system.
+- **Architecture:** Knowledge-based expert system (rule-based) for weather data processing and forecasting.
+- **Data:** Weather observations and possibly remotely sensed data; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Operational evaluation follows naturally.
+- **Issues:** No abstract available; rule-based coverage is limited.
+- *Basis: assessment*
 
 ### [Toward building an expert system for weather forecasting operations](https://doi.org/10.1016/0957-4174(94)90050-7)
 Kumar et al. (1994), *Expert Systems With Applications*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates building an expert system to support routine weather forecasting operations.
+- **Architecture:** Expert system (rule-based) for weather forecasting.
+- **Data:** Forecaster knowledge and meteorological observations; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Implementation and operational evaluation follow naturally.
+- **Issues:** No abstract available; appears to be a design-stage study with limited evaluation.
+- *Basis: assessment*
 
 ### [HEAL-ViT: Vision Transformers on a spherical mesh for medium-range weather forecasting](https://arxiv.org/abs/2403.17016)
 Ramavajjala (2024), *arXiv*. 11 citations.
@@ -1665,7 +1785,13 @@ Ramavajjala (2024), *arXiv*. 11 citations.
 ### [The use of the simple 1D steady-state convective cloud model in the decision tree for determining the probability of thunderstorm occurrence](https://doi.org/10.1007/bf02295834)
 Řezáčová et al. (1990), *Studia Geophysica et Geodaetica*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates the probability of thunderstorm occurrence by combining a simple convective cloud model with a decision tree.
+- **Architecture:** Decision tree using outputs of a 1D steady-state convective cloud model as predictors.
+- **Data:** Radiosonde profiles and thunderstorm observations, likely from the Czech region; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing on independent seasons follows naturally.
+- **Issues:** No abstract available; simplified 1D cloud model and region-specific thresholds.
+- *Basis: assessment*
 
 ### [FastNet: Improving the physical consistency of machine-learning weather prediction models through loss function design](https://doi.org/10.1175/aies-d-25-0090.1)
 Dunstan et al. (2025), *Artificial Intelligence for the Earth Systems*. 10 citations.
@@ -1725,27 +1851,57 @@ Thümmel et al. (2023), *arXiv*. 9 citations.
 ### [Representing Quantitative and Qualitative Knowledge in a Knowledge-Based Storm-Forecasting System](https://doi.org/10.1016/s0020-7373(86)80021-9)
 Elio et al. (1986), *Int. J. Man Mach. Stud.*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses how to represent both quantitative and qualitative forecaster knowledge in a knowledge-based system for severe storm forecasting.
+- **Architecture:** Knowledge-based storm-forecasting system (expert system, rule-based) combining quantitative and qualitative reasoning.
+- **Data:** Meteorological observations and forecaster knowledge for convective storm forecasting; specific data are not reported in the available information.
+- **Main result:** Proposes representations integrating numerical and qualitative knowledge for storm forecasting; no quantitative skill is reported in the available information.
+- **Open work:** Operational verification and knowledge-base extension follow naturally.
+- **Issues:** Knowledge elicitation is costly and system skill is not systematically verified.
+- *Basis: assessment*
 
 ### [FoG: Synthesizing forecast text directly from weather maps](https://doi.org/10.1109/caia.1993.366647)
 Goldberg (1993), *Proceedings of 9th IEEE Conference on Artificial Intelligence for Applications*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically generates textual weather forecasts directly from forecast weather maps to reduce forecaster workload.
+- **Architecture:** Natural language generation system (FoG, Forecast Generator), a knowledge-based non-ML text synthesis method.
+- **Data:** Numerical weather prediction forecast fields (weather maps) from an operational forecasting service.
+- **Main result:** FoG produces forecast texts, in English and French, directly from forecast data for operational use.
+- **Open work:** Extending to more forecast types and improving text quality follow naturally.
+- **Issues:** Rule-based generation requires manual knowledge engineering; text quality evaluation is largely qualitative.
+- *Basis: abstract+knowledge*
 
 ### 4.4 METEOCOGENT: A KNOWLEDGE-BASED TOOL FOR GENERATING WEATHER FORECAST TEXTS
 Kittredge et al. (1999), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Generates weather forecast texts automatically from forecast data using a knowledge-based approach.
+- **Architecture:** Knowledge-based natural language generation tool (METEOCOGENT), a non-ML method.
+- **Data:** Forecast data from a weather service used as input to text generation; specific data not reported in the available information.
+- **Main result:** Demonstrates a tool for generating weather forecast texts; quantitative evaluation is not reported in the available information.
+- **Open work:** Multilingual support and user evaluation follow naturally.
+- **Issues:** Rule-based generation needs manual engineering; evaluation is qualitative.
+- *Basis: assessment*
 
 ### Weather prediction using a genetic memory
 Rogers (1990), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Explores weather prediction using a genetic memory, a learning system that combines evolutionary search with associative memory.
+- **Architecture:** Genetic algorithm combined with a sparse distributed memory (genetic memory).
+- **Data:** Historical weather observation records; specific data not reported in the available information.
+- **Main result:** The genetic memory learns predictive features for weather prediction; skill numbers are not reported in the available information.
+- **Open work:** Comparison with statistical forecasting methods and larger data sets follow naturally.
+- **Issues:** Exploratory study with limited evaluation.
+- *Basis: assessment*
 
 ### [ARCHER - a prototype expert system for identifying some meteorological phenomena](https://doi.org/10.1175/1520-0426(1988)005<0144:aapesf>2.0.co;2)
 Moninger (1988), *Journal of Atmospheric and Oceanic Technology*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a prototype system that identifies selected meteorological phenomena automatically, to assist forecasters in recognizing weather features.
+- **Architecture:** Expert system (rule-based) prototype encoding forecaster knowledge to identify meteorological phenomena; not a learned statistical model.
+- **Data:** Meteorological observations used to test the prototype; specific datasets not reported in the available metadata.
+- **Main result:** Presented as a working prototype that demonstrates feasibility of automated phenomenon identification; quantitative skill not reported in the available metadata.
+- **Open work:** Extending the knowledge base to more phenomena and testing operationally with forecasters.
+- **Issues:** Prototype scope covers only some phenomena; hand-coded rules are brittle and costly to maintain; limited independent evaluation likely.
+- *Basis: assessment*
 
 ### [ArchesWeather: An efficient AI weather forecasting model at 1.5° resolution](https://arxiv.org/abs/2405.14527)
 Couairon et al. (2024), *arXiv*. 8 citations.
@@ -1772,17 +1928,35 @@ Vonich et al. (2025), *Artificial Intelligence for the Earth Systems*. 8 citatio
 ### [Knowledge acquisition using a neural network for a weather forecasting knowledge-based system](https://doi.org/10.1007/bf01414951)
 Chung et al. (1993), *Neural computing & applications (Print)*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Uses a neural network to acquire knowledge for a weather forecasting knowledge-based system, easing the knowledge-acquisition bottleneck of expert systems.
+- **Architecture:** Neural network combined with an expert system (knowledge-based system), where the network learns forecasting relations from data.
+- **Data:** Historical weather observations used for training; specific dataset not reported in the available metadata.
+- **Main result:** Shows that a neural network can supply knowledge for a forecasting knowledge-based system; skill figures not reported in the available metadata.
+- **Open work:** Extracting explicit rules from the network and evaluating on more forecasting tasks.
+- **Issues:** Network knowledge is hard to interpret; evaluation scope and baselines unclear.
+- *Basis: assessment*
 
 ### Genetic Evolution of a Neural Network's Input Vector for Meteorological Estimations
 McCullagh et al. (1997), *International Conference on Neural Information Processing*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Uses evolutionary search to choose the input vector of a neural network for meteorological estimation, avoiding manual input selection.
+- **Architecture:** Genetic algorithm that evolves the input variable subset of a feedforward neural network.
+- **Data:** Meteorological observations for the estimation target; specific dataset not reported in the available metadata.
+- **Main result:** Reports that genetically selected inputs give a compact network with competitive or improved estimation accuracy; figures not reported in the available metadata.
+- **Open work:** Co-evolving network architecture with inputs and testing on more variables and regions.
+- **Issues:** Computationally expensive search; risk of overfitting input selection to the validation set.
+- *Basis: assessment*
 
 ### [Knowledge-based picture understanding of weather charts](https://doi.org/10.1016/0031-3203(84)90038-4)
 Taniguchi et al. (1984), *Pattern Recognition*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Aims to automatically interpret printed weather charts so that their meteorological content can be extracted by computer.
+- **Architecture:** Knowledge-based picture understanding system (expert system, rule-based) that uses meteorological knowledge to recognise chart elements from digitised images.
+- **Data:** Digitised weather chart images; chart source and number of charts are not reported in the available record.
+- **Main result:** Demonstrates knowledge-guided recognition of weather chart elements; quantitative recognition rates are not reported in the available record.
+- **Open work:** Extending the knowledge base to more chart types and symbols and improving robustness to noisy or hand-drawn charts.
+- **Issues:** Early rule-based system with hand-crafted knowledge; likely limited generality and evaluation on few charts.
+- *Basis: assessment*
 
 ### [AIFS-DOP: End-to-End Medium-Range Weather Prediction from Observations Alone with Machine Learning](https://arxiv.org/abs/2606.19093)
 Pinnington et al. (2026), *arXiv*. 6 citations.
@@ -1809,17 +1983,35 @@ Dacre et al. (2025), *Bulletin of The American Meteorological Society - (BAMS)*.
 ### KNOWLEDGE BASED RECOGNITION SYSTEM OF WEATHER CHART.
 Taniguchi et al. (1980), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Recognises the content of weather charts automatically so that chart information can be processed by computer.
+- **Architecture:** Knowledge-based recognition system (expert system, rule-based) using meteorological knowledge to interpret chart elements.
+- **Data:** Digitised weather charts; source and number not reported in the available record.
+- **Main result:** Demonstrates feasibility of knowledge-based weather chart recognition; quantitative results not reported in the available record.
+- **Open work:** Extended to full picture understanding in the authors' 1984 Pattern Recognition paper.
+- **Issues:** Early prototype; hand-crafted knowledge and small evaluation.
+- *Basis: assessment*
 
 ### [Machine Learning of Weather Forecasting Rules from Large Meteorological Data Bases](https://doi.org/10.1007/bf03342038)
 Dai (1996), *Advances in Atmospheric Sciences*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Learns weather forecasting rules automatically from large meteorological databases to reduce reliance on hand-crafted expert rules.
+- **Architecture:** Machine learning rule induction (decision rules) applied to meteorological data; specific algorithm not reported in the available record.
+- **Data:** Large meteorological databases of observations; region and period not reported in the available record.
+- **Main result:** Shows that rules learned from data can support weather forecasting; accuracy not reported in the available record.
+- **Open work:** Comparison with expert-written rules and application to more forecast variables.
+- **Issues:** Rule induction may produce many rules with limited interpretability; generalisation not demonstrated.
+- *Basis: assessment*
 
 ### Minimum temperature prediction in agricultural area using artificial neural networks
 Mort et al. (1991), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts minimum air temperature in an agricultural area with artificial neural networks, motivated by frost warning and crop protection.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Not reported in the abstract; presumably local meteorological station observations from the agricultural area, but the site and period are unknown.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing at other sites and seasons and comparing with statistical frost-forecast methods would follow naturally.
+- **Issues:** No abstract available; network design, data volume and evaluation are unknown, and results from a single area may not generalise.
+- *Basis: assessment*
 
 ### [On the effective resolution of AI weather prediction models](https://doi.org/10.1175/aies-d-25-0121.1)
 Selz et al. (2026), *Artificial Intelligence for the Earth Systems*. 4 citations.
@@ -2449,7 +2641,13 @@ Shi et al. (2017), *Neural Information Processing Systems*. 1,091 citations.
 ### [Rainfall forecasting in space and time using a neural network](https://doi.org/10.1016/0022-1694(92)90046-x)
 French et al. (1992), *Journal of Hydrology*. 726 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts rainfall fields in space and time one hour ahead, testing whether neural networks can learn complex rainfall dynamics.
+- **Architecture:** Three-layer feedforward neural network (multilayer perceptron) trained with backpropagation, mapping current rainfall fields to future fields.
+- **Data:** Synthetic space–time rainfall fields generated by a stochastic rainfall simulation model.
+- **Main result:** The network learns the space–time rainfall evolution and outperforms simple benchmarks such as persistence in the idealized tests.
+- **Open work:** Application to observed radar rainfall and inclusion of meteorological predictors.
+- **Issues:** Trained and tested only on simulated rainfall; network size and training choices are ad hoc.
+- *Basis: abstract+knowledge*
 
 ### [Skilful nowcasting of extreme precipitation with NowcastNet](https://doi.org/10.1038/s41586-023-06184-4)
 Zhang et al. (2023), *Nature*. 582 citations.
@@ -2553,7 +2751,13 @@ Gao et al. (2023), *Neural Information Processing Systems*. 179 citations.
 ### [Experiments in Short-Term Precipitation Forecasting Using Artificial Neural Networks](https://doi.org/10.1175/1520-0493(1998)126<0470:eistpf>2.0.co;2)
 Kuligowski et al. (1998), *Monthly Weather Review*. 149 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates short-term (0-24 h) quantitative precipitation forecasting at point locations using artificial neural networks.
+- **Architecture:** Multilayer perceptron (backpropagation neural network) compared with linear regression and persistence.
+- **Data:** Hourly rain gauge data and upper-air wind information over the Middle Atlantic region of the United States.
+- **Main result:** The neural network outperforms linear regression and persistence for short lead times, especially for moderate and heavy precipitation events.
+- **Open work:** Adding radar and model predictors and extending lead times.
+- **Issues:** Point forecasts at limited gauges; skill decreases quickly with lead time and heavy events are sparse.
+- *Basis: abstract+knowledge*
 
 ### [A Deep Learning‐Based Methodology for Precipitation Nowcasting With Radar](https://doi.org/10.1029/2019ea000812)
 Chen et al. (2020), *Earth and Space Science*. 127 citations.
@@ -2701,7 +2905,13 @@ Asperti et al. (2023), *Applied intelligence (Boston)*. 57 citations.
 ### [Development of an automated windshear detection system using Doppler weather radar](https://doi.org/10.1109/5.47729)
 Evans et al. (1989), *Proceedings of the IEEE*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Develops automated detection of low-altitude wind shear hazards such as microbursts and gust fronts for airport safety.
+- **Architecture:** Automated rule-based and feature-recognition detection algorithms applied to Doppler radar velocity fields; not a learning method.
+- **Data:** Doppler weather radar data from FAA terminal Doppler weather radar testbed operations.
+- **Main result:** The automated system detects microbursts with high probability of detection and low false alarm rates in operational tests.
+- **Open work:** Deployment at airports and integration with other wind shear sensors.
+- **Issues:** Performance varies with storm type and radar viewing geometry.
+- *Basis: abstract+knowledge*
 
 ### [Using a 10-Year Radar Archive for Nowcasting Precipitation Growth and Decay: A Probabilistic Machine Learning Approach](https://doi.org/10.1175/waf-d-18-0206.1)
 Foresti et al. (2019), *Weather and forecasting*. 48 citations.
@@ -2728,12 +2938,24 @@ Chen et al. (2021), *Geophysical Research Letters*. 45 citations.
 ### [Improving Nowcasts of Road Surface Temperature by a Backpropagation Neural Network](https://doi.org/10.1175/1520-0434(1998)013<0164:inorst>2.0.co;2)
 Shao (1998), *Weather and Forecasting*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Improves short-range nowcasts of road surface temperature for winter road maintenance decisions.
+- **Architecture:** Backpropagation neural network (multilayer perceptron) used to improve or correct road surface temperature nowcasts.
+- **Data:** Road weather station observations; network and period not reported here.
+- **Main result:** Not reported in the abstract; the title states that the neural network improves road surface temperature nowcasts.
+- **Open work:** Extending lead times and use at sites without long training records.
+- **Issues:** No abstract available; site-specific training and limited evaluation of icing-critical conditions.
+- *Basis: assessment*
 
 ### [Rainfall forecasting from multiple point sources using neural networks](https://doi.org/10.1109/icsmc.1999.823243)
 Liu et al. (1999), *IEEE SMC'99 Conference Proceedings. 1999 IEEE International Conference on Systems, Man, and Cybernetics (Cat. No.99CH37028)*. 37 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts rainfall at a site using observations from multiple surrounding point sources (gauges or stations) as inputs to a neural network.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Rainfall records from multiple point stations; region, period and lead times not reported.
+- **Main result:** Not reported in the available metadata; the title implies the neural network can exploit multi-station inputs for rainfall prediction.
+- **Open work:** Comparison against persistence and statistical baselines and extension to longer lead times would follow naturally.
+- **Issues:** Early conference study with no abstract available; likely single-region evaluation with limited data and no uncertainty quantification.
+- *Basis: assessment*
 
 ### [AENN: A GENERATIVE ADVERSARIAL NEURAL NETWORK FOR WEATHER RADAR ECHO EXTRAPOLATION](https://doi.org/10.5194/isprs-archives-xlii-3-w9-89-2019)
 Jing et al. (2019), *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences*. 32 citations.
@@ -2749,7 +2971,13 @@ Jing et al. (2019), *The International Archives of the Photogrammetry, Remote Se
 ### [Development of a recurrent Sigma-Pi neural network rainfall forecasting system in Hong Kong](https://doi.org/10.1007/bf01501172)
 Chow et al. (1997), *Neural computing & applications (Print)*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a rainfall forecasting system for Hong Kong based on a recurrent neural network for short-term warnings.
+- **Architecture:** Recurrent Sigma-Pi neural network (higher-order recurrent network) for rainfall forecasting.
+- **Data:** Rainfall observations in Hong Kong, possibly including radar data; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the system is reported to forecast rainfall with useful accuracy.
+- **Open work:** Longer lead times, heavy rainfall events and operational deployment.
+- **Issues:** No abstract available; skill for intense convective events and longer leads is unclear.
+- *Basis: assessment*
 
 ### [WoFSCast: A Machine Learning Model for Predicting Thunderstorms at Watch‐to‐Warning Scales](https://doi.org/10.1029/2024gl112383)
 Flora et al. (2025), *Geophysical Research Letters*. 16 citations.
@@ -2765,7 +2993,13 @@ Flora et al. (2025), *Geophysical Research Letters*. 16 citations.
 ### [Recognizing Low-Altitude Wind Shear Hazards from Doppler Weather Radar: An Artificial Intelligence Approach](https://doi.org/10.1175/1520-0426(1987)004<0005:rlawsh>2.0.co;2)
 Campbell et al. (1987), *Journal of Atmospheric and Oceanic Technology*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically recognizes low-altitude wind shear hazards such as microbursts and gust fronts from Doppler weather radar to protect aircraft near airports.
+- **Architecture:** Artificial intelligence approach using knowledge-based (rule-based) feature recognition of radar velocity patterns.
+- **Data:** Doppler weather radar data from wind shear field measurements; specifics are not reported here.
+- **Main result:** Demonstrates automated detection of wind shear signatures; detection statistics are not reported here.
+- **Open work:** Real-time operational testing and integration with terminal weather radar systems.
+- **Issues:** Hand-crafted recognition rules may miss atypical wind shear signatures; evaluation likely relies on limited case sets.
+- *Basis: assessment*
 
 ### [FlowCast: Advancing Precipitation Nowcasting with Conditional Flow Matching](https://arxiv.org/abs/2511.09731)
 Ribeiro et al. (2025), *arXiv*. 13 citations.
@@ -2781,12 +3015,24 @@ Ribeiro et al. (2025), *arXiv*. 13 citations.
 ### [Machine intelligent approach to automated gust-front detection for Doppler weather radars](https://doi.org/10.1117/12.179602)
 Troxel et al. (1994), *Defense, Security, and Sensing*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically detects gust fronts in Doppler weather radar data to warn airports of wind shear hazards.
+- **Architecture:** Machine-intelligent gust-front algorithm (MIGFA): knowledge-based image processing with functional template correlation and fuzzy-logic-style fusion of evidence.
+- **Data:** Doppler weather radar data from airport radars (e.g. ASR-9 or TDWR testbeds); details not reported.
+- **Main result:** Machine-intelligent detection is reported to outperform the earlier gust-front algorithm; numbers not reported here.
+- **Open work:** Operational deployment and extension to other radar products follow naturally.
+- **Issues:** No abstract; detection of weak or distant gust fronts remains difficult.
+- *Basis: assessment*
 
 ### [Rainfall prediction of geostationary meteorological satellite images using artificial neural network](https://doi.org/10.1109/igarss.1993.322107)
 Chen et al. (1993), *IEEE International Geoscience and Remote Sensing Symposium*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts rainfall from geostationary meteorological satellite images using an artificial neural network.
+- **Architecture:** Artificial neural network (multilayer perceptron) applied to satellite image features.
+- **Data:** Geostationary meteorological satellite (likely GMS) imagery with rainfall observations; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Comparing with radar-based nowcasts follows naturally.
+- **Issues:** No abstract available; limited cases.
+- *Basis: assessment*
 
 ### [An Operational Deep Learning System for Satellite-Based High-Resolution Global Nowcasting](https://arxiv.org/abs/2510.13050)
 Agrawal et al. (2025), *arXiv*. 9 citations.
@@ -2802,7 +3048,13 @@ Agrawal et al. (2025), *arXiv*. 9 citations.
 ### [Tracking Rain Cells in Radar Images using Multilayer Neural Networks](https://doi.org/10.1007/978-1-4471-2063-6_284)
 Ding et al. (1993), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Tracks rain cells in weather radar image sequences for nowcasting.
+- **Architecture:** Multilayer neural networks (multilayer perceptron) for matching and tracking rain cells.
+- **Data:** Weather radar image sequences; radar and period are not reported in the available information.
+- **Main result:** The multilayer neural networks track rain cells between radar images; accuracy is not reported in the available information.
+- **Open work:** Extending to cell growth/decay and longer nowcast lead times follows naturally.
+- **Issues:** Limited evaluation sample; cell splitting and merging are difficult.
+- *Basis: assessment*
 
 ### [Four-hour thunderstorm nowcasting using a deep diffusion model for satellite data](https://doi.org/10.1073/pnas.2517520122)
 Dai et al. (2024), *Proceedings of the National Academy of Sciences of the United States of America*. 8 citations.
@@ -2829,7 +3081,13 @@ Pathak et al. (2026), *arXiv*. 8 citations.
 ### ). REAL-TIME RAINFALL PREDICTION USING NEURAL NETWORK AND GENETIC ALGORITHM WITH WEATHER RADAR DATA
 Nishimura et al. (1996), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts rainfall in real time from weather radar data, combining a neural network with a genetic algorithm to improve short-term rainfall forecasting.
+- **Architecture:** Artificial neural network combined with a genetic algorithm; the configuration is not specified in the available metadata.
+- **Data:** Weather radar rainfall observations; the radar, region, period and lead times are not reported in the available metadata.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Comparison with extrapolation-based nowcasting and testing on more storm events and longer lead times would follow naturally.
+- **Issues:** No abstract available; event sample size, lead times and verification scores are unknown, and radar rainfall estimation errors propagate into forecasts.
+- *Basis: assessment*
 
 ### [Generative machine learning for skilful 3D radar nowcasting](https://doi.org/10.1038/s41612-026-01407-7)
 Wan et al. (2026), *npj Climate and Atmospheric Science*. 1 citations.
@@ -2969,7 +3227,13 @@ Price et al. (2022), *International Conference on Artificial Intelligence and St
 ### [An Objective Method to Modify Numerical Model Forecasts with Newly Given Weather Data Using an Artificial Neural Network](https://doi.org/10.1175/1520-0434(1999)014<0109:aomtmn>2.0.co;2)
 Koizumi (1999), *Weather and Forecasting*. 61 citations.
 
-*Summary pending.*
+- **Main goal:** Corrects numerical weather prediction forecasts using the newest observations available after model initialisation, to improve short-range local guidance.
+- **Architecture:** Artificial neural network that combines numerical model output with newly arrived observations to produce modified forecasts.
+- **Data:** Numerical model forecasts from the Japan Meteorological Agency and surface observations in Japan; exact variables and periods not reported here.
+- **Main result:** The neural network correction improves forecast skill over the raw model guidance; quantitative scores not reported in the available metadata.
+- **Open work:** Extension to more variables and stations and comparison with statistical post-processing such as MOS.
+- **Issues:** Gains depend on the stability of model biases; network retraining is needed after model changes.
+- *Basis: assessment*
 
 ### [Probabilistic Predictions from Deterministic Atmospheric River Forecasts with Deep Learning](https://doi.org/10.1175/mwr-d-21-0106.1)
 Chapman et al. (2021), *Monthly Weather Review*. 59 citations.
@@ -3197,7 +3461,13 @@ Zhou et al. (2023), *Science Advances*. 186 citations.
 ### [Further Work on the Prediction of Northeast Brazil Rainfall Anomalies](https://doi.org/10.1175/1520-0442(1993)006<0743:fwotpo>2.0.co;2)
 Hastenrath et al. (1993), *Journal of Climate*. 154 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts seasonal rainfall anomalies in Northeast Brazil, where droughts have severe societal impact, from preceding ocean and atmosphere conditions.
+- **Architecture:** Statistical prediction with stepwise multiple regression and discriminant analysis, also tested against a neural network approach.
+- **Data:** Station rainfall indices for Northeast Brazil and preceding Atlantic and Pacific sea surface temperature and circulation indices over several decades.
+- **Main result:** Predictors from tropical Atlantic and Pacific conditions give useful skill for the rainy season; the neural network offers little clear advantage over linear methods.
+- **Open work:** Updating predictors and testing operational real-time forecasts.
+- **Issues:** Short records limit nonlinear model training; skill estimates may be inflated by predictor screening.
+- *Basis: assessment*
 
 ### [A machine learning model that outperforms conventional global subseasonal forecast models](https://doi.org/10.1038/s41467-024-50714-1)
 Chen et al. (2024), *Nature Communications*. 151 citations.
@@ -3224,7 +3494,13 @@ Gibson et al. (2021), *Communications Earth &amp; Environment*. 147 citations.
 ### [Predicting Indian monsoon rainfall: a neural network approach](https://doi.org/10.1007/bf00228029)
 Navone et al. (1994), *Climate Dynamics*. 122 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts all-India summer monsoon rainfall from preceding climate indicators.
+- **Architecture:** Multilayer perceptron neural network compared with linear regression.
+- **Data:** All-India rainfall series and preceding predictors such as ENSO-related indices over many decades.
+- **Main result:** The neural network improves forecast skill over linear regression in independent tests.
+- **Open work:** Adding predictors and ensembles of networks to reduce variance.
+- **Issues:** Short record risks overfitting; skill estimates depend on validation design.
+- *Basis: abstract+knowledge*
 
 ### [Neural network forecasts of the tropical Pacific sea surface temperatures](https://doi.org/10.1016/j.neunet.2006.01.004)
 Wu et al. (2006), *Neural Networks*. 119 citations.
@@ -3240,12 +3516,24 @@ Wu et al. (2006), *Neural Networks*. 119 citations.
 ### [Forecasting ENSO Events: A Neural Network–Extended EOF Approach.](https://doi.org/10.1175/1520-0442(1998)011<0029:feeann>2.0.co;2)
 Tangang et al. (1998), *Journal of Climate*. 118 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts ENSO by predicting Niño-region sea surface temperature anomalies at seasonal leads with compact predictors.
+- **Architecture:** Feedforward neural network (multilayer perceptron) with inputs from extended empirical orthogonal functions (EEOFs) of tropical Pacific sea level pressure and SST fields.
+- **Data:** Observed tropical Pacific sea level pressure and SST anomaly fields, with Niño 3.4 SST anomalies as targets; hindcasts over several decades.
+- **Main result:** EEOF-based inputs reduce network size and give useful Niño 3.4 forecast skill at leads up to about a year, competitive with other ENSO models of the time.
+- **Open work:** Adding subsurface ocean information and ensemble approaches to stabilise and extend skill.
+- **Issues:** Short training record relative to number of ENSO events, risk of overfitting and spring predictability barrier; no uncertainty estimates.
+- *Basis: abstract+knowledge*
 
 ### [Forecasting the equatorial Pacific sea surface temperatures by neural network models](https://doi.org/10.1007/s003820050156)
 Tangang et al. (1997), *Climate Dynamics*. 115 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts equatorial Pacific SST anomalies (Niño regions) at seasonal leads to predict ENSO.
+- **Architecture:** Feedforward neural network (multilayer perceptron) using principal components of tropical Pacific wind stress and SST as predictors.
+- **Data:** Observed tropical Pacific wind stress and SST anomaly fields with Niño region SST anomaly targets over several decades.
+- **Main result:** Neural networks achieve useful Niño SST forecast skill at leads of several months to about a year, with wind stress predictors important at longer leads.
+- **Open work:** Improving predictors (e.g. sea level pressure, heat content) and reducing network overfitting.
+- **Issues:** Few ENSO events for training, possible overfitting and sensitivity to initial weights; no probabilistic output.
+- *Basis: abstract+knowledge*
 
 ### [Subseasonal Forecasts of Opportunity Identified by an Explainable Neural Network](https://doi.org/10.1029/2020gl092092)
 Mayer et al. (2021), *Geophysical Research Letters*. 92 citations.
@@ -3272,7 +3560,13 @@ Nooteboom et al. (2018), *Earth System Dynamics*. 91 citations.
 ### [Prediction of all India summer monsoon rainfall using error-back-propagation neural networks](https://doi.org/10.1007/bf01029704)
 Venkatesan et al. (1997), *Meteorology and Atmospheric Physics*. 90 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts all-India summer monsoon rainfall seasonally from predictor parameters.
+- **Architecture:** Feedforward neural network (multilayer perceptron) trained with error back-propagation.
+- **Data:** Historical all-India summer monsoon rainfall and predictors from India Meteorological Department records.
+- **Main result:** The neural network gives better prediction skill than statistical regression models; numbers not reported here.
+- **Open work:** Updating predictors and testing in operational forecasting.
+- **Issues:** Short record and predictor stationarity issues; overfitting risk.
+- *Basis: assessment*
 
 ### [Improving Subseasonal Forecasting in the Western U.S. with Machine Learning](https://doi.org/10.1145/3292500.3330674)
 Hwang et al. (2018), *Knowledge Discovery and Data Mining*. 89 citations.
@@ -3299,7 +3593,13 @@ Ham et al. (2021), *Science Bulletin*. 85 citations.
 ### [Prediction of the Summer Rainfall over South Africa](https://doi.org/10.1175/1520-0442(1995)008<1511:potsro>2.0.co;2)
 Hastenrath et al. (1995), *Journal of Climate*. 85 citations.
 
-*Summary pending.*
+- **Main goal:** Develops statistical seasonal prediction of summer rainfall over South Africa from predictors available before the rainy season.
+- **Architecture:** Empirical statistical prediction from large-scale climate indices, comparing linear regression with a neural network approach.
+- **Data:** South African summer rainfall index with preceding circulation and sea surface temperature indices (including ENSO-related indicators); exact period not reported here.
+- **Main result:** Pre-season indices give useful skill for summer rainfall prediction; quantitative skill measures are not reported here.
+- **Open work:** Operational testing on independent seasons and refined predictor selection are natural next steps.
+- **Issues:** Short records limit training and validation; statistical relationships may be non-stationary.
+- *Basis: assessment*
 
 ### [Deep learning for bias correction of MJO prediction](https://doi.org/10.1038/s41467-021-23406-3)
 Kim et al. (2021), *Nature Communications*. 84 citations.
@@ -3348,7 +3648,13 @@ He et al. (2020), *Proceedings of the AAAI Conference on Artificial Intelligence
 ### A novel neural network design for long range prediction of rainfall pattern
 Goswami et al. (1996), *Current Science*. 68 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts rainfall patterns at long range, a key need for agriculture and water planning in monsoon regions.
+- **Architecture:** Novel neural network design for long-range rainfall prediction; configuration details are not available here.
+- **Data:** Historical rainfall records, likely for India; specific data not reported here.
+- **Main result:** The network is reported to capture long-range rainfall variations; quantitative skill is not reported here.
+- **Open work:** Independent verification over more years is needed.
+- **Issues:** Short climate records risk overfitting; skill on independent data is uncertain.
+- *Basis: assessment*
 
 ### [A Hybrid Neural Network Model for ENSO Prediction in Combination with Principal Oscillation Pattern Analyses](https://doi.org/10.1007/s00376-021-1368-4)
 Zhou et al. (2022), *Advances in Atmospheric Sciences*. 59 citations.
@@ -3375,7 +3681,13 @@ Taylor et al. (2022), *Frontiers in Climate*. 58 citations.
 ### [Forecasting regional sea surface temperatures in the tropical Pacific by neural network models, with wind stress and sea level pressure as predictors](https://doi.org/10.1029/97jc03414)
 Tangang et al. (1998), *Journal of Geophysical Research*. 58 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts sea surface temperature anomalies over equatorial Pacific Niño regions with neural networks, to improve ENSO prediction at long leads.
+- **Architecture:** Feed-forward neural network (MLP) ensembles, averaging 20 runs with random initial weights; one model type uses sea level pressure and another wind stress as predictors.
+- **Data:** Tropical Pacific sea level pressure, wind stress and SST anomalies; cross-validation over 1952–1993 and out-of-sample forecasts for 1982–1993.
+- **Main result:** SLP-based models show usable skill to 12-month lead and beat wind-stress models at 9–12 months; Niño 3.5 out-of-sample correlations are 0.78, 0.80 and 0.75 at 9, 12 and 15 months.
+- **Open work:** Improving skill in eastern boundary regions and adding ocean predictors such as heat content follow naturally.
+- **Issues:** Short record for training nonlinear models; skill is lower in the eastern Pacific and forecasts are deterministic without uncertainty.
+- *Basis: abstract*
 
 ### [The Application of Machine Learning Techniques to Improve El Niño Prediction Skill](https://doi.org/10.3389/fphy.2019.00153)
 Dijkstra et al. (2019), *Frontiers in Physics*. 55 citations.
@@ -3413,7 +3725,13 @@ Hu et al. (2021), *Geophysical Research Letters*. 48 citations.
 ### [Long Range Forecasting Indian Summer Monsoon Rainfallby a Hybrid Principal Component Neural Network Model](https://doi.org/10.1007/s007030050059)
 Guhathakurta et al. (1999), *Meteorology and Atmospheric Physics*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts all-India summer monsoon rainfall at long range, where linear regression models have limited skill.
+- **Architecture:** Hybrid principal component neural network: principal components of predictors are fed to a feed-forward neural network.
+- **Data:** Seasonal monsoon rainfall and long-range predictors from India Meteorological Department records; exact period not reported here.
+- **Main result:** The hybrid model is reported to forecast Indian summer monsoon rainfall with skill comparable to or better than operational regression models; numbers not reproduced here.
+- **Open work:** Testing on more independent years and updating predictors whose relationships with the monsoon change over time.
+- **Issues:** Short record (a few decades of seasons) for training a neural network risks overfitting; predictor relationships are non-stationary.
+- *Basis: assessment*
 
 ### [Improving Seasonal Forecast Using Probabilistic Deep Learning](https://doi.org/10.1029/2021ms002766)
 Pan et al. (2020), *Journal of Advances in Modeling Earth Systems*. 45 citations.
@@ -3528,7 +3846,13 @@ Wang et al. (2023), *Ocean-Land-Atmosphere Research*. 30 citations.
 ### [Reconstruction of the El Niño attractor with neural networks](https://doi.org/10.1007/bf00228027)
 Grieger et al. (1994), *Climate Dynamics*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Reconstructs the low-dimensional dynamics (attractor) of El Niño–Southern Oscillation from time series and uses it for prediction.
+- **Architecture:** Artificial neural network (feedforward) trained on time-delay embeddings of ENSO indices to approximate the dynamical map.
+- **Data:** ENSO time series (e.g. Niño SST index) from observations and/or coupled model output; details not reported.
+- **Main result:** Not reported in the available metadata; the neural network reproduces ENSO-like oscillatory dynamics from the reconstructed attractor.
+- **Open work:** Testing forecast skill at longer leads and with more state variables would follow naturally.
+- **Issues:** Short records limit attractor reconstruction; noise and stochastic forcing are not represented.
+- *Basis: assessment*
 
 ### [Incorporating Uncertainty Into a Regression Neural Network Enables Identification of Decadal State‐Dependent Predictability in CESM2](https://doi.org/10.1029/2022gl098635)
 Gordon et al. (2022), *Geophysical Research Letters*. 28 citations.
@@ -3588,7 +3912,13 @@ Patil et al. (2023), *Frontiers in Climate*. 24 citations.
 ### Prediction of El Nino events in the Pacific by means of neural networks
 Derr et al. (1995), *Oceanographic Literature Review*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts El Niño events in the tropical Pacific using neural networks, an early attempt at data-driven ENSO forecasting.
+- **Architecture:** Neural network predicting El Niño from prior ocean-atmosphere conditions (specific network type not reported).
+- **Data:** Historical tropical Pacific ocean and atmosphere observations; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies some predictive skill for El Niño events.
+- **Open work:** Longer lead times, comparison with dynamical and statistical ENSO models, and real-time testing.
+- **Issues:** No abstract available; few ENSO events in the record limit training and verification.
+- *Basis: assessment*
 
 ### [Outcomes of the WMO Prize Challenge to Improve Sub-Seasonal to Seasonal Predictions Using Artificial Intelligence](https://doi.org/10.1175/bams-d-22-0046.1)
 F et al. (2022), *Bulletin of The American Meteorological Society - (BAMS)*. 22 citations.
@@ -3637,7 +3967,13 @@ Lyu et al. (2023), *Advances in Atmospheric Sciences*. 18 citations.
 ### [FORECASTING ALL-INDIA SUMMER MONSOON RAINFALL USING REGIONAL CIRCULATION PRINCIPAL COMPONENTS: A COMPARISON BETWEEN NEURAL NETWORK AND MULTIPLE REGRESSION MODELS](https://doi.org/10.1002/(sici)1097-0088(19991130)19:14<1561::aid-joc434>3.0.co;2-3)
 Cannon et al. (1999), *International Journal of Climatology*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts All-India summer monsoon rainfall from regional atmospheric circulation predictors and tests whether a nonlinear neural network beats linear multiple regression.
+- **Architecture:** Multilayer perceptron neural network compared with a multiple linear regression model, both using principal components of regional circulation fields as predictors.
+- **Data:** All-India summer monsoon rainfall index and principal components of regional circulation fields; the exact datasets and periods are not reported here.
+- **Main result:** Compares neural network and regression forecast skill on independent data; specific skill numbers are not reported here.
+- **Open work:** Testing additional predictors, longer records and ensembles of networks to stabilize seasonal forecasts.
+- **Issues:** Short seasonal record limits training and validation samples, so overfitting and sampling uncertainty in skill comparisons are major concerns.
+- *Basis: assessment*
 
 ### [Toward long-range ENSO prediction with an explainable deep learning model](https://doi.org/10.1038/s41612-025-01159-w)
 Chen et al. (2025), *npj Climate and Atmospheric Science*. 17 citations.
@@ -3664,7 +4000,13 @@ Mahesh et al. (2019), *Preprint*. 17 citations.
 ### [An expert system‐based approach to prediction of year‐to‐year climatic variations in the North Atlantic region](https://doi.org/10.1002/(sici)1097-0088(199907)19:9<951::aid-joc372>3.0.co;2-j)
 Rodionov et al. (1999), *International Journal of Climatology*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts year-to-year climate variations, such as winter anomalies, in the North Atlantic region using an expert system.
+- **Architecture:** Expert system (rule-based knowledge-based system) built on known circulation regimes and teleconnections.
+- **Data:** Historical atmospheric circulation and climate records for the North Atlantic region; specifics not reported here.
+- **Main result:** Reports skill of the expert system for interannual prediction; quantitative scores are not reported here.
+- **Open work:** Updating the rule base with new data and comparing its skill with dynamical and other statistical seasonal forecasts.
+- **Issues:** Rules rest on historical circulation relationships that may be nonstationary; short records limit independent verification of skill.
+- *Basis: assessment*
 
 ### [Combined dynamical-deep learning ENSO forecasts](https://doi.org/10.1038/s41467-025-59173-8)
 Chen et al. (2025), *Nature Communications*. 15 citations.
@@ -3881,7 +4223,13 @@ Broni-Bedaiko et al. (2019), *Artificial Life and Robotics*. 0 citations.
 ### [Climatic Reconstruction in Europe for 18,000 YR B.P. from Pollen Data](https://doi.org/10.1006/qres.1997.1961)
 Peyron et al. (1998), *Quaternary Research*. 443 citations.
 
-*Summary pending.*
+- **Main goal:** Reconstructs European climate at the Last Glacial Maximum, about 18,000 years before present, from fossil pollen.
+- **Architecture:** Modern analogue (nearest-neighbour) technique based on plant functional type scores, constrained by vegetation modelling; not a neural network.
+- **Data:** Fossil pollen records from European sites and a modern pollen dataset with climate.
+- **Main result:** Indicates a much colder and drier glacial climate in Europe than today, with strong cooling in winter temperature.
+- **Open work:** Comparison with climate model simulations and more sites.
+- **Issues:** Lack of good modern analogues for glacial vegetation; sparse site coverage; CO2 effects on vegetation.
+- *Basis: abstract+knowledge*
 
 ### [Climate change now detectable from any single day of weather at global scale](https://doi.org/10.1038/s41558-019-0666-7)
 Sippel et al. (2020), *Nature Climate Change*. 229 citations.
@@ -3963,7 +4311,13 @@ Mansfield et al. (2020), *npj Climate and Atmospheric Science*. 113 citations.
 ### [Climate Zonation in Puerto Rico Based on Principal Components Analysis and an Artificial Neural Network](https://doi.org/10.1175/1520-0442(1999)012<0977:cziprb>2.0.co;2)
 Malmgren et al. (1999), *Journal of Climate*. 109 citations.
 
-*Summary pending.*
+- **Main goal:** Defines climate zones of Puerto Rico objectively from station climate data.
+- **Architecture:** Principal components analysis combined with an artificial neural network classifier for climate zonation.
+- **Data:** Station temperature and precipitation climatologies across Puerto Rico.
+- **Main result:** PCA and neural network classification identify distinct climate zones that reflect the island's temperature and rainfall gradients; exact skill not reported here.
+- **Open work:** Using denser station networks and assessing zone changes over time.
+- **Issues:** Limited number of stations; zonation depends on chosen variables and classification thresholds.
+- *Basis: assessment*
 
 ### [Anthropogenic fingerprints in daily precipitation revealed by deep learning](https://doi.org/10.1038/s41586-023-06474-x)
 Ham et al. (2023), *Nature*. 104 citations.
@@ -4034,7 +4388,13 @@ Trok et al. (2024), *Science Advances*. 55 citations.
 ### [Artificial neural networks and dendroclimatic reconstructions: an example from the Front Range, Colorado, USA](https://doi.org/10.1191/095968399667128516)
 Woodhouse (1999), *The Holocene*. 52 citations.
 
-*Summary pending.*
+- **Main goal:** Tests artificial neural networks for reconstructing past climate from tree rings, compared with traditional regression.
+- **Architecture:** Artificial neural network (multilayer perceptron) versus linear regression for transfer functions from tree-ring chronologies to climate.
+- **Data:** Tree-ring chronologies and instrumental precipitation records from the Front Range, Colorado, USA.
+- **Main result:** Neural network reconstructions perform broadly similarly to regression-based ones; exact calibration and verification scores not reported here.
+- **Open work:** Testing in other regions and with more predictors.
+- **Issues:** Short calibration periods favour overfitting; little gain over regression.
+- *Basis: abstract+knowledge*
 
 ### [Detecting Climate Signals Using Explainable AI With Single‐Forcing Large Ensembles](https://doi.org/10.1029/2021ms002464)
 Labe et al. (2021), *Journal of Advances in Modeling Earth Systems*. 51 citations.
@@ -4072,7 +4432,13 @@ Anderson et al. (2018), *Geophysical Research Letters*. 48 citations.
 ### [Data-model comparison using fuzzy logic in paleoclimatology](https://doi.org/10.1007/s003820050301)
 Guiot et al. (1999), *Climate Dynamics*. 47 citations.
 
-*Summary pending.*
+- **Main goal:** Compares palaeoclimate model simulations with proxy-based reconstructions in a way that accounts for the uncertainties of both.
+- **Architecture:** Fuzzy logic comparison method using membership functions to measure agreement between simulated and reconstructed climate variables; non-neural method.
+- **Data:** Mid-Holocene (6 ka) climate model simulations and pollen-based palaeoclimate reconstructions, mainly over Europe.
+- **Main result:** Fuzzy-logic distances give a more nuanced, uncertainty-aware assessment of model-data agreement than crisp comparisons; specific scores are not reproduced here.
+- **Open work:** Applying the approach to more models, periods and proxy types, and to model evaluation in multi-model intercomparisons.
+- **Issues:** Results depend on the chosen membership functions and on proxy reconstruction uncertainties; spatial coverage of proxies is uneven.
+- *Basis: abstract+knowledge*
 
 ### [A Deep Learning Earth System Model for Efficient Simulation of the Observed Climate](https://doi.org/10.1029/2025av001706)
 Cresswell-Clay et al. (2024), *AGU Advances*. 46 citations.
@@ -4286,7 +4652,13 @@ Clark et al. (2025), *Journal of Geophysical Research*. 15 citations.
 ### [Forecasting Global Temperature Variations by Neural Networks](https://doi.org/10.21236/ada290081)
 Miyano et al. (1994), *Preprint*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts global temperature variations and tests whether climate dynamics show low-dimensional chaos and a regime change.
+- **Architecture:** Regularization networks (radial basis function type) optimized by stochastic gradient descent with colored noise, compared with multilayer perceptrons and linear autoregression.
+- **Data:** Annual global mean temperature anomaly series from 1861 to 1984, used for training and out-of-sample forecasting.
+- **Main result:** The regularization network gives the best forecasts; errors of all models increase noticeably after 1965, consistent with a change in climate dynamics.
+- **Open work:** Longer and independent records and physical interpretation of the apparent post-1965 change in dynamics.
+- **Issues:** Single short annual time series; the low-dimensional chaos interpretation is speculative and the sample is small for neural network training.
+- *Basis: abstract*
 
 ### [Reanalysis‐Based Global Radiative Response to Sea Surface Temperature Patterns: Evaluating the Ai2 Climate Emulator](https://doi.org/10.1029/2025gl115432)
 Loon et al. (2025), *Geophysical Research Letters*. 13 citations.
@@ -4324,12 +4696,24 @@ Bouabid et al. (2025), *Journal of Advances in Modeling Earth Systems*. 11 citat
 ### [A Knowledge-Based System for the Diagnosis and Prediction of Short-Term Climatic Changes in the North Atlantic](https://doi.org/10.1175/1520-0442(1996)009<1816:akbsft>2.0.co;2)
 Rodionov et al. (1996), *Journal of Climate*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Develops CESNA (Climatic Expert System for the North Atlantic) to diagnose and predict short-term climate changes using heuristic knowledge.
+- **Architecture:** Knowledge-based expert system using AI methods for representing and reasoning with uncertain knowledge.
+- **Data:** Empirical rules and observed climate data for the North Atlantic, including sea temperature; details not reported.
+- **Main result:** Prototype CESNA was evaluated on predicting sea temperature; scores not given in the abstract.
+- **Open work:** Refining the knowledge base and comparing with GCM predictions follow naturally.
+- **Issues:** Heuristic knowledge may be incomplete or nonstationary; limited evaluation.
+- *Basis: abstract*
 
 ### [Reproducing a Subjective Classification Scheme for Atmospheric Circulation Patterns over the United Kingdom Using a Neural Network](https://doi.org/10.1007/3-540-61510-5_50)
 Cawley et al. (1996), *International Conference on Artificial Neural Networks*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Reproduces the subjective Lamb weather-type classification of UK circulation patterns objectively with a neural network.
+- **Architecture:** Neural network (multilayer perceptron) classifier.
+- **Data:** Gridded mean sea-level pressure fields over the UK with Lamb weather-type labels; period not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Applying the classifier to climate model output follows naturally.
+- **Issues:** No abstract available; subjective labels are inherently noisy.
+- *Basis: assessment*
 
 ### [Probing forced responses and causality in data-driven climate emulators: conceptual limitations and the role of reduced-order models](https://arxiv.org/abs/2506.22552)
 Falasca (2025), *arXiv*. 10 citations.
@@ -4389,12 +4773,24 @@ Clark et al. (2026), *arXiv*. 6 citations.
 ### Nonlinear principal component analysis of climate data
 Sengupta et al. (1995), *Preprint*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Extracts nonlinear modes of variability from climate data, which linear principal component analysis cannot represent compactly.
+- **Architecture:** Nonlinear principal component analysis implemented with an autoassociative (bottleneck) neural network, compared with linear PCA/EOF analysis.
+- **Data:** Climate fields from observations or climate model output; specific datasets are not reported in the available record.
+- **Main result:** Indicates that nonlinear PCA captures more variance with fewer components than linear PCA for the examined climate data; numbers not reported in the available record.
+- **Open work:** Physical interpretation of nonlinear modes and application to larger climate datasets.
+- **Issues:** Autoassociative networks are prone to overfitting and local minima; modes can be hard to interpret.
+- *Basis: assessment*
 
 ### Climate Sensitivity Analysis Using Neural Networks
 Astrid et al. (1996), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates climate sensitivity by using neural networks to analyse relationships between climate variables or forcings and responses.
+- **Architecture:** Neural network used for sensitivity analysis of climate relationships; architecture details not reported in the available record.
+- **Data:** Climate observations or model output; datasets not reported in the available record.
+- **Main result:** Not reported in the available record; the title implies neural networks can quantify climate sensitivities.
+- **Open work:** Comparison with physical model sensitivities and with linear statistical methods.
+- **Issues:** Neural network sensitivities may reflect statistical associations rather than causal physical responses.
+- *Basis: assessment*
 
 ### [Modulation of Tropical Cyclogenesis by the Convectively Coupled Kelvin Waves: Insights From Data‐Driven Climate Emulator ACE2](https://doi.org/10.1029/2025gl117387)
 Chien et al. (2026), *Geophysical Research Letters*. 4 citations.
@@ -5604,7 +6000,13 @@ Leinonen et al. (2020), *IEEE Transactions on Geoscience and Remote Sensing*. 21
 ### [Large-scale circulation anomalies conducive to extreme precipitation events and derivation of daily rainfall in northeastern Mexico and southeastern Texas](https://doi.org/10.1175/1520-0442(1999)012<1506:lscact>2.0.co;2)
 Cavazos (1999), *Journal of Climate*. 204 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies large-scale circulation anomalies associated with extreme precipitation in northeastern Mexico and southeastern Texas and derives daily station rainfall from them, a statistical downscaling problem.
+- **Architecture:** Principal component analysis combined with a self-organizing map (Kohonen network) to classify circulation patterns, plus a feed-forward artificial neural network to downscale daily rainfall.
+- **Data:** NCEP-NCAR reanalysis atmospheric fields as predictors and daily station precipitation records in the study region; exact period not reported here.
+- **Main result:** Distinct circulation anomaly types are linked to extreme rainfall events, and the neural network reproduces daily rainfall variability, though magnitudes of extremes are harder to capture.
+- **Open work:** Testing on other seasons and regions, and applying the downscaling to climate model output for scenario projections.
+- **Issues:** Downscaling relationships are calibrated on a limited reanalysis period and assume stationarity; extremes are rare in the training sample.
+- *Basis: abstract+knowledge*
 
 ### [A Generative Deep Learning Approach to Stochastic Downscaling of Precipitation Forecasts](https://doi.org/10.1029/2022ms003120)
 Harris et al. (2022), *Journal of Advances in Modeling Earth Systems*. 202 citations.
@@ -5664,7 +6066,13 @@ Miao et al. (2019), *Water*. 126 citations.
 ### [Simulation of daily temperatures for climate change scenarios over Portugal: a neural network model approach](https://doi.org/10.3354/cr013045)
 Trigo et al. (1999), *Climate Research*. 121 citations.
 
-*Summary pending.*
+- **Main goal:** Downscales large-scale climate to daily maximum and minimum temperature at stations in Portugal to build local climate change scenarios.
+- **Architecture:** Artificial neural network (multilayer perceptron) statistical downscaling from large-scale circulation and temperature predictors, compared with linear regression.
+- **Data:** Observed daily station temperatures in Portugal with large-scale predictors; applied to general circulation model output (HadCM2) for climate change scenarios.
+- **Main result:** The neural network reproduces observed daily temperatures well and is applied to project local temperature changes under enhanced greenhouse forcing.
+- **Open work:** Extending the approach to precipitation and to multiple GCMs, and assessing stationarity of the predictor-predictand relationship.
+- **Issues:** Downscaling inherits GCM biases in predictors and assumes the trained relationship holds under a changed climate; single-model scenarios.
+- *Basis: abstract+knowledge*
 
 ### [DeepDownscale: A Deep Learning Strategy for High-Resolution Weather Forecast](https://doi.org/10.1109/escience.2018.00130)
 Rodrigues et al. (2018), *IEEE International Conference on e-Science*. 114 citations.
@@ -5867,7 +6275,13 @@ Serifi et al. (2021), *Frontiers in Climate*. 67 citations.
 ### [A case study of statistical downscaling in Australia using weather classification by recursive partitioning](https://doi.org/10.1016/s0022-1694(98)00217-0)
 Schnur et al. (1998), *Journal of Hydrology*. 67 citations.
 
-*Summary pending.*
+- **Main goal:** Downscales large-scale atmospheric information to local daily precipitation in Australia for climate impact studies.
+- **Architecture:** Weather classification by recursive partitioning (classification and regression tree, CART) linking circulation states to station precipitation, with a stochastic precipitation model conditioned on weather states.
+- **Data:** Daily station precipitation in Australia with large-scale atmospheric circulation data (observations and GCM output); periods not reported here.
+- **Main result:** The weather-type approach reproduces key precipitation statistics at stations; specifics not reported here.
+- **Open work:** Application to GCM climate change simulations depends on GCM realism of circulation.
+- **Issues:** Assumes stationary weather-type-precipitation relationships; GCM circulation biases propagate to downscaled results.
+- *Basis: assessment*
 
 ### [Diffusion model-based probabilistic downscaling for 180-year East Asian climate reconstruction](https://doi.org/10.1038/s41612-024-00679-1)
 Ling et al. (2024), *npj Climate and Atmospheric Science*. 63 citations.
@@ -6103,7 +6517,13 @@ Shi (2020), *Geophysical Research Letters*. 24 citations.
 ### [Relationship Between Monthly Atmospheric Circulation Patterns and Precipitation: Fuzzy Logic and Regression Approaches](https://doi.org/10.1029/96wr00289)
 Özelkan et al. (1996), *Water Resources Research*. 23 citations.
 
-*Summary pending.*
+- **Main goal:** Relates monthly atmospheric circulation patterns to precipitation to support downscaling and water resources assessment.
+- **Architecture:** Fuzzy logic rule-based model compared with regression approaches linking circulation pattern frequencies to precipitation.
+- **Data:** Monthly atmospheric circulation pattern classifications and station precipitation records; region details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the fuzzy rule-based approach is compared with regression for reproducing monthly precipitation.
+- **Open work:** Use for climate change downscaling and extension to other variables and regions.
+- **Issues:** No abstract available; monthly aggregation hides extremes, and fuzzy rule definition involves subjective choices.
+- *Basis: assessment*
 
 ### [On the use of convolutional neural networks for downscaling daily temperatures over southern South America in a climate change scenario](https://doi.org/10.1007/s00382-023-06912-6)
 Balmaceda-Huarte et al. (2023), *Climate Dynamics*. 22 citations.
@@ -6152,7 +6572,13 @@ Tu et al. (2025), *Computer Vision and Pattern Recognition*. 19 citations.
 ### [Predicting Snowfall from Synoptic Circulation: A Comparison of Linear Regression and Neural Network Methodologies](https://doi.org/10.1007/978-94-011-1122-5_5)
 McGinnis (1994), *Preprint*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts snowfall from synoptic atmospheric circulation, comparing linear regression and neural network approaches for downscaling.
+- **Architecture:** Neural network compared with linear regression mapping synoptic circulation fields to snowfall.
+- **Data:** Synoptic circulation fields and station snowfall observations; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the comparison assesses whether neural networks capture nonlinear circulation-snowfall relations better than regression.
+- **Open work:** Use for climate change scenarios and other regions.
+- **Issues:** No abstract available; downscaling assumes stationary circulation-snowfall relations.
+- *Basis: assessment*
 
 ### [Are Deep Learning Methods Suitable for Downscaling Global Climate Projections? An Intercomparison for Temperature and Precipitation over Spain](https://doi.org/10.1175/aies-d-24-0121.1)
 González-Abad et al. (2024), *Artificial Intelligence for the Earth Systems*. 16 citations.
@@ -6223,7 +6649,13 @@ Rampal et al. (2025), *arXiv*. 8 citations.
 ### Downscaling large-scale circulation to local winter climate using neural network techniques
 Perez et al. (1998), *Preprint*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Downscales large-scale atmospheric circulation to local winter climate variables for regional climate studies.
+- **Architecture:** Neural network statistical downscaling model linking large-scale circulation predictors to local climate.
+- **Data:** Large-scale circulation fields and local station winter climate records; specific region and datasets not reported in the available metadata.
+- **Main result:** Reports that neural network downscaling captures local winter climate variability from circulation; skill figures not reported in the available metadata.
+- **Open work:** Applying the downscaling to climate model scenarios.
+- **Issues:** Stationarity of predictor-predictand relations is assumed; author and region metadata are unclear.
+- *Basis: assessment*
 
 ### [Universal Diffusion-Based Probabilistic Downscaling](https://arxiv.org/abs/2602.11893)
 Molinaro et al. (2026), *arXiv*. 6 citations.
@@ -6872,7 +7304,13 @@ Zhu et al. (2017), *arXiv*. 2,000 citations.
 ### [Precipitation Estimation from Remotely Sensed Information Using Artificial Neural Networks](https://doi.org/10.1175/1520-0450(1997)036<1176:pefrsi>2.0.co;2)
 Hsu et al. (1997), *Journal of Applied Meteorology*. 1,082 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall rate from satellite infrared imagery to provide precipitation fields where gauges and radar are sparse (the PERSIANN system).
+- **Architecture:** Modified counterpropagation artificial neural network: a self-organizing feature map that classifies inputs followed by a Grossberg linear output layer, with adaptive online updating of parameters.
+- **Data:** Geostationary infrared brightness temperatures with surface-derived input features, trained and validated against rain gauge and radar rainfall over test regions.
+- **Main result:** The network produces rainfall estimates at hourly and fine spatial resolution that compare favorably with other satellite techniques and improve when parameters are updated with ground observations.
+- **Open work:** Incorporation of microwave data, global extension and continued adaptive calibration.
+- **Issues:** Infrared signals relate only indirectly to surface rain; skill depends on regime and on availability of ground truth for updating.
+- *Basis: abstract+knowledge*
 
 ### [Precipitation Estimation from Remotely Sensed Imagery Using an Artificial Neural Network Cloud Classification System](https://doi.org/10.1175/jam2173.1)
 Hong et al. (2004), *Journal of Applied Meteorology*. 794 citations.
@@ -6888,7 +7326,13 @@ Hong et al. (2004), *Journal of Applied Meteorology*. 794 citations.
 ### [Classification of snow cover and precipitation using the special sensor microwave imager](https://doi.org/10.1029/91jd00045)
 Grody (1991), *Journal of Geophysical Research*. 496 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies snow cover and precipitation from passive microwave observations to support global monitoring.
+- **Architecture:** Physically based decision tree (threshold-based screening) classification using microwave brightness temperatures; not a learned model.
+- **Data:** DMSP Special Sensor Microwave/Imager (SSM/I) brightness temperatures at multiple frequencies.
+- **Main result:** Develops a decision-tree classifier that separates snow cover, precipitation and other surfaces such as cold deserts and frozen ground.
+- **Open work:** Quantitative snow and rain retrieval and better handling of ambiguous surfaces.
+- **Issues:** Confusion with surfaces of similar scattering signatures; thresholds may be region dependent.
+- *Basis: abstract+knowledge*
 
 ### [A cloud detection algorithm for satellite imagery based on deep learning](https://doi.org/10.1016/j.rse.2019.03.039)
 Jeppesen et al. (2019), *Remote Sensing of Environment*. 387 citations.
@@ -6904,17 +7348,35 @@ Jeppesen et al. (2019), *Remote Sensing of Environment*. 387 citations.
 ### [Radiometric profiling of temperature, water vapor and cloud liquid water using various inversion methods](https://doi.org/10.1029/97rs03656)
 Solheim et al. (1998), *Radio Science*. 292 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves vertical profiles of temperature, water vapour and cloud liquid water from ground-based multichannel microwave radiometer observations.
+- **Architecture:** Comparison of inversion methods including statistical regression, a neural network and physical iterative (Bayesian/Newtonian) retrievals.
+- **Data:** Ground-based microwave radiometer brightness temperatures with radiosonde profiles for training and validation.
+- **Main result:** Profiles are retrieved with useful accuracy in the lower troposphere, with neural network and regression methods performing comparably; details not reproduced here.
+- **Open work:** Combining radiometry with other sensors to improve vertical resolution and cloud liquid retrieval.
+- **Issues:** Vertical resolution degrades with height; statistical retrievals depend on the representativeness of the radiosonde training climatology.
+- *Basis: abstract+knowledge*
 
 ### [Global identification of snowcover using SSM/I measurements](https://doi.org/10.1109/36.481908)
 Grody et al. (1996), *IEEE Transactions on Geoscience and Remote Sensing*. 286 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies snow cover globally from passive microwave measurements, separating snow from other scattering surfaces such as precipitation, cold desert and frozen ground.
+- **Architecture:** Non-ML decision-tree (threshold) algorithm based on scattering indices from multiple SSM/I channels.
+- **Data:** SSM/I brightness temperatures with comparisons against snow cover analyses.
+- **Main result:** The algorithm identifies global snow cover consistent with independent snow maps while screening out confounding scatterers.
+- **Open work:** Retrieval of snow depth or water equivalent and improved detection of shallow and wet snow.
+- **Issues:** Misses shallow and wet snow; coarse resolution and threshold choices limit accuracy in some regions.
+- *Basis: abstract+knowledge*
 
 ### [A neural network approach to cloud classification](https://doi.org/10.1109/36.58972)
 Lee et al. (1990), *IEEE Transactions on Geoscience and Remote Sensing*. 285 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies cloud types in satellite imagery using neural networks applied to textural features.
+- **Architecture:** Backpropagation neural network (multilayer perceptron) using texture features, compared with statistical classifiers.
+- **Data:** Landsat Multispectral Scanner imagery samples of stratocumulus, cumulus and cirrus clouds.
+- **Main result:** The neural network achieves high classification accuracy, exceeding traditional statistical classification methods.
+- **Open work:** Larger and more varied training samples and more cloud classes.
+- **Issues:** Small sample of scenes; classes limited to a few cloud types; texture features from one sensor.
+- *Basis: abstract+knowledge*
 
 ### [A Survey on Gaussian Processes for Earth-Observation Data Analysis: A Comprehensive Investigation](https://doi.org/10.1109/mgrs.2015.2510084)
 Camps-Valls et al. (2016), *IEEE Geoscience and Remote Sensing Magazine*. 257 citations.
@@ -6930,7 +7392,13 @@ Camps-Valls et al. (2016), *IEEE Geoscience and Remote Sensing Magazine*. 257 ci
 ### [Retrieval of land surface albedo from satellite observations: a simulation study](https://doi.org/10.1109/igarss.1998.691379)
 Liang et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 252 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses, through simulations, how well land surface albedo can be retrieved from satellite observations.
+- **Architecture:** Retrieval algorithms developed from radiative transfer simulations; the specific inversion method is not reliably known here.
+- **Data:** Simulated surface and top-of-atmosphere reflectances from radiative transfer models.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Validation with real satellite data and field albedo measurements.
+- **Issues:** Simulation-only study, so performance depends on the realism of the modeled surfaces and atmospheres.
+- *Basis: assessment*
 
 ### [Improving Precipitation Estimation Using Convolutional Neural Network](https://doi.org/10.1029/2018wr024090)
 Pan et al. (2019), *Water Resources Research*. 240 citations.
@@ -6957,22 +7425,46 @@ Wu et al. (2020), *Journal of Hydrology*. 215 citations.
 ### [Estimation of physical variables from multichannel remotely sensed imagery using a neural network: Application to rainfall estimation](https://doi.org/10.1029/1999wr900032)
 Hsu et al. (1999), *Water Resources Research*. 212 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall from multichannel remotely sensed imagery using neural networks.
+- **Architecture:** Modified counterpropagation network combining a self-organizing feature map with a Grossberg linear output layer (the PERSIANN approach).
+- **Data:** Geostationary infrared satellite imagery with ground radar or gauge rainfall data for training and validation.
+- **Main result:** The network produces rainfall estimates more accurate than conventional infrared techniques.
+- **Open work:** Including microwave data and online adaptive training.
+- **Issues:** Infrared-based estimates are indirectly related to rainfall; performance varies by region and season.
+- *Basis: abstract+knowledge*
 
 ### Feature Selection for Case-Based Classification of Cloud Types: An Empirical Comparison
 Aha et al. (1994), *Preprint*. 181 citations.
 
-*Summary pending.*
+- **Main goal:** Examines which features matter for classifying cloud types in satellite imagery with case-based learning, where irrelevant features degrade performance.
+- **Architecture:** Case-based (k-nearest neighbour, instance-based) classifier combined with sequential feature selection algorithms (forward and backward selection, beam search variants) in an empirical comparison.
+- **Data:** Labelled AVHRR cloud samples with many spectral and textural features compiled by Bankert; sample counts not reported here.
+- **Main result:** Feature selection substantially reduces the feature set while maintaining or improving classification accuracy, with backward-style search tending to perform well.
+- **Open work:** Comparison with other classifiers and more efficient feature selection for large feature sets.
+- **Issues:** Results depend on a single expert-labelled cloud dataset; feature search is computationally expensive and may overfit the evaluation data.
+- *Basis: abstract+knowledge*
 
 ### [A study of cloud classification with neural networks using spectral and textural features](https://doi.org/10.1109/72.737500)
 Tian et al. (1999), *IEEE Trans. Neural Networks*. 181 citations.
 
-*Summary pending.*
+- **Main goal:** Studies cloud classification from multispectral geostationary satellite imagery and which spectral and textural features best separate cloud types.
+- **Architecture:** Neural network classifiers applied to spectral features and textural features (e.g., gray-level co-occurrence and transform-based texture measures), compared across feature sets.
+- **Data:** GOES-8 multispectral imagery with expert-labelled cloud samples; exact sample sizes not reported here.
+- **Main result:** Combining spectral and textural features improves classification accuracy over spectral features alone; specific accuracy figures not reported here.
+- **Open work:** Adding temporal information and testing over more regions and seasons.
+- **Issues:** Depends on subjective expert labels and a limited set of scenes; generalization to other sensors and regions is untested.
+- *Basis: abstract+knowledge*
 
 ### [Identification of hydrometeors and other targets by dual‐polarization radar](https://doi.org/10.1029/rs019i001p00132)
 Hall et al. (1984), *Radio Science*. 177 citations.
 
-*Summary pending.*
+- **Main goal:** Uses dual-polarization radar measurements to identify hydrometeor types and other radar targets, improving interpretation of precipitation echoes.
+- **Architecture:** Non-ML method: interpretation of reflectivity and differential reflectivity (ZDR) signatures to discriminate rain, hail, snow, melting layer and non-meteorological targets.
+- **Data:** Dual-polarization S-band observations from the Chilbolton radar in southern England.
+- **Main result:** Differential reflectivity combined with reflectivity distinguishes rain, ice and hail regions and non-meteorological echoes such as clutter and aircraft.
+- **Open work:** Quantitative, automated classification schemes and validation with in situ hydrometeor observations.
+- **Issues:** Largely qualitative case-based identification without systematic in situ verification; ambiguities remain between some ice types.
+- *Basis: abstract+knowledge*
 
 ### [PERSIANN-CNN: Precipitation Estimation from Remotely Sensed Information Using Artificial Neural Networks–Convolutional Neural Networks](https://doi.org/10.1175/jhm-d-19-0110.1)
 Sadeghi et al. (2019), *Journal of Hydrometeorology*. 176 citations.
@@ -6988,17 +7480,35 @@ Sadeghi et al. (2019), *Journal of Hydrometeorology*. 176 citations.
 ### [Cloud Classification of AVHRR Imagery in Maritime Regions Using a Probabilistic Neural Network](https://doi.org/10.1175/1520-0450(1994)033<0909:ccoaii>2.0.co;2)
 Bankert (1994), *Journal of Applied Meteorology*. 170 citations.
 
-*Summary pending.*
+- **Main goal:** Automates cloud classification of satellite imagery over maritime regions to support analysts and forecasters.
+- **Architecture:** Probabilistic neural network classifier using spectral and textural features from image samples, with feature selection to reduce the feature set.
+- **Data:** AVHRR imagery samples over maritime regions labelled by experts into about ten cloud classes.
+- **Main result:** The probabilistic neural network achieves overall classification accuracy of roughly 80% on independent samples, with confusion mainly between similar cloud types.
+- **Open work:** Extending to other regions and sensors and adding multi-layer or nighttime classes.
+- **Issues:** Relies on subjective expert labels and fixed-size sample boxes that may contain mixed cloud types.
+- *Basis: abstract+knowledge*
 
 ### [A Pattern Recognition Technique for Distinguishing Surface and Cloud Types in the Polar Regions](https://doi.org/10.1175/1520-0450(1987)026<1412:aprtfd>2.0.co;2)
 Ebert (1987), *Preprint*. 156 citations.
 
-*Summary pending.*
+- **Main goal:** Distinguishes clouds from snow and ice surfaces in polar satellite imagery, which is difficult with simple thresholds.
+- **Architecture:** Pattern recognition classifier (maximum likelihood style supervised classification) using spectral and textural features of image samples.
+- **Data:** AVHRR imagery over polar regions with expert-labelled samples covering many surface and cloud classes.
+- **Main result:** Combining spectral and textural features separates most surface and cloud types in polar scenes with good accuracy; specific figures not reported here.
+- **Open work:** Application to climatological cloud analysis and extension to more seasons and sensors.
+- **Issues:** Depends on expert labelling and limited training scenes; low sun angles and thin cloud remain problematic.
+- *Basis: assessment*
 
 ### [Polar Cloud and Surface Classification Using AVHRR Imagery: An Intercomparison of Methods](https://doi.org/10.1175/1520-0450(1992)031<0405:pcascu>2.0.co;2)
 Welch et al. (1992), *Journal of Applied Meteorology*. 147 citations.
 
-*Summary pending.*
+- **Main goal:** Compares methods for classifying clouds and surface types in polar AVHRR imagery, where cloud and snow/ice are spectrally similar.
+- **Architecture:** Intercomparison of classification methods, including statistical classifiers and a neural network, using spectral and textural features.
+- **Data:** AVHRR imagery over polar regions with expert-labelled samples.
+- **Main result:** Neural network and statistical classifiers achieve comparable and generally good accuracy; specific values not reported here.
+- **Open work:** Combining methods and testing across seasons and regions.
+- **Issues:** Limited labelled samples and subjective labels; results may depend on chosen feature sets.
+- *Basis: assessment*
 
 ### [A Deep Neural Network Modeling Framework to Reduce Bias in Satellite Precipitation Products](https://doi.org/10.1175/jhm-d-15-0075.1)
 Tao et al. (2016), *Journal of Hydrometeorology*. 130 citations.
@@ -7014,47 +7524,101 @@ Tao et al. (2016), *Journal of Hydrometeorology*. 130 citations.
 ### [A neural network as a nonlinear transfer function model for retrieving surface wind speeds from the special sensor microwave imager](https://doi.org/10.1029/95jc00857)
 Krasnopolsky et al. (1995), *Oceanographic Literature Review*. 123 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves ocean surface wind speed from satellite microwave radiometer data more accurately, including in cloudy conditions.
+- **Architecture:** Multilayer perceptron neural network as a nonlinear transfer function from brightness temperatures to wind speed.
+- **Data:** SSM/I brightness temperatures collocated with buoy wind measurements.
+- **Main result:** The neural network gives lower wind speed errors than existing regression algorithms, with better performance under moderate cloudiness and at high winds.
+- **Open work:** Operational implementation and extension to other variables.
+- **Issues:** Validation limited to buoy matchups; heavy rain conditions remain difficult.
+- *Basis: abstract+knowledge*
 
 ### [Development of a neural network based algorithm for rainfall estimation from radar observations](https://doi.org/10.1109/36.551944)
 Xiao et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*. 112 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates surface rainfall rate from radar observations, aiming to avoid the limitations of fixed reflectivity-rainfall (Z-R) relations.
+- **Architecture:** Feedforward neural network (multilayer perceptron) mapping radar measurements (reflectivity and polarimetric variables) to rain rate.
+- **Data:** Ground-based weather radar observations collocated with rain gauge measurements from a field campaign; details not reported here.
+- **Main result:** The neural network rainfall estimates agree better with gauges than conventional Z-R based estimates.
+- **Open work:** Testing across different climatic regimes and radars, and real-time implementation.
+- **Issues:** Training depends on gauge-radar matching errors and limited events; transferability to other regions is uncertain.
+- *Basis: assessment*
 
 ### [A neural network approach for modeling nonlinear transfer functions: Application for wind retrieval from spaceborne scatterometer data](https://doi.org/10.1029/93jc01815)
 Thiria et al. (1993), *Journal of Geophysical Research*. 102 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves ocean surface wind vectors from spaceborne scatterometer backscatter by learning the nonlinear transfer function.
+- **Architecture:** Multilayer perceptron neural networks modelling the scatterometer transfer function and inverting it for wind speed and direction.
+- **Data:** Simulated and/or collocated ERS-1 scatterometer backscatter with reference winds; details not reported here.
+- **Main result:** Neural networks retrieve wind speed and direction accurately and handle the nonlinear, multi-valued inversion better than empirical approaches.
+- **Open work:** Application to operational scatterometer data and ambiguity removal.
+- **Issues:** Performance depends on the representativeness of training data and reference winds.
+- *Basis: assessment*
 
 ### [Automated Cloud Classification of Global AVHRR Data Using a Fuzzy Logic Approach](https://doi.org/10.1175/1520-0450(1997)036<1519:accoga>2.0.co;2)
 Baum et al. (1997), *Journal of Applied Meteorology*. 99 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies clouds automatically in global satellite imagery for climate studies.
+- **Architecture:** Fuzzy logic classification of AVHRR pixels into clear, water cloud, ice cloud and multilayer categories.
+- **Data:** Global AVHRR Global Area Coverage (GAC) data.
+- **Main result:** The fuzzy logic approach classifies cloud types consistently, with accuracy comparable to expert analysis on test scenes.
+- **Open work:** Application to longer records and improved multilayer cloud detection.
+- **Issues:** Difficulty over snow, ice and at night; validation limited to expert-labelled scenes.
+- *Basis: abstract+knowledge*
 
 ### [Ocean surface wind retrievals from special sensor microwave imager data with neural networks](https://doi.org/10.1029/93jc03042)
 Stogryn et al. (1994), *Journal of Geophysical Research*. 82 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves ocean surface wind speed from satellite passive microwave data, aiming to improve on regression algorithms, especially in cloudy conditions.
+- **Architecture:** Feed-forward neural networks (multilayer perceptron) mapping brightness temperatures to wind speed, with separate networks for different atmospheric conditions.
+- **Data:** SSM/I brightness temperatures collocated with in situ buoy wind observations.
+- **Main result:** Neural network retrievals are more accurate than conventional regression algorithms; specific error statistics are not reported here.
+- **Open work:** Extending retrievals to wind direction and heavier precipitation conditions is a natural continuation.
+- **Issues:** Depends on collocation data quality and representativeness; performance degrades in rain.
+- *Basis: assessment*
 
 ### [A neural network approach to estimating rainfall from spaceborne microwave data](https://doi.org/10.1109/36.628775)
 Tsintikidis et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*. 79 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall from spaceborne passive microwave observations, where the radiance-rainfall relationship is highly nonlinear.
+- **Architecture:** Feed-forward neural network mapping microwave brightness temperatures to rain rate.
+- **Data:** Satellite passive microwave brightness temperatures (SSM/I-type frequencies) with rainfall reference data; specific datasets not reported here.
+- **Main result:** The neural network provides rainfall estimates competitive with conventional retrieval approaches; numbers not reported here.
+- **Open work:** Validation over more regimes and against independent ground radar would strengthen the method.
+- **Issues:** Retrievals depend on the representativeness of training data and beam-filling assumptions.
+- *Basis: assessment*
 
 ### [Determination of Rainfall Rates from GOES Satellite Images by a Pattern Recognition Technique](https://doi.org/10.1175/1520-0426(1985)002<0314:dorrfg>2.0.co;2)
 Wu et al. (1985), *Journal of Atmospheric and Oceanic Technology*. 76 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall rates from geostationary satellite imagery, which offers broad coverage but only indirect cloud-top information.
+- **Architecture:** Pattern recognition technique classifying visible and infrared image features (e.g. brightness and texture) into rain-rate categories; not a neural network.
+- **Data:** GOES visible and infrared images with radar-derived rainfall for training and verification.
+- **Main result:** The pattern recognition method yields rain rate estimates that agree reasonably with radar; specific statistics not reported here.
+- **Open work:** Application to other regions and storm types would test generality.
+- **Issues:** Indirect relationship between cloud-top properties and surface rain; limited training cases.
+- *Basis: assessment*
 
 ### [Application of neural networks to AVHRR cloud segmentation](https://doi.org/10.1109/36.387575)
 Yhann et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 72 citations.
 
-*Summary pending.*
+- **Main goal:** Segments clouds in AVHRR satellite imagery, a prerequisite for surface and cloud retrievals.
+- **Architecture:** Neural network classifier (feed-forward) applied to AVHRR image features for cloud segmentation.
+- **Data:** NOAA AVHRR multispectral imagery with labelled cloud and clear-sky samples; regions not reported here.
+- **Main result:** The neural network segments clouds effectively compared with conventional methods; quantitative results not reported here.
+- **Open work:** Testing across seasons, regions and surface types would assess robustness.
+- **Issues:** Dependent on labelled training samples; performance over difficult surfaces such as snow and sunglint is uncertain.
+- *Basis: assessment*
 
 ### [Segmentation of Satellite Imagery Using Hierarchical Thresholding and Neural Networks](https://doi.org/10.1175/1520-0450(1994)033<0605:sosiuh>2.0.co;2)
 Peak et al. (1994), *Journal of Applied Meteorology*. 70 citations.
 
-*Summary pending.*
+- **Main goal:** Segments satellite imagery into cloud and surface regions as a step toward automated cloud classification.
+- **Architecture:** Hierarchical thresholding combined with a neural network classifier for image segmentation.
+- **Data:** Satellite imagery (e.g. AVHRR); specific scenes not reported here.
+- **Main result:** The combined thresholding and neural network approach yields usable segmentations; quantitative results not reported here.
+- **Open work:** Integration into automated cloud classification systems is the natural next step.
+- **Issues:** Thresholds and training samples are scene-dependent; limited evaluation.
+- *Basis: assessment*
 
 ### [Development and Interpretation of a Neural Network-Based Synthetic Radar Reflectivity Estimator Using GOES-R Satellite Observations](https://doi.org/10.1175/jamc-d-20-0084.1)
 Hilburn et al. (2020), *Journal of Applied Meteorology and Climatology*. 69 citations.
@@ -7081,27 +7645,57 @@ Rasp et al. (2019), *Bulletin of the American Meteorological Society*. 69 citati
 ### [Analysis of Polar Clouds from Satellite Imagery Using Pattern Recognition and a Statistical Cloud Analysis Scheme](https://doi.org/10.1175/1520-0450(1989)028<0382:aopcfs>2.0.co;2)
 Ebert (1989), *Journal of Applied Meteorology*. 67 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses polar clouds from satellite imagery, where cloud detection over snow and ice is difficult.
+- **Architecture:** Pattern recognition classification using spectral and textural features into surface and cloud classes, followed by a statistical cloud analysis scheme to estimate cloud fraction; not a neural network.
+- **Data:** AVHRR multispectral imagery over Arctic and Antarctic regions.
+- **Main result:** The pattern recognition approach identifies polar surface and cloud types and estimates cloud amounts reasonably; numbers not reported here.
+- **Open work:** Validation against surface observations and extension to more seasons are natural next steps.
+- **Issues:** Cloud-surface contrast over snow and ice remains challenging; limited independent validation.
+- *Basis: assessment*
 
 ### [Contextual Pattern Recognition Applied to Cloud Detection and Identification](https://doi.org/10.1109/tgrs.1985.289471)
 Kittler et al. (1985), *IEEE Transactions on Geoscience and Remote Sensing*. 66 citations.
 
-*Summary pending.*
+- **Main goal:** Detects and identifies clouds in satellite imagery by exploiting spatial context, not only per-pixel spectral information.
+- **Architecture:** Contextual pattern recognition (statistical contextual classifier) for cloud detection and identification; not a neural network.
+- **Data:** Satellite multispectral imagery; sensor and scenes not reported here.
+- **Main result:** Using contextual information improves cloud classification accuracy over per-pixel classification; numbers not reported here.
+- **Open work:** Extension to more cloud classes and operational settings is natural.
+- **Issues:** Requires training statistics for each class; tested on limited scenes.
+- *Basis: assessment*
 
 ### Cloud classification using whole-sky imager data
 Buch et al. (1995), *Preprint*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Automates classification of sky and cloud types from ground-based whole-sky imager photographs, to replace subjective human cloud observations.
+- **Architecture:** Pattern-recognition classifier using spectral and texture features of sky images, based on binary decision trees.
+- **Data:** Whole-sky imager images from a ground site (ARM program context); exact site and period not reported in the available metadata.
+- **Main result:** The automated classifier separates major cloud types with moderate accuracy; exact accuracy figures not reported here.
+- **Open work:** More cloud classes, larger labelled image sets and combination with other sensors such as ceilometers or radiometers.
+- **Issues:** Single-site imagery, subjective human labels as reference and confusion between similar cloud types.
+- *Basis: abstract+knowledge*
 
 ### [Rainfall estimation using artificial neural network group](https://doi.org/10.1016/s0925-2312(96)00022-7)
 Zhang et al. (1997), *Neurocomputing*. 63 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall from satellite observations, supporting operational heavy-rainfall and flash-flood analysis.
+- **Architecture:** Artificial neural network group, an ensemble of neural networks (including higher-order or polynomial networks) combined to estimate rainfall.
+- **Data:** Satellite imagery and associated rainfall estimates from the NOAA/NESDIS satellite rainfall estimation context; details not reported in the available metadata.
+- **Main result:** The neural network group gives lower rainfall-estimation error than single networks or conventional techniques; exact figures not reported here.
+- **Open work:** Wider testing over more storms and regions and integration into operational estimation workflows.
+- **Issues:** Limited cases and reference data; transferability to other regions and satellite sensors is unclear.
+- *Basis: assessment*
 
 ### [Remote sensing of the vertical distribution of atmospheric water vapor from the TOVS observations: Method and validation](https://doi.org/10.1029/98jd00045)
 Chaboureau et al. (1998), *Journal of Geophysical Research*. 62 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves the vertical distribution of atmospheric water vapour from TOVS satellite sounder observations, for climate and weather studies.
+- **Architecture:** Neural network (multilayer perceptron) retrieval of layer precipitable water from TOVS radiances, trained on a radiative-transfer-simulated atmospheric profile database.
+- **Data:** TOVS (HIRS/MSU) radiances, TIGR atmospheric profile database with simulated radiances, and radiosonde observations for validation.
+- **Main result:** Retrieved layer water vapour agrees well with radiosondes, with errors comparable to or better than previous TOVS methods.
+- **Open work:** Application to long TOVS records for water vapour climatology and to newer sounders.
+- **Issues:** Accuracy degrades in cloudy and upper-tropospheric conditions; radiosonde validation has its own humidity biases.
+- *Basis: abstract+knowledge*
 
 ### [Using deep learning to emulate and accelerate a radiative-transfer model](https://doi.org/10.1175/jtech-d-21-0007.1)
 Lagerquist et al. (2021), *Journal of Atmospheric and Oceanic Technology*. 60 citations.
@@ -7128,7 +7722,13 @@ Tao et al. (2017), *Journal of Hydrometeorology*. 60 citations.
 ### [A combined natural orthogonal functions/neural network technique for the radiometric estimation of atmospheric profiles](https://doi.org/10.1029/97rs02219)
 Frate et al. (1998), *Radio Science*. 60 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates atmospheric temperature and humidity profiles from microwave radiometric measurements, improving on linear statistical inversion.
+- **Architecture:** Natural orthogonal functions (EOF) compression of profiles combined with a neural network (multilayer perceptron) for the inversion.
+- **Data:** Simulated microwave brightness temperatures computed from radiosonde profiles; specific stations and radiometer channels not reported here.
+- **Main result:** The combined EOF and neural network method retrieves profiles more accurately than linear regression inversion.
+- **Open work:** Application to real radiometer data and to additional channels or sensors.
+- **Issues:** Evaluation largely on simulated radiances; real instrument noise and calibration errors may reduce gains.
+- *Basis: assessment*
 
 ### [Reconstruction of Cloud Vertical Structure With a Generative Adversarial Network](https://doi.org/10.1029/2019gl082532)
 Leinonen et al. (2019), *Geophysical Research Letters*. 59 citations.
@@ -7155,22 +7755,46 @@ Denby (2020), *Geophysical Research Letters*. 56 citations.
 ### [Nonlinear principal component analysis for the radiometric inversion of atmospheric profiles by using neural networks](https://doi.org/10.1109/36.789630)
 Frate et al. (1999), *IEEE Transactions on Geoscience and Remote Sensing*. 56 citations.
 
-*Summary pending.*
+- **Main goal:** Improves retrieval of atmospheric temperature and humidity profiles from microwave radiometric measurements.
+- **Architecture:** Nonlinear principal component analysis implemented with an autoassociative neural network, combined with a multilayer perceptron inversion network.
+- **Data:** Radiosonde profiles and corresponding simulated microwave brightness temperatures; stations and channels not reported here.
+- **Main result:** Nonlinear PCA compression with neural network inversion is reported to improve retrieval accuracy over linear approaches; exact errors not reported here.
+- **Open work:** Application to real radiometer measurements and other sensors.
+- **Issues:** Mostly simulated radiances; real noise and calibration may reduce gains.
+- *Basis: assessment*
 
 ### [The Hopfield neural network as a tool for feature tracking and recognition from satellite sensor images](https://doi.org/10.1080/014311697218809)
 Côté et al. (1997), *International Journal of Remote Sensing*. 53 citations.
 
-*Summary pending.*
+- **Main goal:** Tracks and recognises features such as clouds between successive satellite images, for example for cloud motion estimation.
+- **Architecture:** Hopfield neural network formulated as an optimisation for matching features between images.
+- **Data:** Satellite sensor images; specific sensor and scenes not reported in the available metadata.
+- **Main result:** The Hopfield network successfully matches and tracks features; quantitative comparison not reported here.
+- **Open work:** Larger datasets, comparison with correlation-based tracking and operational wind derivation.
+- **Issues:** Few test cases; Hopfield networks can converge to poor local minima.
+- *Basis: assessment*
 
 ### [Radiance spectra classification from the Ocean Color and Temperature Scanner on ADEOS](https://doi.org/10.1109/36.763281)
 Ainsworth et al. (1999), *IEEE Transactions on Geoscience and Remote Sensing*. 48 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies radiance spectra measured by the Ocean Color and Temperature Scanner (OCTS) on ADEOS, to separate surface and atmospheric types in ocean-colour imagery.
+- **Architecture:** Spectral classification of multiband radiances; the specific classifier is not reported here.
+- **Data:** OCTS radiance imagery from the ADEOS satellite; scenes and period not reported here.
+- **Main result:** Not reported in the abstract; the title implies a classification of OCTS radiance spectra into distinct spectral classes.
+- **Open work:** Extending the classification to other ocean-colour sensors and validating classes against in situ observations.
+- **Issues:** No abstract available; method, accuracy and validation cannot be assessed from the record.
+- *Basis: assessment*
 
 ### [Microwave radiometric technique to retrieve vapor, liquid and ice. I. Development of a neural network-based inversion method](https://doi.org/10.1109/36.563260)
 Li et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*. 48 citations.
 
-*Summary pending.*
+- **Main goal:** Develops an inversion method to retrieve atmospheric water vapour, cloud liquid and ice from multifrequency microwave radiometer measurements.
+- **Architecture:** Neural network-based inversion mapping microwave brightness temperatures to vapour, liquid and ice amounts; network details not reported here.
+- **Data:** Microwave radiometric brightness temperatures; whether training uses radiative-transfer simulations or observations is not reported here.
+- **Main result:** Not reported in the abstract; Part I presents the development of the neural network inversion method.
+- **Open work:** Part II-style application to observed radiometer data and validation against independent measurements.
+- **Issues:** No abstract available; ice retrieval from passive microwave is weakly constrained, and accuracy and generalization cannot be assessed from the record.
+- *Basis: assessment*
 
 ### [Deep Learning for Precipitation Estimation from Satellite and Rain Gauges Measurements](https://doi.org/10.3390/rs11212463)
 Moraux et al. (2019), *Remote Sensing*. 46 citations.
@@ -7186,27 +7810,57 @@ Moraux et al. (2019), *Remote Sensing*. 46 citations.
 ### [An Automated Neural Network Cloud Classifier for Use over Land and Ocean Surfaces](https://doi.org/10.1175/1520-0450(1997)036<1346:aanncc>2.0.co;2)
 Miller et al. (1997), *Journal of Applied Meteorology*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Automates cloud classification in satellite imagery over both land and ocean backgrounds, which is hard with threshold methods.
+- **Architecture:** Feed-forward neural network (multilayer perceptron trained by backpropagation) using spectral and textural features.
+- **Data:** AVHRR multispectral satellite imagery with expert-labelled cloud samples.
+- **Main result:** The neural network classifier separates cloud types over land and ocean with good accuracy relative to expert labels; numbers not reproduced here.
+- **Open work:** Extending to more cloud classes, other sensors and night-time scenes.
+- **Issues:** Depends on subjective expert labels; generalization to other regions and seasons is uncertain.
+- *Basis: abstract+knowledge*
 
 ### [Determination of cloud liquid water path over the oceans from Special Sensor Microwave/Imager (SSM/I) data using neural networks](https://doi.org/10.1175/1520-0450(1998)037<0832:doclwp>2.0.co;2)
 Jung et al. (1998), *Journal of Applied Meteorology*. 43 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves cloud liquid water path over the oceans from passive microwave satellite data.
+- **Architecture:** Neural network retrieval mapping SSM/I brightness temperatures to cloud liquid water path; architecture details not reported here.
+- **Data:** Special Sensor Microwave/Imager (SSM/I) brightness temperatures; training data source not reported here.
+- **Main result:** Not reported in the abstract; the neural network is presented as an accurate liquid water path retrieval compared with existing algorithms.
+- **Open work:** Validation against independent ship or ground-based radiometer data and extension to precipitating clouds.
+- **Issues:** No abstract available; ocean-only retrieval with uncertainties from beam filling and rain contamination.
+- *Basis: assessment*
 
 ### [Improvement to a Neural Network Cloud Classifier](https://doi.org/10.1175/1520-0450(1996)035<2036:itannc>2.0.co;2)
 Bankert et al. (1996), *Journal of Applied Meteorology*. 39 citations.
 
-*Summary pending.*
+- **Main goal:** Improves accuracy of an automated satellite cloud-type classifier by selecting the most useful image features.
+- **Architecture:** Probabilistic neural network classifier combined with feature selection (sequential search) to reduce the feature set.
+- **Data:** AVHRR image samples of maritime cloud types labelled by experts.
+- **Main result:** Feature selection reduces the number of features substantially while improving classification accuracy over the full-feature network.
+- **Open work:** Extending the approach to other regions, sensors and cloud classes.
+- **Issues:** Labels rely on expert interpretation; feature selection may be tuned to the sample set.
+- *Basis: abstract+knowledge*
 
 ### [Artificial neural network techniques for estimating heavy convective rainfall and recognizing cloud mergers from satellite data](https://doi.org/10.1080/01431169408954324)
 Zhang et al. (1994), *International Journal of Remote Sensing*. 39 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates heavy convective rainfall and recognizes merging convective clouds from satellite data for flash flood forecasting.
+- **Architecture:** Artificial neural network techniques for rainfall estimation and cloud-merger pattern recognition; architecture details not reported here.
+- **Data:** Geostationary satellite infrared imagery of convective systems; cases not reported here.
+- **Main result:** Not reported in the abstract; the networks are shown to aid rainfall estimation and recognition of cloud mergers.
+- **Open work:** Operational use within satellite precipitation estimation and validation over more storms.
+- **Issues:** No abstract available; likely few cases and limited validation.
+- *Basis: assessment*
 
 ### [Classification of snow cover and precipitation using SSM/I measurements : case studies](https://doi.org/10.1080/01431169208904123)
 Fiore et al. (1992), *International Journal of Remote Sensing*. 39 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies snow cover and precipitation from passive microwave measurements.
+- **Architecture:** Threshold-based screening classification of microwave signatures; non-machine-learning method.
+- **Data:** SSM/I brightness temperatures for case studies.
+- **Main result:** Not reported in the abstract; case studies show SSM/I can distinguish snow cover from precipitation and other surfaces.
+- **Open work:** Global application and validation against surface observations.
+- **Issues:** No abstract available; case-study evaluation only, with confusion between wet snow, frozen ground and precipitation.
+- *Basis: assessment*
 
 ### [GPROF-NN: a neural-network-based implementation of the Goddard Profiling Algorithm](https://doi.org/10.5194/amt-15-5033-2022)
 Pfreundschuh et al. (2022), *Atmospheric Measurement Techniques*. 36 citations.
@@ -7222,12 +7876,24 @@ Pfreundschuh et al. (2022), *Atmospheric Measurement Techniques*. 36 citations.
 ### [Neural Network-Based Wind Vector Retrieval from Satellite Scatterometer Data](https://doi.org/10.1007/s005210050023)
 Cornford et al. (1999), *Neural computing & applications (Print)*. 35 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves near-surface wind vectors from satellite scatterometer backscatter, addressing the multimodal (directional ambiguity) nature of the inverse problem.
+- **Architecture:** Neural network inverse models, including mixture density networks (MLP outputting a Gaussian mixture) to represent multimodal wind-direction posteriors, compared with forward-model inversion.
+- **Data:** ERS-1 scatterometer backscatter triplets collocated with NWP model (ECMWF) wind fields as targets.
+- **Main result:** Mixture density networks capture the ambiguous, multimodal wind-direction distribution and give retrievals competitive with standard approaches.
+- **Open work:** Combining the probabilistic local retrievals with a spatial prior field model for ambiguity removal is the natural next step.
+- **Issues:** Targets are NWP winds, so retrievals inherit model biases; ambiguity resolution still needs extra spatial information.
+- *Basis: abstract+knowledge*
 
 ### [Retrieving atmospheric temperature parameters from DMSP SSM/T‐1 data with a neural network](https://doi.org/10.1029/95jd03577)
 Butler et al. (1996), *Journal of Geophysical Research*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves atmospheric temperature profile parameters from microwave sounder radiances as an alternative to statistical or physical retrievals.
+- **Architecture:** Artificial neural network (feedforward) mapping DMSP SSM/T-1 brightness temperatures to temperature parameters.
+- **Data:** DMSP SSM/T-1 microwave sounder brightness temperatures collocated with radiosonde or analysis temperature profiles.
+- **Main result:** Not reported in the available metadata; the neural network is reported as a viable retrieval method compared with the operational approach.
+- **Open work:** Adding surface and cloud information and extending to other sounders would follow naturally.
+- **Issues:** Accuracy depends on the representativeness of the training collocations; limited vertical resolution of the sounder.
+- *Basis: assessment*
 
 ### [Cumulo: A Dataset for Learning Cloud Classes](https://arxiv.org/abs/1911.04227)
 Zantedeschi et al. (2019), *arXiv*. 33 citations.
@@ -7243,22 +7909,46 @@ Zantedeschi et al. (2019), *arXiv*. 33 citations.
 ### [Detection of anomalous propagation echoes in weather radar data using neural networks](https://doi.org/10.1109/36.739163)
 Grecu et al. (1999), *IEEE Transactions on Geoscience and Remote Sensing*. 31 citations.
 
-*Summary pending.*
+- **Main goal:** Detects anomalous propagation (AP) ground clutter in weather radar reflectivity so it can be removed before precipitation estimation.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron) classifier using reflectivity-derived features such as vertical and horizontal texture and gradients.
+- **Data:** WSR-88D (NEXRAD) radar volume-scan reflectivity data with AP and precipitation echoes identified for training and testing.
+- **Main result:** The neural network separates AP from precipitation echoes with high accuracy and outperforms simple rule-based detection.
+- **Open work:** Adding Doppler velocity and spectrum width information and testing on more radars would follow naturally.
+- **Issues:** Cases of AP mixed with precipitation remain difficult; performance depends on labelled data from limited sites.
+- *Basis: abstract+knowledge*
 
 ### [Application of multilayer feedforward neural networks to precipitation cell-top altitude estimation](https://doi.org/10.1109/igarss.1994.399597)
 Spina et al. (1994), *IEEE International Geoscience and Remote Sensing Symposium*. 31 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates precipitation cell-top altitude from passive 118-GHz oxygen-band microwave observations of rain cells.
+- **Architecture:** Multilayer feedforward neural network retrieval system, compared with a nonlinear statistical estimator.
+- **Data:** 118-GHz MTS scanning spectrometer data from the NASA ER-2 during GALE and COHMEX (1986) with stereoscopic cell-top altitudes; applied to CAMEX imagery (Sep–Oct 1993).
+- **Main result:** RMS discrepancy of 1.77 km for all cell types and 1.50 km for cumulus only, improving to 1.48 km with temperature-profile information; better than the nonlinear statistical estimator.
+- **Open work:** Applying the method to more campaigns and spaceborne millimetre-wave sounders would follow naturally.
+- **Issues:** Small training set from a few campaigns; stereoscopic reference altitudes have their own errors.
+- *Basis: abstract*
 
 ### [Cloud detection based on texture segmentation by neural network methods](https://doi.org/10.1109/ijcnn.1991.170529)
 Visa et al. (1991), *[Proceedings] 1991 IEEE International Joint Conference on Neural Networks*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Detects clouds in satellite imagery by segmenting images according to texture.
+- **Architecture:** Neural network methods for texture-based classification and segmentation (specific network type not reported).
+- **Data:** Satellite images (sensor not reported) with texture features computed over image windows.
+- **Main result:** Not reported in the available metadata.
+- **Open work:** Comparison with threshold-based cloud masks and testing over varied surfaces would follow naturally.
+- **Issues:** Texture alone may confuse clouds with snow, ice or bright surfaces; limited evaluation likely.
+- *Basis: assessment*
 
 ### [Comparison of neural networks and regression-based methods for temperature retrievals.](https://doi.org/10.1364/ao.34.005390)
 Motteler et al. (1995), *Applied Optics*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Compares neural networks with regression-based methods for retrieving atmospheric temperature profiles from infrared sounder radiances.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron) compared with linear regression retrievals.
+- **Data:** Simulated high-spectral-resolution infrared radiances (AIRS-type) computed from radiosonde temperature profiles.
+- **Main result:** Neural networks give lower temperature retrieval errors than regression-based methods in the tested setup.
+- **Open work:** Tests with real radiances, clouds and instrument noise would follow naturally.
+- **Issues:** Based on simulated radiances, so forward-model errors and cloud contamination are not represented.
+- *Basis: assessment*
 
 ### [Generative Adversarial Networks Capabilities for Super-Resolution Reconstruction of Weather Radar Echo Images](https://doi.org/10.3390/atmos10090555)
 Chen et al. (2019), *Atmosphere*. 29 citations.
@@ -7274,17 +7964,35 @@ Chen et al. (2019), *Atmosphere*. 29 citations.
 ### [A neural network-based method for tracking features from satellitesensor images](https://doi.org/10.1080/01431169508954656)
 Côté et al. (1995), *International Journal of Remote Sensing*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Tracks features such as clouds between successive satellite images to derive motion fields.
+- **Architecture:** Neural-network-based matching method for feature tracking (network type not reported).
+- **Data:** Sequences of satellite sensor images (sensor not reported).
+- **Main result:** Not reported in the available metadata.
+- **Open work:** Comparison with cross-correlation tracking and wind validation would follow naturally.
+- **Issues:** Evaluation scope unknown; tracking may fail with evolving or multilayer clouds.
+- *Basis: assessment*
 
 ### [Determination of spatial and temporal characteristics as an aid to neural network cloud classification](https://doi.org/10.1080/014311697218827)
 Lewis et al. (1997), *International Journal of Remote Sensing*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Improves neural network cloud classification in satellite imagery by adding spatial and temporal characteristics.
+- **Architecture:** Artificial neural network classifier (type not specified) using spectral, spatial texture and temporal features.
+- **Data:** Satellite imagery sequences (sensor not reported) with cloud types labelled by experts.
+- **Main result:** Not reported in the available metadata; spatial and temporal features improve classification compared with spectral features alone.
+- **Open work:** Extension to more cloud classes and regions would follow naturally.
+- **Issues:** Expert labels are subjective; limited scene coverage likely.
+- *Basis: assessment*
 
 ### [Estimating longwave net radiation at sea surface from the special sensor microwave/imager (SSM/I)](https://doi.org/10.1175/1520-0450(1997)036<0919:elnras>2.0.co;2)
 Liu et al. (1997), *Oceanographic Literature Review*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates longwave net radiation at the sea surface from satellite passive microwave measurements, a key term of the ocean surface energy budget that is hard to observe directly.
+- **Architecture:** Feed-forward neural network mapping SSM/I brightness temperatures to longwave net radiation, compared against a linear regression algorithm.
+- **Data:** SSM/I brightness temperatures; radiative transfer model results for training and testing; pyrgeometer measurements from RV Poseidon during the International Cirrus Experiment (ICE) 1989.
+- **Main result:** The neural network cuts the standard error from 17 to 5 W m-2 relative to linear regression on model results and agrees within 5 W m-2 with ship measurements in clear sky.
+- **Open work:** Validation under cloudy conditions and over more regions and seasons, and use for climatological surface energy budget estimates.
+- **Issues:** Cloudy-sky comparison is problematic because of cloud inhomogeneity and footprint mismatch with point measurements; trained largely on model simulations; single-cruise validation.
+- *Basis: abstract*
 
 ### [Advancing Satellite Precipitation Retrievals With Data Driven Approaches: Is Black Box Model Explainable?](https://doi.org/10.1029/2020ea001423)
 Li et al. (2020), *Earth and Space Science*. 26 citations.
@@ -7300,17 +8008,35 @@ Li et al. (2020), *Earth and Space Science*. 26 citations.
 ### Réseaux de neurones multi-couches pour la restitution de variables thermodynamiques atmosphériques à l'aide de sondeurs verticaux satellitaires
 Escobar-Munoz et al. (1993), *Preprint*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves atmospheric thermodynamic variables (temperature and humidity profiles) from satellite vertical sounder radiances, replacing costly physical or statistical inversions.
+- **Architecture:** Multilayer perceptron neural networks (réseaux de neurones multi-couches) mapping sounder radiances to atmospheric profiles.
+- **Data:** Satellite vertical sounder radiances (TOVS-type) with simulated training sets; the LMD group typically used the TIGR radiosonde-based database, but the exact data are not confirmed here.
+- **Main result:** Not reported in the abstract; the work is an early demonstration that multilayer perceptrons can perform sounder retrievals.
+- **Open work:** Extension to clouds and surface emissivity effects, operational processing and comparison with physical retrievals.
+- **Issues:** No abstract available; trained on simulations so inherits radiative transfer model errors; French-language preprint with limited validation details.
+- *Basis: assessment*
 
 ### [Wind ambiguity removal by the use of neural network techniques](https://doi.org/10.1029/91jc02216)
 Badran et al. (1991), *Journal of Geophysical Research*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Removes the directional ambiguity in wind vectors retrieved from satellite scatterometer measurements, a key step for producing usable ocean surface wind fields.
+- **Architecture:** Neural network techniques (multilayer perceptrons) that use the spatial context of ambiguous wind solutions to select the correct direction.
+- **Data:** Simulated ERS-1-type scatterometer measurements derived from wind fields; details not reported in the available metadata.
+- **Main result:** The neural approach removes most ambiguities in the tests reported; exact rates are not available here.
+- **Open work:** Application to real ERS-1 scatterometer data and to difficult cases such as fronts and low winds.
+- **Issues:** Mainly simulation-based evaluation; performance near meteorological fronts and in low winds is uncertain.
+- *Basis: assessment*
 
 ### [Toward Automated Interpretation of Satellite Imagery for Navy Shipboard Applications](https://doi.org/10.1175/1520-0477(1992)073<0995:taiosi>2.0.co;2)
 Peak et al. (1992), *Bulletin of the American Meteorological Society*. 24 citations.
 
-*Summary pending.*
+- **Main goal:** Works toward automated interpretation of meteorological satellite imagery aboard Navy ships, where expert forecasters are not always available.
+- **Architecture:** Artificial intelligence approach for satellite image interpretation, combining expert-system and pattern classification ideas; non-deep methods.
+- **Data:** Meteorological satellite imagery relevant to shipboard use; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the paper describes the concept and progress of an automated interpretation system.
+- **Open work:** Full implementation, operational testing and integration with shipboard forecasting tools.
+- **Issues:** No abstract available; likely a design and status paper without quantitative verification.
+- *Basis: assessment*
 
 ### [Data-Driven Cloud Clustering via a Rotationally Invariant Autoencoder](https://doi.org/10.1109/tgrs.2021.3098008)
 Kurihana et al. (2021), *IEEE Transactions on Geoscience and Remote Sensing*. 23 citations.
@@ -7326,62 +8052,134 @@ Kurihana et al. (2021), *IEEE Transactions on Geoscience and Remote Sensing*. 23
 ### [Pattern recognition analysis of polar clouds during summer and winter](https://doi.org/10.1080/01431169208904028)
 Ebert (1992), *International Journal of Remote Sensing*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies polar clouds automatically from satellite imagery, where cloud detection over snow and ice is difficult, for summer and winter conditions.
+- **Architecture:** Statistical pattern recognition classifier using spectral and textural features; not a neural network.
+- **Data:** AVHRR satellite imagery over polar regions in summer and winter; details not confirmed in the available metadata.
+- **Main result:** Not reported in the abstract; the classification distinguishes polar cloud and surface types with seasonal differences.
+- **Open work:** Better discrimination of clouds over snow and ice and use for polar cloud climatologies.
+- **Issues:** No abstract available; winter classification without visible channels is harder; limited ground truth.
+- *Basis: assessment*
 
 ### [A neural network model for rainfall estimation](https://doi.org/10.1109/annes.1995.499515)
 McCullagh et al. (1995), *Proceedings 1995 Second New Zealand International Two-Stream Conference on Artificial Neural Networks and Expert Systems*. 22 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall with a neural network model, aiming to improve on conventional rainfall estimation techniques.
+- **Architecture:** Neural network model for rainfall estimation (specific architecture not reported).
+- **Data:** Satellite or meteorological inputs with rain gauge observations, likely over Australia; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the neural network gives useful rainfall estimates.
+- **Open work:** Comparison with established satellite rainfall algorithms and testing over larger regions.
+- **Issues:** No abstract available; conference paper with likely limited validation.
+- *Basis: assessment*
 
 ### Cloud Classiication Using Error-correcting Output Codes
 AhaNavy (1996), *Preprint*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Improves automated cloud classification from satellite imagery by decomposing the multiclass problem with error-correcting output codes.
+- **Architecture:** Error-correcting output codes ensemble of binary classifiers for multiclass cloud classification (base learners not confirmed here).
+- **Data:** Labelled cloud samples from satellite imagery (AVHRR in related Navy work); details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies error-correcting output codes improve classification accuracy.
+- **Open work:** Combination with feature selection and other base learners, and larger labelled datasets.
+- **Issues:** No abstract available; limited labelled samples and expert-label noise constrain conclusions.
+- *Basis: assessment*
 
 ### [Retrieval of ocean winds from satellite scatterometer by a neural network](https://doi.org/10.1109/36.739159)
 Chen et al. (1999), *IEEE Transactions on Geoscience and Remote Sensing*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves ocean surface wind speed and direction from satellite scatterometer measurements with a neural network, avoiding an explicit geophysical model function inversion.
+- **Architecture:** Neural network inversion of scatterometer backscatter to ocean wind vectors (network type not confirmed here).
+- **Data:** Satellite scatterometer backscatter with collocated wind data; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the neural network retrieves ocean winds with accuracy comparable to conventional methods.
+- **Open work:** Ambiguity removal, rain contamination and validation against buoys.
+- **Issues:** No abstract available; accuracy for high winds and direction ambiguity is unclear.
+- *Basis: assessment*
 
 ### [Neural network-based cloud classification on satellite imagery using textural features](https://doi.org/10.1109/icip.1997.632057)
 Tian et al. (1997), *Proceedings of International Conference on Image Processing*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies cloud types in satellite imagery using textural features and neural networks to automate cloud analysis.
+- **Architecture:** Neural network classifier using textural features extracted from satellite images.
+- **Data:** Satellite cloud imagery (GOES in related work by the authors); details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the textural features with a neural network give good cloud classification accuracy.
+- **Open work:** Comparison of feature types, temporal information and larger labelled datasets.
+- **Issues:** No abstract available; expert labels and limited scenes may limit generalization.
+- *Basis: assessment*
 
 ### [Global Data Assimilation and Forecast Experiments Using SSM/I Wind Speed Data Derived from a Neural Network Algorithm](https://doi.org/10.1175/1520-0434(1997)012<0859:gdaafe>2.0.co;2)
 Yu et al. (1997), *Weather and Forecasting*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Tests whether SSM/I ocean surface wind speeds retrieved with a neural network algorithm improve global data assimilation and forecasts.
+- **Architecture:** Neural network retrieval algorithm (multilayer perceptron) for wind speed, assimilated in the NCEP global data assimilation and forecast system.
+- **Data:** SSM/I brightness temperatures converted to wind speed by the neural network algorithm; NCEP global analyses and forecasts for impact experiments.
+- **Main result:** Assimilating neural network SSM/I wind speeds gives a small positive impact on analyses and forecasts, mainly over the Southern Hemisphere oceans.
+- **Open work:** Assimilation of wind direction information and other SSM/I products, and longer impact experiments.
+- **Issues:** Wind speed only, without direction; impact is modest and evaluated over limited periods.
+- *Basis: abstract+knowledge*
 
 ### [Segmentation of clouds using cluster analysis](https://doi.org/10.1080/01431168508948493)
 Seddon et al. (1985), *International Journal of Remote Sensing*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Segments satellite cloud imagery into cloud types or regions using unsupervised cluster analysis.
+- **Architecture:** Cluster analysis (unsupervised clustering) of image features; not a neural network.
+- **Data:** Satellite cloud imagery; the specific sensor and scenes are not reported here.
+- **Main result:** Shows that clustering can separate cloud regions in satellite images; quantitative accuracy is not reported here.
+- **Open work:** Linking clusters to physical cloud types and testing across more scenes.
+- **Issues:** Clusters need manual interpretation; results depend on chosen features and number of clusters.
+- *Basis: assessment*
 
 ### [Comparison of genetic algorithm systems with neural network and statistical techniques for analysis of cloud structures in midlatitude storm systems](https://doi.org/10.1016/s0167-8655(97)00115-3)
 Parikh et al. (1997), *Pattern Recognition Letters*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Recognizes and tracks midlatitude storm clouds across sequences of cloud-top pressure images and compares statistical, neural network and genetic algorithm approaches.
+- **Architecture:** Genetic algorithm based classification compared with neural network and statistical classifiers for linking regions of interest between consecutive frames.
+- **Data:** Eight-frame sequence of low-resolution cloud-top pressure data sets.
+- **Main result:** Compares the three classification approaches for tracking storm cloud regions between consecutive frames; the genetic algorithm system is shown to be competitive.
+- **Open work:** Testing on longer image sequences, more storm systems and higher-resolution data, and combining the classifiers.
+- **Issues:** Evaluation uses a single eight-frame sequence of low-resolution data, so generality and statistical robustness of the comparison are limited.
+- *Basis: abstract*
 
 ### [A neural network approach to cloud detection in AVHRR images](https://doi.org/10.1109/ijcnn.1991.155190)
 Slawinski et al. (1991), *IJCNN-91-Seattle International Joint Conference on Neural Networks*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies clouds and fog in AVHRR images to produce cloud masks for ocean and surface remote sensing.
+- **Architecture:** Multilayer perceptron trained with backpropagation; many architectures are tested to classify 8x8 pixel windows into five cloud-cover categories.
+- **Data:** Advanced Very High Resolution Radiometer (AVHRR) satellite images, with 8x8 pixel windows labelled into five cloud-cover classes for training and testing.
+- **Main result:** Performance varies widely across architectures; the best one is used to produce cloud masks for a series of AVHRR images.
+- **Open work:** Testing on other regions and seasons and comparison with threshold-based cloud detection schemes.
+- **Issues:** Classification at 8x8 pixel window resolution is coarse; the abstract gives limited quantitative validation of the cloud masks.
+- *Basis: abstract*
 
 ### [Experiences from operational cloud classifier based on self-organizing map](https://doi.org/10.1117/12.169997)
 Visa et al. (1994), *Defense, Security, and Sensing*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Reports operational experience with an automated cloud classifier for satellite imagery, aiming to replace or support manual cloud type analysis.
+- **Architecture:** Self-organizing map (Kohonen unsupervised neural network) cloud classifier.
+- **Data:** Operational satellite cloud imagery; the specific sensor, region and period are not reported here.
+- **Main result:** Describes operational performance and practical lessons of the SOM cloud classifier; quantitative scores are not reported here.
+- **Open work:** Improving input features and class definitions and validating against surface or expert observations.
+- **Issues:** Unsupervised SOM classes require expert interpretation; seasonal and illumination changes can degrade operational consistency.
+- *Basis: assessment*
 
 ### [Automatic Clouds Observation Improved by an Artificial Neural Network](https://doi.org/10.1175/1520-0426(1998)015<0114:acoiba>2.0.co;2)
 Aviolat et al. (1998), *Journal of Atmospheric and Oceanic Technology*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Improves automatic cloud observation at weather stations with an artificial neural network to approach the quality of human observations.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron) combining automatic sensor data to estimate cloud cover.
+- **Data:** Automatic station measurements (such as ceilometer data) and human cloud observations; specifics not reported here.
+- **Main result:** Reports that the neural network improves agreement of automatic cloud observations with human observers; quantitative values are not reported here.
+- **Open work:** Deployment across more stations and extension to cloud type and layer information.
+- **Issues:** Ground sensors sample a narrow field of view, so total cloud cover estimates can be biased; training is site-specific.
+- *Basis: assessment*
 
 ### [The ASTER polar cloud mask](https://doi.org/10.1109/36.701080)
 Logar et al. (1998), *IEEE Transactions on Geoscience and Remote Sensing*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a cloud mask for ASTER imagery over polar regions, where clouds are hard to separate from snow and ice.
+- **Architecture:** Neural network classifier for cloud/surface discrimination; exact network configuration not reported here.
+- **Data:** Satellite imagery over polar scenes, with AVHRR data likely used as a proxy before ASTER launch; details not confirmed.
+- **Main result:** Not reported in the record.
+- **Open work:** Validation with actual ASTER imagery after launch follows naturally.
+- **Issues:** No abstract; polar cloud detection over snow and ice remains ambiguous, and proxy-sensor training may not transfer.
+- *Basis: assessment*
 
 ### [Fusion of multi-source precipitation records via coordinate-based generative models](https://doi.org/10.1038/s41467-025-67987-9)
 Sun et al. (2025), *Nature Communications*. 12 citations.
@@ -7397,57 +8195,123 @@ Sun et al. (2025), *Nature Communications*. 12 citations.
 ### [An interactive hybrid expert system for polar cloud and surface classification](https://doi.org/10.1002/env.3170030201)
 Rabindra et al. (1992), *Environmetrics*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies clouds and surface types in polar satellite imagery, where snow and ice confuse standard cloud detection.
+- **Architecture:** Interactive hybrid expert system combining rule-based knowledge with automated classifiers.
+- **Data:** Polar satellite imagery, likely AVHRR; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Full automation and validation over more scenes follow naturally.
+- **Issues:** No abstract available; interactive use requires analyst input.
+- *Basis: assessment*
 
 ### [A hybrid neural network system for the rainfall estimation using satellite imagery](https://doi.org/10.1109/ijcnn.1993.716761)
 Murao et al. (1993), *Proceedings of 1993 International Conference on Neural Networks (IJCNN-93-Nagoya, Japan)*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall from satellite imagery with a hybrid neural network system.
+- **Architecture:** Hybrid neural network system combining several networks or a network with other methods; configuration not reported.
+- **Data:** Satellite imagery (likely GMS) with ground rainfall observations; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Validation over more regions follows naturally.
+- **Issues:** No abstract available; limited verification.
+- *Basis: assessment*
 
 ### [Estimating surface radiation fluxes in the Arctic from TOVS brightness temperatures](https://doi.org/10.1080/014311697218854)
 Schweiger et al. (1997), *International Journal of Remote Sensing*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates Arctic surface radiation fluxes from TOVS brightness temperatures for climate studies.
+- **Architecture:** Statistical retrieval from brightness temperatures, possibly a neural network; method not confirmed here.
+- **Data:** TOVS brightness temperatures over the Arctic with radiative transfer simulations or surface measurements; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Validation with surface observations follows naturally.
+- **Issues:** No abstract available; cloud effects make Arctic flux retrieval uncertain.
+- *Basis: assessment*
 
 ### [Accuracy of physical, statistical and neural network based algorithms for the retrieval of atmospheric water by ground-based microwave radiometry](https://doi.org/10.1109/igarss.1998.702925)
 Basili et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Compares retrieval algorithms for atmospheric water (integrated water vapour and liquid water) from ground-based microwave radiometer measurements.
+- **Architecture:** Comparison of physical, statistical (regression) and neural network retrieval algorithms.
+- **Data:** Ground-based microwave radiometer brightness temperatures with radiosonde-based references; site and period are not reported in the available information.
+- **Main result:** Reports the relative accuracy of physical, statistical and neural network retrievals of atmospheric water; numbers are not reported in the available information.
+- **Open work:** Testing across climates and combining retrieval approaches follow naturally.
+- **Issues:** Results depend on the training climatology and radiative transfer assumptions; single-site evaluation likely.
+- *Basis: assessment*
 
 ### Cloud field classification based on textural features
 Sengupta (1989), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies cloud fields in satellite imagery using textural features, aiming at automated cloud type identification.
+- **Architecture:** Texture-based pattern-recognition classification; classifier details are not reported in the available information.
+- **Data:** Satellite cloud imagery; sensor and scenes are not reported in the available information.
+- **Main result:** Shows that textural features discriminate cloud field types; accuracy is not reported in the available information.
+- **Open work:** Larger labelled samples and additional spectral features follow naturally.
+- **Issues:** Expert labels are subjective and samples likely small.
+- *Basis: assessment*
 
 ### [Recognition and Inventory of Oceanic Clouds from Satellite Data Using an Artificial Neural Network Technique](https://doi.org/10.1007/978-94-017-1261-3_41)
 Wilkinson et al. (1993), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Recognizes and inventories oceanic cloud types from satellite data to support cloud climatology.
+- **Architecture:** Artificial neural network classifier for cloud type recognition.
+- **Data:** Satellite imagery over the ocean; sensor and period are not reported in the available information.
+- **Main result:** The neural network recognizes oceanic cloud classes; accuracy is not reported in the available information.
+- **Open work:** Larger-scale inventories and comparison with conventional classifiers follow naturally.
+- **Issues:** Depends on subjective training labels; limited regional coverage likely.
+- *Basis: assessment*
 
 ### [Development of a neural network based algorithm for radar snowfall estimation](https://doi.org/10.1109/36.673664)
 Xiao et al. (1998), *IEEE Transactions on Geoscience and Remote Sensing*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates snowfall rate from weather radar observations, where conventional reflectivity-snowfall relations are highly uncertain.
+- **Architecture:** Neural network (feed-forward) mapping radar observations to surface snowfall.
+- **Data:** Weather radar measurements paired with surface snow gauge observations; specific radar and period are not reported in the available information.
+- **Main result:** The neural network estimates snowfall from radar observations and is assessed against conventional reflectivity-snowfall relations; figures are not reported in the available information.
+- **Open work:** Testing in other climates and radars follows naturally.
+- **Issues:** Gauge snow measurements have large undercatch errors; limited events.
+- *Basis: assessment*
 
 ### [Precipitation measurements using 183-GHz AMSU satellite observations](https://doi.org/10.1109/igarss.1999.775034)
 Staelin et al. (1999), *IEEE 1999 International Geoscience and Remote Sensing Symposium. IGARSS'99 (Cat. No.99CH36293)*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Measures precipitation from satellite passive microwave observations near the 183-GHz water vapour line.
+- **Architecture:** Precipitation retrieval algorithm based on 183-GHz channels; specific method is not reported in the available information.
+- **Data:** AMSU 183-GHz observations from NOAA polar-orbiting satellites, compared with reference precipitation estimates.
+- **Main result:** Shows that 183-GHz AMSU channels respond to precipitation and enable precipitation estimates; numbers are not reported in the available information.
+- **Open work:** Global validation against radar and gauge data follows naturally.
+- **Issues:** Early demonstration with limited validation; sensitivity to surface and cloud type is uncertain.
+- *Basis: assessment*
 
 ### [Comparison of backpropagation, cascade-correlation and Kokonen algorithms for cloud retrieval](https://doi.org/10.1109/ijcnn.1993.716767)
 Blonda et al. (1993), *Proceedings of 1993 International Conference on Neural Networks (IJCNN-93-Nagoya, Japan)*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Compares neural network learning algorithms for retrieving cloud information from satellite data.
+- **Architecture:** Comparison of backpropagation (multilayer perceptron), cascade-correlation and Kohonen self-organizing map networks.
+- **Data:** Satellite radiance imagery with cloud labels; sensor not reported in the available information.
+- **Main result:** Reports the relative performance of the three neural network algorithms for cloud retrieval; numbers are not reported in the available information.
+- **Open work:** Larger data sets and hybrid approaches follow naturally.
+- **Issues:** Small labelled samples and single-sensor evaluation likely.
+- *Basis: assessment*
 
 ### [Remote discrimination of clouds using a neural network](https://doi.org/10.1117/12.130885)
 Yool et al. (1992), *Optics & Photonics*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Discriminates clouds remotely using a neural network, to automate cloud detection and classification from sensor data.
+- **Architecture:** Neural network classifier for cloud discrimination; specific network configuration not reported in the available metadata.
+- **Data:** Remotely sensed measurements of clouds; sensor and dataset not reported in the available metadata.
+- **Main result:** Reports that the neural network can discriminate clouds; accuracy figures not reported in the available metadata.
+- **Open work:** Testing on larger and more varied scenes and comparing with conventional classifiers.
+- **Issues:** Likely small training set and limited scene diversity; generalization not demonstrated.
+- *Basis: assessment*
 
 ### [Rainfall Estimation from GMS Imagery Data Using Neural Networks](https://doi.org/10.2208/prohe.38.39)
 Igata et al. (1994), *Doboku Gakkai Ronbunshuu B*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates rainfall from geostationary satellite imagery to fill gaps in ground-based rainfall observation.
+- **Architecture:** Neural network mapping GMS satellite image data to rainfall amounts.
+- **Data:** GMS (Japanese Geostationary Meteorological Satellite) imagery with ground rainfall observations in Japan; period not reported in the available metadata.
+- **Main result:** Reports that neural networks estimate rainfall from GMS data with useful accuracy; figures not reported in the available metadata.
+- **Open work:** Adding more spectral channels and validating over more events.
+- **Issues:** Infrared cloud-top information relates only indirectly to surface rainfall; limited events.
+- *Basis: assessment*
 
 ### [MSWEP V3: Machine Learning-Powered Global Precipitation Estimates at 0.1$^\circ$ Hourly Resolution (1979-Present)](https://arxiv.org/abs/2602.01436)
 Wang et al. (2026), *arXiv*. 6 citations.
@@ -7463,12 +8327,24 @@ Wang et al. (2026), *arXiv*. 6 citations.
 ### [Retrieval of atmospheric thermal profiles from meteorological satellite soundings using neural networks](https://doi.org/10.1117/12.170005)
 Bustamante et al. (1994), *Defense, Security, and Sensing*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves atmospheric temperature profiles from meteorological satellite sounder radiances as an alternative to physical or regression retrievals.
+- **Architecture:** Neural network mapping satellite sounding radiances to vertical temperature profiles; the network family details are not reported in the available record.
+- **Data:** Meteorological satellite sounding data with collocated reference temperature profiles; specific instrument and period are not reported in the available record.
+- **Main result:** Indicates that neural networks can retrieve thermal profiles with accuracy competitive with conventional methods; quantitative errors are not reported in the available record.
+- **Open work:** Comparison with operational retrievals over broader conditions, including cloudy scenes.
+- **Issues:** Retrieval accuracy depends on training-set representativeness; cloud contamination and limited vertical resolution not addressed in the available record.
+- *Basis: assessment*
 
 ### [Meteorological classification of satellite imagery using neural network data fusion](https://doi.org/10.1109/ijcnn.1990.137690)
 Smotroff et al. (1990), *1990 IJCNN International Joint Conference on Neural Networks*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies meteorological features in satellite imagery by fusing multiple data channels with neural networks.
+- **Architecture:** Neural network data fusion classifier combining multiple satellite image inputs; detailed architecture is not reported in the available record.
+- **Data:** Meteorological satellite imagery with multiple channels; specific satellite and labelled samples are not reported in the available record.
+- **Main result:** Reports that neural network fusion yields usable meteorological classifications of satellite scenes; accuracy figures not reported in the available record.
+- **Open work:** Larger labelled datasets and comparison with conventional statistical classifiers.
+- **Issues:** Early study with limited training data and evaluation; dependence on expert labelling.
+- *Basis: assessment*
 
 ### [SpecTf: Transformers enable data-driven imaging spectroscopy cloud detection](https://doi.org/10.1073/pnas.2502903122)
 Lee et al. (2025), *Proceedings of the National Academy of Sciences of the United States of America*. 5 citations.
@@ -7484,27 +8360,57 @@ Lee et al. (2025), *Proceedings of the National Academy of Sciences of the Unite
 ### Cloud Identification Using Genetic Algorithms and Massively Parallel Computation
 Buckles et al. (1996), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies cloud types or cloud regions in satellite imagery efficiently using evolutionary search.
+- **Architecture:** Genetic algorithm for cloud identification executed on massively parallel computing hardware.
+- **Data:** Satellite imagery of clouds; sensor and dataset size are not reported in the available record.
+- **Main result:** Demonstrates that genetic algorithms on parallel hardware can identify clouds in imagery with practical speed; accuracy figures not reported in the available record.
+- **Open work:** Comparison with other classifiers and scaling to operational image volumes.
+- **Issues:** Limited evaluation; genetic algorithm results depend on fitness design and parameter tuning.
+- *Basis: assessment*
 
 ### [Neural network system for cloud classification from satellite images](https://doi.org/10.1109/ijcnn.1999.830756)
 Torsum et al. (1999), *IJCNN'99. International Joint Conference on Neural Networks. Proceedings (Cat. No.99CH36339)*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Automates classification of cloud types from satellite images.
+- **Architecture:** Neural network classification system for cloud types; detailed architecture not reported in the available record.
+- **Data:** Satellite images with labelled cloud classes; sensor and sample sizes not reported in the available record.
+- **Main result:** Reports that the neural network system classifies clouds with useful accuracy; numbers not reported in the available record.
+- **Open work:** Wider validation over seasons and regions and comparison with other classifiers.
+- **Issues:** Depends on expert-labelled training samples; generalisation beyond the studied scenes is uncertain.
+- *Basis: assessment*
 
 ### [Evolving expert neural networks for meteorological rainfall estimations](https://doi.org/10.1109/iconip.1999.845660)
 McCullagh et al. (1999), *ICONIP'99. ANZIIS'99 & ANNES'99 & ACNN'99. 6th International Conference on Neural Information Processing. Proceedings (Cat. No.99EX378)*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Improves rainfall estimation from meteorological data, which single backpropagation networks handle poorly because of interference between sub-tasks.
+- **Architecture:** Modular system of expert multilayer perceptrons (backpropagation neural networks), each specialising in a rainfall band (low, medium, high), with combined outputs; networks are evolved.
+- **Data:** Meteorological observations used for rainfall estimation; region and period are not reported in the abstract.
+- **Main result:** Expert networks improve both individual band classifications and overall rainfall classification accuracy compared with a single network; numbers not given in the abstract.
+- **Open work:** Better methods to combine expert outputs and testing on additional sites and rainfall regimes.
+- **Issues:** Rainfall is treated as classification into bands rather than continuous amounts; no independent dataset details or uncertainty.
+- *Basis: abstract*
 
 ### Bayesian retrieval of scatterometer wind fields
 Cornford et al. (1999), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves consistent ocean surface wind fields from scatterometer data while handling the directional ambiguities of local inversions.
+- **Architecture:** Bayesian framework combining neural network local models of the scatterometer inverse problem (mixture density networks) with a Gaussian process prior on wind fields.
+- **Data:** ERS scatterometer backscatter with collocated NWP model winds; exact period not reported in the available record.
+- **Main result:** Shows that Bayesian field-wise retrieval produces plausible, ambiguity-resolved wind fields; quantitative comparisons not reported in the available record.
+- **Open work:** Efficient sampling of multimodal posteriors and operational testing.
+- **Issues:** Multimodal posteriors are hard to explore; training winds from NWP introduce model biases.
+- *Basis: abstract+knowledge*
 
 ### [Analysis of cloud type and distribution using NOAA-AVHRR-APT data and ground observations in the Upper Rhine Valley](https://doi.org/10.1109/igarss.1993.322407)
 Heinzmann (1993), *IEEE International Geoscience and Remote Sensing Symposium*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses cloud types and their spatial distribution over the Upper Rhine Valley.
+- **Architecture:** Classification of cloud types from satellite imagery combined with ground observations; method details not reported in the available record.
+- **Data:** NOAA AVHRR APT satellite images and ground-based cloud observations in the Upper Rhine Valley.
+- **Main result:** Describes cloud type distributions derived from AVHRR APT data and their agreement with ground observations; quantitative results not reported in the available record.
+- **Open work:** Longer records and higher-resolution AVHRR HRPT data.
+- **Issues:** APT data have low radiometric and spatial quality; regional study.
+- *Basis: assessment*
 
 ### [Deep Learning for Multi-Satellite Precipitation Retrievals: Impact of Tomorrow.io’s Microwave Sounders](https://doi.org/10.1175/jhm-d-25-0007.1)
 Cannon et al. (2026), *Journal of Hydrometeorology*. 3 citations.
@@ -7556,7 +8462,13 @@ Pradhan et al. (2018), *IEEE Transactions on Image Processing*. 229 citations.
 ### [A Neural Network for Tornado Prediction Based on Doppler Radar-Derived Attributes](https://doi.org/10.1175/1520-0450(1996)035<0617:annftp>2.0.co;2)
 Marzban et al. (1996), *Journal of Applied Meteorology*. 212 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts which radar-detected circulations will be associated with tornadoes, to improve tornado warnings.
+- **Architecture:** Multilayer perceptron neural network using Doppler radar-derived attributes, compared with rule-based, discriminant analysis and logistic regression methods.
+- **Data:** Attributes from the NSSL mesocyclone detection algorithm applied to WSR-88D Doppler radar data, with tornado reports as ground truth.
+- **Main result:** The neural network outperforms the rule-based algorithm and statistical methods on several skill scores.
+- **Open work:** Larger datasets, additional attributes and probabilistic outputs.
+- **Issues:** Limited number of tornado cases; results depend on the detection algorithm and attribute quality.
+- *Basis: abstract+knowledge*
 
 ### [Analog Forecasting of Extreme‐Causing Weather Patterns Using Deep Learning](https://doi.org/10.1029/2019ms001958)
 Chattopadhyay et al. (2019), *Journal of Advances in Modeling Earth Systems*. 187 citations.
@@ -7660,7 +8572,13 @@ Prabhat et al. (2020), *Geoscientific Model Development*. 133 citations.
 ### [A Neural Network Short-Term Forecast of Significant Thunderstorms](https://doi.org/10.1175/1520-0434(1992)007<0525:annstf>2.0.co;2)
 McCann (1992), *Weather and Forecasting*. 131 citations.
 
-*Summary pending.*
+- **Main goal:** Provides short-term forecasts of significant thunderstorm occurrence to support forecasters.
+- **Architecture:** Two multilayer perceptron (backpropagation neural network) models whose outputs are combined into a thunderstorm forecast product.
+- **Data:** Hourly surface observation analyses of lifted index and moisture convergence over the United States, verified against thunderstorm reports.
+- **Main result:** The neural network product gives useful 3-7 h thunderstorm forecasts and outperforms the individual input fields alone.
+- **Open work:** Adding further predictors such as upper-air and radar data.
+- **Issues:** Depends on surface data analyses only and was verified over a limited period.
+- *Basis: abstract+knowledge*
 
 ### [Using machine learning to predict extreme events in complex systems](https://doi.org/10.1073/pnas.1917285117)
 Qi et al. (2019), *Proceedings of the National Academy of Sciences of the United States of America*. 130 citations.
@@ -7764,7 +8682,13 @@ Sun et al. (2024), *Proceedings of the National Academy of Sciences*. 96 citatio
 ### [Avalanche forecasting — an expert system approach](https://doi.org/10.3189/s0022143000004172)
 Schweizer et al. (1996), *Journal of Glaciology*. 95 citations.
 
-*Summary pending.*
+- **Main goal:** Supports avalanche hazard forecasting by formalising expert knowledge.
+- **Architecture:** Expert system (rule-based) for regional avalanche forecasting.
+- **Data:** Snow, weather and avalanche observations from the Swiss Alps.
+- **Main result:** The expert system produces avalanche danger assessments in good agreement with observed avalanche activity and human forecasts; exact rates not reported here.
+- **Open work:** Refining rules and combining with statistical methods.
+- **Issues:** Rule base depends on expert input; verification is difficult due to sparse avalanche records.
+- *Basis: assessment*
 
 ### [Machine Learning for Real-Time Prediction of Damaging Straight-Line Convective Wind](https://doi.org/10.1175/waf-d-17-0038.1)
 Lagerquist et al. (2017), *Weather and Forecasting*. 91 citations.
@@ -7868,7 +8792,13 @@ Zhong et al. (2023), *Science China. Earth Sciences*. 71 citations.
 ### [A Neural Network for Damaging Wind Prediction](https://doi.org/10.1175/1520-0434(1998)013<0151:annfdw>2.0.co;2)
 Marzban et al. (1998), *Weather and Forecasting*. 66 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts which radar-detected circulations will produce damaging winds, to improve severe weather warnings.
+- **Architecture:** Feed-forward neural network (multilayer perceptron) classifying radar-derived attributes, compared with traditional statistical classifiers.
+- **Data:** Attributes from the NSSL mesocyclone detection algorithm applied to WSR-88D Doppler radar data, verified against damaging wind reports.
+- **Main result:** The neural network outperforms traditional statistical methods in discriminating damaging wind events; specific skill scores not reported here.
+- **Open work:** Combining with other detection algorithms and real-time operational testing are natural next steps.
+- **Issues:** Verification relies on incomplete storm reports; limited sample of events.
+- *Basis: assessment*
 
 ### [Hurricane Forecasting: A Novel Multimodal Machine Learning Framework](https://doi.org/10.1175/waf-d-21-0091.1)
 Boussioux et al. (2020), *Weather and Forecasting*. 64 citations.
@@ -7906,7 +8836,13 @@ Boulaguiem et al. (2022), *Environmental Data Science*. 61 citations.
 ### MEPRA - An Expert System for Avalanche Risk Forecasting
 Giraud (1992), *Preprint*. 60 citations.
 
-*Summary pending.*
+- **Main goal:** Supports operational avalanche risk forecasting by automating expert assessment of snowpack stability.
+- **Architecture:** Expert system (rule-based) named MEPRA that applies avalanche-expert rules to simulated snow-cover stratigraphy to estimate instability and risk.
+- **Data:** Snowpack profiles simulated by the CROCUS snow model driven by meteorological analyses in the French Alps (Météo-France).
+- **Main result:** MEPRA produces avalanche risk estimates consistent with forecaster judgement and becomes part of the Météo-France avalanche forecasting chain.
+- **Open work:** Formal verification against observed avalanche activity and refinement of rules for more snow types.
+- **Issues:** Depends on simulated snowpack quality; rules encode expert knowledge that is hard to validate objectively.
+- *Basis: abstract+knowledge*
 
 ### [Global Extreme Heat Forecasting Using Neural Weather Models](https://doi.org/10.1175/aies-d-22-0035.1)
 Lopez‐Gomez et al. (2022), *Artificial Intelligence for the Earth Systems*. 59 citations.
@@ -7988,17 +8924,35 @@ Mudigonda et al. (2017), *Preprint*. 47 citations.
 ### [A Decision Tree Method of Forecasting Thunderstorms, Severe Thunderstorms and Tornadoes](https://doi.org/10.1175/1520-0434(1987)002<0337:adtmof>2.0.co;2)
 Colquhoun (1987), *Weather and Forecasting*. 47 citations.
 
-*Summary pending.*
+- **Main goal:** Provides an objective aid for forecasting thunderstorms, severe thunderstorms and tornadoes in Australia, where forecasters needed a systematic decision procedure.
+- **Architecture:** Expert-designed decision tree (rule-based, built from physical reasoning on instability, moisture and wind shear), not a machine-learned tree.
+- **Data:** Upper-air soundings and synoptic observations from New South Wales, Australia; verification against reported thunderstorm and severe weather events.
+- **Main result:** The decision tree discriminates thunderstorm and severe-thunderstorm days with useful skill; detailed verification scores are not reproduced here.
+- **Open work:** Coupling the decision tree with NWP model forecasts to supply predicted rather than observed sounding parameters.
+- **Issues:** Thresholds are subjective and region-specific; severe-weather reports are sparse and biased toward populated areas.
+- *Basis: abstract+knowledge*
 
 ### [Objective Prediction of Severe Thunderstorm Environments: Preliminary Results Linking a Decision Tree with an Operational Regional NWP Model](https://doi.org/10.1175/1520-0434(1998)013<1078:oposte>2.0.co;2)
 Mills et al. (1998), *Weather and Forecasting*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Produces objective forecasts of severe thunderstorm environments by driving an existing forecast decision tree with operational NWP output.
+- **Architecture:** Expert-designed decision tree (rule-based, Colquhoun 1987) applied to fields from an operational regional NWP model; not machine learning.
+- **Data:** Operational regional NWP forecasts from the Australian Bureau of Meteorology; verification against Australian severe thunderstorm reports.
+- **Main result:** Preliminary results show the NWP-driven decision tree identifies severe thunderstorm environments with useful skill.
+- **Open work:** Longer verification periods, calibration of thresholds to model biases and probabilistic output.
+- **Issues:** Preliminary evaluation over a limited period; inherits NWP model biases and sparse, population-biased severe weather reports.
+- *Basis: abstract+knowledge*
 
 ### [Objective Classification of Atlantic Hurricanes](https://doi.org/10.1175/1520-0442(1996)009<2880:ocoah>2.0.co;2)
 Elsner et al. (1996), *Journal of Climate*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Objectively classifies Atlantic hurricanes into physically distinct groups to support climate studies of hurricane activity.
+- **Architecture:** Cluster analysis of hurricane characteristics such as genesis and maximum-intensity locations; statistical, non-neural method.
+- **Data:** Atlantic hurricane best-track records (HURDAT) over several decades.
+- **Main result:** Identifies tropical-only and baroclinically enhanced hurricane groups with different genesis regions and climate relationships.
+- **Open work:** Relating the groups to climate drivers such as ENSO and the West African monsoon, and improving seasonal forecasts.
+- **Issues:** Classification depends on chosen variables and on best-track data quality, especially in the pre-satellite era.
+- *Basis: abstract+knowledge*
 
 ### [A deep learning ensemble approach for predicting tropical cyclone rapid intensification](https://doi.org/10.1002/asl.1151)
 Chen et al. (2023), *Atmospheric Science Letters*. 44 citations.
@@ -8025,7 +8979,13 @@ Vonich et al. (2024), *Geophysical Research Letters*. 42 citations.
 ### [The Development and Verification of TIPS: An Expert System to Forecast Thunderstorm Occurrence](https://doi.org/10.1175/1520-0434(1993)008<0271:tdavot>2.0.co;2)
 Lee et al. (1993), *Weather and Forecasting*. 42 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts thunderstorm occurrence with an expert system capturing forecaster knowledge.
+- **Architecture:** Expert system (rule-based) for thunderstorm occurrence forecasting (TIPS).
+- **Data:** Meteorological observations and soundings for the target region; verification over a test period, details not reported here.
+- **Main result:** Not reported in the abstract; the paper describes development and verification of TIPS with skill relative to baseline forecasts.
+- **Open work:** Extending rules to other regions and severe thunderstorm prediction.
+- **Issues:** No abstract available; hand-crafted rules are region-specific and difficult to maintain.
+- *Basis: assessment*
 
 ### [GlobeNet: Convolutional Neural Networks for Typhoon Eye Tracking from Remote Sensing Imagery](https://arxiv.org/abs/1708.03417)
 Hong et al. (2017), *arXiv*. 40 citations.
@@ -8041,7 +9001,13 @@ Hong et al. (2017), *arXiv*. 40 citations.
 ### [Systematic and Integrated Approach to Tropical Cyclone Track Forecasting Part 1 . Approach Overview and Description of Meteorological Basis.](https://doi.org/10.21236/ada291708)
 Carr et al. (1994), *Preprint*. 40 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a systematic, knowledge-based approach to tropical cyclone track forecasting that helps forecasters judge and correct objective guidance.
+- **Architecture:** Knowledge-based expert system framework built on conceptual models of environmental synoptic patterns and regions; not machine learning.
+- **Data:** Western North Pacific tropical cyclone tracks and synoptic analyses used to define the conceptual models.
+- **Main result:** Part 1 describes the approach and its meteorological basis, classifying track-steering situations into a small set of synoptic patterns and regions.
+- **Open work:** Later parts address model track error mechanisms and operational testing at forecast centres.
+- **Issues:** Conceptual-model approach relies on subjective pattern recognition; quantitative verification is deferred to later parts.
+- *Basis: abstract+knowledge*
 
 ### [Benchmark dataset and deep learning method for global tropical cyclone forecasting](https://doi.org/10.1038/s41467-025-61087-4)
 Huang et al. (2025), *Nature Communications*. 35 citations.
@@ -8090,7 +9056,13 @@ Wang et al. (2025), *Proceedings of the National Academy of Sciences of the Unit
 ### Avalanche forecast by the nearest neighbor method
 Buser et al. (1987), *Preprint*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts avalanche danger by comparing current conditions with similar past days, supporting avalanche warning services.
+- **Architecture:** k-nearest neighbour method that retrieves the most similar historical days and their avalanche activity.
+- **Data:** Historical snow and weather observations with avalanche occurrence records, likely from the Swiss Alps; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the nearest neighbour method gives a practical analogue-based avalanche forecast aid.
+- **Open work:** Better variable weighting and extension to regional forecasting.
+- **Issues:** No abstract available; relies on long consistent records and does not explain physical avalanche processes.
+- *Basis: assessment*
 
 ### [AI-Boosted Rare Event Sampling to Characterize Extreme Weather.](https://doi.org/10.1103/b1gc-9c2q)
 Lancelin et al. (2025), *Physical Review Letters*. 18 citations.
@@ -8139,7 +9111,13 @@ Nath et al. (2023), *arXiv*. 16 citations.
 ### [An evolutionary system for recognition and tracking of synoptic-scale storm systems](https://doi.org/10.1016/s0167-8655(99)00110-5)
 Parikh et al. (1999), *Pattern Recognition Letters*. 16 citations.
 
-*Summary pending.*
+- **Main goal:** Recognizes and tracks synoptic-scale storm systems in sequences of satellite cloud data automatically.
+- **Architecture:** Evolutionary system based on a genetic algorithm for region classification and tracking across image frames.
+- **Data:** Sequences of low-resolution satellite cloud-top pressure data; exact dataset not reported here.
+- **Main result:** Reports successful recognition and tracking of storm systems with the evolutionary method; quantitative accuracy is not reported here.
+- **Open work:** Testing on longer image sequences and more storm systems, and comparison with manual or conventional automated storm tracking.
+- **Issues:** Likely evaluated on few short sequences; low-resolution cloud-top pressure data limit detail, and evolutionary search can be costly and sensitive to fitness design.
+- *Basis: assessment*
 
 ### [Comparison of AI and NWP Models in Operational Severe Weather Forecasting: A Study on Tropical Cyclone Predictions](https://doi.org/10.1029/2024jh000481)
 Shi et al. (2025), *Journal of Geophysical Research*. 15 citations.
@@ -8177,22 +9155,46 @@ Hua et al. (2025), *Geophysical Research Letters*. 15 citations.
 ### Systematic and integrated approach to tropical cyclone track forecasting, part III traits knowledge base for JTWC track forecast models in the western North Pacific
 Carr et al. (1999), *Preprint*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Builds a knowledge base of traits of the dynamical track forecast models used by JTWC in the western North Pacific to help forecasters judge model errors.
+- **Architecture:** Knowledge-based (expert system style) approach cataloguing model error mechanisms; not a neural network.
+- **Data:** JTWC track forecast model guidance and tropical cyclone cases in the western North Pacific; specifics not reported here.
+- **Main result:** Provides a knowledge base of recurring model error traits; quantitative results are not reported here.
+- **Open work:** Updating the knowledge base as numerical models change and evaluating its operational benefit to track forecasts.
+- **Issues:** Model error traits are tied to specific model versions and become outdated as models evolve; relies on expert case analysis.
+- *Basis: assessment*
 
 ### [Classification and prediction of hail using self-organizing neural networks](https://doi.org/10.1109/icnn.1996.549143)
 Ultsch et al. (1996), *International Conference on Neural Networks*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies hail situations and predicts hail occurrence with self-organizing neural networks to support severe weather warnings.
+- **Architecture:** Self-organizing map (Kohonen unsupervised neural network) used to cluster meteorological situations for hail classification and prediction.
+- **Data:** Hail and meteorological observations or radar data; the region and period are not reported here.
+- **Main result:** Reports classification and prediction of hail with self-organizing networks; quantitative skill is not reported here.
+- **Open work:** Larger datasets, operational testing and comparison with conventional hail prediction methods.
+- **Issues:** Hail is rare and locally observed, so labelled data are limited; unsupervised classes need interpretation.
+- *Basis: assessment*
 
 ### [Hurricane tracking via backpropagation neural network](https://doi.org/10.1109/icnn.1995.487576)
 Johnson et al. (1995), *International Conference on Neural Networks*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts hurricane tracks from past positions using a neural network as an alternative to statistical track forecasting.
+- **Architecture:** Backpropagation neural network (multilayer perceptron).
+- **Data:** Historical hurricane best-track positions; basin and period not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Adding environmental steering predictors and comparing with operational models follows naturally.
+- **Issues:** No abstract available; likely small sample and persistence-based inputs only.
+- *Basis: assessment*
 
 ### [Knowledge-Based System for Forecasting Snow Avalanches of Chowkibal-Tangdhar Axis (J&K)](https://doi.org/10.14429/dsj.49.3853)
 Naresh et al. (1999), *Defence Science Journal*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a rule-based expert system to forecast direct-action snow avalanches on the Chowkibal-Tangdhar axis in Jammu and Kashmir.
+- **Architecture:** Expert system (rule-based) in CLIPS with 358 rules, including 173 decision rules, on 28 snow-meteorological variables.
+- **Data:** 1154 samples of snow-meteorological and snow-profile data; test on 63 avalanche-day and 54 non-avalanche-day samples.
+- **Main result:** Predicts avalanche days with 76% efficiency; 28.2% of the 117 test samples are misclassified.
+- **Open work:** Extending to other avalanche types and sites and refining rules follow naturally.
+- **Issues:** Single region, small test set and hand-crafted rules; considerable misclassification rate.
+- *Basis: abstract*
 
 ### [Deep Learning Atmospheric Models Reliably Simulate Out‐of‐Sample Land Heat and Cold Wave Frequencies](https://doi.org/10.1029/2025gl117990)
 Meng et al. (2025), *Geophysical Research Letters*. 11 citations.
@@ -8219,7 +9221,13 @@ Sahu et al. (2025), *Journal of Geophysical Research*. 11 citations.
 ### [A fuzzy expert system to assist in the prediction of hazardous wind conditions within the Mediterranean basin](https://doi.org/10.1017/s1350482798001005)
 Kuciauskas et al. (1998), *Meteorological Applications*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Assists forecasters in predicting hazardous wind conditions in the Mediterranean basin, such as regional mistral and bora events.
+- **Architecture:** Fuzzy expert system (fuzzy logic, rule-based) built from forecaster knowledge.
+- **Data:** Numerical weather prediction output and observations for the Mediterranean; details not reported.
+- **Main result:** Not reported in the record.
+- **Open work:** Operational evaluation and extension to more wind regimes follow naturally.
+- **Issues:** No abstract available; knowledge elicitation is laborious and rules are regime-specific.
+- *Basis: assessment*
 
 ### [Constructing extreme heatwave storylines with differentiable climate models](https://doi.org/10.5194/wcd-7-393-2026)
 Whittaker et al. (2025), *Weather and Climate Dynamics*. 10 citations.
@@ -8235,22 +9243,46 @@ Whittaker et al. (2025), *Weather and Climate Dynamics*. 10 citations.
 ### Applications of Classification Tree Methodology to Avalanche Data Management and Forecasting
 Davis et al. (1992), *Preprint*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Applies classification tree methods to manage avalanche data and to forecast avalanche activity from weather and snowpack observations.
+- **Architecture:** Classification tree methodology (CART-style decision tree).
+- **Data:** Historical avalanche occurrence records with meteorological and snowpack observations from a ski area; site and period are not reported in the available information.
+- **Main result:** Classification trees provide interpretable rules that discriminate avalanche from non-avalanche days; skill numbers are not reported in the available information.
+- **Open work:** Testing on additional sites and seasons, and combining trees with other statistical forecasting methods, follow naturally.
+- **Issues:** Avalanche events are rare and site-specific, so trees may overfit and transfer poorly across regions.
+- *Basis: assessment*
 
 ### Condensed and Updated Version of the Systematic Approach Meteorological Knowledge Base Western North Pacific
 Carr et al. (1997), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Condenses and updates the meteorological knowledge base of the Systematic Approach for tropical cyclone track forecasting in the western North Pacific, to support forecasters in judging numerical track guidance.
+- **Architecture:** Knowledge base of conceptual synoptic patterns, environmental structures and transitional mechanisms for tropical cyclone motion, used in an expert-system-like forecaster aid; not a machine-learning model.
+- **Data:** Western North Pacific tropical cyclone cases and numerical model track guidance used to define and refine the knowledge base.
+- **Main result:** Provides a condensed, updated set of synoptic pattern and region conceptual models intended to be easier to apply in operational track forecasting.
+- **Open work:** Testing the condensed knowledge base in operational forecasting and extending it to other basins.
+- **Issues:** Relies on subjective forecaster pattern recognition; skill gains depend on consistent application; quantitative verification not reported in the available metadata.
+- *Basis: abstract+knowledge*
 
 ### Analysis of Weather and Avalanche Records from Alta, Utah and Mammoth Mountain, California Using Classification Trees
 Davis et al. (1996), *Preprint*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Analyzes weather and avalanche records to identify conditions associated with avalanche activity for forecasting.
+- **Architecture:** Classification trees (decision tree) relating weather and snowpack variables to avalanche occurrence.
+- **Data:** Long-term weather and avalanche records from Alta, Utah and Mammoth Mountain, California.
+- **Main result:** Classification trees identify key weather variables and thresholds associated with avalanche days; accuracy figures not reported in the available metadata.
+- **Open work:** Using the trees in operational avalanche forecasting and adding snowpack structure information.
+- **Issues:** Avalanche records are incomplete and observer dependent; site-specific trees may not transfer; class imbalance of avalanche days.
+- *Basis: assessment*
 
 ### [Systematic and Integrated Approach to Tropical Cyclone Track Forecasting. Part 2: Climatology, Reproducibility, and Refinement of Meteorological Knowledge Base.](https://doi.org/10.21236/ada301936)
 Carr et al. (1995), *Preprint*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Refines the Systematic and Integrated Approach to tropical cyclone track forecasting by documenting climatology, reproducibility and an updated meteorological knowledge base.
+- **Architecture:** Meteorological knowledge base of synoptic patterns, regions and transitional mechanisms used as an expert-system-like forecaster aid; not a machine-learning model.
+- **Data:** Western North Pacific tropical cyclone cases and associated analyses used to build the climatology and test reproducibility.
+- **Main result:** Shows the knowledge base pattern and region classifications can be applied reproducibly and provides their climatology.
+- **Open work:** Linking the knowledge base to identification of numerical model track errors and operational testing.
+- **Issues:** Relies on subjective classification by forecasters; focused on one basin; quantitative skill improvements not reported here.
+- *Basis: abstract+knowledge*
 
 ### [Harnessing AI data-driven global weather models for climate attribution: An analysis of the 2017 Oroville Dam extreme atmospheric river](https://arxiv.org/abs/2409.11605)
 Baño-Medina et al. (2024), *arXiv*. 6 citations.
@@ -8266,17 +9298,35 @@ Baño-Medina et al. (2024), *arXiv*. 6 citations.
 ### Avalanche Forecast: Experience Using Nearest Neighbors
 Buser et al. (1984), *Preprint*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Supports regional avalanche danger forecasting by finding past days with weather and snow conditions similar to the current day.
+- **Architecture:** K-nearest neighbour (nearest neighbours) analogue method that retrieves the most similar past days and reports their observed avalanche activity.
+- **Data:** Historical daily weather, snowpack and avalanche occurrence records from Swiss Alpine observation stations; period not reported in the available record.
+- **Main result:** Reports operational experience showing the nearest-neighbour method is a useful aid to avalanche forecasters; skill scores not reported in the available record.
+- **Open work:** Better weighting of input variables and combination with snowpack stability information.
+- **Issues:** Analogue method limited by the length and quality of the historical record; rare large avalanche situations have few neighbours.
+- *Basis: abstract+knowledge*
 
 ### [Detection of bounded weak echo regions in meteorological radar images](https://doi.org/10.1109/icpr.1996.547297)
 Lakshmanan et al. (1996), *Proceedings of 13th International Conference on Pattern Recognition*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Detects bounded weak echo regions in weather radar images, a signature of strong updrafts in severe storms.
+- **Architecture:** Image analysis and pattern recognition algorithm for detecting bounded weak echo regions in volumetric radar reflectivity; not described as a neural network.
+- **Data:** Weather radar reflectivity volumes; radar network and dataset size not reported in the available record.
+- **Main result:** Demonstrates automated detection of bounded weak echo regions in radar images; detection skill not reported in the available record.
+- **Open work:** Validation over more storms and integration into severe weather warning algorithms.
+- **Issues:** Sensitive to radar sampling geometry and thresholds; limited case evaluation.
+- *Basis: assessment*
 
 ### [Shootout-89: A Comparative Evaluation of Knowledge-based Systems that Forecast Severe Weather](https://doi.org/10.1175/1520-0477(1991)072<1339:saceok>2.0.co;2)
 Moninger et al. (1991), *arXiv*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates AI-based systems that forecast severe convective storms to compare their skill under the same conditions.
+- **Architecture:** Benchmark evaluation of six systems: three expert systems, a linear model augmented by a small expert system, an analogue-based system, and a judgment analysis system.
+- **Data:** Shootout-89 experiment, summer 1989, northeastern Colorado; 2–9 h probabilistic forecasts verified against ground-truth from a network of observers.
+- **Main result:** Forecasts are verified daily for four regions in three categories; the abstract excerpt ends before quantitative results.
+- **Open work:** Larger evaluations and combining the strengths of different knowledge-based approaches.
+- **Issues:** One season and region; limited number of severe events; verification relies on observer reports.
+- *Basis: abstract*
 
 ### [FuXi-TC: a generative framework integrating deep learning and physics-based models for improved tropical cyclone forecasts](https://doi.org/10.1038/s41612-026-01501-w)
 Guo et al. (2025), *npj Climate and Atmospheric Science*. 4 citations.
@@ -8650,7 +9700,13 @@ Minor et al. (2024), *Journal of Geophysical Research*. 9 citations.
 ### [Machine Learning for the Detection of Oil Spills in Satellite Radar Images](https://doi.org/10.1023/a:1007452223027)
 Kubát et al. (1998), *Machine-mediated learning*. 1,326 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically detects oil spills in satellite synthetic aperture radar images to reduce the manual screening burden.
+- **Architecture:** Machine-learning classification pipeline on segmented dark regions, including a learner tailored to highly imbalanced classes (the SHRINK approach) compared with standard classifiers such as decision trees and nearest neighbour.
+- **Data:** Spaceborne SAR images (RADARSAT and ERS-1) with a small number of labeled oil slicks and many look-alike dark patches.
+- **Main result:** Shows that class imbalance and image-batched data strongly affect learning, and that imbalance-aware learning and suitable evaluation metrics give a usable detector.
+- **Open work:** More labeled images, better handling of look-alikes and transfer across sensors and image batches.
+- **Issues:** Very few positive examples; evaluation on a small image set; accuracy metrics misleading under imbalance.
+- *Basis: abstract+knowledge*
 
 ### [Applications of Deep Learning to Ocean Data Inference and Subgrid Parameterization](https://doi.org/10.1029/2018ms001472)
 Bolton et al. (2018), *Journal of Advances in Modeling Earth Systems*. 365 citations.
@@ -8677,17 +9733,35 @@ Li et al. (2020), *National Science Review*. 351 citations.
 ### [Real time wave forecasting using neural networks](https://doi.org/10.1016/s0029-8018(97)10025-7)
 Deo et al. (1998), *Ocean Engineering*. 349 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts ocean wave heights a few hours ahead in real time for coastal and offshore operations.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) using recent observed wave heights.
+- **Data:** Observed wave height time series from a buoy off the west coast of India.
+- **Main result:** The neural networks give satisfactory forecasts for short leads, with accuracy decreasing as lead time increases.
+- **Open work:** Use of wind inputs and longer lead times.
+- **Issues:** Univariate inputs; single site; skill falls at longer leads.
+- *Basis: abstract+knowledge*
 
 ### [Neural network for emulation of an inverse model: operational derivation of Case II water properties from MERIS data](https://doi.org/10.1080/014311699212443)
 Schiller et al. (1999), *International Journal of Remote Sensing*. 309 citations.
 
-*Summary pending.*
+- **Main goal:** Provides an operational algorithm for retrieving optically complex Case II water constituents from MERIS ocean colour data, where simple band-ratio methods fail.
+- **Architecture:** Multilayer perceptron trained to emulate the inverse of a radiative transfer model, mapping top-of-atmosphere or water-leaving reflectances to water constituent concentrations.
+- **Data:** Large set of simulated MERIS reflectances generated with a radiative transfer model over ranges of chlorophyll, suspended matter and yellow substance.
+- **Main result:** The network reproduces the inverse model accurately and is fast enough for operational processing of MERIS data.
+- **Open work:** Validation against in situ match-ups once MERIS data become available and extension to coupled atmosphere-water retrievals.
+- **Issues:** Trained only on simulations, so accuracy depends on the realism of the bio-optical and radiative transfer model; pre-launch study without real-data validation.
+- *Basis: abstract+knowledge*
 
 ### [A Neural Network Model for Estimating Sea Surface Chlorophyll and Sediments from Thematic Mapper Imagery](https://doi.org/10.1016/s0034-4257(98)00054-6)
 Keiner et al. (1998), *Remote Sensing of Environment*. 265 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates sea surface chlorophyll and suspended sediment concentrations in coastal waters from Landsat TM imagery.
+- **Architecture:** Multilayer perceptron neural network mapping TM band radiances to constituent concentrations, compared with regression methods.
+- **Data:** Landsat Thematic Mapper imagery of Delaware Bay with concurrent in situ chlorophyll and sediment measurements.
+- **Main result:** The neural network gives lower errors than regression-based algorithms for both chlorophyll and sediments.
+- **Open work:** Application to more scenes, seasons and sensors with better spectral resolution.
+- **Issues:** Limited in situ match-ups; TM bands are not designed for ocean colour; atmospheric correction uncertainties.
+- *Basis: abstract+knowledge*
 
 ### [A CFCC-LSTM Model for Sea Surface Temperature Prediction](https://doi.org/10.1109/lgrs.2017.2780843)
 Yang et al. (2018), *IEEE Geoscience and Remote Sensing Letters*. 260 citations.
@@ -8736,7 +9810,13 @@ Zheng et al. (2020), *Science Advances*. 227 citations.
 ### [Coastal bathymetry from hyperspectral observations of water radiance](https://doi.org/10.1016/s0034-4257(98)00043-1)
 Sandidge et al. (1998), *Remote Sensing of Environment*. 166 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves shallow coastal water depth from airborne hyperspectral remote sensing of water-leaving radiance.
+- **Architecture:** Multilayer perceptron (backpropagation neural network) mapping hyperspectral radiance spectra to depth.
+- **Data:** AVIRIS hyperspectral imagery over Florida coastal sites (e.g., Tampa Bay and the Florida Keys) with surveyed bathymetry for training and testing.
+- **Main result:** The neural network retrieves depth in shallow waters with errors of a fraction of a metre over the training sites; specific values not reported here.
+- **Open work:** Generalization across sites, water types and bottom types, and application to satellite sensors.
+- **Issues:** Trained per site, so sensitive to water clarity and bottom reflectance; limited to optically shallow water.
+- *Basis: abstract+knowledge*
 
 ### [EddyNet: A Deep Neural Network For Pixel-Wise Classification of Oceanic Eddies](https://doi.org/10.1109/igarss.2018.8518411)
 Lguensat et al. (2017), *IEEE International Geoscience and Remote Sensing Symposium*. 165 citations.
@@ -8785,7 +9865,13 @@ Ducournau et al. (2016), *2016 9th IAPR Workshop on Pattern Recogniton in Remote
 ### [Application of artificial neural networks to paleoceanographic data](https://doi.org/10.1016/s0031-0182(97)00031-x)
 Malmgren et al. (1997), *Palaeogeography, Palaeoclimatology, Palaeoecology*. 109 citations.
 
-*Summary pending.*
+- **Main goal:** Reconstructs past sea surface temperatures from fossil planktonic foraminiferal assemblages for paleoceanography.
+- **Architecture:** Feedforward neural network (multilayer perceptron, backpropagation) as a transfer function, compared with conventional transfer function methods.
+- **Data:** Core-top planktonic foraminiferal assemblages with modern SST for training; applied to down-core sediment data.
+- **Main result:** Neural networks give SST estimates with errors comparable to or lower than conventional transfer functions.
+- **Open work:** Applying to more cores and ocean basins and estimating reconstruction uncertainty.
+- **Issues:** Calibration limited by core-top data coverage and no-analogue assemblages; uncertainty not fully quantified.
+- *Basis: abstract+knowledge*
 
 ### [A neural network technique to improve computational efficiency of numerical oceanic models](https://doi.org/10.1016/s1463-5003(02)00010-0)
 Krasnopolsky et al. (2002), *Ocean Modelling*. 102 citations.
@@ -8801,7 +9887,13 @@ Krasnopolsky et al. (2002), *Ocean Modelling*. 102 citations.
 ### [Estimating oceanic chlorophyll concentrations with neural networks](https://doi.org/10.1080/014311699213695)
 Keiner (1999), *International Journal of Remote Sensing*. 95 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates ocean chlorophyll concentration from satellite ocean colour reflectance.
+- **Architecture:** Feedforward neural network (multilayer perceptron) mapping remote sensing reflectances to chlorophyll.
+- **Data:** In situ bio-optical data with chlorophyll and water-leaving reflectances; details not reported here.
+- **Main result:** The neural network improves chlorophyll estimates over standard band-ratio algorithms.
+- **Open work:** Application to SeaWiFS imagery and coastal waters.
+- **Issues:** Training data limited; performance in optically complex waters uncertain.
+- *Basis: assessment*
 
 ### [Benchmarking of Machine Learning Ocean Subgrid Parameterizations in an Idealized Model](https://doi.org/10.1029/2022ms003258)
 Ross et al. (2022), *Journal of Advances in Modeling Earth Systems*. 93 citations.
@@ -8839,7 +9931,13 @@ Wang et al. (2024), *arXiv*. 83 citations.
 ### [Unsupervised neural method for temperature forecasting](https://doi.org/10.1016/s0954-1810(99)00007-2)
 Corchado et al. (1999), *Artificial Intelligence in Engineering*. 81 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts temperature time series of oceanographic water masses in real time and extracts models of their thermal structure.
+- **Architecture:** Unsupervised Negative Feedback Artificial Neural Network, compared with linear regression and ARIMA models.
+- **Data:** Oceanographic temperature time series of water masses; source and period not reported in the abstract.
+- **Main result:** The negative feedback network extracts the underlying model of the data and forecasts competitively with linear regression and ARIMA; numbers not reported.
+- **Open work:** Further evaluation on other oceanographic variables and longer horizons is implied.
+- **Issues:** Limited description of data and quantitative skill; univariate time-series approach without ocean physics.
+- *Basis: assessment*
 
 ### [Characteristics of Global Ocean Abnormal Mesoscale Eddies Derived From the Fusion of Sea Surface Height and Temperature Data by Deep Learning](https://doi.org/10.1029/2021gl094772)
 Liu et al. (2021), *Geophysical Research Letters*. 74 citations.
@@ -8877,12 +9975,24 @@ Chapman et al. (2016), *IEEE Geoscience and Remote Sensing Letters*. 73 citation
 ### [Forecasting the SST Space‐time variability of the Alboran Sea with genetic algorithms](https://doi.org/10.1029/1999gl011226)
 Alvarez et al. (1999), *Geophysical Research Letters*. 69 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts the space-time variability of sea surface temperature in the Alboran Sea using a nonlinear data-driven technique.
+- **Architecture:** Genetic algorithm combined with empirical orthogonal function (EOF) analysis; the genetic algorithm finds equations describing each EOF temporal amplitude.
+- **Data:** Sea surface temperature fields of the Alboran Sea (satellite-derived); period not reported in the abstract.
+- **Main result:** The method enables global forecasting of the future SST variability of the basin; quantitative skill not reported in the abstract.
+- **Open work:** Application to other variables and regions and comparison with dynamical models are natural extensions.
+- **Issues:** Truncated EOF basis limits resolved variability; evolved equations are fitted to a short record and may not generalize.
+- *Basis: assessment*
 
 ### [Applying artificial neural network methodology to ocean color remote sensing](https://doi.org/10.1016/s0304-3800(99)00105-2)
 Gross et al. (1999), *Ecological Modelling*. 67 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves ocean properties such as chlorophyll concentration from satellite ocean colour reflectances, improving on empirical band-ratio algorithms.
+- **Architecture:** Multilayer perceptron neural network mapping marine reflectances to chlorophyll concentration.
+- **Data:** Simulated and/or in situ ocean colour reflectance data for SeaWiFS-type bands; details not reported here.
+- **Main result:** The neural network inverts reflectances accurately and compares favourably with polynomial algorithms; numbers not reported here.
+- **Open work:** Application to real satellite imagery and coastal waters are natural extensions.
+- **Issues:** Dependent on the bio-optical model or training data representativeness; atmospheric correction errors are not addressed.
+- *Basis: assessment*
 
 ### [Improved Quantification of Ocean Carbon Uptake by Using Machine Learning to Merge Global Models and pCO2 Data](https://doi.org/10.1029/2021ms002620)
 Gloege et al. (2021), *Journal of Advances in Modeling Earth Systems*. 66 citations.
@@ -8909,7 +10019,13 @@ Manucharyan et al. (2020), *Journal of Advances in Modeling Earth Systems*. 65 c
 ### [A New Method for Deriving Ocean Surface Specific Humidity and Air Temperature: An Artificial Neural Network Approach](https://doi.org/10.1175/1520-0450(1999)038<1229:anmfdo>2.0.co;2)
 Jones et al. (1999), *Journal of Applied Meteorology*. 65 citations.
 
-*Summary pending.*
+- **Main goal:** Derives ocean surface specific humidity and air temperature from satellite data, needed to estimate turbulent air-sea heat fluxes.
+- **Architecture:** Artificial neural network (feed-forward) mapping satellite observations to near-surface specific humidity and air temperature.
+- **Data:** SSM/I microwave observations (with sea surface temperature) collocated with in situ ship and buoy measurements.
+- **Main result:** The neural network retrieves specific humidity and air temperature more accurately than earlier statistical methods; numbers not reported here.
+- **Open work:** Global application to compute surface heat fluxes is the natural next step.
+- **Issues:** Limited by collocation data coverage; air temperature is only weakly constrained by satellite radiances.
+- *Basis: assessment*
 
 ### [Developing a deep learning-based storm surge forecasting model](https://doi.org/10.1016/j.ocemod.2023.102179)
 Xie et al. (2023), *Ocean Modelling*. 64 citations.
@@ -8936,7 +10052,13 @@ George et al. (2019), *Nature Communications*. 59 citations.
 ### [The use of Neural Networks for the estimation of oceanic constituents based on the MERIS instrument](https://doi.org/10.1080/014311699212515)
 Buckton et al. (1999), *International Journal of Remote Sensing*. 59 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves oceanic constituents such as chlorophyll, suspended sediment and yellow substance from ocean colour reflectances expected from the MERIS sensor.
+- **Architecture:** Artificial neural network (multilayer perceptron) inversion of water-leaving reflectance to constituent concentrations.
+- **Data:** Simulated MERIS-band reflectances from a bio-optical radiative transfer model (pre-launch study).
+- **Main result:** The neural network retrieves constituent concentrations accurately from simulated data, including in optically complex waters.
+- **Open work:** Validation with in situ data and real MERIS observations after launch, including atmospheric correction effects.
+- **Issues:** Trained and tested on simulations only; bio-optical model assumptions and sensor noise limit realism.
+- *Basis: assessment*
 
 ### [Synthesizing Sea Surface Temperature and Satellite Altimetry Observations Using Deep Learning Improves the Accuracy and Resolution of Gridded Sea Surface Height Anomalies](https://doi.org/10.1029/2022ms003589)
 Martin et al. (2023), *Journal of Advances in Modeling Earth Systems*. 57 citations.
@@ -9106,7 +10228,13 @@ Guo et al. (2024), *Science Advances*. 32 citations.
 ### [Remote sensing of ocean sound speed profiles by a perceptron neural network](https://doi.org/10.1109/48.486796)
 Park et al. (1996), *IEEE Journal of Oceanic Engineering*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates ocean sound speed profiles from remotely sensed surface information, relevant to underwater acoustics.
+- **Architecture:** Perceptron neural network (multilayer perceptron) mapping surface observations to sound speed profiles.
+- **Data:** Remotely sensed sea surface parameters (e.g. SST) and historical in situ sound speed profiles; region not reported.
+- **Main result:** Not reported in the available metadata; the network infers sound speed profiles from surface information with useful accuracy.
+- **Open work:** Adding altimetry and testing in other regions would follow naturally.
+- **Issues:** Subsurface structure is only partly constrained by surface data; region-specific training.
+- *Basis: assessment*
 
 ### [Deep Learning of Unresolved Turbulent Ocean Processes in Climate Models](https://doi.org/10.1002/9781119646181.ch20)
 Zanna et al. (2021), *Deep Learning for the Earth Sciences*. 27 citations.
@@ -9122,7 +10250,13 @@ Zanna et al. (2021), *Deep Learning for the Earth Sciences*. 27 citations.
 ### [Prediction of response of zooplankton biomass to climatic and oceanic changes](https://doi.org/10.1016/s0304-3800(99)00107-6)
 Aoki et al. (1999), *Ecological Modelling*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts how zooplankton biomass responds to climatic and oceanic changes, linking physical variability to lower trophic level ecosystem dynamics.
+- **Architecture:** Neural network model relating climatic and oceanic predictors to zooplankton biomass (specific network type not reported).
+- **Data:** Zooplankton biomass time series with climatic and oceanographic variables, likely from waters around Japan; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the model can reproduce and predict zooplankton biomass from climate and ocean conditions.
+- **Open work:** Longer records, mechanistic interpretation of predictor effects, and extension to other plankton groups or regions.
+- **Issues:** No abstract available; short ecological time series risk overfitting and limited physical interpretability of the learned relations.
+- *Basis: assessment*
 
 ### [GLONET: Mercator's End‐to‐End Neural Global Ocean Forecasting System](https://doi.org/10.1029/2025jh000686)
 Aouni et al. (2024), *Journal of Geophysical Research*. 25 citations.
@@ -9193,7 +10327,13 @@ Huang et al. (2025), *Neural Information Processing Systems*. 13 citations.
 ### [Ocean feature recognition using genetic algorithms with fuzzy fitness functions (GA/F3)](https://doi.org/10.21236/ada230891)
 Ankenbrandt et al. (1990), *Preprint*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically recognizes and labels mesoscale ocean features such as fronts and eddies in satellite imagery to reduce manual analysis.
+- **Architecture:** Genetic algorithm with fuzzy fitness functions (GA/F3) combining genetic algorithm search and fuzzy logic.
+- **Data:** Satellite ocean imagery (likely infrared sea surface temperature images); the scenes and region are not reported here.
+- **Main result:** Reports that the genetic algorithm with fuzzy fitness functions can label ocean features; quantitative accuracy is not reported here.
+- **Open work:** Testing on more scenes and feature types and comparison with expert-system labelling.
+- **Issues:** Details unknown without the abstract; fitness design relies on expert knowledge and validation is likely limited.
+- *Basis: assessment*
 
 ### [Regional Modeling of Storm Surges Using Localized Features and Transfer Learning](https://doi.org/10.1029/2025jh000650)
 Nagaraj et al. (2025), *Journal of Geophysical Research*. 12 citations.
@@ -9220,27 +10360,57 @@ Bire et al. (2025), *Journal of Advances in Modeling Earth Systems*. 12 citation
 ### [An Expert System For Interpreting Mesoscale Features In Oceanographic Satellite Images](https://doi.org/10.1117/12.969270)
 Krishnakumar et al. (1989), *Defense, Security, and Sensing*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Interprets mesoscale ocean features such as fronts and eddies in oceanographic satellite images automatically.
+- **Architecture:** Expert system (rule-based) for labelling mesoscale features.
+- **Data:** Infrared satellite images of the ocean, likely AVHRR over the Gulf Stream region; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Integrating with automated feature detection follows naturally.
+- **Issues:** No abstract available; cloud cover and rule-base completeness limit use.
+- *Basis: assessment*
 
 ### [Artificial neural networks to forecast biomass of Pacific sardine and its environment](https://doi.org/10.1016/s0967-0653(97)85336-7)
 MiguelA.Cisneros-Mata et al. (1997), *Oceanographic Literature Review*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Tests artificial neural networks for forecasting environmental and biotic time series of the California Current, including Pacific sardine biomass.
+- **Architecture:** Artificial neural network (multilayer perceptron type) on time series.
+- **Data:** Monthly 10-m temperature at Scripps pier; water temperature, wind speed cubed, egg and larval abundance, catch and anchovy and sardine biomass.
+- **Main result:** Forecasts monthly temperature up to nine years ahead well and annual sardine spawning biomass reasonably one year ahead.
+- **Open work:** Authors discuss modelling philosophy and pitfalls of ANN use.
+- **Issues:** Short series risk overfitting; long-lead claims need careful validation.
+- *Basis: abstract*
 
 ### [Ocean surface air temperature derived from multiple data sets and artificial neural networks](https://doi.org/10.1029/1998gl900086)
 Gautier et al. (1998), *Geophysical Research Letters*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates near-surface air temperature over the ocean, which is poorly observed but needed for air-sea heat flux estimation, by combining several satellite and in situ data sets.
+- **Architecture:** Artificial neural network (feed-forward) mapping multiple input variables to ocean surface air temperature.
+- **Data:** Multiple satellite-derived and in situ ocean data sets; specific products and periods are not reported in the available information.
+- **Main result:** Reports that the neural network retrieves ocean surface air temperature from the combined inputs; quantitative accuracy is not reported in the available information.
+- **Open work:** Extending the retrieval to global, long-term records and to turbulent heat flux estimation follows naturally.
+- **Issues:** Accuracy depends on collocated training data and may not transfer across climate regimes; no uncertainty estimates are evident.
+- *Basis: assessment*
 
 ### [A neural network model for predicting the bulk-skin temperature difference at the sea surface](https://doi.org/10.1080/014311699211183)
 Ward et al. (1999), *International Journal of Remote Sensing*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts the bulk-skin sea surface temperature difference, which matters for relating satellite skin SST to bulk SST and for air-sea flux estimation.
+- **Architecture:** Neural network (feed-forward) relating surface meteorological and flux variables to the bulk-skin temperature difference.
+- **Data:** In situ shipboard measurements of skin and bulk temperature with surface meteorology; cruise details are not reported in the available information.
+- **Main result:** The neural network predicts the bulk-skin temperature difference from surface conditions; error statistics are not reported in the available information.
+- **Open work:** Testing the model on independent cruises and applying it to correct satellite SST products follows naturally.
+- **Issues:** Training data are limited to specific campaigns, so generality across regions and diurnal-warming conditions is uncertain.
+- *Basis: assessment*
 
 ### [A Prototype Knowledge-Based System To Aid The Oceanographic Image Analyst](https://doi.org/10.1117/12.964131)
 Lybanon et al. (1986), *Other Conferences*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Aids oceanographic image analysts in identifying mesoscale ocean features in satellite imagery, a labour-intensive manual task.
+- **Architecture:** Prototype knowledge-based system (expert system, rule-based) encoding analyst knowledge about ocean features such as fronts and eddies.
+- **Data:** Satellite infrared oceanographic imagery (AVHRR-type sea surface temperature images); specific scenes not reported in the available information.
+- **Main result:** Demonstrates a prototype that supports feature identification; no quantitative evaluation is reported in the available information.
+- **Open work:** Expanding the knowledge base and validating against analyst interpretations would be needed for operational use.
+- **Issues:** Prototype status, hand-crafted rules and limited evaluation; performance under cloud contamination is unclear.
+- *Basis: assessment*
 
 ### [A Data‐Driven Approach for Parameterizing Ocean Submesoscale Buoyancy Fluxes](https://doi.org/10.1029/2025ms004991)
 Bodner et al. (2023), *Journal of Advances in Modeling Earth Systems*. 10 citations.
@@ -9256,17 +10426,35 @@ Bodner et al. (2023), *Journal of Advances in Modeling Earth Systems*. 10 citati
 ### [A neural network architecture for automatic extraction of oceanographic features in satellite remote sensing imagery](https://doi.org/10.1109/oceans.1998.724390)
 Askari et al. (1998), *IEEE Oceanic Engineering Society. OCEANS'98. Conference Proceedings (Cat. No.98CH36259)*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically extracts oceanographic features, such as fronts and eddies, from satellite remote sensing imagery.
+- **Architecture:** Neural network architecture for feature extraction and classification in images.
+- **Data:** Satellite remote sensing ocean imagery (e.g. infrared sea surface temperature); specific products not reported in the available information.
+- **Main result:** The neural network extracts oceanographic features automatically; quantitative accuracy is not reported in the available information.
+- **Open work:** Validation on more scenes and operational integration follow naturally.
+- **Issues:** Cloud contamination and limited labelled data limit robustness.
+- *Basis: assessment*
 
 ### [Knowledge‐based analysis of satellite oceanographic images](https://doi.org/10.1002/int.4550040203)
 Thomason (1989), *International Journal of Intelligent Systems*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Applies knowledge-based methods to analyse satellite oceanographic images and identify ocean features automatically.
+- **Architecture:** Knowledge-based system (expert system, rule-based) for image analysis.
+- **Data:** Satellite oceanographic imagery (infrared sea surface temperature); specific scenes not reported in the available information.
+- **Main result:** Demonstrates knowledge-based interpretation of oceanographic images; quantitative evaluation is not reported in the available information.
+- **Open work:** Broader validation and adaptive knowledge bases follow naturally.
+- **Issues:** Brittle hand-crafted rules and limited evaluation.
+- *Basis: assessment*
 
 ### [Surface circulation estimation using image processing and computer vision methods applied to sequential satellite imagery](https://doi.org/10.1016/0967-0653(93)94591-l)
 Yan et al. (1993), *Oceanographic Literature Review*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Automates ocean feature tracking in sequential satellite imagery to estimate coastal surface currents, as an alternative to the maximum cross-correlation method.
+- **Architecture:** Two non-ML pattern-recognition and computer vision methods: feature pattern selection and matching with geometrical calculations, and a Hough-transform method for rotation and translation.
+- **Data:** Sequential AVHRR infrared satellite imagery off the U.S. east coast.
+- **Main result:** Both methods estimate cross- and along-isotherm displacements and surface motion parameters, with advantages over maximum cross-correlation; quantitative accuracy is not reported.
+- **Open work:** Addressing the practical problems encountered and validating against in situ currents follow naturally.
+- **Issues:** Cloud cover, isotherm ambiguity and limited validation affect current estimates.
+- *Basis: abstract*
 
 ### [A Machine Learning‐Based Model Infers the Sea Surface Velocity of Surface Water and Ocean Topography (SWOT)](https://doi.org/10.1029/2024gl110731)
 Zhou et al. (2025), *Geophysical Research Letters*. 8 citations.
@@ -9304,27 +10492,57 @@ Garcia et al. (2025), *arXiv*. 7 citations.
 ### [Artificial neural network-based inversion technique for extracting ocean surface wave spectra from SAR images](https://doi.org/10.1109/igarss.1997.606394)
 Kasilingam et al. (1997), *IGARSS'97. 1997 IEEE International Geoscience and Remote Sensing Symposium Proceedings. Remote Sensing - A Scientific Vision for Sustainable Development*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Extracts ocean surface wave spectra from synthetic aperture radar images, addressing the nonlinear inversion of SAR imaging of waves.
+- **Architecture:** Artificial neural network trained as an inversion operator from SAR image spectra to ocean wave spectra.
+- **Data:** SAR image spectra, likely simulated with a SAR imaging model, paired with wave spectra; specific datasets not reported in the available metadata.
+- **Main result:** Reports that the neural network inversion recovers wave spectra from SAR images; accuracy figures not reported in the available metadata.
+- **Open work:** Validation with real SAR data and buoy spectra, and handling azimuth cutoff effects.
+- **Issues:** Training on modelled spectra may not represent real SAR imaging nonlinearity; limited validation.
+- *Basis: assessment*
 
 ### Development of an Expert System for Interpretation of Oceanographic Images
 Thomason et al. (1986), *Preprint*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Develops an expert system to interpret oceanographic satellite images, automating identification of ocean features.
+- **Architecture:** Expert system (rule-based) combining image processing with oceanographic knowledge to label image features.
+- **Data:** Oceanographic satellite images, such as infrared imagery of ocean features; specific datasets not reported in the available metadata.
+- **Main result:** Demonstrates prototype automated interpretation of oceanographic images; quantitative accuracy not reported in the available metadata.
+- **Open work:** Expanding the knowledge base and testing on more image sequences.
+- **Issues:** Cloud cover and ambiguous features challenge rule-based interpretation; limited evaluation.
+- *Basis: assessment*
 
 ### Estimation of ocean surface currents from satellite imagery using a Hopfield neural network
 Côté et al. (1996), *Marine Technology Society Journal*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates ocean surface currents from sequential satellite imagery by tracking feature displacements.
+- **Architecture:** Hopfield neural network used as an optimization method to match features between image pairs and derive current vectors.
+- **Data:** Sequential satellite images of the ocean surface, such as infrared imagery; specific datasets not reported in the available metadata.
+- **Main result:** Reports that the Hopfield network yields surface current fields from image sequences comparable to conventional matching; figures not reported in the available metadata.
+- **Open work:** Validation against in situ current measurements and operational application.
+- **Issues:** Feature tracking fails in cloud-covered or featureless areas; only advective surface motion is captured.
+- *Basis: assessment*
 
 ### [Application of multilayered neural networks to ocean acoustic tomography inversions](https://doi.org/10.1080/174159796088027628)
 Stéphan et al. (1996), *Inverse Problems in Engineering*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Inverts ocean acoustic tomography measurements to recover the ocean sound-speed structure, a nonlinear inverse problem.
+- **Architecture:** Multilayer perceptron (multilayered neural network) trained to map acoustic observables to parameters of the sound-speed field.
+- **Data:** Simulated acoustic tomography data generated from ocean sound-speed profiles with an acoustic propagation model; details are not reported in the available record.
+- **Main result:** Shows that multilayer networks can perform the tomographic inversion efficiently and with accuracy comparable to classical inversion; numbers not reported in the available record.
+- **Open work:** Application to real tomography experiments and handling of measurement noise and range-dependent environments.
+- **Issues:** Likely trained and tested on simulations; performance on real ocean data and outside the training distribution is uncertain.
+- *Basis: assessment*
 
 ### [Data mining using example-based methods in oceanographic forecast models](https://doi.org/10.1049/ic:19980550)
 Corchado et al. (1998), *Knowledge Discovery and Data Mining*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts ocean thermal structure ahead of a moving research vessel by mining past examples rather than running a physical model.
+- **Architecture:** Example-based methods: case-based reasoning combined with a radial basis function neural network that adapts retrieved cases to produce forecasts.
+- **Data:** Oceanographic temperature measurements recorded along research cruise tracks in the Atlantic; exact cruises and sample sizes are not reported in the available record.
+- **Main result:** Shows the hybrid case-based reasoning and neural network system forecasts water temperature more accurately than the compared statistical and single-method approaches.
+- **Open work:** Extending the system to other variables and regions and automating case base maintenance.
+- **Issues:** Forecasts are short-range and local to the ship track; performance depends on the coverage of past cases.
+- *Basis: abstract+knowledge*
 
 ### [A deep learning global ocean forecasting model with sub-daily and eddy-resolving resolution](https://doi.org/10.1038/s41612-026-01444-2)
 Niu et al. (2026), *npj Climate and Atmospheric Science*. 5 citations.
@@ -9351,12 +10569,24 @@ Botvynko et al. (2025), *Artificial Intelligence for the Earth Systems*. 5 citat
 ### [Development of the pattern recognition and the spatial integration filtering methods for analyzing satellite altimeter data](https://doi.org/10.1016/0034-4257(94)90137-6)
 Yan et al. (1994), *Remote Sensing of Environment*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Extracts ocean features from satellite altimeter data, where signals are noisy and sampled along tracks.
+- **Architecture:** Pattern recognition method combined with a spatial integration filtering technique applied to altimetric sea surface height; not a neural network approach.
+- **Data:** Satellite altimeter sea surface height data; mission and region not reported in the available record.
+- **Main result:** Shows the methods can identify and map oceanic features such as eddies or fronts from altimeter data; quantitative results not reported in the available record.
+- **Open work:** Application to longer altimeter records and other ocean regions.
+- **Issues:** Relies on along-track sampling and filtering choices; validation against in situ data not described in the available record.
+- *Basis: assessment*
 
 ### [wasserstandsvorhersage mittels neuronaler netze](https://doi.org/10.1007/bf02765119)
 Röske (1997), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts water levels (Wasserstandsvorhersage) with neural networks, as a data-driven alternative or complement to conventional water-level prediction methods.
+- **Architecture:** Artificial neural network; the specific network type, inputs and training scheme are not reported in the available metadata.
+- **Data:** Not reported in the abstract; the title implies observed water-level time series, but the gauges, region and period are unknown.
+- **Main result:** Not reported in the abstract; no quantitative skill is available from the metadata.
+- **Open work:** Comparison against operational hydrodynamic or statistical forecasts and extension to longer lead times and extreme water levels would follow naturally.
+- **Issues:** German-language report with no abstract; data, lead times and evaluation are unknown, and early neural networks of this era were typically small and trained on limited records.
+- *Basis: assessment*
 
 ### [Data-driven global ocean model resolving atmospherically forced ocean dynamics](https://doi.org/10.1126/sciadv.aed1225)
 Kim et al. (2025), *Science Advances*. 1 citations.
@@ -9419,7 +10649,13 @@ Kim et al. (2019), *The Cryosphere*. 110 citations.
 ### [A comprehensive, automated approach to determining sea ice thickness from SAR data](https://doi.org/10.1109/36.368223)
 Haverkamp et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 88 citations.
 
-*Summary pending.*
+- **Main goal:** Determines sea ice thickness categories automatically from synthetic aperture radar imagery.
+- **Architecture:** Automated image-analysis pipeline with segmentation and knowledge-based classification of ice types mapped to thickness.
+- **Data:** ERS-1 SAR imagery of sea ice; details not reported here.
+- **Main result:** The automated approach classifies ice types and infers thickness categories consistent with expert interpretation.
+- **Open work:** Validation with in situ thickness and other SAR sensors.
+- **Issues:** Thickness inferred indirectly from ice type; limited ground truth.
+- *Basis: assessment*
 
 ### [Sea Ice Concentration Estimation during Freeze-Up from SAR Imagery Using a Convolutional Neural Network](https://doi.org/10.3390/rs9050408)
 Wang et al. (2017), *Remote Sensing*. 77 citations.
@@ -9468,7 +10704,13 @@ Liu et al. (2021), *Journal of Marine Science and Engineering*. 58 citations.
 ### [Application of neural networks for sea ice classification in polarimetric SAR images](https://doi.org/10.1109/36.387589)
 Hara et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types in polarimetric synthetic aperture radar images, to support ice mapping.
+- **Architecture:** Artificial neural network classifier using polarimetric SAR features; network details not reported in the available metadata.
+- **Data:** Airborne polarimetric SAR imagery of sea ice (e.g. JPL AIRSAR); scenes and ground truth not reported here.
+- **Main result:** The neural network separates the main sea ice types in polarimetric SAR imagery; accuracy figures not reported in the available metadata.
+- **Open work:** Application to spaceborne SAR and additional ice classes and seasons.
+- **Issues:** Few scenes and limited ground truth; seasonal changes in backscatter may limit transfer.
+- *Basis: assessment*
 
 ### [Extended Range Arctic Sea Ice Forecast with Convolutional Long-Short Term Memory Networks](https://doi.org/10.5194/egusphere-egu2020-3485)
 Liu et al. (2020), *Monthly Weather Review*. 47 citations.
@@ -9484,7 +10726,13 @@ Liu et al. (2020), *Monthly Weather Review*. 47 citations.
 ### [An improved fuzzy logic segmentation of sea ice, clouds, and ocean in remotely sensed arctic imagery](https://doi.org/10.1016/0034-4257(95)00175-1)
 Simpson et al. (1995), *Remote Sensing of Environment*. 40 citations.
 
-*Summary pending.*
+- **Main goal:** Segments sea ice, clouds and open ocean in Arctic satellite imagery where these surfaces are spectrally confusable.
+- **Architecture:** Fuzzy logic segmentation using membership functions on spectral and textural features; non-neural method.
+- **Data:** Remotely sensed Arctic imagery, likely AVHRR; scenes not reported here.
+- **Main result:** Not reported in the abstract; the improved fuzzy scheme is reported to separate ice, cloud and ocean better than an earlier version.
+- **Open work:** Automation across seasons and illumination conditions and validation against independent ice charts.
+- **Issues:** No abstract available; membership functions are hand-tuned and may not transfer across scenes.
+- *Basis: assessment*
 
 ### [Deep Learning of Systematic Sea Ice Model Errors From Data Assimilation Increments](https://doi.org/10.1029/2023ms003757)
 Gregory et al. (2023), *Journal of Advances in Modeling Earth Systems*. 36 citations.
@@ -9511,7 +10759,13 @@ Choi et al. (2019), *Remote Sensing*. 36 citations.
 ### [Unsupervised segmentation of ERS and Radarsat sea ice images using multiresolution peak detection and aggregated population equalization](https://doi.org/10.1080/014311699211633)
 Soh et al. (1999), *International Journal of Remote Sensing*. 36 citations.
 
-*Summary pending.*
+- **Main goal:** Segments sea ice in SAR imagery automatically and without training labels, to support operational ice mapping.
+- **Architecture:** Unsupervised segmentation method (non-neural) combining multiresolution histogram peak detection with aggregated population equalization to cluster SAR intensities into ice classes.
+- **Data:** ERS-1/2 SAR and Radarsat SAR sea-ice images; scene locations and counts not reported.
+- **Main result:** Not reported in the available metadata; the method is intended to produce consistent ice-class segmentations across sensors.
+- **Open work:** Linking unsupervised segments to physical ice types and validating against ice charts would follow naturally.
+- **Issues:** Unsupervised segments need not correspond to geophysical ice classes; SAR speckle and incidence-angle effects complicate segmentation.
+- *Basis: assessment*
 
 ### [Machine Learning for Online Sea Ice Bias Correction Within Global Ice‐Ocean Simulations](https://doi.org/10.1029/2023gl106776)
 Gregory et al. (2023), *Geophysical Research Letters*. 32 citations.
@@ -9538,12 +10792,24 @@ Finn et al. (2024), *Journal of Advances in Modeling Earth Systems*. 31 citation
 ### [Classification of sea-ice images using a dual-polarized radar](https://doi.org/10.1109/48.107151)
 Orlando et al. (1990), *IEEE Journal of Oceanic Engineering*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types from dual-polarized radar imagery to support ice monitoring.
+- **Architecture:** Pattern-recognition classifier on dual-polarization radar features (method details not reported).
+- **Data:** Dual-polarized radar images of sea ice; platform and region not reported.
+- **Main result:** Not reported in the available metadata; dual polarization is expected to improve ice-type discrimination.
+- **Open work:** Validation against ice observations and extension to other frequencies would follow naturally.
+- **Issues:** Limited scenes likely; incidence-angle and seasonal effects on backscatter complicate classification.
+- *Basis: assessment*
 
 ### [Retrieval of Antarctic sea-ice pressure ridge frequencies from ERS SAR imagery by means of in situ laser profiling and usage of a neural network](https://doi.org/10.1080/014311699211642)
 Haas et al. (1999), *International Journal of Remote Sensing*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves Antarctic sea-ice pressure ridge frequencies from SAR imagery, linking surface roughness to radar backscatter.
+- **Architecture:** Artificial neural network (feedforward) relating SAR backscatter statistics to ridge frequency.
+- **Data:** ERS SAR imagery collocated with in situ (helicopter-borne) laser profiling of sea ice surface roughness in Antarctic sea ice.
+- **Main result:** Not reported in the available metadata; the network retrieves ridge frequencies from SAR with useful accuracy.
+- **Open work:** Extension to larger areas and other SAR sensors would follow naturally.
+- **Issues:** Limited collocated laser data; SAR sensitivity to ridges depends on orientation and incidence angle.
+- *Basis: assessment*
 
 ### [Data-driven surrogate modeling of high-resolution sea-ice thickness in the Arctic](https://doi.org/10.5194/tc-18-1791-2024)
 Durand et al. (2024), *The Cryosphere*. 25 citations.
@@ -9592,7 +10858,13 @@ Palerme et al. (2024), *The Cryosphere*. 23 citations.
 ### [Application Of Neural Networks To Sea Ice Classification Using Polarimetric SAR Images](https://doi.org/10.1109/igarss.1991.577672)
 Kwok et al. (1991), *[Proceedings] IGARSS'91 Remote Sensing: Global Monitoring for Earth Management*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types from polarimetric synthetic aperture radar images using neural networks.
+- **Architecture:** Neural network classifier using polarimetric SAR features.
+- **Data:** Polarimetric SAR imagery of sea ice (likely airborne JPL AIRSAR); details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the neural network is shown to separate sea ice types.
+- **Open work:** Application to spaceborne SAR and seasonal conditions, and comparison with statistical classifiers.
+- **Issues:** No abstract available; limited scenes and ground truth, sensitivity to incidence angle and season.
+- *Basis: assessment*
 
 ### [Regional September Sea Ice Forecasting with Complex Networks and Gaussian Processes](https://doi.org/10.1175/waf-d-19-0107.1)
 Gregory et al. (2020), *Weather and forecasting*. 20 citations.
@@ -9619,12 +10891,24 @@ Finn et al. (2023), *The Cryosphere*. 19 citations.
 ### [Extracting curvilinear features from synthetic aperture radar images of Arctic ice: algorithm discovery using the genetic programming paradigm](https://doi.org/10.1109/igarss.1995.520489)
 Daida et al. (1995), *1995 International Geoscience and Remote Sensing Symposium, IGARSS '95. Quantitative Remote Sensing for Science and Applications*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Uses genetic programming to automatically discover image-processing algorithms that extract curvilinear features such as ridges and leads from SAR images of Arctic sea ice.
+- **Architecture:** Genetic programming (evolutionary algorithm) that evolves feature-extraction programs from image-processing primitives.
+- **Data:** Synthetic aperture radar imagery of Arctic sea ice; the specific mission and scene count are not reported here.
+- **Main result:** Shows that genetic programming can evolve usable curvilinear feature detectors for sea-ice SAR imagery; quantitative accuracy is not reported here.
+- **Open work:** Generalizing evolved algorithms to more scenes, ice conditions and sensors, and interpreting the evolved programs physically.
+- **Issues:** Likely evaluated on a small set of images with hand-labelled targets; evolved programs can overfit training scenes and be hard to interpret.
+- *Basis: assessment*
 
 ### [A study of arctic sea ice and sea‐level pressure using POP and neural network methods](https://doi.org/10.1080/07055900.1994.9649510)
 Tang et al. (1994), *Atmosphere-ocean*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Studies the coupled variability of Arctic sea ice and sea-level pressure and its predictability using linear and nonlinear statistical methods.
+- **Architecture:** Principal oscillation pattern (POP) analysis combined with neural network (multilayer perceptron) models for nonlinear prediction.
+- **Data:** Arctic sea-ice concentration and sea-level pressure fields; specific datasets and periods are not reported here.
+- **Main result:** Compares linear POP-based and neural network descriptions of sea ice and pressure variability; quantitative results are not reported here.
+- **Open work:** Longer records and inclusion of oceanic and thermodynamic predictors to improve sea-ice prediction.
+- **Issues:** Short observational records relative to sea-ice timescales limit neural network training and the significance of nonlinear gains.
+- *Basis: assessment*
 
 ### [Deep Learning‐Based Seasonal Forecast of Sea Ice Considering Atmospheric Conditions](https://doi.org/10.1029/2023jd039521)
 Zhu et al. (2023), *Journal of Geophysical Research - Atmospheres*. 15 citations.
@@ -9640,7 +10924,13 @@ Zhu et al. (2023), *Journal of Geophysical Research - Atmospheres*. 15 citations
 ### [Bayesian classification of surface-based ice-radar images](https://doi.org/10.1109/joe.1987.1145277)
 Murthy et al. (1987), *IEEE Journal of Oceanic Engineering*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies targets such as sea ice in images from surface-based (marine) ice radar to aid navigation in ice-infested waters.
+- **Architecture:** Bayesian classification (statistical classifier); not a neural network.
+- **Data:** Images from surface-based (shipborne or coastal) marine ice radar; the specific dataset is not reported here.
+- **Main result:** Reports the performance of the Bayesian classifier on ice radar imagery; quantitative accuracy is not reported here.
+- **Open work:** Adding texture and temporal features and testing on larger datasets and varied sea states.
+- **Issues:** Relies on assumed class-conditional distributions; sea clutter and limited labelled data constrain classification accuracy.
+- *Basis: assessment*
 
 ### [Scalable interpolation of satellite altimetry data with probabilistic machine learning](https://doi.org/10.1038/s41467-024-51900-x)
 Gregory et al. (2024), *Nature Communications*. 14 citations.
@@ -9656,12 +10946,24 @@ Gregory et al. (2024), *Nature Communications*. 14 citations.
 ### [Sea Ice Classification Using Fast Learning Neural Networks](https://doi.org/10.1109/igarss.1992.578343)
 Dawson et al. (1992), *[Proceedings] IGARSS '92 International Geoscience and Remote Sensing Symposium*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types from remote sensing data with fast-learning neural networks.
+- **Architecture:** Fast-learning neural network classifiers designed to train quickly; the specific network design is not reported here.
+- **Data:** Remote sensing data of sea ice (likely radar backscatter); the specific sensor and scenes are not reported here.
+- **Main result:** Reports sea ice classification accuracy and training efficiency; quantitative values are not reported here.
+- **Open work:** Testing on more scenes, seasons and ice types with independent ground truth.
+- **Issues:** Details unknown without the abstract; small labelled datasets and scene-specific training likely limit generality.
+- *Basis: assessment*
 
 ### [Pulse-coupled neural network for sea ice SAR image segmentation and classification](https://doi.org/10.1117/12.343052)
 Karvonen et al. (1999), *Other Conferences*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Segments and classifies sea ice in synthetic aperture radar images to support sea ice mapping and navigation services.
+- **Architecture:** Pulse-coupled neural network, a biologically inspired network that groups pixels by synchronized firing, used for SAR image segmentation followed by classification.
+- **Data:** SAR images of sea ice (likely the Baltic Sea); the specific sensor and scenes are not reported here.
+- **Main result:** Reports that the pulse-coupled network segments SAR sea ice images into homogeneous regions usable for classification; numbers not reported here.
+- **Open work:** Validation against ice charts or in situ data over more scenes and seasons.
+- **Issues:** Details unknown without the abstract; limited validation and sensitivity to speckle and network parameters.
+- *Basis: assessment*
 
 ### [Developing a deep learning forecasting system for short-term and high-resolution prediction of sea ice concentration](https://doi.org/10.5194/tc-19-4149-2025)
 Kvanum et al. (2025), *The Cryosphere*. 13 citations.
@@ -9699,7 +11001,13 @@ Taleghan et al. (2025), *arXiv*. 13 citations.
 ### [Ice roughness classification and ERS SAR imagery of Arctic sea ice: evaluation of feature-extraction algorithms by genetic programming](https://doi.org/10.1109/igarss.1996.516717)
 Daida et al. (1996), *IGARSS '96. 1996 International Geoscience and Remote Sensing Symposium*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates feature-extraction algorithms for classifying Arctic sea-ice roughness from ERS SAR imagery.
+- **Architecture:** Genetic programming used to evolve image feature-extraction algorithms for ice roughness classification.
+- **Data:** ERS SAR imagery of Arctic sea ice with ice roughness information; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing on larger SAR archives and other ice types follows naturally.
+- **Issues:** No abstract available; evolved programs may be hard to interpret and generalize.
+- *Basis: assessment*
 
 ### [Advancing global sea ice prediction capabilities using a fully coupled climate model with integrated machine learning](https://doi.org/10.1126/sciadv.ady8957)
 Gregory et al. (2025), *Science Advances*. 11 citations.
@@ -9726,32 +11034,68 @@ Horvat et al. (2022), *Geoscientific Model Development*. 11 citations.
 ### [Representing sea ice knowledge in a Dempster-Shafer belief system](https://doi.org/10.1109/igarss.1998.703797)
 Soh et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Represents sea-ice expert knowledge with uncertainty to classify sea ice in SAR imagery.
+- **Architecture:** Dempster-Shafer belief system (evidential reasoning) encoding expert sea-ice knowledge; non-neural.
+- **Data:** SAR imagery of sea ice; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Integration with automated segmentation and operational ice charting follows naturally.
+- **Issues:** No abstract available; belief assignments rely on elicited knowledge.
+- *Basis: assessment*
 
 ### [Automated Sea Ice Segmentation (ASIS)](https://doi.org/10.1109/igarss.1998.699519)
 Soh et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Automatically segments sea ice in SAR imagery to support ice classification and charting.
+- **Architecture:** Automated image segmentation of sea ice (non-neural image processing and clustering).
+- **Data:** SAR imagery of sea ice; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Coupling with knowledge-based classification follows naturally.
+- **Issues:** No abstract available; segmentation of ambiguous ice types remains hard.
+- *Basis: assessment*
 
 ### [A neural network algorithm for sea ice edge classification](https://doi.org/10.1109/36.602524)
 Alhumaidi et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*. 11 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies the sea ice edge from satellite remote sensing data to support ice monitoring and navigation.
+- **Architecture:** Neural network classifier for sea ice edge classification.
+- **Data:** Satellite remote sensing observations of polar sea ice; sensor and period are not reported in the available information.
+- **Main result:** The neural network algorithm classifies the ice edge; accuracy figures are not reported in the available information.
+- **Open work:** Comparison with operational ice charts and other sensors, and seasonal generalization, follow naturally.
+- **Issues:** Performance likely depends on season and surface melt conditions; validation scope is unknown.
+- *Basis: assessment*
 
 ### [The combination of algorithmic and heuristic methods for the classification of sea ice imagery](https://doi.org/10.1080/02757259409532219)
 Haverkamp et al. (1994), *Preprint*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types in satellite imagery by combining algorithmic image processing with heuristic expert knowledge.
+- **Architecture:** Hybrid system combining algorithmic image segmentation and classification with heuristic, knowledge-based (rule-based expert system) reasoning.
+- **Data:** Synthetic aperture radar (SAR) sea ice imagery; specific scenes are not reported in the available information.
+- **Main result:** The combination of algorithmic and heuristic methods improves ice classification over algorithmic methods alone; quantitative accuracy is not reported in the available information.
+- **Open work:** Wider validation and adaptation to operational SAR streams follow naturally.
+- **Issues:** Heuristic rules are region- and season-specific, and the evaluation set is likely small.
+- *Basis: assessment*
 
 ### [A Knowledge Based System for the Interpretation of Sar Images of Sea Ice](https://doi.org/10.1109/igarss.1989.579013)
 McAvoy et al. (1989), *12th Canadian Symposium on Remote Sensing Geoscience and Remote Sensing Symposium,*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Supports interpretation of synthetic aperture radar images of sea ice by encoding ice analyst knowledge.
+- **Architecture:** Knowledge-based system (expert system, rule-based) for SAR sea ice interpretation.
+- **Data:** Synthetic aperture radar (SAR) imagery of sea ice; specific sensor and scenes are not reported in the available information.
+- **Main result:** Describes a knowledge-based approach to SAR sea ice interpretation; quantitative accuracy is not reported in the available information.
+- **Open work:** Validation against analyst charts and extension to more ice regimes follow naturally.
+- **Issues:** Rule-based systems are brittle to unseen conditions; limited evaluation evident.
+- *Basis: assessment*
 
 ### [Transition from research to operations: ARKTOS-a knowledge-based sea ice classification system](https://doi.org/10.1109/igarss.1999.772023)
 Bertoia et al. (1999), *IEEE 1999 International Geoscience and Remote Sensing Symposium. IGARSS'99 (Cat. No.99CH36293)*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Describes the transition of ARKTOS, a knowledge-based sea ice classification system, from research into operational ice analysis.
+- **Architecture:** Knowledge-based system (expert system, rule-based) combining image segmentation with expert rules for sea ice classification.
+- **Data:** Satellite SAR sea ice imagery (RADARSAT) used in an operational ice analysis setting.
+- **Main result:** Reports progress and lessons in moving ARKTOS into operational evaluation; quantitative accuracy is not reported in the available information.
+- **Open work:** Further operational validation and refinement of the rule base follow naturally.
+- **Issues:** Rule-based performance varies with season and region; operational acceptance requires extensive validation.
+- *Basis: abstract+knowledge*
 
 ### [Parameter sensitivity analysis of a sea ice melt pond parametrisation and its emulation using neural networks](https://doi.org/10.1016/j.jocs.2024.102231)
 Driscoll et al. (2023), *Journal of Computer Science*. 9 citations.
@@ -9778,27 +11122,57 @@ Gregory et al. (2026), *Geophysical Research Letters*. 7 citations.
 ### [Neural Network Identification Of Sea-ice Seasons In Passive Microwave Data](https://doi.org/10.1109/igarss.1990.688731)
 Maslanik et al. (1990), *10th Annual International Symposium on Geoscience and Remote Sensing*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies sea-ice seasons (e.g. melt and freeze periods) automatically from satellite passive microwave data.
+- **Architecture:** Neural network classifier applied to passive microwave brightness temperatures.
+- **Data:** Satellite passive microwave data over Arctic sea ice; specific sensor and period not reported in the available metadata.
+- **Main result:** Reports that the neural network separates sea-ice seasonal states in passive microwave data; accuracy figures not reported in the available metadata.
+- **Open work:** Mapping seasonal transitions over larger areas and longer records.
+- **Issues:** Training labels are uncertain; atmospheric and surface wetness effects confound microwave signatures.
+- *Basis: assessment*
 
 ### [Classification of sea ice types from ScanSAR RADARSAT images using pulse-coupled neural networks](https://doi.org/10.1109/igarss.1998.702260)
 Karvonen et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types in wide-swath SAR imagery to support sea ice mapping and navigation.
+- **Architecture:** Pulse-coupled neural network (PCNN) used for segmentation and classification of SAR images.
+- **Data:** RADARSAT ScanSAR images over sea ice, likely the Baltic Sea; specific dates not reported in the available metadata.
+- **Main result:** Reports that the pulse-coupled neural network segments and classifies sea ice types in ScanSAR images; accuracy not reported in the available metadata.
+- **Open work:** Operational use in ice charting and comparison with other classifiers.
+- **Issues:** Ground truth for ice types limited; incidence angle effects in ScanSAR complicate classification.
+- *Basis: assessment*
 
 ### [The Use Of Expert Systems In Combination With Active And Passive Microwave Data To Classify Sea Ice](https://doi.org/10.1109/igarss.1992.578652)
 Haverkamp et al. (1992), *[Proceedings] IGARSS '92 International Geoscience and Remote Sensing Symposium*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies sea ice types by combining active and passive microwave observations.
+- **Architecture:** Expert system (rule-based) that combines active microwave (radar) and passive microwave information to assign sea ice classes.
+- **Data:** Active and passive microwave sea ice data; specific sensors and campaigns not reported in the available record.
+- **Main result:** Shows that combining expert knowledge with both microwave data types improves sea ice classification; accuracy not reported in the available record.
+- **Open work:** Validation with ground truth over more regions and seasons.
+- **Issues:** Hand-crafted rules; seasonal changes in signatures such as melt can break the rules.
+- *Basis: assessment*
 
 ### [Comparison of neural network classifiers for NSCAT sea ice flag](https://doi.org/10.1109/igarss.1998.703798)
 Park et al. (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a sea ice flag for NSCAT scatterometer data so that wind retrievals over ice-covered areas can be excluded.
+- **Architecture:** Comparison of several neural network classifiers for sea ice versus open water discrimination; specific network types not reported in the available record.
+- **Data:** NASA Scatterometer (NSCAT) backscatter measurements with reference sea ice information; period not reported in the available record.
+- **Main result:** Reports that neural network classifiers can flag sea ice in NSCAT data with good accuracy and compares their relative performance; numbers not reported in the available record.
+- **Open work:** Application to later scatterometers and to marginal ice zones.
+- **Issues:** Short NSCAT mission limits training data; ambiguity near ice edges.
+- *Basis: assessment*
 
 ### [Using temporal information in an automated classification of summer, marginal ice zone imagery](https://doi.org/10.1109/igarss.1996.516260)
 Haverkamp et al. (1996), *IGARSS '96. 1996 International Geoscience and Remote Sensing Symposium*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Improves automated classification of sea ice in summer marginal ice zone imagery by exploiting temporal information from image sequences, since summer melt makes single-scene ice types ambiguous.
+- **Architecture:** Automated image classification using temporal information across scenes; the classifier type (the authors' related work uses knowledge-based, rule-driven classification) is not reported in the available metadata.
+- **Data:** Not reported in the abstract; satellite imagery of the summer marginal ice zone, most likely synthetic aperture radar, with sensor and region unconfirmed.
+- **Main result:** Not reported in the abstract; the title implies temporal information improves classification of summer ice conditions.
+- **Open work:** Extending the approach to other seasons and regions and validating against ice charts or in situ observations would follow naturally.
+- **Issues:** No abstract available; accuracy figures, sensor and validation data are unknown, and dependence on repeat coverage limits applicability.
+- *Basis: assessment*
 
 ### [MET-AICE v1.0: an operational data-driven sea ice prediction system for the European Arctic](https://doi.org/10.5194/gmd-18-9751-2025)
 Palerme et al. (2025), *Geoscientific Model Development*. 3 citations.
@@ -9861,7 +11235,13 @@ Wei et al. (2020), *Atmospheric Chemistry and Physics*. 680 citations.
 ### [Comparing Neural Networks and Regression Models for Ozone Forecasting](https://doi.org/10.1080/10473289.1997.10463925)
 Comrie (1997), *Journal of The Air & Waste Management Association*. 461 citations.
 
-*Summary pending.*
+- **Main goal:** Compares neural networks with regression for daily maximum ozone forecasting in air-quality management.
+- **Architecture:** Multilayer perceptron neural network compared with multiple linear regression.
+- **Data:** Meteorological variables and observed ozone concentrations from several US cities.
+- **Main result:** Neural networks are somewhat better than regression, but the gain is modest and not consistent across cities.
+- **Open work:** Better predictors and hybrid models for high ozone episodes.
+- **Issues:** Limited improvement over regression; peak events remain hard to predict.
+- *Basis: abstract+knowledge*
 
 ### [Deep Air Quality Forecasting Using Hybrid Deep Learning Framework](https://doi.org/10.1109/tkde.2019.2954510)
 Du et al. (2018), *IEEE Transactions on Knowledge and Data Engineering*. 441 citations.
@@ -9888,17 +11268,35 @@ Grange et al. (2018), *Atmospheric Chemistry and Physics*. 422 citations.
 ### [Cluster analysis: A technique for estimating the synoptic meteorological controls on air and precipitation chemistry—Method and applications](https://doi.org/10.1016/0960-1686(92)90110-7)
 Dorling et al. (1992), *Atmospheric Environment. Part A. General Topics*. 316 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a cluster analysis technique to estimate how synoptic meteorological conditions control air and precipitation chemistry at a receptor site.
+- **Architecture:** Non-hierarchical (k-means-type) cluster analysis of air-mass back trajectories; unsupervised statistical method, not a neural network.
+- **Data:** Back trajectories arriving at Eskdalemuir, Scotland, combined with measurements of precipitation and air chemistry at the site.
+- **Main result:** Trajectory clusters separate air flows with distinct pollutant concentrations, showing that synoptic flow type explains much of the variability in deposition chemistry.
+- **Open work:** Application to other sites and longer records to examine trends and source-receptor relationships.
+- **Issues:** Results depend on trajectory accuracy and on the subjective choice of the number of clusters; clustering on trajectories alone ignores vertical mixing and wet removal processes.
+- *Basis: abstract+knowledge*
 
 ### [A neural network-based method for short-term predictions of ambient SO2 concentrations in highly polluted industrial areas of complex terrain](https://doi.org/10.1016/0957-1272(93)90007-s)
 Božnar et al. (1993), *Atmospheric Environment. Part B. Urban Atmosphere*. 286 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts short-term SO2 concentrations in a polluted industrial area of complex terrain, where dispersion models perform poorly.
+- **Architecture:** Multilayer perceptron trained with backpropagation on meteorological and emission-related inputs.
+- **Data:** Automatic monitoring network measurements of SO2 and meteorology around the Šoštanj thermal power plant in Slovenia.
+- **Main result:** The neural network gives useful half-hourly SO2 forecasts and captures pollution episodes better than simple alternatives.
+- **Open work:** Improved input selection and extension to other pollutants and sites.
+- **Issues:** Site-specific model; limited ability to extrapolate to unusual emission or meteorological conditions.
+- *Basis: abstract+knowledge*
 
 ### [A neural network model forecasting for prediction of daily maximum ozone concentration in an industrialized urban area.](https://doi.org/10.1016/0269-7491(95)00078-x)
 Yi et al. (1996), *Environmental Pollution*. 267 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts daily maximum ozone concentration in an industrialized urban area to support air quality warnings.
+- **Architecture:** Multilayer perceptron neural network compared with regression and Box-Jenkins ARIMA models.
+- **Data:** Daily ozone and meteorological observations from an industrialized urban area in Texas; period not reported here.
+- **Main result:** The neural network outperforms the regression and ARIMA models in forecasting daily maximum ozone.
+- **Open work:** Testing with forecast rather than observed meteorological inputs and at other sites.
+- **Issues:** Single-site study; few high-ozone episodes for training; limited interpretability.
+- *Basis: abstract+knowledge*
 
 ### [Application of random forest regression to the calculation of gas-phase chemistry within the GEOS-Chem chemistry model v10](https://doi.org/10.5194/gmd-12-1209-2019)
 Keller et al. (2018), *Geoscientific Model Development*. 125 citations.
@@ -9925,17 +11323,35 @@ Tang et al. (2024), *Atmospheric research*. 125 citations.
 ### [Artificial neural network for the identification of unknown air pollution sources](https://doi.org/10.1016/s1352-2310(98)00418-x)
 Reich et al. (1999), *Atmospheric Environment*. 124 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies unknown air pollution sources from concentrations measured at monitoring sites.
+- **Architecture:** Artificial neural network (multilayer perceptron) trained to map receptor concentrations to source characteristics.
+- **Data:** Training data generated by an atmospheric dispersion model; details not reported here.
+- **Main result:** The neural network identifies source locations and strengths from synthetic concentration patterns with reasonable accuracy.
+- **Open work:** Testing with real monitoring data and more complex meteorology.
+- **Issues:** Trained on synthetic dispersion model output; real noise and model error untested.
+- *Basis: assessment*
 
 ### [CART Decision-Tree Statistical Analysis and Prediction of Summer Season Maximum Surface Ozone for the Vancouver, Montreal, and Atlantic Regions of Canada](https://doi.org/10.1175/1520-0450(1995)034<1848:cdtsaa>2.0.co;2)
 Burrows et al. (1995), *Journal of Applied Meteorology*. 115 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses and predicts summer daily maximum surface ozone in Canadian regions (Vancouver, Montreal, Atlantic) from meteorological conditions for air-quality forecasting.
+- **Architecture:** Classification and regression tree (CART) decision-tree statistical analysis relating ozone maxima to meteorological predictors.
+- **Data:** Observed surface ozone and meteorological observations or analyses for Vancouver, Montreal and Atlantic Canada summer seasons.
+- **Main result:** CART trees identify key meteorological controls (e.g. temperature and transport-related variables) and provide skilful ozone predictions; exact scores not reported here.
+- **Open work:** Operational implementation using forecast model predictors and extension to other regions and pollutants.
+- **Issues:** Single-tree models are unstable to data changes and give piecewise-constant predictions; performance depends on forecast predictor quality.
+- *Basis: assessment*
 
 ### [The application of neural techniques to the modelling of time-series of atmospheric pollution data](https://doi.org/10.1016/s0304-3800(98)00118-5)
 Nunnari et al. (1998), *Ecological Modelling*. 114 citations.
 
-*Summary pending.*
+- **Main goal:** Models and forecasts time series of atmospheric pollutant concentrations measured near industrial areas.
+- **Architecture:** Neural network techniques (multilayer perceptron and related networks) for nonlinear time-series modelling, compared with linear autoregressive models.
+- **Data:** Air pollution monitoring time series, likely with meteorological inputs, from monitoring stations in Italy; details not reported here.
+- **Main result:** Neural models capture nonlinear pollutant dynamics and perform comparably or better than linear models; numbers not reported here.
+- **Open work:** Multi-step forecasting and inclusion of emission and meteorological forecasts.
+- **Issues:** Site-specific evaluation; neural model selection and generalisation are not systematically addressed.
+- *Basis: assessment*
 
 ### [A machine learning approach to quantify meteorological drivers of ozone pollution in China from 2015 to 2019](https://doi.org/10.5194/acp-22-8385-2022)
 Weng et al. (2022), *Atmospheric Chemistry and Physics*. 111 citations.
@@ -9951,17 +11367,35 @@ Weng et al. (2022), *Atmospheric Chemistry and Physics*. 111 citations.
 ### [Forecasting ozone daily maximum levels at santiago, chile](https://doi.org/10.1016/s1352-2310(98)00035-1)
 Jorquera et al. (1998), *Atmospheric Environment*. 99 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts daily maximum ozone levels in Santiago, Chile for air-quality management.
+- **Architecture:** Comparison of linear models, artificial neural networks and fuzzy models for one-day-ahead ozone maximum forecasts.
+- **Data:** Ozone and meteorological measurements from Santiago monitoring stations; details not reported here.
+- **Main result:** Nonlinear neural network and fuzzy models outperform linear models in forecasting ozone maxima and exceedances.
+- **Open work:** Using meteorological forecast inputs and extending to more stations.
+- **Issues:** Limited data period and stations; extreme episodes are few.
+- *Basis: assessment*
 
 ### [An application of artificial neural networks to the prediction of surface ozone concentrations in the United Kingdom](https://doi.org/10.1016/s0143-6228(98)00039-3)
 Spellman (1999), *Applied Geography*. 87 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts surface ozone concentrations at sites in the United Kingdom from meteorological conditions, to support air-quality forecasting.
+- **Architecture:** Artificial neural network relating meteorological predictors to surface ozone; details of the network configuration are not available here.
+- **Data:** Surface ozone monitoring and meteorological observations at UK sites; exact stations and period not reported.
+- **Main result:** The neural network is presented as a viable tool for ozone prediction; quantitative skill is not reported here.
+- **Open work:** Testing at more sites and seasons and comparison with other statistical models would establish generality.
+- **Issues:** Site-specific statistical model with no physical chemistry; transferability and performance during high-ozone episodes are uncertain.
+- *Basis: assessment*
 
 ### [Short-term ozone forecasting by artificial neural networks](https://doi.org/10.1016/0965-9978(95)00076-3)
 Ruiz-Suárez et al. (1995), *Advances in Engineering Software*. 83 citations.
 
-*Summary pending.*
+- **Main goal:** Provides short-term forecasts of ozone concentrations to support air-quality alerts in a polluted urban area.
+- **Architecture:** Artificial neural network forecasting ozone from recent ozone and meteorological data.
+- **Data:** Urban air-quality monitoring data (ozone and meteorological variables); site and period not reported here.
+- **Main result:** The neural network gives skillful short-term ozone forecasts; quantitative results are not reported here.
+- **Open work:** Comparison with statistical and photochemical models and longer forecast horizons would be useful.
+- **Issues:** Single-location statistical model; no explicit chemistry, and performance on extreme episodes is uncertain.
+- *Basis: assessment*
 
 ### [Using machine learning to build temperature-based ozone parameterizations for climate sensitivity simulations](https://doi.org/10.1088/1748-9326/aae2be)
 Nowack et al. (2018), *Environmental Research Letters*. 79 citations.
@@ -10010,7 +11444,13 @@ Qiu et al. (2022), *Atmospheric Chemistry and Physics*. 57 citations.
 ### [An inversion algorithm using neural networks to retrieve atmospheric CO total columns from high‐resolution nadir radiances](https://doi.org/10.1029/1999jd900431)
 Hadji-Lazaro et al. (1999), *Journal of Geophysical Research*. 55 citations.
 
-*Summary pending.*
+- **Main goal:** Retrieves atmospheric carbon monoxide total columns from high-resolution nadir infrared radiances quickly enough for operational satellite processing.
+- **Architecture:** Neural network (multilayer perceptron) inversion algorithm trained on simulated spectra.
+- **Data:** Radiances from the IMG instrument on ADEOS and radiative-transfer simulations for training.
+- **Main result:** The neural network retrieves CO total columns with accuracy comparable to standard inversion methods at much lower computational cost.
+- **Open work:** Application to future sounders such as IASI and validation with ground and aircraft measurements.
+- **Issues:** Training relies on simulations; sensitivity to clouds and surface properties is a caveat.
+- *Basis: abstract+knowledge*
 
 ### [Improving 3-day deterministic air pollution forecasts using machine learning algorithms](https://doi.org/10.5194/acp-24-807-2024)
 Zhang et al. (2024), *Atmospheric Chemistry and Physics*. 53 citations.
@@ -10026,12 +11466,24 @@ Zhang et al. (2024), *Atmospheric Chemistry and Physics*. 53 citations.
 ### [Forecasting carbon monoxide concentrations near a sheltered intersection using video traffic surveillance and neural networks](https://doi.org/10.1016/s1361-9209(96)00002-8)
 Moseholm et al. (1996), *Transportation Research Part D-transport and Environment*. 53 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts carbon monoxide concentrations near a sheltered road intersection, linking traffic and weather to local air quality.
+- **Architecture:** Artificial neural network using traffic counts from video surveillance and meteorological variables as inputs.
+- **Data:** Video-derived traffic data, meteorological observations and CO monitoring near one urban intersection.
+- **Main result:** The neural network predicts short-term CO concentrations with useful accuracy; exact metrics not reported in the available metadata.
+- **Open work:** Extension to other sites and pollutants and real-time traffic management use.
+- **Issues:** Single-site study; results depend on local geometry and data period.
+- *Basis: assessment*
 
 ### [Analysis of the distribution of airborne pollution using genetic algorithms](https://doi.org/10.1016/0960-1686(93)90284-6)
 Cartwright et al. (1993), *Atmospheric Environment. Part A. General Topics*. 43 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses the spatial distribution of airborne pollution, for example to infer pollutant sources from observed concentrations.
+- **Architecture:** Genetic algorithm optimization applied to an air pollution distribution problem; evolutionary, non-neural method.
+- **Data:** Airborne pollutant concentration data or dispersion model fields; details not reported here.
+- **Main result:** Not reported in the abstract; the paper demonstrates that genetic algorithms can analyse pollution distributions.
+- **Open work:** Application to real monitoring networks and comparison with conventional inversion methods.
+- **Issues:** No abstract available; early demonstration whose realism and scalability are unclear.
+- *Basis: assessment*
 
 ### [AQ-Bench: A Benchmark Dataset for Machine Learning on Global Air Quality Metrics](https://doi.org/10.5194/essd-13-3013-2021)
 Betancourt et al. (2021), *Earth System Science Data*. 39 citations.
@@ -10047,17 +11499,35 @@ Betancourt et al. (2021), *Earth System Science Data*. 39 citations.
 ### [Study of atmospheric ozone formation by means of a neural network-based model.](https://doi.org/10.1080/10473289.1999.10463806)
 Guardani et al. (1999), *Journal of the Air and Waste Management Association*. 39 citations.
 
-*Summary pending.*
+- **Main goal:** Models tropospheric ozone formation to understand and predict ozone episodes in an urban area.
+- **Architecture:** Feed-forward neural network relating ozone concentrations to meteorological and precursor variables.
+- **Data:** Air quality monitoring and meteorological data from the São Paulo metropolitan region, Brazil.
+- **Main result:** The neural network reproduces observed ozone concentrations reasonably and indicates the influence of meteorological and precursor variables.
+- **Open work:** Use for forecasting ozone episodes and testing at more stations.
+- **Issues:** Station-specific statistical model; limited insight into photochemistry and limited independent testing.
+- *Basis: abstract+knowledge*
 
 ### [Ozone indices based on simple meteorological parameters: potentials and limitations of regression and neural network models](https://doi.org/10.1016/s1352-2310(99)00126-0)
 Soja et al. (1999), *Atmospheric Environment*. 37 citations.
 
-*Summary pending.*
+- **Main goal:** Builds ozone indices from simple meteorological parameters and examines how far regression and neural networks can predict ozone.
+- **Architecture:** Multiple linear regression compared with feed-forward neural network models.
+- **Data:** Ozone monitoring and routine meteorological data from Austrian stations.
+- **Main result:** Both regression and neural network models explain part of the ozone variability from simple meteorological predictors; the paper discusses their potentials and limitations, notably for peak episodes.
+- **Open work:** Adding precursor and transport information and testing operational forecasting.
+- **Issues:** Simple meteorological predictors limit skill for peak ozone episodes; station-specific models.
+- *Basis: abstract+knowledge*
 
 ### [Perceptron neural network-based model predicts air pollution](https://doi.org/10.1109/iis.1997.645288)
 Mlakar et al. (1997), *Proceedings Intelligent Information Systems. IIS'97*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts short-term air pollutant concentrations near an emission source to support pollution warning and control.
+- **Architecture:** Multilayer perceptron (perceptron neural network) trained with backpropagation on meteorological and emission inputs.
+- **Data:** Measurements from an air-quality monitoring network around a thermal power plant (SO2 concentrations, Šoštanj area, Slovenia) with local meteorological data.
+- **Main result:** The perceptron model predicts pollutant concentrations with useful accuracy for short lead times.
+- **Open work:** Better input selection and extension to more stations and pollutants would follow naturally.
+- **Issues:** Site-specific model in complex terrain; peak episodes are rare and harder to predict.
+- *Basis: abstract+knowledge*
 
 ### [Physics-informed learning of aerosol microphysics](https://doi.org/10.1017/eds.2022.22)
 Harder et al. (2022), *Environmental Data Science*. 31 citations.
@@ -10073,17 +11543,35 @@ Harder et al. (2022), *Environmental Data Science*. 31 citations.
 ### [Prediction of air pollutants by using an artificial neural network](https://doi.org/10.1007/bf02707129)
 Sohn et al. (1999), *Korean Journal of Chemical Engineering*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts ambient air pollutant concentrations with an artificial neural network to support air quality forecasting.
+- **Architecture:** Artificial neural network (type not specified) using meteorological and pollutant inputs.
+- **Data:** Air quality monitoring and meteorological data, presumably from Korea; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the neural network gives usable pollutant predictions.
+- **Open work:** Comparison with statistical and dispersion models and testing for high-concentration episodes.
+- **Issues:** No abstract available; pollutants, site, horizon and skill are unknown.
+- *Basis: assessment*
 
 ### [Learning Structure from Data and Its Application to Ozone Prediction](https://doi.org/10.1023/a:1008265520889)
 Sucar et al. (1997), *Applied intelligence (Boston)*. 26 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts ozone concentrations by learning probabilistic model structure from data, aiming for interpretable air quality forecasts.
+- **Architecture:** Bayesian network whose structure is learned from data (probabilistic graphical model), applied to ozone prediction.
+- **Data:** Air quality and meteorological monitoring data, likely from the Mexico City network; specifics not confirmed in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the learned network structure yields useful ozone predictions.
+- **Open work:** Richer structures with temporal dependencies and comparison against neural networks and regression.
+- **Issues:** No abstract available; structure learning on limited data may miss dependencies; skill numbers unknown.
+- *Basis: assessment*
 
 ### [Pattern selection strategies for a neural network-based short term air pollution prediction model](https://doi.org/10.1109/iis.1997.645285)
 Božnar (1997), *Proceedings Intelligent Information Systems. IIS'97*. 25 citations.
 
-*Summary pending.*
+- **Main goal:** Improves a neural network short-term air pollution prediction model by choosing which training patterns to present to the network.
+- **Architecture:** Multilayer perceptron neural network with pattern selection strategies for the training set.
+- **Data:** Air pollution (SO2) and meteorological measurements around a thermal power plant in complex terrain in Slovenia; details not confirmed in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies that careful pattern selection improves prediction of pollution episodes.
+- **Open work:** Automated pattern selection and testing at other sites and pollutants.
+- **Issues:** No abstract available; results tied to one site and emission source; skill numbers unknown.
+- *Basis: assessment*
 
 ### [Advancing operational global aerosol forecasting with machine learning](https://doi.org/10.1038/s41586-026-10234-y)
 Gui et al. (2026), *Nature*. 17 citations.
@@ -10099,17 +11587,35 @@ Gui et al. (2026), *Nature*. 17 citations.
 ### Local Maximum Ozone Concentration Prediction Using Neural Networks
 Wieland et al. (1999), *Preprint*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts local maximum ozone concentrations with neural networks for air quality warnings.
+- **Architecture:** Neural network models for ozone regression; the network type and configuration are not reported here.
+- **Data:** Local ozone and meteorological measurements; the site and period are not reported here.
+- **Main result:** Reports neural network skill for predicting local maximum ozone concentrations; quantitative errors are not reported here.
+- **Open work:** Adding predictors such as forecast meteorology and comparing with other statistical and chemical transport models.
+- **Issues:** Site-specific training on limited data; peak ozone episodes are rare, so skill on exceedances may be weak.
+- *Basis: assessment*
 
 ### [Predicting atmospheric ozone using neural networks as compared to some statistical methods](https://doi.org/10.1109/northc.1995.485021)
 Lee (1995), *IEEE Technical Applications Conference and Workshops. Northcon/95. Conference Record*. 14 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts atmospheric ozone with neural networks and compares them with statistical methods.
+- **Architecture:** Neural network model compared with statistical methods such as regression for ozone prediction; the network configuration is not reported here.
+- **Data:** Ozone and meteorological measurements; the site and period are not reported here.
+- **Main result:** Reports the comparison of neural network and statistical model skill for ozone prediction; quantitative values are not reported here.
+- **Open work:** More sites, more predictors and longer independent test periods.
+- **Issues:** Details unknown without the abstract; site-specific results from limited data and possible overfitting of the network.
+- *Basis: assessment*
 
 ### [Air pollution estimation via neural networks](https://doi.org/10.1016/s1474-6670(17)51616-x)
 Arena et al. (1995), *IFAC Proceedings Volumes*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates air pollutant concentrations with neural networks as a data-driven alternative to deterministic dispersion modelling for urban air quality monitoring.
+- **Architecture:** Artificial neural network (multilayer perceptron type) mapping meteorological and pollution measurements to pollutant levels; details not reported.
+- **Data:** Air quality and meteorological monitoring-station measurements; specific sites and period not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Extending the approach to forecasting and to more pollutants and stations follows naturally.
+- **Issues:** No abstract available; network design, data and skill cannot be verified from the record.
+- *Basis: assessment*
 
 ### [Enabling fast greenhouse gas emissions inference from satellites with GATES: a Graph-Neural-Network Atmospheric Transport Emulation System](https://doi.org/10.5194/gmd-19-1893-2026)
 Fillola et al. (2026), *Geoscientific Model Development*. 10 citations.
@@ -10125,47 +11631,101 @@ Fillola et al. (2026), *Geoscientific Model Development*. 10 citations.
 ### Real Time Ozone Episode Forecast: A Comparison Between Neural Network and Grey Box Models
 Finzi et al. (1998), *ICSC Symposium on Neural Computation*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts ozone pollution episodes in real time to support air quality warnings, comparing data-driven and physically based approaches.
+- **Architecture:** Neural network models compared with grey-box (semi-physical) models for ozone forecasting.
+- **Data:** Ozone and meteorological monitoring data from an urban/regional network; location and period are not reported in the available information.
+- **Main result:** Compares neural network and grey-box forecasts of ozone episodes; the relative skill reported is not available here.
+- **Open work:** Combining the strengths of both model classes and testing on more episodes follow naturally.
+- **Issues:** Episodes are few, so evaluation of extremes is limited; results are site-specific.
+- *Basis: assessment*
 
 ### [Neural Network Modelling: Perspectives of Application for Monitoring and Forecasting Physical-Chemical Variables in the Boundary Layer](https://doi.org/10.1007/978-3-642-61120-9_26)
 Pasini et al. (1996), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Discusses the prospects of neural network modelling for monitoring and forecasting physical and chemical variables in the atmospheric boundary layer.
+- **Architecture:** Neural network modelling (perspective/overview); network types not specified in the available metadata.
+- **Data:** Boundary-layer meteorological and air-chemistry observations; specific data are not reported in the available information.
+- **Main result:** Argues that neural networks are promising for boundary-layer monitoring and forecasting; quantitative results are not reported in the available information.
+- **Open work:** Systematic applications and comparisons with physical models follow naturally.
+- **Issues:** Mostly a perspective; limited quantitative evaluation.
+- *Basis: assessment*
 
 ### [Short-time fuzzy DAP predictor for air pollution due to vehicular traffic](https://doi.org/10.2495/mmep970191)
 Raimondi et al. (1997), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Provides short-term prediction of air pollution caused by vehicular traffic for urban air quality management.
+- **Architecture:** Fuzzy logic predictor (fuzzy rule-based system).
+- **Data:** Urban air quality and traffic-related observations; location and period are not reported in the available information.
+- **Main result:** The fuzzy predictor gives short-time forecasts of traffic-related pollution; error statistics are not reported in the available information.
+- **Open work:** Testing at more sites and over longer periods follows naturally.
+- **Issues:** Site-specific calibration and limited evaluation are likely.
+- *Basis: assessment*
 
 ### [Neural Network Model for Maximum Ozone Concentration Prediction](https://doi.org/10.1007/3-540-61510-5_47)
 Acuña et al. (1996), *International Conference on Artificial Neural Networks*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts daily maximum ozone concentrations to support urban air quality episode management.
+- **Architecture:** Neural network (feed-forward) prediction model.
+- **Data:** Urban ozone and meteorological monitoring data (Santiago, Chile); period not reported in the available information.
+- **Main result:** The neural network predicts daily maximum ozone concentrations; quantitative skill is not reported in the available information.
+- **Open work:** Adding meteorological forecasts as inputs and multi-site prediction follow naturally.
+- **Issues:** Short records and single-city application limit generality.
+- *Basis: abstract+knowledge*
 
 ### [Identification and analysis of fuzzy model for air pollution-an approach to self-learning control of CO concentration](https://doi.org/10.1109/iecon.1992.254391)
 Tanaka et al. (1992), *Proceedings of the 1992 International Conference on Industrial Electronics, Control, Instrumentation, and Automation*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Identifies a model of carbon monoxide air pollution concentration to support self-learning control of CO levels.
+- **Architecture:** Fuzzy logic model (fuzzy rule-based model identification) used for analysis and control of CO concentration.
+- **Data:** Measured CO concentration and related control variables; dataset details not reported in the available metadata.
+- **Main result:** Shows that an identified fuzzy model can describe CO concentration dynamics for control; quantitative accuracy not reported in the available metadata.
+- **Open work:** Implementing and testing the self-learning controller in practice.
+- **Issues:** Application setting and validation scope are unclear; fuzzy model identification may not transfer to other sites.
+- *Basis: assessment*
 
 ### [Improvement of Air Pollution Forecasting Models Using Feature Determination and Pattern Selection Strategies](https://doi.org/10.1007/978-1-4757-9128-0_85)
 Božnar et al. (1998), *Preprint*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Improves neural-network air pollution forecasting by better selecting input features and training patterns, targeting short-term SO2 forecasts in complex terrain near a thermal power plant.
+- **Architecture:** Multilayer perceptron neural network with feature determination and pattern selection strategies for training set construction.
+- **Data:** Air quality and meteorological monitoring network measurements around the Sostanj thermal power plant, Slovenia.
+- **Main result:** Careful feature selection and pattern selection improve forecast accuracy over models trained on unscreened inputs.
+- **Open work:** Automating the feature and pattern selection and extending it to other pollutants and sites.
+- **Issues:** Site-specific model; forecasting of rare high-concentration episodes remains difficult; results tied to one monitoring network.
+- *Basis: abstract+knowledge*
 
 ### [Neural Networks Predict Pollution](https://doi.org/10.1007/978-1-4615-1817-4_93)
 Mlakar et al. (1994), *Preprint*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Uses neural networks to predict air pollution concentrations, specifically short-term SO2 near a thermal power plant in complex terrain.
+- **Architecture:** Multilayer perceptron neural network trained with backpropagation on meteorological and emission inputs.
+- **Data:** Automatic air quality and meteorological monitoring network around the Sostanj thermal power plant, Slovenia.
+- **Main result:** Neural network forecasts of SO2 concentrations outperform simpler approaches for short lead times in complex terrain.
+- **Open work:** Improving input selection and extending to more stations and pollutants.
+- **Issues:** Site-specific training; peak episodes are hard to forecast; limited independent evaluation reported.
+- *Basis: abstract+knowledge*
 
 ### Prediction of Atmospheric Pollution by Particulate Matter Using a Neural Network
 Pérez et al. (1997), *International Conference on Neural Information Processing*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts atmospheric particulate matter concentrations hours ahead to support air quality warnings in a polluted city.
+- **Architecture:** Multilayer perceptron neural network compared with simpler linear and persistence predictors.
+- **Data:** Hourly particulate matter measurements from a monitoring station in Santiago, Chile; period not reported in the available metadata.
+- **Main result:** Neural network gives lower prediction errors than linear and persistence methods for several-hour-ahead particulate forecasts.
+- **Open work:** Adding meteorological predictors and more stations.
+- **Issues:** Single station; peak episodes remain hard to predict; limited test period.
+- *Basis: abstract+knowledge*
 
 ### FRAME: a Knowledge-based Tool to Support the Choice of the Right Air Pollution Model
 Calori et al. (1993), *Computer Support for Environmental Impact Assessment*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Helps users choose an appropriate air pollution dispersion model for a given environmental impact assessment problem.
+- **Architecture:** Knowledge-based tool (expert system, rule-based) that matches problem characteristics to air pollution model capabilities.
+- **Data:** Knowledge on air pollution models and their applicability; no training dataset.
+- **Main result:** Presents FRAME as a decision-support tool for model selection; evaluation results not reported in the available metadata.
+- **Open work:** Expanding the model catalogue and user testing.
+- **Issues:** Recommendations depend on encoded expert knowledge and need updating as models evolve.
+- *Basis: assessment*
 
 ### [Advancing Sophisticated Photochemistry Simulation in Atmospheric Numerical Models With Artificial Intelligence PhotoChemistry (AIPC) Scheme Using the Feature‐Mapping Subspace Self‐Attention Algorithm](https://doi.org/10.1029/2024ms004646)
 Xia et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
@@ -10338,7 +11898,13 @@ Wang et al. (2009), *Journal of Hydrology*. 814 citations.
 ### [A Nearest Neighbor Bootstrap For Resampling Hydrologic Time Series](https://doi.org/10.1029/95wr02966)
 Lall et al. (1996), *Water Resources Research*. 806 citations.
 
-*Summary pending.*
+- **Main goal:** Resamples hydrologic time series by bootstrap while preserving their dependence structure, without assuming linear dependence or Gaussian distributions.
+- **Architecture:** Nonparametric k-nearest neighbour bootstrap based on multivariate nearest neighbour probability density estimation; related to Markov processes; not a neural network.
+- **Data:** Monthly streamflow records and synthetic series from linear and nonlinear autoregressive models.
+- **Main result:** The method reproduces the behavior of linear and nonlinear autoregressive series and handles monthly streamflow with asymmetric and bimodal marginal densities.
+- **Open work:** Choice of neighbourhood size and embedding, and extension to multisite and longer-memory settings.
+- **Issues:** Resampling cannot generate values outside the historical record; sensitivity to the number of neighbours and lag structure.
+- *Basis: abstract*
 
 ### [Application of Long Short-Term Memory (LSTM) Neural Network for Flood Forecasting](https://doi.org/10.3390/w11071387)
 Le et al. (2019), *Water*. 797 citations.
@@ -10420,7 +11986,13 @@ Raghavendra et al. (2014), *Applied Soft Computing*. 697 citations.
 ### [An artificial neural network approach to rainfall-runoff modelling](https://doi.org/10.1080/02626669809492102)
 Dawson et al. (1998), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 679 citations.
 
-*Summary pending.*
+- **Main goal:** Tests artificial neural networks as rainfall-runoff models for flood forecasting in small catchments.
+- **Architecture:** Multilayer perceptron trained by backpropagation compared with a radial basis function network.
+- **Data:** Rainfall and flow records at 15-minute resolution from two UK catchments (Rivers Amber and Mole).
+- **Main result:** The neural networks forecast flows several hours ahead with reasonable accuracy; the multilayer perceptron generally performs better than the radial basis function network.
+- **Open work:** Guidelines for input selection, network design and extrapolation to extreme floods.
+- **Issues:** Two catchments only; limited ability to extrapolate beyond training range; no uncertainty.
+- *Basis: abstract+knowledge*
 
 ### [Scaling carbon fluxes from eddy covariance sites to globe: synthesis and evaluation of the FLUXCOM approach](https://doi.org/10.5194/bg-2019-368)
 Jung et al. (2019), *Biogeosciences*. 672 citations.
@@ -10447,7 +12019,13 @@ Tyralis et al. (2019), *Water*. 651 citations.
 ### [Operating rules for multireservoir systems](https://doi.org/10.1029/96wr03745)
 Oliveira et al. (1997), *Water Resources Research*. 616 citations.
 
-*Summary pending.*
+- **Main goal:** Derives operating rules for multireservoir water supply systems that perform well over many hydrologic conditions.
+- **Architecture:** Genetic algorithm searching parameterized release and storage-balancing rules, evaluated by simulating the reservoir system.
+- **Data:** Simulated operation of example multireservoir systems driven by historical or synthetic inflow sequences.
+- **Main result:** The genetic algorithm finds operating policies that improve system performance compared with initial rules.
+- **Open work:** Multiple objectives, larger systems and robustness to inflow uncertainty.
+- **Issues:** Computational cost of simulation-based search; rules restricted to an assumed parametric form.
+- *Basis: abstract+knowledge*
 
 ### [A Rainfall‐Runoff Model With LSTM‐Based Sequence‐to‐Sequence Learning](https://doi.org/10.1029/2019wr025326)
 Xiang et al. (2020), *Water Resources Research*. 599 citations.
@@ -10463,7 +12041,13 @@ Xiang et al. (2020), *Water Resources Research*. 599 citations.
 ### [The Genetic Algorithm and Its Application to Calibrating Conceptual Rainfall-Runoff Models](https://doi.org/10.1029/91wr01305)
 Wang (1991), *Water Resources Research*. 594 citations.
 
-*Summary pending.*
+- **Main goal:** Calibrates conceptual rainfall-runoff model parameters automatically, avoiding local optima that trap traditional search methods.
+- **Architecture:** Genetic algorithm used as a global optimizer of model parameters; non-neural method.
+- **Data:** Applied to calibrate the Xinanjiang conceptual rainfall-runoff model; details of catchment data not reported here.
+- **Main result:** The genetic algorithm reliably locates the global optimum of the calibration objective in repeated runs.
+- **Open work:** Efficiency for higher-dimensional problems and comparison with other global optimizers.
+- **Issues:** Many model evaluations are required; parameter identifiability is not addressed.
+- *Basis: abstract+knowledge*
 
 ### [Using support vector machines for long-term discharge prediction](https://doi.org/10.1623/hysj.51.4.599)
 Lin et al. (2006), *Hydrological Sciences Journal*. 568 citations.
@@ -10479,7 +12063,13 @@ Lin et al. (2006), *Hydrological Sciences Journal*. 568 citations.
 ### [Short term streamflow forecasting using artificial neural networks](https://doi.org/10.1016/s0022-1694(98)00242-x)
 Zealand et al. (1998), *Journal of Hydrology*. 540 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts streamflow a short time ahead for hydropower and flood operations in a large river system.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) with different input configurations and hidden-layer sizes.
+- **Data:** Flow, precipitation and temperature records from a basin in the Winnipeg River system, Canada.
+- **Main result:** The neural networks outperform a conventional forecasting model at the tested lead times.
+- **Open work:** Systematic selection of inputs and network structure, and testing in other basins.
+- **Issues:** Single basin; network design by trial and error; no uncertainty estimates.
+- *Basis: abstract+knowledge*
 
 ### [A Comprehensive Review of Deep Learning Applications in Hydrology and Water Resources](https://doi.org/10.31223/osf.io/xs36g)
 Sit et al. (2020), *Water Science and Technology*. 532 citations.
@@ -10517,7 +12107,13 @@ Yaseen et al. (2015), *Journal of Hydrology*. 511 citations.
 ### [Application of a neural network technique to rainfall-runoff modelling](https://doi.org/10.1016/s0022-1694(96)03330-6)
 Shamseldin (1997), *Journal of Hydrology*. 510 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates neural networks for daily rainfall-runoff modelling against established black-box models.
+- **Architecture:** Multilayer perceptron (feedforward neural network) with different input scenarios including rainfall indices and seasonal flow information.
+- **Data:** Daily rainfall and discharge records from six catchments of different climates.
+- **Main result:** The neural network generally matches or outperforms simple linear and linear perturbation models, depending on inputs used.
+- **Open work:** Combination with other models and better use of input information.
+- **Issues:** Black-box model with limited physical interpretability; performance varies between catchments.
+- *Basis: abstract+knowledge*
 
 ### [Estimating soil moisture using remote sensing data: A machine learning approach](https://doi.org/10.1016/j.advwatres.2009.10.008)
 Ahmad et al. (2010), *Advances in Water Resources*. 494 citations.
@@ -10533,12 +12129,24 @@ Ahmad et al. (2010), *Advances in Water Resources*. 494 citations.
 ### [Delineation of inundated area and vegetation along the Amazon floodplain with the SIR-C synthetic aperture radar](https://doi.org/10.1109/36.406675)
 Hess et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 491 citations.
 
-*Summary pending.*
+- **Main goal:** Maps inundation extent and vegetation type on the Amazon floodplain, important for wetland hydrology and methane studies.
+- **Architecture:** Decision tree classification of multifrequency, multipolarization radar backscatter.
+- **Data:** SIR-C L- and C-band synthetic aperture radar imagery over the central Amazon floodplain, with field observations.
+- **Main result:** Inundated and non-inundated forest, macrophytes and open water are separated with high accuracy, with L-band most useful under forest canopy.
+- **Open work:** Multitemporal mapping across flood seasons and larger regions.
+- **Issues:** Limited image dates and ground truth; thresholds specific to sensor and site.
+- *Basis: abstract+knowledge*
 
 ### [Neural Networks for River Flow Prediction](https://doi.org/10.1061/(asce)0887-3801(1994)8:2(201))
 Karunanithi et al. (1994), *Journal of Computing in Civil Engineering*. 487 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts river flow with neural networks as an alternative to analytical and statistical models.
+- **Architecture:** Cascade-correlation neural network that grows its hidden units during training, compared with an analytical power model.
+- **Data:** Daily streamflow records from gauges on the Huron River, Michigan, USA.
+- **Main result:** The neural network predicts flows better than the power model, including at sites with limited data.
+- **Open work:** Extension to other rivers and inclusion of precipitation inputs.
+- **Issues:** Single river system; limited physical interpretability and extrapolation to extremes.
+- *Basis: abstract+knowledge*
 
 ### [Enhancing Streamflow Forecast and Extracting Insights Using Long‐Short Term Memory Networks With Data Integration at Continental Scales](https://doi.org/10.1029/2019wr026793)
 Feng et al. (2019), *Water Resources Research*. 468 citations.
@@ -10554,12 +12162,24 @@ Feng et al. (2019), *Water Resources Research*. 468 citations.
 ### [River flood forecasting with a neural network model](https://doi.org/10.1029/1998wr900086)
 Campolo et al. (1999), *Water Resources Research*. 468 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river stage during floods several hours ahead to support warning systems.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) using rainfall and upstream water level inputs.
+- **Data:** Hourly rain gauge and water level records from the Tagliamento River basin, Italy.
+- **Main result:** The network forecasts flood water levels several hours ahead with good accuracy, degrading with increasing lead time.
+- **Open work:** Longer lead times, coupling with rainfall forecasts and application to other basins.
+- **Issues:** Few large flood events for training; limited extrapolation beyond observed extremes.
+- *Basis: abstract+knowledge*
 
 ### [Rainfall-Runoff Modeling Using Artificial Neural Networks](https://doi.org/10.1061/(asce)1084-0699(1999)4:3(232))
 Tokar et al. (1999), *Journal of Hydrologic Engineering*. 467 citations.
 
-*Summary pending.*
+- **Main goal:** Models daily rainfall-runoff with neural networks and examines sensitivity to the amount and climatic character of training data.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) compared with regression and simple conceptual models.
+- **Data:** Daily precipitation, temperature and snowmelt equivalent with streamflow for the Little Patuxent River watershed, Maryland, USA.
+- **Main result:** The neural network gives more accurate runoff predictions than the comparison models, and training data covering wet, average and dry conditions improve performance.
+- **Open work:** Testing in other watersheds and better input selection.
+- **Issues:** Single watershed; black-box structure; extrapolation beyond training conditions is uncertain.
+- *Basis: abstract+knowledge*
 
 ### [Differentiable modelling to unify machine learning and physical models for geosciences](https://doi.org/10.1038/s43017-023-00450-9)
 Shen et al. (2023), *Nature Reviews Earth &amp; Environment*. 450 citations.
@@ -10663,7 +12283,13 @@ Mishra et al. (2006), *Ecological Modelling*. 377 citations.
 ### [Application of ANN for Reservoir Inflow Prediction and Operation](https://doi.org/10.1061/(asce)0733-9496(1999)125:5(263))
 Jain et al. (1999), *Journal of Water Resources Planning and Management*. 371 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts reservoir inflow and derives operating rules to improve reservoir management.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) for inflow forecasting and for releases, compared with time series models.
+- **Data:** Inflow and operation records of the Indravati reservoir, India.
+- **Main result:** The neural network forecasts inflows better than conventional time series models, notably for high flows, and helps model operation rules.
+- **Open work:** Integration with optimization and broader validation.
+- **Issues:** Single reservoir; network design by trial and error.
+- *Basis: abstract+knowledge*
 
 ### [Statistical downscaling of GCM simulations to streamflow using relevance vector machine](https://doi.org/10.1016/j.advwatres.2007.07.005)
 Ghosh et al. (2008), *Advances in Water Resources*. 370 citations.
@@ -10679,7 +12305,13 @@ Ghosh et al. (2008), *Advances in Water Resources*. 370 citations.
 ### [Neural-Network Models of Rainfall-Runoff Process](https://doi.org/10.1061/(asce)0733-9496(1995)121:6(499))
 Smith et al. (1995), *Journal of Water Resources Planning and Management*. 343 citations.
 
-*Summary pending.*
+- **Main goal:** Explores neural networks as rainfall-runoff models, predicting peak discharge and full hydrographs.
+- **Architecture:** Feedforward backpropagation neural network (multilayer perceptron); hydrographs represented through Fourier series coefficients.
+- **Data:** Synthetic rainfall-runoff data generated on a grid of cells representing a watershed.
+- **Main result:** The network predicts peak discharge and timing and reconstructs hydrographs well for the synthetic cases.
+- **Open work:** Application to real watersheds with observed data.
+- **Issues:** Synthetic data only; idealized watershed representation.
+- *Basis: abstract+knowledge*
 
 ### [Deep learning rainfall-runoff predictions of extreme events](https://doi.org/10.5194/hess-2021-423)
 Frame et al. (2021), *Hydrology and Earth System Sciences*. 341 citations.
@@ -10695,7 +12327,13 @@ Frame et al. (2021), *Hydrology and Earth System Sciences*. 341 citations.
 ### [A non-linear rainfall–runoff model using an artificial neural network](https://doi.org/10.1016/s0022-1694(98)00273-x)
 Sajikumar et al. (1999), *Journal of Hydrology*. 340 citations.
 
-*Summary pending.*
+- **Main goal:** Models monthly rainfall-runoff with limited data using neural networks.
+- **Architecture:** Temporal backpropagation neural network (feedforward network with time-delay connections), compared with a Volterra-type functional series model.
+- **Data:** Monthly rainfall and runoff from catchments including the River Lee (UK) and the Thuthapuzha (Kerala, India).
+- **Main result:** The neural network models rainfall-runoff well even with short calibration records and outperforms the functional series model.
+- **Open work:** Daily scale and more catchments.
+- **Issues:** Monthly resolution; few catchments; black-box structure.
+- *Basis: abstract+knowledge*
 
 ### [Evaluation of global terrestrial evapotranspiration using state-of-the-art approaches in remote sensing, machine learning and land surface modeling](https://doi.org/10.5194/hess-24-1485-2020)
 Pan et al. (2019), *Hydrology and Earth System Sciences*. 325 citations.
@@ -10711,7 +12349,13 @@ Pan et al. (2019), *Hydrology and Earth System Sciences*. 325 citations.
 ### [A comparison between neural-network forecasting techniques-case study: river flow forecasting](https://doi.org/10.1109/72.750569)
 Atiya et al. (1999), *IEEE Trans. Neural Networks*. 325 citations.
 
-*Summary pending.*
+- **Main goal:** Compares neural network forecasting approaches for river flow, using the Nile River as a case study, to identify which input representations and forecast set-ups work best.
+- **Architecture:** Multilayer perceptron forecasters with different input preprocessing and forecasting strategies, compared against one another and simpler baselines.
+- **Data:** Historical Nile River flow records at an upstream gauging station; record length and split not reported here.
+- **Main result:** Finds that the choice of input representation strongly affects accuracy and that suitably configured neural networks forecast flow well; exact error statistics not reproduced here.
+- **Open work:** Testing on other rivers and including upstream rainfall or climate indices as inputs.
+- **Issues:** Single-river case study; lacks uncertainty estimates and comparisons with physically based hydrological models.
+- *Basis: abstract+knowledge*
 
 ### [Drought assessment and monitoring through blending of multi-sensor indices using machine learning approaches for different climate regions](https://doi.org/10.1016/j.agrformet.2015.10.011)
 Park et al. (2016), *Agricultural and Forest Meteorology*. 324 citations.
@@ -10760,7 +12404,13 @@ Yuan et al. (2018), *Stochastic environmental research and risk assessment (Prin
 ### [Methods for combining the outputs of different rainfall–runoff models](https://doi.org/10.1016/s0022-1694(96)03259-3)
 Shamseldin et al. (1997), *Journal of Hydrology*. 311 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates whether combining discharge forecasts from several rainfall-runoff models yields better simulations than any single model.
+- **Architecture:** Three combination methods: simple averaging, weighted averaging with least-squares weights, and a neural network (multilayer perceptron) combiner of the individual model outputs.
+- **Data:** Daily rainfall-runoff records from multiple catchments with differing climates, each simulated by several rainfall-runoff models.
+- **Main result:** Combined outputs generally outperform the best individual model, with the neural network combination performing best overall.
+- **Open work:** Testing combination schemes with more diverse models and in real-time forecasting with updating.
+- **Issues:** Gains depend on the diversity and quality of the member models; the neural combiner adds parameters and risks overfitting on short records.
+- *Basis: abstract+knowledge*
 
 ### [A deep convolutional neural network model for rapid prediction of fluvial flood inundation](https://doi.org/10.1016/j.jhydrol.2020.125481)
 Kabir et al. (2020), *Journal of Hydrology*. 310 citations.
@@ -10787,7 +12437,13 @@ Gill et al. (2006), *JAWRA Journal of the American Water Resources Association*.
 ### [Automated Mapping of Montane Snow Cover at Subpixel Resolution from the Landsat Thematic Mapper](https://doi.org/10.1029/95wr02718)
 Rosenthal et al. (1996), *Water Resources Research*. 307 citations.
 
-*Summary pending.*
+- **Main goal:** Maps fractional snow-covered area in mountainous terrain at subpixel resolution from Landsat TM imagery, needed for snowmelt hydrology.
+- **Architecture:** Spectral mixture analysis combined with a binary regression (decision) tree that predicts snow fraction from TM band reflectances.
+- **Data:** Landsat Thematic Mapper scenes over montane terrain in the Sierra Nevada, with higher-resolution reference data for validation.
+- **Main result:** Produces automated subpixel snow-cover maps with good agreement with reference snow fractions; exact error values not reproduced here.
+- **Open work:** Extension to other sensors with more frequent revisit and to other mountain ranges.
+- **Issues:** Accuracy is affected by illumination, terrain shading, vegetation and cloud; the tree is trained on specific scenes and may not transfer.
+- *Basis: abstract+knowledge*
 
 ### [Prolongation of SMAP to Spatiotemporally Seamless Coverage of Continental U.S. Using a Deep Learning Neural Network](https://doi.org/10.1002/2017gl075619)
 Fang et al. (2017), *Geophysical Research Letters*. 304 citations.
@@ -10825,7 +12481,13 @@ Tsai et al. (2020), *Nature Communications*. 298 citations.
 ### [River Stage Forecasting Using Artificial Neural Networks](https://doi.org/10.1061/(asce)1084-0699(1998)3:1(26))
 Thirumalaiah et al. (1998), *Journal of Hydrologic Engineering*. 297 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river stage in real time for flood warning using artificial neural networks.
+- **Architecture:** Feedforward multilayer perceptron trained with different algorithms (error backpropagation, conjugate gradient and cascade correlation), compared with each other and a statistical model.
+- **Data:** Hourly or daily river stage records from a river in India; period not reported here.
+- **Main result:** Neural networks forecast river stage well for short lead times, outperforming the statistical benchmark; training algorithm choice affects speed more than accuracy.
+- **Open work:** Longer lead times, inclusion of rainfall inputs and testing on more rivers.
+- **Issues:** Single-basin study; accuracy degrades with lead time and for extreme floods outside the training range.
+- *Basis: abstract+knowledge*
 
 ### [Caravan - A global community dataset for large-sample hydrology](https://doi.org/10.1038/s41597-023-01975-w)
 Kratzert et al. (2023), *Scientific Data*. 290 citations.
@@ -10841,7 +12503,13 @@ Kratzert et al. (2023), *Scientific Data*. 290 citations.
 ### [Multivariate modelling of water resources time series using artificial neural networks](https://doi.org/10.1080/02626669509491401)
 Raman et al. (1995), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 288 citations.
 
-*Summary pending.*
+- **Main goal:** Models and synthesizes multivariate water resources time series such as reservoir inflows with artificial neural networks.
+- **Architecture:** Feedforward multilayer perceptron trained with backpropagation, compared with a multivariate autoregressive statistical model.
+- **Data:** Monthly inflow series to two reservoirs in India.
+- **Main result:** The neural network models fit and forecast the multivariate series better than the autoregressive model.
+- **Open work:** Application to more sites and longer forecast horizons.
+- **Issues:** Short records and few series; no uncertainty quantification and limited testing on independent periods.
+- *Basis: abstract+knowledge*
 
 ### [Two decades of anarchy? Emerging themes and outstanding challenges for neural network river forecasting](https://doi.org/10.1177/0309133312444943)
 Abrahart et al. (2012), *Progress in Physical Geography*. 287 citations.
@@ -11077,7 +12745,13 @@ Rhee et al. (2017), *Agricultural and Forest Meteorology*. 226 citations.
 ### [A Genetic Programming Approach to Rainfall-Runoff Modelling](https://doi.org/10.1023/a:1008132509589)
 Savić et al. (1999), *Water Resources Management*. 222 citations.
 
-*Summary pending.*
+- **Main goal:** Applies genetic programming to discover explicit rainfall-runoff model equations from data.
+- **Architecture:** Genetic programming (evolutionary algorithm evolving symbolic expressions), compared with an artificial neural network and a conceptual model.
+- **Data:** Rainfall and runoff records from the Kirkton catchment in Scotland.
+- **Main result:** The evolved models perform comparably to or better than the conceptual model and the neural network, while yielding explicit equations.
+- **Open work:** Testing on more catchments and incorporating physical constraints on evolved models.
+- **Issues:** Single-catchment study; evolved expressions may be complex and lack physical interpretability.
+- *Basis: abstract+knowledge*
 
 ### [A physical process and machine learning combined hydrological model for daily streamflow simulations of large watersheds with limited observation data](https://doi.org/10.1016/j.jhydrol.2020.125206)
 Yang et al. (2020), *Journal of Hydrology*. 221 citations.
@@ -11104,7 +12778,13 @@ Arsenault et al. (2023), *Hydrology and Earth System Sciences*. 221 citations.
 ### [Runoff Forecasting Using RBF Networks with OLS Algorithm](https://doi.org/10.1061/(asce)1084-0699(1998)3:3(203))
 Fernando et al. (1998), *Journal of Hydrologic Engineering*. 220 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts runoff using radial basis function networks with an efficient training algorithm.
+- **Architecture:** Radial basis function (RBF) network trained with the orthogonal least squares algorithm, compared with a multilayer perceptron and statistical models.
+- **Data:** Hourly rainfall and runoff data from a catchment in Japan.
+- **Main result:** The RBF network forecasts runoff with accuracy comparable to or better than the alternatives, with faster training.
+- **Open work:** Longer lead times and other catchments.
+- **Issues:** Single-catchment study; limited testing on extreme events.
+- *Basis: abstract+knowledge*
 
 ### [Benchmarking data-driven rainfall–runoff models in Great Britain: a comparison of long short-term memory (LSTM)-based models with four lumped conceptual models](https://doi.org/10.5194/hess-25-5517-2021)
 Lees et al. (2021), *Hydrology and Earth System Sciences*. 218 citations.
@@ -11340,7 +13020,13 @@ Xie et al. (2021), *Journal of Hydrology*. 182 citations.
 ### [Deriving a General Operating Policy for Reservoirs Using Neural Network](https://doi.org/10.1061/(asce)0733-9496(1996)122:5(342))
 Raman et al. (1996), *Journal of Water Resources Planning and Management*. 182 citations.
 
-*Summary pending.*
+- **Main goal:** Derives general operating policies for reservoir releases that capture optimal behaviour without rerunning optimization each period.
+- **Architecture:** Multilayer perceptron (backpropagation neural network) trained on optimal release sequences from dynamic programming, compared with regression-based and stochastic dynamic programming policies.
+- **Data:** Historical inflow and storage records for an irrigation reservoir in southern India (Aliyar), used to generate dynamic programming optimal releases.
+- **Main result:** The neural network policy reproduces the optimal releases better than the regression-based and stochastic dynamic programming alternatives in simulated operation.
+- **Open work:** Extending to multi-reservoir systems and adding inflow forecasts as inputs.
+- **Issues:** Single reservoir case study; the policy can only be as good as the deterministic optimization it imitates and may not generalize to unseen inflow regimes.
+- *Basis: abstract+knowledge*
 
 ### [Daily reservoir inflow forecasting using multiscale deep feature learning with hybrid models](https://doi.org/10.1016/j.jhydrol.2015.11.011)
 Bai et al. (2016), *Journal of Hydrology*. 181 citations.
@@ -11488,7 +13174,13 @@ Moishin et al. (2021), *IEEE Access*. 163 citations.
 ### [Use of a genetic algorithm combined with a local search method for the automatic calibration of conceptual rainfall-runoff models](https://doi.org/10.1080/02626669609491476)
 Franchini (1996), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 162 citations.
 
-*Summary pending.*
+- **Main goal:** Automates calibration of conceptual rainfall-runoff models, whose many interacting parameters make manual or local optimization unreliable.
+- **Architecture:** Non-neural method: genetic algorithm combined with a local search method (sequential quadratic programming) for parameter optimization.
+- **Data:** Conceptual rainfall-runoff model (ADM type) calibration tests with synthetic and observed rainfall-runoff series; details not reported here.
+- **Main result:** The hybrid genetic algorithm plus local search reliably locates the optimum parameter set, outperforming local search alone from random starts.
+- **Open work:** Analysis of objective-function choice and parameter identifiability, and comparison with other global optimizers.
+- **Issues:** Computational cost is high and results depend on the objective function and model structure; equifinality is not fully addressed.
+- *Basis: abstract+knowledge*
 
 ### [Deep Transfer Learning based on Transformer for Flood Forecasting in Data-sparse Basins](https://doi.org/10.1016/j.jhydrol.2023.129956)
 Xu et al. (2023), *Journal of Hydrology*. 159 citations.
@@ -11515,7 +13207,13 @@ Herath et al. (2020), *Hydrology and Earth System Sciences*. 158 citations.
 ### [Applying soft computing approaches to river level forecasting](https://doi.org/10.1080/02626669909492272)
 See et al. (1999), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 158 citations.
 
-*Summary pending.*
+- **Main goal:** Improves river level forecasting by combining several soft computing techniques rather than relying on a single model.
+- **Architecture:** Hybrid of artificial neural networks, a self-organizing map for partitioning hydrological conditions, fuzzy logic and genetic algorithm-based model building.
+- **Data:** Hourly river level records from upstream gauging stations on the River Ouse, Yorkshire, UK.
+- **Main result:** Hybrid and combined soft computing models give more accurate level forecasts than individual models and simple benchmarks such as persistence.
+- **Open work:** Testing longer lead times, other catchments and adding rainfall inputs.
+- **Issues:** Single catchment study; the combination scheme adds complexity and extreme flood levels are rare in training data.
+- *Basis: abstract+knowledge*
 
 ### [Deep Learning Data-Intelligence Model Based on Adjusted Forecasting Window Scale: Application in Daily Streamflow Simulation](https://doi.org/10.1109/access.2020.2974406)
 Fu et al. (2020), *IEEE Access*. 153 citations.
@@ -11564,7 +13262,13 @@ Bowes et al. (2019), *Water*. 148 citations.
 ### [Nearest‐neighbor methods for nonparametric rainfall‐runoff forecasting](https://doi.org/10.1029/wr023i007p01300)
 Karlsson et al. (1987), *Water Resources Research*. 146 citations.
 
-*Summary pending.*
+- **Main goal:** Develops nonparametric forecasting of streamflow from rainfall without specifying a physical or parametric model.
+- **Architecture:** Nearest-neighbour (k-nearest neighbour) nonparametric regression for rainfall-runoff forecasting.
+- **Data:** Historical rainfall and runoff records from river basins; specific catchments not reported here.
+- **Main result:** Nearest-neighbour forecasts perform comparably to or better than parametric time series models for the tested data.
+- **Open work:** Larger data sets and multi-step forecasting with additional predictors.
+- **Issues:** Requires long records to find similar past states and cannot extrapolate to unprecedented events.
+- *Basis: assessment*
 
 ### [Near-Real-Time Forecast of Satellite-Based Soil Moisture Using Long Short-Term Memory with an Adaptive Data Integration Kernel](https://doi.org/10.1175/jhm-d-19-0169.1)
 Fang et al. (2020), *Journal of Hydrometeorology*. 145 citations.
@@ -11591,7 +13295,13 @@ Li et al. (2022), *Water*. 144 citations.
 ### [Stream hydrological and ecological responses to climate change assessed with an artificial neural network](https://doi.org/10.4319/lo.1996.41.5.0857)
 Poff et al. (1996), *Limnology and Oceanography*. 144 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how climate change could alter stream hydrology and ecologically relevant flow characteristics.
+- **Architecture:** Artificial neural network (multilayer perceptron) rainfall-runoff model driven by precipitation and temperature.
+- **Data:** Daily precipitation, temperature and streamflow records from contrasting US streams, with climate change scenarios applied to inputs.
+- **Main result:** Simulated changes in precipitation and temperature produce substantial shifts in flow regime metrics relevant to stream ecology, differing between streams.
+- **Open work:** Physically based comparison models and links to biological response data.
+- **Issues:** Scenarios are simple perturbations; an empirical neural model may not extrapolate to climates outside training conditions.
+- *Basis: assessment*
 
 ### [Enhancing predictive skills in physically-consistent way: Physics Informed Machine Learning for Hydrological Processes](https://doi.org/10.1016/j.jhydrol.2022.128618)
 Bhasme et al. (2021), *Journal of Hydrology*. 143 citations.
@@ -11618,7 +13328,13 @@ Pham et al. (2021), *Hydrology and Earth System Sciences*. 140 citations.
 ### [The classification of hydrologically homogeneous regions](https://doi.org/10.1080/02626669909492268)
 Hall et al. (1999), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 139 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies catchments into hydrologically homogeneous regions for regional flood frequency estimation.
+- **Architecture:** Self-organizing map (Kohonen neural network) clustering catchments by their characteristics.
+- **Data:** Catchment characteristics and flood statistics for gauged catchments in the UK (southwest England and Wales).
+- **Main result:** The self-organizing map yields groupings that are reasonably homogeneous in flood statistics, supporting regionalization.
+- **Open work:** Testing regions in flood estimation for ungauged catchments and comparing with other clustering methods.
+- **Issues:** Number of clusters and inputs is subjective; homogeneity testing is limited.
+- *Basis: abstract+knowledge*
 
 ### [Deep learning, hydrological processes and the uniqueness of place](https://doi.org/10.1002/hyp.13805)
 Beven (2020), *Hydrological Processes*. 138 citations.
@@ -11656,7 +13372,13 @@ Fang et al. (2019), *IEEE Transactions on Geoscience and Remote Sensing*. 137 ci
 ### [Real-Coded Genetic Algorithm for Rule-Based Flood Control Reservoir Management](https://doi.org/10.1023/a:1007900110595)
 Chang et al. (1998), *Water Resources Management*. 137 citations.
 
-*Summary pending.*
+- **Main goal:** Optimizes rule-based reservoir operation for flood control.
+- **Architecture:** Non-neural method: real-coded genetic algorithm compared with binary-coded genetic algorithm for optimizing operating rules.
+- **Data:** Historical flood events for a reservoir in Taiwan (Shihmen).
+- **Main result:** The real-coded genetic algorithm finds good operating rules faster and more reliably than the binary-coded genetic algorithm.
+- **Open work:** Multi-reservoir and real-time application with inflow forecasts.
+- **Issues:** Few historical floods are used; results depend on the rule structure and objective weights.
+- *Basis: abstract+knowledge*
 
 ### [Evaluation and machine learning improvement of global hydrological model-based flood simulations](https://doi.org/10.1088/1748-9326/ab4d5e)
 Yang et al. (2019), *Environmental Research Letters*. 136 citations.
@@ -11727,7 +13449,13 @@ Sun et al. (2021), *Water Resources Research*. 129 citations.
 ### [Prévision hydrologique par réseaux de neurones artificiels : état de l'art](https://doi.org/10.1139/l98-069)
 Coulibaly et al. (1999), *Canadian Journal of Civil Engineering*. 128 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews the use of artificial neural networks for hydrological forecasting.
+- **Architecture:** Review of artificial neural network applications (mainly multilayer perceptron) to rainfall-runoff, streamflow and other hydrological forecasting.
+- **Data:** Review of published studies; no new data.
+- **Main result:** Neural networks are found to be promising for hydrological forecasting but practice in input selection, training and validation is inconsistent.
+- **Open work:** Standardized methodology, uncertainty estimation and physical interpretation of networks.
+- **Issues:** Review written in French; reflects literature up to the late 1990s.
+- *Basis: abstract+knowledge*
 
 ### [Simulation and prediction of suprapermafrost groundwater level variation in response to climate change using a neural network model](https://doi.org/10.1016/j.jhydrol.2015.09.038)
 Chang et al. (2015), *Journal of Hydrology*. 127 citations.
@@ -11765,7 +13493,13 @@ Kratzert et al. (2022), *Journal of Open Source Software*. 126 citations.
 ### [Applications of fuzzy logic to the prediction of soil erosion in a large watershed](https://doi.org/10.1016/s0016-7061(98)00050-0)
 Mitra et al. (1998), *Geoderma*. 125 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts soil erosion in a large watershed where data are imprecise.
+- **Architecture:** Fuzzy logic inference system combining erosion factors.
+- **Data:** Soil, slope and land cover information for a large watershed in Arkansas (Illinois River basin) using GIS data.
+- **Main result:** The fuzzy logic approach produces erosion classes broadly consistent with conventional erosion estimates.
+- **Open work:** Field validation and integration with process-based erosion models.
+- **Issues:** Membership functions and rules are subjective; limited field validation.
+- *Basis: assessment*
 
 ### [Artificial neural networks in drought prediction in the 21st century-A scientometric analysis](https://doi.org/10.1016/j.asoc.2021.108080)
 Dikshit et al. (2021), *Applied Soft Computing*. 124 citations.
@@ -11781,7 +13515,13 @@ Dikshit et al. (2021), *Applied Soft Computing*. 124 citations.
 ### [Evaluation of global optimization methods for conceptual rainfall-runoff model calibration](https://doi.org/10.1016/s0273-1223(97)00461-7)
 Cooper et al. (1997), *Water Science and Technology*. 124 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates global optimization methods for calibrating conceptual rainfall-runoff models.
+- **Architecture:** Non-neural method: comparison of shuffled complex evolution, genetic algorithm and simulated annealing for parameter calibration.
+- **Data:** Conceptual (tank-type) rainfall-runoff model with observed catchment data; details not reported here.
+- **Main result:** Shuffled complex evolution generally finds better parameter sets more efficiently than the genetic algorithm and simulated annealing.
+- **Open work:** Testing on more models and catchments and addressing parameter uncertainty.
+- **Issues:** Limited to specific models and data; algorithm settings affect results.
+- *Basis: assessment*
 
 ### [Comparative applications of data-driven models representing water table fluctuations](https://doi.org/10.1016/j.jhydrol.2019.02.051)
 Jeong et al. (2018), *Journal of Hydrology*. 123 citations.
@@ -11940,12 +13680,24 @@ Rahmani et al. (2020), *Environmental Research Letters*. 110 citations.
 ### [Global optimization techniques for the calibration of conceptual rainfall-runoff models](https://doi.org/10.1080/02626669809492137)
 Franchini et al. (1998), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 110 citations.
 
-*Summary pending.*
+- **Main goal:** Compares global optimisation techniques for automatic calibration of conceptual rainfall-runoff model parameters.
+- **Architecture:** Global optimisation algorithms including genetic algorithm and shuffled complex evolution (SCE-UA), combined with local search, applied to a conceptual rainfall-runoff model.
+- **Data:** Synthetic and observed rainfall-runoff series for test catchments; details not reported here.
+- **Main result:** Algorithms differ in efficiency and reliability; SCE-UA is generally the most efficient and robust for finding the global optimum.
+- **Open work:** Treating parameter uncertainty and equifinality and multi-objective calibration.
+- **Issues:** Results depend on the chosen model and objective function; computational cost of genetic algorithms is high.
+- *Basis: assessment*
 
 ### [A neural network model of rainfall-runoff using radial basis functions](https://doi.org/10.1080/00221689609498476)
 Mason et al. (1996), *Journal of Hydraulic Research*. 110 citations.
 
-*Summary pending.*
+- **Main goal:** Models the rainfall-runoff transformation with a neural network as an alternative to conceptual hydrological models.
+- **Architecture:** Radial basis function (RBF) neural network.
+- **Data:** Rainfall and runoff series, possibly including synthetic data from a catchment model; details not reported here.
+- **Main result:** RBF networks reproduce runoff with useful accuracy and train faster than backpropagation networks; numbers not reported here.
+- **Open work:** Testing on more catchments and longer real records.
+- **Issues:** Limited evaluation; black-box model with uncertain extrapolation to extreme events.
+- *Basis: assessment*
 
 ### [NeuralHydrology - Interpreting LSTMs in Hydrology](https://doi.org/10.1007/978-3-030-28954-6_19)
 Kratzert et al. (2019), *Explainable AI*. 109 citations.
@@ -11972,7 +13724,13 @@ Chang et al. (2014), *Journal of Hydrology*. 108 citations.
 ### [Peak-flow forecasting with genetic algorithm and SWMM](https://doi.org/10.1061/(asce)0733-9429(1995)121:8(613))
 Liong et al. (1995), *Journal of Hydraulic Engineering*. 108 citations.
 
-*Summary pending.*
+- **Main goal:** Improves peak-flow forecasting by calibrating the Storm Water Management Model (SWMM) automatically.
+- **Architecture:** Genetic algorithm used to calibrate SWMM parameters, coupled with the physically based SWMM model.
+- **Data:** Observed rainfall and runoff events from an urban catchment; details not reported here.
+- **Main result:** Genetic algorithm calibration yields SWMM parameter sets that reproduce peak flows well; numbers not reported here.
+- **Open work:** Multi-event and multi-objective calibration and validation on independent storms.
+- **Issues:** Few calibration events; parameter non-uniqueness and computational cost of the search.
+- *Basis: assessment*
 
 ### [Physics‐Informed Neural Networks With Monotonicity Constraints for Richardson‐Richards Equation: Estimation of Constitutive Relationships and Soil Water Flux Density From Volumetric Water Content Measurements](https://doi.org/10.1029/2020wr027642)
 Bandai et al. (2021), *Water Resources Research*. 107 citations.
@@ -12021,7 +13779,13 @@ Höge et al. (2022), *Hydrology and Earth System Sciences*. 105 citations.
 ### [Using neural networks to assess the influence of changing seasonal climates in modifying discharge, dissolved organic carbon, and nitrogen export in eastern Canadian rivers](https://doi.org/10.1029/97wr03472)
 Clair et al. (1998), *Water Resources Research*. 103 citations.
 
-*Summary pending.*
+- **Main goal:** Assesses how changing seasonal climate may modify river discharge and export of dissolved organic carbon and nitrogen in eastern Canada.
+- **Architecture:** Artificial neural network (multilayer perceptron) relating seasonal temperature and precipitation to hydrological and chemical exports.
+- **Data:** Long-term river discharge and water chemistry records from eastern Canadian rivers with climate data; applied to climate change scenarios.
+- **Main result:** Neural networks predict discharge and DOC and nitrogen exports and indicate sensitivity to seasonal climate shifts; numbers not reported here.
+- **Open work:** Including land-use and vegetation changes and more basins.
+- **Issues:** Extrapolation beyond observed climate is uncertain; black-box models lack process representation.
+- *Basis: assessment*
 
 ### [Distributed Hydrological Modeling With Physics‐Encoded Deep Learning: A General Framework and Its Application in the Amazon](https://doi.org/10.1029/2023wr036170)
 Wang et al. (2024), *Water Resources Research*. 102 citations.
@@ -12048,7 +13812,13 @@ Broxton et al. (2019), *Water Resources Research*. 101 citations.
 ### [Variations in discharge and dissolved organic carbon and nitrogen export from terrestrial basins with changes in climate: A neural network approach](https://doi.org/10.4319/lo.1996.41.5.0921)
 Clair et al. (1996), *Limnology and Oceanography*. 101 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts variations in discharge and dissolved organic carbon and nitrogen export from terrestrial basins under changes in climate.
+- **Architecture:** Artificial neural network (multilayer perceptron) linking climate variables and basin characteristics to discharge and export.
+- **Data:** Observed discharge and water chemistry for Canadian basins with climate data; applied to climate scenarios.
+- **Main result:** Neural networks model discharge and DOC/N export well and suggest export changes with climate warming; numbers not reported here.
+- **Open work:** Validation on more basins and finer temporal resolution.
+- **Issues:** Extrapolation under climate change is uncertain; limited process interpretability.
+- *Basis: assessment*
 
 ### [Estimating propagation probability from meteorological to ecological droughts using a hybrid machine learning copula method](https://doi.org/10.5194/hess-27-559-2023)
 Jiang et al. (2023), *Hydrology and Earth System Sciences*. 99 citations.
@@ -12086,7 +13856,13 @@ Foroumandi et al. (2023), *Journal of Hydrology*. 99 citations.
 ### [PREDICTION OF TWO‐YEAR PEAK STREAM‐DISCHARGES USING NEURAL NETWORKS 1](https://doi.org/10.1111/j.1752-1688.1997.tb03537.x)
 Muttiah et al. (1997), *JAWRA Journal of the American Water Resources Association*. 99 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts two-year peak stream discharges for ungauged basins from basin characteristics.
+- **Architecture:** Feedforward neural network (multilayer perceptron) compared with regression equations.
+- **Data:** Basin characteristics and peak discharge statistics from USGS gauged basins in the United States.
+- **Main result:** Neural networks predict two-year peak discharges with accuracy comparable to or better than regional regression.
+- **Open work:** Extending to other return periods and including climate variables.
+- **Issues:** Regionally limited training data and black-box nature hinder interpretation.
+- *Basis: assessment*
 
 ### [Evaluation of artificial intelligence models for flood and drought forecasting in arid and tropical regions](https://doi.org/10.1016/j.envsoft.2021.105136)
 Adikari et al. (2021), *Environmental Modelling & Software*. 98 citations.
@@ -12113,7 +13889,13 @@ Gizaw et al. (2016), *Journal of Hydrology*. 98 citations.
 ### Predicting Runoff from Rainfall Using Neural Networks
 Halff et al. (1993), *Engineering Hydrology*. 98 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts runoff from rainfall with a neural network as an alternative to conventional hydrological models.
+- **Architecture:** Feedforward neural network (multilayer perceptron).
+- **Data:** Rainfall and runoff records from a study catchment; details not reported here.
+- **Main result:** The neural network reproduces storm hydrographs reasonably well; numbers not reported here.
+- **Open work:** Testing on more storms and catchments.
+- **Issues:** Small dataset and limited validation; extrapolation to extreme storms is uncertain.
+- *Basis: assessment*
 
 ### [Streamflow simulation in data-scarce basins using Bayesian and physics-informed machine learning models](https://doi.org/10.1175/jhm-d-20-0082.1)
 Lu et al. (2021), *Journal of Hydrometeorology*. 97 citations.
@@ -12184,7 +13966,13 @@ Gude et al. (2020), *Water*. 95 citations.
 ### [Use of Radial Basis Function Type Artificial Neural Networks for Runoff Simulation](https://doi.org/10.1111/0885-9507.00089)
 Jayawardena et al. (1998), *Computer‐Aided Civil and Infrastructure Engineering*. 95 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates radial basis function neural networks for simulating runoff discharge from a small catchment.
+- **Architecture:** Radial basis function (RBF) neural network with nonlinearity only in the hidden layer and two-step parameter estimation, compared with a multilayer perceptron (MLP).
+- **Data:** Rainfall and runoff data from a small catchment; details not reported in the abstract.
+- **Main result:** RBF network models predict runoff with accuracy comparable to MLP models while being easier and much faster to develop.
+- **Open work:** Testing on larger catchments and other hydrological variables.
+- **Issues:** Single small catchment; no quantitative uncertainty or extreme event analysis.
+- *Basis: abstract+knowledge*
 
 ### [A spatial–temporal graph deep learning model for urban flood nowcasting leveraging heterogeneous community features](https://doi.org/10.1038/s41598-023-32548-x)
 Farahmand et al. (2021), *Scientific Reports*. 94 citations.
@@ -12222,7 +14010,13 @@ Hoedt et al. (2021), *International Conference on Machine Learning*. 93 citation
 ### [Knowledge-Based System for SWMM Runoff Component Calibration](https://doi.org/10.1061/(asce)0733-9496(1991)117:5(507))
 Liong et al. (1991), *Journal of Water Resources Planning and Management*. 93 citations.
 
-*Summary pending.*
+- **Main goal:** Calibrates the runoff component of the Storm Water Management Model (SWMM) using encoded expert knowledge.
+- **Architecture:** Knowledge-based expert system (rule-based) guiding SWMM parameter adjustment.
+- **Data:** Observed rainfall-runoff events from an urban catchment; details not reported here.
+- **Main result:** The knowledge-based system calibrates SWMM runoff parameters efficiently, matching observed hydrographs; numbers not reported here.
+- **Open work:** Combining with automatic optimisation and extending to other model components.
+- **Issues:** Rule quality depends on expert knowledge; limited catchments tested.
+- *Basis: assessment*
 
 ### [Prospective Interest of Deep Learning for Hydrological Inference](https://doi.org/10.1111/gwat.12557)
 Marçais et al. (2017), *Ground Water*. 92 citations.
@@ -12249,7 +14043,13 @@ Si et al. (2021), *Scientific Reports*. 92 citations.
 ### [Neural nets for modelling rainfall-runoff transformations](https://doi.org/10.1007/bf00872489)
 Lorrai et al. (1995), *Water Resources Management*. 92 citations.
 
-*Summary pending.*
+- **Main goal:** Models rainfall-runoff transformation with neural networks.
+- **Architecture:** Feedforward neural network (multilayer perceptron).
+- **Data:** Rainfall and runoff data from a study catchment; details not reported here.
+- **Main result:** Neural networks simulate runoff reasonably well compared with conceptual models; numbers not reported here.
+- **Open work:** Testing on longer records and forecast mode.
+- **Issues:** Single catchment; black-box with limited extrapolation.
+- *Basis: assessment*
 
 ### [Prediction of coastal flooding risk under climate change impacts in South Korea using machine learning algorithms](https://doi.org/10.1088/1748-9326/aba5b3)
 Park et al. (2020), *Environmental Research Letters*. 91 citations.
@@ -12331,7 +14131,13 @@ Okkan et al. (2021), *Journal of Hydrology*. 87 citations.
 ### [Forecasting river flow rate during low‐flow periods using neural networks](https://doi.org/10.1029/1999wr900205)
 Campolo et al. (1999), *Water Resources Research*. 87 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river flow rate during low-flow periods, when water management decisions depend on reliable predictions of discharge several days ahead.
+- **Architecture:** Artificial neural network forecasting flow from antecedent rainfall and discharge observations.
+- **Data:** Hydrometeorological records (rainfall and river flow) for an Italian river basin; exact gauges and period not reported here.
+- **Main result:** The neural network provides useful low-flow forecasts several days ahead; specific error statistics are not reported here.
+- **Open work:** Extending lead times and testing on other basins and drier years would clarify robustness.
+- **Issues:** Data-driven model for a single basin; low-flow regimes outside the training range may be poorly reproduced.
+- *Basis: assessment*
 
 ### [Groundwater Storage Loss Associated With Land Subsidence in Western United States Mapped Using Machine Learning](https://doi.org/10.1029/2019wr026621)
 Smith et al. (2020), *Water Resources Research*. 86 citations.
@@ -12424,12 +14230,24 @@ Li et al. (2020), *Neural computing & applications (Print)*. 83 citations.
 ### [A comparison of artificial neural networks used for river forecasting](https://doi.org/10.5194/hess-3-529-1999)
 Dawson et al. (1999), *Hydrology and Earth System Sciences*. 82 citations.
 
-*Summary pending.*
+- **Main goal:** Compares neural network types with simpler statistical methods for short-range river flow forecasting in a flood-prone catchment.
+- **Architecture:** Multilayer perceptron (MLP) and radial basis function (RBF) networks compared with stepwise multiple linear regression and zero-order (persistence) forecasts.
+- **Data:** 15-minute rainfall-runoff data for the River Mole, a tributary of the River Thames, UK; winter and spring test seasons with cross-validation.
+- **Main result:** The MLP is the most skillful model for 6-hour-ahead flow forecasts; the RBF is only marginally better than regression and persistence.
+- **Open work:** Application to real-time flood forecasting and other catchments is suggested.
+- **Issues:** Single catchment and two seasons; inputs restricted to antecedent rainfall and discharge, with no uncertainty estimates.
+- *Basis: abstract*
 
 ### [Application example of neural networks for time series analysis: : Rainfall-runoff modeling](https://doi.org/10.1016/s0165-1684(97)00203-x)
 Furundžić (1998), *Signal Processing*. 81 citations.
 
-*Summary pending.*
+- **Main goal:** Models the rainfall-runoff relationship as a time-series problem to forecast river discharge.
+- **Architecture:** Multilayer perceptron neural network trained by backpropagation for rainfall-runoff time-series modelling.
+- **Data:** Rainfall and runoff records for a river catchment; details not reported here.
+- **Main result:** The neural network reproduces runoff dynamics with useful accuracy; quantitative results are not reported here.
+- **Open work:** Testing on other catchments and comparison with conceptual hydrological models would be informative.
+- **Issues:** Single-catchment, data-driven model with limited ability to extrapolate beyond observed conditions.
+- *Basis: assessment*
 
 ### [Short-term flood probability density forecasting using a conceptual hydrological model with machine learning techniques](https://doi.org/10.1016/j.jhydrol.2021.127255)
 Zhou et al. (2021), *Journal of Hydrology*. 80 citations.
@@ -12511,12 +14329,24 @@ Bindas et al. (2024), *Water Resources Research*. 76 citations.
 ### [Backpropagation in Hydrological Time Series Forecasting](https://doi.org/10.1007/978-94-017-3083-9_18)
 Lachtermacher et al. (1994), *Preprint*. 76 citations.
 
-*Summary pending.*
+- **Main goal:** Applies backpropagation neural networks to forecasting hydrological time series such as river flows.
+- **Architecture:** Feed-forward neural network trained by backpropagation, with inputs informed by classical time-series (Box-Jenkins) analysis, compared with ARMA-type models.
+- **Data:** Hydrological time series (river flow records); specific series not reported here.
+- **Main result:** Neural networks perform comparably to or better than conventional time-series models; quantitative results not reported here.
+- **Open work:** Systematic methods for choosing network structure and inputs are needed.
+- **Issues:** Short series limit network training; results may depend on the series studied.
+- *Basis: assessment*
 
 ### [Empirical comparison of various methods for training feed‐Forward neural networks for salinity forecasting](https://doi.org/10.1029/1999wr900150)
 Maier et al. (1999), *Water Resources Research*. 74 citations.
 
-*Summary pending.*
+- **Main goal:** Compares methods for training feed-forward neural networks for forecasting river salinity, to guide practical model development.
+- **Architecture:** Feed-forward neural networks (multilayer perceptron) trained with various algorithms, including backpropagation variants with different parameters and second-order methods.
+- **Data:** River salinity, flow and level time series for the River Murray, South Australia, with a multi-week forecast horizon.
+- **Main result:** Training methods differ mainly in training speed, while generalization ability is broadly similar; specific numbers not reported here.
+- **Open work:** Guidance on network geometry and input selection is needed alongside training methods.
+- **Issues:** Single river case study; findings on training algorithms may not transfer to other problems.
+- *Basis: assessment*
 
 ### [Evaluation and interpretation of convolutional long short-term memory networks for regional hydrological modelling](https://doi.org/10.5194/hess-26-795-2022)
 Anderson et al. (2022), *Hydrology and Earth System Sciences*. 73 citations.
@@ -12543,7 +14373,13 @@ Zhu et al. (2022), *Journal of Hydrology*. 72 citations.
 ### [Real‐Time Flood Forecasting Using Neural Networks](https://doi.org/10.1111/0885-9507.00090)
 Thirumalaiah et al. (1998), *Computer‐Aided Civil and Infrastructure Engineering*. 72 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts stream flows during storms in real time to support operational flood management.
+- **Architecture:** Neural networks trained with error backpropagation, conjugate gradient and cascade correlation, using past flood values as inputs.
+- **Data:** Sequences of past observed flood values at a specific river location; site details not reported in the abstract.
+- **Main result:** Flood forecasts with lead times of one or more hours are satisfactory, especially at the shortest warning times.
+- **Open work:** Longer lead times and inclusion of rainfall inputs are natural extensions.
+- **Issues:** Uses only past flow values at one location; skill declines with lead time and no uncertainty is provided.
+- *Basis: assessment*
 
 ### [Robust Runoff Prediction With Explainable Artificial Intelligence and Meteorological Variables From Deep Learning Ensemble Model](https://doi.org/10.1029/2023wr035676)
 Wu et al. (2023), *Water Resources Research*. 71 citations.
@@ -12625,7 +14461,13 @@ Zhong et al. (2024), *Water Resources Research*. 68 citations.
 ### [USE OF A GENETIC ALGORITHM AND MULTI-OBJECTIVE PROGRAMMING FOR CALIBRATION OF A HYDROLOGIC MODEL](https://doi.org/10.13031/2013.17229)
 Balascio et al. (1998), *Transactions of the ASABE*. 67 citations.
 
-*Summary pending.*
+- **Main goal:** Calibrates a hydrologic model automatically, balancing several objectives such as volume and peak flow errors.
+- **Architecture:** Genetic algorithm combined with multi-objective programming for parameter optimisation of a hydrologic model.
+- **Data:** Observed rainfall and streamflow for a watershed; details not reported here.
+- **Main result:** The genetic algorithm finds parameter sets that fit observed hydrographs well under multiple objectives; numbers not reported here.
+- **Open work:** Testing with other models and catchments and analysis of parameter uncertainty are natural next steps.
+- **Issues:** Calibration quality depends on objective weighting; equifinality of parameters is not resolved.
+- *Basis: assessment*
 
 ### [Flash Drought: Review of Concept, Prediction and the Potential for Machine Learning, Deep Learning Methods](https://doi.org/10.1029/2022ef002723)
 Tyagi et al. (2022), *Earth's Future*. 66 citations.
@@ -12663,12 +14505,24 @@ Wu et al. (2022), *Journal of Hydrology*. 65 citations.
 ### [Comparing several genetic algorithm schemes for the calibration of conceptual rainfall-runoff models](https://doi.org/10.1080/02626669709492034)
 Franchini et al. (1997), *Hydrological Sciences Journal-journal Des Sciences Hydrologiques*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates genetic algorithm schemes for automatic calibration of conceptual rainfall-runoff models.
+- **Architecture:** Comparison of several genetic algorithm (GA) schemes and settings for parameter optimisation of a conceptual rainfall-runoff model.
+- **Data:** Synthetic and observed rainfall-runoff data for calibration tests; details not reported here.
+- **Main result:** Performance depends on the GA scheme and settings; GA can locate good parameter sets but efficiency varies; numbers not reported here.
+- **Open work:** Hybrid schemes with local search and analysis of parameter identifiability are natural next steps.
+- **Issues:** Computationally demanding; parameter interaction and equifinality are not resolved by optimisation alone.
+- *Basis: assessment*
 
 ### [Application of Neural Networks to Runoff Prediction](https://doi.org/10.1007/978-94-017-3083-9_16)
 Zhu et al. (1994), *Preprint*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts river runoff from rainfall, an alternative to conceptual hydrological models for flood forecasting.
+- **Architecture:** Artificial neural network for rainfall-runoff prediction; configuration details are not available here.
+- **Data:** Rainfall and runoff records for a river basin, likely in Japan; details not reported here.
+- **Main result:** The neural network predicts runoff with useful accuracy; quantitative results are not reported here.
+- **Open work:** Testing on more events and basins and inclusion of physical knowledge are natural next steps.
+- **Issues:** Data-driven model limited by training records; extreme floods may be poorly predicted.
+- *Basis: assessment*
 
 ### [Can Transfer Learning Improve Hydrological Predictions in the Alpine Regions?](https://doi.org/10.1016/j.jhydrol.2023.130038)
 Yao et al. (2023), *Journal of Hydrology*. 63 citations.
@@ -12684,7 +14538,13 @@ Yao et al. (2023), *Journal of Hydrology*. 63 citations.
 ### [Using pruning algorithms and genetic algorithms to optimise network architectures and forecasting inputs in a neural network rainfall-runoff model](https://doi.org/10.2166/hydro.1999.0009)
 Abrahart et al. (1999), *Journal of Hydroinformatics*. 63 citations.
 
-*Summary pending.*
+- **Main goal:** Investigates how to choose network architecture and forecasting inputs for neural network rainfall-runoff models, avoiding trial-and-error design.
+- **Architecture:** Multilayer perceptron rainfall-runoff model whose structure and inputs are optimised by network pruning algorithms and a genetic algorithm.
+- **Data:** Hourly river flow and rainfall records from a UK catchment; exact catchment and period not reported in the available metadata.
+- **Main result:** Pruning and genetic-algorithm optimisation yield smaller networks with comparable or better forecast skill than hand-designed ones.
+- **Open work:** Comparison of optimisation strategies across catchments and lead times, and links to physical interpretation of selected inputs.
+- **Issues:** Results depend on one catchment and on random initialisation; optimisation is computationally expensive for the period.
+- *Basis: assessment*
 
 ### [Toward interpretable LSTM-based modeling of hydrological systems](https://doi.org/10.5194/hess-28-945-2024)
 Fuente et al. (2024), *Hydrology and Earth System Sciences*. 62 citations.
@@ -12766,7 +14626,13 @@ Althoff et al. (2021), *Stochastic environmental research and risk assessment (P
 ### [A self-organization algorithm for real-time flood forecast](https://doi.org/10.1002/(sici)1099-1085(19990215)13:2<123::aid-hyp701>3.0.co;2-2)
 Chang et al. (1999), *Hydrological Processes*. 59 citations.
 
-*Summary pending.*
+- **Main goal:** Provides real-time flood forecasting with a learning model that adapts its structure to incoming data.
+- **Architecture:** Self-organizing neural network algorithm (radial basis function type) that builds its hidden structure automatically for flow forecasting.
+- **Data:** Hourly rainfall and streamflow records from typhoon floods in a Taiwanese river basin; exact basin and events not reported here.
+- **Main result:** The self-organizing network gives accurate one- to few-hour-ahead flood forecasts; exact metrics not reported in the available metadata.
+- **Open work:** Longer lead times, more basins and coupling with rainfall forecasts.
+- **Issues:** Few flood events for training and testing; skill falls with lead time.
+- *Basis: assessment*
 
 ### [Applications of Deep Learning in Hydrology](https://doi.org/10.1002/9781119646181.ch19)
 Shen et al. (2021), *Deep Learning for the Earth Sciences*. 58 citations.
@@ -12837,7 +14703,13 @@ Zhong et al. (2023), *Water Resources Research*. 56 citations.
 ### Comparison of Multilayer Perceptron and radial Basis Function networks as tools for flood forecasting
 Jayawardena et al. (1996), *IAHS-AISH publication*. 56 citations.
 
-*Summary pending.*
+- **Main goal:** Compares two neural network types for flood forecasting from hydrological time series.
+- **Architecture:** Multilayer perceptron versus radial basis function network for river flow or stage forecasting.
+- **Data:** Rainfall and river flow records from a catchment; specific catchment and periods not reported in the available metadata.
+- **Main result:** Both network types give useful flood forecasts; their relative accuracy and training cost are compared, with specific scores not reported in the available metadata.
+- **Open work:** Tests on more catchments and longer lead times.
+- **Issues:** Limited data and events; results may be catchment-specific.
+- *Basis: assessment*
 
 ### [Capabilities of Deep Learning Models on Learning Physical Relationships: Case of Rainfall-Runoff Modeling with LSTM](https://doi.org/10.1016/j.scitotenv.2021.149876)
 Yokoo et al. (2021), *Science of the Total Environment*. 55 citations.
@@ -12864,7 +14736,13 @@ Hashemi et al. (2022), *Hydrology and Earth System Sciences*. 54 citations.
 ### [Applications of Artificial Neural Networks to Land Drainage Engineering](https://doi.org/10.13031/2013.27531)
 Yang et al. (1996), *Transactions of the ASABE*. 54 citations.
 
-*Summary pending.*
+- **Main goal:** Explores artificial neural networks for land drainage engineering problems such as predicting water table depth in drained fields.
+- **Architecture:** Artificial neural network models for drainage system response; network details not reported in the available metadata.
+- **Data:** Drainage-model simulations or field data; specifics not reported in the available metadata.
+- **Main result:** Neural networks reproduce drainage behaviour accurately and run faster than process models; quantitative results not reported here.
+- **Open work:** Field validation and broader application across soils and climates.
+- **Issues:** Transferability beyond training conditions is uncertain.
+- *Basis: assessment*
 
 ### [Decentralized Flood Forecasting Using Deep Neural Networks](https://doi.org/10.31223/osf.io/e9xqr)
 Sit et al. (2019), *arXiv*. 53 citations.
@@ -12880,7 +14758,13 @@ Sit et al. (2019), *arXiv*. 53 citations.
 ### [Intelligent Decision Support and Reservoir Management and Operations](https://doi.org/10.1061/(asce)0887-3801(1989)3:4(367))
 Simonovic et al. (1989), *Journal of Computing in Civil Engineering*. 53 citations.
 
-*Summary pending.*
+- **Main goal:** Develops intelligent decision support for reservoir management and operation, combining models with expert knowledge.
+- **Architecture:** Intelligent decision support system combining an expert system (rule-based) with reservoir operation models.
+- **Data:** Reservoir system data for an example application; details not reported in the available metadata.
+- **Main result:** The prototype demonstrates how expert knowledge and models can be integrated for operational decisions.
+- **Open work:** Field deployment and evaluation with operators.
+- **Issues:** Prototype-level demonstration without quantitative evaluation.
+- *Basis: assessment*
 
 ### [Hybrid modeling of evapotranspiration: inferring stomatal and aerodynamic resistances using combined physics-based and machine learning](https://doi.org/10.1088/1748-9326/acbbe0)
 ElGhawi et al. (2023), *Environmental Research Letters*. 52 citations.
@@ -12918,7 +14802,13 @@ Maier et al. (2024), *Journal of Hydrology X*. 52 citations.
 ### [Operational Guidance During Droughts: Expert System Approach](https://doi.org/10.1061/(asce)0733-9496(1988)114:6(647))
 Palmer et al. (1988), *Journal of Water Resources Planning and Management*. 52 citations.
 
-*Summary pending.*
+- **Main goal:** Provides operational guidance to water managers during droughts, capturing expert drought-response knowledge.
+- **Architecture:** Expert system (rule-based) combined with water supply simulation for drought operations.
+- **Data:** Seattle municipal water supply system data and operator knowledge.
+- **Main result:** The expert system offers consistent drought-management recommendations and helps transfer expert knowledge.
+- **Open work:** Extension to other systems and integration with forecasts.
+- **Issues:** Knowledge base is system-specific; validation is qualitative.
+- *Basis: abstract+knowledge*
 
 ### [Regionalization in a Global Hydrologic Deep Learning Model: From Physical Descriptors to Random Vectors](https://doi.org/10.1029/2021wr031794)
 Li et al. (2022), *Water Resources Research*. 51 citations.
@@ -13011,7 +14901,13 @@ Liu et al. (2025), *Hydrology and Earth System Sciences*. 49 citations.
 ### [Estimation of daily soil water evaporation using an artificial neural network](https://doi.org/10.1006/jare.1997.0269)
 Han et al. (1997), *Journal of Arid Environments*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates daily soil water evaporation from weather and soil variables in arid conditions.
+- **Architecture:** Artificial neural network relating meteorological and soil moisture inputs to soil evaporation.
+- **Data:** Field measurements of soil evaporation and weather in a dry region; specifics not reported in the available metadata.
+- **Main result:** The neural network estimates daily evaporation with good accuracy; exact metrics not reported here.
+- **Open work:** Testing on other soils and climates.
+- **Issues:** Small single-site dataset limits generalisation.
+- *Basis: assessment*
 
 ### [Unveiling the limits of deep learning models in hydrological extrapolation tasks](https://doi.org/10.5194/hess-29-5871-2025)
 Baste et al. (2025), *Hydrology and Earth System Sciences*. 48 citations.
@@ -13071,17 +14967,35 @@ O et al. (2020), *Journal of Hydrometeorology*. 46 citations.
 ### [Nearest Neighbor Methods for Time Series, with Application to Rainfall/Runoff Prediction](https://doi.org/10.1007/978-94-009-4792-4_9)
 Yakowitz et al. (1987), *Preprint*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Develops nonparametric nearest neighbour prediction for time series and applies it to rainfall-runoff forecasting.
+- **Architecture:** k-nearest neighbour nonparametric regression for Markov-type time series, with theoretical consistency arguments.
+- **Data:** Rainfall and river runoff time series; catchment and period not reported here.
+- **Main result:** Nearest neighbour forecasts are shown to be a viable, assumption-light alternative to parametric rainfall-runoff models; quantitative skill not reproduced here.
+- **Open work:** Choice of neighbourhood size and embedding, and comparison with conceptual hydrological models on more catchments.
+- **Issues:** Requires long records to find analogues; cannot extrapolate beyond observed conditions such as unprecedented floods.
+- *Basis: abstract+knowledge*
 
 ### [Forecasting river flow using nonlinear dynamics](https://doi.org/10.1007/bf01585599)
 Kember et al. (1993), *Stochastic Hydrology and Hydraulics*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river flow by exploiting low-dimensional nonlinear dynamics in streamflow time series.
+- **Architecture:** Nonlinear dynamics forecasting based on phase-space reconstruction of the flow series; non-neural method.
+- **Data:** River flow time series; river and period not reported here.
+- **Main result:** Not reported in the abstract; the title implies nonlinear dynamical forecasts of river flow with some predictive skill.
+- **Open work:** Comparison with linear stochastic models and testing for genuine low-dimensional chaos in streamflow.
+- **Issues:** No abstract available; evidence for low-dimensional dynamics in hydrological series is debated and noise-sensitive.
+- *Basis: assessment*
 
 ### [Artificial neural networks as a tool in urban storm drainage](https://doi.org/10.1016/s0273-1223(97)00612-4)
 Loke et al. (1997), *Water Science and Technology*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Explores how artificial neural networks can support urban storm drainage tasks such as rainfall and flow prediction and system control.
+- **Architecture:** Review and case applications of artificial neural networks (feed-forward networks) in urban drainage.
+- **Data:** Urban rainfall and sewer flow measurements; specific systems not reported here.
+- **Main result:** Not reported in the abstract; the paper presents neural networks as a promising tool for urban storm drainage problems.
+- **Open work:** Operational real-time control applications and comparison with physically based sewer models.
+- **Issues:** No abstract available; early-stage demonstrations with limited data and validation.
+- *Basis: assessment*
 
 ### [Long-term drought prediction using deep neural networks based on geospatial weather data](https://arxiv.org/abs/2309.06212)
 Grabar et al. (2023), *arXiv*. 45 citations.
@@ -13119,12 +15033,24 @@ Cai et al. (2024), *Water Resources Research*. 45 citations.
 ### [USING ARTIFICIAL NEURAL NETWORKS TO ESTIMATE MISSING RAINFALL DATA 1](https://doi.org/10.1111/j.1752-1688.1998.tb05443.x)
 Kuligowski et al. (1998), *JAWRA Journal of the American Water Resources Association*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates missing daily rainfall at a gauge from neighbouring gauges to fill gaps in precipitation records.
+- **Architecture:** Feed-forward artificial neural network (backpropagation) compared with conventional interpolation and regression methods.
+- **Data:** Daily rain gauge records from a regional network; region and period not reported here.
+- **Main result:** Not reported in the abstract; the neural network is expected to give competitive estimates of missing rainfall compared with simpler methods.
+- **Open work:** Use of additional predictors such as radar or orography and testing in other climates.
+- **Issues:** No abstract available; performance on heavy rainfall days and zero-rain days is typically weaker.
+- *Basis: assessment*
 
 ### [Feed-Forward Artificial Neural Network Model For Forecasting Rainfall Run-Off](https://doi.org/10.1002/(sici)1099-095x(199807/08)9:4<419::aid-env312>3.0.co;2-d)
 Braddock et al. (1998), *Environmetrics*. 45 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts catchment runoff from rainfall with a data-driven model as an alternative to conceptual hydrological models.
+- **Architecture:** Feed-forward artificial neural network (multilayer perceptron) for rainfall-runoff forecasting.
+- **Data:** Rainfall and runoff records from a catchment; location and period not reported here.
+- **Main result:** Not reported in the abstract; the network forecasts runoff with skill presumably compared with conventional models.
+- **Open work:** Testing on other catchments and longer lead times.
+- **Issues:** No abstract available; single-catchment data-driven models may not extrapolate to extreme floods.
+- *Basis: assessment*
 
 ### [Explainable deep learning for insights in El Niño and river flows](https://doi.org/10.1038/s41467-023-35968-5)
 Liu et al. (2022), *Nature Communications*. 44 citations.
@@ -13206,7 +15132,13 @@ Feng et al. (2024), *Geoscientific Model Development*. 43 citations.
 ### [Neural-network-based water inflow forecasting](https://doi.org/10.1016/s0967-0661(98)00037-9)
 Golob et al. (1997), *Control Engineering Practice*. 43 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts water inflow to hydropower plants to support generation scheduling.
+- **Architecture:** Neural network-based forecasting model; architecture details not reported here.
+- **Data:** Hydrological and meteorological records for a hydropower catchment; location not reported here.
+- **Main result:** Not reported in the abstract; the title implies neural networks give usable inflow forecasts for operations.
+- **Open work:** Integrating precipitation forecasts and testing in other basins.
+- **Issues:** No abstract available; data-driven forecasts may degrade for extreme inflows outside the training range.
+- *Basis: assessment*
 
 ### [Interpreting Conv-LSTM for Spatio-Temporal Soil Moisture Prediction in China](https://doi.org/10.3390/agriculture13050971)
 Huang et al. (2023), *Agriculture*. 42 citations.
@@ -13233,7 +15165,13 @@ Clark et al. (2024), *Hydrology and Earth System Sciences*. 41 citations.
 ### Time series modeling using genetic programming: an application to rainfall-runoff models
 Whigham et al. (1999), *Preprint*. 41 citations.
 
-*Summary pending.*
+- **Main goal:** Models rainfall-runoff relationships in catchment time series with genetic programming to discover model structure from data.
+- **Architecture:** Genetic programming (evolutionary symbolic regression) for time series modelling; non-neural method.
+- **Data:** Rainfall and streamflow records from catchments; details not reported here.
+- **Main result:** Not reported in the abstract; genetic programming is shown to produce rainfall-runoff models of competitive accuracy.
+- **Open work:** Comparison with conceptual models on more catchments and interpretation of evolved expressions.
+- **Issues:** No abstract available; evolved models can be complex and overfit short records.
+- *Basis: assessment*
 
 ### [H2O-Net: Self-Supervised Flood Segmentation via Adversarial Domain Adaptation and Label Refinement](https://doi.org/10.1109/wacv48630.2021.00016)
 Akiva et al. (2020), *IEEE Workshop/Winter Conference on Applications of Computer Vision*. 40 citations.
@@ -13282,7 +15220,13 @@ Vo et al. (2023), *Stochastic environmental research and risk assessment (Print)
 ### [Classification of rainfall into small- and large-scale events by statistical pattern recognition](https://doi.org/10.1016/s0022-1694(97)00003-6)
 Skaugen (1997), *Journal of Hydrology*. 38 citations.
 
-*Summary pending.*
+- **Main goal:** Separates rainfall events into small-scale and large-scale types to support hydrological modelling and precipitation analysis.
+- **Architecture:** Statistical pattern recognition classification of rainfall events; non-neural method.
+- **Data:** Rain gauge observations; region and period not reported here.
+- **Main result:** Not reported in the abstract; rainfall events can be classified objectively into small- and large-scale events.
+- **Open work:** Using the classes in stochastic rainfall simulation and areal precipitation estimation.
+- **Issues:** No abstract available; classification depends on gauge density and chosen features.
+- *Basis: assessment*
 
 ### [When ancient numerical demons meet physics-informed machine learning: adjoint-based gradients for implicit differentiable modeling](https://doi.org/10.5194/hess-28-3051-2024)
 Song et al. (2024), *Hydrology and Earth System Sciences*. 37 citations.
@@ -13375,17 +15319,35 @@ Bountos et al. (2023), *Neural Information Processing Systems*. 33 citations.
 ### Neural network models for river flow forecasting
 Nguyễn et al. (1999), *Water SA*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river flow using neural networks as a data-driven alternative to conceptual hydrological models.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** River flow and rainfall records from a catchment (location and period not reported).
+- **Main result:** Not reported in the available metadata.
+- **Open work:** Comparison with conceptual and time-series models and longer lead times would follow naturally.
+- **Issues:** No abstract available; likely single-catchment evaluation with limited extreme events.
+- *Basis: assessment*
 
 ### [New mathematical approaches in hydrological modeling — an application of artificial neural networks](https://doi.org/10.1016/s1464-1909(98)00007-0)
 Lange (1999), *Physics and Chemistry of The Earth Part B-hydrology Oceans and Atmosphere*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Introduces artificial neural networks as a new mathematical approach for hydrological modelling, such as rainfall-runoff simulation.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Hydrological time series (rainfall, runoff) from one or more catchments; details not reported.
+- **Main result:** Not reported in the available metadata; the paper presents neural networks as a promising modelling tool.
+- **Open work:** Systematic comparison with conceptual models and generalisation tests across catchments would follow.
+- **Issues:** Black-box model without physical interpretability; performance outside the training range is uncertain.
+- *Basis: assessment*
 
 ### [Drought estimation with neural networks](https://doi.org/10.1016/0965-9978(93)90064-z)
 Crespo et al. (1993), *Advances in Engineering Software*. 33 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates drought conditions using neural networks, offering a data-driven alternative to index-based drought assessment.
+- **Architecture:** Artificial neural network (architecture not reported).
+- **Data:** Climatic records (e.g. precipitation) related to drought; region and period not reported.
+- **Main result:** Not reported in the available metadata.
+- **Open work:** Validation over more regions and comparison with standard drought indices would follow naturally.
+- **Issues:** No abstract available; small datasets and few drought events limit robustness.
+- *Basis: assessment*
 
 ### [On the challenges of global entity-aware deep learning models for groundwater level prediction](https://doi.org/10.5194/hess-28-525-2024)
 Heudorfer et al. (2024), *Hydrology and Earth System Sciences*. 32 citations.
@@ -13467,12 +15429,24 @@ Kumanlioglu et al. (2019), *Journal of hydrologic engineering*. 30 citations.
 ### [Expert System for Drought Management Planning](https://doi.org/10.1061/(asce)0887-3801(1987)1:4(284))
 Palmer et al. (1987), *Journal of Computing in Civil Engineering*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Supports drought management planning for a water supply system by capturing expert operational knowledge.
+- **Architecture:** Expert system (rule-based) for selecting drought response actions.
+- **Data:** Water supply system information and expert knowledge from a municipal water utility (details not reported).
+- **Main result:** Not reported in the available metadata; the expert system is presented as a useful planning aid.
+- **Open work:** Integrating the rule base with simulation or optimisation models would follow naturally.
+- **Issues:** Knowledge acquisition is labour-intensive and system-specific; limited quantitative validation.
+- *Basis: assessment*
 
 ### Predicting Streamflows Based on Neural Networks
 Markus et al. (1995), *Water resources engineering*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts streamflows with neural networks as an alternative to traditional stochastic hydrological models.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Streamflow and related hydroclimatic records from one or more basins; details not reported.
+- **Main result:** Not reported in the available metadata.
+- **Open work:** Comparison with ARMA-type models and extension to multi-site forecasting would follow naturally.
+- **Issues:** No abstract available; limited data and possible overfitting.
+- *Basis: assessment*
 
 ### [Uncovering the Dynamic Drivers of Floods Through Interpretable Deep Learning](https://doi.org/10.1029/2024ef004751)
 Xu et al. (2024), *Earth's Future*. 29 citations.
@@ -13499,7 +15473,13 @@ He et al. (2023), *Hydrology and Earth System Sciences*. 29 citations.
 ### [An expert system for flow routing in a river network](https://doi.org/10.1016/0965-9978(95)00026-s)
 Chau et al. (1995), *Advances in Engineering Software*. 29 citations.
 
-*Summary pending.*
+- **Main goal:** Assists hydraulic engineers in selecting and applying flow routing methods in a river network.
+- **Architecture:** Expert system (rule-based) for choosing and applying flow routing models, a non-learning knowledge-based method.
+- **Data:** River network data and hydraulic rules of thumb; specific river not reported.
+- **Main result:** Not reported in the available metadata; the expert system is presented as an aid for flow routing decisions.
+- **Open work:** Coupling with numerical hydraulic models and broader validation would follow naturally.
+- **Issues:** Rule base is limited to encoded expertise; quantitative accuracy is not established.
+- *Basis: assessment*
 
 ### [Rapid Flood Inundation Forecast Using Fourier Neural Operator](https://doi.org/10.1109/iccvw60793.2023.00401)
 Sun et al. (2023), *2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)*. 28 citations.
@@ -13537,7 +15517,13 @@ Chen et al. (2022), *Journal of Hydrology*. 28 citations.
 ### [Real-time short-term natural water inflows forecasting using recurrent neural networks](https://doi.org/10.1109/ijcnn.1999.830759)
 Coulibaly et al. (1999), *IJCNN'99. International Joint Conference on Neural Networks. Proceedings (Cat. No.99CH36339)*. 28 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term natural water inflows to hydropower reservoirs in real time.
+- **Architecture:** Recurrent neural network (RNN) with time-delayed feedback, compared with feedforward networks.
+- **Data:** Daily inflow, precipitation and temperature records for a hydropower reservoir in Quebec, Canada.
+- **Main result:** Recurrent networks provide accurate short-term inflow forecasts and outperform simpler models.
+- **Open work:** Operational testing and longer lead times would follow naturally.
+- **Issues:** Single-system study; snowmelt-driven extremes are difficult and not separately assessed.
+- *Basis: assessment*
 
 ### [The suitability of a seasonal ensemble hybrid framework including data-driven approaches for hydrological forecasting](https://doi.org/10.5194/hess-27-501-2023)
 Hauswirth et al. (2023), *Hydrology and Earth System Sciences*. 27 citations.
@@ -13564,12 +15550,24 @@ Meyal et al. (2020), *Frontiers in Water*. 27 citations.
 ### Streamflow Forecasting Using Artificial Neural Networks
 Hsu et al. (1998), *Water resources engineering*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts streamflow with artificial neural networks as an alternative to conceptual rainfall-runoff models.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron, with the authors' linear least squares simplex training).
+- **Data:** Daily rainfall, potential evaporation and streamflow records for a medium-sized basin (Leaf River, Mississippi, as in the authors' related work).
+- **Main result:** Neural networks give streamflow forecasts competitive with or better than conceptual and time-series models.
+- **Open work:** Understanding network internals and extending to ungauged basins would follow naturally.
+- **Issues:** Black-box model with limited physical interpretability; single-basin evaluation.
+- *Basis: assessment*
 
 ### [An artificial neural network for classifying and predicting soil moisture and temperature using Levenberg-Marquardt algorithm](https://doi.org/10.1109/secon.1999.766079)
 Atluri et al. (1999), *Proceedings IEEE Southeastcon'99. Technology on the Brink of 2000 (Cat. No.99CH36300)*. 27 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies and predicts soil moisture and soil temperature with an artificial neural network, relevant to agricultural and land-surface monitoring.
+- **Architecture:** Artificial neural network (multilayer perceptron type) trained with the Levenberg-Marquardt algorithm for classification and prediction.
+- **Data:** Not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the Levenberg-Marquardt-trained network can classify and predict soil moisture and temperature.
+- **Open work:** Comparison with other training algorithms and physically based soil models, and testing on independent sites.
+- **Issues:** Conference paper with no abstract available; data, site and accuracy are unknown, so generality cannot be judged.
+- *Basis: assessment*
 
 ### [Machine-learning-based downscaling of modelled climate change impacts on groundwater table depth](https://doi.org/10.5194/hess-26-5859-2022)
 Schneider et al. (2022), *Hydrology and Earth System Sciences*. 26 citations.
@@ -13607,7 +15605,13 @@ Reichert et al. (2024), *Hydrology and Earth System Sciences*. 26 citations.
 ### Application of a recurrent neural network to rainfall-runoff modeling
 Hsu et al. (1997), *Preprint*. 25 citations.
 
-*Summary pending.*
+- **Main goal:** Models the rainfall-runoff relationship of a catchment with a recurrent neural network, aiming to capture storage and memory effects better than static networks.
+- **Architecture:** Recurrent neural network for rainfall-runoff modeling.
+- **Data:** Rainfall and streamflow records of a river basin; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the recurrent network simulates runoff adequately.
+- **Open work:** Comparison with conceptual hydrologic models and feed-forward networks on multiple basins.
+- **Issues:** No abstract available; recurrent training difficulties and lack of physical constraints may limit extrapolation to extreme floods.
+- *Basis: assessment*
 
 ### [Deep Learning‐Based Approach for Enhancing Streamflow Prediction in Watersheds With Aggregated and Intermittent Observations](https://doi.org/10.1029/2024wr037331)
 Mangukiya et al. (2024), *Water Resources Research*. 24 citations.
@@ -13733,7 +15737,13 @@ Liao et al. (2025), *Water Resources Research*. 21 citations.
 ### [Stochastic synthesis of hydrologic data based on concepts of pattern recognition: I. General methodology of the approach](https://doi.org/10.1016/0022-1694(80)90033-5)
 Panu et al. (1980), *Journal of Hydrology*. 21 citations.
 
-*Summary pending.*
+- **Main goal:** Generates synthetic hydrologic data series using pattern recognition concepts instead of classical time series models.
+- **Architecture:** Pattern recognition approach that segments hydrologic series into patterns, groups them and synthesizes new sequences stochastically; not a neural network.
+- **Data:** Hydrologic time series such as streamflow records; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; part I sets out the general methodology of the approach.
+- **Open work:** Application and validation on real streamflow series, as in the companion parts.
+- **Issues:** No abstract available; methodological paper, so performance must be judged from later parts.
+- *Basis: assessment*
 
 ### [Towards Interpretable Physical‐Conceptual Catchment‐Scale Hydrological Modeling Using the Mass‐Conserving‐Perceptron](https://doi.org/10.1029/2024wr037224)
 Wang et al. (2024), *Water Resources Research*. 20 citations.
@@ -13749,7 +15759,13 @@ Wang et al. (2024), *Water Resources Research*. 20 citations.
 ### [Approximate confidence intervals for design floods for a single site using a neural network](https://doi.org/10.1029/1998wr900016)
 Whitley et al. (1999), *Water Resources Research*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Provides approximate confidence intervals for design flood estimates at a single site, quantifying uncertainty for engineering design.
+- **Architecture:** Neural network that approximates confidence intervals for design flood quantiles.
+- **Data:** Annual flood series, possibly with simulated samples from flood frequency distributions; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the network provides approximate confidence intervals for design floods.
+- **Open work:** Extension to regional frequency analysis and other distributions.
+- **Issues:** No abstract available; validity depends on the assumed distribution and training range.
+- *Basis: assessment*
 
 ### [Assessing the adequacy of traditional hydrological models for climate change impact studies: a case for long short-term memory (LSTM) neural networks](https://doi.org/10.5194/hess-29-2811-2025)
 Martel et al. (2025), *Hydrology and Earth System Sciences*. 19 citations.
@@ -13765,17 +15781,35 @@ Martel et al. (2025), *Hydrology and Earth System Sciences*. 19 citations.
 ### Predicting effects of climate fluctuations for water management by applying neural network
 Zhang et al. (1996), *Preprint*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts the effects of climate fluctuations on water management variables with neural networks to support regional water supply planning.
+- **Architecture:** Neural network relating climate indices or fluctuations to hydrologic variables for water management.
+- **Data:** Climate and hydrologic records, likely for South Florida water management; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the title implies the network captures climate-driven variability useful for water management.
+- **Open work:** Operational use for seasonal forecasts and comparison with statistical methods.
+- **Issues:** No abstract available; short records relative to climate cycles limit robustness.
+- *Basis: assessment*
 
 ### The Use of Simulation Models and Human Advice to Build an Expert System for the Defense and Control of River Floods
 Cuena (1983), *International Joint Conference on Artificial Intelligence*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Builds an expert system for defense and control of river floods, combining simulation models with the advice of human experts.
+- **Architecture:** Expert system (rule-based) integrating hydrologic simulation models and human expert knowledge.
+- **Data:** Hydrologic simulation model results and expert knowledge for a river basin; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the paper describes the construction of the flood control expert system.
+- **Open work:** Real-time operational testing and knowledge base updating.
+- **Issues:** No abstract available; knowledge acquisition is laborious and system performance is not quantified.
+- *Basis: assessment*
 
 ### [Neural network classification of convective airmasses for a flood forecasting system](https://doi.org/10.1080/014311697218818)
 Pankiewicz (1997), *International Journal of Remote Sensing*. 19 citations.
 
-*Summary pending.*
+- **Main goal:** Classifies convective airmasses from remotely sensed data with a neural network to support a flood forecasting system that needs to anticipate heavy convective rainfall.
+- **Architecture:** Artificial neural network classifier; the exact network type and configuration are not reported here.
+- **Data:** Satellite remote sensing data; the specific sensor, region and period are not reported here.
+- **Main result:** Reports the ability of a neural network to separate convective airmass types for flood forecasting use; quantitative scores are not reported here.
+- **Open work:** Testing across more seasons and regions and linking the airmass classes directly to rainfall and flood forecast skill.
+- **Issues:** Details unknown without the abstract; early single-study classifier with likely limited training data and no uncertainty estimates.
+- *Basis: assessment*
 
 ### [Accelerating flood warnings by 10 hours: the power of river network topology in AI-enhanced flood forecasting](https://doi.org/10.1038/s44304-025-00083-6)
 Wang et al. (2024), *npj Natural Hazards*. 18 citations.
@@ -13857,7 +15891,13 @@ Kraft et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
 ### [Extension and application of feature prediction model for synthesis of hydrologic records](https://doi.org/10.1029/wr016i001p00077)
 Panu et al. (1980), *Water Resources Research*. 17 citations.
 
-*Summary pending.*
+- **Main goal:** Extends a feature prediction model that synthesizes hydrologic records, such as streamflow series, by treating seasonal segments as recognizable patterns.
+- **Architecture:** Pattern recognition approach (feature prediction model) classifying and sequencing seasonal segments of hydrologic series; not a neural network.
+- **Data:** Historical hydrologic records such as monthly streamflow series; specific rivers are not reported here.
+- **Main result:** Shows that synthesized records reproduce key statistical features of observed series; quantitative details are not reported here.
+- **Open work:** Application to more basins and comparison with stochastic time series models.
+- **Issues:** Pattern-based synthesis depends on record length and stationarity of the observed series.
+- *Basis: assessment*
 
 ### [Remote Sensing of River Discharge From Medium‐Resolution Satellite Imagery Based on Deep Learning](https://doi.org/10.1029/2023wr036880)
 Hao et al. (2024), *Water Resources Research*. 16 citations.
@@ -13961,22 +16001,46 @@ Fleming et al. (2024), *Water Resources Research*. 15 citations.
 ### Influence of Sea Surface Temperature on Rainfall and Runof in Northeastern South America: Analysis and Modeling
 Uvo (1998), *Preprint*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses how sea surface temperature influences rainfall and runoff in northeastern South America and models these relationships for prediction.
+- **Architecture:** Statistical analysis of SST-rainfall-runoff relationships plus predictive models; the specific modelling methods are not reported here.
+- **Data:** Sea surface temperature fields and rainfall and runoff records for northeastern South America; specifics not reported here.
+- **Main result:** Identifies SST influences on regional rainfall and runoff and builds predictive models; quantitative results are not reported here.
+- **Open work:** Operational seasonal rainfall and runoff forecasting and inclusion of atmospheric circulation predictors.
+- **Issues:** Details unknown without the abstract; short hydroclimatic records and nonstationary teleconnections limit robustness of the models.
+- *Basis: assessment*
 
 ### [APPLICATIONS OF ARTIFICIAL NEURAL NETWORKS TO SIMULATE WATER-TABLE DEPTHS UNDER SUBIRRIGATION](https://doi.org/10.4296/cwrj2101027)
 Yang et al. (1996), *Canadian Water Resources Journal*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates water-table depths under subirrigation with artificial neural networks as a simpler alternative to physically based drainage models.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron with backpropagation is typical of the period); exact configuration not reported here.
+- **Data:** Water-table depth records and driving variables for subirrigated fields; the sites and periods are not reported here.
+- **Main result:** Reports that neural networks simulate water-table depths with useful accuracy; quantitative errors are not reported here.
+- **Open work:** Testing on more sites, soils and drainage designs, and comparison with physically based drainage models.
+- **Issues:** Site-specific empirical model without physical constraints; limited training data restrict transfer to other conditions.
+- *Basis: assessment*
 
 ### [Knowledge-based systems and operational hydrology](https://doi.org/10.1139/l91-001)
 Simonovic (1991), *Canadian Journal of Civil Engineering*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Reviews the use of knowledge-based systems in operational hydrology and their potential to support water management decisions.
+- **Architecture:** Review and discussion of knowledge-based (expert) systems for operational hydrology.
+- **Data:** Not applicable; the paper discusses applications and concepts rather than training a model on a dataset.
+- **Main result:** Outlines the opportunities, examples and requirements for using knowledge-based systems in operational hydrology.
+- **Open work:** Integrating expert systems with hydrological simulation models and real-time data for decision support.
+- **Issues:** Early perspective piece; knowledge acquisition, maintenance and validation of rule bases remain practical obstacles.
+- *Basis: assessment*
 
 ### [Predicting Runoff using Artificial Neural Networks](https://doi.org/10.1007/978-94-011-0389-3_16)
 Hjelmfelt et al. (1996), *Preprint*. 15 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts watershed runoff from rainfall with artificial neural networks as an alternative to conventional rainfall-runoff models.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron) relating rainfall to runoff; exact configuration not reported here.
+- **Data:** Rainfall and runoff records from a watershed; the basin and period are not reported here.
+- **Main result:** Reports neural network runoff prediction skill; quantitative errors are not reported here.
+- **Open work:** Testing on more watersheds and storm events and comparison with unit hydrograph and conceptual models.
+- **Issues:** Details unknown without the abstract; limited data and lack of physical constraints affect extrapolation to extreme events.
+- *Basis: assessment*
 
 ### [A Deep State Space Model for Rainfall‐Runoff Simulations](https://doi.org/10.1029/2025wr039888)
 Wang et al. (2025), *Water Resources Research*. 14 citations.
@@ -14025,12 +16089,24 @@ Fang et al. (2018), *arXiv*. 13 citations.
 ### [A knowledge-based expert system for flood frequency analysis](https://doi.org/10.1139/l90-068)
 Chow et al. (1990), *Canadian Journal of Civil Engineering*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Supports engineers in performing flood frequency analysis, including choosing distributions and estimation methods, by capturing expert hydrological judgement.
+- **Architecture:** Knowledge-based expert system (rule-based) that guides the user through flood frequency analysis steps.
+- **Data:** Annual peak streamflow records, likely Canadian gauging stations; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Extension to regional analysis and validation against expert decisions follow naturally.
+- **Issues:** No abstract available; quality depends on the encoded rules and expert knowledge base.
+- *Basis: assessment*
 
 ### [An intelligent front-end for selecting evapotranspiration estimation methods](https://doi.org/10.1016/0168-1699(95)00006-p)
 Mohan et al. (1995), *Computers and Electronics in Agriculture*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Helps users select an appropriate reference evapotranspiration estimation method given climate and data availability, for irrigation and agricultural water planning.
+- **Architecture:** Intelligent front-end, i.e. expert system (rule-based), that recommends among evapotranspiration estimation methods.
+- **Data:** Climatic data requirements of standard evapotranspiration methods; specific datasets not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing against lysimeter measurements and wider regional applicability follow naturally.
+- **Issues:** No abstract available; recommendations are only as good as the encoded rules.
+- *Basis: assessment*
 
 ### [An explainable deep learning model based on hydrological principles for flood simulation and forecasting](https://doi.org/10.5194/hess-29-7217-2025)
 Xiang et al. (2025), *Hydrology and Earth System Sciences*. 12 citations.
@@ -14101,27 +16177,57 @@ Espinoza et al. (2025), *Hydrology and Earth System Sciences*. 12 citations.
 ### Emulation of DWRDSM using Artificial Neural Networks and Estimation of Sacramento River Flow from Salinity
 Sandhu et al. (1996), *Preprint*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Emulates the DWRDSM Delta salinity model with neural networks and estimates Sacramento River flow from salinity observations, giving fast surrogates for water management.
+- **Architecture:** Artificial neural network (feedforward multilayer perceptron) emulator of a hydrodynamic and salinity model.
+- **Data:** DWRDSM simulations and salinity and flow data for the Sacramento-San Joaquin Delta, California; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Embedding the emulator in operations planning models follows naturally.
+- **Issues:** No abstract available; an emulator inherits the hydrodynamic model's errors and may fail outside the training range.
+- *Basis: assessment*
 
 ### [Inverting a microwave backscattering model by the use of a neural network for the estimation of soil moisture](https://doi.org/10.1109/igarss.1998.703668)
 Weimann (1998), *IGARSS '98. Sensing and Managing the Environment. 1998 IEEE International Geoscience and Remote Sensing. Symposium Proceedings. (Cat. No.98CH36174)*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates soil moisture by inverting a microwave backscattering model, avoiding costly iterative inversion.
+- **Architecture:** Neural network (multilayer perceptron) trained on simulated backscatter to invert the forward scattering model.
+- **Data:** Simulated radar backscatter from a microwave scattering model, possibly tested on SAR data; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Testing on field-measured SAR data and adding surface roughness and vegetation follows naturally.
+- **Issues:** No abstract available; inversion inherits forward-model assumptions and suffers from roughness ambiguity.
+- *Basis: assessment*
 
 ### [Stochastic synthesis of hydrologic data based on concepts of pattern recognition: II. Application of natural watersheds](https://doi.org/10.1016/0022-1694(80)90076-1)
 Panu et al. (1980), *Journal of Hydrology*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Applies a pattern-recognition approach to stochastically synthesize hydrologic time series for natural watersheds.
+- **Architecture:** Pattern recognition: seasonal segments of hydrologic series treated as pattern vectors, clustered and sequenced to generate synthetic data; non-neural method.
+- **Data:** Observed streamflow records from natural watersheds; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Comparing with conventional autoregressive synthesis on more basins follows naturally.
+- **Issues:** No abstract available; synthetic series limited to patterns present in short records.
+- *Basis: assessment*
 
 ### COMPARISON OF INTEGRATED ARTIFICIAL NEURAL NETWORK WITH TIME SERIES MODELING FOR FLOOD FORECAST
 Yang et al. (1999), *Journal of hydroscience and hydraulic engineering*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Compares an integrated artificial neural network with time-series models for flood forecasting.
+- **Architecture:** Integrated artificial neural network (multilayer perceptron) compared with time-series (ARMA-type) models.
+- **Data:** Rainfall and streamflow records from a river basin, likely in Taiwan; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Extending lead time and testing on more flood events follows naturally.
+- **Issues:** No abstract available; few flood events typically limit evaluation.
+- *Basis: assessment*
 
 ### [Mapping of floodplain inundation with multi-frequency polarimetric SAR: Use of a tree-based model](https://doi.org/10.1109/igarss.1994.399347)
 Hess et al. (1994), *IEEE International Geoscience and Remote Sensing Symposium*. 12 citations.
 
-*Summary pending.*
+- **Main goal:** Maps floodplain inundation and vegetation from multi-frequency polarimetric SAR to study wetland hydrology.
+- **Architecture:** Tree-based model (decision tree, CART-type classification) applied to SAR backscatter.
+- **Data:** Multi-frequency polarimetric SAR imagery of a floodplain, likely the Amazon; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Seasonal monitoring and regional mapping follow naturally.
+- **Issues:** No abstract available; accuracy depends on ground truth and SAR frequency coverage.
+- *Basis: assessment*
 
 ### [Saudi Rainfall (SaRa): hourly 0.1° gridded rainfall (1979–present) for Saudi Arabia via machine learning fusion of satellite and model data](https://doi.org/10.5194/hess-29-4983-2025)
 Wang et al. (2025), *Hydrology and Earth System Sciences*. 11 citations.
@@ -14181,12 +16287,24 @@ Liu et al. (2024), *Earth's Future*. 10 citations.
 ### An Expert System for Snowmelt Runoff Modeling and Forecasting
 Engman et al. (1986), *Preprint*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Helps users apply the Snowmelt Runoff Model for runoff simulation and forecasting by encoding expert knowledge on parameter selection.
+- **Architecture:** Expert system (rule-based) built around the Snowmelt Runoff Model (SRM), a conceptual hydrological model.
+- **Data:** Snow cover, temperature, precipitation and runoff data for snowmelt basins, including remotely sensed snow cover; specific basins not reported in the available information.
+- **Main result:** Demonstrates that an expert system can guide non-expert users in setting up and running snowmelt runoff forecasts; no quantitative skill is reported in the available information.
+- **Open work:** Extending the knowledge base and testing with more basins and users follow naturally.
+- **Issues:** Quality depends on the encoded rules and the underlying conceptual model; limited formal evaluation.
+- *Basis: abstract+knowledge*
 
 ### [An Approach for Data Analysis and Forecasting with Neuro Fuzzy Systems - Demonstrated on Flood Events at River Mosel](https://doi.org/10.1007/3-540-62868-1_139)
 Stüber et al. (1997), *Fuzzy Days*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses hydrological data and forecasts flood events on the River Mosel using neuro-fuzzy systems.
+- **Architecture:** Neuro-fuzzy system (fuzzy logic combined with neural network learning).
+- **Data:** Hydrological gauge records (water levels/discharge) for flood events on the River Mosel; period not reported in the available information.
+- **Main result:** The neuro-fuzzy approach is demonstrated on Mosel flood events; quantitative forecast errors are not reported in the available information.
+- **Open work:** Longer lead times, more stations and comparison with conventional hydrological models follow naturally.
+- **Issues:** Few flood events for training and evaluation; single-river demonstration limits generality.
+- *Basis: assessment*
 
 ### [Evaluating the Functional Realism of Deep Learning Rainfall‐Runoff Models Using Catchment Hydrology Principles](https://doi.org/10.1029/2025wr040076)
 Bayati et al. (2025), *Water Resources Research*. 9 citations.
@@ -14202,12 +16320,24 @@ Bayati et al. (2025), *Water Resources Research*. 9 citations.
 ### Reservoir inflow forecasting using neural networks
 Subramanian et al. (1999), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts reservoir inflows to support water resources management and reservoir operation.
+- **Architecture:** Neural network forecasting model.
+- **Data:** Historical hydrological records of reservoir inflows and related variables; site not reported in the available information.
+- **Main result:** Neural networks provide useful inflow forecasts; quantitative skill is not reported in the available information.
+- **Open work:** Longer lead times and comparison with conceptual hydrological models follow naturally.
+- **Issues:** Single-site study likely; extrapolation to extreme inflows uncertain.
+- *Basis: assessment*
 
 ### An Expert System for Flood Estimation
 Fayegh et al. (1986), *Preprint*. 9 citations.
 
-*Summary pending.*
+- **Main goal:** Develops an expert system to estimate design floods, packaging hydrological expertise for engineers facing flood estimation problems.
+- **Architecture:** Expert system (rule-based) that guides selection and application of flood estimation procedures; not a learned model.
+- **Data:** Hydrological knowledge and flood records used to build and test the system; specific basins not reported in the available metadata.
+- **Main result:** Demonstrates that flood estimation expertise can be encoded in a consultative expert system; quantitative results not reported in the available metadata.
+- **Open work:** Broadening the rule base and validating recommendations against expert hydrologists.
+- **Issues:** Rule-based knowledge is limited to what was elicited; evaluation details not reported; early prototype.
+- *Basis: assessment*
 
 ### [Investigating Deep Learning Knowledge Transfer in Streamflow Prediction From Global to Local Catchment](https://doi.org/10.1029/2025wr041194)
 Ougahi et al. (2026), *Water Resources Research*. 8 citations.
@@ -14278,7 +16408,13 @@ Jacob et al. (2025), *Environmental Research Letters*. 8 citations.
 ### [Stochastic synthesis of hydrologic data based on concepts of pattern recognition: III. Performance evaluation of the methodology](https://doi.org/10.1016/0022-1694(80)90077-3)
 Panu et al. (1980), *Journal of Hydrology*. 8 citations.
 
-*Summary pending.*
+- **Main goal:** Evaluates the performance of a pattern-recognition-based methodology for stochastic synthesis of hydrologic time series, the third part of a series.
+- **Architecture:** Pattern recognition approach that represents hydrologic sequences as pattern vectors, clusters them and synthesizes new series from pattern transitions; a non-neural statistical method.
+- **Data:** Observed hydrologic series such as streamflow records; specific stations not reported in the available metadata.
+- **Main result:** Reports that synthesized series reproduce key statistical characteristics of the historical data, supporting the methodology.
+- **Open work:** Applying the method to more rivers and comparing systematically with conventional stochastic models.
+- **Issues:** Performance depends on the chosen pattern segmentation and clustering; limited record lengths constrain pattern estimation.
+- *Basis: assessment*
 
 ### [Improving Subseasonal Soil Moisture and Evaporative Stress Index Forecasts through Machine Learning: The Role of Initial Land State versus Dynamical Model Output](https://doi.org/10.1175/jhm-d-23-0074.1)
 Lorenz et al. (2024), *Journal of Hydrometeorology*. 7 citations.
@@ -14327,42 +16463,90 @@ Arnal et al. (2024), *Hydrology and Earth System Sciences*. 7 citations.
 ### [ESTIMATION OF RUNOFF INDEX USING LANDSAT (TM) DATA AND AN ARTIFICIAL NEURAL NETWORK SYSTEM](https://doi.org/10.4296/cwrj2202155)
 Emaruchi et al. (1997), *Canadian Water Resources Journal*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates a runoff index from satellite imagery to characterize watershed runoff response where ground data are limited.
+- **Architecture:** Artificial neural network mapping Landsat Thematic Mapper derived land surface information to a runoff index.
+- **Data:** Landsat TM imagery and observed runoff data for Canadian watersheds; specific basins not reported in the available metadata.
+- **Main result:** Reports that the neural network estimates runoff index from Landsat TM data with useful accuracy; figures not reported in the available metadata.
+- **Open work:** Applying the approach to more watersheds and other image dates and sensors.
+- **Issues:** Small number of watersheds likely; image timing and land cover changes may limit transferability.
+- *Basis: assessment*
 
 ### Flood Inflow Forecasting on Multipurpose Reservoir by Neural Network
 심 et al. (1998), *Journal of Korea Water Resources Association*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts flood inflow into a multipurpose reservoir to support flood control operations.
+- **Architecture:** Neural network model for flood inflow forecasting; configuration not reported in the available metadata.
+- **Data:** Observed rainfall and inflow records for a Korean multipurpose reservoir; specific details not reported in the available metadata.
+- **Main result:** Reports that the neural network forecasts flood inflow with accuracy comparable to or better than conventional models; figures not reported in the available metadata.
+- **Open work:** Longer lead times and real-time operational testing.
+- **Issues:** Few flood events for training and testing; single reservoir study.
+- *Basis: assessment*
 
 ### Using Modular Neural Networks to Predict Watershed Runoff
 Zhang et al. (1998), *Water resources engineering*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts watershed runoff with modular neural networks, which split the input space so specialized networks handle different flow regimes.
+- **Architecture:** Modular neural network (mixture of expert networks with a gating network) for rainfall-runoff prediction.
+- **Data:** Observed rainfall and runoff records from watersheds; specific basins not reported in the available metadata.
+- **Main result:** Modular networks predict runoff better than a single global network, particularly across flow regimes; figures not reported in the available metadata.
+- **Open work:** Testing on more watersheds and adding uncertainty estimates.
+- **Issues:** Limited number of basins; extreme flows sparse in training data.
+- *Basis: assessment*
 
 ### Forecasting Water Availability by Applying Neural Networks with Global and Solar Indices
 Zhang et al. (1996), *Preprint*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts water availability for water management using large-scale climate and solar indices as predictors.
+- **Architecture:** Neural network forecasting model with global climate indices and solar activity indices as inputs.
+- **Data:** Global climate indices (e.g. ENSO-related) and solar indices with regional rainfall or water supply records; specific region not reported in the available metadata.
+- **Main result:** Reports that neural networks using global and solar indices provide skill in forecasting water availability; figures not reported in the available metadata.
+- **Open work:** Longer validation and comparison with statistical forecast methods.
+- **Issues:** Short records relative to climate variability; possible spurious predictor relationships; overfitting risk.
+- *Basis: assessment*
 
 ### [Development of an Expert System for Daily Drought Monitoring](https://doi.org/10.1061/(asce)0887-3801(1996)10:1(20))
 Chang et al. (1994), *Journal of Computing in Civil Engineering*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Develops an expert system for daily drought monitoring to support water management decisions.
+- **Architecture:** Expert system (rule-based) combining drought indices and hydrometeorological data for daily monitoring.
+- **Data:** Daily hydrometeorological data such as precipitation and streamflow; specific region not reported in the available metadata.
+- **Main result:** Demonstrates a working daily drought monitoring expert system; quantitative evaluation not reported in the available metadata.
+- **Open work:** Integration with forecasts and broader regional deployment.
+- **Issues:** Rule thresholds are subjective; validation against drought impacts limited.
+- *Basis: assessment*
 
 ### Spatial-Temporal Drought Analysis of South Korea Based On Neural Networks
 Sin et al. (1999), *Journal of Korea Water Resources Association*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Analyzes the spatial and temporal patterns of drought across South Korea.
+- **Architecture:** Neural network approach for spatial-temporal drought analysis; configuration not reported in the available metadata.
+- **Data:** Precipitation or drought index records from stations across South Korea; period not reported in the available metadata.
+- **Main result:** Reports spatial-temporal drought patterns over South Korea identified with neural networks; quantitative results not reported in the available metadata.
+- **Open work:** Linking identified patterns to drought forecasting.
+- **Issues:** Station density and record length limit spatial detail.
+- *Basis: assessment*
 
 ### [Seasonal streamflow forecasting via a neural fuzzy system](https://doi.org/10.1016/s1474-6670(17)56893-7)
 Ballini et al. (1999), *IFAC Proceedings Volumes*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts seasonal (monthly) streamflow for hydroelectric reservoir planning.
+- **Architecture:** Neural fuzzy system (neuro-fuzzy network combining fuzzy logic rules with neural learning).
+- **Data:** Historical monthly inflow series at hydroelectric plants in Brazil; specific sites not reported in the available metadata.
+- **Main result:** Neural fuzzy system forecasts compare favourably with periodic autoregressive models; figures not reported in the available metadata.
+- **Open work:** Testing at more sites and longer horizons.
+- **Issues:** Univariate inflow inputs only; limited sites; no uncertainty quantification.
+- *Basis: assessment*
 
 ### [Neural network architecture selection: new Bayesian perspectives in predictive modelling: Application to a soil hydrology problem](https://doi.org/10.1016/s0304-3800(99)00096-4)
 Vila et al. (1999), *Ecological Modelling*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses how to select the architecture of a neural network for predictive modelling, using a soil hydrology problem as the application case.
+- **Architecture:** Bayesian neural network approach to architecture selection for a multilayer perceptron, comparing candidate network structures by Bayesian evidence rather than ad hoc trial and error.
+- **Data:** Soil hydrology field or laboratory measurements; specific variables and dataset size are not reported in the available record.
+- **Main result:** Presents Bayesian criteria as a principled way to choose network complexity for the soil hydrology prediction task; quantitative results are not reported in the available record.
+- **Open work:** Testing the selection framework on other environmental datasets and comparing it with cross-validation-based selection.
+- **Issues:** Small environmental datasets limit reliable model comparison; Bayesian approximations may be sensitive to prior choices; single application case.
+- *Basis: assessment*
 
 ### [Automated classification of atmospheric circulation types for compound flood risk assessment: CMIP6 model analysis utilising a deep learning ensemble](https://doi.org/10.1088/1748-9326/adddcb)
 Heinrich et al. (2025), *Environmental Research Letters*. 6 citations.
@@ -14411,17 +16595,35 @@ Moulds et al. (2025), *Hydrology and Earth System Sciences*. 6 citations.
 ### [An artificial neural network to predict river flow rate into a dam for a hydro-power plant](https://doi.org/10.1109/icnn.1995.487834)
 Ichiyanagi et al. (1995), *International Conference on Neural Networks*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts river inflow rate into a dam to support operation of a hydropower plant.
+- **Architecture:** Artificial neural network trained to forecast dam inflow from antecedent hydrometeorological inputs; detailed network configuration is not reported in the available record.
+- **Data:** Observed rainfall and inflow records for a Japanese hydropower dam catchment; period and stations are not reported in the available record.
+- **Main result:** Reports that the neural network forecasts inflow with useful accuracy for plant operation; specific error statistics are not reported in the available record.
+- **Open work:** Longer lead times, inclusion of rainfall forecasts and testing across more flood events.
+- **Issues:** Single catchment; few extreme flood events for training; no uncertainty estimates.
+- *Basis: assessment*
 
 ### [AN ARTIFICIAL NEURAL NETWORK MODEL FOR WATER TABLE MANAGEMENT SYSTEMS](https://doi.org/10.4296/cwrj2401025)
 Yang et al. (1999), *Canadian Water Resources Journal*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a neural network model to support water table management, i.e. controlled drainage and subirrigation, on agricultural fields.
+- **Architecture:** Artificial neural network predicting water table depth from hydrological and weather inputs; detailed configuration is not reported in the available record.
+- **Data:** Not reported in the available record. The study concerns agricultural fields with water table management in Canada.
+- **Main result:** Shows that the neural network reproduces water table behaviour well enough to support management decisions; specific statistics are not reported in the available record.
+- **Open work:** Field validation across sites and soils and coupling with real-time control of drainage structures.
+- **Issues:** Site-specific training; generalisation to different soils and climates is uncertain.
+- *Basis: assessment*
 
 ### [The development of the water flow forecasting system into the dam by neural networks and fuzzy theory](https://doi.org/10.1541/ieejpes1990.119.10_1020)
 Iizaka et al. (1999), *Ieej Transactions on Power and Energy*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a forecasting system for inflow into a dam to support hydropower and reservoir operation.
+- **Architecture:** Hybrid of artificial neural networks and fuzzy logic (fuzzy theory) used to forecast dam inflow from rainfall and flow observations.
+- **Data:** Observed rainfall and inflow records for Japanese dam catchments; periods and sites not reported in the available record.
+- **Main result:** Reports improved inflow forecasts from the combined neural network and fuzzy approach; quantitative results not reported in the available record.
+- **Open work:** Operational deployment, longer lead times and inclusion of quantitative precipitation forecasts.
+- **Issues:** Limited number of flood events; site-specific calibration; no probabilistic output.
+- *Basis: assessment*
 
 ### [Generative AI-Downscaling of Large Ensembles Project Unprecedented Future Droughts](https://arxiv.org/abs/2509.21844)
 Lewis et al. (2025), *arXiv*. 5 citations.
@@ -14448,32 +16650,68 @@ Jamaat et al. (2025), *arXiv*. 5 citations.
 ### A Study on the Simulation of Runoff Hydograph by Using Artificial Neural Network
 An et al. (1998), *Journal of Korea Water Resources Association*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates runoff hydrographs from rainfall for a Korean catchment with a neural network.
+- **Architecture:** Artificial neural network rainfall-runoff model; detailed configuration not reported in the available record.
+- **Data:** Observed rainfall and discharge for a catchment in Korea; period not reported in the available record.
+- **Main result:** Reports that the neural network reproduces observed runoff hydrographs reasonably; statistics not reported in the available record.
+- **Open work:** Comparison with conceptual rainfall-runoff models and testing on more flood events.
+- **Issues:** Few events and a single catchment; no uncertainty quantification.
+- *Basis: assessment*
 
 ### [Application of artificial neural network to forecasting methods of time variation of the flow rate into a dam for a hydro-power plant](https://doi.org/10.1109/ann.1993.264323)
 Ichiyanagi et al. (1993), *[1993] Proceedings of the Second International Forum on Applications of Neural Networks to Power Systems*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts the time variation of inflow rate into a dam for a hydropower plant.
+- **Architecture:** Artificial neural network forecasting model for dam inflow; detailed architecture not reported in the available record.
+- **Data:** Observed rainfall and inflow records for a Japanese hydropower dam; period not reported in the available record.
+- **Main result:** Indicates the neural network can forecast inflow changes with useful accuracy; quantitative results not reported in the available record.
+- **Open work:** Longer lead times and more flood events; companion 1995 study extends this work.
+- **Issues:** Single site; limited training events; no uncertainty estimates.
+- *Basis: assessment*
 
 ### NEAREST NEIGHBOR REGRESSION ESTIMATORS IN RAINFALL-RUNOFF FORECASTING
 Karlsson (1985), *Preprint*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river runoff from rainfall without specifying a physical model by using nonparametric regression.
+- **Architecture:** K-nearest neighbour (nearest neighbor) regression estimators applied to rainfall-runoff forecasting.
+- **Data:** Historical rainfall and runoff records for a catchment; location and period not reported in the available record.
+- **Main result:** Indicates nearest-neighbour regression gives competitive runoff forecasts compared with conventional models; numbers not reported in the available record.
+- **Open work:** Choice of embedding variables and neighbour counts and extension to multi-step forecasts.
+- **Issues:** Requires long records; poor extrapolation to floods larger than any in the record.
+- *Basis: assessment*
 
 ### [The Development of a Forecasting System of The Water Levels of Rivers by Neural Networks](https://doi.org/10.3178/jjshwr.7.2_90)
 Isobe et al. (1994), *Journal of Japan Society of Hydrology & Water Resources*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts river water levels up to 3 hours ahead at about 100 flood monitoring sites in Saitama prefecture, Japan.
+- **Architecture:** Artificial neural network forecasting models integrated into the SAMTES flood monitoring system.
+- **Data:** Observed river water levels, tide levels, observed precipitation and JMA Very Short-range Forecasting Precipitation.
+- **Main result:** One-hour forecasts are highly precise, with correlations of 0.95–0.99; 2–3 hour forecasts accumulate errors from forecast precipitation but capture water level patterns.
+- **Open work:** Reducing error propagation from precipitation forecasts at longer leads.
+- **Issues:** Accuracy degrades with lead time because of precipitation forecast errors; no uncertainty estimates.
+- *Basis: abstract*
 
 ### [An expert system approach for water management in case of drought](https://doi.org/10.1109/iis.1997.645282)
 Chang et al. (1997), *Proceedings Intelligent Information Systems. IIS'97*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Supports water management decisions during drought conditions.
+- **Architecture:** Expert system (rule-based) approach encoding water management knowledge for drought situations.
+- **Data:** Expert knowledge and drought management rules; no training data apply.
+- **Main result:** Presents an expert system prototype for drought water management; evaluation results not reported in the available record.
+- **Open work:** Validation with water managers and integration with hydrological forecasts.
+- **Issues:** Rules are region-specific and require manual updating.
+- *Basis: assessment*
 
 ### Reservoir Operation by the Use of an Expert System
 Chang et al. (1994), *Hydraulic Engineering*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Supports reservoir operation decisions with an expert system that encodes operating rules and operator knowledge.
+- **Architecture:** Expert system (rule-based knowledge base with inference engine); details of the rules and reasoning scheme are not reported in the available metadata.
+- **Data:** Not reported in the abstract; the reservoir system, inflow records and operating constraints used are unknown.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Integration with inflow forecasts and optimization models and testing on other reservoir systems would follow naturally.
+- **Issues:** No abstract available; rule-based systems depend on elicited expert knowledge and are hard to validate or transfer, and performance relative to optimization methods is unknown.
+- *Basis: assessment*
 
 ### [AIFL: A Global Daily Streamflow Forecasting Model Using Deterministic LSTM Pre-trained on ERA5-Land and Fine-tuned on IFS](https://doi.org/10.1016/j.jhydrol.2026.136064)
 Taccari et al. (2026), *Journal of Hydrology*. 4 citations.
@@ -14822,7 +17060,13 @@ Voyant et al. (2017), *Renewable Energy*. 1,705 citations.
 ### [Electric load forecasting using an artificial neural network](https://doi.org/10.1109/59.76685)
 Park et al. (1991), *IEEE Transactions on Power Systems*. 1,464 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts electric utility load (hourly load, daily peak and total daily load) because conventional statistical forecasters struggle with the nonlinear load–weather relationship.
+- **Architecture:** Multilayer perceptron (feedforward artificial neural network) trained with backpropagation, using temperature and past load as inputs.
+- **Data:** Historical load and temperature records from a US electric utility (Puget Sound Power and Light).
+- **Main result:** The neural network forecasts give lower errors than the utility's conventional forecasting method in the reported tests.
+- **Open work:** Handling of holidays and weekends, adaptive retraining as load patterns change, and broader weather inputs.
+- **Issues:** Single utility and limited test period; no uncertainty estimates; performance depends on temperature forecasts in operational use.
+- *Basis: abstract+knowledge*
 
 ### [A review of deep learning for renewable energy forecasting](https://doi.org/10.1016/j.enconman.2019.111799)
 Wang et al. (2019), *Energy Conversion and Management*. 1,073 citations.
@@ -14860,7 +17104,13 @@ Qing et al. (2018), *Energy*. 890 citations.
 ### [Analysis and Evaluation of Five Short-Term Load Forecasting Techniques](https://doi.org/10.1109/59.41700)
 Moghram et al. (1989), *IEEE Power Engineering Review*. 757 citations.
 
-*Summary pending.*
+- **Main goal:** Compares short-term electric load forecasting techniques to guide utilities in choosing a method.
+- **Architecture:** Comparison of five techniques: multiple linear regression, time series (Box-Jenkins), general exponential smoothing, state space (Kalman filter) and a knowledge-based expert system (rule-based) approach.
+- **Data:** Historical load and weather data from a US electric utility.
+- **Main result:** Reports relative forecast errors of the five methods across seasons; no single technique dominates in every condition.
+- **Open work:** Hybrid methods and better handling of weather-sensitive and special-day loads.
+- **Issues:** Single utility and limited periods; results depend on implementation details of each method.
+- *Basis: assessment*
 
 ### [Deep learning based ensemble approach for probabilistic wind power forecasting](https://doi.org/10.1016/j.apenergy.2016.11.111)
 Wang et al. (2017), *Applied Energy*. 697 citations.
@@ -14898,7 +17148,13 @@ Wang et al. (2019), *Applied Energy*. 525 citations.
 ### [An expert system based algorithm for short term load forecast](https://doi.org/10.1109/59.192889)
 Rahman et al. (1988), *IEEE Transactions on Power Systems*. 502 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load using utility operators' heuristics captured in an automated system.
+- **Architecture:** Expert system (rule-based) encoding relationships between weather, day type and load.
+- **Data:** Historical load and weather data from electric utility sites.
+- **Main result:** The rule-based approach produces forecasts with errors comparable to conventional statistical methods.
+- **Open work:** Automatic rule updating and site transferability.
+- **Issues:** Rules need expert elicitation and manual tuning; limited validation.
+- *Basis: assessment*
 
 ### [Comparison of machine learning methods for photovoltaic power forecasting based on numerical weather prediction](https://doi.org/10.1016/j.rser.2022.112364)
 Markovics et al. (2022), *Renewable & Sustainable Energy Reviews*. 441 citations.
@@ -14914,17 +17170,35 @@ Markovics et al. (2022), *Renewable & Sustainable Energy Reviews*. 441 citations
 ### [Advancement in the application of neural networks for short-term load forecasting](https://doi.org/10.1109/59.141711)
 Peng et al. (1992), *IEEE Transactions on Power Systems*. 415 citations.
 
-*Summary pending.*
+- **Main goal:** Improves neural-network short-term electric load forecasting through better network design and training data selection.
+- **Architecture:** Neural network with linear and nonlinear terms, trained on cases selected by a minimum distance criterion.
+- **Data:** Historical load and weather data from a US electric utility.
+- **Main result:** The proposed design improves forecast accuracy over earlier neural network approaches.
+- **Open work:** Handling special days and adaptive retraining.
+- **Issues:** Single utility; limited comparison with statistical methods.
+- *Basis: assessment*
 
 ### [A neural network short term load forecasting model for the Greek power system](https://doi.org/10.1109/59.496166)
 Bakirtzis et al. (1996), *Preprint*. 410 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts hourly electric load for the next day for the Greek interconnected power system.
+- **Architecture:** Fully connected feedforward artificial neural network (multilayer perceptron) with load and temperature inputs and day-type handling.
+- **Data:** Historical hourly loads and temperatures for the Greek power system.
+- **Main result:** The neural network produces next-day forecasts with lower errors than the conventional method used by the utility.
+- **Open work:** Better treatment of holidays and integration of weather forecast uncertainty.
+- **Issues:** Errors increase on holidays and unusual days; single system.
+- *Basis: abstract+knowledge*
 
 ### [Wind power forecasting using advanced neural networks models](https://doi.org/10.1109/60.556376)
 Kariniotakis et al. (1996), *IEEE Transactions on Energy Conversion*. 410 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term wind power output to support integration of wind farms into an autonomous island power system.
+- **Architecture:** Recurrent neural networks (advanced neural network models) compared with persistence and other methods.
+- **Data:** Wind speed and power time series from wind installations on the Greek island of Crete.
+- **Main result:** The recurrent neural networks improve on persistence for short-term horizons.
+- **Open work:** Inclusion of numerical weather prediction inputs and longer horizons.
+- **Issues:** Gains over persistence are modest at very short horizons; site-specific training.
+- *Basis: abstract+knowledge*
 
 ### [Deep learning models for solar irradiance forecasting: A comprehensive review](https://doi.org/10.1016/j.jclepro.2021.128566)
 Kumari et al. (2021), *Journal of Cleaner Production*. 405 citations.
@@ -14940,12 +17214,24 @@ Kumari et al. (2021), *Journal of Cleaner Production*. 405 citations.
 ### [Estimation of global solar radiation using artificial neural networks](https://doi.org/10.1016/s0960-1481(98)00065-2)
 Mohandes et al. (1998), *Renewable Energy*. 370 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates global solar radiation at locations lacking measurements, for solar energy applications.
+- **Architecture:** Multilayer perceptron (feedforward backpropagation neural network) using geographic and sunshine inputs.
+- **Data:** Monthly mean data from meteorological stations in Saudi Arabia (latitude, longitude, altitude, sunshine duration), split into training and testing stations.
+- **Main result:** The network estimates global solar radiation at withheld stations more accurately than a regression-type model.
+- **Open work:** More inputs and stations, and daily resolution.
+- **Issues:** Monthly means only; limited stations; spatial generalization uncertain.
+- *Basis: abstract+knowledge*
 
 ### [Short-term forecasting of wind speed and related electrical power](https://doi.org/10.1016/s0038-092x(98)00032-2)
 Alexiadis et al. (1998), *Solar Energy*. 345 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term wind speed and wind power to support power system operation.
+- **Architecture:** Artificial neural network forecasting models, including use of spatial correlation with upstream sites, compared with persistence.
+- **Data:** Wind speed measurements from sites in Greece.
+- **Main result:** The neural network approach improves on persistence, especially when using data from upstream stations.
+- **Open work:** Longer horizons and more sites.
+- **Issues:** Site-specific; modest gains at short horizons.
+- *Basis: abstract+knowledge*
 
 ### [Deep solar radiation forecasting with convolutional neural network and long short-term memory network algorithms](https://doi.org/10.1016/j.apenergy.2019.113541)
 Ghimire et al. (2019), *Applied Energy*. 336 citations.
@@ -14961,7 +17247,13 @@ Ghimire et al. (2019), *Applied Energy*. 336 citations.
 ### [ANNSTLF-Artificial Neural Network Short-Term Load Forecaster- generation three](https://doi.org/10.1109/59.736285)
 Khotanzad et al. (1998), *IEEE Transactions on Power Systems*. 327 citations.
 
-*Summary pending.*
+- **Main goal:** Describes the third generation of the ANNSTLF short-term electric load forecasting system used by utilities, aiming to improve hourly load forecasts that depend on weather.
+- **Architecture:** Multilayer perceptron based system with two neural network forecasters, one predicting base load and one predicting the change in load, whose outputs are merged by an adaptive combiner.
+- **Data:** Historical hourly load and weather (temperature, forecast temperature) data from several North American electric utilities; exact periods not reported here.
+- **Main result:** Reports improved accuracy over the earlier ANNSTLF generations across the tested utilities; specific error figures are not reproduced here.
+- **Open work:** Better handling of holidays, unusual weather and forecast weather errors, and extension to longer lead times.
+- **Issues:** Accuracy depends on the quality of input temperature forecasts; utility-specific retraining is required and comparisons are mainly against earlier versions of the same system.
+- *Basis: abstract+knowledge*
 
 ### [Hourly forecasting of solar irradiance based on CEEMDAN and multi-strategy CNN-LSTM neural networks](https://doi.org/10.1016/j.renene.2020.09.141)
 Gao et al. (2020), *Renewable Energy*. 324 citations.
@@ -14977,22 +17269,46 @@ Gao et al. (2020), *Renewable Energy*. 324 citations.
 ### [A neural networks approach for wind speed prediction](https://doi.org/10.1016/s0960-1481(98)00001-9)
 Mohandes et al. (1998), *Renewable Energy*. 303 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts wind speed for wind energy applications using neural networks as an alternative to statistical time series models.
+- **Architecture:** Multilayer perceptron trained with backpropagation on lagged wind speeds, compared with an autoregressive model.
+- **Data:** Daily mean wind speed records from a station in Saudi Arabia; period not reported here.
+- **Main result:** The neural network gives lower prediction errors than the autoregressive model.
+- **Open work:** Multi-step and hourly forecasting and inclusion of other meteorological predictors.
+- **Issues:** Single-site, univariate study with short horizons; no uncertainty quantification.
+- *Basis: abstract+knowledge*
 
 ### [Wind speed and power forecasting based on spatial correlation models](https://doi.org/10.1109/60.790962)
 Alexiadis et al. (1999), *IEEE Transactions on Energy Conversion*. 302 citations.
 
-*Summary pending.*
+- **Main goal:** Improves short-term wind speed and wind power forecasts by exploiting spatial correlation between wind measurements at neighbouring sites.
+- **Architecture:** Spatial correlation forecasting model using upwind-site measurements to predict wind at a downwind site; the learning component is not reliably known here.
+- **Data:** Wind speed measurements from neighbouring sites; locations and period not reported here.
+- **Main result:** Reports improvement over persistence forecasts at short lead times; details not reproduced here.
+- **Open work:** Testing over more site pairs and terrain types and integration with numerical weather prediction.
+- **Issues:** Depends on prevailing wind direction and site spacing; gains likely limited to short horizons.
+- *Basis: assessment*
 
 ### [ANNSTLF-a neural-network-based electric load forecasting system](https://doi.org/10.1109/72.595881)
 Khotanzad et al. (1997), *IEEE Trans. Neural Networks*. 298 citations.
 
-*Summary pending.*
+- **Main goal:** Presents ANNSTLF, a neural network based short-term electric load forecasting system developed for practical use by electric utilities.
+- **Architecture:** Multilayer perceptron based system with multiple neural network modules whose forecasts are combined adaptively, using load and weather inputs.
+- **Data:** Historical hourly load and temperature (and related weather) data from a number of electric utilities; periods not reported here.
+- **Main result:** Shows accurate hourly load forecasts across many utilities, supporting operational deployment; exact error figures not reproduced here.
+- **Open work:** Improved handling of holidays and extreme weather and reduced sensitivity to weather forecast errors.
+- **Issues:** Relies on accurate weather forecasts; evaluated mainly on utilities' own data without standard benchmarks.
+- *Basis: abstract+knowledge*
 
 ### [Short term load forecasting using a multilayer neural network with an adaptive learning algorithm](https://doi.org/10.1109/59.141697)
 Ho et al. (1992), *IEEE Transactions on Power Systems*. 279 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load using neural networks with faster and more reliable training.
+- **Architecture:** Multilayer perceptron trained with an adaptive learning algorithm that adjusts the momentum during training.
+- **Data:** Historical hourly load and temperature data from the Taiwan Power system.
+- **Main result:** The adaptive algorithm speeds convergence over standard backpropagation and the network forecasts load accurately.
+- **Open work:** Handling of holidays and special days and extension to other utilities.
+- **Issues:** Single-utility evaluation; dependence on temperature forecasts; error statistics not standardized.
+- *Basis: abstract+knowledge*
 
 ### [Long short term memory–convolutional neural network based deep hybrid approach for solar irradiance forecasting](https://doi.org/10.1016/j.apenergy.2021.117061)
 Kumari et al. (2021), *Applied Energy*. 273 citations.
@@ -15008,27 +17324,57 @@ Kumari et al. (2021), *Applied Energy*. 273 citations.
 ### [A generalized knowledge-based short-term load-forecasting technique](https://doi.org/10.1109/59.260833)
 Rahman et al. (1993), *IEEE Transactions on Power Systems*. 272 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a generalized knowledge-based short-term load forecasting technique transferable across utilities and weather regimes.
+- **Architecture:** Expert system (rule-based) using weather-load relationships and forecaster knowledge, not a neural network.
+- **Data:** Historical load and weather data from several utilities in different regions.
+- **Main result:** The technique gives accurate forecasts across different utilities with limited site-specific tuning.
+- **Open work:** Automatic adaptation of rules and combination with learning methods.
+- **Issues:** Rule base requires expert knowledge and maintenance; performance on unusual days depends on rule coverage.
+- *Basis: abstract+knowledge*
 
 ### [Short term load forecasting of Taiwan power system using a knowledge-based expert system](https://doi.org/10.1109/59.99372)
 Ho et al. (1990), *IEEE Transactions on Power Systems*. 266 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load of the Taiwan power system by encoding operator knowledge into an expert system.
+- **Architecture:** Expert system (rule-based) built from operator heuristics and load-weather relationships, not a neural network.
+- **Data:** Historical hourly load and weather data from the Taiwan Power Company.
+- **Main result:** The expert system produces accurate hourly load forecasts, comparable to or better than conventional statistical methods.
+- **Open work:** Automatic rule learning and handling of special days.
+- **Issues:** Knowledge acquisition is labor-intensive and rules are system specific.
+- *Basis: abstract+knowledge*
 
 ### [Neural network based short-term load forecasting using weather compensation](https://doi.org/10.1109/59.544636)
 Chow et al. (1996), *IEEE Transactions on Power Systems*. 248 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load while compensating for the influence of weather.
+- **Architecture:** Neural network implementing a nonlinear autoregressive integrated model with weather compensation inputs.
+- **Data:** Hourly load and weather data from a power system in Hong Kong; period not reported here.
+- **Main result:** Including weather compensation improves load forecasting accuracy over models without it.
+- **Open work:** Better weather inputs and handling of holidays.
+- **Issues:** Single-system evaluation; dependence on weather forecasts.
+- *Basis: abstract+knowledge*
 
 ### [Short term load forecasting using fuzzy neural networks](https://doi.org/10.1109/59.466494)
 Bakirtzis et al. (1995), *IEEE Transactions on Power Systems*. 242 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load using fuzzy neural networks that combine rule interpretability with learning.
+- **Architecture:** Fuzzy neural network (fuzzy logic rules with neural network training) taking past loads and temperatures as inputs.
+- **Data:** Hourly load and temperature data from the Greek power system.
+- **Main result:** The fuzzy neural network forecasts load accurately and compares favorably with a multilayer perceptron.
+- **Open work:** Automatic rule generation and extension to longer horizons.
+- **Issues:** Single-system study; dependence on temperature forecasts.
+- *Basis: abstract+knowledge*
 
 ### [Weather sensitive short-term load forecasting using nonfully connected artificial neural network](https://doi.org/10.1109/59.207323)
 Chen et al. (1992), *IEEE Transactions on Power Systems*. 240 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts weather-sensitive short-term electric load using a neural network with reduced connectivity.
+- **Architecture:** Nonfully connected artificial neural network (multilayer perceptron) using load and weather inputs.
+- **Data:** Historical hourly load and weather data from an electric utility; details not reported here.
+- **Main result:** The nonfully connected network forecasts load accurately with fewer weights and faster training than fully connected alternatives.
+- **Open work:** Testing on additional utilities and extreme weather periods.
+- **Issues:** Single-utility evaluation; network structure chosen by hand.
+- *Basis: abstract+knowledge*
 
 ### [Automatic hourly solar forecasting using machine learning models](https://doi.org/10.1016/j.rser.2019.02.006)
 Yagli et al. (2019), *Renewable & Sustainable Energy Reviews*. 239 citations.
@@ -15066,12 +17412,24 @@ Wolff et al. (2016), *Solar Energy*. 235 citations.
 ### [Implementation of hybrid short-term load forecasting system using artificial neural networks and fuzzy expert systems](https://doi.org/10.1109/59.466492)
 Kim et al. (1995), *IEEE Transactions on Power Systems*. 226 citations.
 
-*Summary pending.*
+- **Main goal:** Implements a hybrid short-term load forecasting system for a national power system, combining learning with expert knowledge.
+- **Architecture:** Hybrid of artificial neural networks (multilayer perceptron) for base load forecasting and a fuzzy expert system for adjustment.
+- **Data:** Hourly load and temperature data from the Korea Electric Power Corporation system.
+- **Main result:** The hybrid system reduces forecast errors relative to the neural network alone, especially on special days.
+- **Open work:** Further automation of fuzzy rule tuning.
+- **Issues:** Fuzzy rules are system-specific and require expert input.
+- *Basis: abstract+knowledge*
 
 ### [An adaptive modular artificial neural network hourly load forecaster and its implementation at electric utilities](https://doi.org/10.1109/59.466468)
 Khotanzad et al. (1995), *IEEE Transactions on Power Systems*. 219 citations.
 
-*Summary pending.*
+- **Main goal:** Develops an adaptive modular neural network hourly load forecaster and implements it at electric utilities.
+- **Architecture:** Multilayer perceptron modules (weekly, daily and hourly) whose forecasts are merged by an adaptive combiner.
+- **Data:** Hourly load and weather data from several electric utilities.
+- **Main result:** The modular forecaster gives accurate hourly forecasts and was implemented operationally at utilities.
+- **Open work:** Improving accuracy on holidays and extreme weather days.
+- **Issues:** Dependence on weather forecast quality; utility-specific retraining required.
+- *Basis: abstract+knowledge*
 
 ### [A transformer-based deep neural network with wavelet transform for forecasting wind speed and wind energy](https://doi.org/10.1016/j.energy.2023.127678)
 Nascimento et al. (2023), *Energy*. 204 citations.
@@ -15120,7 +17478,13 @@ Liu et al. (2023), *Applied Energy*. 181 citations.
 ### [Input variable selection for ANN-based short-term load forecasting](https://doi.org/10.1109/59.736244)
 Drezga et al. (1998), *IEEE Transactions on Power Systems*. 178 citations.
 
-*Summary pending.*
+- **Main goal:** Addresses how to choose input variables for artificial neural network short-term electric load forecasting, where weather and past load inputs strongly affect accuracy.
+- **Architecture:** Multilayer perceptron load forecaster with a systematic input selection procedure (based on k-nearest neighbour analysis of candidate inputs), with an ensemble of networks.
+- **Data:** Hourly load and weather (temperature) records from US electric utilities; exact periods not reported here.
+- **Main result:** Selected input sets yield accurate day-ahead load forecasts with fewer inputs than ad hoc choices; specific error figures not reported here.
+- **Open work:** Automating selection for other utilities and handling holidays and weather forecast errors.
+- **Issues:** Evaluated on few utilities; performance depends on the quality of temperature forecasts used operationally.
+- *Basis: assessment*
 
 ### [Short term solar irradiance forecasting using a mixed wavelet neural network](https://doi.org/10.1016/j.renene.2016.01.020)
 Sharma et al. (2016), *Renewable Energy*. 167 citations.
@@ -15158,7 +17522,13 @@ Feng et al. (2020), *Solar Energy*. 156 citations.
 ### [Practical experiences with an adaptive neural network short-term load forecasting system](https://doi.org/10.1109/59.373948)
 Mohammed et al. (1995), *IEEE Transactions on Power Systems*. 155 citations.
 
-*Summary pending.*
+- **Main goal:** Reports operational experience with neural network short-term electric load forecasting at a utility.
+- **Architecture:** Adaptive multilayer perceptron load forecaster that is retrained online as new data arrive.
+- **Data:** Hourly load and weather (temperature) data from an electric utility in the United States; periods not reported here.
+- **Main result:** The adaptive neural network system gives forecast accuracy competitive with or better than the utility's existing methods in practice; specific errors not reported here.
+- **Open work:** Improving forecasts for holidays and unusual weather.
+- **Issues:** Single utility experience; accuracy depends on weather forecast quality and special-day handling.
+- *Basis: assessment*
 
 ### [Solar PV output prediction from video streams using convolutional neural networks](https://doi.org/10.1039/c7ee03420b)
 Sun et al. (2018), *Energy and Environmental Science*. 152 citations.
@@ -15207,22 +17577,46 @@ Lima et al. (2016), *Renewable Energy*. 138 citations.
 ### [An adaptively trained neural network](https://doi.org/10.1109/72.97910)
 Park et al. (1991), *IEEE Trans. Neural Networks*. 136 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a neural network that adapts to changing conditions for short-term electric load forecasting.
+- **Architecture:** Adaptively trained multilayer perceptron that updates weights with recent data.
+- **Data:** Hourly load and temperature records from a US electric utility; periods not reported here.
+- **Main result:** The adaptively trained network maintains forecasting accuracy over time better than a static network; specific errors not reported here.
+- **Open work:** Better treatment of weekends and holidays and weather forecast uncertainty.
+- **Issues:** Single utility test and limited period; sensitivity to training choices not fully explored.
+- *Basis: assessment*
 
 ### [An artificial neural network hourly temperature forecaster with applications in load forecasting](https://doi.org/10.1109/59.496168)
 Khotanzad et al. (1996), *Preprint*. 122 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts hourly temperature for use in electric load forecasting.
+- **Architecture:** Artificial neural network hourly temperature forecaster (multilayer perceptron) feeding a load forecasting system.
+- **Data:** Hourly temperature and weather service forecasts from US utility locations; details not reported here.
+- **Main result:** The neural network produces hourly temperature forecasts that improve load forecasting inputs; specific errors not reported here.
+- **Open work:** Extending to other weather variables and locations.
+- **Issues:** Depends on available weather service forecasts; limited site testing.
+- *Basis: assessment*
 
 ### [DAILY INSOLATION FORECASTING USING A MULTI-STAGE NEURAL NETWORK](https://doi.org/10.1016/s0038-092x(99)00017-1)
 Kemmoku et al. (1999), *Solar Energy*. 120 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts next-day daily insolation (solar irradiation) for solar energy system operation.
+- **Architecture:** Multi-stage artificial neural network in which successive networks refine the forecast from meteorological inputs.
+- **Data:** Daily meteorological observations and measured insolation at Japanese stations; exact predictors and period not reported here.
+- **Main result:** The multi-stage network gives lower forecast error than a single-stage network for daily insolation; exact error values not reported here.
+- **Open work:** Testing at more sites and climates and integrating forecasts into photovoltaic or solar-thermal operation planning.
+- **Issues:** Daily-total forecasts only; site-specific training and limited predictor set constrain generality.
+- *Basis: assessment*
 
 ### [Analysis of the effects of a passing cloud on a grid-interactive photovoltaic system with battery storage using neural networks](https://doi.org/10.1109/60.815107)
 Giraud et al. (1999), *IEEE Transactions on Energy Conversion*. 113 citations.
 
-*Summary pending.*
+- **Main goal:** Analyses how a passing cloud affects a grid-interactive photovoltaic system with battery storage to support system operation.
+- **Architecture:** Artificial neural network used to model and predict the photovoltaic system response to irradiance fluctuations.
+- **Data:** Measured irradiance and photovoltaic/battery system data from an experimental installation; details not reported here.
+- **Main result:** The neural network captures the system response to cloud-induced irradiance drops; quantitative accuracy not reported here.
+- **Open work:** Extending to longer records, multiple cloud events and real-time control.
+- **Issues:** Single-installation study with limited events; generalisation to other systems is untested.
+- *Basis: assessment*
 
 ### [Evaluating neural network models in site-specific solar PV forecasting using numerical weather prediction data and weather observations](https://doi.org/10.1016/j.renene.2023.02.130)
 Brester et al. (2023), *Renewable Energy*. 110 citations.
@@ -15249,12 +17643,24 @@ Paletta et al. (2021), *Solar Energy*. 110 citations.
 ### [Nonlinear autoregressive integrated neural network model for short-term load forecasting](https://doi.org/10.1049/ip-gtd:19960600)
 Chow et al. (1996), *Preprint*. 110 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term electric load, accounting for weather influences on demand.
+- **Architecture:** Nonlinear autoregressive integrated neural network (NARI) combining autoregressive load inputs with weather variables.
+- **Data:** Historical hourly load and weather records from a utility; details not reported here.
+- **Main result:** The neural model improves short-term load forecast accuracy over conventional approaches; numbers not reported here.
+- **Open work:** Incorporating weather forecast uncertainty and testing over more seasons and utilities.
+- **Issues:** Single-system evaluation; dependence on weather inputs whose forecasts carry error.
+- *Basis: assessment*
 
 ### [ALFA: automated load forecasting assistant](https://doi.org/10.1109/59.14540)
 Jabbour et al. (1988), *IEEE Transactions on Power Systems*. 107 citations.
 
-*Summary pending.*
+- **Main goal:** Automates electric utility load forecasting by capturing forecaster expertise, including weather effects on load.
+- **Architecture:** Expert system (rule-based) assistant combined with statistical load forecasting methods.
+- **Data:** Historical load and weather data of an electric utility; details not reported here.
+- **Main result:** The system automates routine load forecasts with accuracy comparable to human forecasters; numbers not reported here.
+- **Open work:** Extending the knowledge base and adapting to changing load patterns.
+- **Issues:** Rule bases are labour-intensive to maintain and site-specific; limited quantitative evaluation.
+- *Basis: assessment*
 
 ### [Deep learning algorithms for very short term solar irradiance forecasting: A survey](https://doi.org/10.1016/j.rser.2023.113362)
 Ajith et al. (2023), *Renewable & Sustainable Energy Reviews*. 87 citations.
@@ -15281,7 +17687,13 @@ Kamadinata et al. (2019), *Renewable Energy*. 85 citations.
 ### [Load forecasting for multiple sites: development of an expert system-based technique](https://doi.org/10.1016/s0378-7796(96)01114-5)
 Rahman et al. (1996), *Electric Power Systems Research*. 85 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts electric load for multiple utility sites with different climates, where a single generic technique would reduce the need for site-specific models.
+- **Architecture:** Expert system (rule-based, knowledge-based) load forecasting technique using weather and calendar information.
+- **Data:** Historical load and weather data from several utility sites; specific utilities and periods not reported here.
+- **Main result:** The expert-system approach produces short-term load forecasts with acceptable accuracy across the sites; numbers not reported here.
+- **Open work:** Automating rule acquisition and adapting to new sites would reduce manual tuning.
+- **Issues:** Rules depend on expert knowledge and may need retuning for unusual weather or changing load patterns.
+- *Basis: assessment*
 
 ### [Enhancing solar PV output forecast by integrating ground and satellite observations with deep learning](https://doi.org/10.1016/j.rser.2022.112680)
 Qin et al. (2022), *Renewable & Sustainable Energy Reviews*. 81 citations.
@@ -15297,7 +17709,13 @@ Qin et al. (2022), *Renewable & Sustainable Energy Reviews*. 81 citations.
 ### [Modelling and forecasting monthly electric energy consumption in eastern Saudi Arabia using abductive networks](https://doi.org/10.1016/s0360-5442(97)00019-4)
 Abdel-Aal et al. (1997), *Energy*. 77 citations.
 
-*Summary pending.*
+- **Main goal:** Models and forecasts monthly electric energy consumption in eastern Saudi Arabia, where demand depends strongly on weather.
+- **Architecture:** Abductive networks (polynomial self-organizing networks, GMDH-type) using weather and demographic predictors, compared with regression.
+- **Data:** Monthly electricity consumption with weather (e.g. temperature, humidity, solar radiation) and population data for eastern Saudi Arabia; exact period not reported here.
+- **Main result:** Abductive network models forecast monthly consumption with good accuracy; specific error values are not reported here.
+- **Open work:** Updating models with new data and forecasting further ahead are natural extensions.
+- **Issues:** Short record of monthly data; forecasts require future weather predictors.
+- *Basis: assessment*
 
 ### [Development and assessment of artificial neural network models for direct normal solar irradiance forecasting using operational numerical weather prediction data](https://doi.org/10.1016/j.egyai.2023.100314)
 Pereira et al. (2023), *Energy and AI*. 76 citations.
@@ -15401,7 +17819,13 @@ Al-Musaylh et al. (2019), *Renewable & Sustainable Energy Reviews*. 61 citations
 ### [Modeling the Global Solar Radiation on the Earth's Surface Using Atmospheric Deterministic and Intelligent Data-Driven Techniques](https://doi.org/10.1175/1520-0442(1999)012<3105:mtgsro>2.0.co;2)
 Santamouris et al. (1999), *Journal of Climate*. 60 citations.
 
-*Summary pending.*
+- **Main goal:** Models global solar radiation at the Earth's surface, comparing physically based atmospheric models with data-driven intelligent techniques.
+- **Architecture:** Comparison of deterministic atmospheric radiation models and artificial neural network data-driven models.
+- **Data:** Ground measurements of global solar radiation and meteorological variables in Athens, Greece.
+- **Main result:** The neural network models reproduce measured solar radiation with accuracy comparable to or better than the deterministic models.
+- **Open work:** Testing at other climates and stations and hybrid physical and data-driven schemes.
+- **Issues:** Single-site data limit generalisation; data-driven models need long local records.
+- *Basis: abstract+knowledge*
 
 ### [A deep learning model for intra-day forecasting of solar irradiance using satellite-based estimations in the vicinity of a PV power plant](https://doi.org/10.1016/j.solener.2021.02.033)
 Pérez et al. (2021), *Solar Energy*. 54 citations.
@@ -15428,12 +17852,24 @@ Eikeland et al. (2022), *arXiv*. 50 citations.
 ### [A comparative study of medium-weather-dependent load forecasting using enhanced artificial/fuzzy neural network and statistical techniques](https://doi.org/10.1016/s0925-2312(98)00076-9)
 Elkateb et al. (1998), *Neurocomputing*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts weather-dependent electric load over medium horizons, comparing AI and statistical methods.
+- **Architecture:** Enhanced artificial neural network and fuzzy neural network compared with statistical techniques such as ARIMA and regression.
+- **Data:** Electric load and weather data from a utility; specifics not reported in the available metadata.
+- **Main result:** The enhanced neural and fuzzy neural networks are reported to forecast load more accurately than the statistical techniques; exact errors not reported here.
+- **Open work:** Longer horizons and more utilities.
+- **Issues:** Single-system study; depends on weather forecast quality.
+- *Basis: assessment*
 
 ### [Effect of probabilistic inputs on neural network-based electric load forecasting](https://doi.org/10.1109/72.548183)
 Ranaweera et al. (1996), *IEEE Trans. Neural Networks*. 50 citations.
 
-*Summary pending.*
+- **Main goal:** Examines how uncertainty in weather forecast inputs affects neural network electric load forecasts.
+- **Architecture:** Artificial neural network load forecasting model with probabilistic weather inputs.
+- **Data:** Utility load and temperature data; specifics not reported in the available metadata.
+- **Main result:** Accounting for weather-forecast uncertainty gives a distribution of load forecasts and expected errors; numbers not reported here.
+- **Open work:** Better weather-forecast uncertainty models.
+- **Issues:** Assumes input error distributions; single-utility data.
+- *Basis: assessment*
 
 ### [Improving *day-ahead* Solar Irradiance Time Series Forecasting by Leveraging Spatio-Temporal Context](https://doi.org/10.52202/075280-0109)
 Boussif et al. (2023), *Neural Information Processing Systems*. 49 citations.
@@ -15460,7 +17896,13 @@ Hu et al. (2023), *Environmental Research Letters*. 44 citations.
 ### Wind Speed Prediction Using Artificial Neural Networks
 Kalogirou et al. (1999), *Preprint*. 44 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts wind speed with artificial neural networks for wind energy assessment.
+- **Architecture:** Feed-forward artificial neural network (multilayer perceptron) for wind speed prediction.
+- **Data:** Meteorological station wind records, presumably from Cyprus; details not reported here.
+- **Main result:** Not reported in the abstract; the networks are expected to predict wind speed with acceptable error.
+- **Open work:** Using more stations and predictors, and extending to wind power estimation.
+- **Issues:** No abstract available; limited station data and short records constrain generalization.
+- *Basis: assessment*
 
 ### [Addressing Intermittency in Medium-Term Photovoltaic and Wind Power Forecasting Using a Hybrid xLSTM-TCCNN Model with Numerical Weather Predictions](https://doi.org/10.1016/j.renene.2025.123618)
 Hang et al. (2025), *Renewable Energy*. 42 citations.
@@ -15498,7 +17940,13 @@ Nie et al. (2022), *arXiv*. 40 citations.
 ### [Forecasting short term regional gas demand using an expert system](https://doi.org/10.1016/0957-4174(95)00052-6)
 Smith et al. (1996), *Expert Systems With Applications*. 31 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts short-term regional natural gas demand, which depends strongly on weather, to support supply planning.
+- **Architecture:** Expert system (rule-based) encoding forecaster knowledge of weather and calendar effects on demand.
+- **Data:** Historical regional gas demand and weather data (temperature, wind) from a regional gas supply area; period not reported.
+- **Main result:** Not reported in the available metadata; the expert system produces demand forecasts comparable to those of human forecasters.
+- **Open work:** Combining rules with statistical or neural network learning would follow naturally.
+- **Issues:** Rule base must be maintained manually; performance on unusual weather and holidays is uncertain.
+- *Basis: assessment*
 
 ### [Diffusion Models for High-Resolution Solar Forecasts](https://arxiv.org/abs/2302.00170)
 Hatanaka et al. (2023), *arXiv*. 28 citations.
@@ -15558,12 +18006,24 @@ Falchetta et al. (2020), *Environmental Research Letters*. 22 citations.
 ### A 10 sec. forecast of wind turbine output with neural networks
 Tande et al. (1993), *Preprint*. 20 citations.
 
-*Summary pending.*
+- **Main goal:** Forecasts wind turbine power output 10 seconds ahead with neural networks for turbine control and grid integration.
+- **Architecture:** Neural network forecasting of very short-term wind turbine output from recent time series.
+- **Data:** High-frequency wind and power measurements from a wind turbine; details not reported in the available metadata.
+- **Main result:** Not reported in the abstract; the paper assesses whether neural networks beat simple persistence at a 10-second horizon.
+- **Open work:** Longer horizons and use of additional inputs such as upstream wind measurements.
+- **Issues:** No abstract available; very short horizons are hard to improve beyond persistence; single-turbine data.
+- *Basis: assessment*
 
 ### [Wind turbine power estimation by neural networks with Kalman filter training on a SIMD parallel machine](https://doi.org/10.1109/ijcnn.1999.836215)
 Li et al. (1999), *IJCNN'99. International Joint Conference on Neural Networks. Proceedings (Cat. No.99CH36339)*. 18 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates wind turbine power output with neural networks to support wind energy production prediction and monitoring.
+- **Architecture:** Feedforward neural network (multilayer perceptron) trained with Kalman filter based training, implemented on a SIMD parallel machine for speed.
+- **Data:** Wind farm measurements of wind speed and turbine power output; site and period are not reported here.
+- **Main result:** Reports that Kalman filter trained networks estimate turbine power and that parallel implementation speeds training; quantitative errors are not reported here.
+- **Open work:** Extending to forecasting future power, multiple turbines and other sites.
+- **Issues:** Single-site data likely; estimation from concurrent measurements rather than forecasting; hardware-specific implementation.
+- *Basis: assessment*
 
 ### [Solar Irradiance Anticipative Transformer](https://doi.org/10.1109/cvprw59228.2023.00200)
 Mercier et al. (2023), *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)*. 15 citations.
@@ -15579,12 +18039,24 @@ Mercier et al. (2023), *2023 IEEE/CVF Conference on Computer Vision and Pattern 
 ### [Neural network for wind power generation with compressing function](https://doi.org/10.1109/icnn.1997.611648)
 Li et al. (1997), *International Conference on Neural Networks*. 13 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates wind power generation from wind measurements with a neural network to support wind farm operation.
+- **Architecture:** Neural network (multilayer perceptron) with a compressing function applied to inputs or outputs.
+- **Data:** Wind speed and power output measurements from a wind turbine or farm; details not reported.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Extension to forecasting and multiple turbines follows naturally.
+- **Issues:** No abstract available; single-site data limit generality.
+- *Basis: assessment*
 
 ### Assessment of the benefits from advanced load & wind power forecasting in autonomous power systems
 Kariniotakis et al. (1999), *Preprint*. 10 citations.
 
-*Summary pending.*
+- **Main goal:** Quantifies the operational and economic benefits of improved load and wind power forecasting for autonomous (island) power systems with high wind penetration.
+- **Architecture:** Evaluation study coupling advanced load and wind power forecasts with power system scheduling; forecasting model details are not reported in the available information.
+- **Data:** Data from autonomous island power systems with wind generation; specific systems and periods are not reported in the available information.
+- **Main result:** Shows that better load and wind forecasts reduce operating costs and improve the integration of wind power; exact figures are not reported in the available information.
+- **Open work:** Extending the assessment to other systems and to probabilistic forecasts follows naturally.
+- **Issues:** Benefits depend on the system configuration and assumed forecast accuracy, limiting transferability.
+- *Basis: assessment*
 
 ### [Experimental review and recent advances in deep learning techniques for solar irradiance forecasting and prediction](https://doi.org/10.1016/j.solener.2025.114175)
 Otuka et al. (2026), *Solar Energy*. 7 citations.
@@ -15977,12 +18449,24 @@ Rahmati et al. (2020), *Science of the Total Environment*. 169 citations.
 ### [Development of a neural network model to predict daily solar radiation](https://doi.org/10.1016/0168-1923(94)90103-1)
 Elizondo et al. (1994), *Agricultural and Forest Meteorology*. 167 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts daily solar radiation, an input often missing for crop simulation models, from routinely observed weather variables.
+- **Architecture:** Multilayer perceptron (backpropagation neural network).
+- **Data:** Daily weather station records (maximum and minimum temperature, precipitation, day length or clear-sky radiation) from several locations in the southeastern United States.
+- **Main result:** The neural network estimates daily solar radiation with reasonable accuracy from commonly available variables; specific error statistics not reported here.
+- **Open work:** Testing at more locations and climates and comparing with empirical radiation models.
+- **Issues:** Few training sites; transferability to other climates and cloudy-day accuracy are uncertain.
+- *Basis: assessment*
 
 ### [Comax: An Expert System for Cotton Crop Management](https://doi.org/10.1126/science.233.4759.29)
 Lemmon (1986), *Science*. 156 citations.
 
-*Summary pending.*
+- **Main goal:** Supports cotton crop management decisions on irrigation, fertilization and harvest timing by coupling expert knowledge with crop simulation.
+- **Architecture:** Expert system (rule-based) COMAX that drives the GOSSYM cotton crop simulation model to evaluate management options.
+- **Data:** Farm-level weather data, soil information and weather scenarios feeding the GOSSYM simulator; field use on cotton farms.
+- **Main result:** COMAX was operational on commercial farms and is described as recommending irrigation and nitrogen management that can improve yields and reduce costs.
+- **Open work:** Integrating real-time weather forecasts and extending to other crops and decisions.
+- **Issues:** Recommendations inherit the crop model's assumptions and depend on assumed future weather; limited formal quantitative evaluation.
+- *Basis: abstract+knowledge*
 
 ### [A GNN-RNN Approach for Harnessing Geospatial and Temporal Information: Application to Crop Yield Prediction](https://doi.org/10.1609/aaai.v36i11.21444)
 Fan et al. (2021), *AAAI Conference on Artificial Intelligence*. 147 citations.
@@ -16009,7 +18493,13 @@ Müller et al. (2021), *Environmental Research Letters*. 143 citations.
 ### [Neural Network Models of the Greenhouse Climate](https://doi.org/10.1006/jaer.1994.1078)
 Seginer et al. (1994), *Journal of Agricultural Engineering Research*. 122 citations.
 
-*Summary pending.*
+- **Main goal:** Models greenhouse climate (inside air temperature and humidity) from outside weather and control actions, as a data-driven alternative to physical greenhouse energy-balance models for climate control.
+- **Architecture:** Feedforward artificial neural network (multilayer perceptron) mapping external weather and greenhouse control inputs to internal climate variables.
+- **Data:** Measured greenhouse climate and outside weather records from experimental greenhouses; specific sites and periods not reported here.
+- **Main result:** Neural network models reproduce greenhouse internal climate with useful accuracy; quantitative skill is not reported here.
+- **Open work:** Testing on other greenhouse types and seasons and coupling the models to climate-control or optimisation schemes.
+- **Issues:** Data-driven models are tied to the greenhouse used for training and may not transfer; limited physical interpretability.
+- *Basis: assessment*
 
 ### [Crop evapotranspiration prediction by considering dynamic change of crop coefficient and the precipitation effect in back-propagation neural network model](https://doi.org/10.1016/j.jhydrol.2021.126104)
 Han et al. (2021), *Journal of Hydrology*. 108 citations.
@@ -16058,17 +18548,35 @@ Lin et al. (2020), *Environmental Research Letters*. 82 citations.
 ### [A generalized regression neural network and its application for leaf wetness prediction to forecast plant disease](https://doi.org/10.1016/s0169-7439(99)00006-4)
 Chtioui et al. (1999), *Chemometrics and Intelligent Laboratory Systems*. 79 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts leaf wetness, a key driver of plant disease infection, to support disease forecasting from weather data.
+- **Architecture:** Generalized regression neural network (GRNN) relating meteorological variables to leaf wetness.
+- **Data:** Field weather observations and leaf wetness measurements; site and period not reported here.
+- **Main result:** The GRNN predicts leaf wetness with useful accuracy for disease forecasting; quantitative results are not reported here.
+- **Open work:** Testing across locations and crops and coupling with disease models are natural next steps.
+- **Issues:** Local data-driven model; transferability to other climates and canopies is uncertain.
+- *Basis: assessment*
 
 ### [Investigating microclimatic influences on ozone injury in clover (Trifolium subterraneum) using artificial neural networks](https://doi.org/10.1111/j.1469-8137.1996.tb01846.x)
 Balls et al. (1996), *New Phytologist*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Examines how microclimatic conditions modify visible ozone injury in subterranean clover, to relate ozone exposure to crop damage better than exposure indices alone.
+- **Architecture:** Artificial neural network relating ozone exposure and microclimate variables to leaf injury, used to explore the influence of each variable.
+- **Data:** Experimental observations of ozone exposure, microclimate and leaf injury in clover; sites and periods not reported in the available metadata.
+- **Main result:** The networks indicate that microclimatic factors alongside ozone exposure influence injury; quantitative skill not reported in the available metadata.
+- **Open work:** Testing on independent sites and species and linking to flux-based ozone dose metrics follow naturally.
+- **Issues:** Small experimental dataset and limited interpretability of early neural networks; generality beyond the studied conditions is uncertain.
+- *Basis: assessment*
 
 ### [Artificial Neural Network Model for Subsurface-Drained Farmlands](https://doi.org/10.1061/(asce)0733-9437(1997)123:4(285))
 Yang et al. (1997), *Journal of Irrigation and Drainage Engineering-asce*. 64 citations.
 
-*Summary pending.*
+- **Main goal:** Develops a data-driven model of subsurface-drained farmland hydrology, such as water table depth and drain outflow, as a fast alternative to process-based drainage models.
+- **Architecture:** Artificial neural network driven by weather and field variables; network details not reported in the available metadata.
+- **Data:** Drainage field or drainage-model data; sites, periods and inputs not reported in the available metadata.
+- **Main result:** The neural network reproduces the drainage-system response with reasonable accuracy; quantitative scores not reported in the available metadata.
+- **Open work:** Validation across soils, climates and drainage designs, and use in drainage design or water-table management.
+- **Issues:** Site-specific training limits transferability; behaviour outside the training range is not guaranteed.
+- *Basis: assessment*
 
 ### [Coupling machine learning and weather forecast to predict farmland flood disaster: A case study in Yangtze River basin](https://doi.org/10.1016/j.envsoft.2022.105436)
 Jiang et al. (2022), *Environmental Modelling & Software*. 53 citations.
@@ -16095,7 +18603,13 @@ Ding et al. (2023), *ACM Trans. Sens. Networks*. 49 citations.
 ### [Potential adaptation zones for temperate pasture species as constrained by climate: a knowledge-based logical modelling approach](https://doi.org/10.1071/ar9961095)
 Hill (1996), *Crop & Pasture Science*. 49 citations.
 
-*Summary pending.*
+- **Main goal:** Maps potential adaptation zones of temperate pasture species as constrained by climate, guiding pasture selection.
+- **Architecture:** Knowledge-based logical modelling approach, an expert system (rule-based) encoding climatic tolerances of species.
+- **Data:** Climate surfaces and species tolerance knowledge for Australia; specifics not reported in the available metadata.
+- **Main result:** The model delineates zones suitable for each species consistent with known distributions.
+- **Open work:** Validation with field trials and inclusion of soil factors.
+- **Issues:** Relies on expert knowledge; validation is qualitative.
+- *Basis: assessment*
 
 ### [Exploring dynamic response of agrometeorological droughts towards winter wheat yield loss risk using machine learning approach at a regional scale in Pakistan](https://doi.org/10.1016/j.fcr.2023.109057)
 Arshad et al. (2023), *Field crops research (Print)*. 47 citations.
@@ -16122,7 +18636,13 @@ Shin et al. (2020), *Agricultural and Forest Meteorology*. 46 citations.
 ### [A neural network system for the protection of citrus crops from frost damage](https://doi.org/10.1016/s0168-1699(96)00037-3)
 Robinson et al. (1997), *Computers and Electronics in Agriculture*. 46 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts frost events to help protect citrus crops from frost damage.
+- **Architecture:** Neural network system forecasting frost occurrence or minimum temperature; architecture details not reported here.
+- **Data:** Local meteorological observations from citrus-growing areas; location and period not reported here.
+- **Main result:** Not reported in the abstract; the title implies a neural network frost warning system for citrus growers.
+- **Open work:** Operational deployment and integration with frost-protection actions.
+- **Issues:** No abstract available; site-specific training limits transfer to other orchards.
+- *Basis: assessment*
 
 ### [Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback](https://doi.org/10.1371/journal.pwat.0000169)
 Saikai et al. (2023), *PLOS Water*. 45 citations.
@@ -16215,12 +18735,24 @@ Xiao et al. (2022), *Environmental Research Letters*. 34 citations.
 ### [An artificial neural network to estimate soil temperature](https://doi.org/10.4141/s96-062)
 Yang et al. (1997), *Canadian Journal of Soil Science*. 34 citations.
 
-*Summary pending.*
+- **Main goal:** Estimates soil temperature at several depths from routinely measured weather variables, avoiding costly direct soil measurements.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Daily meteorological records (air temperature, precipitation and related variables) and measured soil temperatures at a Canadian (Quebec) site; years not reported.
+- **Main result:** Not reported in the available metadata; the network estimates soil temperature with acceptable accuracy.
+- **Open work:** Testing transferability to other soils, climates and depths would follow naturally.
+- **Issues:** Site-specific training; physical soil properties are not represented explicitly.
+- *Basis: assessment*
 
 ### [APPLICATION OF ARTIFICIAL NEURAL NETWORKS FOR SIMULATION OF SOIL TEMPERATURE](https://doi.org/10.13031/2013.21324)
 Yang et al. (1997), *Transactions of the ASABE*. 30 citations.
 
-*Summary pending.*
+- **Main goal:** Simulates soil temperature at different depths from meteorological data using artificial neural networks.
+- **Architecture:** Artificial neural network; the network type is not specified in the available metadata.
+- **Data:** Daily weather data and measured soil temperatures at several depths from field sites in Canada; period not reported.
+- **Main result:** Not reported in the available metadata; the networks simulate soil temperature with acceptable error.
+- **Open work:** Testing on other soils and climates and comparison with physically based soil heat models would follow.
+- **Issues:** Site-specific training; no explicit representation of soil moisture or thermal properties.
+- *Basis: assessment*
 
 ### [Estimation of flood-damaged cropland area using a convolutional neural network](https://doi.org/10.1088/1748-9326/abeba0)
 Lazin et al. (2021), *Environmental Research Letters*. 23 citations.
@@ -16302,17 +18834,35 @@ Sahu et al. (2026), *Agricultural Water Management*. 8 citations.
 ### [Predictive Modular Neural Networks Methods for Prediction of Sugar Beet Crop Yield](https://doi.org/10.1016/s1474-6670(17)36039-1)
 Kehagias et al. (1998), *IFAC Proceedings Volumes*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts sugar beet crop yield to support agricultural planning in the sugar industry.
+- **Architecture:** Predictive modular neural networks (PREMONN), a set of competing neural predictors combined by a Bayesian credit assignment scheme.
+- **Data:** Historical sugar beet yield and related agro-meteorological data from Greece; specific details not reported in the available metadata.
+- **Main result:** Modular neural network methods predict yield more accurately than single predictors; figures not reported in the available metadata.
+- **Open work:** Incorporating more weather and management variables.
+- **Issues:** Short yield records; regional transferability not shown.
+- *Basis: assessment*
 
 ### STUDY ON MIXED MODEL OF NEURAL NETWORK FOR FARMLAND FLOOD/DROUGHT PREDICTION
 Jin et al. (1997), *Preprint*. 7 citations.
 
-*Summary pending.*
+- **Main goal:** Predicts farmland flood and drought conditions to support agricultural disaster preparedness.
+- **Architecture:** Mixed neural network model combining neural network components for prediction; configuration not reported in the available metadata.
+- **Data:** Historical meteorological and farmland flood/drought records in China; specific region not reported in the available metadata.
+- **Main result:** Reports improved flood/drought prediction from the mixed neural network model; figures not reported in the available metadata.
+- **Open work:** Operational testing and extension to other regions.
+- **Issues:** Small samples of disaster years; overfitting risk; details unclear.
+- *Basis: assessment*
 
 ### [MALTING BARLEY WATER AND NUTRIENT MANAGEMENT KNOWLEDGE-BASED SYSTEM](https://doi.org/10.13031/2013.31915)
 King et al. (1991), *Transactions of the ASABE*. 6 citations.
 
-*Summary pending.*
+- **Main goal:** Provides decision support for irrigation and nutrient management of malting barley.
+- **Architecture:** Knowledge-based system (expert system, rule-based) encoding agronomic expertise on water and nutrient management.
+- **Data:** Agronomic knowledge from specialists and crop management literature; this is not a data-driven model, so no training data apply.
+- **Main result:** Delivers a working advisory system for barley water and nutrient decisions; field evaluation results not reported in the available record.
+- **Open work:** Field validation with growers and integration with weather and soil moisture data.
+- **Issues:** Rule base reflects specific region and expert opinions; maintaining and updating rules is laborious.
+- *Basis: assessment*
 
 ### [Incorporating climate data with machine learning can improve rice phenology estimation](https://doi.org/10.1088/1748-9326/ada56e)
 Liu et al. (2025), *Environmental Research Letters*. 5 citations.
@@ -16339,7 +18889,13 @@ Kamangir et al. (2024), *arXiv*. 5 citations.
 ### [Expert system-based coupling of SOYGRO and DRAINMOD.](https://doi.org/10.13031/2013.31428)
 Perry et al. (1990), *Transactions of the ASABE*. 5 citations.
 
-*Summary pending.*
+- **Main goal:** Couples the SOYGRO soybean crop growth model with the DRAINMOD field water management model through an expert system, to evaluate drainage and water management effects on crop yield.
+- **Architecture:** Expert system (rule-based) used as the coupling and decision framework linking two process-based simulation models (SOYGRO and DRAINMOD).
+- **Data:** Not reported in the abstract; inputs would include weather, soil and management data required by SOYGRO and DRAINMOD, but sites and periods are unknown.
+- **Main result:** Not reported in the abstract.
+- **Open work:** Field validation of the coupled system and extension to other crops and water management practices would follow naturally.
+- **Issues:** No abstract available; coupled-model accuracy depends on both process models and their calibration, and validation details are unknown.
+- *Basis: assessment*
 
 ### [On the Use of Knowledge‐Informed Machine Learning and Multisource Data for Spatially Explicit Estimation of Irrigation Water Withdrawal](https://doi.org/10.1029/2025ef006704)
 Zhang et al. (2025), *Earth's Future*. 3 citations.

@@ -1,15 +1,15 @@
 theme,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets
-Idealized or narrow setting,29.5,13.1,21.0,24.8,28.6,17.3,26.5
-Limited evaluation,18.4,10.3,20.6,13.6,22.4,23.0,19.6
-Depends on reanalysis / NWP analyses,17.7,5.7,9.9,8.7,19.9,23.7,27.5
-"Smoothing, blurring or weak extremes",12.2,2.4,9.9,7.4,11.2,21.6,23.5
-No or poorly calibrated uncertainty,14.9,5.0,13.2,4.1,13.7,17.3,17.6
-Coarse resolution or few variables,13.9,3.3,4.5,6.2,14.9,16.5,9.8
-Generalization / out-of-distribution,10.4,8.5,10.7,12.8,9.9,5.8,7.8
-Trained or tested on model data only,6.2,1.5,3.7,4.1,9.3,1.4,4.9
-Instability or drift in long runs,3.1,3.7,1.2,2.1,6.8,2.2,3.9
-Interpretability / black box,2.8,2.0,7.8,2.1,1.9,4.3,2.0
-Physical consistency / conservation,1.7,1.8,4.5,1.7,6.2,1.4,4.9
-Label or ground-truth quality,8.7,1.5,0.8,2.5,5.0,1.4,0.0
-Offline testing only,2.8,3.7,0.4,2.1,3.1,0.7,2.0
-Compute or data demands,2.1,1.7,0.8,0.8,5.0,3.6,0.0
+Idealized or narrow setting,29.5,17.8,21.7,22.7,28.6,17.3,26.5
+Limited evaluation,18.4,16.9,20.5,15.5,22.4,23.0,19.6
+Depends on reanalysis / NWP analyses,17.7,6.3,9.8,8.7,19.9,23.7,27.5
+"Smoothing, blurring or weak extremes",12.2,5.3,10.7,7.9,11.2,21.6,23.5
+No or poorly calibrated uncertainty,14.9,8.7,13.1,5.8,13.7,17.3,17.6
+Generalization / out-of-distribution,10.4,14.4,11.1,12.6,9.9,5.8,7.8
+Coarse resolution or few variables,13.9,4.4,4.5,5.8,14.9,16.5,9.8
+Trained or tested on model data only,6.2,2.4,3.7,3.6,9.3,1.4,4.9
+Interpretability / black box,2.8,5.1,7.8,3.2,1.9,4.3,2.0
+Label or ground-truth quality,8.7,5.1,0.8,5.1,5.0,1.4,0.0
+Physical consistency / conservation,1.7,2.1,4.9,2.2,6.2,1.4,4.9
+Instability or drift in long runs,3.1,3.6,1.2,1.8,6.8,2.2,3.9
+Compute or data demands,2.1,1.9,0.8,1.1,5.0,3.6,0.0
+Offline testing only,2.8,3.4,0.4,1.8,3.1,0.7,2.0
