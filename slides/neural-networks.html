@@ -189,6 +189,12 @@ svg .grid{stroke:var(--line);stroke-width:.7;stroke-dasharray:2 3;fill:none}
 .toclist button:hover{background:var(--well)}
 .toclist button span:first-child{font-family:var(--f-mono);color:var(--muted)}
 
+/* hierarchy slide: the detail card sits in the empty lower right of the diagram on wide screens */
+.hierwrap{position:relative;margin-top:6px}
+#hierCard{margin-top:12px}
+#hierCard .d{font-size:15px}
+@media (min-width:900px){#hierCard{position:absolute;right:0;bottom:0;width:48%;margin:0;padding:16px 18px}}
+
 /* pickers, tables, small widgets shared by demos */
 .pick{font:inherit;text-align:left;padding:10px 12px;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);cursor:pointer;
   display:grid;gap:2px;transition:border-color .2s var(--ease),transform .2s var(--ease);width:100%}
@@ -750,9 +756,11 @@ table.tb td.n{font-family:var(--f-mono);text-align:right}
 <section class="slide" id="a-hier" data-g="a" data-sec="2 · Architecture">
   <p class="kicker k-arch">Part 2 · Architecture</p>
   <h2>Every network is simple arithmetic, organized in four levels</h2>
-  <p class="lead">The architecture is how numbers flow and connect: which values talk to which, with what weights, and what operation combines them. Multiply, add, apply a simple function, repeat many times. Click an item to see how it is built.</p>
-  <div class="fig-wrap" id="hierFig" style="margin-top:8px"></div>
-  <div class="panel" id="hierCard" style="margin-top:12px"></div>
+  <p class="lead">Which values talk to which, with what weights, and what operation combines them: multiply, add, apply a simple function, repeat. Click any item, then jump to its demo.</p>
+  <div class="hierwrap">
+    <div class="fig-wrap" id="hierFig"></div>
+    <div class="panel" id="hierCard"></div>
+  </div>
 </section>
 
 <section class="slide" id="a-bias" data-g="a" data-sec="2 · Architecture · Inductive bias">
@@ -2127,50 +2135,75 @@ function bindQuiz(hostSel, scoreSel, Q, opts) {
 
 /* hierarchy */
 demo("a-hier", () => {
-  const L = [
-    ["Operations", ["Dense", "Convolution", "Recurrence", "Attention", "Pooling", "Message passing"]],
-    ["Layers", ["Dense layer", "Conv layer", "Pooling layer", "LSTM layer", "Attention layer", "Graph layer", "Embedding layer", "Norm layer"]],
+  // operations grouped as in the catalog; layers, blocks and families as before
+  const OPS = [["Connecting values", ["Dense", "Convolution", "Recurrence", "Attention", "Message passing"]],
+    ["Summarizing and resizing", ["Pooling", "Down / upsampling", "Embedding lookup"]],
+    ["Shaping the signal", ["Activation", "Normalization"]],
+    ["Wiring tricks", ["Residual", "Concatenation", "Gating"]],
+    ["Training only", ["Dropout"]]];
+  const L = [["Operations", OPS.flatMap(g => g[1])],
+    ["Layers", ["Dense layer", "Conv layer", "Pooling layer", "LSTM layer", "Attention layer", "Graph layer", "Embedding layer", "Norm layer", "Dropout layer"]],
     ["Blocks", ["Residual block", "Transformer block", "Encoder", "Decoder"]],
-    ["Families", ["MLP", "CNN", "RNN / LSTM", "Transformer", "Graph network", "U-Net", "Autoencoder"]],
-  ];
-  const E = [["Dense", "Dense layer"], ["Dense", "Attention layer"], ["Convolution", "Conv layer"], ["Recurrence", "LSTM layer"], ["Attention", "Attention layer"], ["Pooling", "Pooling layer"], ["Message passing", "Graph layer"],
-    ["Conv layer", "Residual block"], ["Norm layer", "Residual block"], ["Attention layer", "Transformer block"], ["Dense layer", "Transformer block"], ["Norm layer", "Transformer block"],
+    ["Families", ["MLP", "CNN", "RNN / LSTM", "Transformer", "Graph network", "U-Net", "Autoencoder"]]];
+  const E = [["Dense", "Dense layer"], ["Dense", "Attention layer"], ["Convolution", "Conv layer"], ["Recurrence", "LSTM layer"], ["Attention", "Attention layer"], ["Message passing", "Graph layer"],
+    ["Pooling", "Pooling layer"], ["Down / upsampling", "Pooling layer"], ["Down / upsampling", "Conv layer"], ["Embedding lookup", "Embedding layer"],
+    ["Activation", "Dense layer"], ["Activation", "Conv layer"], ["Activation", "LSTM layer"], ["Normalization", "Norm layer"], ["Gating", "LSTM layer"], ["Dropout", "Dropout layer"],
+    ["Residual", "Residual block"], ["Residual", "Transformer block"], ["Concatenation", "Decoder"],
+    ["Conv layer", "Residual block"], ["Norm layer", "Residual block"], ["Attention layer", "Transformer block"], ["Dense layer", "Transformer block"], ["Norm layer", "Transformer block"], ["Dropout layer", "Transformer block"],
     ["Conv layer", "Encoder"], ["Pooling layer", "Encoder"], ["Conv layer", "Decoder"], ["Dense layer", "Encoder"], ["Dense layer", "Decoder"],
-    ["Dense layer", "MLP"], ["Residual block", "CNN"], ["Conv layer", "CNN"], ["Pooling layer", "CNN"], ["LSTM layer", "RNN / LSTM"], ["Dense layer", "RNN / LSTM"],
+    ["Dense layer", "MLP"], ["Dropout layer", "MLP"], ["Residual block", "CNN"], ["Conv layer", "CNN"], ["Pooling layer", "CNN"], ["LSTM layer", "RNN / LSTM"], ["Dense layer", "RNN / LSTM"],
     ["Embedding layer", "Transformer"], ["Transformer block", "Transformer"], ["Graph layer", "Graph network"], ["Dense layer", "Graph network"], ["Encoder", "U-Net"], ["Decoder", "U-Net"], ["Encoder", "Autoencoder"], ["Decoder", "Autoencoder"]];
   const D = {
-    "Dense": "Every input connects to every output with its own weight: activation(W·x + b).", "Convolution": "A small filter of shared weights slides over the input.",
-    "Recurrence": "Processes a sequence step by step, carrying a hidden state.", "Attention": "Scores every pair, softmaxes the scores, takes a weighted average.",
-    "Pooling": "Summarizes a neighbourhood with its max or mean.", "Message passing": "Each node aggregates messages from its graph neighbours.",
-    "Dense layer": "Matrix multiply + bias + activation.", "Conv layer": "Several filters, each producing a feature map.", "Pooling layer": "No weights; shrinks and summarizes.",
-    "LSTM layer": "Recurrence with gates; the same weights at every time step.", "Attention layer": "Several attention heads in parallel; Q, K, V projections are dense operations.",
-    "Graph layer": "Message passing with learned weights on the messages.", "Embedding layer": "A lookup table of learnable vectors.", "Norm layer": "Rescales values with a learned scale and shift.",
-    "Residual block": "A few conv (or dense) layers with normalization, plus a skip: output = x + block(x).", "Transformer block": "Attention, then a small dense network, each wrapped in normalization and a residual connection.",
-    "Encoder": "Layers that compress the input into a smaller representation.", "Decoder": "Layers that expand a representation back to an output (a map, a sequence).",
-    "MLP": "Dense layers stacked: the original neural network.", "CNN": "Conv and pooling layers (often residual blocks), then dense layers.", "RNN / LSTM": "Recurrent layers over a sequence, then a dense output.",
-    "Transformer": "Embeddings, then a stack of transformer blocks. Language models and many new weather models.", "Graph network": "Stacked graph layers over stations, meshes or molecules.",
-    "U-Net": "An encoder and a decoder with skip connections between matching levels.", "Autoencoder": "An encoder squeezes the input through a bottleneck; a decoder rebuilds it.",
+    "Dense": ["Every input connects to every output with its own weight: activation(W·x + b).", "a-dense"],
+    "Convolution": ["A small filter of shared weights slides over the input. Variants: dilated (skips positions to see farther), transposed (spreads values out to upsample), depthwise separable (filters each channel, then mixes channels with 1×1; far fewer weights).", "a-conv1d"],
+    "Recurrence": ["Processes a sequence step by step, carrying a hidden state. Variants: simple RNN, and LSTM / GRU, whose gates let memory last longer.", "a-rnn"],
+    "Attention": ["Scores every pair, softmaxes the scores, takes a weighted average. Variants: self-attention (within one sequence) and cross-attention (one sequence attends to another).", "a-attn"],
+    "Message passing": ["Each node updates itself by aggregating messages from its graph neighbours.", "a-graph"],
+    "Pooling": ["Summarizes a neighbourhood with its max or mean; global pooling summarizes the whole input.", "a-pool"],
+    "Down / upsampling": ["Reduces or increases resolution: strided convolution, pooling, interpolation, transposed convolution.", "a-resize"],
+    "Embedding lookup": ["A table of learnable vectors; a category or token ID picks its row.", "a-embed"],
+    "Activation": ["A simple nonlinear function on each value: ReLU, sigmoid, tanh, GELU, softmax. Without it, stacked layers collapse into one.", "a-act"],
+    "Normalization": ["Rescales intermediate values to a healthy range: batch norm (across examples) or layer norm (across features).", "a-norm"],
+    "Residual": ["output = input + layer(input): the layer only learns the correction.", "a-wiring"],
+    "Concatenation": ["Stacks outputs side by side, as in U-Net skip connections.", "a-wiring"],
+    "Gating": ["Multiplies a signal by a learned value between 0 and 1, like a valve. The core of LSTMs and GRUs.", "a-lstm"],
+    "Dropout": ["During training only, sets a random fraction of values to zero and rescales the survivors.", "a-dropout"],
+    "Dense layer": ["Matrix multiply + bias + activation.", "a-dense"], "Conv layer": ["Several filters, each producing a feature map.", "a-conv2d"], "Pooling layer": ["No weights; shrinks and summarizes.", "a-pool"],
+    "LSTM layer": ["Recurrence with gates; the same weights at every time step.", "a-lstm"], "Attention layer": ["Several attention heads in parallel; the query, key and value projections are dense operations.", "a-heads"],
+    "Graph layer": ["Message passing with learned weights on the messages.", "a-graph"], "Embedding layer": ["A lookup table of learnable vectors.", "a-embed"], "Norm layer": ["Normalization with a learned scale and shift.", "a-norm"],
+    "Dropout layer": ["No weights; active only in training.", "a-dropout"],
+    "Residual block": ["A few conv (or dense) layers with normalization, plus a skip: output = x + block(x).", "a-wiring"], "Transformer block": ["Attention, then a small dense network, each wrapped in normalization and a residual connection (dropout in training).", "a-families"],
+    "Encoder": ["Layers that compress the input into a smaller representation.", "a-resize"], "Decoder": ["Layers that expand a representation back to an output (a map, a sequence); U-Net decoders concatenate encoder features.", "a-resize"],
+    "MLP": ["Dense layers stacked: the original neural network.", "a-families"], "CNN": ["Conv and pooling layers (often residual blocks), then dense layers.", "a-families"], "RNN / LSTM": ["Recurrent layers over a sequence, then a dense output.", "a-families"],
+    "Transformer": ["Embeddings, then a stack of transformer blocks. Language models and many new weather models.", "a-families"], "Graph network": ["Stacked graph layers over stations, meshes or molecules.", "a-families"],
+    "U-Net": ["An encoder and a decoder with skip connections between matching levels.", "a-families"], "Autoencoder": ["An encoder squeezes the input through a bottleneck; a decoder rebuilds it.", "a-families"],
   };
   let sel = "Transformer block";
   const neigh = (n, up) => E.filter(e => (up ? e[0] : e[1]) === n).map(e => up ? e[1] : e[0]);
   const reach = (n, up, acc = new Set()) => { neigh(n, up).forEach(m => { if (!acc.has(m)) { acc.add(m); reach(m, up, acc); } }); return acc; };
   function render() {
-    const W = 1000, colW = 250, rh = 32, H = 50 + 8 * (rh + 4), svg = svgIn($("#hierFig"), W, H), pos = {};
-    L.forEach(([t, items], c) => { el("text", { x: c * colW + 10, y: 18, class: "mono", "font-size": 12, fill: css("--arch") }, svg, (c + 1) + " · " + t.toUpperCase());
-      items.forEach((it, r) => pos[it] = [c * colW + 10, 32 + r * (rh + 4)]); });
+    const W = 1000, colW = 250, rh = 26, gap = 4, gh = 20, pos = {};
+    let y = 30;
+    OPS.forEach(([g, items]) => { pos["§" + g] = [10, y + 13]; y += gh; items.forEach(it => { pos[it] = [10, y]; y += rh + gap; }); });
+    const H = Math.max(y, 30 + gh + 9 * (rh + gap)) + 4, svg = svgIn($("#hierFig"), W, H);
+    L.slice(1).forEach(([, items], c) => items.forEach((it, r) => pos[it] = [(c + 1) * colW + 10, 30 + gh + r * (rh + gap)]));
+    L.forEach(([t], c) => el("text", { x: c * colW + 10, y: 16, class: "mono", "font-size": 12, fill: css("--arch") }, svg, (c + 1) + " · " + t.toUpperCase()));
+    OPS.forEach(([g]) => el("text", { x: 12, y: pos["§" + g][1], class: "mut", "font-size": 10.5, "font-style": "italic" }, svg, g));
     const on = new Set([sel, ...reach(sel, true), ...reach(sel, false)]);
     E.forEach(([a, b]) => { const A = pos[a], B = pos[b], act = on.has(a) && on.has(b);
-      el("path", { d: `M${A[0] + 200} ${A[1] + rh / 2} C${A[0] + 225} ${A[1] + rh / 2} ${B[0] - 25} ${B[1] + rh / 2} ${B[0]} ${B[1] + rh / 2}`, fill: "none", stroke: css(act ? "--arch" : "--line"), "stroke-width": act ? 1.8 : 1, opacity: act ? 1 : .6 }, svg); });
-    for (const it in pos) { const [x, y] = pos[it], isS = it === sel, act = on.has(it);
-      const g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
-      el("rect", { x, y, width: 200, height: rh, rx: 10, fill: isS ? css("--arch") : act ? css("--arch-soft") : css("--card"), stroke: css(act ? "--arch" : "--line") }, g);
-      el("text", { x: x + 12, y: y + 21, "font-size": 13.5, "font-weight": isS ? 600 : 400, fill: isS ? css("--bg") : css("--fg") }, g, it);
+      el("path", { d: `M${A[0] + 200} ${A[1] + rh / 2} C${A[0] + 225} ${A[1] + rh / 2} ${B[0] - 25} ${B[1] + rh / 2} ${B[0]} ${B[1] + rh / 2}`, fill: "none", stroke: css(act ? "--arch" : "--line"), "stroke-width": act ? 1.8 : 1, opacity: act ? 1 : .55 }, svg); });
+    L.flatMap(l => l[1]).forEach(it => { const [x, yy] = pos[it], isS = it === sel, act = on.has(it);
+      const g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button", "aria-label": it }, svg);
+      el("rect", { x, y: yy, width: 200, height: rh, rx: 9, fill: isS ? css("--arch") : act ? css("--arch-soft") : css("--card"), stroke: css(act ? "--arch" : "--line") }, g);
+      el("text", { x: x + 12, y: yy + 17.5, "font-size": 13, "font-weight": isS ? 600 : 400, fill: isS ? css("--bg") : css("--fg") }, g, it);
       const pick = () => { sel = it; render(); };
-      g.addEventListener("click", pick); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); pick(); } }); }
+      g.addEventListener("click", pick); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); pick(); } }); });
     const lvl = L.findIndex(l => l[1].includes(sel)), parts = [...reach(sel, false)], users = [...reach(sel, true)];
-    $("#hierCard").innerHTML = `<p class="kicker k-arch">${L[lvl][0].replace(/s$/, "")}</p><h4 style="font-size:19px"></h4><p class="d"></p>` +
-      (parts.length ? `<p class="note"><b>Built from:</b> ${parts.join(", ")}.</p>` : "") + (users.length ? `<p class="note" style="margin:0"><b>Used in:</b> ${users.join(", ")}.</p>` : "");
-    $("#hierCard h4").textContent = sel; $("#hierCard .d").textContent = D[sel];
+    const grp = lvl === 0 ? " · " + OPS.find(g => g[1].includes(sel))[0].toLowerCase() : "";
+    $("#hierCard").innerHTML = `<p class="kicker k-arch">${L[lvl][0].replace(/s$/, "")}${grp}</p><h4 style="font-size:19px"></h4><p class="d"></p>` +
+      (parts.length ? `<p class="note"><b>Built from:</b> ${parts.join(", ")}.</p>` : "") + (users.length ? `<p class="note"><b>Used in:</b> ${users.join(", ")}.</p>` : "") +
+      `<button class="btn" type="button" data-go="${D[sel][1]}">Go to the demo →</button>`;
+    $("#hierCard h4").textContent = sel; $("#hierCard .d").textContent = D[sel][0];
   }
   render(); return render;
 });

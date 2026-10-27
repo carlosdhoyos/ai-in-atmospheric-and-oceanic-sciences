@@ -173,6 +173,12 @@ svg .grid{stroke:var(--line);stroke-width:.7;stroke-dasharray:2 3;fill:none}
 .toclist button:hover{background:var(--well)}
 .toclist button span:first-child{font-family:var(--f-mono);color:var(--muted)}
 
+/* hierarchy slide: the detail card sits in the empty lower right of the diagram on wide screens */
+.hierwrap{position:relative;margin-top:6px}
+#hierCard{margin-top:12px}
+#hierCard .d{font-size:15px}
+@media (min-width:900px){#hierCard{position:absolute;right:0;bottom:0;width:48%;margin:0;padding:16px 18px}}
+
 /* pickers, tables, small widgets shared by demos */
 .pick{font:inherit;text-align:left;padding:10px 12px;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);cursor:pointer;
   display:grid;gap:2px;transition:border-color .2s var(--ease),transform .2s var(--ease);width:100%}
