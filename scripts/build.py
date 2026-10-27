@@ -121,6 +121,7 @@ def mark_core(papers):
 
 def main():
     ids = json.load(open(D("cache_ids.json")))
+    doi_cr = json.load(open(D("cache_doi_crossref.json"))) if os.path.exists(D("cache_doi_crossref.json")) else {}
     seeds = load_tsv(D("seeds.tsv"))
     # overrides: title<TAB>ID (DOI:..., ARXIV:..., or S2 paperId) for seeds the automatic matching missed
     overrides = {r[0]: r[1] for r in load_tsv(D("overrides.tsv"))}
@@ -207,7 +208,8 @@ def main():
         if doi and doi.startswith("10.48550/"):
             doi = None
         arxiv = ext.get("ArXiv")
-        cr = e["cr"]
+        # Crossref's journal title for the DOI when the seed's title match gave none (see resolve_ids.py --dois)
+        cr = e["cr"] or doi_cr.get(doi or "")
         jr = main.get("journal") or {}
         s2venue = main.get("venue") or jr.get("name") or ""
         types = set(main.get("publicationTypes") or [])

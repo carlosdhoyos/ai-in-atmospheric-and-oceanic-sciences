@@ -77,6 +77,34 @@ def arxiv(title):
     return best
 
 
+DOI_CACHE = os.path.join(ROOT, "data", "cache_doi_crossref.json")
+
+
+def crossref_doi(doi):
+    raw = get(f"https://api.crossref.org/works/{urllib.parse.quote(doi)}", tries=3)
+    if not raw:
+        return None
+    it = json.loads(raw)["message"]
+    return {"type": it.get("type"), "venue": (it.get("container-title") or [""])[0]}
+
+
+def dois():
+    """Crossref type and container title for every DOI in the catalog: Semantic Scholar's venue field is
+    sometimes wrong (e.g. a power-systems paper filed under The Lancet), so build.py prefers Crossref's."""
+    cache = json.load(open(DOI_CACHE)) if os.path.exists(DOI_CACHE) else {}
+    papers = json.load(open(os.path.join(ROOT, "data", "papers.json")))["papers"]
+    todo = sorted({p["doi"] for p in papers if p.get("doi")} - set(cache))
+    with cf.ThreadPoolExecutor(8) as ex:
+        for n, (d, r) in enumerate(zip(todo, ex.map(crossref_doi, todo)), 1):
+            if r:
+                cache[d] = r
+            if n % 500 == 0:
+                json.dump(cache, open(DOI_CACHE, "w"), indent=0, sort_keys=True)
+    json.dump(cache, open(DOI_CACHE, "w"), indent=0, sort_keys=True)
+    print(f"Crossref DOI records: {len(todo)} fetched, {len(cache)} cached")
+    return len(todo)
+
+
 def main():
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     seeds = [l.rstrip("\n").split("\t", 1) for l in open(os.path.join(ROOT, "data", "seeds.tsv"))
@@ -96,4 +124,7 @@ def main():
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.argv[1:] == ["--dois"]:
+        sys.exit(3 if dois() else 0)  # 3: new records fetched, rebuild
     main()

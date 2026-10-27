@@ -125,6 +125,9 @@ def build(a):
     if a.refresh_citations:
         os.remove(os.path.join(ROOT, "data", "cache_s2.json"))
     run(sys.executable, "scripts/build.py")
+    # fetch Crossref venues for new DOIs; rebuild when any arrived
+    if subprocess.run([sys.executable, "scripts/resolve_ids.py", "--dois"], cwd=ROOT).returncode == 3:
+        run(sys.executable, "scripts/build.py")
     run(sys.executable, "scripts/build_db.py")
     run(sys.executable, "analysis/eda.py")
 
