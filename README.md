@@ -57,6 +57,12 @@ methods, early neural networks, SVMs) with the domains (`scripts/discover_era.py
 abstract in the indexes, so their summary cards rest on the title and on knowledge of the paper; each card states
 its basis. Analyses use the periods ≤1999, 2000–09, 2010–18, 2019–20, 2021–22, 2023–24 and 2025–26.
 
+**Core set.** The searches reached different depths in different decades, so period comparisons use a *core set*:
+hand-picked landmark papers plus, in every publication year, the papers cited at or above that year's median rate.
+The EDA report and figures use it, the EDA and journal pages default to it ("Core set only" toggle), and the catalog
+lists everything. Each paper also records how it entered the catalog (`route` in the database, "How it entered the
+catalog" in the slice menu).
+
 ## How the catalog is built
 
 1. **Curated seeds** — `data/seeds.tsv` lists landmark papers by subfield (one title per line).

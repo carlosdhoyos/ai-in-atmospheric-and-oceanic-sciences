@@ -93,6 +93,17 @@ abstract; tell the summary writers to name a method family only when the title o
 it, and grep the architecture fields for "likely"/"assumed" before merging. Records with neither DOI nor arXiv ID
 get publication type `other` (venue not recorded), not `preprint`.
 
+For the deep-learning era use the modern vocabulary and cap the screening per year, since a decade returns
+10,000+ candidates: `discover_era.py --years 2010-2018 --methods modern`, then
+`update.py screen-batches --file A.csv,B.csv --per-year 400 --top 100000 --n 20 --recent-from 0`.
+
+**Route and core set.** Every paper records its `route` into the catalog (seed, citation snowballing, era search,
+applied-scope search, recent window search, initial keyword search; from the candidates file that found it), and
+`core` marks the comparable set: seeds plus, in each publication year, papers cited at or above that year's median
+rate (`mark_core` in `scripts/build.py`). Searches reach different depths in different decades, so the EDA report
+and figures use the core set, and the EDA and journal pages default to it (the "Core set only" toggle). Do not
+compare periods on the full catalog.
+
 To add a **new research area**, give it a scope in `SCOPES` in `scripts/discover_recent.py` (journals, arXiv
 query, relevance rule), a subfield key in `TOPICS` in `scripts/build.py`, goal/data/venue rules in
 `scripts/taxonomy.py`, and a section in the screening brief; then run it from an early `--since` (the applied
