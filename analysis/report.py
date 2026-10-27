@@ -15,7 +15,23 @@ def pct(x):
     return f"{round(100 * x)}%"
 
 
+def field_growth():
+    """One sentence on the field's growth and the catalog's coverage, from data/field_volume.json."""
+    import collections
+    import json
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    path = os.path.join(root, "data", "field_volume.json")
+    if not os.path.exists(path):
+        return ""
+    vol = {int(y): n for y, n in json.load(open(path))["counts"].items()}
+    cat = collections.Counter(p["year"] for p in json.load(open(os.path.join(root, "data", "papers.json")))["papers"])
+    ys = [y for y in (1995, 2005, 2009, 2010, 2015, 2020, 2024) if vol.get(y)]
+    return (" Semantic Scholar has " + ", ".join(f"{vol[y]:,} papers in {y}" for y in ys) +
+            " matching the same search terms, a smooth rise with no break at 2010; the catalog holds " +
+            ", ".join(f"{cat[y] / vol[y]:.1%} of {y}" for y in ys) + ".")
+
 def write(con, periods_sql, order, n_all=None):
+    volume_line = field_growth()
     q = lambda sql: con.sql(sql).fetchall()  # noqa: E731
     one = lambda sql: q(sql)[0][0]  # noqa: E731
     n_papers = one("SELECT count(*) FROM papers")
@@ -178,7 +194,7 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 ### Papers per year
 ![Papers per year by primary subfield](figures/01_papers_per_year_by_subfield.png)
 
-{SAMPLING_NOTE} Read the chart for the subfield mix within a year, not for growth between years.
+{SAMPLING_NOTE} Read the bars for the subfield mix within a year, not for growth between years.{volume_line}
 
 ### Model families
 ![Model families](figures/02_architecture_families.png)

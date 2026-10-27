@@ -238,6 +238,10 @@ in the journal assessment, anything unresolved, and summaries marked `assessment
   fixed number: `update.py screen-batches --file <csv> --share 0.3 --per-year 400` (add `--skip-per-year K` to leave
   out the K most cited already screened). Keep `SCREEN_SHARE` in `scripts/taxonomy.py` in step: it writes the note
   under the papers-per-year charts saying bar heights show search depth.
+- **Field volume.** `python3 scripts/field_volume.py` records, per year, how many Semantic Scholar papers match the
+  combined search vocabulary (`data/field_volume.json`). The pages draw it as a line over the papers-per-year bars and
+  the EDA reports the catalog's coverage per year. Rerun it on every update (it takes a few minutes), and after any
+  change to the vocabularies in `scripts/discover_era.py`.
 - **Conference and journal versions are merged.** `build.py` folds a conference (or venue-less) record into the
   journal record of the same work (title similarity >= 0.93, two shared author surnames, <= 4 years apart) and keeps
   the other DOI under `alt_ids`; it prints each `MERGED` pair. `update.py verify` fails on two records with the same

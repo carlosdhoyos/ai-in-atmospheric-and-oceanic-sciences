@@ -647,11 +647,18 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     let svg = "";
     for (let y = minY; y <= maxY; y++) {
       const i = y - minY, ha = (all[y] || 0) / top * 80, hs = (sel[y] || 0) / top * 80;
-      svg += `<g data-y="${y}"><title>${y}: ${sel[y] || 0} shown of ${all[y] || 0}</title>` +
+      const v = (DATA.volume || {})[y];
+      svg += `<g data-y="${y}"><title>${y}: ${sel[y] || 0} shown of ${all[y] || 0} in the catalog${v ? ` · ${fmt(v)} papers in Semantic Scholar match the search terms (catalog: ${((all[y] || 0) / v * 100).toFixed(1)}%)` : ""}</title>` +
         `<rect x="${i * w + 1}" y="0" width="${w - 2}" height="86" fill="transparent"/>` +
         `<rect x="${i * w + 1}" y="${86 - ha}" width="${w - 2}" height="${ha}" fill="var(--bar)"/>` +
         `<rect x="${i * w + 1}" y="${86 - hs}" width="${w - 2}" height="${hs}" fill="var(--bar-on)"/></g>`;
     }
+    // the field's growth (Semantic Scholar papers matching the search terms), on its own scale
+    const V = DATA.volume || {}, vTop = Math.max(1, ...Object.values(V));
+    const pts = [];
+    for (let y = minY; y <= maxY; y++) if (V[y]) pts.push(`${(y - minY + 0.5) * w},${86 - V[y] / vTop * 80}`);
+    if (pts.length > 1) svg += [["var(--bg)", 4.5, 1], ["var(--ink)", 2, .9]].map(([c, sw, o]) =>  // halo, then line
+      `<polyline points="${pts.join(" ")}" fill="none" stroke="${c}" stroke-width="${sw}" stroke-opacity="${o}" stroke-linejoin="round" vector-effect="non-scaling-stroke" pointer-events="none"/>`).join("");
     $("hist").innerHTML = svg;
     $("h-min").textContent = minY; $("h-max").textContent = maxY;
   }

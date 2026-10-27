@@ -311,11 +311,13 @@ def main():
     json.dump({"retrieved": retrieved, "topics": TOPICS, "papers": out},
               open(D("papers.json"), "w"), indent=1, ensure_ascii=False)
 
+    # papers per year matching the search vocabulary in Semantic Scholar (scripts/field_volume.py): the field's growth
+    volume = json.load(open(D("field_volume.json")))["counts"] if os.path.exists(D("field_volume.json")) else {}
     template = open(os.path.join(ROOT, "scripts", "template.html")).read()
     frag_dir = os.environ.get("FRAGMENT_DIR")
     for page in PAGES:
         blob = json.dumps({"retrieved": retrieved, "topics": TOPICS, "papers": out, "page": {"mode": page["mode"]},
-                           "periods": PERIODS},
+                           "periods": PERIODS, "volume": volume},
                           ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         tpl = template.replace("/*DATA*/", blob)
         for k in ("TITLE", "EYEBROW", "H1", "LEDE"):

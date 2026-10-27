@@ -5,6 +5,7 @@ so every chart has a table view. Run after scripts/build_db.py:
 
     python3 analysis/eda.py
 """
+import json
 import os
 
 import sys
@@ -102,6 +103,19 @@ ax.set_ylabel("Papers in catalog")
 ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 ax.grid(axis="x", visible=False)
 ax.legend(loc="upper left", fontsize=8.5, ncol=2)
+vol_path = os.path.join(ROOT, "data", "field_volume.json")
+if os.path.exists(vol_path):  # the field's growth, on its own axis (scripts/field_volume.py)
+    vol = {int(y): n for y, n in json.load(open(vol_path))["counts"].items()}
+    ys = [y for y in pv.index if y in vol]
+    ax2 = ax.twinx()
+    ax2.plot(ys, [vol[y] for y in ys], color=INK2, lw=1.4, marker="o", ms=2.5, label="Semantic Scholar papers matching the search terms")
+    ax2.set_ylabel("Papers matching the search terms", color=INK2)
+    ax2.grid(False)
+    ax2.set_ylim(0, None)
+    h1, l1 = ax.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    ax.legend(h1 + h2, l1 + ["Field: Semantic Scholar papers matching\nthe search terms (right axis)"], loc="upper left",
+              fontsize=8.5, ncol=2)
 save(fig, "01_papers_per_year_by_subfield.png",
      f"Curated catalog ({int(pv.values.sum())} papers since 2012), not a census of the field.")
 

@@ -129,7 +129,9 @@ PROBABILISTIC = (r"probabilis|ensemble|diffusion|\bgan|generative|uncertaint|qua
 SCREEN_SHARE = 0.3  # share of each year's candidates screened from 2010 on; None = the 400 most cited per year
 SAMPLING_NOTE = ("Bar heights show search depth, not publication volume: every candidate up to 2009 was screened; "
                  + (f"from 2010 on, the most cited {SCREEN_SHARE:.0%} of each year's candidates (at least 400 a year)."
-                    if SCREEN_SHARE else "from 2010 on, only the 400 most cited candidates of each year."))
+                    if SCREEN_SHARE else "from 2010 on, only the 400 most cited candidates of each year.")
+                 + " The line shows the field's growth: papers per year in Semantic Scholar matching the same search terms"
+                   " (own scale; an index that includes off-topic matches).")
 
 VENUE_FAMILY = [
     ("Nature & Science", r"^nature$|^science$|nature (geoscience|climate change|communications|machine intelligence|reviews|"
