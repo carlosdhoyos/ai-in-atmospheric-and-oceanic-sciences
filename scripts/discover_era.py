@@ -43,7 +43,8 @@ GEO = re.compile(r"weather|forecast|precipit|rain|cloud|satellite|radar|storm|to
 
 def main(a):
     os.makedirs(os.path.join(ROOT, ".update"), exist_ok=True)
-    raw_path = os.path.join(ROOT, ".update", f"raw_era_{a.years}.json")
+    tag = f"{a.years}_{a.tag}" if a.tag else a.years  # a tag keeps a second vocabulary over the same years apart
+    raw_path = os.path.join(ROOT, ".update", f"raw_era_{tag}.json")
     raw = json.load(open(raw_path)) if os.path.exists(raw_path) else {}
     # few broad OR-queries (each returns up to 1,000 hits) instead of one per method x domain pair:
     # the bulk endpoint is rate limited, so hundreds of small queries take hours
@@ -83,7 +84,7 @@ def main(a):
                      "source": f"era_queries_{k}", "title": r.get("title"),
                      "abstract": (r.get("abstract") or "").replace("\n", " ")})
     rows.sort(key=lambda x: -x["score"])
-    out = os.path.join(ROOT, "data", f"candidates_era_{a.years}_scored.csv")
+    out = os.path.join(ROOT, "data", f"candidates_era_{tag}_scored.csv")
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
@@ -99,4 +100,5 @@ if __name__ == "__main__":
     ap.add_argument("--min-cites", type=int, default=5)
     ap.add_argument("--methods", choices=["early", "modern"], default="early",
                     help="method vocabulary: early (expert systems, shallow NNs...) or modern (deep learning era, 2010 on)")
+    ap.add_argument("--tag", help="suffix for the output files, e.g. 'early' for a second vocabulary over the same years")
     main(ap.parse_args())
