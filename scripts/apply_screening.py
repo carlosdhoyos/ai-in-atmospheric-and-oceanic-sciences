@@ -46,6 +46,9 @@ def main(paths):
             listed.add(inc["id"])
             new_adds.append(f"{','.join(topics)}\t{inc['id']}\t{inc.get('reason', '').strip()[:160]}")
         for pv in dec.get("published_versions", []):
+            if pv["id"].upper().startswith("ARXIV:") or "10.48550" in pv["id"]:
+                skipped.append(f"{pv['id']}: an arXiv preprint is never the published version")
+                continue
             score, cat_title = best_match(pv["catalog_title"], [p["title"] for p in catalog])
             if score < 0.8:
                 skipped.append(f"{pv['id']}: no catalog entry matches '{pv['catalog_title']}'")
