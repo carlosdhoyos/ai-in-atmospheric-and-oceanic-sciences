@@ -12548,6 +12548,17 @@ Mao et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*. 59 cita
 - **Issues:** Reliance on simulated training data means accuracy depends on how representative the simulated atmospheres and emissivities are.
 - *Basis: abstract+knowledge*
 
+### [Application of neural networks for sea ice classification in polarimetric SAR images](https://doi.org/10.1109/36.387589)
+Hara et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
+
+- **Main goal:** Classifies sea ice types in polarimetric synthetic aperture radar images, to support ice mapping.
+- **Architecture:** Artificial neural network classifier using polarimetric SAR features; network details not reported in the available metadata.
+- **Data:** Airborne polarimetric SAR imagery of sea ice (e.g. JPL AIRSAR); scenes and ground truth not reported here.
+- **Main result:** The neural network separates the main sea ice types in polarimetric SAR imagery; accuracy figures not reported in the available metadata.
+- **Open work:** Application to spaceborne SAR and additional ice classes and seasons.
+- **Issues:** Few scenes and limited ground truth; seasonal changes in backscatter may limit transfer.
+- *Basis: assessment*
+
 ### [Nonlinear Statistical Retrieval of Atmospheric Profiles From MetOp-IASI and MTG-IRS Infrared Sounding Data](https://doi.org/10.1109/tgrs.2011.2168963)
 Camps-Valls et al. (2012), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
 
@@ -18599,17 +18610,6 @@ Liu et al. (2021), *Journal of Marine Science and Engineering*. 58 citations.
 - **Issues:** Only compared against CNNs; quantitative scores not given in the abstract; trained on reanalysis, inheriting its biases.
 - *Basis: abstract*
 
-### [Application of neural networks for sea ice classification in polarimetric SAR images](https://doi.org/10.1109/36.387589)
-Hara et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
-
-- **Main goal:** Classifies sea ice types in polarimetric synthetic aperture radar images, to support ice mapping.
-- **Architecture:** Artificial neural network classifier using polarimetric SAR features; network details not reported in the available metadata.
-- **Data:** Airborne polarimetric SAR imagery of sea ice (e.g. JPL AIRSAR); scenes and ground truth not reported here.
-- **Main result:** The neural network separates the main sea ice types in polarimetric SAR imagery; accuracy figures not reported in the available metadata.
-- **Open work:** Application to spaceborne SAR and additional ice classes and seasons.
-- **Issues:** Few scenes and limited ground truth; seasonal changes in backscatter may limit transfer.
-- *Basis: assessment*
-
 ### [Baltic Sea Ice Concentration Estimation Based on C-Band Dual-Polarized SAR Data](https://doi.org/10.1109/tgrs.2013.2290331)
 Karvonen (2014), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
 
@@ -18818,17 +18818,6 @@ Palerme et al. (2024), *The Cryosphere*. 23 citations.
 - **Open work:** Adding uncertainty estimates and extending to longer leads and other sea ice variables.
 - **Issues:** Depends on TOPAZ4 and observation availability; deterministic output; evaluation period and regions limited.
 - *Basis: abstract*
-
-### [Application Of Neural Networks To Sea Ice Classification Using Polarimetric SAR Images](https://doi.org/10.1109/igarss.1991.577672)
-Kwok et al. (1991), *[Proceedings] IGARSS'91 Remote Sensing: Global Monitoring for Earth Management*. 21 citations.
-
-- **Main goal:** Classifies sea ice types from polarimetric synthetic aperture radar images using neural networks.
-- **Architecture:** Neural network classifier using polarimetric SAR features.
-- **Data:** Polarimetric SAR imagery of sea ice (likely airborne JPL AIRSAR); details not reported in the available metadata.
-- **Main result:** Not reported in the abstract; the neural network is shown to separate sea ice types.
-- **Open work:** Application to spaceborne SAR and seasonal conditions, and comparison with statistical classifiers.
-- **Issues:** No abstract available; limited scenes and ground truth, sensitivity to incidence angle and season.
-- *Basis: assessment*
 
 ### [Regional September Sea Ice Forecasting with Complex Networks and Gaussian Processes](https://doi.org/10.1175/waf-d-19-0107.1)
 Gregory et al. (2020), *Weather and Forecasting*. 20 citations.
@@ -48230,17 +48219,6 @@ Vaccaro et al. (2011), *Electric Power Systems Research*. 48 citations.
 - **Open work:** Extending to more sites, temporal forecasting and turbine-specific power estimates.
 - **Issues:** Limited station network; spatial generalization and measurement height extrapolation are uncertain.
 - *Basis: assessment*
-
-### [Short-term wind power prediction based on wavelet transform-support vector machine and statistic characteristics analysis](https://doi.org/10.1109/icps.2011.5890873)
-Shi et al. (2011), *2011 IEEE Industrial and Commercial Power Systems Technical Conference*. 47 citations.
-
-- **Main goal:** Improves short-term wind power prediction by combining wavelet transform with support vector machines and using the statistical characteristics of wind turbine generation.
-- **Architecture:** Support vector machine regression in two variants: wavelet decomposition into frequency components each modelled by an SVM and recombined, and an SVM with a wavelet kernel replacing the RBF kernel.
-- **Data:** Operational data from two wind farms, one in North China and one in the U.S.A.
-- **Main result:** The WT-SVM model with wavelet decomposition (method 1) gives lower mean relative error than a traditional SVM; a precision evaluation scheme is also proposed.
-- **Open work:** Integration with numerical weather prediction inputs and longer forecast horizons; systematic comparison of the two wavelet variants across more farms.
-- **Issues:** Only two wind farms; baseline limited to a traditional SVM; horizons and error magnitudes are not given in the abstract.
-- *Basis: abstract*
 
 ### Photovoltaic power generation output forecasting based on support vector machine regression technique
 Li (2008), *Electric Power*. 46 citations.

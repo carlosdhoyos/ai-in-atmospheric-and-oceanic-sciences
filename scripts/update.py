@@ -41,17 +41,21 @@ def status(_):
     years = Counter(p["year"] for p in papers)
     print(f"catalog: {len(papers)} papers, citations retrieved {cat['retrieved']}")
     print("recent years:", ", ".join(f"{y}: {years[y]}" for y in sorted(years) if y >= max(years) - 4))
-    print(f"papers without a summary: {sum(1 for p in papers if p['s2'] not in summ)}")
+    print(f"papers without a summary: {sum(1 for p in papers if not any(i in summ for i in ids(p)))}")
     cands = sorted(glob.glob(os.path.join(ROOT, "data", "candidates_*_scored.csv")))
     print("candidate files:", ", ".join(os.path.basename(c) for c in cands) or "none")
     adds = [l for l in open(os.path.join(ROOT, "data", "additions.tsv")) if l.strip() and not l.startswith("#")]
     print(f"additions.tsv: {len(adds)} entries")
 
 
+def ids(p):  # a record's own S2 ID plus those of versions merged into it (build.py merge_versions)
+    return [p["s2"]] + [x["s2"] for x in p.get("alt_ids", [])]
+
+
 def pending(a):
     papers, summ = load("data/papers.json")["papers"], load("data/summaries.json")
     todo = [{"id": p["s2"], "title": p["title"], "authors": p["authors"][:4], "year": p["year"], "venue": p["venue"],
-             "abstract": p["abstract"]} for p in papers if p["s2"] not in summ]
+             "abstract": p["abstract"]} for p in papers if not any(i in summ for i in ids(p))]
     shutil.rmtree(os.path.join(WORK, "sum_in"), ignore_errors=True)
     os.makedirs(os.path.join(WORK, "sum_in"), exist_ok=True)
     os.makedirs(os.path.join(WORK, "sum_out"), exist_ok=True)
@@ -65,7 +69,7 @@ def pending(a):
 
 def merge(_):
     summ = load("data/summaries.json")
-    papers = {p["s2"] for p in load("data/papers.json")["papers"]}
+    papers = {i for p in load("data/papers.json")["papers"] for i in ids(p)}
     added, problems = 0, []
     for f in sorted(glob.glob(os.path.join(WORK, "sum_out", "*.json"))):
         try:
@@ -136,7 +140,7 @@ def verify(_):
     import duckdb
     cat = load("data/papers.json")
     papers, summ, errors = cat["papers"], load("data/summaries.json"), []
-    no_sum = [p["title"] for p in papers if p["s2"] not in summ]
+    no_sum = [p["title"] for p in papers if not any(i in summ for i in ids(p))]
     if no_sum:
         errors.append(f"{len(no_sum)} papers without summary, e.g. {no_sum[:3]}")
     con = duckdb.connect(os.path.join(ROOT, "data", "papers.duckdb"), read_only=True)
@@ -160,6 +164,24 @@ def verify(_):
             errors.append("browser check failed: " + (out.stderr.strip() or out.stdout.strip())[-400:])
     except (FileNotFoundError, subprocess.TimeoutExpired) as e:
         print(f"(browser check skipped: {e})")
+    # duplicates: two records with the same normalized title are an error; near-identical titles that share
+    # authors are reported (build.py merges conference -> journal versions; the rest are often a series' parts)
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
+    from resolve_ids import norm, sim
+    by_title = Counter(norm(p["title"]) for p in papers)
+    dup = [t for t, k in by_title.items() if k > 1]
+    if dup:
+        errors.append(f"{len(dup)} titles appear more than once, e.g. {dup[:3]}")
+    surname = lambda a: (norm(a).split() or [""])[-1]
+    buckets = {}
+    for p in papers:
+        buckets.setdefault(" ".join(norm(p["title"]).split()[:3]), []).append(p)
+    near = [(a, b) for ps in buckets.values() for i, a in enumerate(ps) for b in ps[i + 1:]
+            if norm(a["title"]) != norm(b["title"]) and sim(a["title"], b["title"]) >= 0.93
+            and len({surname(x) for x in a["authors"]} & {surname(x) for x in b["authors"]}) >= 2]
+    for a, b in near:
+        print(f"  near-duplicate titles (check they are different papers): {a['year']} {a['venue'][:40]} / "
+              f"{b['year']} {b['venue'][:40]}: {a['title'][:70]}")
     years = Counter(p["year"] for p in papers)
     print(f"{len(papers)} papers; latest years: " + ", ".join(f"{y}: {years[y]}" for y in sorted(years)[-3:]))
     for e in errors:

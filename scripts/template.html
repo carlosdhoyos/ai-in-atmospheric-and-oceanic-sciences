@@ -697,6 +697,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
             ${p.arxiv ? `<a href="https://arxiv.org/abs/${esc(p.arxiv)}" target="_blank" rel="noopener">arXiv:${esc(p.arxiv)}</a>` : ""}
             ${p.pdf ? `<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF</a>` : ""}
             ${p.s2 ? `<a href="https://www.semanticscholar.org/paper/${p.s2}" target="_blank" rel="noopener">Citing papers</a>` : ""}
+            ${(p.alt_ids || []).map(a => a.doi ? `<a href="https://doi.org/${esc(a.doi)}" target="_blank" rel="noopener" title="${esc(a.venue)}, ${a.year}">Also: ${a.year} version</a>` : "").join("")}
             ${p.summary ? `<button type="button" data-act="sum" aria-expanded="${sOpen}">${sOpen ? "Hide summary" : "Summary"}</button>` : ""}
             ${p.abstract ? `<button type="button" data-act="abs" aria-expanded="${open}">${open ? "Hide abstract" : "Abstract"}</button>` : ""}
             <button type="button" data-act="cite">Copy citation</button>

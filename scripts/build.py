@@ -16,7 +16,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 import s2
-from resolve_ids import sim
+from resolve_ids import norm, sim
 from taxonomy import PERIODS, SAMPLING_NOTE, categorize, load_overrides
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -103,6 +103,37 @@ def route_of(name):
     if "applied" in name:
         return "applied-scope search"
     return "recent window search"
+
+
+def merge_versions(papers):
+    """Fold conference (or venue-less) versions into the journal version of the same work: near-identical title,
+    at least two shared author surnames (all of them for shorter author lists), at most four years apart. The journal
+    record is kept; the other's DOI, arXiv ID and Semantic Scholar ID are kept as alternates. Returns the merged pairs."""
+    surname = lambda a: (norm(a).split() or [""])[-1]
+    buckets = {}
+    for p in papers:
+        buckets.setdefault(" ".join(norm(p["title"]).split()[:3]), []).append(p)
+    gone, merged = set(), []
+    for ps in buckets.values():
+        for a in ps:
+            for b in ps:
+                if a is b or a["s2"] in gone or b["s2"] in gone or a["kind"] != "journal" or \
+                        b["kind"] not in ("conference", "other") or abs(a["year"] - b["year"]) > 4:
+                    continue
+                shared = {surname(x) for x in a["authors"]} & {surname(x) for x in b["authors"]}
+                if len(shared) < min(2, len(a["authors"]), len(b["authors"])) or not shared or \
+                        sim(a["title"], b["title"]) < 0.93:
+                    continue
+                a["alt_ids"] = a.get("alt_ids", []) + [{"s2": b["s2"], "doi": b["doi"], "venue": b["venue"], "year": b["year"]}]
+                a["arxiv"] = a["arxiv"] or b["arxiv"]
+                a["cites"] = max(a["cites"], b["cites"])
+                a["topics"] = sorted(set(a["topics"]) | set(b["topics"]), key=list(TOPICS).index)
+                if b["route"] == "seed":
+                    a["route"] = "seed"
+                gone.add(b["s2"])
+                merged.append((a, b))
+    papers[:] = [p for p in papers if p["s2"] not in gone]
+    return merged
 
 
 def mark_core(papers):
@@ -259,12 +290,16 @@ def main():
         }
 
     out = sorted(papers.values(), key=lambda p: -p["cites"])
+    merged = merge_versions(out)
+    for a, b in merged:
+        print(f"  MERGED: {b['venue']} {b['year']} -> {a['venue']} {a['year']}: {a['title'][:80]}")
     mark_core(out)
     # Structured summaries (goal, architecture, data, result, open work, issues), keyed by S2 paperId
     summaries = json.load(open(D("summaries.json"))) if os.path.exists(D("summaries.json")) else {}
-    for p in out:
-        if p["s2"] in summaries:
-            p["summary"] = summaries[p["s2"]]
+    for p in out:  # a merged record falls back to the summary written for its other version
+        sid = next((i for i in [p["s2"]] + [x["s2"] for x in p.get("alt_ids", [])] if i in summaries), None)
+        if sid:
+            p["summary"] = summaries[sid]
     # Homogenized categories (same rules as the DuckDB database) for the Insights view
     cats = categorize(out, summaries, load_overrides(D("category_overrides.csv")))
     keep = ("paper_type", "venue_family", "journal", "probabilistic", "model_family", "arch_group", "approach", "data_source",

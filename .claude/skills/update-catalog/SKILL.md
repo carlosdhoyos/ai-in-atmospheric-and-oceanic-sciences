@@ -234,6 +234,10 @@ in the journal assessment, anything unresolved, and summaries marked `assessment
   take an hour on a shared IP. OpenAlex is not used because its free daily quota is often exhausted.
 - **Crossref returns abstracts or preprint copies** (EGU abstracts, EarthArXiv, SSRN) with the same title:
   `resolve_ids.py` already skips those DOI prefixes; add new ones to `NON_FINAL_DOI` if they appear.
+- **Conference and journal versions are merged.** `build.py` folds a conference (or venue-less) record into the
+  journal record of the same work (title similarity >= 0.93, two shared author surnames, <= 4 years apart) and keeps
+  the other DOI under `alt_ids`; it prints each `MERGED` pair. `update.py verify` fails on two records with the same
+  normalized title and lists near-identical titles that share authors, so check those by hand.
 - **Journal names come from Crossref.** `update.py build` runs `resolve_ids.py --dois`, which caches each DOI's
   Crossref type, journal and year; the build prefers these over Semantic Scholar's venue (which has filed papers
   under *The Lancet*). After a build, check the "Other venues" family in the database and extend `VENUE_FAMILY`

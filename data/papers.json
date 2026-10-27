@@ -101386,6 +101386,14 @@
     "energy"
    ],
    "route": "era search",
+   "alt_ids": [
+    {
+     "s2": "6c84afdb63a8eb642bb0e91cae90bc60aa6ce751",
+     "doi": "10.1109/icps.2011.5890873",
+     "venue": "2011 IEEE Industrial and Commercial Power Systems Technical Conference",
+     "year": 2011
+    }
+   ],
    "core": true,
    "summary": {
     "goal": "Improves short-term wind power prediction using wavelet transform and support vector machines.",
@@ -202455,10 +202463,18 @@
    "infl": 0,
    "abstract": null,
    "topics": [
-    "seaice",
-    "remote_sensing"
+    "remote_sensing",
+    "seaice"
    ],
    "route": "era search",
+   "alt_ids": [
+    {
+     "s2": "b4470c150fa79247bd6a95cd848002675ca58a61",
+     "doi": "10.1109/igarss.1991.577672",
+     "venue": "[Proceedings] IGARSS'91 Remote Sensing: Global Monitoring for Earth Management",
+     "year": 1991
+    }
+   ],
    "core": true,
    "summary": {
     "goal": "Classifies sea ice types in polarimetric synthetic aperture radar images, to support ice mapping.",
@@ -217785,70 +217801,6 @@
     ],
     "open_theme": [
      "Generalization & transfer"
-    ]
-   }
-  },
-  {
-   "id": "6c84afdb63a8",
-   "s2": "6c84afdb63a8eb642bb0e91cae90bc60aa6ce751",
-   "title": "Short-term wind power prediction based on wavelet transform-support vector machine and statistic characteristics analysis",
-   "authors": [
-    "Jie Shi",
-    "Yong-Qian Liu",
-    "Yong-Ping Yang",
-    "Wei-Jen Lee"
-   ],
-   "year": 2011,
-   "date": "2011-05-01",
-   "venue": "2011 IEEE Industrial and Commercial Power Systems Technical Conference",
-   "kind": "conference",
-   "volume": null,
-   "pages": "1-7",
-   "doi": "10.1109/icps.2011.5890873",
-   "arxiv": null,
-   "pdf": "https://zenodo.org/records/1271225/files/article.pdf",
-   "cites": 47,
-   "infl": 0,
-   "abstract": "The prediction algorithm is an important key factor in wind power prediction. However, there are pros and cons on different forecasting algorithms. Based on the principles of wavelet transform (WT), support vector machine (SVM) as well as characteristics of wind turbine generation systems, two prediction methods are presented and compared in this paper. In method 1, the time series of model input are decomposed into different frequency composes and models are set up separately based on SVM. The results are combined together to obtain the final wind power output. In method 2, the wavelet kernel function is applied in place of RBF kernel function in SVM training. To supply more valuable suggestions, the means of evaluating prediction algorithm precision is proposed. The operation data from two wind farms both in North China and U.S.A are used to test the usability of the method. The mean relative error of WT-SVM model (method 1) is less than that of traditional SVM model.",
-   "topics": [
-    "energy"
-   ],
-   "route": "era search",
-   "core": false,
-   "summary": {
-    "goal": "Improves short-term wind power prediction by combining wavelet transform with support vector machines and using the statistical characteristics of wind turbine generation.",
-    "architecture": "Support vector machine regression in two variants: wavelet decomposition into frequency components each modelled by an SVM and recombined, and an SVM with a wavelet kernel replacing the RBF kernel.",
-    "data": "Operational data from two wind farms, one in North China and one in the U.S.A.",
-    "result": "The WT-SVM model with wavelet decomposition (method 1) gives lower mean relative error than a traditional SVM; a precision evaluation scheme is also proposed.",
-    "open_work": "Integration with numerical weather prediction inputs and longer forecast horizons; systematic comparison of the two wavelet variants across more farms.",
-    "issues": "Only two wind farms; baseline limited to a traditional SVM; horizons and error magnitudes are not given in the abstract.",
-    "basis": "abstract"
-   },
-   "cat": {
-    "paper_type": "method",
-    "venue_family": "Energy journals",
-    "journal": "2011 IEEE Industrial and Commercial Power Systems Technical Conference",
-    "probabilistic": false,
-    "model_family": [
-     "Kernel / GP / SVM"
-    ],
-    "arch_group": [
-     "Classical ML"
-    ],
-    "approach": [],
-    "data_source": [
-     "Operational NWP / reforecasts",
-     "Energy & power data"
-    ],
-    "task": [
-     "Ocean & sea-ice prediction",
-     "Energy forecasting"
-    ],
-    "issue_theme": [
-     "Limited evaluation"
-    ],
-    "open_theme": [
-     "Online coupling & hybrid models"
     ]
    }
   },
@@ -251718,70 +251670,6 @@
     "task": [
      "Detection & classification",
      "Retrieval & estimation from observations"
-    ],
-    "issue_theme": [
-     "Label or ground-truth quality"
-    ],
-    "open_theme": []
-   }
-  },
-  {
-   "id": "b4470c150fa7",
-   "s2": "b4470c150fa79247bd6a95cd848002675ca58a61",
-   "title": "Application Of Neural Networks To Sea Ice Classification Using Polarimetric SAR Images",
-   "authors": [
-    "Ron Kwok",
-    "Y. Hara",
-    "R. Atkins",
-    "S. Yueh",
-    "R. Shin",
-    "J. Kong"
-   ],
-   "year": 1991,
-   "date": "1991-06-03",
-   "venue": "[Proceedings] IGARSS'91 Remote Sensing: Global Monitoring for Earth Management",
-   "kind": "conference",
-   "volume": "I",
-   "pages": "85-88",
-   "doi": "10.1109/igarss.1991.577672",
-   "arxiv": null,
-   "pdf": null,
-   "cites": 21,
-   "infl": 0,
-   "abstract": null,
-   "topics": [
-    "seaice",
-    "remote_sensing"
-   ],
-   "route": "era search",
-   "core": false,
-   "summary": {
-    "goal": "Classifies sea ice types from polarimetric synthetic aperture radar images using neural networks.",
-    "architecture": "Neural network classifier using polarimetric SAR features.",
-    "data": "Polarimetric SAR imagery of sea ice (likely airborne JPL AIRSAR); details not reported in the available metadata.",
-    "result": "Not reported in the abstract; the neural network is shown to separate sea ice types.",
-    "open_work": "Application to spaceborne SAR and seasonal conditions, and comparison with statistical classifiers.",
-    "issues": "No abstract available; limited scenes and ground truth, sensitivity to incidence angle and season.",
-    "basis": "assessment"
-   },
-   "cat": {
-    "paper_type": "method",
-    "venue_family": "IEEE & remote sensing",
-    "journal": "[Proceedings] IGARSS'91 Remote Sensing: Global Monitoring for Earth Management",
-    "probabilistic": false,
-    "model_family": [
-     "Neural network (unspecified)"
-    ],
-    "arch_group": [
-     "MLP / generic NN"
-    ],
-    "approach": [],
-    "data_source": [
-     "Satellite"
-    ],
-    "task": [
-     "Detection & classification",
-     "Ocean & sea-ice prediction"
     ],
     "issue_theme": [
      "Label or ground-truth quality"
