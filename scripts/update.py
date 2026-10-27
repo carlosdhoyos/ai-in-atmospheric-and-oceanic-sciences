@@ -103,11 +103,15 @@ def screen_batches(a):
     import csv
     path = sorted(glob.glob(os.path.join(ROOT, "data", "candidates_*_scored.csv")))[-1] if not a.file else a.file
     rows = [r for f in (a.file.split(",") if a.file else [path]) for r in csv.DictReader(open(f))]
-    if a.per_year:  # keep the N most cited candidates of each publication year (for large era searches)
+    if a.per_year or a.share:  # sample each publication year by citations (for large era searches)
         by = {}
         for r in sorted(rows, key=lambda r: -int(r.get("cites") or 0)):
             by.setdefault((r.get("date") or "")[:4], []).append(r)
-        rows = sorted((r for v in by.values() for r in v[:a.per_year]), key=lambda r: -float(r.get("score") or 0))
+        # --per-year N: the N most cited; --share F: the most cited share F, at least --per-year (default 0);
+        # --skip-per-year K leaves out the K most cited, already screened in an earlier round
+        take = {y: max(a.per_year or 0, round((a.share or 0) * len(v))) for y, v in by.items()}
+        rows = sorted((r for y, v in by.items() for r in v[a.skip_per_year:take[y]]),
+                      key=lambda r: -float(r.get("score") or 0))
     rows = rows[:a.top]
     titles = [p["title"] for p in load("data/papers.json")["papers"] if p["year"] >= max(1, a.recent_from)]
     shutil.rmtree(os.path.join(WORK, "screen_in"), ignore_errors=True)
@@ -197,7 +201,7 @@ if __name__ == "__main__":
     p = sub.add_parser("pending-summaries"); p.add_argument("--size", type=int, default=30); p.set_defaults(fn=pending)
     sub.add_parser("merge-summaries").set_defaults(fn=merge)
     p = sub.add_parser("screen-batches"); p.add_argument("--top", type=int, default=640); p.add_argument("--n", type=int, default=4)
-    p.add_argument("--file", help="candidates CSV (comma-separated for several)"); p.add_argument("--per-year", type=int, help="keep the N most cited candidates per year"); p.add_argument("--recent-from", type=int, default=2022); p.set_defaults(fn=screen_batches)
+    p.add_argument("--file", help="candidates CSV (comma-separated for several)"); p.add_argument("--per-year", type=int, help="keep the N most cited candidates per year"); p.add_argument("--share", type=float, help="keep the most cited share of each year's candidates"); p.add_argument("--skip-per-year", type=int, default=0, help="skip the K most cited per year (screened before)"); p.add_argument("--recent-from", type=int, default=2022); p.set_defaults(fn=screen_batches)
     p = sub.add_parser("build"); p.add_argument("--refresh-citations", action="store_true"); p.set_defaults(fn=build)
     sub.add_parser("verify").set_defaults(fn=verify)
     args = ap.parse_args()

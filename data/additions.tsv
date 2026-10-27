@@ -82,7 +82,7 @@ da,methods	DOI:10.1029/2025ms005360	Unified neural background-error covariance m
 remote_sensing	DOI:10.1073/pnas.2502903122	SpecTf transformer cloud detection for imaging spectroscopy; PNAS
 weather,methods	DOI:10.1029/2025ms005138	Global mass/energy conservation schemes for AI weather models; JAMES, well cited
 extremes,climate,probabilistic	DOI:10.1175/bams-d-25-0178.1	BAMS: huge ML-emulator ensembles to quantify very extreme events
-weather	ARXIV:2509.18994	ECMWF AIFS Single update; operational system
+weather	DOI:10.5194/gmd-19-4703-2026	ECMWF AIFS Single update; operational system
 seaice	DOI:10.5194/tc-19-4149-2025	DL short-term high-resolution sea ice concentration forecasting system; well cited
 extremes,weather	DOI:10.1175/aies-d-25-0097.1	WMO ET-AITC multimodel evaluation of AI TC forecasts in 2024 WNP season
 s2s	DOI:10.1038/s41612-026-01459-9	DL MJO prediction with historical context and bias correction; npj CAS
@@ -102,7 +102,7 @@ s2s,climate	DOI:10.1038/s41467-025-63157-z	Observation-informed DL ENSO projecti
 weather,methods	DOI:10.1175/aies-d-25-0121.1	Effective resolution / blurring of deterministic AI weather models; AIES
 ocean,s2s	DOI:10.1126/sciadv.adu2488	ORCA-DL data-driven global ocean model for seasonal-decadal prediction; Sci Adv
 review,chemistry	DOI:10.5194/gmd-18-8777-2025	Review of ML in tropospheric ozone research (TOAR); GMD
-extremes,weather	ARXIV:2508.15724	Shows HRES beats AI models on record-breaking extremes; highly cited
+extremes,weather	DOI:10.1126/sciadv.aec1433	Shows HRES beats AI models on record-breaking extremes; highly cited
 chemistry,methods	DOI:10.5194/gmd-19-1893-2026	GNN atmospheric transport emulator for GHG flux inversion; GMD
 chemistry	DOI:10.1029/2025gl117459	Zeeman multi-pollutant regional chemistry forecasting; GRL
 probabilistic,weather	ARXIV:2601.18111	Simple scalable probabilistic medium-range framework; 15 cites
@@ -4336,3 +4336,1106 @@ hydrology	DOI:10.1007/s11269-015-1107-7	LSSVR/ANFIS streamflow forecasting
 hydrology	DOI:10.1016/j.jhydrol.2023.130558	VMD-LSSVM monthly runoff prediction
 energy	1652664c79c3798b92c2c9f0db7adccd780c75ed	Noise-model v-SVR short-term wind speed forecasting
 extremes,climate	DOI:10.1038/srep03188	Deep learning estimate of continental fire incidence from climate data; Scientific Reports
+da,ocean,probabilistic	DOI:10.1029/2025ms005063	Generative DA reconstructing eddy-resolving surface ocean state from multi-modal satellite data; JAMES
+agriculture,benchmarks	DOI:10.5194/essd-18-3997-2026	CY-Bench: benchmark dataset for ML sub-national crop yield forecasting with weather inputs; ESSD
+hydrology,benchmarks	DOI:10.5194/essd-17-461-2025	CAMELS-IND large-sample hydrometeorological dataset (CAMELS family used to train ML rainfall-runoff models); ESSD
+hydrology,extremes	DOI:10.1029/2025wr040414	Evaluates differentiable physics-informed hydrologic models (dHBV) on unseen extreme floods; WRR
+hydrology,extremes	DOI:10.1111/mice.13484	HydroGraphNet: interpretable physics-informed GNN surrogate for flood forecasting; highly cited
+chemistry,xai	DOI:10.1016/j.ese.2025.100524	Causal-inference ML attributes China's 2022 ozone rebound to meteorological drivers; highly cited
+chemistry,remote_sensing	DOI:10.1016/j.rse.2024.114482	First 24-hourly 1-km gapless surface ozone retrieval from geostationary satellite with AI; RSE
+chemistry	DOI:10.1016/j.envint.2024.109249	ML forecasting of O3 and NO2 with full spatiotemporal coverage as alternative to CTMs; Environment International
+chemistry,remote_sensing	DOI:10.1016/j.rse.2026.115379	Physics-based AI combining radiative transfer and ML for aerosol layer height and AOD retrieval over ocean; RSE
+energy,review,foundation	DOI:10.48550/arxiv.2507.23147	Review of foundation models for wind and solar power forecasting; RSER
+energy,review	DOI:10.3390/en18082108	Comprehensive review of PV power forecasting methods including ML; well cited
+energy,review	DOI:10.1016/j.esr.2025.101735	Systematic review of deep learning for solar irradiance/PV power forecasting; well cited
+hydrology,review	DOI:10.3390/w17111707	Comprehensive review of AI for surface water (streamflow, floods) management; well cited
+hydrology,review	DOI:10.1016/j.acags.2025.100303	Systematic review of ML for groundwater level prediction; fills thin groundwater coverage
+agriculture	DOI:10.1038/s44264-025-00052-6	ML potato yield forecasting with daily climate and agroclimatic drivers; npj Sustainable Agriculture
+agriculture	DOI:10.1016/j.agrformet.2025.110675	Deep learning crop yield estimation aligning satellite phenology over large regions; Agric. For. Meteorol.
+agriculture,extremes	DOI:10.1016/j.ecoinf.2024.102972	RF with SIF tracking crop yield variation under drought; climate-impact tie
+hydrology,postprocessing	DOI:10.1016/j.jhydrol.2025.132904	ML pre- and post-processing to improve hydrological model streamflow simulation; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2026.134985	Hybrid Penman-Monteith + ML model for evapotranspiration and its components; J. Hydrology
+climate,extremes,xai	DOI:10.1038/s43247-025-03110-6	Projected African heatwave changes with SHAP-based attribution of climate-land-use drivers; Comms Earth & Env
+hydrology,xai	DOI:10.1029/2024wr039734	Hydrological model + XGBoost/RF to identify controls on streamflow variability; WRR
+energy	DOI:10.5194/wes-10-1137-2025	Spatio-temporal GNN for offshore wind farm power prediction from SCADA (wind speed) inputs; Wind Energy Science
+review,hydrology	DOI:10.1007/s12145-025-01911-z	Review of ensemble ML in water resources; well cited
+hydrology,remote_sensing	DOI:10.1007/s11269-024-04069-3	ML soil moisture from Sentinel-1, ground and meteorological data; well cited
+review,hydrology,extremes	DOI:10.1007/s11069-025-07195-2	Systematic review of ML drought forecasting; well cited
+hydrology,extremes	DOI:10.1371/journal.pone.0326174	ML drought prediction from PDSI/TerraClimate; well cited for age
+review,energy	DOI:10.1007/s42452-025-07675-x	Comprehensive review of ML wind power forecasting; highly cited
+remote_sensing,ocean	DOI:10.1109/tgrs.2025.3574129	CNN-Transformer global sea surface wind retrieval from GNSS-R; TGRS, highly cited
+agriculture	DOI:10.1088/2515-7620/adb9c0	Stacked ensemble crop yield prediction with climatic inputs; well cited
+hydrology,agriculture,extremes	DOI:10.1109/tgrs.2025.3543611	Meteorology-driven Transformer soil moisture forecasting for agricultural drought; TGRS
+chemistry,remote_sensing,foundation	DOI:10.3390/rs17203472	Urban air quality prediction from AlphaEarth foundation embeddings; well cited
+da,weather	DOI:10.3390/atmos17020163	Self-supervised GNN for observation-point atmospheric state estimation; well cited
+agriculture,hydrology,climate	DOI:10.1016/j.jenvman.2025.124363	DL forecasting of ET and crop water stress under CMIP6 SSP scenarios
+energy,probabilistic	DOI:10.3390/su18020739	Probabilistic PV forecasting using meteorological variables with conformal calibration
+hydrology,remote_sensing,extremes	DOI:10.1109/jstars.2025.3610403	Bayesian DL uncertainty-aware flood inundation mapping from SAR
+hydrology,extremes	DOI:10.1021/acs.est.4c08699	ML rainstorm risk hotspots across 268 Chinese cities; ES&T
+weather,hydrology	DOI:10.1038/s41467-025-58234-2	ML shows limit to rain-snow partitioning from near-surface meteorology; Nature Communications
+hydrology,extremes	DOI:10.3390/w17081239	Physics-guided DL for urban pluvial flood evolution
+hydrology,xai	DOI:10.1007/s11269-025-04430-0	Explainable ML (ALE) for flood susceptibility mapping
+hydrology,extremes	DOI:10.1038/s42949-025-00208-w	ML flood susceptibility and urban building flood risk; npj Urban Sustainability, well cited
+review,ocean,remote_sensing	DOI:10.3390/rs17101776	Review of ML in ocean color remote sensing; well cited
+energy	DOI:10.1007/s12145-025-01791-3	Hybrid DL solar radiation (irradiance) forecasting
+energy,probabilistic	DOI:10.1109/tste.2025.3591920	Transformer-based diffusion model for probabilistic spatio-temporal wind speed forecasting; IEEE TSTE
+hydrology	DOI:10.1007/s11269-025-04210-w	Ensemble ML groundwater level forecasting; highly cited
+review,hydrology	DOI:10.3390/w17091384	Overview of AI models for evapotranspiration estimation; well cited
+extremes	DOI:10.1038/s41598-025-93227-7	Hybrid ML time-series model for heatwave warning forecasts; well cited
+hydrology	DOI:10.1038/s41598-025-91339-8	GPR with K-means clustering for short-term rainfall-runoff modelling
+hydrology	DOI:10.1016/j.envsoft.2025.106524	Stream-LSTM adaptive rainfall-runoff model under changing environment; EMS
+hydrology,agriculture,remote_sensing	DOI:10.3390/rs17020181	RS + ML root-zone soil moisture prediction in drought-prone agricultural region
+review,energy	DOI:10.1016/j.ref.2025.100739	Review of DL models for solar and wind energy forecasting
+chemistry	DOI:10.3390/atmos16070776	Stacking ensemble with SHAP for air quality forecasting using meteorology
+hydrology,probabilistic	DOI:10.1029/2025jh000732	ML ensembles for hydrologic prediction and uncertainty quantification; JGR ML
+hydrology,remote_sensing	DOI:10.1038/s41586-025-09046-3	Deep-learning satellite fusion shows global seasonality of lake extent; Nature
+hydrology	DOI:10.1016/j.jhydrol.2025.132737	Mixture of experts (Informer/LSTM) for daily streamflow forecasting; J. Hydrology
+energy	DOI:10.1109/tsg.2025.3605653	Multi-task model jointly forecasting load, prices and meteorological features; IEEE TSG
+hydrology,chemistry,climate	DOI:10.1038/s44221-025-00532-6	Data-driven projections of lake and reservoir methane under SSP scenarios; Nature Water
+hydrology	DOI:10.5194/hess-29-841-2025	Multi-station DL with climatic inputs for groundwater level simulation; HESS
+energy,extremes	DOI:10.1038/s41598-025-15065-x	SOM analysis of heatwave and compound weather drivers of power outages
+ocean	DOI:10.1109/jstars.2025.3531122	Multiscale spatio-temporal attention network for SST prediction
+nowcasting,remote_sensing,energy	DOI:10.1109/lgrs.2024.3491094	Cloud motion estimation by deep feature matching for solar radiation prediction
+remote_sensing,energy	DOI:10.1109/tim.2025.3529074	Ground-based cloud image classification applied to PV forecasting
+energy,probabilistic	DOI:10.1109/tpwrs.2025.3559455	Knowledge-integrated GAN for year-round stochastic weather simulation for PV integration; IEEE TPWRS
+ocean,chemistry	DOI:10.1126/sciadv.adt4195	Observation-based ML CO2 fluxes show mesoscale eddies enhance ocean uptake; Science Advances
+review,agriculture,remote_sensing	DOI:10.3390/agriculture16040417	Review of satellite remote sensing and ML for crop yield prediction
+energy	DOI:10.1016/j.energy.2025.135971	Transformer PV forecasting analysing weather mutation effects; highly cited
+hydrology	DOI:10.1016/j.eswa.2025.129974	Hybrid DL rainfall-runoff forecasting with multi-source spatiotemporal data
+energy,weather	DOI:10.1016/j.renene.2025.122951	Wind power prediction coupling multiscale numerical (NWP) simulation with DL; highly cited
+review,energy,climate	DOI:10.1016/j.adapen.2025.100211	Review of AI in energy and climate change modelling; highly cited
+review,agriculture	DOI:10.1080/23311932.2025.2454354	Review of AI and remote sensing for climate-smart agriculture; highly cited
+review,energy	DOI:10.1016/j.rser.2025.116356	Review of Transformer-based renewable energy forecasting; RSER
+chemistry,xai	DOI:10.5194/acp-25-1749-2025	ML decoupling of meteorological drivers for urban ozone control; ACP
+hydrology	DOI:10.1016/j.ecolind.2024.113012	Ensemble ML extrapolation of PML evapotranspiration data
+hydrology	DOI:10.1016/j.jhydrol.2025.132900	Transformer for multi-scale soil moisture simulation; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2025.133086	Physically constrained spatiotemporal DL for multi-layer soil moisture; J. Hydrology
+chemistry	DOI:10.1016/j.neucom.2024.128924	Dynamic synchronous graph transformer for region-level air-quality forecasting
+hydrology,probabilistic	DOI:10.1016/j.ejrh.2025.102668	MC-dropout uncertainty in DL streamflow forecasting
+agriculture,climate	DOI:10.1016/j.agsy.2025.104367	Crop models + ML for projecting climate change crop impacts; Agricultural Systems
+parameterization,methods	DOI:10.5194/gmd-19-6451-2026	JCM: differentiable JAX atmospheric model for hybrid ML; GMD
+energy,probabilistic	DOI:10.1038/s41467-026-69015-w	Probabilistic day-ahead renewable and demand forecasting from weather data; Nature Communications
+hydrology,extremes	DOI:10.1007/s00382-025-07720-w	US county-scale drought prediction comparing GBMs and deep models on weather/soil data; Climate Dynamics
+hydrology,postprocessing	DOI:10.1038/s43247-025-02324-y	Hybrid process-based + ML post-processing for streamflow incl. extremes across Europe; Comms Earth & Environment
+chemistry	DOI:10.1038/s41598-025-91329-w	LSTM vs ANN daily ozone prediction; regional but very highly cited (161) for its age
+energy,methods	DOI:10.1016/j.apenergy.2024.124844	Kolmogorov-Arnold network for solar radiation and temperature forecasting; Applied Energy, well cited
+agriculture,review	DOI:10.3390/plants14182841	Review of ML/DL/XAI for crop yield prediction under abnormal climate conditions
+hydrology	DOI:10.1016/j.jhydrol.2025.134082	Hybrid process-data driven real-time hydrological forecasting with interpretable DL; Journal of Hydrology, well cited
+hydrology,benchmarks,extremes	DOI:10.1038/s41597-025-04725-2	FloodCastBench: large-scale ML-ready flood dynamics dataset and foundation models; Scientific Data (dataset companion, distinct from catalog FloodCast model pap
+seaice,s2s	DOI:10.1016/j.rse.2024.114568	Deep learning long-term Arctic sea ice concentration prediction with atmospheric drivers; Remote Sensing of Environment
+chemistry,review	DOI:10.1016/j.envpol.2025.125937	Systematic review of ML/DL approaches for air pollution modeling; Environmental Pollution
+energy,nowcasting	DOI:10.1016/j.egyai.2025.100667	Interpretable transformer intra-day solar forecasting using satellite and NWP inputs
+ocean,remote_sensing	DOI:10.1109/jstars.2025.3649568	Daily 3-D subsurface salinity reconstruction from satellite data with wavelet-enhanced 3-D Mamba
+chemistry,review,remote_sensing	DOI:10.1016/j.uclim.2025.102566	Review of ground, satellite, model and ML integration for urban PM2.5 monitoring; Urban Climate
+agriculture,hydrology	DOI:10.1016/j.agwat.2025.109303	New agricultural drought index from multi-source remote sensing and interpretable ML; Agricultural Water Management
+energy,nowcasting	DOI:10.1016/j.renene.2025.123774	Multimodal DL very short-term solar forecasting from sky images plus numerical data; Renewable Energy
+energy,postprocessing	DOI:10.1016/j.energy.2025.136498	LSTM/Transformer bias correction of ERA5 hourly wind speeds for wind energy; Energy
+seaice,remote_sensing,xai	DOI:10.1016/j.rsase.2025.101538	Improved and interpreted DL sea ice charting on the AutoICE benchmark; thin subfield
+remote_sensing,postprocessing	DOI:10.5194/acp-25-2845-2025	Neural-network correction of upper-tropospheric humidity in ERA5/ECMWF using in-situ measurements; ACP
+hydrology,remote_sensing	DOI:10.5194/hess-30-797-2026	AI image-based camera gauge for long-term real-time river water level monitoring; HESS
+hydrology,benchmarks	DOI:10.5194/essd-17-2575-2025	Global ML reconstruction of long-term terrestrial water storage anomalies (GRACE-era extension); ESSD dataset
+hydrology,parameterization	DOI:10.1029/2025jh000682	Hybrid physics-guided deep learning for surface soil moisture prediction; JGR
+energy,review	DOI:10.3390/en18133290	Critical review of data-driven detection/prediction of wind and solar ramp events linked to extreme weather
+hydrology,benchmarks	DOI:10.5194/essd-18-77-2026	GEMS-GER: ML benchmark dataset of groundwater levels with meteorological forcings
+hydrology,remote_sensing,benchmarks	DOI:10.1038/s41597-025-04554-3	DeepFlood: high-resolution flood mapping dataset for deep learning; Scientific Data, well cited
+hydrology,remote_sensing,review	DOI:10.1029/2024wr037929	WRR review of high-resolution remotely sensed soil moisture/ET including AI downscaling
+extremes,weather,da	DOI:10.1029/2025gl115926	Hybrid FuXi ML model + physics typhoon model with CNOP assimilation; GRL
+energy	DOI:10.1109/tpwrs.2024.3388011	Regional wind power forecasting with Bayesian selection of weather input features; IEEE TPWRS
+energy,review	DOI:10.3390/en18020350	Comprehensive, highly cited review of ML wind power prediction
+climate,downscaling	DOI:10.1038/s41612-025-01033-9	Stacked ensemble ML improving CMIP6 temperature/precipitation projections for the Middle East; npj CAS
+downscaling,benchmarks	DOI:10.1038/s41598-025-34557-4	Benchmark of geographic generalization of deep learning precipitation downscaling of ESM output
+chemistry,extremes	DOI:10.1038/s41586-025-09482-1	Satellite + ML + CTM quantification of global PM2.5 from 2023 Canadian wildfires; Nature
+energy,methods	DOI:10.1016/j.apenergy.2025.125526	Frequency-domain PINN for 3D spatio-temporal wind field prediction for wind turbines; Applied Energy, well cited
+energy,nowcasting,remote_sensing	DOI:10.1016/j.enconman.2024.119218	Cross-modal DL fusing satellite imagery with time series for PV forecasting
+ocean,postprocessing	DOI:10.1109/tgrs.2025.3528631	Adversarial TCN correction of numerically forecast sea-surface fields for oil spill drift prediction; TGRS
+hydrology,xai,benchmarks	DOI:10.48550/arxiv.2503.17452	CausalRivers: large real-world river-discharge benchmark for causal discovery; ICLR
+energy,postprocessing	DOI:10.1016/j.apenergy.2025.127070	Systematic evaluation of transformers for post-processing WRF wind speed and short-term wind power
+hydrology,methods	DOI:10.1016/j.watres.2026.125886	Physics-integrated LLM multi-agent framework for groundwater inverse modelling; Water Research
+ocean,da,methods	DOI:10.48550/arxiv.2501.08430	PINNs for phase-resolved data assimilation and prediction of nonlinear ocean waves
+hydrology,remote_sensing	DOI:10.1109/tgrs.2025.3533927	Critical evaluation of ML-based SAR soil moisture retrieval expectations; TGRS
+extremes,xai	DOI:10.1016/j.atmosres.2026.108809	XAI identifies meteorological drivers of extreme precipitation in the Asian monsoon region
+hydrology,extremes	DOI:10.1016/j.jhydrol.2025.132918	Real-time DL error correction of multi-hour flash flood forecasts; J. Hydrology
+hydrology,extremes,benchmarks	DOI:10.5194/hess-29-767-2025	BERT-based national county-level urban flood dataset for China from news; HESS
+energy,review	DOI:10.1016/j.pes.2025.100058	Well-cited review of ML for PV power forecasting
+hydrology,remote_sensing,extremes	DOI:10.1016/j.srs.2025.100203	DeepSARFlood: ViT deep ensembles for SAR flood inundation mapping with uncertainty
+hydrology,extremes	DOI:10.1016/j.scs.2025.106277	ML surrogate for metropolitan-scale urban flood modelling
+energy,nowcasting,remote_sensing	DOI:10.1016/j.apenergy.2024.124387	Transformer solar nowcasting from geostationary satellite data; Applied Energy
+hydrology	DOI:10.1016/j.envsoft.2025.106360	Coupling SWAT+ with LSTM for interpretable streamflow in arid basins (hybrid process-ML)
+remote_sensing,hydrology,review	DOI:10.1016/j.earscirev.2025.105253	Earth-Science Reviews review of multi-source precipitation estimation with remote sensing and ML
+hydrology,extremes,review	DOI:10.1016/j.envsoft.2025.106525	Critical review of 20 years of AI for urban flood prediction
+energy,methods	DOI:10.1016/j.inffus.2025.103478	Dynamic graph NN multi-task forecasting of wind speed and time-varying wind shear
+hydrology,benchmarks	DOI:10.1017/eds.2025.10006	HydroLLM: benchmark for hydrology knowledge of LLMs
+climate	DOI:10.1029/2024ms004523	Rapid emulation of spatially resolved temperature response to effective radiative forcing; JAMES
+energy,review	DOI:10.1016/j.rser.2025.116663	RSER review of deep learning for wind, solar and ocean energy prediction
+hydrology,remote_sensing,extremes	DOI:10.1016/j.jhydrol.2025.134662	PhysWRNet: physics-guided DL flood inundation mapping from SAR and hydrodynamic simulations
+remote_sensing,benchmarks,probabilistic	DOI:10.3390/rs18030466	NOAH: multi-modal sensor-fusion dataset for generative modelling of geostationary-like observations
+extremes,weather	DOI:10.1038/s41612-025-00926-z	Hybrid AI global model + regional NWP for typhoon intensity; npj CAS, well cited
+hydrology,s2s,extremes	DOI:10.1038/s41467-025-62761-3	Deep learning-dynamic hybrid for skilful subseasonal soil moisture drought forecasts; Nature Communications
+hydrology,methods	DOI:10.1029/2024wr039525	AI large-sample emulators for land/hydrology model calibration and regionalization; WRR
+ocean,review	DOI:10.1109/tcyb.2025.3539990	Comprehensive review of deep learning for ocean forecasting with datasets; IEEE TCyb
+ocean,remote_sensing,downscaling	DOI:10.1109/jstars.2025.3602684	Deep learning super-resolution of SMOS sea surface salinity to 1/12 deg; fills thin ocean RS coverage
+downscaling,review	DOI:10.3390/w18020271	Critical review of ML climate downscaling, physical consistency and operational use (borderline venue)
+hydrology,climate	DOI:10.1038/s43247-025-02359-1	ML integrating climate model outputs for drought monitoring/projection in the Middle East; Comms E&E
+chemistry,xai	DOI:10.5194/acp-26-851-2026	ML fixed-emission approach separating meteorology vs emissions in China ozone trends; ACP
+chemistry,remote_sensing	DOI:10.1038/s44407-024-00003-4	ML predictability of TROPOMI NO2 from meteorology over Ghana; npj Clean Air
+chemistry	DOI:10.1007/s11270-025-08122-8	Comparative ML/ensemble air quality forecasting; highly cited for its age (borderline: generic dataset)
+chemistry	DOI:10.1007/s44292-025-00072-4	Leakage-free hierarchical ensemble PM10 forecasting across 380 cities in 25 countries
+nowcasting	DOI:10.1109/tgrs.2025.3528423	MMF-RNN multimodal radar + station fusion for precipitation nowcasting; IEEE TGRS
+weather,methods	DOI:10.1109/tbdata.2024.3378061	Spatio-temporal transformer for weather forecasting capturing long-range dependencies; IEEE TBD, cited
+benchmarks,s2s	DOI:10.1038/s41597-025-04546-3	SeasFire datacube: global multivariate dataset for S2S wildfire modelling with ML; Scientific Data
+seaice,remote_sensing,ocean	DOI:10.1016/j.rse.2026.115344	YOLO iceberg detection from global open-ocean Sentinel-1 wave mode SAR; RSE
+ocean	DOI:10.1016/j.oceaneng.2025.122348	Deep learning internal tide prediction from China Ocean Reanalysis (borderline: thin ocean subfield)
+energy,postprocessing	DOI:10.1109/tsg.2025.3628129	Multi-site PV forecasting with GRU-corrected NWP and Fourier graph network; IEEE TSG
+energy	DOI:10.1016/j.ijepes.2025.111009	Ultra-short-term PV forecasting combining measured and NWP-predicted meteorology; IJEPES
+energy	DOI:10.1016/j.apenergy.2024.124409	Interpretable deep learning for hourly solar radiation forecasting; Applied Energy
+energy	DOI:10.1371/journal.pone.0317619	ML/DL comparison for wind turbine power from wind speed, direction, temperature, humidity; highly cited
+agriculture,xai	DOI:10.3389/fpls.2024.1451607	AI/XAI crop yield prediction and climate impacts on agriculture; highly cited
+agriculture,hydrology,review	DOI:10.2166/hydro.2025.258	Review of ML for agricultural water management
+hydrology,agriculture	DOI:10.1016/j.agwat.2025.110078	Hybrid CNN-LSTM estimating actual evapotranspiration from meteorological data; Agric. Water Management
+hydrology,downscaling	DOI:10.1016/j.jhydrol.2024.132624	ML ensembles downscaling satellite soil moisture to sub-km; J. Hydrology
+hydrology,extremes	DOI:10.1016/j.jhydrol.2025.133280	SwinFlood CNN-Swin transformer surrogate for rapid spatiotemporal flood simulation; J. Hydrology
+hydrology,extremes	DOI:10.1016/j.jhydrol.2025.132674	ML4FF framework for flash flood forecasting; J. Hydrology
+hydrology,review	DOI:10.3390/earth7020044	Review of ML/DL methods for flood inundation mapping
+hydrology	DOI:10.1038/s41598-025-87187-1	Hybrid glacio-hydrological + deep learning + wavelet streamflow forecasting; well cited
+hydrology	DOI:10.1007/s11269-025-04215-5	Rainfall-runoff in data-poor watersheds with remote sensing and hybrid decomposition ML; WRM, well cited
+hydrology,xai	DOI:10.1038/s41598-024-84810-5	Interpretable CNN-LSTM-attention daily streamflow forecasting on the Tibetan Plateau; well cited
+ocean,weather	DOI:10.3390/rs17091507	Global short-term SST forecasting with U-Transformer; highlights role of mesoscale eddies
+downscaling	DOI:10.3389/fclim.2025.1572428	Comprehensive evaluation of residual-network super-resolution for ERA5 temperature downscaling
+xai,methods	DOI:10.1007/s00704-025-05703-9	Compares SHAP/PDP/gain feature-importance uncertainty for climate-science ML
+chemistry,remote_sensing,xai	DOI:10.1080/15481603.2025.2482272	Interpretable physics-informed DL jointly estimating multiple air pollutants
+chemistry	DOI:10.1038/s41612-025-00984-3	npj CAS; ML fusion of fixed and mobile sensors for 500 m hourly urban PM2.5 maps
+chemistry,xai	DOI:10.1016/j.jenvman.2025.124347	LightGBM-SHAP attribution of meteorological vs emission drivers of PM2.5; chemistry thinly covered
+remote_sensing,ocean	DOI:10.1109/tgrs.2025.3566417	VAE hyperspectral retrievals of phytoplankton absorption and Chl-a for PACE/EMIT; TGRS
+review,weather	DOI:10.3390/atmos16010082	Survey of ML weather forecasting methods; highly cited for its age
+extremes,xai,agriculture	DOI:10.1038/s43247-024-01987-3	Comms Earth Env; expert-driven XAI detecting concurrent climate hazards for agriculture
+hydrology,methods	DOI:10.5194/hess-30-2079-2026	HESS; LSTM-GNN framework adding explicit river routing to rainfall-runoff models
+review,hydrology,xai	DOI:10.1007/s11269-025-04435-9	Review of explainable AI in hydrology
+review,hydrology,extremes	DOI:10.1007/s11269-025-04093-x	Review and intercomparison of ML for short-term flood forecasting across 94 studies; well cited
+hydrology,probabilistic,xai	DOI:10.1029/2025wr040191	WRR; Bayesian TimesNet for probabilistic, explainable groundwater level prediction
+hydrology,remote_sensing	DOI:10.1029/2024wr039476	WRR; vision transformer soil moisture retrieval from CYGNSS GNSS-R
+review,hydrology	DOI:10.3390/w17111638	Overview of ML methods for soil moisture estimation
+review,hydrology	DOI:10.1007/s10462-025-11298-4	Review of feature selection for ML actual evapotranspiration prediction
+review,hydrology	DOI:10.1007/s13201-025-02747-0	Review of LSTM coupled (hybrid physics/data) runoff models
+review,hydrology,extremes	DOI:10.1007/s13753-025-00639-0	First review of ML for flood depth estimation (108 studies); well cited
+review,hydrology,extremes	DOI:10.1016/j.crm.2025.100758	Review of ML for drought monitoring and forecasting
+review,hydrology	DOI:10.3390/w18010119	Review of hydrological forecasting from traditional to AI models
+hydrology,methods	DOI:10.1016/j.jhydrol.2025.133164	J Hydrol; knowledge-guided LSTM reservoir outflow model for regulated-basin streamflow
+hydrology,methods	DOI:10.1016/j.jhydrol.2025.133052	J Hydrol; physics-encoded DL integrating watershed hydrology and reservoir operations
+hydrology,extremes	DOI:10.1016/j.jhydrol.2025.133688	J Hydrol; hydrodynamic-LSTM hybrid for real-time flash flood forecasting in ungauged catchments
+hydrology,extremes,probabilistic	DOI:10.1016/j.jhydrol.2025.132677	J Hydrol; probabilistic DL flash flood warnings in mountainous catchments
+hydrology	DOI:10.1016/j.eswa.2025.128658	CNN-transformer for monthly streamflow prediction; well cited
+hydrology	DOI:10.1016/j.hydres.2024.12.001	DL runoff prediction at ungauged sites; highly cited for its age
+hydrology	DOI:10.1371/journal.pone.0321008	XGBoost vs DL monthly runoff forecasting in a glacierized catchment; well cited
+hydrology,climate	DOI:10.1038/s41598-025-97008-0	ML flood susceptibility under future climate and land-use change; highly cited
+hydrology,remote_sensing	DOI:10.1016/j.jhydrol.2025.132801	J Hydrol; ML bias correction of satellite precipitation in arid regions
+agriculture,hydrology	DOI:10.1016/j.agwat.2025.109322	ML/DL prediction of winter wheat actual ET from solar-induced fluorescence
+energy,nowcasting	DOI:10.1109/tste.2024.3482360	IEEE TSE; SolarFusionNet multimodal ultra-short-term regional irradiance forecasting
+energy,postprocessing	DOI:10.1038/s41598-025-00741-9	Wind power seq2seq forecasting with NWP refinement
+energy,postprocessing	DOI:10.1038/s41598-025-89398-y	Wind power LSTM with adaptive calibration of forecast wind speed; highly cited
+energy,methods	DOI:10.1109/tpwrs.2024.3449938	IEEE TPS; PDE-constrained wind field image generation for wind power forecasting
+energy	DOI:10.1038/s41598-025-94239-z	CNN-LSTM direct normal irradiance forecasting; highly cited
+energy	DOI:10.1038/s41598-025-95118-3	CNN-SLSTM daily global irradiance prediction from meteorological parameters
+energy,nowcasting	DOI:10.1016/j.solener.2025.113516	Low-cost sky imager with hybrid DL for very short-term irradiance forecasting
+energy	DOI:10.1016/j.apenergy.2025.126061	Applied Energy; multimodal DL for solar radiation forecasting
+review,energy	DOI:10.1016/j.apenergy.2025.126631	Applied Energy review of data-driven solar energy forecasting
+review,energy	DOI:10.1016/j.awe.2025.100055	Review of AI wind speed forecasting with decomposition and fusion strategies
+energy,benchmarks	DOI:10.1016/j.renene.2025.123463	Renewable Energy; cross-dataset benchmark of NN wind power forecasting
+energy	DOI:10.1016/j.ecmx.2025.101351	LSTM/GRU forecasting of irradiance and temperature for rooftop PV output
+energy,climate	DOI:10.1016/j.energy.2025.138195	ML residential electricity demand to 2050 under SSPs with downscaled climatic variables
+energy,climate	DOI:10.1016/j.pce.2025.103881	ML-physics hybrid assessing climate-change impact on tracking CPV systems
+agriculture	DOI:10.1016/j.compag.2024.109667	Statistical vs ML sugarcane yield forecasting (weather-based)
+agriculture	DOI:10.3390/rs17071140	Wheat yield prediction combining ML, APSIM crop model and satellite time series
+agriculture,remote_sensing,foundation	DOI:10.3390/rs18071065	Evaluates AlphaEarth foundation embeddings for irrigated cropland mapping
+extremes,weather	DOI:10.1038/s41586-026-10953-2	WeatherNext Cyclones: operational AI tropical cyclone model; Nature
+s2s,xai	DOI:10.1038/s43247-025-02207-2	TelNet interpretable ML seasonal precipitation forecasting; Commun Earth Environ
+energy,weather	DOI:10.1038/s41467-025-58456-4	MFWPN hub-height wind speed prediction from multivariate meteorological fusion; Nat Commun
+seaice,ocean	DOI:10.1038/s41558-025-02379-x	ML framework links Antarctic phytoplankton community shifts to sea-ice regimes; Nat Clim Change
+ocean,remote_sensing,climate	DOI:10.1126/sciadv.adx4857	Deep-learning chlorophyll-a dataset reveals declining ocean greenness; Science Advances
+ocean	DOI:10.1109/tgrs.2025.3574990	Transformer-CNN SST forecasting; IEEE TGRS
+remote_sensing,ocean	DOI:10.1109/tgrs.2025.3594633	Physics-informed CNN for GNSS-R ocean surface wind retrieval incl. high winds; IEEE TGRS
+chemistry,xai	DOI:10.1016/j.envpol.2025.126012	ML+SHAP diagnosis of ozone biases in chemical transport models
+chemistry,remote_sensing	DOI:10.1038/s41598-024-84593-9	ML high-resolution CO2/CH4 mapping from satellite observations
+chemistry,review	DOI:10.1007/s10462-026-11496-8	Review of deep learning for air pollution forecasting
+chemistry	DOI:10.1038/s41598-025-88086-1	Spatio-temporal attention deep learning for air pollutant prediction; well cited
+downscaling,climate,hydrology	DOI:10.1016/j.jenvman.2025.124522	Hybrid deep learning GCM downscaling for climate impact projections; well cited
+postprocessing,ocean	DOI:10.1016/j.oceaneng.2025.120925	NN/GBT correction of wind speed and significant wave height forecasts
+hydrology,extremes	DOI:10.5194/hess-29-1277-2025	Generalization of hybrid ML/process hydrological model to extreme events; HESS
+hydrology,methods	DOI:10.1029/2024gl113036	Tests whether entity-aware DL hydrology models use static attributes; GRL
+hydrology,probabilistic,extremes	DOI:10.5194/hess-30-371-2026	Probabilistic interpretable neural networks for flood prediction; HESS
+hydrology,extremes	DOI:10.5194/nhess-25-335-2025	Multi-scale hydraulics-based GNN surrogate for flood modelling; NHESS
+hydrology,benchmarks	DOI:10.5194/essd-17-1551-2025	CAMELS-DK large-sample hydrometeorological dataset for data-driven hydrology; ESSD
+hydrology,benchmarks	DOI:10.1038/s41597-025-04403-3	GRAiCE RNN reconstruction of GRACE terrestrial water storage; Scientific Data
+hydrology,postprocessing	DOI:10.1016/j.envsoft.2025.106459	ML post-processing bias correction of National Water Model streamflow
+hydrology,review,remote_sensing	DOI:10.3390/rs17142397	Review of ML soil moisture prediction from remote sensing; well cited
+hydrology,extremes	DOI:10.1038/s41467-025-59261-9	Integrated modelling incl. ML of Storm Daniel Derna flood; Nat Commun
+hydrology	DOI:10.1038/s41598-025-96577-4	LSTM vs conceptual models for hourly rainfall-runoff with varied training lengths
+hydrology,benchmarks,remote_sensing	DOI:10.1080/20964471.2025.2458714	STURM-Flood curated Sentinel-1/2 dataset for DL flood mapping
+hydrology,review,extremes	DOI:10.1016/j.engappai.2025.113354	Review of AI for flood and drought risk management
+agriculture,benchmarks	DOI:10.1038/s41597-025-04650-4	GlobalCropYield5min ML global crop yield dataset; Scientific Data
+agriculture,extremes,xai	DOI:10.1029/2024ef005038	XGBoost/SHAP attribution of compound hot-dry/wet extremes impacts on crop productivity; Earths Future
+energy,nowcasting	DOI:10.1109/tste.2024.3494266	Multimodal PV power forecasting from satellite cloud imagery; IEEE TSTE
+energy	DOI:10.1038/s41598-025-34348-x	Physics-constrained transformer wind power forecasting using noisy wind speed forecasts
+energy,review	DOI:10.1186/s43067-025-00239-4	Review of ML for solar PV and wind power forecasting; well cited
+review	DOI:10.1093/nsr/nwag063	Broad review of AI for atmosphere-ocean sciences; National Science Review
+review,ocean,remote_sensing	DOI:10.1109/jproc.2026.3664121	Review of AI in satellite ocean remote sensing; Proceedings of the IEEE
+ocean,remote_sensing	DOI:10.1038/s41561-026-01943-0	GOFLOW: deep learning surface currents from geostationary SST imagery; Nature Geoscience
+remote_sensing	DOI:10.1038/s43247-025-02624-3	Neural-network merging to fill global precipitation gauge gaps; Communications Earth & Environment
+ocean,extremes	DOI:10.1029/2024jh000507	ML prediction of typhoon storm surge in the Bohai Sea; AGU JGR Machine Learning
+ocean,remote_sensing	DOI:10.1016/j.jag.2025.104382	Dual U-ViT reconstruction of 3D eddy-resolving ocean state from satellite data
+ocean	DOI:10.1016/j.measurement.2025.117383	Hybrid PINN-LSTM ocean wave forecasting; well cited
+weather	DOI:10.1007/s10291-024-01807-3	Evaluates Pangu-Weather output for GNSS PWV weighted mean temperature; well cited application of AI weather model
+extremes	DOI:10.3390/rs17030515	GNN-based high-resolution Fire Weather Index forecasting over CONUS
+extremes,weather	DOI:10.1016/j.jweia.2025.106035	LSTM regression/classification for short-term extreme wind speed
+review,chemistry	DOI:10.3390/atmos16030292	Review of data-driven PM2.5 forecasting; well cited; chemistry thinly covered
+review,remote_sensing,extremes	DOI:10.1109/access.2025.3541075	Review of ML for dust storm detection and prediction
+chemistry,xai	DOI:10.1016/j.envint.2025.109567	ML disentangling chemical vs meteorological drivers of ozone; Environment International
+chemistry,xai	DOI:10.5194/acp-26-6377-2026	Explainable ML of meteorological impacts on ozone in eastern China; ACP
+chemistry,climate	DOI:10.5194/acp-25-7991-2025	ML and CTM attribution of tropospheric ozone trends over East/Southeast Asia; ACP
+climate	DOI:10.1038/s41467-025-55888-w	Statistical/ML ensemble reconstruction of East Asian monsoon rainfall since LGM revealing tipping points; Nature Communications
+hydrology	DOI:10.1029/2025wr042149	Physics-AI framework for cascade reservoir scheduling under future hydrological uncertainty; WRR, well cited
+hydrology	DOI:10.1029/2024wr039764	Grid LSTM-RAPID global daily discharge for every river reach; WRR
+hydrology,xai	DOI:10.1029/2025wr041303	XAI for spatiotemporal groundwater predictions; WRR
+review,hydrology	DOI:10.1029/2025rg000898	Review of flood inundation modelling including ML; Reviews of Geophysics
+review,hydrology,remote_sensing	DOI:10.1007/s11831-025-10466-7	Review of remote sensing and AI in flood prediction
+review,hydrology	DOI:10.1007/s12665-026-12866-9	Review/roadmap of PINNs for groundwater
+review,hydrology	DOI:10.1007/s11831-025-10447-w	Review of hybrid ML for groundwater level prediction
+hydrology	DOI:10.2166/wpt.2025.153	ML streamflow forecasting with remote-sensing climate inputs in Himalaya; well cited
+hydrology	DOI:10.1007/s11269-025-04106-9	Comparative AI rainfall-runoff forecasting; Water Resources Management
+hydrology	DOI:10.1007/s11269-025-04420-2	Hybrid XAJ-LSTM multi-step runoff forecasting
+hydrology	DOI:10.1016/j.jhydrol.2025.132963	ML coupled with glacio-hydrological model for cold-region runoff; J. Hydrology
+hydrology,probabilistic	DOI:10.1016/j.jhydrol.2025.132879	DL probabilistic flood forecasting with spatiotemporal rainfall; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2025.133705	Deep neural operator with transfer learning for urban flood forecasting; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2025.134693	PINN urban flood depth prediction; J. Hydrology
+hydrology	DOI:10.1080/19942060.2025.2481115	DL super-resolution with coarse hydrodynamic model for rapid flood inundation
+hydrology,downscaling	DOI:10.1016/j.jhydrol.2025.132687	DL downscaling of DEMs for urban flood modelling; J. Hydrology
+hydrology,downscaling	DOI:10.1016/j.ejrh.2025.102552	ML ensemble downscaling/projection of GRACE groundwater under climate scenarios
+hydrology,extremes	DOI:10.1038/s44304-025-00096-1	ML flood risk assessment of 2022 Pakistan mega-flood; npj Natural Hazards
+hydrology	DOI:10.1016/j.jenvman.2025.124972	SAR transfer learning flood inventory and ML susceptibility mapping; well cited
+hydrology	DOI:10.1016/j.jenvman.2025.127128	SHAP stacked-ensemble flood susceptibility in arid urban Jeddah
+hydrology,remote_sensing	DOI:10.3389/frwa.2025.1514047	Flood prediction with remote sensing, ML and GEE; well cited
+hydrology,xai	DOI:10.1016/j.scs.2025.106140	Explainable hybrid ML flood risk prediction; Sustainable Cities and Society, well cited
+hydrology,xai	DOI:10.1002/hyp.70083	ML/SHAP partitioning of evapotranspiration from flux tower hydrometeorology
+hydrology,agriculture	DOI:10.1016/j.agwat.2024.109268	Temperature-driven DL estimation/forecasting of reference ET across China
+agriculture,hydrology	DOI:10.1016/j.agwat.2025.109922	Wavelet-ML agricultural drought forecasting from remote sensing; Agricultural Water Management
+agriculture,hydrology	DOI:10.1016/j.agwat.2025.110043	DL composite agricultural drought index for Central Asia
+review,agriculture,remote_sensing	DOI:10.1109/mgrs.2025.3571906	Review of crop yield forecasting with remote sensing; IEEE GRSM
+agriculture	DOI:10.1016/j.aiia.2025.02.004	Stacked-LSTM sugar beet yield from UAV time series and meteorological factors
+agriculture	DOI:10.3390/agriengineering7080252	RL for fertilization/irrigation under uncertain climate variability
+agriculture,hydrology	DOI:10.1016/j.compag.2025.110423	Drone GPR + thermal imagery deep learning soil moisture mapping
+energy	DOI:10.1080/15435075.2025.2450468	Stacked ensemble solar irradiance forecasting from meteorological satellite data
+energy	DOI:10.1007/s42452-025-06490-8	ML solar irradiance prediction from MERRA-2 meteorology
+energy	DOI:10.1016/j.renene.2024.121955	U-LSTM-AFT hourly solar irradiance forecasting; Renewable Energy
+energy	DOI:10.1016/j.csite.2025.106356	Optimized CNN-LSTM solar radiation forecasting
+energy	DOI:10.1016/j.renene.2025.123495	PV power forecasting combining NWP, physics models and data-driven methods; Renewable Energy
+energy	DOI:10.1016/j.renene.2025.124008	Wind power forecasting with TFT and theoretical power curves (wind speed); Renewable Energy, well cited
+energy,climate	DOI:10.1038/s41598-025-97401-9	CNN-ResNet50-LSTM forecasting temperature, wind speed and wind power under climate change; well cited
+energy	DOI:10.1016/j.compeleceng.2024.109820	Wavelet + DL hybrid ensemble wind speed forecasting
+energy,probabilistic	DOI:10.1016/j.eswa.2025.127458	Graph-recurrent probabilistic multi-site PV forecasting with multivariable (meteorological) inputs
+energy,climate	DOI:10.1016/j.scs.2025.106500	ML long-term building energy and overheating under climate change scenarios
+review,energy	DOI:10.1109/access.2025.3602914	Survey of multimodal (incl. meteorological) learning for renewable energy forecasting
+review,energy	DOI:10.1016/j.sftr.2025.100638	Review of AI applications in wind power generation
+energy	DOI:10.3390/en15031061	Deep-learning daily solar radiation prediction intervals using GCM and observational predictors; review plus model
+chemistry	DOI:10.1016/j.chemosphere.2022.134250	ML (RF/SVR) assessment of climatic drivers of ozone in Malaysia; well cited
+hydrology,climate	DOI:10.1038/s41467-022-35414-y	Nature Communications; ML upscaling of flux-tower data reveals global decline in rainfall interception loss
+energy	DOI:10.1016/j.energy.2021.119759	TCN short-term wind farm power forecast using local atmospheric variables; well cited
+chemistry,xai	DOI:10.5194/acp-2020-469	Explainable ML reveals meteorology-driven PM1 variability (ACP)
+chemistry	DOI:10.1016/j.scitotenv.2018.09.196	Random forest NO2 model from traffic and meteorological conditions; well cited
+hydrology	DOI:10.1007/s00704-017-2186-6	SVR long-term runoff prediction with Bayesian uncertainty analysis
+hydrology	DOI:10.1016/j.eswa.2023.120616	TCN-based deep learning for rainfall-runoff simulation and multi-step runoff prediction
+hydrology	DOI:10.1016/j.jenvman.2024.120931	1D-CNN + LSTM architecture for hourly rainfall-runoff modelling
+energy,probabilistic	DOI:10.1109/tste.2019.2897688	Generative graph autoencoder for probabilistic spatio-temporal solar irradiance forecasting
+hydrology,agriculture	DOI:10.1016/j.jhydrol.2019.123960	Bio-inspired optimized ELM for daily reference evapotranspiration across Chinese climates; well cited
+nowcasting	DOI:10.1109/igarss47720.2021.9553617	Radar-based U-Net for convective precipitation nowcasting
+weather,methods	DOI:10.1016/j.neucom.2020.09.060	STConvS2S spatiotemporal CNN architecture for weather forecasting; well cited
+hydrology	DOI:10.1016/j.scitotenv.2021.146948	Wavelet-LSTM groundwater level modelling framework
+weather	DOI:10.1016/j.buildenv.2021.107601	RNN localized weather prediction combining airport and on-site observations
+hydrology,remote_sensing	DOI:10.1016/j.envres.2022.113278	Deep learning root-zone soil moisture estimation from remote sensing
+chemistry	DOI:10.1016/j.scitotenv.2023.167234	Hybrid deep learning AQI forecasting with satellite hydro-climatological predictors
+nowcasting,probabilistic	DOI:10.1109/tgrs.2024.3355755	Transformer-based denoising diffusion model for realistic precipitation nowcasting (TGRS)
+ocean,remote_sensing	DOI:10.1016/j.rse.2019.04.019	ML estimation of surface ocean pCO2 from satellite data (RSE)
+agriculture	DOI:10.1016/j.jag.2021.102375	Attention deep learning wheat yield estimation from meteorological data and RS indices
+hydrology	DOI:10.1007/s00521-022-07523-8	Seq2seq LSTM with attention for streamflow forecasting in Canadian watersheds
+agriculture	DOI:10.3389/frsen.2022.1010978	Coupling random forest with crop modelling for wheat and rapeseed yield prediction
+ocean,extremes,review	DOI:10.3390/jmse11091729	Review of ML applications to storm surge prediction
+downscaling,benchmarks	DOI:10.1038/s41597-023-02805-9	Scientific Data: U-Net bias-corrected downscaled CMIP6 meteorological dataset over East Asia (CLIMEA-BCUD)
+energy	DOI:10.1016/j.enconman.2019.111780	Temperature-based ML models for daily global solar radiation; well cited
+energy,probabilistic	DOI:10.1016/j.energy.2020.119692	EALSTM-QR interval wind power prediction from NWP and deep learning
+hydrology	DOI:10.1016/j.jhydrol.2021.126378	LSTM multi-state-vector seq2seq rainfall-runoff model
+ocean,extremes	DOI:10.31223/x5ns6h	ML prediction of peak storm surge from tropical cyclone tracks
+hydrology,benchmarks	DOI:10.5194/hess-26-3537-2022	GRIP-GL runoff model intercomparison over the Great Lakes including ML (LSTM) models
+hydrology	DOI:10.1007/s11269-021-03051-7	Optimized deep learning for daily streamflow vs common ML
+energy	DOI:10.3390/en15197049	ML solar radiation forecasting with exogenous meteorological inputs and ensemble feature selection
+hydrology	DOI:10.1007/s11269-023-03440-0	Improved SVM for multi-scale SPI drought prediction
+review,foundation	DOI:10.48550/arxiv.2312.03014	Comprehensive survey of foundation models for weather and climate data
+hydrology,extremes	DOI:10.1016/j.scitotenv.2024.172246	Transformer-LSTM water level forecasting at flood pumping stations
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125423	Hybrid GMDH/SVR meta-optimized models for flood susceptibility; well cited
+energy	DOI:10.1016/j.ijepes.2019.105411	CNN framework for solar irradiance prediction; well cited
+hydrology,climate	DOI:10.1029/2021gl093492	GRL: ML reconstruction of long-term global GRACE total water storage anomalies (1979-2020)
+ocean	DOI:10.5194/gmd-12-2091-2019	LSCE-FFNN neural network reconstruction of global surface ocean pCO2 (GMD)
+chemistry	DOI:10.1016/j.envint.2022.107485	Europe-wide air pollution modelling 2000-2019 comparing GWR and random forest
+energy	DOI:10.1016/j.energy.2017.02.008	Fuzzy regression SVM estimation of horizontal global solar radiation
+hydrology,extremes	DOI:10.1080/19475705.2021.1912835	Boosted-tree ML vs AHP flood susceptibility mapping
+hydrology	DOI:10.1016/j.asoc.2021.107081	Wavelet/bootstrap ML daily streamflow forecasting at Sobradinho Reservoir
+climate,hydrology	DOI:10.1002/joc.7813	ML multimodel ensemble of CMIP6 projections for an Indian river basin
+energy	DOI:10.3390/su15010439	ML prediction of PV farm yield from irradiance, wind speed and temperature
+chemistry	DOI:10.3390/atmos13071144	ML AQI forecasting with multivariate imputation
+hydrology,remote_sensing,benchmarks	DOI:10.1109/jstars.2022.3152127	Benchmark of CNNs vs operational processor for Sentinel-1 water and flood mapping
+energy	DOI:10.1016/j.rineng.2023.101274	Hybrid ELM with whale optimization for wind speed forecasting
+hydrology	DOI:10.1016/j.envsoft.2023.105831	DeepGR4J hybrid deep learning conceptual rainfall-runoff model
+hydrology	DOI:10.1016/j.scitotenv.2023.167718	Bayesian model averaging of deep learning models for lake water level prediction
+energy	DOI:10.1109/jiot.2023.3286568	Hybrid ML wind speed forecasting and power-curve based wind power forecasting
+agriculture,hydrology	DOI:10.3390/s23041976	LSTM soil moisture prediction from weather data for irrigation in soybean
+energy,extremes,probabilistic	DOI:10.1016/j.apenergy.2024.124068	Physics-informed RL probabilistic wind power forecasting under extreme events (Applied Energy)
+hydrology,extremes	DOI:10.1109/jstars.2023.3349162	Heterogeneous dynamic graph convolution for spatiotemporal flood forecasting with remote sensing
+hydrology,climate	DOI:10.1016/j.ejrh.2024.101716	LSTM-based assessment of climate change impact on streamflow
+hydrology	DOI:10.1007/s11600-024-01399-z	ML and wavelet drought forecasting
+hydrology	DOI:10.1016/j.jhydrol.2024.131521	Meta-learning LSTM for runoff prediction
+hydrology,extremes	DOI:10.1007/s11269-020-02603-7	Bagging/dagging decision tree ensembles for flood probability mapping; well cited
+downscaling,remote_sensing	DOI:10.1029/2018jd028795	ANN/regression downscaling of IMERG satellite precipitation (JGR Atmospheres)
+hydrology,extremes	DOI:10.1016/j.catena.2019.104450	SVM storm surge flood susceptibility in the Sundarbans
+hydrology,benchmarks	DOI:10.1007/s00477-018-1638-6	Large-scale comparison of stochastic vs ML multi-step hydrological forecasting
+ocean,climate	DOI:10.1038/s41561-019-0524-2	Nature Geoscience: neural-network niche model of picophytoplankton predicts response to ocean warming
+chemistry	DOI:10.1016/j.jclepro.2018.10.129	Multi-objective optimized AQI analysis-forecast system
+review,hydrology	DOI:10.1016/j.jhydrol.2020.125085	Review of two decades of neurocomputing in surface water hydrology
+review,hydrology	DOI:10.1016/j.scitotenv.2020.142561	Perspective on responsible AI in the water domain
+hydrology	DOI:10.1016/j.asoc.2021.107282	Comparison of metaheuristic-optimized ML for streamflow forecasting
+energy	DOI:10.1109/tii.2020.2996235	Choquet-integral deep LSTM solar irradiance forecasting
+hydrology	DOI:10.1016/j.jhydrol.2017.04.018	Wavelet-linear genetic programming for monthly streamflow
+hydrology,extremes	DOI:10.1007/s00521-021-05757-6	Random forest flood disaster risk assessment
+agriculture,hydrology	DOI:10.1016/j.eswa.2022.117653	ML soil moisture forecasting for smart irrigation
+hydrology,extremes	DOI:10.3390/w10091283	ANN regional multi-step-ahead flood inundation forecasting
+hydrology	DOI:10.1016/j.jhydrol.2022.128495	Water-balance-integrated deep learning for groundwater level prediction
+agriculture	DOI:10.3390/s22030719	ML crop yield prediction from satellite vegetation/thermal health indices
+hydrology,extremes	DOI:10.1016/j.ejrh.2023.101406	ML pattern-recognition flood forecasting
+hydrology,extremes	DOI:10.3390/su14095039	GIS and ML flood area prediction in Nigeria
+hydrology	DOI:10.1016/j.jhydrol.2023.129115	Hybridized ML streamflow simulation in a semi-arid basin
+energy	DOI:10.1016/j.engappai.2023.105987	CNN wind speed interval prediction
+hydrology,extremes	DOI:10.1016/j.heliyon.2023.e16459	ANN flood susceptibility mapping in Bangladesh
+hydrology	DOI:10.3390/w15030576	Transformer water level prediction for Poyang Lake
+energy	DOI:10.1016/j.enconman.2024.118267	Read-First LSTM variant for solar radiation prediction
+hydrology	DOI:10.1016/j.jhydrol.2024.131250	Transformer groundwater level prediction
+energy	DOI:10.1016/j.engappai.2024.108543	NWP-driven residual ConvLSTM-attention short-term wind power prediction
+hydrology,extremes	DOI:10.1016/j.heliyon.2024.e33669	LSTM integrated with physics-based model outputs for flood prediction
+ocean,extremes,postprocessing	DOI:10.48550/arxiv.2403.04818	LSTM correction of storm surge model systematic error during hurricanes
+energy,remote_sensing	DOI:10.1016/j.rse.2018.05.003	Solar radiation prediction from MODIS and ECMWF reanalysis inputs; RSE
+hydrology,remote_sensing	DOI:10.1016/j.jag.2019.03.006	Deep learning drought monitoring from multi-source satellite data; well cited
+energy	DOI:10.1002/er.6529	ML vs DL comparison for hourly global/diffuse solar radiation prediction
+agriculture,hydrology	DOI:10.1016/j.compag.2018.07.029	AI models for actual crop evapotranspiration in maize croplands
+energy	DOI:10.1109/access.2023.3243252	Hybrid CNN-CatBoost solar radiation forecasting with weather inputs
+hydrology,climate	DOI:10.1016/j.jhydrol.2020.125779	LSTM vs conceptual models for runoff under changing climate; J Hydrol
+hydrology	DOI:10.3390/rs15051395	Hybrid deep learning rainfall-runoff model with temporal/feature dependencies
+hydrology	DOI:10.1016/j.jhydrol.2019.124293	SVR vs XGBoost for 10-day streamflow forecasting; J Hydrol
+seaice,remote_sensing	DOI:10.1109/lgrs.2018.2852143	CNN sea ice detection and concentration from GNSS-R; fills sea-ice gap
+energy	DOI:10.1109/tia.2022.3186662	Regional PV power forecasting using cloud features and meteorological information
+hydrology,agriculture	DOI:10.3390/agronomy14030432	GRU-Transformer root-zone soil moisture prediction for irrigation
+energy,remote_sensing	DOI:10.1016/j.rser.2019.109327	Deep network estimating hourly solar radiation from geostationary satellite imagery
+energy	DOI:10.1016/j.enconman.2019.112461	Multi-step short-term wind speed forecasting framework; well cited
+weather,methods	DOI:10.1609/aaai.v36i7.20711	Graph convolution for spatio-temporal meteorological forecasting; AAAI
+nowcasting	DOI:10.1109/lgrs.2019.2926776	GAN-GRU radar precipitation nowcasting
+hydrology	DOI:10.1109/access.2020.2993874	Deep learning streamflow prediction for the Yangtze River
+hydrology,review	DOI:10.1080/02626667.2018.1469756	Review and case study of data-driven univariate streamflow forecasting
+hydrology,methods	DOI:10.1002/2017wr021470	Robustness of data-driven hydrological models to calibration/evaluation data choice; WRR
+energy	DOI:10.1038/s41598-022-13532-3	ANN solar radiation prediction from meteorological data
+chemistry	DOI:10.1016/j.envpol.2023.121832	Geospatial AI combining low-cost sensors and satellite data for intra-urban air pollution
+weather	DOI:10.3389/frwa.2024.1378598	ML stacking for monthly precipitation prediction from lagged meteorological variables
+hydrology,xai	DOI:10.1029/2018wr024620	Interpretable random forest quantifying climate/catchment controls on hydrological drought; WRR
+hydrology,downscaling	DOI:10.1016/j.advwatres.2020.103601	Comparison of six ML algorithms for soil moisture downscaling
+energy	DOI:10.1016/j.enconman.2019.112418	Ultra-short-term wind speed prediction with wavelet, DBN and ensemble learning
+energy	DOI:10.1016/j.enconman.2021.114775	Decomposition-ensemble LSTM for ultra-short-term wind speed
+hydrology,agriculture	DOI:10.1016/j.jhydrol.2018.02.060	AI methods for daily reference evapotranspiration estimation
+chemistry	DOI:10.1007/s11869-021-01126-3	Deep learning PM2.5 prediction with meteorological, ground and satellite data
+chemistry	DOI:10.1186/s40537-023-00748-x	Comparison of ML methods for ozone prediction
+agriculture,climate	DOI:10.1016/j.eja.2023.126917	ML with gridded crop models to constrain crop yield projections under climate change
+hydrology	DOI:10.1016/j.heliyon.2023.e17689	ML water level forecasting for flood warning
+remote_sensing,chemistry	DOI:10.3390/rs11141702	SmokeNet: CNN satellite smoke scene detection; well cited
+agriculture	DOI:10.1109/icces48766.2020.9137868	Crop yield prediction from temperature, rainfall and humidity with ML; well cited
+agriculture	DOI:10.3390/ijgi8050240	Comparison of AI models for Midwest US corn/soybean yield prediction
+hydrology	DOI:10.1016/j.jhydrol.2021.126800	LSTM aquifer level forecasting; J Hydrol
+chemistry	DOI:10.1016/j.jclepro.2020.125341	Spatiotemporal deep learning for regional air quality forecasting
+hydrology	DOI:10.1007/s13201-018-0742-6	Random forest variant for short-term groundwater level prediction
+seaice,remote_sensing	DOI:10.1109/jstars.2017.2689009	Neural network sea ice detection/concentration from GNSS-R delay-Doppler maps
+chemistry	DOI:10.1038/s41598-022-13498-2	XGBoost feature selection for global tropospheric ozone prediction
+hydrology,remote_sensing,benchmarks	DOI:10.5194/essd-15-2055-2023	GLASS global 1 km daily soil moisture product via XGBoost; ESSD dataset
+hydrology,extremes	DOI:10.1007/s11269-023-03713-8	GA-optimized LSTM for flash flood forecasting
+hydrology	DOI:10.1038/s41598-024-70406-6	AI drought prediction from climate data and soil moisture
+agriculture	DOI:10.3390/rs16244804	Deep transfer learning for crop yield from climate records and satellite time series
+climate,downscaling	DOI:10.1080/19942060.2019.1683076	Random forest multi-model ensemble of CMIP5 precipitation projections for Syria
+hydrology	DOI:10.1016/j.jhydrol.2020.125776	LSTM reconstruction of missing groundwater level data; J Hydrol
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125615	Deep belief network for flood susceptibility; J Hydrol, well cited
+weather	DOI:10.1002/dac.4805	ML (C5.0 hybrid) short-range weather prediction; well cited
+hydrology,remote_sensing	DOI:10.1016/j.rse.2018.03.008	SVR snow-depth retrieval from passive microwave; RSE
+hydrology,extremes	DOI:10.1016/j.wace.2019.100215	ANN flood zonation mapping; Weather and Climate Extremes
+energy	DOI:10.1016/j.energy.2021.120904	Bi-LSTM transfer learning wind speed prediction
+weather	DOI:10.24014/ijaidm.v1i1.4903	Random forest precipitation prediction; well cited
+energy	DOI:10.1016/j.egypro.2016.12.147	ANN wind speed prediction from multiple local meteorological measurements
+hydrology,remote_sensing	DOI:10.1016/j.rse.2018.06.019	Neuro-fuzzy SAR-based operational flood mapping; RSE
+hydrology	DOI:10.1007/s10666-018-9639-x	NARX vs SVM for daily groundwater level prediction
+hydrology,agriculture	DOI:10.3390/su141811674	ML reference evapotranspiration from limited climate data
+hydrology,da	DOI:10.1002/2018wr022627	Data-driven model uncertainty estimation in hydrologic data assimilation; WRR
+energy	DOI:10.1016/j.energy.2023.127799	Bi-LSTM wind speed prediction with imputation and decomposition
+ocean,remote_sensing	DOI:10.5194/gmd-15-2183-2022	DINCAE 2.0 CNN reconstruction of SST and altimetry with error estimates; GMD
+agriculture	DOI:10.1038/s42003-023-04833-y	Hybrid data-driven/process crop model for maize yield; Commun Biol
+hydrology,extremes	DOI:10.3390/w15071397	CNN-LSTM rapid urban flooding depth prediction
+hydrology,review,climate	DOI:10.1016/j.heliyon.2024.e37073	Review of ML for climate change impacts on groundwater
+hydrology	DOI:10.5194/hess-28-2107-2024	Spatially distributed LSTM streamflow prediction coupled with routing; HESS
+hydrology	DOI:10.1007/s12145-024-01471-8	ML drought index forecasting for the Euphrates basin
+hydrology,agriculture	DOI:10.1016/j.ecoinf.2024.102681	CNN-LSTM for meteorological-to-agricultural drought propagation
+agriculture	DOI:10.1109/iciip47207.2019.8985951	ML crop yield prediction using temperature and rainfall; well cited
+hydrology,extremes	DOI:10.1038/s41598-020-69703-7	Hybrid ML urban flood susceptibility mapping; well cited
+hydrology	DOI:10.1016/j.jhydrol.2020.124819	ML water level forecasting in temperate lakes; J Hydrol
+ocean,review	DOI:10.1007/s00530-020-00733-x	Overview of machine learning applied to ocean data; well cited
+hydrology,agriculture	DOI:10.1080/02626667.2019.1678750	Hybrid ML monthly reference evapotranspiration; HSJ
+agriculture,chemistry	DOI:10.1088/1748-9326/abd2f3	ML predictions of agricultural N2O emissions; ERL
+energy	DOI:10.1016/j.apenergy.2022.118674	Deep learning wind speed forecasting with decomposition and multi-objective optimization
+hydrology,climate	DOI:10.1038/s41598-022-16743-w	ANN-combined model/satellite trends in global mountain snow cover 1982-2020
+remote_sensing,ocean	DOI:10.1016/j.rse.2021.112454	ANN coastal wind speed retrieval from CYGNSS; RSE
+energy,nowcasting	DOI:10.1016/j.apenergy.2021.117014	Solar radiation micro-forecast fusing infrared cloud images and radiation data
+remote_sensing	DOI:10.3390/rs10060877	PCANet cloud detection in Landsat 8 imagery
+agriculture	DOI:10.1016/j.jag.2022.102861	Climate and satellite data ML for county-level wheat yield in China
+energy	DOI:10.1016/j.apenergy.2021.117815	Wind speed prediction system with Monte Carlo and AI
+hydrology,agriculture	DOI:10.1007/s11269-017-1853-9	Wavelet-GPR multi-step reference evapotranspiration forecasting
+energy	DOI:10.1016/j.egyai.2023.100302	Transformer electricity demand prediction with local climate variables
+downscaling	DOI:10.1007/s12145-023-00970-4	Comparison of modern deep learning approaches for precipitation downscaling
+energy	DOI:10.1155/2023/4950487	EMD-LSTM wind direction prediction
+energy,review	DOI:10.3390/en15041510	Review of deep learning in wind and wave energy
+ocean,extremes	DOI:10.1016/j.oceaneng.2022.112747	Bi-LSTM attention significant wave height prediction in hurricane areas
+energy	DOI:10.1016/j.seta.2022.102060	AI solar radiation prediction for energy management
+hydrology,extremes	DOI:10.1016/j.scs.2023.104898	Bayesian-optimized deep learning for rapid coastal urban flood prediction
+energy,weather	DOI:10.2139/ssrn.4397690	ConvLSTM-LSTM dense wind speed forecasts from weather images
+chemistry,extremes	DOI:10.1038/s41586-023-06398-6	ML + CTM global landscape-fire PM2.5/ozone exposure 2000-2019; Nature
+hydrology,remote_sensing,benchmarks	DOI:10.1080/17538947.2023.2230978	GF-FloodNet labelled dataset for DL flood extraction
+energy,probabilistic	DOI:10.1109/tnnls.2024.3382763	GAN stochastic weather generator for PV power flow analysis
+hydrology,methods	DOI:10.1016/j.cageo.2023.105494	PINNs for transient unconfined groundwater flow
+hydrology,extremes	DOI:10.1016/j.envsoft.2023.105939	CNN urban flood extent segmentation from surveillance cameras
+energy	DOI:10.1016/j.ijhydene.2023.01.068	Interpretable transformer for multi-step global solar radiation prediction
+energy	DOI:10.1038/s41560-024-01516-8	AI-aided nationwide wind plant wake-steering optimization; Nature Energy
+ocean,extremes	DOI:10.1016/j.coastaleng.2024.104512	Causal spatio-temporal GNN storm surge forecasting; Coastal Engineering
+energy,weather	DOI:10.1016/j.rser.2024.114623	Fully convolutional network wind speed prediction across China; RSER
+hydrology	DOI:10.1016/j.gsd.2024.101397	EMD/wavelet LSTM groundwater level forecasting
+hydrology,extremes	DOI:10.1007/s43762-024-00123-3	Large multimodal model for floodwater depth estimation
+agriculture,hydrology	DOI:10.3390/plants11151923	XGBoost crop evapotranspiration for irrigation from microclimate inputs; well cited
+agriculture,downscaling	DOI:10.1016/j.agrformet.2018.09.021	ML meta-model downscaling of gridded crop model yields; strong venue
+hydrology	DOI:10.1016/j.jhydrol.2021.126636	Hybrid deep learning streamflow prediction; well cited
+remote_sensing	DOI:10.3390/rs10111782	CNN cloud segmentation from satellite imagery; well cited
+hydrology,agriculture	DOI:10.1016/j.jenvman.2024.120246	Shallow/deep learning daily reference ET from meteorological data; well cited for age
+hydrology,remote_sensing	DOI:10.1016/j.jhydrol.2021.127244	Bayesian CNN to fill GRACE/GRACE-FO water storage gap; J. Hydrology, well cited
+hydrology	DOI:10.1080/19942060.2018.1564702	Wavelet SVR/ANN pan evaporation modelling across climates; well cited
+energy,nowcasting	DOI:10.1109/tste.2021.3123337	Intra-hour PV forecasting with NWP, satellite and local data via deep learning
+hydrology	DOI:10.1007/s11269-023-03499-9	DL/ML streamflow prediction for water supply
+ocean	DOI:10.3390/rs16224126	ConvLSTM with deformable attention for SST prediction
+energy	DOI:10.1016/j.energy.2020.117239	ML regression estimation of solar radiation from meteorological data; well cited
+hydrology,xai	DOI:10.1016/j.eswa.2020.114498	Interpretable vs black-box ML for hydro-climatological modelling; well cited
+hydrology,extremes	DOI:10.1029/2020wr028300	Large-sample (671 catchments) ML analysis of climate/catchment controls on flood processes; WRR
+hydrology	DOI:10.3390/w10101389	LSTM lake water level forecasting; well cited
+ocean,remote_sensing	DOI:10.1016/j.rse.2021.112631	Deep learning detection of pelagic Sargassum from high-resolution satellite imagery
+hydrology	DOI:10.1007/s10661-022-10662-z	ML monthly reference evapotranspiration across Turkey; well cited
+remote_sensing	DOI:10.1016/j.asr.2018.04.030	Random forest cloud detection in satellite imagery
+hydrology	DOI:10.1016/j.jhydrol.2018.04.036	Wavelet + multi-gene genetic programming monthly streamflow forecasting; J. Hydrology
+hydrology,extremes	DOI:10.1007/s11269-022-03395-8	Hybrid SVR-RSM drought index prediction
+hydrology,downscaling	DOI:10.1016/j.jenvman.2022.117180	ML downscaling of GRACE groundwater storage anomalies (Urmia)
+hydrology,methods	DOI:10.1109/tai.2022.3200028	Physics-informed neural networks for river channel flow / flood control
+agriculture,remote_sensing	DOI:10.1016/j.jag.2020.102126	Benchmark of satellite SIF in ML crop yield prediction; well cited
+hydrology,remote_sensing	DOI:10.3390/rs10081285	ML soil moisture retrieval from Sentinel-1/2; well cited
+ocean,remote_sensing	DOI:10.1016/j.rse.2017.09.004	Neural-network sea surface salinity retrieval from ocean colour (Gulf of Mexico); well cited
+hydrology	DOI:10.1016/j.cageo.2021.104708	Calibration data length: conceptual model vs LSTM/GRU on CAMELS basins
+hydrology,extremes	DOI:10.1080/19475705.2022.2097131	Data-driven urban pluvial flood susceptibility mapping (Berlin)
+agriculture	DOI:10.1109/access.2023.3321020	Remote sensing + ML crop yield prediction for food security using climate factors
+energy	DOI:10.1109/access.2024.3432574	LSTM/RF solar plant production forecasting with meteorological variables
+remote_sensing	DOI:10.1016/j.rse.2019.111446	CNN cloud detection for multimodal satellite imagery; well cited
+hydrology,downscaling	DOI:10.3390/rs11070824	ML downscaling of GRACE TWSA to groundwater level anomalies; well cited
+hydrology,s2s	DOI:10.1080/02626667.2019.1595624	RNN/LSTM monthly precipitation forecasting; well cited
+energy,weather	DOI:10.1016/j.energy.2020.118441	Day-ahead spatiotemporal wind speed forecasting with deep learning; Energy
+energy	DOI:10.1016/j.enconman.2020.113456	Hybrid deep learning multistep wind speed forecasting; well cited
+energy	DOI:10.1016/j.eswa.2021.115167	CNN + ensemble learning solar radiation forecasting
+review,climate	DOI:10.1038/548379a	Nature feature on machine learning for climate forecasting; early perspective
+chemistry	DOI:10.3390/su14095104	Spatiotemporal CNN-LSTM air pollution forecasting
+hydrology,extremes	DOI:10.1080/10106049.2022.2093411	Random forest SPEI drought mapping and prediction
+agriculture	DOI:10.3390/rs14195045	Transformer rice yield prediction from satellite and climate indicators with interpretation
+chemistry	DOI:10.1155/2022/5086622	ML model comparison for PM2.5 prediction
+hydrology	DOI:10.1007/s00704-023-04624-9	Metaheuristic-enhanced DL/ML monthly streamflow from hydroclimatic data
+seaice,s2s	DOI:10.1109/tgrs.2023.3279089	Deep learning subseasonal daily pan-Arctic sea ice concentration prediction; TGRS
+hydrology	DOI:10.1038/s41598-024-75385-2	Spatial-temporal GNN groundwater level prediction with meteorological drivers
+hydrology	DOI:10.1007/s11269-024-04052-y	ML vs DL daily streamflow forecasting comparison
+chemistry	DOI:10.1016/j.scitotenv.2018.09.111	Multi-output SVM regional multi-step PM2.5 forecasting; well cited
+energy	DOI:10.1016/j.scs.2020.102385	ANN building electricity prediction using weather elements; well cited
+energy	DOI:10.1016/j.energy.2019.03.010	Season-specific FA-SVM load forecasting incorporating meteorological conditions
+hydrology,review	DOI:10.1007/s40899-021-00584-y	Review of ML for runoff modelling; well cited
+hydrology,weather	DOI:10.1007/s13762-018-1674-2	SVR-firefly monthly rainfall forecasting; well cited
+chemistry	DOI:10.1016/j.jenvman.2019.109855	Hybrid optimized model for daily AQI forecasting; well cited
+agriculture	DOI:10.1016/j.agrformet.2021.108555	ML crop yield forecasting with climate and remote-sensing data and small samples; well cited
+energy	DOI:10.1016/j.rser.2018.03.096	ANN global solar radiation from meteorological parameter combinations; RSER
+hydrology,extremes	DOI:10.3390/smartcities4030065	Deep learning flood detection from UAV imagery
+hydrology,extremes	DOI:10.1007/s11069-020-04296-y	Four ML methods for flood susceptibility (Wadi Qena)
+hydrology,climate	DOI:10.1073/pnas.2024107118	ML prediction of precipitation isotope time series in Europe; PNAS
+hydrology	DOI:10.1016/j.jhydrol.2021.127124	LightGBM + SSA real-time rainfall-runoff prediction; J. Hydrology
+hydrology,extremes	DOI:10.1016/j.envsoft.2021.105186	Deep learning prediction of river flood depth and extent; EMS
+chemistry,remote_sensing	DOI:10.1016/j.isprsjprs.2020.06.019	Geographically/temporally weighted NN for satellite AOD-based PM2.5 mapping; ISPRS
+hydrology	DOI:10.1007/s11269-018-2000-y	Emotional ANN and wavelet-ANN rainfall-runoff modelling
+hydrology	DOI:10.1016/j.jhydrol.2018.04.008	Stacking ensemble for river ice breakup dates; J. Hydrology
+chemistry	DOI:10.1038/s41598-022-21769-1	Deep learning + decomposition urban PM2.5 forecasting
+hydrology	DOI:10.1080/19942060.2021.2019128	Six ML algorithms for river water level prediction
+hydrology,extremes	DOI:10.1029/2023gl104539	ML attribution of soil moisture vs VPD in 2022 China compound drought-heatwave; GRL
+hydrology,extremes	DOI:10.1016/j.jhydrol.2023.129702	Time-series GAN for flood forecasting; J. Hydrology
+hydrology,extremes	DOI:10.1016/j.jenvman.2024.123094	GIS/remote sensing/ML susceptibility of multiple flood types (Peshawar)
+energy,review	DOI:10.3390/en17133156	Systematic meta-review of solar radiation forecasting methods
+hydrology	DOI:10.2166/wst.2024.110	Transformer 24-h streamflow forecasting
+weather,review	DOI:10.3390/w13091294	Review of neural networks for air temperature forecasting; well cited
+hydrology,extremes	DOI:10.1016/j.scitotenv.2021.146927	Deep learning and data fusion for regional compound flood mapping; well cited
+hydrology,extremes	DOI:10.3390/w12010239	ML classifiers for flash flood susceptibility (Vietnam); well cited
+ocean	DOI:10.1016/j.oceaneng.2020.107526	MLP surrogate for wave forecasting in Lake Michigan; well cited
+hydrology,extremes	DOI:10.5194/nhess-17-1683-2017	Supervised learning multi-variable flood damage modelling
+hydrology	DOI:10.1080/19942060.2021.1944913	Wavelet + GPR groundwater level prediction in arid areas
+downscaling,climate	DOI:10.1007/s00382-022-06277-2	Deep learning bias correction and downscaling of multiple climate model simulations; Climate Dynamics
+energy	DOI:10.1016/j.apenergy.2021.117248	Multi-model fusion multi-step short-term wind speed prediction
+hydrology,climate	DOI:10.1038/s41467-022-28033-0	Deep learning glacier mass balance projections to 2100; Nature Communications
+remote_sensing	DOI:10.1007/s00190-021-01482-z	GRNN fusion of precipitable water vapour products; J. Geodesy
+hydrology	DOI:10.1016/j.jhydrol.2023.129684	Transformer runoff prediction in newly gauged basins; J. Hydrology
+hydrology	DOI:10.1016/j.ejrh.2023.101438	Transformer/self-attention runoff prediction in the Yangtze basin
+hydrology,remote_sensing	DOI:10.1016/j.jhydrol.2022.127774	Hybrid remote sensing + AI actual evapotranspiration estimation; J. Hydrology
+chemistry	DOI:10.1109/access.2023.3265019	Boosting classifiers for PM2.5 levels from meteorological parameters (Jakarta)
+ocean,benchmarks	DOI:10.5194/essd-15-4481-2023	GOBAI-O2: ML-derived gridded ocean interior oxygen from Argo; ESSD
+hydrology,extremes	DOI:10.3390/hydrology10030058	ANN-firefly drought (SPI) prediction across time scales
+hydrology,extremes	DOI:10.1016/j.jhydrol.2024.131494	Hybrid process-driven/data-driven real-time flood forecasting; J. Hydrology
+hydrology,review	DOI:10.3390/w16142069	Review of AI/ML and emerging technologies for flash flood prediction
+hydrology,methods	DOI:10.1016/j.gsd.2024.101172	Review of PINNs for groundwater flow modelling
+hydrology,downscaling	DOI:10.1029/2023wr035882	ML-downscaled GRACE reveals Indus water storage decline; WRR
+hydrology,downscaling	DOI:10.1038/s41598-024-77050-0	Stacking ensemble downscaling of satellite soil moisture
+hydrology,benchmarks	DOI:10.1109/cvprw63382.2024.00047	UrbanSARFloods: Sentinel-1 benchmark dataset for flood mapping
+hydrology,agriculture	DOI:10.1016/j.jhydrol.2024.131336	LSTM/PSO-LSTM orchard soil moisture from Sentinel-1; J. Hydrology
+hydrology,agriculture	DOI:10.1016/j.compag.2020.105728	LSTM/CNN multi-step daily reference ET forecasting for irrigation; well cited
+hydrology	DOI:10.1007/s11269-020-02659-5	ML streamflow prediction across four US basins in different climates; well cited
+hydrology	DOI:10.1016/j.jhydrol.2020.125133	ML rainfall-runoff modelling with metaheuristic optimisation; well cited J. Hydrol.
+hydrology	DOI:10.1007/s00521-020-05172-3	Super-ensemble ML for daily streamflow forecasting, large-scale comparison; well cited
+hydrology,downscaling	DOI:10.3390/rs11242979	Random-forest downscaling of GRACE groundwater storage; well cited
+agriculture,hydrology	DOI:10.1016/j.agwat.2020.106649	CNN-GRU root-zone soil moisture prediction for irrigation; well cited
+hydrology	DOI:10.1007/s11269-017-1807-2	Comparison of ANN/GRNN/LSSVR/KNN for monthly streamflow forecasting; well cited
+hydrology	DOI:10.1016/j.jhydrol.2021.126067	Deep RNN daily runoff forecasting; well cited
+agriculture,hydrology	DOI:10.1016/j.agwat.2019.105875	ML crop evapotranspiration from meteorological inputs; well cited
+hydrology,extremes	DOI:10.1016/j.advwatres.2020.103656	ML + ARIMA water level forecasting for flood mitigation (Red River); well cited
+hydrology	DOI:10.1016/j.jhydrol.2018.04.042	Wavelet-random forest reference ET estimation; J. Hydrol.
+hydrology,climate	DOI:10.1029/2019wr026551	Data-driven reconstruction/prediction of GRACE-like water storage from climate inputs; WRR
+hydrology,extremes	DOI:10.1007/s11356-021-12410-1	ANN/fuzzy/ANFIS for flood prediction; well cited
+hydrology	DOI:10.1007/s00521-016-2763-0	Non-tuned ML for hydrological time series forecasting; well cited
+hydrology,s2s	DOI:10.1016/j.jhydrol.2018.09.020	Statistical, NMME and hybrid (wavelet ML) seasonal drought prediction in China; J. Hydrol.
+hydrology,extremes	DOI:10.3389/frwa.2024.1346104	ConvLSTM flash flood prediction
+hydrology,remote_sensing	DOI:10.1016/j.jhydrol.2024.130762	CNN bias correction of satellite precipitation for Mekong rainfall-runoff modelling; J. Hydrol.
+hydrology	DOI:10.5194/adgeo-45-201-2018	Random forests vs Prophet for daily streamflow forecasting; citable benchmark-style study
+hydrology	DOI:10.1016/j.jhydrol.2022.128078	Deep learning short/mid-term actual ET forecasts; J. Hydrol.
+hydrology,downscaling	DOI:10.1016/j.jhydrol.2024.131708	RF spatial downscaling of GRACE groundwater changes across climates; J. Hydrol.
+review,hydrology	DOI:10.3390/fi14090259	Systematic review of ML models for groundwater level change
+review,hydrology	DOI:10.3390/hydrology9070115	Review of hybrid/ML drought forecasting techniques
+hydrology,s2s	DOI:10.3390/atmos12010074	Wavelet-ARIMA-LSTM precipitation and drought forecasting, NE China
+hydrology,remote_sensing	DOI:10.1016/j.atmosres.2017.04.017	One-class SVM drought sensitivity mapping from station SPI and MODIS
+hydrology,extremes	DOI:10.1111/jfr3.12683	Deep learning (MLP+autoencoder) flood susceptibility mapping; well cited
+hydrology,extremes	DOI:10.1016/j.scitotenv.2018.12.397	Hybrid ML flash-flood potential assessment; STOTEN, well cited
+hydrology,extremes	DOI:10.1016/j.jenvman.2021.112449	MLP/CART flood susceptibility mapping; well cited
+hydrology	DOI:10.1007/s11269-022-03118-z	SVR-PSO groundwater level forecasting
+agriculture,hydrology	DOI:10.1016/j.atech.2023.100176	AI with sensor data assimilation for crop ET and water stress in irrigation
+review,agriculture	DOI:10.3390/s24196313	Review of AI methods for crop water stress
+agriculture,hydrology,remote_sensing	DOI:10.1016/j.isprsjprs.2019.07.005	ML mapping of irrigated cropland across CONUS at 30 m; well cited
+agriculture,s2s	DOI:10.1016/j.rse.2018.10.006	Predicting drought-driven agricultural productivity from MODIS, rainfall and climate indices; RSE
+agriculture,climate	DOI:10.1038/s43016-022-00481-3	ML projections of European soybean yields under climate change; Nature Food
+agriculture,climate	DOI:10.1016/j.scitotenv.2024.175764	Ensemble ML crop yield prediction across Canada under climate change; STOTEN
+weather,agriculture	DOI:10.3390/agronomy13030625	Attention network for temperature/humidity prediction for agriculture
+energy,chemistry	DOI:10.1016/j.renene.2019.07.104	Hybrid SVM daily diffuse solar radiation prediction with air pollutant inputs; well cited
+energy	DOI:10.1016/j.rser.2017.08.037	Deterministic vs data-driven solar radiation estimation in China
+energy	DOI:10.1016/j.energy.2019.116502	Deep belief network daily global solar radiation estimation
+energy,nowcasting,probabilistic	DOI:10.1016/j.renene.2018.02.006	ML deterministic and probabilistic intra-hour GHI/DNI forecasts with sky images; Renewable Energy
+energy,chemistry	DOI:10.1016/j.solener.2018.05.089	Hour-ahead irradiance forecasting with aerosol optical depth inputs
+energy	DOI:10.1016/j.enconman.2018.10.089	Hybrid decomposition + ELM short-term wind speed forecasting; well cited
+energy	DOI:10.1016/j.enconman.2018.02.006	EWT/GWO/RELM wind speed forecasting; well cited
+energy	DOI:10.1016/j.renene.2018.11.061	AI wind energy potential and wind speed forecasting decision system; Renewable Energy
+energy	DOI:10.1155/er/8022398	Solar PV power prediction integrating meteorological sensor data
+chemistry	DOI:10.1016/j.neunet.2019.09.033	Deep CNN 24-h ahead ozone forecasting; well cited
+chemistry	DOI:10.2139/ssrn.4234605	CNN with spatio-temporal attention for multi-step PM2.5/PM10 forecasts; Environ. Int.
+chemistry	DOI:10.4209/aaqr.2020.03.0097	ANN/wavelet NN air pollution forecasting with meteorological conditions; well cited
+chemistry	DOI:10.1109/access.2022.3174853	Deep-AIR hybrid CNN-LSTM fine-grained urban air pollution estimation/forecast
+chemistry	DOI:10.1016/j.apr.2021.101168	Deep learning PM2.5 forecasting in Beijing with different inputs and horizons
+chemistry	DOI:10.1016/j.uclim.2021.100800	Temporal convolutional network PM2.5 forecasting with missing values
+chemistry	DOI:10.2139/ssrn.4003847	ML ozone prediction in Beijing-Tianjin-Hebei 2014-2021
+chemistry	DOI:10.1007/s11869-022-01197-w	Hybrid CNN-Transformer ozone prediction
+chemistry,xai	DOI:10.1016/j.jes.2022.03.010	RF + STL attribution of meteorology vs emissions in O3 trends
+chemistry	DOI:10.1016/j.envint.2023.107848	Multi-output ML regional air pollution forecasting, Ho Chi Minh City; Environ. Int.
+extremes,remote_sensing	DOI:10.1186/s40645-018-0245-y	Deep learning detection of tropical cyclones and precursors in NICAM simulations
+remote_sensing	DOI:10.1175/jhm-d-20-0177.1	PDIR-Now ANN-based near-real-time quasi-global satellite precipitation; JHM
+remote_sensing	DOI:10.1109/tgrs.2019.2942280	ML precipitation estimation from satellite and ground radar; TGRS, well cited
+downscaling,climate	DOI:10.1155/2017/7265178	Random-forest statistical downscaling of GCM temperature; well cited
+downscaling	DOI:10.1016/j.jhydrol.2020.124789	ML rainfall prediction from atmospheric synoptic patterns, Tenerife
+nowcasting	DOI:10.1016/j.jhydrol.2022.127748	ST-LSTM-SA radar echo hourly rainfall forecasting; J. Hydrol.
+weather	DOI:10.1007/s00521-021-06362-3	XGBoost feature selection + ML for relative humidity prediction
+ocean	DOI:10.1080/19475705.2021.1887372	ARIMA/SVR/LSTM sea level prediction with ocean-atmosphere predictors
+ocean	DOI:10.1016/j.renene.2021.04.010	STL + 1D CNN significant wave height forecasting; well cited
+ocean	DOI:10.1016/j.ocemod.2024.102323	Transformer spatiotemporal wave forecasting, NW Pacific; Ocean Modelling
+review,ocean	DOI:10.3390/jmse9030283	Review of ML for forecasting harmful algal blooms and shellfish contamination
+extremes	DOI:10.1038/s41598-024-62182-0	LSTM/XGBoost storm prediction from buoy data, Western France; Sci. Rep.
+hydrology,extremes	DOI:10.1016/j.jhydrol.2018.12.040	Evolutionary recurrent ANFIS for multi-step flood forecasting; J. Hydrol., well cited
+chemistry,remote_sensing	DOI:10.3390/rs10050803	ML correction of satellite AOD error for PM2.5 modelling; well cited
+hydrology	DOI:10.1016/j.agrformet.2018.08.007	Wavelet ELM for reference evapotranspiration from meteorological data; AFM, well cited
+hydrology	DOI:10.1016/j.atmosres.2018.05.012	Data-driven SPEI drought prediction with input selection; Atmospheric Research
+hydrology,s2s	DOI:10.1016/j.scitotenv.2020.142638	Long-lead drought forecasting with stacked LSTM and lagged climate indices; well cited
+review,ocean	DOI:10.34133/2022/9870950	Review of AI applications in oceanography (identification, forecasting, parameterization)
+hydrology,remote_sensing	DOI:10.3390/w12113223	ML retrieval of surface soil moisture from remote sensing; highly cited
+hydrology	DOI:10.1016/j.jhydrol.2019.123958	Multi-station AI ensemble modelling of reference ET; J. Hydrol.
+agriculture	DOI:10.1016/j.agrformet.2021.108558	Crop yield forecasting and optimal lead time from multi-source environmental/climate data across China; AFM
+hydrology,extremes	DOI:10.1109/bigmm.2017.29	Deep learning (stacked autoencoder + BP) flood forecasting model; early DL hydrology application
+energy	DOI:10.3390/su151310609	ML estimation of solar radiation from meteorological variables
+hydrology	DOI:10.1016/j.jhydrol.2019.03.004	MARS-DE streamflow simulation with climatological inputs; J. Hydrol.
+energy,probabilistic	DOI:10.1016/j.apenergy.2021.117871	Normalizing flows for scenario-based probabilistic renewable (wind/PV) and load forecasting with weather inputs; Applied Energy
+hydrology,extremes	DOI:10.1016/j.advwatres.2020.103719	ML prediction of urban pluvial flooding from rainfall characteristics; Adv. Water Resour.
+extremes,benchmarks,remote_sensing	DOI:10.1145/3219819.3219926	Open TC satellite image dataset and CNN for intensity regression; KDD
+hydrology,review,extremes	DOI:10.1038/s41612-023-00388-1	Review of AI for climate impacts and flood risk; npj CAS
+hydrology,downscaling	DOI:10.1016/j.scitotenv.2022.161138	Random forest downscaling of GRACE groundwater in Central Valley
+hydrology,xai	DOI:10.1007/s11356-024-32725-z	Hybrid SWAT-BiLSTM streamflow prediction with SHAP interpretation
+energy	DOI:10.1016/j.rser.2019.109393	ML mapping of daily global solar radiation and PV power; RSER, well cited
+hydrology	DOI:10.1016/j.jhydrol.2019.123915	Hybrid VMD-DBN daily runoff forecasting; J. Hydrol.
+hydrology,remote_sensing,extremes	DOI:10.1609/aaai.v33i01.3301702	Multi3Net CNN for flood mapping from multisensor satellite imagery; AAAI
+agriculture	DOI:10.37896/aj9.4/012	Random forest millet yield prediction from temperature, humidity and rainfall; well cited
+energy,review	DOI:10.3390/app11031044	Review of SVM hybrid techniques for solar radiation prediction
+extremes,remote_sensing	DOI:10.1109/tgrs.2021.3066299	Deep CNN TC intensity estimation from Himawari-8 imagery; TGRS
+hydrology	DOI:10.1016/j.jhydrol.2018.07.013	National-scale assessment of ELM/ANN/RF pan evaporation models across China climatic zones
+hydrology,agriculture,xai	DOI:10.1016/j.scitotenv.2023.165480	XGBoost attribution of ocean, land and meteorological drivers of agricultural drought (ERA5 soil moisture)
+energy	DOI:10.3390/sym12111830	Deep learning daily solar irradiance forecasting with multi-site data
+ocean	DOI:10.1109/lgrs.2019.2931728	Attention-based deep learning SST prediction; GRSL, well cited
+hydrology	DOI:10.1007/s11356-021-13445-0	Hybrid SVR (HHO/PSO) meteorological drought prediction
+energy	DOI:10.1016/j.energy.2018.07.005	Hybrid optimized AI wind speed forecasting for wind farms
+energy,probabilistic	DOI:10.1016/j.ins.2017.08.039	NN prediction intervals for solar radiation forecasting
+chemistry	DOI:10.1109/jsen.2017.2690975	HazeEst: ML air pollution estimation from fixed and mobile sensors
+s2s,ocean,probabilistic	DOI:10.1002/env.2553	Deep echo state networks with UQ for long-lead spatio-temporal (SST) forecasting
+energy,probabilistic	DOI:10.3390/en11081958	Ensemble RNN probabilistic wind speed forecasting
+energy	DOI:10.1016/j.apenergy.2021.116842	GRU + spiking neural network wind speed forecasting; Applied Energy
+hydrology,agriculture	DOI:10.3390/agronomy12030594	LSTM/BiLSTM multi-step forecasting of reference ET
+hydrology,extremes	DOI:10.3390/rs14246229	Hybrid ML flood hazard zoning map, Assam
+hydrology	DOI:10.3390/su15021109	Wavelet-AI forecasting of streamflow drought index
+hydrology,review,benchmarks	DOI:10.3390/w16131904	Review of ML in hydrology around CAMELS, Caravan, GRDC, GLDAS and GRACE datasets
+remote_sensing	DOI:10.1016/j.rse.2020.112045	Weakly supervised deep learning cloud detection in high-resolution imagery; RSE, highly cited
+hydrology,extremes	DOI:10.1007/s11269-019-02301-z	Bivariate statistics vs ML flood susceptibility assessment; well cited
+hydrology	DOI:10.1016/j.jhydrol.2019.124115	Wavelet-NN forecasting of river water temperature; J. Hydrol., well cited
+hydrology	DOI:10.3390/su12104023	Hybrid ANFIS/SVM/ANN groundwater level prediction with uncertainty analysis
+hydrology,extremes	DOI:10.1016/j.catena.2020.104536	Random naive Bayes flood susceptibility assessment; CATENA
+hydrology	DOI:10.1016/j.jhydrol.2018.12.060	CEEMDAN + two-phase ELM multi-scale runoff prediction; J. Hydrol.
+hydrology,extremes	DOI:10.1016/j.jenvman.2020.110485	Hybrid bivariate statistics/ANN/boosting flood susceptibility
+ocean	DOI:10.3390/s18113797	TD-LSTM for marine temperature prediction at multiple depths
+hydrology,extremes	DOI:10.1016/j.jenvman.2021.113086	Stacking hybrid ML for multi-type flood delineation in Bangladesh
+chemistry	DOI:10.5194/amt-11-3717-2018	Regression/ML field calibration of NO/NO2 low-cost sensors; AMT
+chemistry	DOI:10.1016/j.envpol.2021.116459	Spatio-temporal interpretable deep learning for satellite PM2.5
+hydrology,extremes	DOI:10.1080/10106049.2021.1953618	ML flash-flood susceptibility mapping, Kangsabati basin
+energy	DOI:10.1016/j.ijhydene.2017.09.150	ANN prediction of daily diffuse solar radiation
+hydrology,extremes	DOI:10.2166/hydro.2017.175	SVM + numerical simulation for urban flash flood forecasting
+hydrology,s2s	DOI:10.3390/w10101448	ANN seasonal rainfall forecasting from climate indices, Geum River Basin
+energy	DOI:10.3390/en15072457	ANN vs LSTM solar irradiance forecasting for short-term PV power
+energy	DOI:10.1016/j.apenergy.2022.119288	Interpretable GNN-attention hourly solar radiation prediction; Applied Energy
+weather	DOI:10.3390/su151813724	Comparison of ML models for urban rainfall prediction
+hydrology,remote_sensing,extremes	DOI:10.3390/rs15082046	Near-real-time deep learning flood detection from SAR
+chemistry	DOI:10.3390/s22166231	Hyperspectral imaging + deep learning for PM2.5 detection
+chemistry	DOI:10.1007/s44273-023-00005-w	ML vs DL comparison for air pollution (AQI) prediction in China
+hydrology	DOI:10.2166/hydro.2023.216	CEEMDAN-VMD CABES-LSTM monthly runoff prediction
+hydrology,extremes	DOI:10.1016/j.jhydrol.2024.131998	Physics-informed deep learning for rapid urban flood inundation forecasting; J. Hydrol.
+agriculture,hydrology	DOI:10.1109/access.2024.3386552	ML estimation of crop water requirements and irrigation scheduling from remote sensing
+hydrology,xai	DOI:10.1016/j.jenvman.2024.121978	Physically guided interpretable ML for runoff drivers under land-use change
+agriculture	DOI:10.18805/ijare.a-6300	CNN-LSTM-attention crop yield prediction with weather inputs (India)
+hydrology,extremes	DOI:10.1111/jfr3.13047	Comparison of 14 ML models for flood susceptibility in Pakistan
+chemistry,review	DOI:10.3390/app10072401	Review of ML air quality prediction from sensor data; highly cited
+hydrology,agriculture	DOI:10.3390/rs13081562	UAV hyperspectral ML estimation of agricultural soil moisture
+hydrology,extremes	DOI:10.1016/b978-0-12-815226-3.00014-4	ANN flood susceptibility mapping in data-scarce urban areas
+hydrology,extremes	DOI:10.1016/j.scitotenv.2019.136492	Ensembles of MCDM, bivariate statistics and ML for flash-flood prone areas
+hydrology,review,extremes	DOI:10.1016/j.autcon.2021.103916	Review of image processing and ML for flood management
+remote_sensing	DOI:10.1016/j.rse.2017.11.003	SVM cloud detection for MODIS; RSE
+chemistry	DOI:10.1016/j.procs.2018.05.094	Differential evolution + random forest ensemble for air pollution prediction
+hydrology	DOI:10.1016/j.jhydrol.2018.10.020	Wavelet ELM river flow simulation; J. Hydrol.
+chemistry	DOI:10.1016/j.neucom.2021.09.051	Hybrid interpretable ML for air pollution prediction; Neurocomputing
+energy	DOI:10.1016/j.renene.2021.10.070	Linear, multivariable LSTM and NARX wind speed forecasting over complex Andean terrain; Renewable Energy
+hydrology,remote_sensing	DOI:10.1016/j.ophoto.2021.100005	Deep learning Sentinel-1 surface water mapping on Google Earth Engine
+energy	DOI:10.1016/j.eswa.2022.119129	Selection-combination convolution-recurrent short-term wind speed forecasting
+agriculture	DOI:10.1016/j.scitotenv.2021.152880	Environmental and multi-source satellite data for crop yield prediction in Northeast China
+hydrology,downscaling	DOI:10.1016/j.jhydrol.2022.127570	Deep learning downscaling of soil moisture products on the Tibetan Plateau; J. Hydrol.
+weather	DOI:10.1016/j.eswa.2022.119270	DWFH deep weather forecasting hybrid with transductive LSTM
+downscaling,weather	DOI:10.1002/qj.4265	Wind-Topo: deep learning downscaling of near-surface winds in complex terrain; QJRMS
+hydrology,extremes	DOI:10.1016/j.jhydrol.2023.129499	Attention-based LSTM high temporal resolution urban flood prediction; J. Hydrol.
+hydrology,review	DOI:10.3390/w15091750	Review of hybrid AI models for groundwater management
+energy	DOI:10.1016/j.eswa.2023.119878	Decomposition + causal convolution attention wind speed forecasting
+hydrology,extremes	DOI:10.1016/j.jhydrol.2023.129521	Time residual LSTM multi-step flood forecasting; J. Hydrol.
+energy	DOI:10.1109/access.2023.3325292	Deep learning short-term solar irradiance forecasting case study
+hydrology,extremes	DOI:10.1111/jfr3.12920	SVR with hyperparameter optimization for flood susceptibility mapping
+energy	DOI:10.1109/tpwrs.2023.3270662	Wind power forecast combining NWP and temporal autocorrelation via continuous CRF; IEEE TPWRS
+agriculture,climate	DOI:10.3390/su16166976	ML wheat-yield prediction under GCM climate change scenarios
+review,weather,climate	DOI:10.3390/atmos15060689	Review of data-driven weather forecasting and climate modelling
+hydrology,extremes	DOI:10.1007/s11069-024-06949-8	Hydro-Informer deep learning for water level and flood prediction
+hydrology,extremes	DOI:10.2166/hydro.2024.024	Spatiotemporal attention deep learning for rapid urban flood prediction under uneven rainfall
+hydrology	DOI:10.1007/s40747-021-00365-2	LSTM vs wavelet NN rainfall-runoff with satellite meteorological inputs, Nzoia basin; well cited
+agriculture,remote_sensing	DOI:10.3390/rs12010021	County-level maize yield in China from satellite and environmental/climate data with ML; well cited
+energy	DOI:10.3390/pr11030908	Ensemble ML prediction of solar irradiation in Bangladesh
+agriculture	DOI:10.1088/1742-6596/1714/1/012012	Hybrid ML/DL crop yield prediction using temperature and precipitation inputs; well cited
+ocean,remote_sensing	DOI:10.1016/j.rse.2021.112316	ML satellite retrieval of oceanic particulate organic carbon; RSE
+hydrology	DOI:10.3390/su14138209	Statistical-ML rainfall-runoff prediction comparison
+hydrology,remote_sensing	DOI:10.3390/rs11111351	Thresholding vs ML classifiers for mapping surface water storage in reservoirs; well cited
+seaice,remote_sensing	DOI:10.3390/rs12132165	CNN sea ice type classification from Sentinel-1 SAR trained on ice charts
+weather,energy	DOI:10.11591/ijeecs.v22.i2.pp1208-1215	Random forest prediction of solar radiation and wind speed, Tamil Nadu; well cited
+hydrology,extremes	DOI:10.1016/j.mex.2023.102060	Hybrid PSO-SVM flood discharge prediction, Barak basin
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125235	CNN urban flood susceptibility with precipitation factors; J. Hydrology
+weather,nowcasting	DOI:10.1109/tgrs.2019.2926110	Data-driven rainfall prediction from GPS PWV and surface met; IEEE TGRS
+weather	DOI:10.1109/access.2018.2880044	1-D CNN monthly rainfall forecasting; well cited
+hydrology	DOI:10.1016/j.jhydrol.2021.126016	Deep learning river water temperature forecasting from meteorological drivers; J. Hydrology
+hydrology	DOI:10.1007/s11269-018-1909-5	Hybrid ANN streamflow forecasting over multiple horizons
+hydrology,climate	DOI:10.1016/j.jenvman.2023.117244	SWAT coupled with Bi-LSTM for hydro-climatic simulation and climate change impacts
+hydrology,methods	DOI:10.1002/hyp.14847	Mass-conservation constraints in deep learning rainfall-runoff models
+hydrology,extremes	DOI:10.3390/w15223970	ML flood forecasting from historical climate records, Bangladesh
+downscaling,energy	DOI:10.1007/s00521-024-10139-9	Diffusion-model wind speed super-resolution ERA5 to CERRA
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.124808	Hybrid fuzzy/statistical/SVM flood potential mapping; J. Hydrology
+ocean	DOI:10.1016/j.neucom.2017.03.092	Ensemble ELM ocean wave height prediction
+hydrology,probabilistic	DOI:10.1016/j.scitotenv.2020.144715	Bayesian ML ensemble for groundwater storage change with climate drivers
+hydrology,climate	DOI:10.1016/j.scitotenv.2022.156162	SWAT vs LSTM future runoff and extremes under CMIP6 SSPs
+weather	DOI:10.1016/j.compag.2018.07.008	Survey of data-intelligent models for air temperature forecasting
+hydrology	DOI:10.5194/hess-28-2871-2024	National-scale hybrid physical model + LSTM streamflow estimation; HESS
+hydrology,extremes	DOI:10.1016/j.scitotenv.2019.07.197	Ensembles of bivariate statistics and AI for flash-flood potential, Romania; well cited
+hydrology,extremes	DOI:10.1016/j.jhydrol.2019.123929	ML snow avalanche hazard prediction; J. Hydrology; well cited
+chemistry	DOI:10.4209/aaqr.2018.12.0450	Evaluation of ML approaches for PM2.5 forecasting
+hydrology	DOI:10.1016/j.jhydrol.2021.126592	Physical vs data-driven vs hybrid evapotranspiration estimation; J. Hydrology
+energy	DOI:10.1016/j.renene.2017.09.078	MLP-firefly hybrid wind speed prediction from neighbouring stations
+hydrology,review	DOI:10.1007/978-3-030-26086-6_10	Book chapter reviewing ML applications in hydrology; well cited
+chemistry	DOI:10.3390/rs12244142	Multi-modal deep neural networks for air pollution prediction
+chemistry	DOI:10.1007/s00521-021-05901-2	Statistical vs deep learning long-term air pollution forecasting
+remote_sensing,extremes	DOI:10.1080/15481603.2022.2143872	Deep learning forest fire detection from Himawari-8 geostationary data
+chemistry	DOI:10.1145/3631713	Group-aware GNN for nationwide city air quality forecasting
+hydrology,extremes	DOI:10.1016/j.jhydrol.2022.127726	Data-driven rapid flood mapping with catchment generalizability; J. Hydrology
+energy	DOI:10.1016/j.egyr.2022.05.006	Physics-informed ML PV power forecasting with meteorological features; benchmark
+remote_sensing,weather	DOI:10.1109/jstars.2017.2787191	ML mapping of monthly air temperature from MODIS, Tibetan Plateau
+hydrology	DOI:10.1007/s11269-022-03067-7	Tree-based ensemble ML for evapotranspiration modelling
+agriculture,hydrology	DOI:10.1016/j.rse.2022.113184	IrriMap_CN: ML annual irrigation maps for China from satellite and environmental variables; RSE
+hydrology	DOI:10.3390/w15040670	Attention-LSTM hydrological time series prediction
+energy	DOI:10.1016/j.enconman.2019.02.086	Hybrid GWO-SCA ELM multi-step wind speed forecasting
+hydrology,review	DOI:10.2166/wcc.2019.236	Review of drought forecasting models 2007-2017 incl. AI/hybrid approaches
+energy	DOI:10.3390/en12020215	RNN hourly PV power prediction using meteorological information
+hydrology	DOI:10.1007/s12145-020-00450-z	ML monthly river flow forecasting, Hunza River
+hydrology,extremes	DOI:10.1111/jfr3.12607	GIS MCA and maximum entropy flood risk assessment with rainfall factor, Philippines
+hydrology,extremes	DOI:10.1007/s12517-018-3584-5	Ensemble ML flood susceptibility in arid southern Iraq
+hydrology,extremes	DOI:10.1080/10106049.2020.1829101	GLM/FDA/MARS/RF ensemble flood and erosion susceptibility
+hydrology,extremes	DOI:10.1109/access.2019.2963819	ML flood forecasting system from big and crowdsourced data
+energy	DOI:10.1016/j.enconman.2017.09.034	Wavelet-ELM wind speed forecasting with outlier correction
+postprocessing,probabilistic	DOI:10.1214/19-aoas1247	Distributional regression forests for probabilistic precipitation forecasting in complex terrain
+weather	DOI:10.1016/j.jenvman.2018.05.072	Hybrid stochastic-ELM monthly rainfall forecasting, tropical climate
+agriculture	DOI:10.3390/plants11151925	Tea yield prediction combining crop simulation models and ML
+ocean,remote_sensing	DOI:10.1016/j.rse.2022.112940	Transfer-learning retrieval of oceanic internal wave amplitude from satellite images; RSE
+hydrology,climate	DOI:10.1016/j.agwat.2018.06.011	SVM groundwater model driven by GCM projections for irrigation cost under climate change
+energy	DOI:10.1109/tii.2017.2789289	Adaptive learning hybrid model for solar intensity forecasting; IEEE TII
+hydrology,extremes	DOI:10.1016/j.jenvman.2022.116813	Framework for uncertainty in ML flood susceptibility models
+hydrology,xai	DOI:10.1016/j.scitotenv.2023.165509	Explainable ML for complex drought impacts
+weather	DOI:10.1109/access.2023.3333876	ML rainfall prediction study
+hydrology	DOI:10.5194/hess-28-2949-2024	Random forest long-term groundwater recharge for Africa; HESS
+hydrology,extremes	DOI:10.1007/s11269-024-04020-6	XGBoost-SHAP urban flood depth prediction
+energy	DOI:10.1109/tia.2023.3327035	Day-ahead solar power forecasts based on weather classification; overview + case study
+chemistry	DOI:10.5194/acp-2020-446	ML meteorology-normalization of COVID-19 lockdown NO2 impact in Spain; ACP
+hydrology,extremes	DOI:10.1016/j.envsoft.2019.104587	ANN emulation of flood inundation models
+energy,nowcasting	DOI:10.1016/j.solener.2019.01.096	3D-CNN features of ground-based cloud images for DNI prediction
+energy	DOI:10.1007/s00704-018-2576-4	Clustered ANFIS hourly solar radiation forecasting
+ocean,benchmarks	DOI:10.1029/2020gb006788	Large Ensemble Testbed quantifying errors of ML-based pCO2 ocean carbon sink reconstructions
+chemistry	DOI:10.1109/tim.2020.3034109	Low-cost LoRaWAN air pollution sensor with ML calibration
+chemistry	DOI:10.1109/jsen.2020.3010316	ML calibration and virtual sensing for low-cost air quality sensors
+hydrology	DOI:10.1016/j.eng.2021.12.022	Enhanced LSTM daily runoff prediction, upper Huai basin
+methods,extremes	DOI:10.48550/arxiv.2204.02488	Active learning with neural operators to discover/forecast extremes incl. rogue waves; Nature Comput Sci
+chemistry	DOI:10.1016/j.envres.2020.110653	Hourly neighbourhood-scale PM2.5 estimation from low-cost sensor network with ML
+hydrology,methods	DOI:10.1016/j.advwatres.2022.104243	GW-PINN physics-informed network for groundwater flow
+energy	DOI:10.1016/j.egyr.2022.05.110	EEMD-CNN-BiLSTM-GA hourly day-ahead wind speed forecasting
+energy,review	DOI:10.1109/access.2021.3097102	Review of AI hybrid wind power forecasting
+hydrology	DOI:10.1016/j.jhydrol.2022.127515	Directed-graph deep network for multi-step streamflow forecasting
+energy	DOI:10.1109/tsg.2022.3175451	Attention TCN ultra-short-term spatiotemporal forecasting of renewable resources
+hydrology,downscaling,climate	DOI:10.3390/w10121750	ANN disaggregation of downscaled GCM rainfall for future IDF curves
+hydrology,extremes	DOI:10.1016/j.scitotenv.2023.162066	Flood susceptibility with SAR, CHIRPS rainfall and hybrid ML
+energy	DOI:10.1016/j.enconman.2022.115590	Quaternion ConvLSTM wind speed forecasting, North Aegean
+climate,extremes	DOI:10.1038/s43247-022-00344-6	Random forest + downscaled ESMs project longer large-fire season in S. California
+energy	DOI:10.1016/j.energy.2023.129728	Temporal fusion transformer interpretable wind speed forecasting
+hydrology,extremes	DOI:10.1016/j.jhydrol.2022.128086	ML + PCA spatial-temporal flood inundation nowcasts
+hydrology,review	DOI:10.51526/kbes.2023.4.3.65-103	Review of ML for hydrological process modelling
+hydrology,agriculture,remote_sensing	DOI:10.3390/agronomy13030656	CNN soil moisture from Sentinel-2
+energy	DOI:10.32604/iasc.2023.030480	Bi-LSTM wind speed forecasting with feature selection
+hydrology,agriculture,review	DOI:10.1016/j.compag.2023.107836	Review of AI methods for reference evapotranspiration
+hydrology,remote_sensing,extremes	DOI:10.1007/s41064-024-00275-1	Nested UNet flood detection from Sentinel-1 with NASA benchmark
+remote_sensing,benchmarks	DOI:10.1038/s41597-024-03230-2	HiMIC-Monthly 1 km atmospheric moisture index dataset via LightGBM; Scientific Data
+hydrology,agriculture	DOI:10.1038/s41598-023-51111-2	ML seasonal drought prediction from weather parameters, Bangladesh
+agriculture,hydrology	DOI:10.3390/rs13091715	Deep learning agricultural drought monitoring from remote sensing over South Asia; well cited
+agriculture	DOI:10.3390/agriculture13010095	AI/big-data management of weather data for precision agriculture; well cited
+energy	DOI:10.1016/j.jclepro.2018.05.147	Comparison of AI methods for daily global solar radiation from meteorological inputs; well cited
+chemistry,remote_sensing	DOI:10.5194/acp-19-1097-2019	ML estimation of ground-level PM from satellite AOD and model meteorology over Korea (ACP)
+hydrology	DOI:10.1007/s00477-022-02277-0	Data-driven drought index forecasting; moderately cited regional application
+hydrology	DOI:10.3390/w11010088	ML (ANN/ELM/SVM) derivation of hydropower reservoir operating rules; well cited
+agriculture	DOI:10.3390/en14113004	Deep learning crop yield estimation from climate data and irrigation scheduling; well cited
+hydrology	DOI:10.1038/s41598-022-16215-1	Hybrid conceptual-ML rainfall-runoff modelling (IHACRES/GR4J + ML)
+downscaling,postprocessing	DOI:10.1002/qj.4596	Transformer models for downscaling and bias-correcting NWP temperature and wind (QJRMS)
+energy	DOI:10.3390/en13010147	Deep learning long-term solar radiation forecasting; well cited
+energy	DOI:10.3390/app9153019	XGBoost wind power forecasting with weather similarity analysis of meteorological inputs; well cited
+hydrology	DOI:10.1016/j.jhydrol.2021.126506	AI streamflow prediction with SSA/STL decomposition (J. Hydrol.); well cited
+hydrology,remote_sensing	DOI:10.1016/j.isprsjprs.2021.05.019	Unsupervised deep learning flood inundation mapping from SAR at scale
+energy	DOI:10.1016/j.apenergy.2017.10.076	Neuro-evolutionary hybrid model for daily global solar radiation estimation
+hydrology	DOI:10.3390/w10111655	GR4J coupled with recurrent neural networks for streamflow forecasting
+hydrology,extremes	DOI:10.3390/w14121971	Deep learning water level/flood forecasting, Red River of the North
+hydrology	DOI:10.1007/s11269-022-03133-0	VMD + GWO-LSTM monthly runoff forecasting
+hydrology,extremes	DOI:10.3390/w15223982	Hybrid LSTM/GRU flood forecasting
+hydrology,remote_sensing	DOI:10.3390/rs12071168	ML soil moisture retrieval from CYGNSS GNSS-R; well cited
+extremes,remote_sensing	DOI:10.1109/jstars.2021.3050767	Deep CNN tropical cyclone intensity estimation from IR satellite imagery; well cited
+agriculture,hydrology	DOI:10.1016/j.agwat.2021.106906	Random forest mapping of maize crop coefficient for evapotranspiration estimation
+hydrology,climate	DOI:10.1088/1748-9326/ac4291	ML (ANN/RF) global land ET retrieval showing warming-driven increase (ERL)
+hydrology,extremes	DOI:10.2166/wcc.2019.321	Deep learning flood prediction from weather parameters; well cited
+hydrology,extremes	DOI:10.1016/j.gsf.2020.09.007	Deep learning flash flood probability mapping; well cited
+hydrology	DOI:10.1007/s00477-020-01874-1	Metaheuristic-optimised SVR for daily streamflow prediction; well cited
+energy	DOI:10.3389/fenrg.2021.780928	Wind direction (nacelle orientation) forecasting with hybrid decomposition-learning framework
+energy,remote_sensing	DOI:10.1016/j.solener.2020.01.034	Random forest correction of reanalysis/satellite solar irradiance at high latitudes
+energy	DOI:10.1016/j.jweia.2018.01.020	Wavelet packet + Elman NN short-term wind speed forecasting
+remote_sensing	DOI:10.1109/jphot.2018.2854303	Deep CNN destriping of meteorological satellite infrared cloud images
+hydrology	DOI:10.3390/w10050628	Ensembles of ANNs for monthly streamflow forecasting
+hydrology,extremes	DOI:10.3390/rs13234945	Hybrid statistical-ML flash flood susceptibility from remote sensing data
+hydrology,remote_sensing	DOI:10.1080/17538947.2021.1995513	FWENet CNN for flood water extraction from SAR
+chemistry	DOI:10.3390/environments10080141	ML air quality prediction from meteorological data in urban Sri Lanka
+hydrology	DOI:10.1016/j.engappai.2022.105545	Wavelet Kalman OS-ELM with Boruta-RF for drought index forecasting
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125861	Random forest regional flood frequency analysis at ungauged sites; well cited
+energy	DOI:10.1016/j.renene.2020.11.089	ML site adaptation and solar radiation forecasting; well cited
+energy,review	DOI:10.1002/eng2.12178	Review of wind speed and wind power forecasting approaches; well cited
+agriculture	DOI:10.1002/jsfa.10696	ML barley yield prediction from satellite and meteorological data
+energy	DOI:10.1016/j.egyr.2021.01.018	Weather-driven ML prediction of hybrid PV-wind output
+hydrology	DOI:10.1016/j.scitotenv.2019.05.312	Evolutionary-optimised ML groundwater spring potential mapping
+agriculture,climate	DOI:10.1016/j.scitotenv.2020.140770	DNN projection of crop water footprint under RCP scenarios, Nile Delta
+energy,chemistry	DOI:10.1016/j.rser.2018.06.029	SVM solar radiation prediction including air pollution effects
+energy	DOI:10.1007/s11356-021-12435-6	Boosted decision tree solar radiation prediction, Malaysia
+hydrology,benchmarks	DOI:10.1029/2020wr028787	G-RUN ENSEMBLE: ML-based global observation-derived runoff reanalysis (WRR)
+chemistry,remote_sensing	DOI:10.1016/j.rse.2023.113609	Multimodal AI predicting air quality from satellite imagery (RSE)
+energy	DOI:10.1016/j.jclepro.2018.08.006	Weighted GPR multi-step solar radiation forecasting with review
+hydrology,remote_sensing	DOI:10.1016/j.rse.2022.113041	Quasi-global ML soil moisture from CYGNSS and SMAP (RSE)
+hydrology	DOI:10.1111/gwat.12620	SVR and M5 tree groundwater level prediction
+energy	DOI:10.1016/j.energy.2021.122012	IndRNN short-term wind speed interval prediction
+energy	DOI:10.5194/acp-23-3181-2023	ML hub-height wind speed estimation for wind energy assessment (ACP)
+energy	DOI:10.1080/15325008.2024.2316251	Deep learning hybrid renewable power forecasting from historical power and atmospheric data
+energy	DOI:10.1109/tqe.2023.3271362	Quantum LSTM one-hour-ahead solar irradiance forecasting
+hydrology,extremes	DOI:10.1016/j.jenvman.2024.121295	ML forecasting of compound ocean-fluvial floods
+hydrology,extremes	DOI:10.3390/w16213153	Deep neural network multi-step water level/flood forecasting
+hydrology	DOI:10.1007/s12145-024-01524-y	SSA-enhanced BiTCN self-attention runoff prediction
+energy	DOI:10.1016/j.enconman.2020.112524	Deep learning ensemble with denoising for short-term wind speed forecasting; well cited
+hydrology	DOI:10.3390/rs12071200	Tree-based ML ensembles for groundwater potential mapping; well cited
+hydrology,extremes	DOI:10.1016/j.gsf.2020.10.007	Deep belief network flash flood susceptibility mapping; well cited
+energy,probabilistic	DOI:10.1109/tsg.2018.2847223	Interval deep generative network for wind speed forecasting (IEEE TSG)
+weather	DOI:10.1080/03610918.2020.1854302	LSTM and Prophet air temperature forecasting; well cited
+agriculture	DOI:10.1016/j.agrformet.2021.108666	Deep learning smallholder maize yield prediction from satellite climatic and vegetation indices (AFM)
+energy	DOI:10.1016/j.renene.2017.10.075	Multi-step wind speed forecasting with feature selection and optimised learner
+energy	DOI:10.1016/j.renene.2021.06.079	Comparison of physical and ML models for solar irradiance and PV power
+hydrology	DOI:10.7717/peerj.4894	ML models of river water temperature from air temperature, Missouri River
+energy	DOI:10.1016/j.egypro.2017.12.126	BP neural network PV output forecasting using solar irradiance and weather
+downscaling,climate	DOI:10.1007/s00704-018-2686-z	ANN statistical downscaling of climate variables with decision-tree predictor screening
+ocean	DOI:10.3389/fmars.2021.680079	ConvLSTM wave forecasting in the South and East China Seas
+energy,review	DOI:10.1016/j.isci.2021.103136	Review of intra-hour solar irradiance forecasting techniques
+energy	DOI:10.1155/2021/6777488	ARIMA vs ANN PV energy forecasting using solar radiation data
+energy	DOI:10.1016/j.apenergy.2022.119518	Decomposition + optimised ORELM solar radiation prediction (Applied Energy)
+hydrology,review	DOI:10.32604/cmes.2021.015528	Review of ML drought modelling
+hydrology,agriculture	DOI:10.1016/j.compag.2022.107121	Hybrid BiLSTM reference evapotranspiration forecasting
+s2s,postprocessing	DOI:10.1038/s41467-023-38874-y	Adaptive ML bias correction for subseasonal temperature/precipitation forecasts (Nat. Commun.)
+ocean	DOI:10.1016/j.neucom.2017.09.025	Bayesian-optimised hybrid ML for ocean wave feature prediction
+weather,review	DOI:10.1007/s40808-023-01835-x	Review of hybrid ML models for rainfall prediction
+hydrology	DOI:10.1016/j.agrformet.2021.108777	Globally validated ML gap-filling of eddy covariance CO2, water and energy fluxes (AFM)
+weather,xai	DOI:10.1016/j.eswa.2023.121160	Explainable deep learning multi-step monthly rainfall prediction
+agriculture	DOI:10.3390/rs15092374	ML rice yield estimation integrating remote sensing and meteorological data
+energy	DOI:10.1038/s41598-024-69544-8	ML PV production prediction from weather variables (wind, humidity, temperature, irradiance)
+hydrology,remote_sensing	DOI:10.1016/j.jhydrol.2024.131102	Stacking ML ensemble for seasonal drought monitoring from remote sensing (J. Hydrol.)
+ocean,remote_sensing	DOI:10.1109/jstars.2024.3402823	Deep neural network mesoscale eddy detection from SST maps
+energy	DOI:10.1016/j.energy.2024.130875	Dual-layer LSTM point and interval wind speed forecasting from multivariate meteorological series
+hydrology,extremes,xai	DOI:10.1080/19475705.2024.2311889	ML + SHAP storm flood susceptibility, Shenzhen
+chemistry	DOI:10.1016/j.envpol.2024.124040	Bidirectional RNN daily AQI forecasting, Delhi
+energy	DOI:10.1016/j.measen.2024.101179	MTM-LSTM/MLP fusion for solar radiation forecasting
+hydrology,climate,extremes	DOI:10.1016/j.jenvman.2024.121764	AI flood susceptibility projections under SSP scenarios, South Asia
+hydrology,extremes	DOI:10.1038/s41598-021-82977-9	SPI drought forecasting with ML models in Bangladesh; well cited
+agriculture,climate	DOI:10.1016/j.scitotenv.2021.151029	Ensemble ML projection of future drought impacts on crop yield in South Asia
+ocean,extremes	DOI:10.5194/os-20-417-2024	ML prediction of SST and marine heatwaves in the Mediterranean; Ocean Science
+hydrology	DOI:10.1109/access.2021.3077703	Comparison of LSTM-type deep learning models for streamflow forecasting; well cited
+hydrology,extremes	DOI:10.3390/rs14164050	ML flood susceptibility mapping with remote sensing in Yemen; well cited
+agriculture,extremes	DOI:10.1088/1748-9326/aba2a4	ML plus process modelling of weather drivers of crop yield failures in Germany; ERL
+hydrology	DOI:10.3390/atmos9070251	Hybrid VMD-ML rainfall-runoff modelling
+agriculture	DOI:10.1016/j.scitotenv.2021.149726	Crop model plus deep learning with satellite data for pixel-scale rice yield
+hydrology	DOI:10.1016/j.geoderma.2021.115280	ML national-scale soil moisture mapping from LIDAR terrain indices
+hydrology	DOI:10.1007/s11069-022-05363-2	CNN-LSTM daily runoff forecasting
+hydrology	DOI:10.1007/s11269-024-03748-5	SVM-GRU hybrid runoff prediction
+hydrology	DOI:10.1080/15481603.2020.1794104	ML groundwater potential mapping; well cited
+chemistry	DOI:10.1007/s10098-021-02080-5	Deep learning air pollution (NO2/SO2) forecasting; well cited
+energy	DOI:10.1016/j.renene.2021.04.091	Hybrid deep learning wind speed forecasting with attention
+energy	DOI:10.1016/j.renene.2021.02.103	NARX recurrent nets with exogenous inputs for ultra-short-term PV forecasting
+energy	DOI:10.1109/tste.2021.3104656	Hybrid learning PV scenario forecast driven by weather forecasts
+hydrology,extremes,xai	DOI:10.3390/su14063251	Explainable ML flood hazard/risk mapping with satellite data
+energy	DOI:10.1007/s12559-022-10070-y	CNN-MLP solar radiation prediction
+hydrology,agriculture	DOI:10.1007/s00477-022-02196-0	Hybrid ANN reference evapotranspiration modelling across agro-climates
+seaice,remote_sensing	DOI:10.1109/lgrs.2021.3058049	Dual-attention U-Net sea ice/open water classification on SAR; well cited
+chemistry	DOI:10.3390/ijgi8020099	ML air pollution prediction in Tehran; well cited
+review,climate	DOI:10.1016/j.earscirev.2021.103752	ML for climate change risk assessment (review); well cited
+energy	DOI:10.1016/j.apenergy.2021.116641	Physics-informed deep learning wind field prediction from LIDAR
+chemistry,remote_sensing	DOI:10.1016/j.rse.2021.112573	ML high-resolution surface NO2 mapping with satellite observations
+energy	DOI:10.1016/j.energy.2021.122109	Seq2seq LSTM/GRU wind power forecasting from wind data
+chemistry	DOI:10.1109/tim.2021.3091511	Attention-based deep learning air pollution forecasting
+hydrology,extremes	DOI:10.3390/pr11020481	ML/DL flood forecasting with alert system
+chemistry	DOI:10.1016/j.envint.2020.105801	XGBoost virtual PM2.5 network from surface meteorological observations
+energy	DOI:10.1016/j.jclepro.2020.122353	ML vs time-series models for global solar radiation prediction
+hydrology	DOI:10.1016/j.jhydrol.2018.10.064	Hybrid SVR monthly streamflow forecasting; J. Hydrology
+energy	DOI:10.1016/j.energy.2019.115883	Physics-induced GNN for wind farm power under wind conditions
+hydrology,extremes	DOI:10.2166/wcc.2021.287	Random forest SPI/SPEI drought prediction across Iranian climates
+energy	DOI:10.1016/j.apenergy.2018.09.012	Hybrid wind speed forecasting system; Applied Energy
+hydrology,extremes	DOI:10.3390/w10111519	Random forest flash-flood forecasting in an Andean catchment
+energy	DOI:10.1016/j.apenergy.2021.117390	Physics-informed DL 3-D wind field reconstruction for wind turbines
+energy,probabilistic	DOI:10.1109/tii.2020.3004436	Deep learning probabilistic wind speed forecasting
+hydrology	DOI:10.1080/02626667.2021.1937631	VMD-LSTM-PSO daily runoff forecasting
+weather	DOI:10.1109/access.2022.3196381	Spatial-attention LSTM short-term weather forecasting
+hydrology,extremes	DOI:10.1016/j.jhydrol.2023.129276	cGAN rapid flood prediction generalizing to unseen urban catchments; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2019.06.045	ML derivation of hydropower reservoir operating rules; J. Hydrology
+agriculture	DOI:10.1080/19942060.2018.1526119	ELM/ANN sugarcane growth prediction from meteorological parameters
+energy	DOI:10.1016/j.solener.2018.02.006	Decomposition-clustering-ensemble solar radiation forecasting
+hydrology	DOI:10.1016/j.envres.2020.110062	NARX groundwater level prediction in Apulia
+hydrology,remote_sensing	DOI:10.1109/jstars.2021.3051873	Deep learning flood extent mapping from UAV imagery
+hydrology,remote_sensing	DOI:10.3390/rs13112220	Sentinel-1/2 deep learning flood water detection on Sen1Floods11
+hydrology,remote_sensing	DOI:10.1016/j.jag.2021.102400	Sentinel-1 CNN mapping of 2020 Poyang Lake flooding
+s2s	DOI:10.1016/j.compeleceng.2018.06.004	AI models for seasonal monsoon rainfall forecasting in Kerala
+chemistry	DOI:10.5194/acp-22-13229-2022	TAP daily 1 km PM2.5 ML dataset for China; ACP
+chemistry,remote_sensing	DOI:10.1016/j.envint.2021.106917	ML ground-level ozone from TROPOMI and meteorology
+energy	DOI:10.1016/j.renene.2020.09.078	Hybrid decomposition-KELM multi-step wind speed forecasting
+hydrology	DOI:10.3390/su14031843	Hybrid SARIMA-ANN reservoir water level prediction
+chemistry	DOI:10.1016/j.scitotenv.2021.146288	Random forest PM2.5 estimation from satellite and station data in China
+nowcasting,weather	DOI:10.1016/j.atmosres.2022.106157	ML regression/classification for fog event prediction; Atmos. Research
+hydrology,extremes	DOI:10.1016/j.jenvman.2022.116450	Deep learning plus ensemble flood susceptibility modelling
+energy	DOI:10.1109/tste.2021.3057521	Multi-meteorological-factor graph model for PV forecasting
+hydrology	DOI:10.1016/j.jhydrol.2022.128262	Meteorologically sensitive GRU groundwater level prediction; J. Hydrology
+energy	DOI:10.1016/j.energy.2018.09.180	Adaptive decomposition and regularized ELM wind speed forecasting
+agriculture,s2s	DOI:10.1109/escience.2018.00131	Pre-season ML yield forecast using precipitation and seasonal climate forecasts
+hydrology,remote_sensing	DOI:10.1080/01431161.2018.1484961	GA-BP neural network soil moisture retrieval from GNSS-IR
+weather	DOI:10.1109/iccsp.2018.8523829	Deep learning models for rainfall prediction
+agriculture,weather	DOI:10.1109/jiot.2018.2867333	ML frost event prediction with IoT sensing
+hydrology	DOI:10.1080/19942060.2022.2104928	GRU groundwater level forecasting
+review,hydrology	DOI:10.3390/su15076160	Review of deep learning for drought prediction
+hydrology	DOI:10.1007/s11269-023-03579-w	ANN/ANFIS/BiLSTM/CNN-GRU-LSTM long-term streamflow comparison
+hydrology,extremes	DOI:10.1038/s41598-024-68857-y	Graph neural network flood forecasting with digital twin
+hydrology,remote_sensing	DOI:10.3390/rs16111962	Random forest soil moisture estimation from Sentinel-2/Landsat/UAV
+hydrology,parameterization	DOI:10.5194/hess-28-2705-2024	Hybrid hydrological models with dynamic parameterization; HESS
+chemistry,xai	DOI:10.1016/j.scitotenv.2024.172195	XGBoost-SHAP analysis of atmospheric toluene
+hydrology,extremes	DOI:10.1007/s12145-024-01354-y	Time-distributed CNN-LSTM flood forecasting
+energy,xai	DOI:10.1109/access.2020.3031477	Explainable AI for solar PV power forecasting; well cited
+energy	DOI:10.1016/j.engappai.2020.103573	LMD-LSSVM short-term wind speed prediction
+energy	DOI:10.1016/j.enconman.2020.112582	Ensemble learning solar irradiance prediction
+energy	DOI:10.1109/access.2020.2968390	Hybrid ARMA/PSO-SVM wind power prediction using wind speed and temperature
+hydrology	DOI:10.1007/s11269-019-2183-x	VMD deep neural network daily runoff forecasting
+hydrology	DOI:10.1007/s10040-018-1866-3	ANN groundwater level forecasting
+hydrology,extremes	DOI:10.1016/j.jher.2021.10.002	DEM resolution effects on ML flood probability mapping
+energy	DOI:10.1016/j.energy.2021.121275	Combined linear/shallow/deep model for wind speed prediction
+energy,probabilistic	DOI:10.1109/tste.2021.3086851	Attention network with multi-source NWP for probabilistic wind power
+remote_sensing	DOI:10.1109/tgrs.2017.2712809	DeepCloud: CNN ground-based cloud image categorization
+energy	DOI:10.1007/s10462-016-9506-6	MLP hidden-neuron analysis for wind speed forecasting
+remote_sensing,ocean	DOI:10.1016/j.rse.2021.112801	CyGNSSnet deep learning GNSS-R ocean wind speed; RSE
+energy	DOI:10.1016/j.flowmeasinst.2017.01.007	ANN estimation of wind speed fluctuation
+agriculture,review	DOI:10.1016/j.agrformet.2021.108698	Perspective on ML in crop yield modelling; Agric. Forest Meteorol.
+energy	DOI:10.1016/j.renene.2020.11.002	Hybrid ensemble neural network short-term wind speed forecasting
+energy	DOI:10.1016/j.rser.2017.01.013	ANN solar radiation estimation in Kuwait
+energy	DOI:10.1016/j.energy.2021.121808	Novel deep learning loss function for wind speed forecasting
+hydrology	DOI:10.1002/2017wr021039	ANN surrogates of hydrodynamic model for hydropower reservoir optimization
+hydrology,extremes	DOI:10.1016/j.nhres.2022.06.003	Ensemble ML flood susceptibility in Himalayan foreland
+ocean	DOI:10.1080/01431161.2018.1454623	ANN daily sea surface temperature prediction
+chemistry,nowcasting	DOI:10.1016/j.envres.2017.01.035	ELM very short-term solar UV index forecasting
+hydrology	DOI:10.1016/j.jhydrol.2022.127653	Deep learning error prediction to improve runoff forecasts; J. Hydrology
+energy	DOI:10.1109/access.2018.2869981	IPSO-BP wind speed prediction
+hydrology,extremes	DOI:10.1109/innocit.2017.8319150	MLP flood prediction from sensor hydrology time series
+energy	DOI:10.1016/j.enconman.2018.06.021	VMD-RKELM solar irradiation forecasting
+hydrology,remote_sensing	DOI:10.1109/tgrs.2020.3035469	Deep learning from simulated data for flood depth and debris-flow mapping
+hydrology	DOI:10.1016/j.jhydrol.2023.129460	Optimized ELM monthly runoff prediction; J. Hydrology
+agriculture	DOI:10.3390/rs15102511	Multimodal DL rice yield from UAV imagery and weather data
+remote_sensing,energy	DOI:10.1175/bams-d-22-0154.1	RTM plus ML surface solar radiation compositions from Himawari/Fengyun-4; BAMS
+energy	DOI:10.1016/j.energy.2021.122116	Deep learning with meteorological parameters for intra-hour PV intervals
+review,chemistry	DOI:10.1016/j.scitotenv.2023.168588	Review of ML in atmospheric pollution research
+remote_sensing,xai	DOI:10.3389/fenvs.2022.1057081	RF-SHAP satellite QPE for mesoscale convective systems
+hydrology	DOI:10.3390/rs15163999	Random forest streamflow prediction in snowmelt watershed
+ocean	DOI:10.1016/j.rsma.2024.103726	LSTM-Transformer SST prediction
+review,energy	DOI:10.1007/s11042-024-18916-3	Review of AI-based wind power forecasting
+energy	DOI:10.1016/j.energy.2024.133826	Decomposition plus hybrid DL short-term wind speed forecasting
+energy	DOI:10.1109/tpwrs.2023.3257368	Similar-wind-process matching and DL model selection for wind power
+energy	DOI:10.1016/j.enconman.2023.117896	Mixformer spatio-temporal wind speed forecasting
+energy	DOI:10.1109/tste.2023.3326887	Day-ahead PV forecasting with cloud-coverage spatial attention
+review,chemistry	DOI:10.1016/j.envres.2024.119751	Systematic review of ML vs statistical air pollutant prediction
+weather	33e3034effe7f14bffee15468897d12cb89908d1	Stacking-ensemble ML monthly rainfall prediction (Taihu Basin); well cited regional application
+hydrology,remote_sensing	DOI:10.1016/j.rse.2018.04.001	KNN/fusion of satellite products for meteorological drought estimation; RSE
+ocean,review	DOI:10.3389/fmars.2024.1396322	Comprehensive review of deep learning in physical oceanography
+weather	DOI:10.3390/rs12193174	BLSTM-GRU monthly rainfall prediction; well cited
+weather	DOI:10.1007/s11600-023-01241-y	LSTM-CNN/GRU-CNN daily air temperature forecasting
+chemistry	DOI:10.1007/s11869-018-0585-1	CNN-LSTM hybrid for ozone concentration prediction; well cited
+remote_sensing	DOI:10.1109/tgrs.2018.2874950	Random-forest QPE from Himawari-8 and GFS; IEEE TGRS
+hydrology,downscaling	DOI:10.3390/rs13030523	ML downscaling of GRACE groundwater storage to 1 km over China
+ocean	DOI:10.1109/lgrs.2019.2947170	Multilayer ConvLSTM prediction of 3-D ocean temperature
+hydrology	DOI:10.1016/j.scitotenv.2019.135539	Ensemble ML groundwater level prediction, India; well cited
+energy	DOI:10.3390/en11030526	ESN/LSTM wind power forecasting building on wind power curve (wind inputs)
+hydrology,remote_sensing,extremes	DOI:10.1109/jstars.2022.3155559	OmbriaNet CNN flood mapping from Sentinel-1/2
+hydrology,climate	DOI:10.3390/su14052601	ML reference evapotranspiration prediction under climate-change scenarios
+hydrology,extremes	DOI:10.1016/j.scitotenv.2023.162285	GA-optimised ensemble ML flood susceptibility mapping
+hydrology	DOI:10.1007/s12145-024-01623-w	ML/DL groundwater level prediction driven by climate variability, South Africa
+agriculture,remote_sensing	DOI:10.1016/j.isprsjprs.2019.12.012	Random forest crop yield estimation from MODIS plus environmental/weather variables, US corn/soy
+hydrology	DOI:10.1016/j.jhydrol.2019.05.045	Hybrid ANFIS-GWO soil moisture simulation; J. Hydrology
+weather	DOI:10.1038/s41598-021-96872-w	ML temperature and humidity forecasting, Malaysia; well cited
+hydrology,extremes	DOI:10.20944/preprints202201.0133.v1	ML-based urban flood risk assessment
+energy	DOI:10.1109/access.2021.3100105	Attention-LSTM day-ahead PV power forecasting with meteorological factors
+hydrology	DOI:10.2166/wcc.2018.003	Hybrid LSSVM/ANN/ANFIS daily reference evapotranspiration estimation
+hydrology	DOI:10.1007/s13201-023-01874-w	DL vs ML river sediment load prediction
+chemistry,review	DOI:10.1038/s41598-024-71269-7	Review of AI/ML for air pollution management in India
+hydrology,downscaling	DOI:10.1186/s40068-024-00368-1	ML downscaling of GRACE/GRACE-FO for drought effects on groundwater
+hydrology	DOI:10.1016/j.agwat.2020.106386	Bi-LSTM short-term reference evapotranspiration forecasting with limited met inputs; well cited
+energy	DOI:10.1016/j.apenergy.2018.11.063	CNN-LSTM multi-task forecasting of wind field signals for turbines; Applied Energy
+hydrology,extremes	DOI:10.1080/10106049.2021.1974959	LightGBM/CatBoost flash flood susceptibility; well cited
+chemistry	DOI:10.1016/j.atmosenv.2018.03.027	ANN ozone concentration estimation; Atmospheric Environment
+ocean,remote_sensing	DOI:10.1016/j.rse.2020.112236	OC-SMART ML platform for ocean colour and aerosol retrieval
+agriculture	DOI:10.1080/08839514.2021.1976091	RNN/LSTM wheat yield prediction from weather variables, Punjab
+chemistry	DOI:10.3390/s21010256	ML calibration of low-cost CO/NO2/O3/SO2 sensors
+hydrology	DOI:10.1080/02626667.2017.1410891	ELM modelling of groundwater fluctuations from hydro-climatic data
+chemistry,remote_sensing	DOI:10.5194/acp-21-7373-2021	ML weather-normalised TROPOMI/surface NO2 lockdown changes over Europe
+energy	DOI:10.1016/j.solener.2017.05.018	Gradient boosting separation of direct/diffuse solar radiation
+energy	DOI:10.1016/j.susmat.2022.e00429	Hybrid CNN daily solar radiation prediction
+hydrology,review	DOI:10.1007/s10668-023-03131-1	Review of ML/DL for hydrological inflow forecasting
+weather	DOI:10.1007/s12665-024-11481-w	XGBoost rainfall forecasting for India
+hydrology	DOI:10.1186/s12302-024-00981-y	Bagging/boosting groundwater potential mapping in drought-prone region
+hydrology,extremes	DOI:10.1016/j.jhydrol.2020.125007	Hybrid ensemble ML flash flood susceptibility; J. Hydrology, well cited
+review,hydrology,climate	DOI:10.1007/978-3-030-36841-8_5	Systematic review of DL/ML in hydrology, climate change and Earth systems; well cited
+energy	DOI:10.1109/access.2019.2942012	PSO-SVR and grey model for wind speed and wind power prediction
+hydrology,extremes	DOI:10.1016/j.scitotenv.2019.134514	Hybrid ML flash-flood potential in mountain catchments; well cited
+hydrology,remote_sensing	DOI:10.1016/j.rse.2017.10.045	Neural network surface soil moisture from SMAP; RSE
+weather,climate	DOI:10.1007/s00704-019-02905-w	SVR/SVR-FA long-term monthly temperature forecasting, Iran
+hydrology	DOI:10.1016/j.jhydrol.2020.125130	Extremely randomized trees lake surface water temperature from air temperature
+weather	DOI:10.1007/s11269-019-02408-3	Hybrid data-intelligence multi-station rainfall modelling
+agriculture	DOI:10.1007/s00484-018-1583-6	ANN/penalised regression rice yield from weather parameters
+ocean,remote_sensing	DOI:10.1016/j.rse.2020.112200	ML (mixture density network) hyperspectral retrieval of phytoplankton/Chl-a in coastal waters
+remote_sensing	DOI:10.1016/j.rse.2019.111616	ML retrieval of cloud-top properties from geostationary imager
+hydrology,remote_sensing	DOI:10.1016/j.agrformet.2018.04.020	ML-upscaled eddy-covariance/remote sensing ET product for China
+ocean,methods	DOI:10.1016/j.oceaneng.2022.110775	Deep learning for inverse nonlinear water-wave problems (Serre-Green-Naghdi)
+hydrology,extremes	DOI:10.3390/w14142221	LSTM-GRU water level prediction for flood forecasting
+hydrology,remote_sensing,benchmarks	DOI:10.5194/essd-13-1-2021	Neural-network fused global surface soil moisture dataset (RSSSM); ESSD
+energy,weather	DOI:10.1109/access.2021.3111408	Deep learning ensemble wind speed forecasting
+energy,climate	DOI:10.1016/j.apenergy.2022.119063	Hybrid deep ML solar radiation prediction with GCM predictors; Applied Energy
+hydrology,extremes	DOI:10.1007/s11069-020-04453-3	ML urban flood hazard mapping
+agriculture,hydrology	DOI:10.1111/gcb.16132	Random forest global mapping of irrigation water/GHG benefits of non-continuous rice flooding; GCB
+remote_sensing,ocean	DOI:10.1016/j.rse.2022.112934	CNN GNSS-R ocean wind speed retrieval; RSE
+ocean	DOI:10.1016/j.watres.2022.118040	Long-term sea surface chlorophyll-a prediction with spatio-temporal DL
+chemistry	DOI:10.5194/acp-23-4031-2023	Random forest meteorological detrending of South Korea ozone trends; ACP
+hydrology,extremes	DOI:10.3390/ijerph20021043	LSTM combined with numerical model for urban flooding prediction
+energy	DOI:10.1038/s41598-024-73076-6	Attention DL short-term wind power forecasting from meteorological data
+chemistry,remote_sensing	DOI:10.5194/amt-17-2625-2024	U-Plume DL plume detection and source quantification from satellite imagery; AMT
+hydrology	DOI:10.1007/s12145-024-01454-9	Side-by-side comparison of DL models for hourly streamflow forecasting
+hydrology	DOI:10.1016/j.watres.2024.121314	DL plus multi-objective optimisation for reservoir operation
+hydrology,methods	DOI:10.1137/1.9781611976236.60	Physics-guided neural architecture for lake temperature modelling with uncertainty
+energy	DOI:10.1016/j.enconman.2019.112345	Hybrid decomposition/DL short-term wind speed prediction; well cited
+hydrology	DOI:10.1016/j.ejrh.2021.100848	GIS ML ensemble groundwater potential modelling
+hydrology	DOI:10.1080/19942060.2021.1974093	Ensemble deep learning groundwater level prediction
+weather	DOI:10.5815/ijisa.2018.01.03	ANN rainfall prediction from time series
+energy,probabilistic	DOI:10.1016/j.enconman.2020.113098	Deterministic and probabilistic DL short-term wind speed forecasting
+hydrology	DOI:10.1016/j.jher.2017.11.004	ANFIS/wavelet-ANFIS groundwater level prediction
+hydrology	DOI:10.1007/s11356-018-3650-2	ANFIS vs ANN daily river water temperature from air temperature
+energy,postprocessing,review	DOI:10.1016/j.rser.2021.110735	Review of post-processing in solar forecasting
+hydrology,extremes	DOI:10.3390/w10091158	ANN flood prediction, Mohawk River
+energy,weather	DOI:10.1016/j.energy.2022.124095	Spatial-temporal graph transformer short-term wind speed forecasting; Energy
+energy	DOI:10.1016/j.jweia.2017.12.019	DWT-LSSVM-GARCH wind speed prediction
+hydrology,extremes	DOI:10.1016/j.jhydrol.2022.127747	Deep learning flash-flood hazard mapping; J. Hydrology
+hydrology	DOI:10.1016/j.jhydrol.2022.127762	Deep learning ensemble short-term runoff prediction; J. Hydrology
+energy	DOI:10.1016/j.energy.2023.127701	Hybrid deep residual/LSTM short-term solar radiation forecasting; Energy
+hydrology,review	DOI:10.1007/s11356-018-1867-8	Review of AI methods for dam and reservoir hydro-environment models
+hydrology	DOI:10.1016/j.scitotenv.2023.164323	Stacked ML multi-step lake surface water temperature prediction
+hydrology,benchmarks	DOI:10.5194/essd-15-5597-2023	GTWS-MLrec: ML reconstruction of global terrestrial water storage 1940-present; ESSD
+hydrology,extremes	DOI:10.1016/j.apgeog.2023.103035	ML plus MCDM flood risk assessment
+chemistry	DOI:10.1016/j.jclepro.2023.137036	Spatially attentive graph neural network for city PM2.5 forecasting
+weather	DOI:10.1016/j.mex.2024.102757	Hybrid methods for daily precipitation forecasting in Thailand
+energy	DOI:10.1016/j.energy.2024.130404	GAOformer graph transformer offshore wind speed prediction; Energy
+hydrology,energy	DOI:10.1016/j.jhydrol.2024.130904	Transformer-based deep RL for multi-hydropower reservoir operation; J. Hydrology
+hydrology	DOI:10.1007/s11269-024-03943-4	GRU-LSTM self-attention hydrological time series forecasting
+hydrology,remote_sensing,extremes	DOI:10.1016/j.jag.2024.103991	Transformer SAR change detection for flood mapping
+hydrology,xai	DOI:10.1016/j.jhydrol.2024.131493	Explainable PSO-XGBoost national regional flood frequency analysis; J. Hydrology
+hydrology,remote_sensing	DOI:10.1016/j.rsase.2024.101239	Random forest flooded-area mapping from multi-source data
+agriculture,benchmarks	DOI:10.1038/s41597-024-04248-2	GGCP10 global gridded crop production dataset from data-driven models with agroclimatic inputs

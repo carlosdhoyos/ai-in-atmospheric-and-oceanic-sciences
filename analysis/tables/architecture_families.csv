@@ -1,22 +1,22 @@
 family,papers
 GAN,20
-Equation discovery,24
+Equation discovery,25
 Neural operator,26
-Reservoir computing,37
+Diffusion / flow matching,36
 Expert / knowledge-based system,39
-U-Net,41
-Diffusion / flow matching,46
-Graph neural network,49
-VAE / flow / autoencoder,52
-Nearest neighbour / analog,63
-Clustering / unsupervised,84
-Transformer,116
-Fuzzy logic,120
-Evolutionary (GA / GP),123
-Linear / statistical,168
-Tree ensemble,231
-CNN,245
-Kernel / GP / SVM,285
-Neural network (unspecified),333
-RNN / LSTM,369
-MLP,578
+U-Net,40
+Reservoir computing,44
+VAE / flow / autoencoder,50
+Graph neural network,54
+Nearest neighbour / analog,66
+Clustering / unsupervised,88
+Fuzzy logic,126
+Evolutionary (GA / GP),131
+Transformer,136
+Linear / statistical,185
+Tree ensemble,289
+CNN,296
+Kernel / GP / SVM,313
+Neural network (unspecified),407
+RNN / LSTM,459
+MLP,611

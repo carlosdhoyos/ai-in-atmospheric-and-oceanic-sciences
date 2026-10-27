@@ -657,6 +657,11 @@ Shawon et al. (2024), *Smart Agricultural Technology*. 140 citations.
 - **Issues:** No abstract available; the review's coverage and conclusions cannot be verified.
 - *Basis: assessment*
 
+### [Deep Learning and Machine Learning in Hydrological Processes Climate Change and Earth Systems a Systematic Review](https://doi.org/10.1007/978-3-030-36841-8_5)
+Ardabili et al. (2019), *Venue not recorded*. 139 citations.
+
+*Summary pending.*
+
 ### [Machine Learning for Model Error Inference and Correction](https://doi.org/10.1029/2020ms002232)
 Bonavita et al. (2020), *Journal of Advances in Modeling Earth Systems*. 137 citations.
 
@@ -712,6 +717,31 @@ Rampal et al. (2024), *Artificial Intelligence for the Earth Systems*. 128 citat
 - **Issues:** Extrapolation to warmer climates and extreme events remains uncertain and cannot be fully verified with historical observations.
 - *Basis: abstract*
 
+### [Machine Learning Methods for Weather Forecasting: A Survey](https://doi.org/10.3390/atmos16010082)
+Zhang et al. (2025), *Atmosphere*. 127 citations.
+
+*Summary pending.*
+
+### [A Review of Recent Machine Learning Advances for Forecasting Harmful Algal Blooms and Shellfish Contamination](https://doi.org/10.3390/jmse9030283)
+Cruz et al. (2021), *Journal of Marine Science and Engineering*. 120 citations.
+
+*Summary pending.*
+
+### [Exploring machine learning potential for climate change risk assessment](https://doi.org/10.1016/j.earscirev.2021.103752)
+Zennaro et al. (2021), *Earth-Science Reviews*. 120 citations.
+
+*Summary pending.*
+
+### [Neurocomputing in surface water hydrology and hydraulics: A review of two decades retrospective, current status and future prospects](https://doi.org/10.1016/j.jhydrol.2020.125085)
+Zounemat‐Kermani et al. (2020), *Journal of Hydrology*. 119 citations.
+
+*Summary pending.*
+
+### [Artificial intelligence in the water domain: Opportunities for responsible use](https://doi.org/10.1016/j.scitotenv.2020.142561)
+Doorn (2020), *Science of The Total Environment*. 112 citations.
+
+*Summary pending.*
+
 ### [Artificial Intelligence Revolutionises Weather Forecast, Climate Monitoring and Decadal Prediction](https://doi.org/10.3390/rs13163209)
 Dewitte et al. (2021), *Remote Sensing*. 110 citations.
 
@@ -766,6 +796,16 @@ Krasnopolsky (2007), *Reviews of Geophysics*. 95 citations.
 - **Open work:** Uncertainty estimation, extrapolation and stability when coupled to models.
 - **Issues:** Emulations degrade outside training domain.
 - *Basis: abstract+knowledge*
+
+### [How machine learning could help to improve climate forecasts](https://doi.org/10.1038/548379a)
+Jones (2017), *Nature*. 93 citations.
+
+*Summary pending.*
+
+### [Recent Developments in Artificial Intelligence in Oceanography](https://doi.org/10.34133/2022/9870950)
+Dong et al. (2022), *Ocean-Land-Atmosphere Research*. 93 citations.
+
+*Summary pending.*
 
 ### [Artificial Intelligence in Wind Speed Forecasting: A Review](https://doi.org/10.3390/en16052457)
 Valdivia-Bautista et al. (2023), *Energies*. 91 citations.
@@ -855,6 +895,11 @@ Boukabara et al. (2019), *Bulletin of the American Meteorological Society*. 80 c
 - **Issues:** Perspective with illustrative examples rather than systematic evaluation.
 - *Basis: abstract*
 
+### [Mathematical and Machine Learning Models for Groundwater Level Changes: A Systematic Review and Bibliographic Analysis](https://doi.org/10.3390/fi14090259)
+Afrifa et al. (2022), *Future Internet*. 80 citations.
+
+*Summary pending.*
+
 ### [Towards implementing artificial intelligence post-processing in weather and climate: proposed actions from the Oxford 2019 workshop](https://doi.org/10.1098/rsta.2020.0091)
 Haupt et al. (2021), *Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences*. 77 citations.
 
@@ -865,6 +910,11 @@ Haupt et al. (2021), *Philosophical Transactions of the Royal Society A: Mathema
 - **Open work:** Encourages the community to test algorithms against the baselines, archive results and expand the repository.
 - **Issues:** Five datasets are a narrow benchmark, and community uptake determines its value.
 - *Basis: abstract*
+
+### [Drought Forecasting: A Review and Assessment of the Hybrid Techniques and Data Pre-Processing](https://doi.org/10.3390/hydrology9070115)
+Alawsi et al. (2022), *Hydrology*. 76 citations.
+
+*Summary pending.*
 
 ### [Analysis, characterization, prediction, and attribution of extreme atmospheric events with machine learning and deep learning techniques: a review](https://doi.org/10.1007/s00704-023-04571-5)
 Salcedo-Sanz et al. (2023), *Theoretical and Applied Climatology*. 75 citations.
@@ -888,6 +938,11 @@ Tanty et al. (2015), *International Journal of Engineering Research and*. 74 cit
 - **Issues:** Abstract unavailable; scope and depth of the review are unknown, and it predates deep learning methods in hydrology.
 - *Basis: assessment*
 
+### [A Contemporary Review on Deep Learning Models for Drought Prediction](https://doi.org/10.3390/su15076160)
+Gyaneshwar et al. (2023), *Sustainability*. 71 citations.
+
+*Summary pending.*
+
 ### [Application of artificial neural networks in global climate change and ecological research: An overview](https://doi.org/10.1007/s11434-010-4183-3)
 Liu et al. (2010), *Chinese Science Bulletin*. 69 citations.
 
@@ -898,6 +953,21 @@ Liu et al. (2010), *Chinese Science Bulletin*. 69 citations.
 - **Open work:** Better interpretability of ANNs and integration with process-based ecological models.
 - **Issues:** No abstract available; a 2010 review predates deep learning developments.
 - *Basis: assessment*
+
+### [Advancements and future outlook of Artificial Intelligence in energy and climate change modeling](https://doi.org/10.1016/j.adapen.2025.100211)
+Shobanke et al. (2025), *Advances in Applied Energy*. 67 citations.
+
+*Summary pending.*
+
+### [Review and Intercomparison of Machine Learning Applications for Short-term Flood Forecasting](https://doi.org/10.1007/s11269-025-04093-x)
+Asif et al. (2025), *Water Resources Management*. 67 citations.
+
+*Summary pending.*
+
+### [Application of machine learning in atmospheric pollution research: A state-of-art review.](https://doi.org/10.1016/j.scitotenv.2023.168588)
+Peng et al. (2023), *Science of The Total Environment*. 65 citations.
+
+*Summary pending.*
 
 ### [Machine Learning for Climate Physics and Simulations](https://doi.org/10.1146/annurev-conmatphys-043024-114758)
 Lai et al. (2024), *Annual Review of Condensed Matter Physics*. 64 citations.
@@ -943,6 +1013,11 @@ Bostrom et al. (2023), *Risk Analysis*. 61 citations.
 - **Issues:** Conceptual review without empirical tests of the agenda.
 - *Basis: abstract*
 
+### [Time-Series Data-Driven PM2.5 Forecasting: From Theoretical Framework to Empirical Analysis](https://doi.org/10.3390/atmos16030292)
+Wu et al. (2025), *Atmosphere*. 60 citations.
+
+*Summary pending.*
+
 ### [Status and prospects for drought forecasting: opportunities in artificial intelligence and hybrid physical–statistical forecasting](https://doi.org/10.1098/rsta.2021.0288)
 AghaKouchak et al. (2022), *Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences*. 59 citations.
 
@@ -954,6 +1029,11 @@ AghaKouchak et al. (2022), *Philosophical Transactions of the Royal Society A: M
 - **Issues:** Perspective with a limited illustrative experiment; no systematic benchmark of methods.
 - *Basis: abstract*
 
+### [Harnessing artificial intelligence and remote sensing in climate-smart agriculture: the current strategies needed for enhancing global food security](https://doi.org/10.1080/23311932.2025.2454354)
+Mmbando (2025), *Cogent Food & Agriculture*. 59 citations.
+
+*Summary pending.*
+
 ### [Outlook for Exploiting Artificial Intelligence in the Earth and Environmental Sciences](https://doi.org/10.1175/bams-d-20-0031.1)
 Boukabara et al. (2020), *Bulletin of the American Meteorological Society*. 58 citations.
 
@@ -964,6 +1044,16 @@ Boukabara et al. (2020), *Bulletin of the American Meteorological Society*. 58 c
 - **Open work:** Implement recommendations on infrastructure, training, data readiness and operational transition of AI tools.
 - **Issues:** Workshop-based opinion and polling rather than quantitative evidence; recommendations predate the 2022+ wave of ML weather models.
 - *Basis: assessment*
+
+### [Foundation Models for Weather and Climate Data Understanding: A Comprehensive Survey](https://arxiv.org/abs/2312.03014)
+Chen et al. (2023), *arXiv*. 57 citations.
+
+*Summary pending.*
+
+### [Recent Methods for Evaluating Crop Water Stress Using AI Techniques: A Review](https://doi.org/10.3390/s24196313)
+Cho et al. (2024), *Sensors*. 57 citations.
+
+*Summary pending.*
 
 ### [A Review of Recent and Emerging Machine Learning Applications for Climate Variability and Weather Phenomena](https://doi.org/10.1175/aies-d-22-0086.1)
 Molina et al. (2023), *Artificial Intelligence for the Earth Systems*. 56 citations.
@@ -986,6 +1076,16 @@ Olivetti et al. (2024), *Geoscientific Model Development*. 54 citations.
 - **Open work:** Implementing the proposed workflow, including extreme-aware losses, evaluation and data.
 - **Issues:** Review; rapidly evolving field so specific model assessments may date quickly.
 - *Basis: assessment*
+
+### [Advancements in wind power forecasting: A comprehensive review of artificial intelligence-based approaches](https://doi.org/10.1007/s11042-024-18916-3)
+Kumar et al. (2024), *Multimedia Tools and Applications*. 52 citations.
+
+*Summary pending.*
+
+### [Machine learning approaches for wind power forecasting: a comprehensive review](https://doi.org/10.1007/s42452-025-07675-x)
+Haq et al. (2025), *Discover Applied Sciences*. 51 citations.
+
+*Summary pending.*
 
 ### [Opinion: Optimizing climate models with process knowledge, resolution, and artificial intelligence](https://doi.org/10.5194/acp-24-7041-2024)
 Schneider et al. (2024), *Atmospheric Chemistry and Physics*. 47 citations.
@@ -1020,6 +1120,11 @@ Fleming et al. (2021), *Nature Geoscience*. 45 citations.
 - **Issues:** Abstract missing; position piece without empirical evaluation.
 - *Basis: assessment*
 
+### [Data-Driven Weather Forecasting and Climate Modeling from the Perspective of Development](https://doi.org/10.3390/atmos15060689)
+Wu et al. (2024), *Atmosphere*. 44 citations.
+
+*Summary pending.*
+
 ### [Data‐Driven Modeling and Computational Intelligence Methods in Hydrology](https://doi.org/10.1002/0470848944.hsa021)
 Solomatine (2006), *Venue not recorded*. 43 citations.
 
@@ -1030,6 +1135,11 @@ Solomatine (2006), *Venue not recorded*. 43 citations.
 - **Open work:** Integration with physically based models, uncertainty analysis and improving model interpretability.
 - **Issues:** Review chapter; no new quantitative evaluation; field has advanced considerably since publication.
 - *Basis: assessment*
+
+### [A Comprehensive Review of Machine Learning Approaches for Flood Depth Estimation](https://doi.org/10.1007/s13753-025-00639-0)
+Liu et al. (2025), *International Journal of Disaster Risk Science*. 40 citations.
+
+*Summary pending.*
 
 ### [Climate Informatics: Accelerating Discovering in Climate Science with Machine Learning](https://doi.org/10.1109/mcse.2013.50)
 Monteleoni et al. (2013), *Computing in Science & Engineering*. 39 citations.
@@ -1053,6 +1163,21 @@ McGovern et al. (2023), *Artificial Intelligence for the Earth Systems*. 38 cita
 - **Issues:** Rapidly evolving field; review is largely US-focused and qualitative.
 - *Basis: abstract*
 
+### [Transformer-based renewable energy forecasting: A comprehensive review](https://doi.org/10.1016/j.rser.2025.116356)
+Hussan et al. (2026), *Renewable and Sustainable Energy Reviews*. 38 citations.
+
+*Summary pending.*
+
+### [Do Machine Learning Methods Improve Prediction of Ambient Air Pollutants with High Spatial Contrast? A Systematic Review.](https://doi.org/10.1016/j.envres.2024.119751)
+Vachon et al. (2024), *Environmental Research*. 38 citations.
+
+*Summary pending.*
+
+### [Evolution of ensemble machine learning approaches in water resources management: a review](https://doi.org/10.1007/s12145-025-01911-z)
+Tosan et al. (2025), *Earth Science Informatics*. 37 citations.
+
+*Summary pending.*
+
 ### [The outlook for AI weather prediction](https://doi.org/10.1038/d41586-023-02084-9)
 Ebert-Uphoff et al. (2023), *Nature*. 36 citations.
 
@@ -1064,6 +1189,26 @@ Ebert-Uphoff et al. (2023), *Nature*. 36 citations.
 - **Issues:** Abstract missing; summary based on knowledge of the commentary and the title.
 - *Basis: assessment*
 
+### [A Review of Machine Learning Applications in Ocean Color Remote Sensing](https://doi.org/10.3390/rs17101776)
+Zhang et al. (2025), *Remote Sensing*. 35 citations.
+
+*Summary pending.*
+
+### [Progress and Perspectives of Crop Yield Forecasting With Remote Sensing: A review](https://doi.org/10.1109/mgrs.2025.3571906)
+Xiao et al. (2025), *IEEE Geoscience and Remote Sensing Magazine*. 35 citations.
+
+*Summary pending.*
+
+### [An Overview of Evapotranspiration Estimation Models Utilizing Artificial Intelligence](https://doi.org/10.3390/w17091384)
+Taheri et al. (2025), *Water*. 34 citations.
+
+*Summary pending.*
+
+### [A review on machine learning models for drought monitoring and forecasting](https://doi.org/10.1016/j.crm.2025.100758)
+Osmanr et al. (2025), *Climate Risk Management*. 34 citations.
+
+*Summary pending.*
+
 ### [Deep Learning and Foundation Models for Weather Prediction: A Survey](https://arxiv.org/abs/2501.06907)
 Shi et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence*. 32 citations.
 
@@ -1074,6 +1219,11 @@ Shi et al. (2025), *Proceedings of the Thirty-Fifth International Joint Conferen
 - **Open work:** New tasks and models, weather data storage and management, and operational deployment of foundation models.
 - **Issues:** Literature review without new experiments; coverage may date quickly in a rapidly moving field.
 - *Basis: abstract*
+
+### [Forecasting drought using machine learning: a systematic literature review](https://doi.org/10.1007/s11069-025-07195-2)
+Oyarzabal et al. (2025), *Natural Hazards*. 32 citations.
+
+*Summary pending.*
 
 ### [Physics-aware Machine Learning Revolutionizes Scientific Paradigm for Machine Learning and Process-based Hydrology](https://arxiv.org/abs/2310.05227)
 Xu et al. (2023), *arXiv*. 31 citations.
@@ -1108,6 +1258,26 @@ Ranjithan (2005), *Journal of Water Resources Planning and Management*. 30 citat
 - **Issues:** No abstract available; overview rather than a quantitative comparison of methods.
 - *Basis: assessment*
 
+### [An Overview of Machine-Learning Methods for Soil Moisture Estimation](https://doi.org/10.3390/w17111638)
+Taheri et al. (2025), *Water*. 30 citations.
+
+*Summary pending.*
+
+### [Artificial Intelligence for Wind Speed Forecasting: A Review on Multi-Scale Decomposition and Intelligent Fusion Strategies](https://doi.org/10.1016/j.awe.2025.100055)
+Liu et al. (2025), *Advances in Wind Engineering*. 25 citations.
+
+*Summary pending.*
+
+### [A review of feature selection methods for actual evapotranspiration prediction](https://doi.org/10.1007/s10462-025-11298-4)
+Liyew et al. (2025), *Artificial Intelligence Review*. 23 citations.
+
+*Summary pending.*
+
+### [Multimodal Learning Techniques for Time Series Forecasting in Renewable Energy Systems: A Comprehensive Survey](https://doi.org/10.1109/access.2025.3602914)
+Mansouri et al. (2025), *IEEE Access*. 23 citations.
+
+*Summary pending.*
+
 ### [ESA-ECMWF Report on recent progress and research directions in machine learning for Earth System observation and prediction](https://doi.org/10.1038/s41612-022-00269-z)
 Schneider et al. (2022), *npj Climate and Atmospheric Science*. 22 citations.
 
@@ -1118,6 +1288,21 @@ Schneider et al. (2022), *npj Climate and Atmospheric Science*. 22 citations.
 - **Open work:** Research directions highlighted for each thematic area of ML4ESOP.
 - **Issues:** Workshop summary reflecting participant views rather than systematic evaluation.
 - *Basis: abstract*
+
+### [A review on data-driven methods for solar energy forecasting](https://doi.org/10.1016/j.apenergy.2025.126631)
+Sultana et al. (2025), *Applied Energy*. 20 citations.
+
+*Summary pending.*
+
+### [A comprehensive review of artificial intelligence applications in wind energy power generation](https://doi.org/10.1016/j.sftr.2025.100638)
+Moshtaghi et al. (2025), *Sustainable Futures*. 19 citations.
+
+*Summary pending.*
+
+### [A Comprehensive Review of Dust Storm Detection and Prediction Techniques: Leveraging Satellite Data, Ground Observations, and Machine Learning](https://doi.org/10.1109/access.2025.3541075)
+Mutawa et al. (2025), *IEEE Access*. 18 citations.
+
+*Summary pending.*
 
 ### [Applications of Machine Learning and Artificial Intelligence in Tropospheric Ozone Research](https://doi.org/10.5194/gmd-18-8777-2025)
 Hickman et al. (2025), *Geoscientific Model Development*. 17 citations.
@@ -1130,6 +1315,16 @@ Hickman et al. (2025), *Geoscientific Model Development*. 17 citations.
 - **Issues:** Review without new quantitative results; field limited by sparse precursor observations and lack of benchmarks.
 - *Basis: abstract*
 
+### [Explainable Artificial Intelligence in Hydrology: A Review](https://doi.org/10.1007/s11269-025-04435-9)
+Zounemat‐Kermani et al. (2026), *Water Resources Management*. 17 citations.
+
+*Summary pending.*
+
+### [A review of data-driven deep learning models for solar and wind energy forecasting](https://doi.org/10.1016/j.ref.2025.100739)
+Shringi et al. (2025), *Renewable Energy Focus*. 16 citations.
+
+*Summary pending.*
+
 ### [Machine Learning for Clouds and Climate (Invited Chapter for the AGU Geophysical Monograph Series "Clouds and Climate")](https://doi.org/10.1002/essoar.10506925.1)
 Beucler et al. (2021), *Venue not recorded*. 14 citations.
 
@@ -1141,6 +1336,46 @@ Beucler et al. (2021), *Venue not recorded*. 14 citations.
 - **Issues:** Chapter-length review with only key points available in the record; content details cannot be verified from the abstract.
 - *Basis: assessment*
 
+### [Satellite Remote Sensing for Crop Yield Prediction: A Review](https://doi.org/10.3390/agriculture16040417)
+Radočaj et al. (2026), *Agriculture*. 13 citations.
+
+*Summary pending.*
+
+### [AI for atmosphere–ocean sciences: advancements, challenges and ways forward](https://doi.org/10.1093/nsr/nwag063)
+Luo et al. (2026), *National Science Review*. 13 citations.
+
+*Summary pending.*
+
+### [Application of LSTM coupled models in runoff simulation and prediction: a review](https://doi.org/10.1007/s13201-025-02747-0)
+Li et al. (2026), *Applied Water Science*. 12 citations.
+
+*Summary pending.*
+
+### [A Review of the Advances and Emerging Approaches in Hydrological Forecasting: From Traditional to AI-Powered Models](https://doi.org/10.3390/w18010119)
+Robles et al. (2026), *Water*. 12 citations.
+
+*Summary pending.*
+
+### [Remote Sensing and Artificial Intelligence in Flood Prediction: Progress, Challenges, and Prospects](https://doi.org/10.1007/s11831-025-10466-7)
+ShravanKumar et al. (2026), *Archives of Computational Methods in Engineering*. 11 citations.
+
+*Summary pending.*
+
+### [Physics-informed neural networks for groundwater: evidence, limits, and a roadmap](https://doi.org/10.1007/s12665-026-12866-9)
+Ma et al. (2026), *Environmental Earth Sciences*. 11 citations.
+
+*Summary pending.*
+
+### [Application of Hybrid Machine Learning for Groundwater Level Prediction: A Comprehensive Review](https://doi.org/10.1007/s11831-025-10447-w)
+Biswakalyani et al. (2026), *Archives of Computational Methods in Engineering*. 10 citations.
+
+*Summary pending.*
+
+### [Synergistic Integration of Flood Inundation Modeling Methods: A Review of Computational, Data‐Driven, Observational and Experimental, and Conceptual Models](https://doi.org/10.1029/2025rg000898)
+Nazari et al. (2026), *Reviews of Geophysics*. 8 citations.
+
+*Summary pending.*
+
 ### [Artificial intelligence to support cross-disciplinary climate change research](https://doi.org/10.1038/s41558-026-02624-x)
 Ou et al. (2026), *Nature Climate Change*. 7 citations.
 
@@ -1151,6 +1386,11 @@ Ou et al. (2026), *Nature Climate Change*. 7 citations.
 - **Open work:** Likely calls for better integration of AI tools across climate disciplines and assessment communities.
 - **Issues:** Content cannot be verified without an abstract; card is inferred from the title only.
 - *Basis: assessment*
+
+### [AI in Satellite Remote Sensing of the Ocean](https://doi.org/10.1109/jproc.2026.3664121)
+Li et al. (2026), *Proceedings of the IEEE*. 7 citations.
+
+*Summary pending.*
 
 ### [Rewiring climate modeling with machine learning emulators](https://doi.org/10.1038/s43247-026-03238-z)
 Vankatwyk et al. (2026), *Communications Earth & Environment*. 6 citations.
@@ -1947,6 +2187,11 @@ Arcomano et al. (2020), *Geophysical Research Letters*. 139 citations.
 - **Issues:** Low resolution; skill horizon only about three days and poor in the tropics; benchmark is a simple intermediate-complexity model rather than operational NWP.
 - *Basis: abstract+knowledge*
 
+### [Weather forecasting and prediction using hybrid C5.0 machine learning algorithm](https://doi.org/10.1002/dac.4805)
+Bhagavathi et al. (2021), *International Journal of Communication Systems*. 139 citations.
+
+*Summary pending.*
+
 ### Application of Artificial Neural Networks for Temperature Forecasting
 Hayati et al. (2007), *International Journal of Electrical and Computer Engineering*. 136 citations.
 
@@ -1980,6 +2225,21 @@ Andrychowicz et al. (2023), *arXiv*. 134 citations.
 - **Issues:** Regional (CONUS); proprietary; evaluation against sparse stations.
 - *Basis: abstract*
 
+### [A Review of Neural Networks for Air Temperature Forecasting](https://doi.org/10.3390/w13091294)
+Tran et al. (2021), *Water*. 133 citations.
+
+*Summary pending.*
+
+### [A Data-Driven Approach for Accurate Rainfall Prediction](https://doi.org/10.1109/tgrs.2019.2926110)
+Manandhar et al. (2019), *IEEE Transactions on Geoscience and Remote Sensing*. 132 citations.
+
+*Summary pending.*
+
+### [Employing long short-term memory and Facebook prophet model in air temperature forecasting](https://doi.org/10.1080/03610918.2020.1854302)
+Toharudin et al. (2021), *Communications in Statistics - Simulation and Computation*. 130 citations.
+
+*Summary pending.*
+
 ### [ClimODE: Climate and Weather Forecasting with Physics-informed Neural ODEs](https://arxiv.org/abs/2404.10024)
 Verma et al. (2024), *International Conference on Learning Representations*. 129 citations.
 
@@ -2001,6 +2261,16 @@ Du et al. (2017), *Algorithms*. 129 citations.
 - **Open work:** Adding more relevant predictors to improve accuracy, as noted by the authors.
 - **Issues:** Unclear dataset and evaluation setup; weak baselines; single-site style experiment.
 - *Basis: abstract*
+
+### [Long-term monthly average temperature forecasting in some climate types of Iran, using the models SARIMA, SVR, and SVR-FA](https://doi.org/10.1007/s00704-019-02905-w)
+Aghelpour et al. (2019), *Theoretical and Applied Climatology*. 126 citations.
+
+*Summary pending.*
+
+### [Conditional Local Convolution for Spatio-Temporal Meteorological Forecasting](https://doi.org/10.1609/aaai.v36i7.20711)
+Lin et al. (2021), *AAAI Conference on Artificial Intelligence*. 125 citations.
+
+*Summary pending.*
 
 ### [Application of neural networks for the prediction of hourly mean surface temperatures in Saudi Arabia](https://doi.org/10.1016/s0960-1481(01)00082-9)
 Tasadduq et al. (2002), *Renewable Energy*. 124 citations.
@@ -2046,6 +2316,21 @@ Hernández et al. (2016), *Hybrid Artificial Intelligence Systems*. 123 citation
 - **Issues:** Single location and small dataset for a deep model; no probabilistic output.
 - *Basis: abstract+knowledge*
 
+### [STConvS2S: Spatiotemporal Convolutional Sequence to Sequence Network for Weather Forecasting](https://doi.org/10.1016/j.neucom.2020.09.060)
+Castro et al. (2019), *Neurocomputing*. 122 citations.
+
+*Summary pending.*
+
+### [Potential of Hybrid Data-Intelligence Algorithms for Multi-Station Modelling of Rainfall](https://doi.org/10.1007/s11269-019-02408-3)
+Pham et al. (2019), *Water Resources Management*. 121 citations.
+
+*Summary pending.*
+
+### [Developing machine learning algorithms for meteorological temperature and humidity forecasting at Terengganu state in Malaysia](https://doi.org/10.1038/s41598-021-96872-w)
+Hanoon et al. (2021), *Scientific Reports*. 119 citations.
+
+*Summary pending.*
+
 ### [Monthly prediction of air temperature in Australia and New Zealand with machine learning algorithms](https://doi.org/10.1007/s00704-015-1480-4)
 Salcedo-Sanz et al. (2016), *Theoretical and Applied Climatology*. 116 citations.
 
@@ -2056,6 +2341,16 @@ Salcedo-Sanz et al. (2016), *Theoretical and Applied Climatology*. 116 citations
 - **Open work:** Longer-lead forecasting and use of large-scale climate indices.
 - **Issues:** Abstract unavailable; station-based results with limited records.
 - *Basis: assessment*
+
+### [Monthly Rainfall Forecasting Using One-Dimensional Deep Convolutional Neural Network](https://doi.org/10.1109/access.2018.2880044)
+Haidar et al. (2018), *IEEE Access*. 116 citations.
+
+*Summary pending.*
+
+### [Deep BLSTM-GRU Model for Monthly Rainfall Prediction: A Case Study of Simtokha, Bhutan](https://doi.org/10.3390/rs12193174)
+Chhetri et al. (2020), *Remote Sensing*. 116 citations.
+
+*Summary pending.*
 
 ### Improving Air Temperature Prediction with Artificial Neural Networks
 Smith et al. (2007), *World Academy of Science, Engineering and Technology, International Journal of Computer, Electrical, Automation, Control and Information Engineering*. 114 citations.
@@ -2089,6 +2384,11 @@ Elhoseiny et al. (2015), *International Conference on Information Photonics*. 11
 - **Open work:** Extend to more weather classes and to video or camera networks.
 - **Issues:** Coarse two-class labels; not tied to meteorological measurements; no abstract available.
 - *Basis: abstract+knowledge*
+
+### [Development and Analysis of Artificial Neural Network Models for Rainfall Prediction by Using Time-Series Data](https://doi.org/10.5815/ijisa.2018.01.03)
+Mishra et al. (2018), *International Journal of Intelligent Systems and Applications*. 113 citations.
+
+*Summary pending.*
 
 ### [Extreme learning machine based prediction of daily dew point temperature](https://doi.org/10.1016/j.compag.2015.08.008)
 Mohammadi et al. (2015), *Computers and Electronics in Agriculture*. 110 citations.
@@ -2145,6 +2445,11 @@ Paniagua-Tineo et al. (2011), *Renewable Energy*. 101 citations.
 - **Issues:** Station-based model; no uncertainty estimate.
 - *Basis: assessment*
 
+### [Weather prediction using random forest machine learning model](https://doi.org/10.11591/ijeecs.v22.i2.pp1208-1215)
+Meenal et al. (2021), *Indonesian Journal of Electrical Engineering and Computer Science*. 101 citations.
+
+*Summary pending.*
+
 ### [Evaluation of efficiency of different estimation methods for missing climatological data](https://doi.org/10.1007/s00477-011-0536-y)
 Kashani et al. (2011), *Stochastic Environmental Research and Risk Assessment*. 100 citations.
 
@@ -2177,6 +2482,16 @@ Charlton-Perez et al. (2023), *npj Climate and Atmospheric Science*. 98 citation
 - **Open work:** More case studies of high-impact events and process-based evaluation.
 - **Issues:** Single case; ML outputs have limited variables and resolution.
 - *Basis: abstract*
+
+### A Stacking Ensemble Learning Model for Monthly Rainfall Prediction in the Taihu Basin, China
+Gu et al. (2022), *Venue not recorded*. 98 citations.
+
+*Summary pending.*
+
+### [Random Forest Algorithm for Prediction of Precipitation](https://doi.org/10.24014/ijaidm.v1i1.4903)
+Primajaya et al. (2018), *Indonesian Journal of Artificial Intelligence and Data Mining*. 97 citations.
+
+*Summary pending.*
 
 ### [Artificial neural network models for forecasting monthly precipitation in Jordan](https://doi.org/10.1007/s00477-008-0267-x)
 Aksoy et al. (2009), *Stochastic Environmental Research and Risk Assessment*. 96 citations.
@@ -2332,6 +2647,11 @@ Bannayan et al. (2008), *Environmental Modelling & Software*. 87 citations.
 - **Issues:** Abstract unavailable, so the satellite product, period and accuracy cannot be confirmed; satellite-based estimates are affected by cloud gaps.
 - *Basis: assessment*
 
+### [Integration of extreme gradient boosting feature selection approach with machine learning models: application of weather relative humidity prediction](https://doi.org/10.1007/s00521-021-06362-3)
+Tao et al. (2021), *Neural Computing and Applications*. 87 citations.
+
+*Summary pending.*
+
 ### [Can Artificial Intelligence‐Based Weather Prediction Models Simulate the Butterfly Effect?](https://doi.org/10.1029/2023gl105747)
 Selz et al. (2023), *Geophysical Research Letters*. 86 citations.
 
@@ -2343,6 +2663,11 @@ Selz et al. (2023), *Geophysical Research Letters*. 86 citations.
 - **Issues:** Single AI model and limited case set; coarse 0.25° resolution may itself suppress small-scale growth.
 - *Basis: abstract+knowledge*
 
+### [Novel hybrid linear stochastic with non-linear extreme learning machine methods for forecasting monthly rainfall a tropical climate.](https://doi.org/10.1016/j.jenvman.2018.05.072)
+Zeynoddin et al. (2018), *Journal of Environmental Management*. 85 citations.
+
+*Summary pending.*
+
 ### [SwinRDM: Integrate SwinRNN with Diffusion Model towards High-Resolution and High-Quality Weather Forecasting](https://doi.org/10.48448/zn7f-fc64)
 Chen et al. (2023), *AAAI Conference on Artificial Intelligence*. 84 citations.
 
@@ -2353,6 +2678,16 @@ Chen et al. (2023), *AAAI Conference on Artificial Intelligence*. 84 citations.
 - **Open work:** Longer lead times, probabilistic forecasting and operational deployment.
 - **Issues:** Trained on reanalysis and inherits its biases; evaluated only to 5 days, with the two-step approach possibly adding inconsistencies.
 - *Basis: abstract+knowledge*
+
+### [Using recurrent neural networks for localized weather prediction with combined use of public airport data and on-site measurements](https://doi.org/10.1016/j.buildenv.2021.107601)
+Han et al. (2021), *Building and Environment*. 84 citations.
+
+*Summary pending.*
+
+### [Survey of different data-intelligent modeling strategies for forecasting air temperature using geographic information as model predictors](https://doi.org/10.1016/j.compag.2018.07.008)
+Sanikhani et al. (2018), *Computers and Electronics in Agriculture*. 80 citations.
+
+*Summary pending.*
 
 ### [Ceiling and Visibility Forecasts via Neural Networks](https://doi.org/10.1175/waf994.1)
 Marzban et al. (2007), *Weather and Forecasting*. 79 citations.
@@ -2375,6 +2710,16 @@ Chen et al. (2023), *International Joint Conference on Artificial Intelligence*.
 - **Open work:** Scaling to more participants and gridded meteorological data.
 - **Issues:** Station time-series only; quantitative gains not reported in the abstract.
 - *Basis: abstract*
+
+### [DWFH: An improved data-driven deep weather forecasting hybrid model using Transductive Long Short Term Memory (T-LSTM)](https://doi.org/10.1016/j.eswa.2022.119270)
+Venkatachalam et al. (2022), *Expert Systems with Applications*. 78 citations.
+
+*Summary pending.*
+
+### [Deep Learning Models for the Prediction of Rainfall](https://doi.org/10.1109/iccsp.2018.8523829)
+Aswin et al. (2018), *International Conference on Cryptography, Security and Privacy*. 78 citations.
+
+*Summary pending.*
 
 ### Rainfall Prediction Using Artificial Neural Networks
 Lee (1998), *Venue not recorded*. 77 citations.
@@ -2409,6 +2754,11 @@ Pai et al. (2007), *Hydrological Processes*. 77 citations.
 - **Issues:** Card based on the title only.
 - *Basis: assessment*
 
+### [Daily air temperature forecasting using LSTM-CNN and GRU-CNN models](https://doi.org/10.1007/s11600-023-01241-y)
+Uluocak et al. (2023), *Acta Geophysica*. 77 citations.
+
+*Summary pending.*
+
 ### [Short‐term forecasting of soil temperature using artificial neural network](https://doi.org/10.1002/met.1489)
 Tabari et al. (2015), *Meteorological Applications*. 76 citations.
 
@@ -2420,6 +2770,11 @@ Tabari et al. (2015), *Meteorological Applications*. 76 citations.
 - **Issues:** No abstract available; station-specific models may not transfer to other soils and climates.
 - *Basis: assessment*
 
+### [A Comparison of Machine Learning Models for Predicting Rainfall in Urban Metropolitan Cities](https://doi.org/10.3390/su151813724)
+Kumar et al. (2023), *Sustainability*. 76 citations.
+
+*Summary pending.*
+
 ### A fuzzy case-based system for weather prediction
 Riordan et al. (2002), *International journal of engineering intelligent systems for electrical engineering and communications*. 75 citations.
 
@@ -2430,6 +2785,16 @@ Riordan et al. (2002), *International journal of engineering intelligent systems
 - **Open work:** Adding more predictors, more airports and integration into operational forecasting.
 - **Issues:** Analogue methods depend on archive size and struggle with rare events; few sites evaluated.
 - *Basis: abstract+knowledge*
+
+### [Short-Term Weather Forecasting Using Spatial Feature Attention Based LSTM Model](https://doi.org/10.1109/access.2022.3196381)
+Suleman et al. (2022), *IEEE Access*. 74 citations.
+
+*Summary pending.*
+
+### [A review of the application of hybrid machine learning models to improve rainfall prediction](https://doi.org/10.1007/s40808-023-01835-x)
+Dotse et al. (2023), *Modeling Earth Systems and Environment*. 72 citations.
+
+*Summary pending.*
 
 ### [Dynamical Tests of a Deep-Learning Weather Prediction Model](https://arxiv.org/abs/2309.10867)
 Hakim et al. (2023), *Artificial Intelligence for the Earth Systems*. 70 citations.
@@ -2486,6 +2851,11 @@ Liu et al. (2001), *IEEE Transactions on Systems, Man and Cybernetics, Part C (A
 - **Issues:** Abstract not available; specifics of data and accuracy are uncertain; independence assumptions remain.
 - *Basis: assessment*
 
+### [Data-driven multi-step prediction and analysis of monthly rainfall using explainable deep learning](https://doi.org/10.1016/j.eswa.2023.121160)
+He et al. (2023), *Expert Systems with Applications*. 68 citations.
+
+*Summary pending.*
+
 ### [A Comparative Study of Machine Learning Models for Daily and Weekly Rainfall Forecasting](https://doi.org/10.1007/s11269-024-03969-8)
 Kumar et al. (2024), *Water Resources Management*. 66 citations.
 
@@ -2540,6 +2910,11 @@ Liu et al. (2014), *Venue not recorded*. 60 citations.
 - **Open work:** Scaling to gridded data, longer lead times and comparison with NWP-based forecasts.
 - **Issues:** No abstract available; early deep-learning study with limited data and baselines; station-level forecasts only.
 - *Basis: assessment*
+
+### [Machine Learning-Based Rainfall Prediction: Unveiling Insights and Forecasting for Improved Preparedness](https://doi.org/10.1109/access.2023.3333876)
+Hassan et al. (2023), *IEEE Access*. 60 citations.
+
+*Summary pending.*
 
 ### [A data-to-forecast machine learning system for global weather](https://doi.org/10.1038/s41467-025-62024-1)
 Sun et al. (2024), *Nature Communications*. 59 citations.
@@ -2640,6 +3015,16 @@ Gill et al. (2010), *IEEE 8th International Symposium on Intelligent Systems and
 - **Issues:** No abstract available; small-scale conference study with limited evaluation.
 - *Basis: assessment*
 
+### [Advancements in daily precipitation forecasting: A deep dive into daily precipitation forecasting hybrid methods in the Tropical Climate of Thailand](https://doi.org/10.1016/j.mex.2024.102757)
+Waqas et al. (2024), *MethodsX*. 54 citations.
+
+*Summary pending.*
+
+### [Modeling and forecasting rainfall patterns in India: a time series analysis with XGBoost algorithm](https://doi.org/10.1007/s12665-024-11481-w)
+Mishra et al. (2024), *Environmental Earth Sciences*. 53 citations.
+
+*Summary pending.*
+
 ### [FengWu-GHR: Learning the Kilometer-scale Medium-range Global Weather Forecasting](https://arxiv.org/abs/2402.00059)
 Han et al. (2024), *arXiv*. 52 citations.
 
@@ -2661,6 +3046,11 @@ Abraham et al. (2001), *Venue not recorded*. 52 citations.
 - **Open work:** Ensembles or hybrids of the compared models and inclusion of climate predictors.
 - **Issues:** Abstract unavailable; univariate rainfall series only; single region.
 - *Basis: assessment*
+
+### [BMAE-Net: A Data-Driven Weather Prediction Network for Smart Agriculture](https://doi.org/10.3390/agronomy13030625)
+Kong et al. (2023), *Agronomy*. 52 citations.
+
+*Summary pending.*
 
 ### Weather Prediction Using Case-Based Reasoning and Fuzzy Set Theory
 Hansen et al. (2001), *Venue not recorded*. 51 citations.
@@ -2805,6 +3195,11 @@ Maqsood et al. (2007), *Applied Soft Computing*. 40 citations.
 - **Issues:** Single station; short-term forecasts only.
 - *Basis: abstract+knowledge*
 
+### [Improving monthly precipitation prediction accuracy using machine learning models: a multi-view stacking learning technique](https://doi.org/10.3389/frwa.2024.1378598)
+Hafyani et al. (2024), *Frontiers in Water*. 40 citations.
+
+*Summary pending.*
+
 ### Intelligent weather monitoring systems using connectionist models
 Maqsood et al. (2002), *Neural Parallel Sci. Comput.*. 39 citations.
 
@@ -2904,6 +3299,11 @@ Pasini et al. (1995), *Il Nuovo Cimento C*. 34 citations.
 - **Issues:** Single-site case study; few low-visibility events limit evaluation of the most important cases.
 - *Basis: assessment*
 
+### [Spatio-Temporal Transformer Network for Weather Forecasting](https://doi.org/10.1109/tbdata.2024.3378061)
+Ji et al. (2025), *IEEE Transactions on Big Data*. 33 citations.
+
+*Summary pending.*
+
 ### [Generalizing Weather Forecast to Fine-grained Temporal Scales via Physics-AI Hybrid Modeling](https://arxiv.org/abs/2405.13796)
 Xu et al. (2024), *Neural Information Processing Systems*. 32 citations.
 
@@ -3002,6 +3402,11 @@ Bitsuamlak et al. (2007), *Journal of Computing in Civil Engineering*. 28 citati
 - **Open work:** Application to real complex terrain and validation with field measurements.
 - **Issues:** Trained on simulated idealised topographies; inherits CFD model errors; limited generalisation.
 - *Basis: abstract+knowledge*
+
+### [Initial results of atmospheric weighted mean temperature estimation with Pangu-Weather in real-time GNSS PWV retrieval for China](https://doi.org/10.1007/s10291-024-01807-3)
+Huang et al. (2025), *GPS Solutions*. 28 citations.
+
+*Summary pending.*
 
 ### [Automatic identification of weather systems from numerical weather prediction data using genetic algorithm](https://doi.org/10.1016/j.eswa.2007.07.032)
 Wong et al. (2008), *Expert Systems with Applications*. 27 citations.
@@ -3157,6 +3562,11 @@ Costa et al. (2003), *The 3rd International Workshop on Scientific Use of Submar
 - **Issues:** No abstract available; skill and data are unknown.
 - *Basis: assessment*
 
+### [Machine learning shows a limit to rain-snow partitioning accuracy when using near-surface meteorology](https://doi.org/10.1038/s41467-025-58234-2)
+Jennings et al. (2025), *Nature Communications*. 21 citations.
+
+*Summary pending.*
+
 ### [HRRRCast: a data-driven emulator for regional weather forecasting at convection allowing scales](https://doi.org/10.1175/aies-d-25-0061.1)
 Abdi et al. (2025), *Artificial Intelligence for the Earth Systems*. 20 citations.
 
@@ -3256,17 +3666,6 @@ Hadjimichael et al. (2002), *Knowledge and Information Systems*. 16 citations.
 - **Issues:** Abstract unavailable; knowledge elicitation is laborious and evaluation appears limited.
 - *Basis: assessment*
 
-### [An update to ECMWF's machine-learned weather forecast model AIFS](https://arxiv.org/abs/2509.18994)
-Moldovan et al. (2025), *arXiv*. 15 citations.
-
-- **Main goal:** Describes improvements to ECMWF's machine-learned forecasting model AIFS Single, now operational.
-- **Architecture:** AIFS: graph neural network encoder-decoder with a transformer processor, now with physical bounding layers, an updated training schedule and more variables.
-- **Data:** ERA5 and ECMWF operational analyses for training; verification against analyses and observations.
-- **Main result:** Bounding layers substantially improve precipitation forecasts, new variables are skillful and upper-air headline scores improve; operational since 25 February 2025.
-- **Open work:** Further expand variables and physical constraints and develop ensemble versions.
-- **Issues:** Deterministic single model, prone to smoothing; few quantitative details in the abstract.
-- *Basis: abstract+knowledge*
-
 ### [A regional high resolution AI weather model for the prediction of atmospheric rivers and extreme precipitation](https://doi.org/10.1038/s41612-025-01265-9)
 Baño-Medina et al. (2025), *npj Climate and Atmospheric Science*. 15 citations.
 
@@ -3288,6 +3687,11 @@ Schreck et al. (2024), *npj Climate and Atmospheric Science*. 14 citations.
 - **Open work:** Use the modular framework for community experimentation with models, datasets and training options, including probabilistic and coupled extensions.
 - **Issues:** Deterministic models trained on reanalysis inherit ERA5 biases and likely smooth at long leads; comparison limited to standard global metrics.
 - *Basis: abstract*
+
+### [AIFS Single 1.1.0: an update to ECMWF's machine-learned weather forecast model AIFS](https://doi.org/10.5194/gmd-19-4703-2026)
+Moldovan et al. (2026), *Geoscientific Model Development*. 14 citations.
+
+*Summary pending.*
 
 ### [Exploring the design space of deep-learning-based weather forecasting systems](https://arxiv.org/abs/2410.07472)
 Siddiqui et al. (2024), *arXiv*. 13 citations.
@@ -4431,6 +4835,11 @@ Chen et al. (2020), *Earth and Space Science*. 127 citations.
 - **Issues:** Deterministic output likely blurs at longer lead times; evaluation details and dataset size are not reported in the abstract.
 - *Basis: assessment*
 
+### [Convective precipitation nowcasting using U-Net Model](https://doi.org/10.1109/igarss47720.2021.9553617)
+Liang et al. (2021), *2021 IEEE International Geoscience and Remote Sensing Symposium IGARSS*. 126 citations.
+
+*Summary pending.*
+
 ### [A Short-Term Rainfall Prediction Model Using Multi-task Convolutional Neural Networks](https://doi.org/10.1109/icdm.2017.49)
 Qiu et al. (2017), *Industrial Conference on Data Mining*. 122 citations.
 
@@ -4452,6 +4861,11 @@ Yu et al. (2023), *Computer Vision and Pattern Recognition*. 121 citations.
 - **Open work:** Longer lead times and computational efficiency of diffusion sampling.
 - **Issues:** Diffusion sampling is slow; radar-only inputs.
 - *Basis: abstract+knowledge*
+
+### [A Generative Adversarial Gated Recurrent Unit Model for Precipitation Nowcasting](https://doi.org/10.1109/lgrs.2019.2926776)
+Tian et al. (2020), *IEEE Geoscience and Remote Sensing Letters*. 120 citations.
+
+*Summary pending.*
 
 ### [Nowcasting lightning occurrence from commonly available meteorological parameters using machine learning techniques](https://doi.org/10.1038/s41612-019-0098-0)
 Mostajabi et al. (2019), *npj Climate and Atmospheric Science*. 119 citations.
@@ -4596,6 +5010,11 @@ Kumar et al. (2020), *PLOS ONE*. 90 citations.
 - **Issues:** Iterative frame prediction accumulates errors and blurs fields; IMERG's latency and retrieval errors limit real-time use.
 - *Basis: abstract*
 
+### [Machine learning regression and classification methods for fog events prediction](https://doi.org/10.1016/j.atmosres.2022.106157)
+Castillo-Botón et al. (2022), *Atmospheric Research*. 90 citations.
+
+*Summary pending.*
+
 ### [Rain intensity forecast using Artificial Neural Networks in Athens, Greece](https://doi.org/10.1016/j.atmosres.2011.07.020)
 Nastos et al. (2010), *Atmospheric Research*. 75 citations.
 
@@ -4606,6 +5025,11 @@ Nastos et al. (2010), *Atmospheric Research*. 75 citations.
 - **Open work:** Adding atmospheric predictors and longer horizons would follow naturally.
 - **Issues:** No abstract available; rain intensity is highly intermittent and hard to predict from local records.
 - *Basis: assessment*
+
+### [A spatiotemporal deep learning model ST-LSTM-SA for hourly rainfall forecasting using radar echo images](https://doi.org/10.1016/j.jhydrol.2022.127748)
+Liu et al. (2022), *Journal of Hydrology*. 73 citations.
+
+*Summary pending.*
 
 ### [Accurate nowcasting of cloud cover at solar photovoltaic plants using geostationary satellite images](https://doi.org/10.1038/s41467-023-44666-1)
 Xia et al. (2024), *Nature Communications*. 72 citations.
@@ -4672,6 +5096,11 @@ Asperti et al. (2023), *Applied Intelligence*. 57 citations.
 - **Open work:** Higher-resolution radar data, longer leads and evaluation of the ensemble's probabilistic calibration.
 - **Issues:** ERA5 precipitation is coarse and model-derived rather than radar observations; evaluation emphasizes MSE of the merged forecast.
 - *Basis: abstract*
+
+### [Advancing Realistic Precipitation Nowcasting With a Spatiotemporal Transformer-Based Denoising Diffusion Model](https://doi.org/10.1109/tgrs.2024.3355755)
+Zhao et al. (2024), *IEEE Transactions on Geoscience and Remote Sensing*. 50 citations.
+
+*Summary pending.*
 
 ### [Development of an automated windshear detection system using Doppler weather radar](https://doi.org/10.1109/5.47729)
 Evans et al. (1989), *Proceedings of the IEEE*. 49 citations.
@@ -4760,6 +5189,16 @@ Chow et al. (1997), *Neural Computing & Applications*. 22 citations.
 - **Open work:** Longer lead times, heavy rainfall events and operational deployment.
 - **Issues:** No abstract available; skill for intense convective events and longer leads is unclear.
 - *Basis: assessment*
+
+### [A Cloud Motion Estimation Method Based on Cloud Image Depth Feature Matching](https://doi.org/10.1109/lgrs.2024.3491094)
+Zou et al. (2025), *IEEE Geoscience and Remote Sensing Letters*. 20 citations.
+
+*Summary pending.*
+
+### [MMF-RNN: A Multimodal Fusion Model for Precipitation Nowcasting Using Radar and Ground Station Data](https://doi.org/10.1109/tgrs.2025.3528423)
+Liu et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 18 citations.
+
+*Summary pending.*
 
 ### [Artificial neural networks for meteorological nowcast](https://doi.org/10.1109/cimsa.2004.1397226)
 Pasero et al. (2004), *2004 IEEE International Conference onComputational Intelligence for Measurement Systems and Applications, 2004. CIMSA.*. 17 citations.
@@ -5039,6 +5478,11 @@ Li et al. (2021), *Journal of Hydrology*. 102 citations.
 - **Issues:** Cannot be assessed without the abstract; details should be checked in the paper.
 - *Basis: assessment*
 
+### [Distributional regression forests for probabilistic precipitation forecasting in complex terrain](https://doi.org/10.1214/19-aoas1247)
+Schlosser et al. (2018), *The Annals of Applied Statistics*. 95 citations.
+
+*Summary pending.*
+
 ### [Comparison of Methodologies for Probabilistic Quantitative Precipitation Forecasting](https://doi.org/10.1175/1520-0434(2002)017<0783:comfpq>2.0.co;2)
 Applequist et al. (2002), *Weather and Forecasting*. 92 citations.
 
@@ -5203,6 +5647,11 @@ Bouallégue et al. (2023), *Artificial Intelligence for the Earth Systems*. 37 c
 - **Open work:** Extending to more variables, longer leads and downstream applications using calibrated members.
 - **Issues:** Gains for precipitation are small; spatial and multivariate consistency of calibrated members needs further checking.
 - *Basis: abstract*
+
+### [Improving the forecast of wind speed and significant wave height using neural networks and gradient boosting trees](https://doi.org/10.1016/j.oceaneng.2025.120925)
+Henriques et al. (2025), *Ocean Engineering*. 18 citations.
+
+*Summary pending.*
 
 ### [Evaluation of forecasts by a global data-driven weather model with and without probabilistic post-processing at Norwegian stations](https://doi.org/10.5194/npg-31-247-2024)
 Bremnes et al. (2023), *Nonlinear Processes in Geophysics*. 16 citations.
@@ -5581,6 +6030,11 @@ Mekanik et al. (2016), *Climate Dynamics*. 103 citations.
 - **Issues:** Short records limit training and validation; skill depends on the stability of teleconnections.
 - *Basis: abstract+knowledge*
 
+### [Rainfall prediction for the Kerala state of India using artificial intelligence approaches](https://doi.org/10.1016/j.compeleceng.2018.06.004)
+Dash et al. (2018), *Computers & Electrical Engineering*. 103 citations.
+
+*Summary pending.*
+
 ### [Subseasonal Forecasts of Opportunity Identified by an Explainable Neural Network](https://doi.org/10.1029/2020gl092092)
 Mayer et al. (2021), *Geophysical Research Letters*. 92 citations.
 
@@ -5647,6 +6101,11 @@ Hwang et al. (2018), *Knowledge Discovery and Data Mining*. 89 citations.
 - **Issues:** Absolute subseasonal skill remains low; evaluation limited to western US; relative skill gains can look large from low baselines.
 - *Basis: abstract*
 
+### [Deep echo state networks with uncertainty quantification for spatio‐temporal forecasting](https://doi.org/10.1002/env.2553)
+McDermott et al. (2018), *Environmetrics*. 89 citations.
+
+*Summary pending.*
+
 ### [Nonlinear Canonical Correlation Analysis of the Tropical Pacific Climate Variability Using a Neural Network Approach](https://doi.org/10.1175/1520-0442(2001)014<2528:nccaot>2.0.co;2)
 Hsieh (2001), *Journal of Climate*. 87 citations.
 
@@ -5690,6 +6149,11 @@ Kim et al. (2021), *Nature Communications*. 84 citations.
 - **Open work:** Extend the correction to real-time operational forecasts and to full fields rather than indices, and test how it affects downstream teleconnection skill.
 - **Issues:** Corrects the index rather than the model physics. Reforecast samples are limited, so overfitting is a risk, and the gains depend on stationary model bias.
 - *Basis: abstract+knowledge*
+
+### [Adaptive bias correction for improved subseasonal forecasting](https://doi.org/10.1038/s41467-023-38874-y)
+Mouatadid et al. (2022), *Nature Communications*. 76 citations.
+
+*Summary pending.*
 
 ### [Multi-task machine learning improves multi-seasonal prediction of the Indian Ocean Dipole](https://doi.org/10.1038/s41467-022-35412-0)
 Ling et al. (2022), *Nature Communications*. 75 citations.
@@ -6318,6 +6782,11 @@ Toms et al. (2019), *arXiv*. 19 citations.
 - **Issues:** Proof-of-concept on a well-studied phenomenon with a predefined index; skill metrics, data and generalization are not detailed in the abstract.
 - *Basis: abstract*
 
+### [An interpretable machine learning model for seasonal precipitation forecasting](https://doi.org/10.1038/s43247-025-02207-2)
+Pinheiro et al. (2025), *Communications Earth & Environment*. 19 citations.
+
+*Summary pending.*
+
 ### [ResoNet: Robust and Explainable ENSO Forecasts with Hybrid Convolution and Transformer Networks](https://doi.org/10.1007/s00376-024-3316-6)
 Lyu et al. (2023), *Advances in Atmospheric Sciences*. 18 citations.
 
@@ -6783,6 +7252,11 @@ Papagiannopoulou et al. (2017), *Environmental Research Letters*. 156 citations.
 - **Issues:** Predictive Granger causality is not strict causality; satellite record artifacts may affect results.
 - *Basis: abstract*
 
+### [Precipitation projection using a CMIP5 GCM ensemble model: a regional investigation of Syria](https://doi.org/10.1080/19942060.2019.1683076)
+Homsi et al. (2020), *Engineering Applications of Computational Fluid Mechanics*. 156 citations.
+
+*Summary pending.*
+
 ### [Anthropogenic influence on extreme precipitation over global land areas seen in multiple observational datasets](https://doi.org/10.1038/s41467-021-24262-x)
 Madakumbura et al. (2021), *Nature Communications*. 155 citations.
 
@@ -6992,6 +7466,11 @@ Zscheischler et al. (2012), *Procedia Computer Science*. 91 citations.
 - **Issues:** k-means assumes spherical clusters and depends on variable scaling and choice of k; results depend on chosen input variables.
 - *Basis: abstract*
 
+### [A multimodel ensemble machine learning approach for CMIP6 climate model projections in an Indian River basin](https://doi.org/10.1002/joc.7813)
+Dey et al. (2022), *International Journal of Climatology*. 90 citations.
+
+*Summary pending.*
+
 ### [Synoptic Forcing of Precipitation over Greenland: Climatology for 1961–99](https://doi.org/10.1175/2008jhm1014.1)
 Schuenemann et al. (2009), *Journal of Hydrometeorology*. 87 citations.
 
@@ -7046,6 +7525,11 @@ Skific et al. (2009), *Journal of Climate*. 76 citations.
 - **Open work:** Extending to multi-model ensembles and linking moisture transport changes to Arctic precipitation and sea-ice changes.
 - **Issues:** Relies on a single climate model and emission scenario; SOM node count and domain choices affect the decomposition.
 - *Basis: abstract+knowledge*
+
+### [The season for large fires in Southern California is projected to lengthen in a changing climate](https://doi.org/10.1038/s43247-022-00344-6)
+Dong et al. (2022), *Communications Earth & Environment*. 71 citations.
+
+*Summary pending.*
 
 ### [Dimensionally reduced emulation of an AOGCM for application to integrated assessment modelling](https://doi.org/10.1029/2010gl045137)
 Holden et al. (2010), *Geophysical Research Letters*. 70 citations.
@@ -7377,6 +7861,11 @@ Bryan et al. (2002), *Geographical Analysis*. 37 citations.
 - **Issues:** Sparse station network for a large, complex country; only three geographic inputs, so precipitation features driven by unparameterized factors are lost.
 - *Basis: abstract*
 
+### [Developing an ensemble machine learning framework for enhanced climate projections using CMIP6 data in the Middle East](https://doi.org/10.1038/s41612-025-01033-9)
+Khosravi et al. (2025), *npj Climate and Atmospheric Science*. 37 citations.
+
+*Summary pending.*
+
 ### [Synoptic forcing of precipitation in the Mackenzie and Yukon River basins](https://doi.org/10.1002/joc.1926)
 Cassano et al. (2009), *International Journal of Climatology*. 33 citations.
 
@@ -7431,6 +7920,11 @@ Raju et al. (2007), *Hydrology Research*. 23 citations.
 - **Open work:** Use of the groups for regionalization of hydrologic and climatic variables.
 - **Issues:** No abstract available; the optimal number of clusters and validity measures are subjective.
 - *Basis: assessment*
+
+### [Tipping point-induced abrupt shifts in East Asian hydroclimate since the Last Glacial Maximum](https://doi.org/10.1038/s41467-025-55888-w)
+Lu et al. (2025), *Nature Communications*. 23 citations.
+
+*Summary pending.*
 
 ### [Emulators of Climate Model Output](https://doi.org/10.1146/annurev-environ-012125-085838)
 Tebaldi et al. (2025), *Annual Review of Environment and Resources*. 22 citations.
@@ -7497,6 +7991,11 @@ Perkins et al. (2025), *arXiv*. 18 citations.
 - **Open work:** Extend to more variables and validate against observations and other km-scale models for climate change applications.
 - **Issues:** Trained on a single model's decade of output, so it inherits X-SHiELD biases; performance under future forcing is not shown in the abstract.
 - *Basis: abstract*
+
+### [Rapid Emulation of Spatially Resolved Temperature Response to Effective Radiative Forcing](https://doi.org/10.1029/2024ms004523)
+Womack et al. (2025), *Journal of Advances in Modeling Earth Systems*. 18 citations.
+
+*Summary pending.*
 
 ### [Detection of Forced Change Within Combined Climate Fields Using Explainable Neural Networks](https://doi.org/10.1029/2021ms002941)
 Rader et al. (2021), *Journal of Advances in Modeling Earth Systems*. 17 citations.
@@ -7585,6 +8084,11 @@ Loon et al. (2025), *Geophysical Research Letters*. 13 citations.
 - **Open work:** Use Green's function experiments as a standard test of causal and out-of-distribution behaviour of ML emulators.
 - **Issues:** Out-of-distribution perturbations may exceed emulator training range; underestimated radiative response limits use for climate sensitivity.
 - *Basis: abstract*
+
+### [Coupled climate–land-use interactions modulate projected heatwave intensification across Africa](https://doi.org/10.1038/s43247-025-03110-6)
+Adeyeri et al. (2026), *Communications Earth & Environment*. 12 citations.
+
+*Summary pending.*
 
 ### [The Equilibrium Response of Atmospheric Machine‐Learning Models to Uniform Sea Surface Temperature Warming](https://doi.org/10.1029/2026ms005815)
 Zhang et al. (2025), *Journal of Advances in Modeling Earth Systems*. 11 citations.
@@ -8733,6 +9237,11 @@ Bonnet et al. (2025), *Geoscientific Model Development*. 10 citations.
 - **Issues:** Global-mean targets may hide regional errors; emulator accuracy limited by small ensemble size; tuning to observations can compensate structural errors.
 - *Basis: abstract*
 
+### [JCM v1.1: a differentiable, intermediate-complexity atmospheric model](https://doi.org/10.5194/gmd-19-6451-2026)
+Davenport et al. (2026), *Geoscientific Model Development*. 10 citations.
+
+*Summary pending.*
+
 ### [SuperdropNet: A Stable and Accurate Machine Learning Proxy for Droplet‐Based Cloud Microphysics](https://doi.org/10.1029/2024ms004279)
 Sharma et al. (2024), *Journal of Advances in Modeling Earth Systems*. 9 citations.
 
@@ -9143,6 +9652,11 @@ Pour et al. (2018), *Atmospheric Research*. 167 citations.
 - **Issues:** Monthly scale only; stationarity assumption of statistical downscaling.
 - *Basis: abstract*
 
+### [Downscaling Satellite Precipitation Estimates With Multiple Linear Regression, Artificial Neural Networks, and Spline Interpolation Techniques](https://doi.org/10.1029/2018jd028795)
+Sharifi et al. (2019), *Journal of Geophysical Research: Atmospheres*. 161 citations.
+
+*Summary pending.*
+
 ### [Simulating climate change scenarios using an improved K-nearest neighbor model](https://doi.org/10.1016/j.jhydrol.2005.10.015)
 Sharif et al. (2006), *Journal of Hydrology*. 145 citations.
 
@@ -9308,6 +9822,11 @@ Snell et al. (2000), *Journal of Climate*. 114 citations.
 - **Issues:** Tested on observations rather than GCM output; stationarity of relationships assumed.
 - *Basis: assessment*
 
+### [Long-term rainfall prediction using atmospheric synoptic patterns in semi-arid climates with statistical and machine learning methods](https://doi.org/10.1016/j.jhydrol.2020.124789)
+Díez-Sierra et al. (2020), *Journal of Hydrology*. 112 citations.
+
+*Summary pending.*
+
 ### [SVM-PGSL coupled approach for statistical downscaling to predict rainfall from GCM output](https://doi.org/10.1029/2009jd013548)
 Ghosh (2010), *Journal of Geophysical Research: Atmospheres*. 110 citations.
 
@@ -9351,6 +9870,11 @@ Doury et al. (2021), *Climate Dynamics*. 102 citations.
 - **Open work:** Better reproduction of temperature extremes and climate change intensity; extension to other regions, GCMs, RCMs and variables.
 - **Issues:** Underestimates some extremes and climate change signal; single RCM/variable; emulates the RCM, so inherits its biases.
 - *Basis: abstract+knowledge*
+
+### [Statistical Downscaling of Temperature with the Random Forest Model](https://doi.org/10.1155/2017/7265178)
+Pang et al. (2017), *Advances in Meteorology*. 102 citations.
+
+*Summary pending.*
 
 ### [Neural Networks for Rainfall Forecasting by Atmospheric Downscaling](https://doi.org/10.1061/(asce)1084-0699(2004)9:1(1))
 Olsson et al. (2004), *Journal of Hydrologic Engineering*. 101 citations.
@@ -9406,6 +9930,11 @@ Hess et al. (2022), *Nature Machine Intelligence*. 96 citations.
 - **Open work:** Application to other ESMs and variables and multivariate consistency.
 - **Issues:** Applied to one coarse ESM; correction is statistical and does not fix model dynamics; unpaired mapping complicates verification.
 - *Basis: abstract+knowledge*
+
+### [ANN-based statistical downscaling of climatic parameters using decision tree predictor screening method](https://doi.org/10.1007/s00704-018-2686-z)
+Nourani et al. (2018), *Theoretical and Applied Climatology*. 96 citations.
+
+*Summary pending.*
 
 ### [Spatio-temporal interpolation of climatic variables over large region of complex terrain using neural networks](https://doi.org/10.1016/s0304-3800(00)00406-3)
 Antonić et al. (2001), *Ecological Modelling*. 95 citations.
@@ -9472,6 +10001,11 @@ Pour et al. (2014), *Atmosphere*. 91 citations.
 - **Open work:** Application to GCM projections to estimate future extreme rainfall changes.
 - **Issues:** Single region; evaluation on reanalysis-driven downscaling only; stationarity of predictor relations assumed.
 - *Basis: abstract*
+
+### [On deep learning-based bias correction and downscaling of multiple climate models simulations](https://doi.org/10.1007/s00382-022-06277-2)
+Wang et al. (2022), *Climate Dynamics*. 91 citations.
+
+*Summary pending.*
 
 ### [Uncertainty analysis of statistical downscaling methods using Canadian Global Climate Model predictors](https://doi.org/10.1002/hyp.6084)
 Khan et al. (2006), *Hydrological Processes*. 89 citations.
@@ -9605,6 +10139,11 @@ Mendes et al. (2010), *Theoretical and Applied Climatology*. 76 citations.
 - **Issues:** No abstract available; downscaled futures inherit GCM biases and stationarity assumptions.
 - *Basis: assessment*
 
+### [Wind‐Topo: Downscaling near‐surface wind fields to high‐resolution topography in highly complex terrain with deep learning](https://doi.org/10.1002/qj.4265)
+Dujardin et al. (2022), *Quarterly Journal of the Royal Meteorological Society*. 76 citations.
+
+*Summary pending.*
+
 ### [Customized deep learning for precipitation bias correction and downscaling](https://doi.org/10.5194/gmd-16-535-2023)
 Wang et al. (2023), *Geoscientific Model Development*. 74 citations.
 
@@ -9637,6 +10176,11 @@ Kumar et al. (2020), *Theoretical and Applied Climatology*. 73 citations.
 - **Open work:** Developing an operational deep learning downscaling model for Indian monsoon rainfall.
 - **Issues:** Spatial discontinuities in rainfall limit skill; only interpolation as baseline.
 - *Basis: abstract*
+
+### [On the modern deep learning approaches for precipitation downscaling](https://doi.org/10.1007/s12145-023-00970-4)
+Kumar et al. (2022), *Earth Science Informatics*. 73 citations.
+
+*Summary pending.*
 
 ### [High-resolution meteorology with climate change impacts from global climate model data using generative machine learning](https://doi.org/10.1038/s41560-024-01507-9)
 Buster et al. (2024), *Nature Energy*. 70 citations.
@@ -9814,6 +10358,11 @@ Goyal et al. (2012), *International Journal of Climatology*. 60 citations.
 - **Issues:** Stationarity assumption of statistical downscaling; single catchment.
 - *Basis: assessment*
 
+### [Investigating transformer‐based models for spatial downscaling and correcting biases of near‐surface temperature and wind‐speed forecasts](https://doi.org/10.1002/qj.4596)
+Zhong et al. (2023), *Quarterly Journal of the Royal Meteorological Society*. 60 citations.
+
+*Summary pending.*
+
 ### [High-resolution downscaling of CMIP6 Earth system and global climate models using deep learning for Iberia](https://doi.org/10.5194/gmd-17-229-2024)
 Soares et al. (2024), *Geoscientific Model Development*. 57 citations.
 
@@ -9857,6 +10406,11 @@ Tolika et al. (2008), *Global and Planetary Change*. 55 citations.
 - **Open work:** Using multiple GCMs and downscaling methods to quantify uncertainty in projected extremes.
 - **Issues:** Downscaling assumes stationary predictor–predictand relationships; projections depend on the driving GCM.
 - *Basis: assessment*
+
+### [Deep learning downscaled high-resolution daily near surface meteorological datasets over East Asia](https://doi.org/10.1038/s41597-023-02805-9)
+Lin et al. (2023), *Scientific Data*. 55 citations.
+
+*Summary pending.*
 
 ### [Statistical atmospheric downscaling of short-term extreme rainfall by neural networks](https://doi.org/10.1016/s1464-1917(01)00071-x)
 Olsson et al. (2001), *Physics and Chemistry of the Earth, Part C: Solar, Terrestrial & Planetary Science*. 53 citations.
@@ -9990,6 +10544,11 @@ Goyal et al. (2012), *Theoretical and Applied Climatology*. 39 citations.
 - **Issues:** Abstract missing; stationarity assumption in downscaling; results unverified.
 - *Basis: assessment*
 
+### [Wind speed super-resolution and validation: from ERA5 to CERRA via diffusion models](https://doi.org/10.1007/s00521-024-10139-9)
+Merizzi et al. (2024), *Neural Computing and Applications*. 39 citations.
+
+*Summary pending.*
+
 ### [Global spatio-temporal ERA5 precipitation downscaling to km and sub-hourly scale using generative AI](https://doi.org/10.1038/s41612-025-01103-y)
 Glawion et al. (2024), *npj Climate and Atmospheric Science*. 38 citations.
 
@@ -10077,6 +10636,11 @@ Doury et al. (2024), *Climate Dynamics*. 33 citations.
 - **Open work:** Establish a relevant evaluation framework for applying the emulator directly to GCM simulations and recover missing highest-frequency spatial details.
 - **Issues:** Evaluated mainly in perfect-model conditions; fine-scale details are smoothed and GCM application lacks a reference truth for validation.
 - *Basis: abstract+knowledge*
+
+### [Hybrid deep learning downscaling of GCMs for climate impact assessment and future projections in Oman.](https://doi.org/10.1016/j.jenvman.2025.124522)
+Zarei et al. (2025), *Journal of Environmental Management*. 33 citations.
+
+*Summary pending.*
 
 ### [Precipitation Downscaling with Spatiotemporal Video Diffusion](https://doi.org/10.52202/079017-1795)
 Srivastava et al. (2023), *Neural Information Processing Systems*. 32 citations.
@@ -10210,6 +10774,11 @@ Cannon (2007), *Neural Networks*. 20 citations.
 - **Issues:** Analog methods cannot produce values outside the historical record; training is computationally intensive.
 - *Basis: abstract+knowledge*
 
+### [Deep learning super-resolution for temperature data downscaling: a comprehensive study using residual networks](https://doi.org/10.3389/fclim.2025.1572428)
+Jha et al. (2025), *Frontiers in Climate*. 20 citations.
+
+*Summary pending.*
+
 ### [Satellite Observations Guided Diffusion Model for Accurate Meteorological States at Arbitrary Resolution](https://doi.org/10.1109/cvpr52734.2025.02614)
 Tu et al. (2025), *Computer Vision and Pattern Recognition*. 19 citations.
 
@@ -10242,6 +10811,16 @@ Mikšovský et al. (2005), *Nonlinear Processes in Geophysics*. 18 citations.
 - **Open work:** Testing other predictors and variables such as precipitation, and explaining the geographic and seasonal pattern of nonlinearity.
 - **Issues:** Only temperature is studied and gains over linear regression are modest; MLPs suffer from practical training disadvantages, and downscaling is tested on reanalysis rather than GCM output.
 - *Basis: abstract*
+
+### [Benchmarking the geographic generalization of deep learning models for precipitation downscaling](https://doi.org/10.1038/s41598-025-34557-4)
+Harder et al. (2026), *Scientific Reports*. 17 citations.
+
+*Summary pending.*
+
+### [Machine Learning in Climate Downscaling: A Critical Review of Methodologies, Physical Consistency, and Operational Applications](https://doi.org/10.3390/w18020271)
+Najafi et al. (2026), *Water*. 17 citations.
+
+*Summary pending.*
 
 ### [Are Deep Learning Methods Suitable for Downscaling Global Climate Projections? An Intercomparison for Temperature and Precipitation over Spain](https://doi.org/10.1175/aies-d-24-0121.1)
 González-Abad et al. (2024), *Artificial Intelligence for the Earth Systems*. 16 citations.
@@ -10762,6 +11341,16 @@ Ruckstuhl et al. (2020), *Nonlinear Processes in Geophysics*. 25 citations.
 - **Open work:** Extending to other conserved quantities and higher-dimensional, more realistic prediction systems.
 - **Issues:** Idealized experiments only; the CNN learns from QPEns outputs so it needs that expensive method for training data.
 - *Basis: abstract*
+
+### [Generative Data Assimilation for Surface Ocean State Estimation From Multi‐Modal Satellite Observations](https://doi.org/10.1029/2025ms005063)
+Martin et al. (2025), *Journal of Advances in Modeling Earth Systems*. 25 citations.
+
+*Summary pending.*
+
+### [Enhancing Observation Point Analysis for Atmospheric State Estimation Using Self-Supervised Graph Neural Networks](https://doi.org/10.3390/atmos17020163)
+Xu et al. (2026), *Atmosphere*. 25 citations.
+
+*Summary pending.*
 
 ### [Generative assimilation and prediction for weather and climate](https://arxiv.org/abs/2503.03038)
 Yang et al. (2025), *arXiv*. 23 citations.
@@ -11602,6 +12191,11 @@ Mahajan et al. (2019), *Complex & Intelligent Systems*. 164 citations.
 - **Issues:** Coverage stops at 2018 and predates most deep learning cloud masking; no quantitative benchmark.
 - *Basis: abstract*
 
+### [Accurate cloud detection in high-resolution remote sensing imagery by weakly supervised deep learning](https://doi.org/10.1016/j.rse.2020.112045)
+Li et al. (2020), *Remote Sensing of Environment*. 163 citations.
+
+*Summary pending.*
+
 ### [Estimation of daily maximum and minimum air temperatures in urban landscapes using MODIS time series satellite data](https://doi.org/10.1016/j.isprsjprs.2018.01.018)
 Yoo et al. (2018), *ISPRS Journal of Photogrammetry and Remote Sensing*. 162 citations.
 
@@ -11612,6 +12206,11 @@ Yoo et al. (2018), *ISPRS Journal of Photogrammetry and Remote Sensing*. 162 cit
 - **Open work:** Higher spatial resolution inputs and handling of cloud-related gaps.
 - **Issues:** Abstract not available; MODIS LST gaps under clouds and 1 km resolution limit urban detail.
 - *Basis: assessment*
+
+### [Cloud detection algorithm for multi-modal satellite imagery using convolutional neural-networks (CNN)](https://doi.org/10.1016/j.rse.2019.111446)
+Segal-Rozenhaimer et al. (2020), *Remote Sensing of Environment*. 157 citations.
+
+*Summary pending.*
 
 ### [A Pattern Recognition Technique for Distinguishing Surface and Cloud Types in the Polar Regions](https://doi.org/10.1175/1520-0450(1987)026<1412:aprtfd>2.0.co;2)
 Ebert (1987), *Journal of Climate and Applied Meteorology*. 156 citations.
@@ -11645,6 +12244,11 @@ Gourrion et al. (2002), *Journal of Atmospheric and Oceanic Technology*. 153 cit
 - **Open work:** Adapting the algorithm to other altimeters and bands.
 - **Issues:** Calibration depends on collocated reference winds; sea-state effects beyond wave height not captured.
 - *Basis: abstract+knowledge*
+
+### [SmokeNet: Satellite Smoke Scene Detection Using Convolutional Neural Network with Spatial and Channel-Wise Attention](https://doi.org/10.3390/rs11141702)
+Ba et al. (2019), *Remote Sensing*. 153 citations.
+
+*Summary pending.*
 
 ### [A Fuzzy Logic Technique for Identifying Nonprecipitating Echoes in Radar Scans](https://doi.org/10.1175/jtech1914.1)
 Berenguer et al. (2006), *Journal of Atmospheric and Oceanic Technology*. 152 citations.
@@ -11756,6 +12360,11 @@ Bianco et al. (2002), *Journal of Atmospheric and Oceanic Technology*. 130 citat
 - **Issues:** Tuned membership functions are site- and instrument-specific; performance under stable or multi-layer conditions is limited.
 - *Basis: abstract+knowledge*
 
+### [PERSIANN Dynamic Infrared-Rain Rate (PDIR-Now): A Near-Real-Time, Quasi-Global Satellite Precipitation Dataset.](https://doi.org/10.1175/jhm-d-20-0177.1)
+Nguyen et al. (2020), *Journal of Hydrometeorology*. 130 citations.
+
+*Summary pending.*
+
 ### [PERSIANN-MSA: A Precipitation Estimation Method from Satellite-Based Multispectral Analysis](https://doi.org/10.1175/2009jhm1139.1)
 Behrangi et al. (2009), *Journal of Hydrometeorology*. 129 citations.
 
@@ -11766,6 +12375,11 @@ Behrangi et al. (2009), *Journal of Hydrometeorology*. 129 citations.
 - **Open work:** Extending to newer geostationary imagers with more channels and merging with passive microwave data.
 - **Issues:** Visible channels are only available in daytime; evaluated over a limited region and period.
 - *Basis: abstract+knowledge*
+
+### [A Machine Learning System for Precipitation Estimation Using Satellite and Ground Radar Network Observations](https://doi.org/10.1109/tgrs.2019.2942280)
+Chen et al. (2020), *IEEE Transactions on Geoscience and Remote Sensing*. 128 citations.
+
+*Summary pending.*
 
 ### [Estimation of solar radiation using a neural network based on radiative transfer](https://doi.org/10.1029/2009jd013337)
 Takenaka et al. (2011), *Journal of Geophysical Research*. 127 citations.
@@ -11810,6 +12424,11 @@ Fan et al. (2017), *Remote Sensing of Environment*. 120 citations.
 - **Open work:** Extension to other sensors and to absorbing aerosols, plus uncertainty estimates, are natural next steps.
 - **Issues:** Relies on the realism of simulated training data; performance depends on coverage of aerosol and water types in the simulations.
 - *Basis: abstract+knowledge*
+
+### [Estimating Summertime Precipitation from Himawari-8 and Global Forecast System Based on Machine Learning](https://doi.org/10.1109/tgrs.2018.2874950)
+Min et al. (2019), *IEEE Transactions on Geoscience and Remote Sensing*. 120 citations.
+
+*Summary pending.*
 
 ### [Mean Map Kernel Methods for Semisupervised Cloud Classification](https://doi.org/10.1109/tgrs.2009.2026425)
 Gómez-Chova et al. (2010), *IEEE Transactions on Geoscience and Remote Sensing*. 118 citations.
@@ -11888,6 +12507,16 @@ Cho et al. (2006), *Journal of Atmospheric and Oceanic Technology*. 111 citation
 - **Issues:** Evaluation details unknown; feature thresholds may be radar- and site-specific, and embedded clutter within precipitation remains difficult.
 - *Basis: assessment*
 
+### [Development of a support vector machine based cloud detection method for MODIS with the adjustability to various conditions](https://doi.org/10.1016/j.rse.2017.11.003)
+Ishida et al. (2018), *Remote Sensing of Environment*. 111 citations.
+
+*Summary pending.*
+
+### [Retrieval of cloud top properties from advanced geostationary satellite imager measurements based on machine learning algorithms](https://doi.org/10.1016/j.rse.2019.111616)
+Min et al. (2020), *Remote Sensing of Environment*. 110 citations.
+
+*Summary pending.*
+
 ### [Cloud Detection for High-Resolution Satellite Imagery Using Machine Learning and Multi-Feature Fusion](https://doi.org/10.3390/rs8090715)
 Bai et al. (2016), *Remote Sensing*. 108 citations.
 
@@ -11931,6 +12560,11 @@ Shi et al. (2016), *IEEE International Geoscience and Remote Sensing Symposium*.
 - **Open work:** Testing across sensors, surfaces such as snow and bright desert, and thin or broken cloud would establish generality.
 - **Issues:** Abstract unavailable, so method, data and accuracy cannot be verified; conference-length study likely with limited evaluation scenes.
 - *Basis: assessment*
+
+### [Fast Cloud Segmentation Using Convolutional Neural Networks](https://doi.org/10.3390/rs10111782)
+Drönner et al. (2018), *Remote Sensing*. 106 citations.
+
+*Summary pending.*
 
 ### [Bias Adjustment of Satellite Precipitation Estimation Using Ground-Based Measurement: A Case Study Evaluation over the Southwestern United States](https://doi.org/10.1175/2009jhm1099.1)
 Boushaki et al. (2009), *Journal of Hydrometeorology*. 105 citations.
@@ -11986,6 +12620,11 @@ Thiria et al. (1993), *Journal of Geophysical Research: Oceans*. 102 citations.
 - **Open work:** Application to operational scatterometer data and ambiguity removal.
 - **Issues:** Performance depends on the representativeness of training data and reference winds.
 - *Basis: assessment*
+
+### [DeepCloud: Ground-Based Cloud Image Categorization Using Deep Convolutional Features](https://doi.org/10.1109/tgrs.2017.2712809)
+Ye et al. (2017), *IEEE Transactions on Geoscience and Remote Sensing*. 102 citations.
+
+*Summary pending.*
 
 ### [Validation of Polarimetric Hail Detection](https://doi.org/10.1175/waf956.1)
 Heinselman et al. (2006), *Weather and Forecasting*. 100 citations.
@@ -12086,6 +12725,26 @@ Meyer et al. (2016), *Atmospheric Research*. 95 citations.
 - **Issues:** Single region; optical retrievals limited at night and for some cloud types.
 - *Basis: abstract+knowledge*
 
+### [A deep learning model using geostationary satellite data for forest fire detection with reduced detection latency](https://doi.org/10.1080/15481603.2022.2143872)
+Kang et al. (2022), *GIScience & Remote Sensing*. 95 citations.
+
+*Summary pending.*
+
+### [GNSS reflectometry global ocean wind speed using deep learning: Development and assessment of CyGNSSnet](https://doi.org/10.1016/j.rse.2021.112801)
+Asgarimehr et al. (2022), *Remote Sensing of Environment*. 95 citations.
+
+*Summary pending.*
+
+### [Introducing two Random Forest based methods for cloud detection in remote sensing images](https://doi.org/10.1016/j.asr.2018.04.030)
+Ghasemian et al. (2018), *Advances in Space Research*. 93 citations.
+
+*Summary pending.*
+
+### [Analysis of coastal wind speed retrieval from CYGNSS mission using artificial neural network](https://doi.org/10.1016/j.rse.2021.112454)
+Li et al. (2021), *Remote Sensing of Environment*. 92 citations.
+
+*Summary pending.*
+
 ### [Multifeature texture analysis for the classification of clouds in satellite imagery](https://doi.org/10.1109/tgrs.2003.815404)
 Christodoulou et al. (2003), *IEEE Transactions on Geoscience and Remote Sensing*. 91 citations.
 
@@ -12118,6 +12777,21 @@ Surussavadee et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*
 - **Open work:** Validation against observations (Part II) and extension to other sensors.
 - **Issues:** Training truth is model-based, so retrievals inherit model microphysics biases.
 - *Basis: abstract+knowledge*
+
+### [A Cloud Detection Method for Landsat 8 Images Based on PCANet](https://doi.org/10.3390/rs10060877)
+Zi et al. (2018), *Remote Sensing*. 89 citations.
+
+*Summary pending.*
+
+### [Removing Stripe Noise From Infrared Cloud Images via Deep Convolutional Networks](https://doi.org/10.1109/jphot.2018.2854303)
+Xiao et al. (2018), *IEEE Photonics Journal*. 89 citations.
+
+*Summary pending.*
+
+### [Precipitable water vapor fusion based on a generalized regression neural network](https://doi.org/10.1007/s00190-021-01482-z)
+Zhang et al. (2021), *Journal of Geodesy*. 87 citations.
+
+*Summary pending.*
 
 ### [Land surface skin temperatures from a combined analysis of microwave and infrared satellite observations for an all-weather evaluation of the differences between air and skin temperatures](https://doi.org/10.1029/2002jd002301)
 Prigent et al. (2003), *Journal of Geophysical Research: Atmospheres*. 86 citations.
@@ -12207,6 +12881,11 @@ Tsintikidis et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*.
 - **Issues:** Retrievals depend on the representativeness of training data and beam-filling assumptions.
 - *Basis: assessment*
 
+### [Information fusion for GNSS-R wind speed retrieval using statistically modified convolutional neural network](https://doi.org/10.1016/j.rse.2022.112934)
+Guo et al. (2022), *Remote Sensing of Environment*. 79 citations.
+
+*Summary pending.*
+
 ### [Determination of Rainfall Rates from GOES Satellite Images by a Pattern Recognition Technique](https://doi.org/10.1175/1520-0426(1985)002<0314:dorrfg>2.0.co;2)
 Wu et al. (1985), *Journal of Atmospheric and Oceanic Technology*. 76 citations.
 
@@ -12228,6 +12907,11 @@ Keenan (2003), *Australian Meteorological Magazine*. 76 citations.
 - **Open work:** Quantitative validation against in situ microphysics and refinement of membership functions for attenuation-affected regions.
 - **Issues:** Evaluation is qualitative on two case studies; membership functions are empirical and not independently validated.
 - *Basis: abstract*
+
+### [Mapping Monthly Air Temperature in the Tibetan Plateau From MODIS Data Based on Machine Learning Methods](https://doi.org/10.1109/jstars.2017.2787191)
+Xu et al. (2018), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 75 citations.
+
+*Summary pending.*
 
 ### [Supervised Classification and Estimation of Hydrometeors From C-Band Dual-Polarized Radars: A Bayesian Approach](https://doi.org/10.1109/tgrs.2007.906476)
 Marzano et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*. 74 citations.
@@ -12327,6 +13011,11 @@ Rasp et al. (2019), *Bulletin of the American Meteorological Society*. 69 citati
 - **Open work:** Studying the physical drivers and radiative effects of the patterns and their representation in models; dataset released for further work.
 - **Issues:** Subjective pattern definitions with notable inter-labeler disagreement; labels limited to selected regions.
 - *Basis: abstract+knowledge*
+
+### [Surface Solar Radiation Compositions Observed from Himawari-8/9 and Fengyun-4 Series](https://doi.org/10.1175/bams-d-22-0154.1)
+Letu et al. (2023), *Bulletin of the American Meteorological Society*. 69 citations.
+
+*Summary pending.*
 
 ### [Analysis of Polar Clouds from Satellite Imagery Using Pattern Recognition and a Statistical Cloud Analysis Scheme](https://doi.org/10.1175/1520-0450(1989)028<0382:aopcfs>2.0.co;2)
 Ebert (1989), *Journal of Applied Meteorology*. 67 citations.
@@ -12548,6 +13237,11 @@ Mao et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*. 59 cita
 - **Issues:** Reliance on simulated training data means accuracy depends on how representative the simulated atmospheres and emissivities are.
 - *Basis: abstract+knowledge*
 
+### [Integration of shapley additive explanations with random forest model for quantitative precipitation estimation of mesoscale convective systems](https://doi.org/10.3389/fenvs.2022.1057081)
+He et al. (2023), *Frontiers in Environmental Science*. 58 citations.
+
+*Summary pending.*
+
 ### [Application of neural networks for sea ice classification in polarimetric SAR images](https://doi.org/10.1109/36.387589)
 Hara et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citations.
 
@@ -12647,6 +13341,11 @@ Stiles et al. (2014), *IEEE Transactions on Geoscience and Remote Sensing*. 55 c
 - **Issues:** Abstract missing; performance at the most extreme wind speeds and in heavy rain depends on the quality and number of reference cases.
 - *Basis: assessment*
 
+### [Hybrid CNN-Transformer Network With a Weighted MSE Loss for Global Sea Surface Wind Speed Retrieval From GNSS-R Data](https://doi.org/10.1109/tgrs.2025.3574129)
+Qiao et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 55 citations.
+
+*Summary pending.*
+
 ### [A Neural Network Multiparameter Algorithm for SSM/I Ocean Retrievals](https://doi.org/10.1016/s0034-4257(00)00088-2)
 Krasnopolsky et al. (2000), *Remote Sensing of Environment*. 54 citations.
 
@@ -12690,6 +13389,11 @@ Surussavadee et al. (2009), *IEEE Transactions on Geoscience and Remote Sensing*
 - **Open work:** Further validation in cold regions and extension to other millimeter-wave sensors.
 - **Issues:** Training relies on MM5 simulations so model microphysics biases propagate; surface effects over snow and ice remain challenging.
 - *Basis: abstract*
+
+### [HiMIC-Monthly: A 1 km high-resolution atmospheric moisture index collection over China, 2003–2020](https://doi.org/10.1038/s41597-024-03230-2)
+Zhang et al. (2024), *Scientific Data*. 49 citations.
+
+*Summary pending.*
 
 ### [Radiance spectra classification from the Ocean Color and Temperature Scanner on ADEOS](https://doi.org/10.1109/36.763281)
 Ainsworth et al. (1999), *IEEE Transactions on Geoscience and Remote Sensing*. 48 citations.
@@ -12922,6 +13626,11 @@ Butler et al. (1996), *Journal of Geophysical Research: Atmospheres*. 34 citatio
 - **Issues:** Accuracy depends on the representativeness of the training collocations; limited vertical resolution of the sounder.
 - *Basis: assessment*
 
+### [Regional-scale intelligent optimization and topography impact in restoring global precipitation data gaps](https://doi.org/10.1038/s43247-025-02624-3)
+Wang et al. (2025), *Communications Earth & Environment*. 34 citations.
+
+*Summary pending.*
+
 ### [Cumulo: A Dataset for Learning Cloud Classes](https://arxiv.org/abs/1911.04227)
 Zantedeschi et al. (2019), *arXiv*. 33 citations.
 
@@ -13042,6 +13751,11 @@ Liu et al. (1997), *Journal of Applied Meteorology*. 27 citations.
 - **Open work:** Validation under cloudy conditions and over more regions and seasons, and use for climatological surface energy budget estimates.
 - **Issues:** Cloudy-sky comparison is problematic because of cloud inhomogeneity and footprint mismatch with point measurements; trained largely on model simulations; single-cruise validation.
 - *Basis: abstract*
+
+### [Advances in multi-source data fusion for precipitation estimation: remote sensing and machine learning perspectives](https://doi.org/10.1016/j.earscirev.2025.105253)
+Nourani et al. (2025), *Earth-Science Reviews*. 27 citations.
+
+*Summary pending.*
 
 ### [Advancing Satellite Precipitation Retrievals With Data Driven Approaches: Is Black Box Model Explainable?](https://doi.org/10.1029/2020ea001423)
 Li et al. (2020), *Earth and Space Science*. 26 citations.
@@ -13175,6 +13889,11 @@ Chethan et al. (2009), *2009 International Conference on Advances in Recent Tech
 - **Issues:** No abstract available; small labelled sets and unknown evaluation protocol.
 - *Basis: assessment*
 
+### [Ocean Surface Wind Speed Estimation From GNSS-R Data Using Physics-Informed Attention-Aided Convolutional Neural Network](https://doi.org/10.1109/tgrs.2025.3594633)
+Qiao et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 22 citations.
+
+*Summary pending.*
+
 ### Cloud Classiication Using Error-correcting Output Codes
 AhaNavy (1996), *Venue not recorded*. 21 citations.
 
@@ -13219,6 +13938,11 @@ Cerdena et al. (2007), *Journal of Atmospheric and Oceanic Technology*. 20 citat
 - **Issues:** No abstract available; trained on plane-parallel simulations, so 3-D cloud effects are not represented.
 - *Basis: assessment*
 
+### [Investigation on Ground-Based Cloud Image Classification and Its Application in Photovoltaic Power Forecasting](https://doi.org/10.1109/tim.2025.3529074)
+Nie et al. (2025), *IEEE Transactions on Instrumentation and Measurement*. 20 citations.
+
+*Summary pending.*
+
 ### [Neural network-based cloud classification on satellite imagery using textural features](https://doi.org/10.1109/icip.1997.632057)
 Tian et al. (1997), *Proceedings of International Conference on Image Processing*. 19 citations.
 
@@ -13252,6 +13976,11 @@ Sarma et al. (2005), *IEEE Transactions on Geoscience and Remote Sensing*. 19 ci
 - **Issues:** Abstract unavailable; card is based on the title only, so data, method and accuracy cannot be confirmed.
 - *Basis: assessment*
 
+### [Variational Autoencoder Framework for Hyperspectral Retrievals (Hyper-VAE) of Phytoplankton Absorption and Chlorophyll a in Coastal Waters for NASA’s EMIT and PACE Missions](https://doi.org/10.1109/tgrs.2025.3566417)
+Lou et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 19 citations.
+
+*Summary pending.*
+
 ### [Removal of bird-contaminated wind profiler data based on neural networks](https://doi.org/10.1016/s0031-3203(03)00165-1)
 Kretzschmar et al. (2003), *Pattern Recognition*. 18 citations.
 
@@ -13262,6 +13991,11 @@ Kretzschmar et al. (2003), *Pattern Recognition*. 18 citations.
 - **Open work:** Real-time operational implementation and extension to other profiler sites and contamination types.
 - **Issues:** Abstract unavailable; labelled data are limited and performance may depend on site and season.
 - *Basis: assessment*
+
+### [Machine learning for improvement of upper-tropospheric relative humidity in ERA5 weather model data](https://doi.org/10.5194/acp-25-2845-2025)
+Wang et al. (2025), *Atmospheric Chemistry and Physics*. 18 citations.
+
+*Summary pending.*
 
 ### [Global Data Assimilation and Forecast Experiments Using SSM/I Wind Speed Data Derived from a Neural Network Algorithm](https://doi.org/10.1175/1520-0434(1997)012<0859:gdaafe>2.0.co;2)
 Yu et al. (1997), *Weather and Forecasting*. 17 citations.
@@ -13658,6 +14392,11 @@ Igata et al. (1994), *PROCEEDINGS OF HYDRAULIC ENGINEERING*. 7 citations.
 - **Open work:** Adding more spectral channels and validating over more events.
 - **Issues:** Infrared cloud-top information relates only indirectly to surface rainfall; limited events.
 - *Basis: assessment*
+
+### [NOAH: A Multi-Modal and Sensor Fusion Dataset for Generative Modeling in Remote Sensing](https://doi.org/10.3390/rs18030466)
+Mutakabbir et al. (2026), *Remote Sensing*. 7 citations.
+
+*Summary pending.*
 
 ### [MSWEP V3: Machine Learning-Powered Global Precipitation Estimates at 0.1$^\circ$ Hourly Resolution (1979-Present)](https://arxiv.org/abs/2602.01436)
 Wang et al. (2026), *arXiv*. 6 citations.
@@ -14168,6 +14907,11 @@ Lin et al. (2009), *Journal of Hydrology*. 109 citations.
 - **Issues:** Limited number of typhoon events; skill for unusual tracks is untested.
 - *Basis: assessment*
 
+### [Tropical Cyclone Intensity Classification and Estimation Using Infrared Satellite Images With Deep Learning](https://doi.org/10.1109/jstars.2021.3050767)
+Zhang et al. (2021), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 107 citations.
+
+*Summary pending.*
+
 ### [Deep-Hurricane-Tracker: Tracking and Forecasting Extreme Climate Events](https://doi.org/10.1109/wacv.2019.00192)
 Kim et al. (2019), *IEEE Workshop/Winter Conference on Applications of Computer Vision*. 105 citations.
 
@@ -14223,6 +14967,11 @@ Sakr et al. (2011), *Engineering Applications of Artificial Intelligence*. 97 ci
 - **Issues:** Very small input set ignores fuel, topography and human ignition; limited regional data.
 - *Basis: abstract+knowledge*
 
+### [Tropical Cyclone Intensity Estimation From Geostationary Satellite Imagery Using Deep Convolutional Neural Networks](https://doi.org/10.1109/tgrs.2021.3066299)
+Wang et al. (2022), *IEEE Transactions on Geoscience and Remote Sensing*. 97 citations.
+
+*Summary pending.*
+
 ### [Can AI weather models predict out-of-distribution gray swan tropical cyclones?](https://doi.org/10.1073/pnas.2420914122)
 Sun et al. (2024), *Proceedings of the National Academy of Sciences*. 96 citations.
 
@@ -14255,6 +15004,16 @@ Nayak et al. (2013), *Theoretical and Applied Climatology*. 94 citations.
 - **Open work:** Probabilistic outputs and application to forecast model fields for operational use.
 - **Issues:** No abstract available; extremes are rare, so class imbalance and false alarms are concerns.
 - *Basis: assessment*
+
+### [Deep learning approach for detecting tropical cyclones and their precursors in the simulation by a cloud-resolving global nonhydrostatic atmospheric model](https://doi.org/10.1186/s40645-018-0245-y)
+Matsuoka et al. (2018), *Progress in Earth and Planetary Science*. 93 citations.
+
+*Summary pending.*
+
+### [Rotation-blended CNNs on a New Open Dataset for Tropical Cyclone Image-to-intensity Regression](https://doi.org/10.1145/3219819.3219926)
+Chen et al. (2018), *Knowledge Discovery and Data Mining*. 92 citations.
+
+*Summary pending.*
 
 ### [Machine Learning for Real-Time Prediction of Damaging Straight-Line Convective Wind](https://doi.org/10.1175/waf-d-17-0038.1)
 Lagerquist et al. (2017), *Weather and Forecasting*. 91 citations.
@@ -14487,6 +15246,11 @@ Giraud (1992), *Venue not recorded*. 60 citations.
 - **Issues:** Depends on simulated snowpack quality; rules encode expert knowledge that is hard to validate objectively.
 - *Basis: abstract+knowledge*
 
+### [Exploring the typhoon intensity forecasting through integrating AI weather forecasting with regional numerical weather model](https://doi.org/10.1038/s41612-025-00926-z)
+Xu et al. (2025), *npj Climate and Atmospheric Science*. 60 citations.
+
+*Summary pending.*
+
 ### [Global Extreme Heat Forecasting Using Neural Weather Models](https://doi.org/10.1175/aies-d-22-0035.1)
 Lopez‐Gomez et al. (2022), *Artificial Intelligence for the Earth Systems*. 59 citations.
 
@@ -14674,6 +15438,11 @@ Dutta et al. (2013), *Scientific Reports*. 46 citations.
 - **Issues:** Accuracy is dominated by non-fire cases; single continent and decade; no explicit fuel, ignition or human factors.
 - *Basis: abstract*
 
+### [Harnessing LSTM and XGBoost algorithms for storm prediction](https://doi.org/10.1038/s41598-024-62182-0)
+Frifra et al. (2024), *Scientific Reports*. 46 citations.
+
+*Summary pending.*
+
 ### [A deep learning ensemble approach for predicting tropical cyclone rapid intensification](https://doi.org/10.1002/asl.1151)
 Chen et al. (2023), *Atmospheric Science Letters*. 44 citations.
 
@@ -14784,6 +15553,11 @@ Huang et al. (2025), *Nature Communications*. 35 citations.
 - **Issues:** Abstract gives no numerical skill; comparison with official forecasts may depend on lead time, basin and inputs available in real time.
 - *Basis: abstract*
 
+### [Physics-based models outperform AI weather forecasts of record-breaking extremes](https://doi.org/10.1126/sciadv.aec1433)
+Zhang et al. (2026), *Science Advances*. 35 citations.
+
+*Summary pending.*
+
 ### [Machine learning applications for weather and climate need greater focus on extremes](https://doi.org/10.1088/1748-9326/ac9d4e)
 Watson (2022), *Environmental Research Letters*. 33 citations.
 
@@ -14806,6 +15580,16 @@ Mercer et al. (2006), *Weather and Forecasting*. 30 citations.
 - **Issues:** Few windstorm events limit training and verification; site-specific models.
 - *Basis: abstract+knowledge*
 
+### [Expert-driven explainable artificial intelligence models can detect multiple climate hazards relevant for agriculture](https://doi.org/10.1038/s43247-024-01987-3)
+Essenfelder et al. (2025), *Communications Earth & Environment*. 30 citations.
+
+*Summary pending.*
+
+### [Developing a seasonal-adjusted machine-learning-based hybrid time‑series model to forecast heatwave warning](https://doi.org/10.1038/s41598-025-93227-7)
+Qureshi et al. (2025), *Scientific Reports*. 29 citations.
+
+*Summary pending.*
+
 ### [Using spatiotemporal relational random forests to improve our understanding of severe weather processes](https://doi.org/10.1002/sam.10128)
 McGovern et al. (2011), *Statistical Analysis and Data Mining: The ASA Data Science Journal*. 28 citations.
 
@@ -14816,17 +15600,6 @@ McGovern et al. (2011), *Statistical Analysis and Data Mining: The ASA Data Scie
 - **Open work:** Apply to larger storm ensembles and observed radar data.
 - **Issues:** Relies largely on simulated storms; relational features require expert-defined object extraction. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
-
-### [Numerical models outperform AI weather forecasts of record-breaking extremes](https://arxiv.org/abs/2508.15724)
-Zhang et al. (2025), *arXiv*. 27 citations.
-
-- **Main goal:** Tests whether AI weather models can forecast unprecedented record-breaking heat, cold and wind extremes.
-- **Architecture:** Evaluation study comparing ECMWF HRES with GraphCast (graph neural network), Pangu-Weather (transformer) and FuXi, including operational versions.
-- **Data:** Record-breaking events identified in recent years; forecasts verified against reanalysis or analysis. Exact periods are not given in the abstract.
-- **Main result:** HRES consistently outperforms AI models for record heat, cold and wind at nearly all leads; AI models underestimate record frequency and intensity, with errors growing with record exceedance.
-- **Open work:** Rigorous verification on extremes and model development for extrapolation beyond the training range.
-- **Issues:** Limited to deterministic models in the abstract; record events are by definition rare, so samples are limited.
-- *Basis: abstract*
 
 ### [Advancing forecasting capabilities: A contrastive learning model for forecasting tropical cyclone rapid intensification](https://doi.org/10.1073/pnas.2415501122)
 Wang et al. (2025), *Proceedings of the National Academy of Sciences*. 27 citations.
@@ -14872,6 +15645,11 @@ Yip et al. (2004), *International Conference on Knowledge-Based Intelligent Info
 - **Issues:** No abstract available; performance on poorly organized storms is unknown.
 - *Basis: assessment*
 
+### [Machine‐Learning (ML)‐Physics Fusion Model Accelerates the Paradigm Shift in Typhoon Forecasting With a CNOP‐Based Assimilation Framework](https://doi.org/10.1029/2025gl115926)
+Niu et al. (2025), *Geophysical Research Letters*. 24 citations.
+
+*Summary pending.*
+
 ### [A Neural Network for Tornado Diagnosis: Managing Local Minima](https://doi.org/10.1007/s005210070024)
 Marzban (2000), *Neural Computing & Applications*. 21 citations.
 
@@ -14882,6 +15660,16 @@ Marzban (2000), *Neural Computing & Applications*. 21 citations.
 - **Open work:** Larger datasets and probabilistic forecast verification.
 - **Issues:** No abstract available; small, rare-event dataset makes results sensitive to training choices.
 - *Basis: assessment*
+
+### [Explainable artificial intelligence identifies key meteorological drivers of extreme precipitation in the Asian Monsoon Region](https://doi.org/10.1016/j.atmosres.2026.108809)
+Tian et al. (2026), *Atmospheric Research*. 21 citations.
+
+*Summary pending.*
+
+### [Short-term extreme wind speed forecasting using dual-output LSTM-based regression and classification model](https://doi.org/10.1016/j.jweia.2025.106035)
+Modé et al. (2025), *Journal of Wind Engineering and Industrial Aerodynamics*. 21 citations.
+
+*Summary pending.*
 
 ### Avalanche forecast by the nearest neighbor method
 Buser et al. (1987), *Venue not recorded*. 20 citations.
@@ -14970,6 +15758,11 @@ Ho et al. (2008), *IEEE Aerospace Conference*. 16 citations.
 - **Open work:** Tracking over time and fusion with other satellite data.
 - **Issues:** Abstract unavailable; card is based on the title only; QuikSCAT swath gaps and rain contamination complicate detection.
 - *Basis: assessment*
+
+### [Advanced Deep Learning Approaches for Forecasting High-Resolution Fire Weather Index (FWI) over CONUS: Integration of GNN-LSTM, GNN-TCNN, and GNN-DeepAR](https://doi.org/10.3390/rs17030515)
+Shahriar et al. (2025), *Remote Sensing*. 16 citations.
+
+*Summary pending.*
 
 ### [Comparison of AI and NWP Models in Operational Severe Weather Forecasting: A Study on Tropical Cyclone Predictions](https://doi.org/10.1029/2024jh000481)
 Shi et al. (2025), *Journal of Geophysical Research: Machine Learning and Computation*. 15 citations.
@@ -15135,6 +15928,11 @@ Davis et al. (1992), *Venue not recorded*. 10 citations.
 - **Open work:** Testing on additional sites and seasons, and combining trees with other statistical forecasting methods, follow naturally.
 - **Issues:** Avalanche events are rare and site-specific, so trees may overfit and transfer poorly across regions.
 - *Basis: assessment*
+
+### [Operational tropical cyclone forecasting with AI](https://doi.org/10.1038/s41586-026-10953-2)
+Alet et al. (2026), *Nature*. 10 citations.
+
+*Summary pending.*
 
 ### Condensed and Updated Version of the Systematic Approach Meteorological Knowledge Base Western North Pacific
 Carr et al. (1997), *Venue not recorded*. 9 citations.
@@ -15567,6 +16365,11 @@ Jakhar et al. (2023), *Journal of Advances in Modeling Earth Systems*. 29 citati
 - **Open work:** Physics-informed libraries, loss functions and metrics to discover accurate, stable closures.
 - **Issues:** Idealized flows; SGS 'truth' depends on filtering and is non-unique; offline accuracy does not guarantee online stability.
 - *Basis: abstract*
+
+### [Uncertainty in machine learning feature importance for climate science: a comparative analysis of SHAP, PDP, and gain-based methods](https://doi.org/10.1007/s00704-025-05703-9)
+Ibebuchi (2025), *Theoretical and Applied Climatology*. 28 citations.
+
+*Summary pending.*
 
 ### [Discovery of interpretable structural model errors by combining Bayesian sparse regression and data assimilation: A chaotic Kuramoto-Sivashinsky test case.](https://doi.org/10.1063/5.0091282)
 Mojgani et al. (2021), *Chaos: An Interdisciplinary Journal of Nonlinear Science*. 22 citations.
@@ -16209,6 +17012,11 @@ Kumar et al. (2017), *Ocean Engineering*. 136 citations.
 - **Issues:** Point buoy data only; performance details are not verified.
 - *Basis: assessment*
 
+### [Application of machine learning in ocean data](https://doi.org/10.1007/s00530-020-00733-x)
+Lou et al. (2021), *Multimedia Systems*. 136 citations.
+
+*Summary pending.*
+
 ### [Review of the application of Artificial Neural Networks in ocean engineering](https://doi.org/10.1016/j.oceaneng.2022.111947)
 Juan et al. (2022), *Ocean Engineering*. 134 citations.
 
@@ -16219,6 +17027,11 @@ Juan et al. (2022), *Ocean Engineering*. 134 citations.
 - **Open work:** Not reported; likely calls for deep learning and physics-informed approaches.
 - **Issues:** Card based on the title only; scope and conclusions could not be verified.
 - *Basis: assessment*
+
+### [Global picophytoplankton niche partitioning predicts overall positive response to ocean warming](https://doi.org/10.1038/s41561-019-0524-2)
+Flombaum et al. (2020), *Nature Geoscience*. 132 citations.
+
+*Summary pending.*
 
 ### [Prediction of sea surface temperature in the tropical Atlantic by support vector machines](https://doi.org/10.1016/j.csda.2012.12.003)
 Lins et al. (2013), *Computational Statistics & Data Analysis*. 131 citations.
@@ -16297,6 +17110,11 @@ Laruelle et al. (2017), *Biogeosciences*. 125 citations.
 - **Issues:** Coastal data remain sparse and heterogeneous, so interpolation uncertainty is large in undersampled shelves; predictor products carry their own biases.
 - *Basis: abstract*
 
+### [Prediction of 3-D Ocean Temperature by Multilayer Convolutional LSTM](https://doi.org/10.1109/lgrs.2019.2947170)
+Zhang et al. (2020), *IEEE Geoscience and Remote Sensing Letters*. 125 citations.
+
+*Summary pending.*
+
 ### [Significant wave height forecasting using wavelet fuzzy logic approach](https://doi.org/10.1016/j.oceaneng.2010.07.009)
 Özger (2010), *Ocean Engineering*. 124 citations.
 
@@ -16341,6 +17159,11 @@ Zamani et al. (2008), *Ocean Engineering*. 121 citations.
 - **Issues:** Site-specific training on limited buoy data; skill declines with lead time.
 - *Basis: assessment*
 
+### [LSCE-FFNN-v1: a two-step neural network model for the reconstruction of surface ocean pCO2 over the global ocean](https://doi.org/10.5194/gmd-12-2091-2019)
+Denvil-Sommer et al. (2019), *Geoscientific Model Development*. 120 citations.
+
+*Summary pending.*
+
 ### [One-Day Wave Forecasts Based on Artificial Neural Networks](https://doi.org/10.1175/jtech1932.1)
 Londhe et al. (2006), *Journal of Atmospheric and Oceanic Technology*. 119 citations.
 
@@ -16351,6 +17174,16 @@ Londhe et al. (2006), *Journal of Atmospheric and Oceanic Technology*. 119 citat
 - **Open work:** Including wind forecasts as inputs and combining with numerical wave models.
 - **Issues:** Point forecasts tied to individual buoys; accuracy degrades for longer leads and during rapidly changing storm conditions.
 - *Basis: abstract+knowledge*
+
+### [A machine learning approach to estimate surface ocean pCO2 from satellite measurements](https://doi.org/10.1016/j.rse.2019.04.019)
+Chen et al. (2019), *Remote Sensing of Environment*. 119 citations.
+
+*Summary pending.*
+
+### [Quantifying Errors in Observationally Based Estimates of Ocean Carbon Sink Variability](https://doi.org/10.1029/2020gb006788)
+Gloege et al. (2020), *Global Biogeochemical Cycles*. 118 citations.
+
+*Summary pending.*
 
 ### [Discrete wavelet neural network approach in significant wave height forecasting for multistep lead time](https://doi.org/10.1016/j.oceaneng.2012.01.017)
 Deka et al. (2012), *Ocean Engineering*. 116 citations.
@@ -16396,6 +17229,21 @@ Hieronymi et al. (2017), *Frontiers in Marine Science*. 113 citations.
 - **Issues:** Validation is a baseline; performance depends on atmospheric correction and on the simulated training data.
 - *Basis: abstract*
 
+### [An Adaptive Scale Sea Surface Temperature Predicting Method Based on Deep Learning With Attention Mechanism](https://doi.org/10.1109/lgrs.2019.2931728)
+Xie et al. (2020), *IEEE Geoscience and Remote Sensing Letters*. 113 citations.
+
+*Summary pending.*
+
+### [Hyperspectral retrievals of phytoplankton absorption and chlorophyll-a in inland and nearshore coastal waters](https://doi.org/10.1016/j.rse.2020.112200)
+Pahlevan et al. (2020), *Remote Sensing of Environment*. 113 citations.
+
+*Summary pending.*
+
+### [A multi-layer perceptron approach for accelerated wave forecasting in Lake Michigan](https://doi.org/10.1016/j.oceaneng.2020.107526)
+Feng et al. (2020), *Ocean Engineering*. 112 citations.
+
+*Summary pending.*
+
 ### [Comparison of statistical and artificial neural network techniques for estimating past sea surface temperatures from planktonic foraminifer census data](https://doi.org/10.1029/2000pa000562)
 Malmgren et al. (2001), *Paleoceanography*. 111 citations.
 
@@ -16407,6 +17255,16 @@ Malmgren et al. (2001), *Paleoceanography*. 111 citations.
 - **Issues:** Calibration set coverage limits reliability in no-analog past conditions; error estimates depend on cross-validation design.
 - *Basis: abstract+knowledge*
 
+### [Satellite remote sensing of pelagic Sargassum macroalgae: The power of high resolution and deep learning](https://doi.org/10.1016/j.rse.2021.112631)
+Wang et al. (2021), *Remote Sensing of Environment*. 111 citations.
+
+*Summary pending.*
+
+### [A novel hybrid model based on STL decomposition and one-dimensional convolutional neural networks with positional encoding for significant wave height forecast](https://doi.org/10.1016/j.renene.2021.04.010)
+Yang et al. (2021), *Renewable Energy*. 110 citations.
+
+*Summary pending.*
+
 ### [Application of artificial neural networks to paleoceanographic data](https://doi.org/10.1016/s0031-0182(97)00031-x)
 Malmgren et al. (1997), *Palaeogeography, Palaeoclimatology, Palaeoecology*. 109 citations.
 
@@ -16417,6 +17275,11 @@ Malmgren et al. (1997), *Palaeogeography, Palaeoclimatology, Palaeoecology*. 109
 - **Open work:** Applying to more cores and ocean basins and estimating reconstruction uncertainty.
 - **Issues:** Calibration limited by core-top data coverage and no-analogue assemblages; uncertainty not fully quantified.
 - *Basis: abstract+knowledge*
+
+### [TD-LSTM: Temporal Dependence-Based LSTM Networks for Marine Temperature Prediction](https://doi.org/10.3390/s18113797)
+Liu et al. (2018), *Sensors*. 109 citations.
+
+*Summary pending.*
 
 ### [Aerobic oxidation of methane significantly reduces global diffusive methane emissions from shallow marine waters](https://doi.org/10.1038/s41467-022-35082-y)
 Mao et al. (2022), *Nature Communications*. 108 citations.
@@ -16451,6 +17314,11 @@ Jamet et al. (2012), *Journal of Geophysical Research: Oceans*. 107 citations.
 - **Issues:** Abstract unavailable; accuracy depends on atmospheric correction and on representativeness of training data in coastal waters.
 - *Basis: assessment*
 
+### [Ocean wave height prediction using ensemble of Extreme Learning Machine](https://doi.org/10.1016/j.neucom.2017.03.092)
+Kumar et al. (2018), *Neurocomputing*. 107 citations.
+
+*Summary pending.*
+
 ### [An efficient artificial intelligence model for prediction of tropical storm surge](https://doi.org/10.1007/s11069-016-2193-4)
 Hashemi et al. (2016), *Natural Hazards*. 106 citations.
 
@@ -16461,6 +17329,16 @@ Hashemi et al. (2016), *Natural Hazards*. 106 citations.
 - **Open work:** Extending to other coastlines and including time-varying surge, waves and tides.
 - **Issues:** Trained on synthetic simulations so inherits model biases; peak surge only; few real storms for validation.
 - *Basis: abstract*
+
+### [Rapid prediction of peak storm surge from tropical cyclone track time series using machine learning](https://doi.org/10.31223/x5ns6h)
+Lee et al. (2021), *Coastal Engineering*. 106 citations.
+
+*Summary pending.*
+
+### [OC-SMART: A machine learning based data analysis platform for satellite ocean color sensors](https://doi.org/10.1016/j.rse.2020.112236)
+Fan et al. (2021), *Remote Sensing of Environment*. 106 citations.
+
+*Summary pending.*
 
 ### [A real-time forecast model using artificial neural network for after-runner storm surges on the Tottori coast, Japan](https://doi.org/10.1016/j.oceaneng.2016.06.017)
 Kim et al. (2016), *Ocean Engineering*. 105 citations.
@@ -16506,6 +17384,16 @@ Krasnopolsky et al. (2002), *Ocean Modelling*. 102 citations.
 - **Issues:** Abstract unavailable; emulators are only valid within the training range and offline accuracy may not guarantee stable behaviour once embedded in the model.
 - *Basis: assessment*
 
+### [Sea level prediction using ARIMA, SVR and LSTM neural network: assessing the impact of ensemble Ocean-Atmospheric processes on models’ accuracy](https://doi.org/10.1080/19475705.2021.1887372)
+Balogun et al. (2021), *Geomatics, Natural Hazards and Risk*. 102 citations.
+
+*Summary pending.*
+
+### [Deep learning of inverse water waves problems using multi-fidelity data: Application to Serre-Green-Naghdi equations](https://doi.org/10.1016/j.oceaneng.2022.110775)
+Jagtap et al. (2022), *Ocean Engineering*. 101 citations.
+
+*Summary pending.*
+
 ### [Estimating temporal and spatial variation of ocean surface p CO 2 in the North Pacific using a self-organizing map neural network technique](https://doi.org/10.5194/bg-10-6093-2013)
 Nakaoka et al. (2013), *Biogeosciences*. 100 citations.
 
@@ -16539,6 +17427,11 @@ Kim et al. (2015), *Natural Hazards*. 99 citations.
 - **Issues:** Trained on synthetic storms, so inherits simulation model limitations.
 - *Basis: abstract+knowledge*
 
+### [Estimating sea surface salinity in the northern Gulf of Mexico from satellite ocean color measurements](https://doi.org/10.1016/j.rse.2017.09.004)
+Chen et al. (2017), *Remote Sensing of Environment*. 98 citations.
+
+*Summary pending.*
+
 ### [Retrieval of sea water optically active parameters from hyperspectral data by means of generalized radial basis function neural networks](https://doi.org/10.1109/36.934081)
 Cipollini et al. (2001), *IEEE Transactions on Geoscience and Remote Sensing*. 97 citations.
 
@@ -16560,6 +17453,11 @@ Salcedo-Sanz et al. (2015), *Ocean Engineering*. 97 citations.
 - **Open work:** Testing across more sea states and radar installations.
 - **Issues:** Limited real-data sites; shadowing depends on radar geometry and sea state.
 - *Basis: assessment*
+
+### [ConvLSTM-Based Wave Forecasts in the South and East China Seas](https://doi.org/10.3389/fmars.2021.680079)
+Zhou et al. (2021), *Frontiers in Marine Science*. 97 citations.
+
+*Summary pending.*
 
 ### [Estimating oceanic chlorophyll concentrations with neural networks](https://doi.org/10.1080/014311699213695)
 Keiner (1999), *International Journal of Remote Sensing*. 95 citations.
@@ -16693,6 +17591,11 @@ Cui et al. (2025), *Nature Communications*. 89 citations.
 - **Issues:** Depends on reanalysis for training and initialization; forcing from atmospheric fields required; 10-day horizon limits assessment of long-term stability.
 - *Basis: assessment*
 
+### [Improving satellite retrieval of oceanic particulate organic carbon concentrations using machine learning methods](https://doi.org/10.1016/j.rse.2021.112316)
+Liu et al. (2021), *Remote Sensing of Environment*. 89 citations.
+
+*Summary pending.*
+
 ### [Sea Surface Temperature Patterns on the West Florida Shelf Using Growing Hierarchical Self-Organizing Maps](https://doi.org/10.1175/jtech1848.1)
 Liu et al. (2006), *Journal of Atmospheric and Oceanic Technology*. 88 citations.
 
@@ -16725,6 +17628,11 @@ Wu et al. (2012), *Journal of Atmospheric and Oceanic Technology*. 86 citations.
 - **Open work:** Extending to deeper layers, other basins and salinity, and comparing with regression and deep learning methods.
 - **Issues:** Skill decreases with depth where surface signals weaken; depends on sparse in situ profiles for training.
 - *Basis: assessment*
+
+### [Prediction of daily sea surface temperature using artificial neural networks](https://doi.org/10.1080/01431161.2018.1454623)
+Aparna et al. (2018), *International Journal of Remote Sensing*. 85 citations.
+
+*Summary pending.*
 
 ### [XiHe: A Data-Driven Model for Global Ocean Eddy-Resolving Forecasting](https://arxiv.org/abs/2402.02995)
 Wang et al. (2024), *arXiv*. 83 citations.
@@ -16770,6 +17678,11 @@ Corchado et al. (1999), *Artificial Intelligence in Engineering*. 81 citations.
 - **Issues:** Limited description of data and quantitative skill; univariate time-series approach without ocean physics.
 - *Basis: assessment*
 
+### [Oceanic internal wave amplitude retrieval from satellite images based on a data-driven transfer learning model](https://doi.org/10.1016/j.rse.2022.112940)
+Zhang et al. (2022), *Remote Sensing of Environment*. 81 citations.
+
+*Summary pending.*
+
 ### [Deriving ocean color products using neural networks](https://doi.org/10.1016/j.rse.2013.02.015)
 Ioannou et al. (2013), *Remote Sensing of Environment*. 79 citations.
 
@@ -16814,6 +17727,11 @@ Liu et al. (2007), *Journal of Atmospheric and Oceanic Technology*. 76 citations
 - **Issues:** Short observational period and limited spatial coverage; SOM map size choices influence the extracted patterns.
 - *Basis: abstract+knowledge*
 
+### [Long-term prediction of sea surface chlorophyll- A concentration based on the combination of spatio-temporal features.](https://doi.org/10.1016/j.watres.2022.118040)
+Liu et al. (2022), *Water Research*. 76 citations.
+
+*Summary pending.*
+
 ### [Significant wave height and energy flux range forecast with machine learning classifiers](https://doi.org/10.1016/j.engappai.2015.03.012)
 Fernández et al. (2015), *Engineering Applications of Artificial Intelligence*. 75 citations.
 
@@ -16824,6 +17742,11 @@ Fernández et al. (2015), *Engineering Applications of Artificial Intelligence*.
 - **Open work:** Testing with forecast (not reanalysis) inputs and more buoys would follow naturally.
 - **Issues:** Coarse reanalysis inputs and only two buoys; class ranges give limited precision.
 - *Basis: abstract*
+
+### [Bayesian optimization of a hybrid system for robust ocean wave features prediction](https://doi.org/10.1016/j.neucom.2017.09.025)
+Cornejo-Bueno et al. (2018), *Neurocomputing*. 75 citations.
+
+*Summary pending.*
 
 ### [Characteristics of Global Ocean Abnormal Mesoscale Eddies Derived From the Fusion of Sea Surface Height and Temperature Data by Deep Learning](https://doi.org/10.1029/2021gl094772)
 Liu et al. (2021), *Geophysical Research Letters*. 74 citations.
@@ -16868,6 +17791,11 @@ Peres et al. (2015), *Ocean Modelling*. 74 citations.
 - **Open work:** Testing at more buoys and sea basins, and comparing against physics-based wave hindcasts, would establish how general the approach is.
 - **Issues:** Accuracy is bounded by reanalysis wind quality, particularly in coastal and storm conditions; extremes are sparse in training and may be underestimated.
 - *Basis: abstract+knowledge*
+
+### [DINCAE 2.0: multivariate convolutional neural network with error estimates to reconstruct sea surface temperature satellite and altimetry observations](https://doi.org/10.5194/gmd-15-2183-2022)
+Barth et al. (2022), *Geoscientific Model Development*. 74 citations.
+
+*Summary pending.*
 
 ### [Elucidating ecological complexity: Unsupervised learning determines global marine eco-provinces](https://doi.org/10.1126/sciadv.aay4740)
 Sonnewald et al. (2020), *Science Advances*. 73 citations.
@@ -16968,6 +17896,11 @@ Ibarra-Berastegi et al. (2015), *Ocean Engineering*. 69 citations.
 - **Issues:** Point (buoy) forecasts only; few sites and limited assessment of extreme sea states.
 - *Basis: assessment*
 
+### [Prediction of significant wave height in hurricane area of the Atlantic Ocean using the Bi-LSTM with attention model](https://doi.org/10.1016/j.oceaneng.2022.112747)
+Luo et al. (2022), *Ocean Engineering*. 69 citations.
+
+*Summary pending.*
+
 ### [Applying artificial neural network methodology to ocean color remote sensing](https://doi.org/10.1016/s0304-3800(99)00105-2)
 Gross et al. (1999), *Ecological Modelling*. 67 citations.
 
@@ -17067,6 +18000,11 @@ Pashova et al. (2011), *Journal of Sea Research*. 64 citations.
 - **Issues:** Single gauge, univariate inputs; quantitative skill not reported in the abstract.
 - *Basis: abstract*
 
+### [A Review of Application of Machine Learning in Storm Surge Problems](https://doi.org/10.3390/jmse11091729)
+Qin et al. (2023), *Journal of Marine Science and Engineering*. 63 citations.
+
+*Summary pending.*
+
 ### [Artificial neural network to translate offshore satellite wave data to coastal locations](https://doi.org/10.1016/j.oceaneng.2005.01.007)
 Kalra et al. (2005), *Ocean Engineering*. 62 citations.
 
@@ -17133,6 +18071,11 @@ Martin et al. (2023), *Journal of Advances in Modeling Earth Systems*. 57 citati
 - **Issues:** Shown for one region; relies on SST-SSH relationships that weaken where SST gradients are weak or clouds block SST.
 - *Basis: abstract*
 
+### [GOBAI-O2: temporally and spatially resolved fields of ocean interior dissolved oxygen over nearly 2 decades](https://doi.org/10.5194/essd-15-4481-2023)
+Sharp et al. (2023), *Earth System Science Data*. 57 citations.
+
+*Summary pending.*
+
 ### [Use of a Neurovariational Inversion for Retrieving Oceanic and Atmospheric Constituents from Ocean Color Imagery: A Feasibility Study](https://doi.org/10.1175/jtech1688.1)
 Jamet et al. (2005), *Journal of Atmospheric and Oceanic Technology*. 56 citations.
 
@@ -17144,6 +18087,11 @@ Jamet et al. (2005), *Journal of Atmospheric and Oceanic Technology*. 56 citatio
 - **Issues:** Feasibility tested on simulated data only, so sensor noise, calibration and model errors are not fully assessed.
 - *Basis: abstract+knowledge*
 
+### [Machine learning methods to predict sea surface temperature and marine heatwave occurrence: a case study of the Mediterranean Sea](https://doi.org/10.5194/os-20-417-2024)
+Bonino et al. (2024), *Ocean Science*. 56 citations.
+
+*Summary pending.*
+
 ### [Sea Wave Parameters Prediction by Support Vector Machine Using a Genetic Algorithm](https://doi.org/10.2112/jcoastres-d-13-00087.1)
 Elbisy (2013), *Journal of Coastal Research*. 55 citations.
 
@@ -17154,6 +18102,11 @@ Elbisy (2013), *Journal of Coastal Research*. 55 citations.
 - **Open work:** Testing across sites and forecast horizons and comparing against physics-based wave models.
 - **Issues:** Abstract missing; likely single-site, point-based prediction without uncertainty estimates.
 - *Basis: assessment*
+
+### [Mesoscale Eddy Detection and Classification From Sea Surface Temperature Maps With Deep Neural Networks](https://doi.org/10.1109/jstars.2024.3402823)
+Safari et al. (2024), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 55 citations.
+
+*Summary pending.*
 
 ### [Samudra: An AI Global Ocean Emulator for Climate](https://doi.org/10.1029/2024gl114318)
 Dheeshjith et al. (2024), *Geophysical Research Letters*. 54 citations.
@@ -17198,6 +18151,11 @@ Lee (2009), *Advances in Engineering Software*. 54 citations.
 - **Open work:** Longer lead times, more stations and events, and comparison with hydrodynamic surge models.
 - **Issues:** Limited number of typhoon events; extrapolation to stronger or unusual tracks is uncertain.
 - *Basis: assessment*
+
+### [Prediction and Analysis of Sea Surface Temperature Based on LSTM-Transformer Model](https://doi.org/10.1016/j.rsma.2024.103726)
+Fu et al. (2024), *Regional Studies in Marine Science*. 54 citations.
+
+*Summary pending.*
 
 ### [AI-GOMS: Large AI-Driven Global Ocean Modeling System](https://arxiv.org/abs/2308.03152)
 Xiong et al. (2023), *arXiv*. 53 citations.
@@ -17275,6 +18233,11 @@ Chen et al. (2012), *Natural Hazards and Earth System Sciences*. 50 citations.
 - **Open work:** Testing on more typhoons and extending lead time for operational warnings.
 - **Issues:** Limited number of typhoon events; data-driven correction may not generalize to unprecedented storms.
 - *Basis: abstract*
+
+### [Advancing storm surge forecasting from scarce observation data: A causal-inference based Spatio-Temporal Graph Neural Network approach](https://doi.org/10.1016/j.coastaleng.2024.104512)
+Jiang et al. (2024), *Coastal Engineering*. 50 citations.
+
+*Summary pending.*
 
 ### [Deep learning of mixing by two ‘atoms’ of stratified turbulence](https://doi.org/10.1017/jfm.2018.980)
 Salehipour et al. (2018), *Journal of Fluid Mechanics*. 49 citations.
@@ -17364,6 +18327,11 @@ Jain et al. (2011), *Ocean Modelling*. 47 citations.
 - **Issues:** Abstract missing, so method details and skill cannot be verified; point forecasts at a limited number of locations.
 - *Basis: assessment*
 
+### [Applications of deep learning in physical oceanography: a comprehensive review](https://doi.org/10.3389/fmars.2024.1396322)
+Zhao et al. (2024), *Frontiers in Marine Science*. 47 citations.
+
+*Summary pending.*
+
 ### [Self-organizing feature maps predicting sea levels](https://doi.org/10.1016/s0020-0255(02)00203-7)
 Ultsch et al. (2002), *Information Sciences*. 44 citations.
 
@@ -17385,6 +18353,11 @@ Brajard et al. (2012), *Remote Sensing of Environment*. 44 citations.
 - **Open work:** Application to other ocean colour sensors and broader validation in turbid waters.
 - **Issues:** Abstract missing; relies on simulated training data and model assumptions for aerosols and water optics.
 - *Basis: assessment*
+
+### [Modeling the complex spatio-temporal dynamics of ocean wave parameters: A hybrid PINN-LSTM approach for accurate wave forecasting](https://doi.org/10.1016/j.measurement.2025.117383)
+Lawal et al. (2025), *Measurement*. 44 citations.
+
+*Summary pending.*
 
 ### [Radial Basis Function and Multilayer Perceptron neural networks for sea water optically active parameter estimation in case II waters: A comparison](https://doi.org/10.1080/0143116031000103781)
 Corsini et al. (2003), *International Journal of Remote Sensing*. 43 citations.
@@ -17430,6 +18403,11 @@ Paz et al. (2010), *Knowledge and Information Systems*. 43 citations.
 - **Issues:** No quantitative results in the abstract; focus on system architecture rather than flux accuracy.
 - *Basis: abstract*
 
+### [Deep learning approach for internal tide prediction based on China Ocean Reanalysis data](https://doi.org/10.1016/j.oceaneng.2025.122348)
+Su et al. (2025), *Ocean Engineering*. 43 citations.
+
+*Summary pending.*
+
 ### [Evaluating the performance of artificial neural network techniques for pigment retrieval from ocean color in Case I waters](https://doi.org/10.1029/2002jc001638)
 Zhang et al. (2003), *Journal of Geophysical Research: Oceans*. 42 citations.
 
@@ -17474,6 +18452,16 @@ Dzwonkowski et al. (2005), *International Journal of Remote Sensing*. 40 citatio
 - **Issues:** Limited in situ data; regional tuning.
 - *Basis: assessment*
 
+### [Sea Surface Temperature Prediction Using ConvLSTM-Based Model with Deformable Attention](https://doi.org/10.3390/rs16224126)
+Shi et al. (2024), *Remote Sensing*. 40 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal wave forecast with transformer-based network: A case study for the northwestern Pacific Ocean](https://doi.org/10.1016/j.ocemod.2024.102323)
+Liu et al. (2024), *Ocean Modelling*. 40 citations.
+
+*Summary pending.*
+
 ### [Solving the ocean color problem using a genetic programming approach](https://doi.org/10.1016/s1568-4946(01)00007-2)
 Fonlupt (2001), *Applied Soft Computing*. 39 citations.
 
@@ -17484,6 +18472,11 @@ Fonlupt (2001), *Applied Soft Computing*. 39 citations.
 - **Open work:** Application to other sensors and Case II waters.
 - **Issues:** Evolved formulas can be complex and overfit.
 - *Basis: assessment*
+
+### [Storm Surge Modeling in the AI ERA: Using LSTM-based Machine Learning for Enhancing Forecasting Accuracy](https://arxiv.org/abs/2403.04818)
+Giaremis et al. (2024), *arXiv*. 39 citations.
+
+*Summary pending.*
 
 ### [An ANN algorithm for automatic, real-time tsunami detection in deep-sea level measurements](https://doi.org/10.1016/j.oceaneng.2007.11.009)
 Beltrami (2008), *Ocean Engineering*. 37 citations.
@@ -17506,6 +18499,11 @@ Mandal et al. (2005), *Marine Structures*. 37 citations.
 - **Open work:** Comparison with numerical wave models and extension to longer lead times and other locations.
 - **Issues:** Site-specific training; generalisation and performance for extreme waves are uncertain.
 - *Basis: assessment*
+
+### [Oil Spill Drift Prediction Enhanced by Correcting Numerically Forecasted Sea Surface Dynamic Fields With Adversarial Temporal Convolutional Networks](https://doi.org/10.1109/tgrs.2025.3528631)
+Ren et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 37 citations.
+
+*Summary pending.*
 
 ### [Application of artificial neural networks (ANN) to high‐latitude dinocyst assemblages for the reconstruction of past sea‐surface conditions in Arctic and sub‐Arctic seas](https://doi.org/10.1002/jqs.651)
 Peyron et al. (2001), *Journal of Quaternary Science*. 36 citations.
@@ -17584,6 +18582,11 @@ Huang et al. (2025), *Journal of Climate*. 33 citations.
 - **Issues:** Improvements are modest; reconstruction in sparse early periods remains uncertain and depends on training-period covariances.
 - *Basis: abstract+knowledge*
 
+### [Super-Resolution Reconstruction of SMOS Sea Surface Salinity from Multivariate Satellite Observations Based on Deep Learning](https://doi.org/10.1109/jstars.2025.3602684)
+Liang et al. (2025), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 33 citations.
+
+*Summary pending.*
+
 ### [Data-driven global ocean modeling for seasonal to decadal prediction](https://doi.org/10.1126/sciadv.adu2488)
 Guo et al. (2024), *Science Advances*. 32 citations.
 
@@ -17639,6 +18642,11 @@ Tripathi et al. (2006), *Venue not recorded*. 28 citations.
 - **Issues:** No abstract available; short records limit training; univariate approach.
 - *Basis: assessment*
 
+### [Deep Learning for Ocean Forecasting: A Comprehensive Review of Methods, Applications, and Datasets](https://doi.org/10.1109/tcyb.2025.3539990)
+Hao et al. (2025), *IEEE Transactions on Cybernetics*. 28 citations.
+
+*Summary pending.*
+
 ### [Deep Learning of Unresolved Turbulent Ocean Processes in Climate Models](https://doi.org/10.1002/9781119646181.ch20)
 Zanna et al. (2021), *Deep Learning for the Earth Sciences*. 27 citations.
 
@@ -17660,6 +18668,11 @@ Aoki et al. (1999), *Ecological Modelling*. 27 citations.
 - **Open work:** Longer records, mechanistic interpretation of predictor effects, and extension to other plankton groups or regions.
 - **Issues:** No abstract available; short ecological time series risk overfitting and limited physical interpretability of the learned relations.
 - *Basis: assessment*
+
+### [Physics-informed neural networks for phase-resolved data assimilation and prediction of nonlinear ocean waves](https://arxiv.org/abs/2501.08430)
+Ehlers et al. (2025), *arXiv*. 27 citations.
+
+*Summary pending.*
 
 ### [A Topological Hierarchical Clustering: Application to Ocean Color Classification](https://doi.org/10.1007/3-540-44668-0_69)
 Yacoub et al. (2001), *International Conference on Artificial Neural Networks*. 26 citations.
@@ -17715,6 +18728,11 @@ Tang et al. (2008), *International Journal of Remote Sensing*. 24 citations.
 - **Open work:** Global application to satellite products and validation across ocean regions.
 - **Issues:** No abstract available; in situ productivity data are sparse and regionally biased.
 - *Basis: assessment*
+
+### [Dual U-Vision-Transformer for reconstructing the three-dimensional eddy-resolving oceanic physical parameters from satellite observations](https://doi.org/10.1016/j.jag.2025.104382)
+Xie et al. (2025), *International Journal of Applied Earth Observation and Geoinformation*. 24 citations.
+
+*Summary pending.*
 
 ### [Nonlinear canonical correlation analysis of the tropical Pacific wind stress and sea surface temperature](https://doi.org/10.1007/s00382-002-0262-8)
 Wu et al. (2002), *Climate Dynamics*. 23 citations.
@@ -17782,6 +18800,16 @@ Tissot et al. (2002), *Ocean Wave Measurement and Analysis*. 20 citations.
 - **Issues:** No abstract available; performance during extreme hurricane surges is uncertain.
 - *Basis: assessment*
 
+### [Multiscale Spatio-Temporal Attention Network for Sea Surface Temperature Prediction](https://doi.org/10.1109/jstars.2025.3531122)
+Bai et al. (2025), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 20 citations.
+
+*Summary pending.*
+
+### [A Coupled Transformer–CNN Network: Advancing Sea Surface Temperature Forecast Accuracy](https://doi.org/10.1109/tgrs.2025.3574990)
+Zhang et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 20 citations.
+
+*Summary pending.*
+
 ### [Building Ocean Climate Emulators](https://arxiv.org/abs/2402.04342)
 Subel et al. (2024), *arXiv*. 19 citations.
 
@@ -17815,6 +18843,16 @@ Lee (2008), *Journal of Coastal Research*. 18 citations.
 - **Issues:** Abstract unavailable; few typhoon events limit training, and site-specific models may not transfer to other coasts.
 - *Basis: assessment*
 
+### [A New Transformer Network for Short-Term Global Sea Surface Temperature Forecasting: Importance of Eddies](https://doi.org/10.3390/rs17091507)
+Zhang et al. (2025), *Remote Sensing*. 18 citations.
+
+*Summary pending.*
+
+### [Declining ocean greenness and phytoplankton blooms in low to mid-latitudes under a warming climate](https://doi.org/10.1126/sciadv.adx4857)
+Hong et al. (2025), *Science Advances*. 18 citations.
+
+*Summary pending.*
+
 ### [Approaching the ocean color problem using fuzzy rules](https://doi.org/10.1109/tsmcb.2003.822959)
 Cococcioni et al. (2004), *IEEE Transactions on Systems, Man and Cybernetics, Part B (Cybernetics)*. 17 citations.
 
@@ -17847,6 +18885,11 @@ Agarwal et al. (2007), *IEEE Geoscience and Remote Sensing Letters*. 17 citation
 - **Open work:** Using satellite sea surface salinity (SMOS, Aquarius) as an additional input.
 - **Issues:** Abstract unavailable; Argo coverage is short and errors grow at depth and in river-influenced regions such as the Bay of Bengal.
 - *Basis: assessment*
+
+### [Machine Learning Techniques for Predicting Typhoon‐Induced Storm Surge Using a Hybrid Wind Field](https://doi.org/10.1029/2024jh000507)
+Su et al. (2025), *Journal of Geophysical Research: Machine Learning and Computation*. 17 citations.
+
+*Summary pending.*
 
 ### [Ocean Wave Forecasting With Deep Learning as Alternative to Conventional Models](https://doi.org/10.1029/2025ms005285)
 Zhang et al. (2024), *Journal of Advances in Modeling Earth Systems*. 16 citations.
@@ -17913,6 +18956,11 @@ Kambekar et al. (2010), *Ships and Offshore Structures*. 16 citations.
 - **Open work:** Compare against numerical wave models and extend lead times.
 - **Issues:** Site-specific; performance for extreme seas unclear. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
+
+### [Oceanic uptake of CO2 enhanced by mesoscale eddies](https://doi.org/10.1126/sciadv.adt4195)
+Li et al. (2025), *Science Advances*. 16 citations.
+
+*Summary pending.*
 
 ### [Generalizable Neural‐Network Parameterization of Mesoscale Eddies in Idealized and Global Ocean Models](https://doi.org/10.1029/2025gl117046)
 Perezhogin et al. (2025), *Geophysical Research Letters*. 14 citations.
@@ -17990,6 +19038,11 @@ Gupta et al. (2009), *Venue not recorded*. 13 citations.
 - **Open work:** Application to downcore records for paleoclimate reconstruction.
 - **Issues:** Calibration-set coverage and no-analog conditions limit reliability of past estimates.
 - *Basis: assessment*
+
+### [Daily Subsurface Salinity Reconstruction From Multisource Satellite Observations Using Wavelet-Enhanced 3-D Mamba](https://doi.org/10.1109/jstars.2025.3649568)
+Liang et al. (2026), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 13 citations.
+
+*Summary pending.*
 
 ### [Regional Modeling of Storm Surges Using Localized Features and Transfer Learning](https://doi.org/10.1029/2025jh000650)
 Nagaraj et al. (2025), *Journal of Geophysical Research: Machine Learning and Computation*. 12 citations.
@@ -18232,6 +19285,11 @@ Dankert et al. (2003), *IGARSS 2003. 2003 IEEE International Geoscience and Remo
 - **Open work:** Validation at more sites and radar installations, and extension to rain and low-wind conditions.
 - **Issues:** Retrieval depends on radar installation and calibration; low winds and rain degrade backscatter; trained against local in situ data, so transfer to other radars may need retraining.
 - *Basis: abstract+knowledge*
+
+### [An unprecedented view of ocean currents from geostationary satellites](https://doi.org/10.1038/s41561-026-01943-0)
+Lenain et al. (2026), *Nature Geoscience*. 9 citations.
+
+*Summary pending.*
 
 ### [A Machine Learning‐Based Model Infers the Sea Surface Velocity of Surface Water and Ocean Topography (SWOT)](https://doi.org/10.1029/2024gl110731)
 Zhou et al. (2025), *Geophysical Research Letters*. 8 citations.
@@ -18489,6 +19547,11 @@ Chi et al. (2017), *Remote Sensing*. 141 citations.
 - **Issues:** Purely statistical with no physics; limited ability to anticipate anomalous years; quantitative skill details and lead times not reported in the abstract.
 - *Basis: assessment*
 
+### [Development of a Dual-Attention U-Net Model for Sea Ice and Open Water Classification on SAR Images](https://doi.org/10.1109/lgrs.2021.3058049)
+Ren et al. (2021), *IEEE Geoscience and Remote Sensing Letters*. 139 citations.
+
+*Summary pending.*
+
 ### [SVM-Based Sea Ice Classification Using Textural Features and Concentration From RADARSAT-2 Dual-Pol ScanSAR Data](https://doi.org/10.1109/jstars.2014.2365215)
 Liu et al. (2015), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 124 citations.
 
@@ -18510,6 +19573,16 @@ Zakhvatkina et al. (2016), *The Cryosphere*. 120 citations.
 - **Open work:** Extension to summer melt conditions, other SAR sensors such as Sentinel-1, and more ice types.
 - **Issues:** Trained on winter scenes only; validation against manually derived ice charts that have their own subjectivity and coarse resolution.
 - *Basis: abstract*
+
+### [Classification of Sea Ice Types in Sentinel-1 SAR Data Using Convolutional Neural Networks](https://doi.org/10.3390/rs12132165)
+Boulze et al. (2020), *Remote Sensing*. 120 citations.
+
+*Summary pending.*
+
+### [Sea Ice Sensing From GNSS-R Data Using Convolutional Neural Networks](https://doi.org/10.1109/lgrs.2018.2852143)
+Yan et al. (2018), *IEEE Geoscience and Remote Sensing Letters*. 116 citations.
+
+*Summary pending.*
 
 ### [A Neural Network-Based Classification for Sea Ice Types on X-Band SAR Images](https://doi.org/10.1109/jstars.2015.2436993)
 Ressel et al. (2015), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 113 citations.
@@ -18543,6 +19616,11 @@ Soh et al. (2004), *IEEE Transactions on Geoscience and Remote Sensing*. 108 cit
 - **Open work:** Incorporating more ancillary data and learning rules from analyst feedback.
 - **Issues:** Rule base encodes expert heuristics that may not transfer across seasons and sensors.
 - *Basis: abstract+knowledge*
+
+### [Neural Networks Based Sea Ice Detection and Concentration Retrieval From GNSS-R Delay-Doppler Maps](https://doi.org/10.1109/jstars.2017.2689009)
+Yan et al. (2017), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 91 citations.
+
+*Summary pending.*
 
 ### [A comprehensive, automated approach to determining sea ice thickness from SAR data](https://doi.org/10.1109/36.368223)
 Haverkamp et al. (1995), *IEEE Transactions on Geoscience and Remote Sensing*. 88 citations.
@@ -18620,6 +19698,11 @@ Karvonen (2014), *IEEE Transactions on Geoscience and Remote Sensing*. 57 citati
 - **Open work:** Combining SAR with passive microwave data and operational implementation.
 - **Issues:** No abstract available; SAR backscatter ambiguity between ice and wind-roughened open water, and reference ice charts are subjective.
 - *Basis: assessment*
+
+### [Predicting the Daily Sea Ice Concentration on a Subseasonal Scale of the Pan-Arctic During the Melting Season by a Deep Learning Model](https://doi.org/10.1109/tgrs.2023.3279089)
+Ren et al. (2023), *IEEE Transactions on Geoscience and Remote Sensing*. 56 citations.
+
+*Summary pending.*
 
 ### [Extended Range Arctic Sea Ice Forecast with Convolutional Long-Short Term Memory Networks](https://doi.org/10.5194/egusphere-egu2020-3485)
 Liu et al. (2020), *Monthly Weather Review*. 47 citations.
@@ -18775,6 +19858,11 @@ Haas et al. (1999), *International Journal of Remote Sensing*. 27 citations.
 - **Issues:** Limited collocated laser data; SAR sensitivity to ridges depends on orientation and incidence angle.
 - *Basis: assessment*
 
+### [Antarctic phytoplankton communities restructure under shifting sea-ice regimes](https://doi.org/10.1038/s41558-025-02379-x)
+Hayward et al. (2025), *Nature Climate Change*. 26 citations.
+
+*Summary pending.*
+
 ### [Data-driven surrogate modeling of high-resolution sea-ice thickness in the Arctic](https://doi.org/10.5194/tc-18-1791-2024)
 Durand et al. (2024), *The Cryosphere*. 25 citations.
 
@@ -18819,6 +19907,11 @@ Palerme et al. (2024), *The Cryosphere*. 23 citations.
 - **Issues:** Depends on TOPAZ4 and observation availability; deterministic output; evaluation period and regions limited.
 - *Basis: abstract*
 
+### [Long-term prediction of Arctic sea ice concentrations using deep learning: Effects of surface temperature, radiation, and wind conditions](https://doi.org/10.1016/j.rse.2024.114568)
+Kim et al. (2025), *Remote Sensing of Environment*. 22 citations.
+
+*Summary pending.*
+
 ### [Regional September Sea Ice Forecasting with Complex Networks and Gaussian Processes](https://doi.org/10.1175/waf-d-19-0107.1)
 Gregory et al. (2020), *Weather and Forecasting*. 20 citations.
 
@@ -18840,6 +19933,11 @@ Finn et al. (2023), *The Cryosphere*. 19 citations.
 - **Open work:** Extending to realistic, longer (hourly to daily) forecasts and to models including thermodynamics.
 - **Issues:** Idealized, small domain and dynamics-only model; improvements last only about an hour; long-term stability untested.
 - *Basis: abstract*
+
+### [Enhancing and Interpreting Deep Learning for Sea Ice Charting using the AutoICE Benchmark](https://doi.org/10.1016/j.rsase.2025.101538)
+Jalayer et al. (2025), *Remote Sensing Applications: Society and Environment*. 19 citations.
+
+*Summary pending.*
 
 ### [Extracting curvilinear features from synthetic aperture radar images of Arctic ice: algorithm discovery using the genetic programming paradigm](https://doi.org/10.1109/igarss.1995.520489)
 Daida et al. (1995), *1995 International Geoscience and Remote Sensing Symposium, IGARSS '95. Quantitative Remote Sensing for Science and Applications*. 18 citations.
@@ -19038,6 +20136,11 @@ Alhumaidi et al. (1997), *IEEE Transactions on Geoscience and Remote Sensing*. 1
 - **Open work:** Comparison with operational ice charts and other sensors, and seasonal generalization, follow naturally.
 - **Issues:** Performance likely depends on season and surface melt conditions; validation scope is unknown.
 - *Basis: assessment*
+
+### [Iceberg detection from global open ocean sentinel-1 wave mode SAR data with YOLO deep learning](https://doi.org/10.1016/j.rse.2026.115344)
+Xie et al. (2026), *Remote Sensing of Environment*. 11 citations.
+
+*Summary pending.*
 
 ### [The combination of algorithmic and heuristic methods for the classification of sea ice imagery](https://doi.org/10.1080/02757259409532219)
 Haverkamp et al. (1994), *Remote Sensing Reviews*. 10 citations.
@@ -20329,6 +21432,11 @@ Bai et al. (2019), *Chemosphere*. 167 citations.
 - **Issues:** Only two stations; EEMD on full series may leak future information; one-hour-ahead only.
 - *Basis: abstract*
 
+### [Air Quality Prediction in Smart Cities Using Machine Learning Technologies based on Sensor Data: A Review](https://doi.org/10.3390/app10072401)
+Iskandaryan et al. (2020), *Applied Sciences*. 167 citations.
+
+*Summary pending.*
+
 ### [The use of random forests in modelling short-term air pollution effects based on traffic and meteorological conditions: A case study in Wrocław.](https://doi.org/10.1016/j.jenvman.2018.03.094)
 Kamińska (2018), *Journal of Environmental Management*. 166 citations.
 
@@ -20384,6 +21492,11 @@ Zhu et al. (2018), *Atmospheric Environment*. 161 citations.
 - **Issues:** No quantitative metrics in the abstract; complex pipeline.
 - *Basis: abstract*
 
+### [Assessing the effectiveness of long short-term memory and artificial neural network in predicting daily ozone concentrations in Liaocheng City](https://doi.org/10.1038/s41598-025-91329-w)
+Guo et al. (2025), *Scientific Reports*. 161 citations.
+
+*Summary pending.*
+
 ### [Comparative Analysis of Multiple Deep Learning Models for Forecasting Monthly Ambient PM2.5 Concentrations: A Case Study in Dezhou City, China](https://doi.org/10.3390/atmos15121432)
 He et al. (2024), *Atmosphere*. 157 citations.
 
@@ -20427,6 +21540,11 @@ Knox et al. (2021), *Global Change Biology*. 155 citations.
 - **Open work:** Incorporating identified predictors and lags into process-based wetland methane models and expanding site coverage.
 - **Issues:** Limited number of sites with uneven representation of wetland types; correlative analysis does not establish causality.
 - *Basis: abstract+knowledge*
+
+### [Multi-output support vector machine for regional multi-step-ahead PM2.5 forecasting.](https://doi.org/10.1016/j.scitotenv.2018.09.111)
+Zhou et al. (2019), *Science of The Total Environment*. 155 citations.
+
+*Summary pending.*
 
 ### [Atmospheric urban pollution: applications of an artificial neural network (ANN) to the city of Perugia](https://doi.org/10.1016/s0304-3800(01)00434-3)
 Viotti et al. (2002), *Ecological Modelling*. 154 citations.
@@ -20582,6 +21700,11 @@ Lin et al. (2018), *SIGSPATIAL/GIS*. 145 citations.
 - **Issues:** Static graph from geographic features; short-term horizons only; limited number of datasets.
 - *Basis: abstract+knowledge*
 
+### [Meteorology-normalized impact of the COVID-19 lockdown upon NO2 pollution in Spain](https://doi.org/10.5194/acp-2020-446)
+Petetin et al. (2020), *Atmospheric Chemistry and Physics*. 145 citations.
+
+*Summary pending.*
+
 ### [An online air pollution forecasting system using neural networks.](https://doi.org/10.1016/j.envint.2007.12.020)
 Kurt et al. (2008), *Environment International*. 144 citations.
 
@@ -20593,6 +21716,11 @@ Kurt et al. (2008), *Environment International*. 144 citations.
 - **Issues:** Single district; performance depends on the quality of the weather forecast inputs; no uncertainty estimates.
 - *Basis: abstract+knowledge*
 
+### [Evaluation of Different Machine Learning Approaches to Forecasting PM2.5 Mass Concentrations](https://doi.org/10.4209/aaqr.2018.12.0450)
+Karimian et al. (2019), *Aerosol and Air Quality Research*. 143 citations.
+
+*Summary pending.*
+
 ### [Discovering relationships and forecasting PM10 and PM2.5 concentrations in Bogotá, Colombia, using Artificial Neural Networks, Principal Component Analysis, and k-means clustering](https://doi.org/10.1016/j.apr.2018.02.006)
 Franceschi et al. (2018), *Atmospheric Pollution Research*. 142 citations.
 
@@ -20603,6 +21731,21 @@ Franceschi et al. (2018), *Atmospheric Pollution Research*. 142 citations.
 - **Open work:** Operational early-warning use and inclusion of more stations.
 - **Issues:** Only two stations modelled; error metrics not given in the abstract.
 - *Basis: abstract*
+
+### [Using a deep convolutional neural network to predict 2017 ozone concentrations, 24 hours in advance](https://doi.org/10.1016/j.neunet.2019.09.033)
+Sayeed et al. (2020), *Neural Networks*. 141 citations.
+
+*Summary pending.*
+
+### [Construction of a virtual PM2.5 observation network in China based on high-density surface meteorological observations using the Extreme Gradient Boosting model.](https://doi.org/10.1016/j.envint.2020.105801)
+Gui et al. (2020), *Environment International*. 141 citations.
+
+*Summary pending.*
+
+### [Air Pollution Forecasting Using Artificial and Wavelet Neural Networks with Meteorological Conditions](https://doi.org/10.4209/aaqr.2020.03.0097)
+Guo et al. (2020), *Aerosol and Air Quality Research*. 140 citations.
+
+*Summary pending.*
 
 ### [A novel hybrid forecasting model for PM₁₀ and SO₂ daily concentrations.](https://doi.org/10.1016/j.scitotenv.2014.10.078)
 Wang et al. (2015), *Science of The Total Environment*. 139 citations.
@@ -20714,6 +21857,16 @@ Shen et al. (2017), *Journal of Geophysical Research: Atmospheres*. 133 citation
 - **Issues:** Single region; sample-based validation may overestimate spatial skill; clouds still limit coverage.
 - *Basis: abstract+knowledge*
 
+### [A Novel Method for Improving Air Pollution Prediction Based on Machine Learning Approaches: A Case Study Applied to the Capital City of Tehran](https://doi.org/10.3390/ijgi8020099)
+Delavar et al. (2019), *ISPRS International Journal of Geo-Information*. 132 citations.
+
+*Summary pending.*
+
+### [Novel analysis–forecast system based on multi-objective optimization for air quality index](https://doi.org/10.1016/j.jclepro.2018.10.129)
+Li et al. (2019), *Journal of Cleaner Production*. 131 citations.
+
+*Summary pending.*
+
 ### [Operational trace gas retrieval algorithm for the Infrared Atmospheric Sounding Interferometer](https://doi.org/10.1029/2004jd004821)
 Turquety et al. (2004), *Journal of Geophysical Research: Atmospheres*. 129 citations.
 
@@ -20736,6 +21889,11 @@ Dutot et al. (2007), *Environmental Modelling & Software*. 127 citations.
 - **Issues:** Few exceedance events for training; single urban site; comparison with the chemistry-transport model is limited to one region.
 - *Basis: abstract*
 
+### [A hybrid model based on convolutional neural networks and long short-term memory for ozone concentration prediction](https://doi.org/10.1007/s11869-018-0585-1)
+Pak et al. (2018), *Air Quality, Atmosphere & Health*. 127 citations.
+
+*Summary pending.*
+
 ### [Application of random forest regression to the calculation of gas-phase chemistry within the GEOS-Chem chemistry model v10](https://doi.org/10.5194/gmd-12-1209-2019)
 Keller et al. (2018), *Geoscientific Model Development*. 125 citations.
 
@@ -20757,6 +21915,11 @@ Tang et al. (2024), *Atmospheric Research*. 125 citations.
 - **Open work:** Likely concerns validation practice, generalization, and interpretability; check the full text.
 - **Issues:** Card is based on the title only.
 - *Basis: assessment*
+
+### [Meteorology-driven variability of air pollution (PM1) revealed with explainable machine learning](https://doi.org/10.5194/acp-2020-469)
+Stirnberg et al. (2020), *Atmospheric Chemistry and Physics*. 125 citations.
+
+*Summary pending.*
 
 ### [Artificial neural network for the identification of unknown air pollution sources](https://doi.org/10.1016/s1352-2310(98)00418-x)
 Reich et al. (1999), *Atmospheric Environment*. 124 citations.
@@ -20812,6 +21975,26 @@ Ibarra-Berastegi et al. (2008), *Environmental Modelling & Software*. 121 citati
 - **Open work:** Extending to longer lead times by adding numerical weather prediction inputs and testing in operational warning settings.
 - **Issues:** Station-specific models with limited transferability; no uncertainty estimates; skill drops quickly beyond a few hours.
 - *Basis: abstract+knowledge*
+
+### [Air pollution forecasting application based on deep learning model and optimization algorithm](https://doi.org/10.1007/s10098-021-02080-5)
+Heydari et al. (2021), *Clean Technologies and Environmental Policy*. 121 citations.
+
+*Summary pending.*
+
+### [An innovative hybrid model based on outlier detection and correction algorithm and heuristic intelligent optimization algorithm for daily air quality index forecasting.](https://doi.org/10.1016/j.jenvman.2019.109855)
+Wang et al. (2019), *Journal of Environmental Management*. 120 citations.
+
+*Summary pending.*
+
+### [Low Cost Sensor With IoT LoRaWAN Connectivity and Machine Learning-Based Calibration for Air Pollution Monitoring](https://doi.org/10.1109/tim.2020.3034109)
+Ali et al. (2021), *IEEE Transactions on Instrumentation and Measurement*. 120 citations.
+
+*Summary pending.*
+
+### [A random forest partition model for predicting NO2 concentrations from traffic flow and meteorological conditions.](https://doi.org/10.1016/j.scitotenv.2018.09.196)
+Kamińska (2019), *Science of The Total Environment*. 119 citations.
+
+*Summary pending.*
 
 ### [Artificial intelligence based approach to forecast PM2.5 during haze episodes: A case study of Delhi, India](https://doi.org/10.1016/j.atmosenv.2014.11.050)
 Mishra et al. (2015), *Atmospheric Environment*. 118 citations.
@@ -20901,6 +22084,11 @@ Meng et al. (2022), *Environmental Pollution*. 113 citations.
 - **Issues:** Random cross-validation may overstate skill in sparsely monitored areas; depends on CMAQ quality; no uncertainty estimates reported.
 - *Basis: abstract*
 
+### [Air Pollution Prediction with Multi-Modal Data and Deep Neural Networks](https://doi.org/10.3390/rs12244142)
+Kalajdjieski et al. (2020), *Remote Sensing*. 113 citations.
+
+*Summary pending.*
+
 ### [Adaptive neuro-fuzzy based modelling for prediction of air pollution daily levels in city of Zonguldak.](https://doi.org/10.1016/j.chemosphere.2005.08.070)
 Yildirim et al. (2006), *Chemosphere*. 112 citations.
 
@@ -20967,6 +22155,16 @@ Aznarte et al. (2007), *Expert Systems with Applications*. 111 citations.
 - **Issues:** Single-site, single-taxon time series limit generality; peak-season extremes are hard to capture.
 - *Basis: assessment*
 
+### [Artificial neural network model for ozone concentration estimation and Monte Carlo analysis](https://doi.org/10.1016/j.atmosenv.2018.03.027)
+Gao et al. (2018), *Atmospheric Environment*. 111 citations.
+
+*Summary pending.*
+
+### [Intelligent Calibration and Virtual Sensing for Integrated Low-Cost Air Quality Sensors](https://doi.org/10.1109/jsen.2020.3010316)
+Zaidan et al. (2020), *IEEE Sensors Journal*. 110 citations.
+
+*Summary pending.*
+
 ### [HISYCOL a hybrid computational intelligence system for combined machine learning: the case of air pollution modeling in Athens](https://doi.org/10.1007/s00521-015-1927-7)
 Bougoudis et al. (2015), *Neural Computing and Applications*. 109 citations.
 
@@ -21000,6 +22198,21 @@ Wang et al. (2003), *Engineering Computations*. 107 citations.
 - **Issues:** Abstract unavailable; evaluation scope unknown.
 - *Basis: assessment*
 
+### [Long-range PM2.5 pollution and health impacts from the 2023 Canadian wildfires](https://doi.org/10.1038/s41586-025-09482-1)
+Zhang et al. (2025), *Nature*. 106 citations.
+
+*Summary pending.*
+
+### [Evolving Differential evolution method with random forest for prediction of Air Pollution](https://doi.org/10.1016/j.procs.2018.05.094)
+Kumar (2018), *Procedia Computer Science*. 106 citations.
+
+*Summary pending.*
+
+### [Importance of satellite observations for high-resolution mapping of near-surface NO2 by machine learning](https://doi.org/10.1016/j.rse.2021.112573)
+Kim et al. (2021), *Remote Sensing of Environment*. 106 citations.
+
+*Summary pending.*
+
 ### [Deep learning methods for atmospheric PM2.5 prediction: A comparative study of transformer and CNN-LSTM-attention](https://doi.org/10.1016/j.apr.2023.101833)
 Cui et al. (2023), *Atmospheric Pollution Research*. 105 citations.
 
@@ -21010,6 +22223,11 @@ Cui et al. (2023), *Atmospheric Pollution Research*. 105 citations.
 - **Open work:** Testing over more cities and longer horizons.
 - **Issues:** Abstract unavailable; results and datasets not verified.
 - *Basis: assessment*
+
+### [Regional air quality forecasting using spatiotemporal deep learning](https://doi.org/10.1016/j.jclepro.2020.125341)
+Abirami et al. (2021), *Journal of Cleaner Production*. 105 citations.
+
+*Summary pending.*
 
 ### [Machine learning combined with the PMF model reveal the synergistic effects of sources and meteorological factors on PM2.5 pollution.](https://doi.org/10.1016/j.envres.2022.113322)
 Zhang et al. (2022), *Environmental Research*. 104 citations.
@@ -21055,6 +22273,21 @@ Lu et al. (2014), *Applied Soft Computing*. 102 citations.
 - **Issues:** Station-based statistical models; limited interpretability and transferability.
 - *Basis: assessment*
 
+### [Modelling and investigating the impacts of climatic variables on ozone concentration in Malaysia using correlation analysis with random forest, decision tree regression, linear regression, and support vector regression.](https://doi.org/10.1016/j.chemosphere.2022.134250)
+Balogun et al. (2022), *Chemosphere*. 102 citations.
+
+*Summary pending.*
+
+### [Multi-step forecast of PM2.5 and PM10 concentrations using convolutional neural network integrated with spatial-temporal attention and residual learning.](https://doi.org/10.2139/ssrn.4234605)
+Zhang et al. (2022), *Environment International*. 102 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal continuous estimates of daily 1 km PM2.5 from 2000 to present under the Tracking Air Pollution in China (TAP) framework](https://doi.org/10.5194/acp-22-13229-2022)
+Xiao et al. (2022), *Atmospheric Chemistry and Physics*. 102 citations.
+
+*Summary pending.*
+
 ### [A Simple Feedforward Neural Network for the PM10 Forecasting: Comparison with a Radial Basis Function Network and a Multivariate Linear Regression Model](https://doi.org/10.1007/s11270-008-9950-2)
 Caselli et al. (2009), *Water, Air, and Soil Pollution*. 101 citations.
 
@@ -21065,6 +22298,11 @@ Caselli et al. (2009), *Water, Air, and Soil Pollution*. 101 citations.
 - **Open work:** Add more predictors such as forecast meteorology and test transferability to other sites.
 - **Issues:** Single-area study; performance on high-concentration exceedance days and uncertainty not reported in the available information.
 - *Basis: assessment*
+
+### [Europe-wide air pollution modeling from 2000 to 2019 using geographically weighted regression.](https://doi.org/10.1016/j.envint.2022.107485)
+Shen et al. (2022), *Environment International*. 101 citations.
+
+*Summary pending.*
 
 ### [Automatic detection of methane emissions in multispectral satellite imagery using a vision transformer](https://doi.org/10.1038/s41467-024-47754-y)
 Rouet-Leduc et al. (2024), *Nature Communications*. 100 citations.
@@ -21077,6 +22315,11 @@ Rouet-Leduc et al. (2024), *Nature Communications*. 100 citations.
 - **Issues:** Multispectral data limit sensitivity; false positives over heterogeneous surfaces remain a concern.
 - *Basis: abstract*
 
+### [Long-term time-series pollution forecast using statistical and deep learning methods](https://doi.org/10.1007/s00521-021-05901-2)
+Nath et al. (2021), *Neural Computing and Applications*. 100 citations.
+
+*Summary pending.*
+
 ### [Forecasting ozone daily maximum levels at santiago, chile](https://doi.org/10.1016/s1352-2310(98)00035-1)
 Jorquera et al. (1998), *Atmospheric Environment*. 99 citations.
 
@@ -21088,6 +22331,11 @@ Jorquera et al. (1998), *Atmospheric Environment*. 99 citations.
 - **Issues:** Limited data period and stations; extreme episodes are few.
 - *Basis: assessment*
 
+### [A machine learning model to estimate ground-level ozone concentrations in California using TROPOMI data and high-resolution meteorology.](https://doi.org/10.1016/j.envint.2021.106917)
+Wang et al. (2021), *Environment International*. 98 citations.
+
+*Summary pending.*
+
 ### [Synergy of satellite and ground based observations in estimation of particulate matter in eastern China.](https://doi.org/10.1016/j.scitotenv.2012.06.033)
 Wu et al. (2012), *Science of The Total Environment*. 97 citations.
 
@@ -21098,6 +22346,11 @@ Wu et al. (2012), *Science of The Total Environment*. 97 citations.
 - **Open work:** Extending to finer resolution, PM2.5 and longer periods.
 - **Issues:** Depends on satellite AOD coverage gaps from clouds; vertical profile effects on AOD-PM relations.
 - *Basis: assessment*
+
+### [Estimating hourly PM2.5 concentrations at the neighborhood scale using a low-cost air sensor network: A Los Angeles Case Study.](https://doi.org/10.1016/j.envres.2020.110653)
+Lu et al. (2021), *Environmental Research*. 97 citations.
+
+*Summary pending.*
 
 ### [Ground-level ozone prediction by support vector machine approach with a cost-sensitive classification scheme.](https://doi.org/10.1016/j.scitotenv.2008.01.035)
 Lu et al. (2008), *Science of The Total Environment*. 96 citations.
@@ -21121,6 +22374,16 @@ Kumar et al. (2013), *Pure and Applied Geophysics*. 96 citations.
 - **Issues:** Single city; limited input variables.
 - *Basis: assessment*
 
+### [Deep-AIR: A Hybrid CNN-LSTM Framework for Fine-grained Air Pollution Estimation and Forecast in Metropolitan Cities](https://doi.org/10.1109/access.2022.3174853)
+Zhang et al. (2022), *IEEE Access*. 96 citations.
+
+*Summary pending.*
+
+### [Performance of NO, NO2 low cost sensors and three calibration approaches within a real world application](https://doi.org/10.5194/amt-11-3717-2018)
+Bigi et al. (2018), *Atmospheric Measurement Techniques*. 96 citations.
+
+*Summary pending.*
+
 ### [Predicting air pollution using fuzzy genetic linear membership kriging in GIS](https://doi.org/10.1016/j.compenvurbsys.2009.10.004)
 Shad et al. (2009), *Computers, Environment and Urban Systems*. 95 citations.
 
@@ -21143,6 +22406,31 @@ Siwek et al. (2012), *Engineering Applications of Artificial Intelligence*. 94 c
 - **Issues:** Single site; wavelet decomposition of full series may leak future information if not done causally.
 - *Basis: abstract+knowledge*
 
+### [A Spatial-Temporal Interpretable Deep Learning Model for improving interpretability and predictive accuracy of satellite-based PM2.5.](https://doi.org/10.1016/j.envpol.2021.116459)
+Yan et al. (2021), *Environmental Pollution*. 94 citations.
+
+*Summary pending.*
+
+### [Hybrid interpretable predictive machine learning model for air pollution prediction](https://doi.org/10.1016/j.neucom.2021.09.051)
+Gu et al. (2021), *Neurocomputing*. 93 citations.
+
+*Summary pending.*
+
+### [HazeEst: Machine Learning Based Metropolitan Air Pollution Estimation From Fixed and Mobile Sensors](https://doi.org/10.1109/jsen.2017.2690975)
+Hu et al. (2017), *IEEE Sensors Journal*. 92 citations.
+
+*Summary pending.*
+
+### [Predicting air quality via multimodal AI and satellite imagery](https://doi.org/10.1016/j.rse.2023.113609)
+Rowley et al. (2022), *Remote Sensing of Environment*. 92 citations.
+
+*Summary pending.*
+
+### [Calibrations of Low-Cost Air Pollution Monitoring Sensors for CO, NO2, O3, and SO2](https://doi.org/10.3390/s21010256)
+Han et al. (2021), *Sensors*. 92 citations.
+
+*Summary pending.*
+
 ### [Analysis of Pollutant Levels in Central Hong Kong Applying Neural Network Method with Particle Swarm Optimization](https://doi.org/10.1023/a:1020274409612)
 Lu et al. (2002), *Environmental Monitoring and Assessment*. 91 citations.
 
@@ -21153,6 +22441,21 @@ Lu et al. (2002), *Environmental Monitoring and Assessment*. 91 citations.
 - **Open work:** Testing other pollutants, stations and longer horizons.
 - **Issues:** Single urban area; limited evaluation of extreme pollution episodes.
 - *Basis: assessment*
+
+### [Estimating PM2.5 concentrations via random forest method using satellite, auxiliary, and ground-level station dataset at multiple temporal scales across China in 2017.](https://doi.org/10.1016/j.scitotenv.2021.146288)
+Guo et al. (2021), *Science of The Total Environment*. 91 citations.
+
+*Summary pending.*
+
+### [Air Quality Forecasting Using Machine Learning: Comparative Analysis and Ensemble Strategies for Enhanced Prediction](https://doi.org/10.1007/s11270-025-08122-8)
+Özüpak et al. (2025), *Water, Air, & Soil Pollution*. 90 citations.
+
+*Summary pending.*
+
+### [Geographically and temporally weighted neural networks for satellite-based mapping of ground-level PM2.5](https://doi.org/10.1016/j.isprsjprs.2020.06.019)
+Li et al. (2018), *ISPRS Journal of Photogrammetry and Remote Sensing*. 90 citations.
+
+*Summary pending.*
 
 ### [The forecasting research of early warning systems for atmospheric pollutants: A case in Yangtze River Delta region](https://doi.org/10.1016/j.atmosenv.2015.06.032)
 Song et al. (2015), *Atmospheric Environment*. 88 citations.
@@ -21176,6 +22479,16 @@ Spellman (1999), *Applied Geography*. 87 citations.
 - **Issues:** Site-specific statistical model with no physical chemistry; transferability and performance during high-ozone episodes are uncertain.
 - *Basis: assessment*
 
+### [PM2.5 concentrations forecasting in Beijing through deep learning with different inputs, model structures and forecast time](https://doi.org/10.1016/j.apr.2021.101168)
+Yang et al. (2021), *Atmospheric Pollution Research*. 87 citations.
+
+*Summary pending.*
+
+### [Estimation of ground-level particulate matter concentrations through the synergistic use of satellite observations and process-based models over South Korea](https://doi.org/10.5194/acp-19-1097-2019)
+Park et al. (2018), *Atmospheric Chemistry and Physics*. 87 citations.
+
+*Summary pending.*
+
 ### [Neural networks for analysing the relevance of input variables in the prediction of tropospheric ozone concentration](https://doi.org/10.1016/j.atmosenv.2006.04.067)
 Gómez-Sanchís et al. (2006), *Atmospheric Environment*. 86 citations.
 
@@ -21186,6 +22499,16 @@ Gómez-Sanchís et al. (2006), *Atmospheric Environment*. 86 citations.
 - **Open work:** Using the relevance ranking to build reduced models and transfer them to other stations.
 - **Issues:** Single-region station data; relevance measures from neural networks can be unstable across trainings. Card relies on title and limited knowledge.
 - *Basis: assessment*
+
+### [A Hybrid Spatiotemporal Deep Model Based on CNN and LSTM for Air Pollution Prediction](https://doi.org/10.3390/su14095104)
+Tsokov et al. (2022), *Sustainability*. 86 citations.
+
+*Summary pending.*
+
+### [Estimating lockdown-induced European NO2 changes using satellite and surface observations and air quality models](https://doi.org/10.5194/acp-21-7373-2021)
+Barré et al. (2021), *Atmospheric Chemistry and Physics*. 86 citations.
+
+*Summary pending.*
 
 ### [A blended TROPOMI+GOSAT satellite data product for atmospheric methane using machine learning to correct retrieval biases](https://doi.org/10.5194/amt-16-3787-2023)
 Balasus et al. (2023), *Atmospheric Measurement Techniques*. 85 citations.
@@ -21198,6 +22521,11 @@ Balasus et al. (2023), *Atmospheric Measurement Techniques*. 85 citations.
 - **Issues:** Inherits GOSAT errors as reference; TCCON sites cover only low-albedo surfaces; residual coastal biases remain.
 - *Basis: abstract+knowledge*
 
+### [Integrated Multiple Directed Attention-Based Deep Learning for Improved Air Pollution Forecasting](https://doi.org/10.1109/tim.2021.3091511)
+Dairi et al. (2021), *IEEE Transactions on Instrumentation and Measurement*. 85 citations.
+
+*Summary pending.*
+
 ### [Ozone ensemble forecast with machine learning algorithms](https://doi.org/10.1029/2008jd009978)
 Mallet et al. (2009), *Journal of Geophysical Research: Atmospheres*. 84 citations.
 
@@ -21208,6 +22536,26 @@ Mallet et al. (2009), *Journal of Geophysical Research: Atmospheres*. 84 citatio
 - **Open work:** Applying the aggregation to other pollutants, to spatial fields away from stations and to operational forecasting.
 - **Issues:** Weights are station-based and need a training period; gains depend on ensemble diversity.
 - *Basis: abstract+knowledge*
+
+### [Predicting PM2.5 atmospheric air pollution using deep learning with meteorological data and ground-based observations and remote-sensing satellite big data](https://doi.org/10.1007/s11869-021-01126-3)
+Muthukumar et al. (2021), *Air Quality, Atmosphere & Health*. 84 citations.
+
+*Summary pending.*
+
+### [Multi-directional temporal convolutional artificial neural network for PM2.5 forecasting with missing values: A deep learning approach](https://doi.org/10.1016/j.uclim.2021.100800)
+Samal et al. (2021), *Urban Climate*. 84 citations.
+
+*Summary pending.*
+
+### [Group-Aware Graph Neural Network for Nationwide City Air Quality Forecasting](https://doi.org/10.1145/3631713)
+Chen et al. (2021), *ACM Transactions on Knowledge Discovery from Data*. 84 citations.
+
+*Summary pending.*
+
+### [Very short‐term reactive forecasting of the solar ultraviolet index using an extreme learning machine integrated with the solar zenith angle](https://doi.org/10.1016/j.envres.2017.01.035)
+Deo et al. (2017), *Environmental Research*. 84 citations.
+
+*Summary pending.*
 
 ### [Short-term ozone forecasting by artificial neural networks](https://doi.org/10.1016/0965-9978(95)00076-3)
 Ruiz-Suárez et al. (1995), *Advances in Engineering Software*. 83 citations.
@@ -21253,6 +22601,11 @@ Li et al. (2023), *Environment International*. 82 citations.
 - **Issues:** Single city and season; SHAP attributions reflect correlation rather than causation and include co-varying chemical species.
 - *Basis: abstract*
 
+### [Impacts of meteorology and precursor emission change on O3 variation in Tianjin, China from 2015 to 2021.](https://doi.org/10.1016/j.jes.2022.03.010)
+Ding et al. (2022), *Journal of Environmental Sciences*. 82 citations.
+
+*Summary pending.*
+
 ### Under Consideration for Publication in Knowledge and Information Systems Forecasting Skewed Biased Stochastic Ozone Days: Analyses, Solutions and Beyond
 Zhang et al. (2006), *Venue not recorded*. 81 citations.
 
@@ -21296,6 +22649,16 @@ Nowack et al. (2018), *Environmental Research Letters*. 79 citations.
 - **Open work:** Coupling the parameterization interactively in climate runs, adding predictors and nonlinear methods, and extending to other scenarios.
 - **Issues:** Offline evaluation in idealized scenarios of one model; linear temperature-only mapping may miss chemistry not tied to temperature and may not transfer across models.
 - *Basis: abstract+knowledge*
+
+### [PM2.5 forecasting for an urban area based on deep learning and decomposition method](https://doi.org/10.1038/s41598-022-21769-1)
+Zaini et al. (2022), *Scientific Reports*. 79 citations.
+
+*Summary pending.*
+
+### [Correcting Measurement Error in Satellite Aerosol Optical Depth with Machine Learning for Modeling PM2.5 in the Northeastern USA](https://doi.org/10.3390/rs10050803)
+Just et al. (2018), *Remote Sensing*. 79 citations.
+
+*Summary pending.*
 
 ### [A Comparison of Nonlinear Regression and Neural Network Models for Ground-Level Ozone Forecasting](https://doi.org/10.1080/10473289.2000.10464228)
 Cobourn et al. (2000), *Journal of the Air & Waste Management Association*. 78 citations.
@@ -21418,6 +22781,16 @@ Prakash et al. (2011), *Environmental Modeling & Assessment*. 75 citations.
 - **Issues:** No abstract available; wavelet decompositions can leak future information if applied to the full series.
 - *Basis: assessment*
 
+### [A comparison of machine learning methods for ozone pollution prediction](https://doi.org/10.1186/s40537-023-00748-x)
+Pan et al. (2023), *Journal of Big Data*. 74 citations.
+
+*Summary pending.*
+
+### [Feature selection for global tropospheric ozone prediction based on the BO-XGBoost-RFE algorithm](https://doi.org/10.1038/s41598-022-13498-2)
+Zhang et al. (2022), *Scientific Reports*. 73 citations.
+
+*Summary pending.*
+
 ### [Effective 1-day ahead prediction of hourly surface ozone concentrations in eastern Spain using linear models and neural networks](https://doi.org/10.1016/s0304-3800(02)00127-8)
 Ballester et al. (2002), *Ecological Modelling*. 72 citations.
 
@@ -21461,6 +22834,31 @@ Elkamel et al. (2001), *Advances in Environmental Research*. 71 citations.
 - **Open work:** Forecasting with lead time and additional sites.
 - **Issues:** Single site and limited period.
 - *Basis: abstract+knowledge*
+
+### [An Improved Air Quality Index Machine Learning-Based Forecasting with Multivariate Data Imputation Approach](https://doi.org/10.3390/atmos13071144)
+Alkabbani et al. (2022), *Atmosphere*. 71 citations.
+
+*Summary pending.*
+
+### [A hybrid CNN-Transformer model for ozone concentration prediction](https://doi.org/10.1007/s11869-022-01197-w)
+Chen et al. (2022), *Air Quality, Atmosphere & Health*. 71 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal variations of air pollutants and ozone prediction using machine learning algorithms in the Beijing-Tianjin-Hebei region from 2014 to 2021.](https://doi.org/10.2139/ssrn.4003847)
+Lyu et al. (2022), *Environmental Pollution*. 70 citations.
+
+*Summary pending.*
+
+### [Multi-output machine learning model for regional air pollution forecasting in Ho Chi Minh City, Vietnam.](https://doi.org/10.1016/j.envint.2023.107848)
+Rakholia et al. (2023), *Environment International*. 70 citations.
+
+*Summary pending.*
+
+### [Air Pollution Detection Using a Novel Snap-Shot Hyperspectral Imaging Technique](https://doi.org/10.3390/s22166231)
+Mukundan et al. (2022), *Sensors*. 69 citations.
+
+*Summary pending.*
 
 ### [Forecasting Air Quality Parameters Using Hybrid Neural Network Modelling](https://doi.org/10.1007/978-94-010-0932-4_30)
 Kolehmainen et al. (2000), *Environmental Monitoring and Assessment*. 68 citations.
@@ -21506,6 +22904,21 @@ Moustris et al. (2012), *Advances in Meteorology*. 66 citations.
 - **Issues:** Quantitative skill not given in the abstract; relies on observed meteorology, which is unavailable for true forecasting.
 - *Basis: abstract*
 
+### [Intelligent Forecasting of Air Quality and Pollution Prediction Using Machine Learning](https://doi.org/10.1155/2022/5086622)
+Kothandaraman et al. (2022), *Adsorption Science & Technology*. 66 citations.
+
+*Summary pending.*
+
+### [Machine Learning Techniques to Predict the Air Quality Using Meteorological Data in Two Urban Areas in Sri Lanka](https://doi.org/10.3390/environments10080141)
+Mampitiya et al. (2023), *Environments*. 66 citations.
+
+*Summary pending.*
+
+### [Why is ozone in South Korea and the Seoul metropolitan area so high and increasing?](https://doi.org/10.5194/acp-23-4031-2023)
+Colombi et al. (2023), *Atmospheric Chemistry and Physics*. 66 citations.
+
+*Summary pending.*
+
 ### [The use of discriminant analysis and neural networks to forecast the severity of the Poaceae pollen season in a region with a typical Mediterranean climate](https://doi.org/10.1007/s00484-005-0260-8)
 Sánchez-Mesa et al. (2005), *International Journal of Biometeorology*. 65 citations.
 
@@ -21516,6 +22929,16 @@ Sánchez-Mesa et al. (2005), *International Journal of Biometeorology*. 65 citat
 - **Open work:** More years and sites.
 - **Issues:** Few seasons for training; class-based output.
 - *Basis: assessment*
+
+### [An advanced deep learning predictive model for air quality index forecasting with remote satellite-derived hydro-climatological variables.](https://doi.org/10.1016/j.scitotenv.2023.167234)
+Ahmed et al. (2023), *Science of The Total Environment*. 65 citations.
+
+*Summary pending.*
+
+### [Integrating low-cost sensor monitoring, satellite mapping, and geospatial artificial intelligence for intra-urban air pollution predictions.](https://doi.org/10.1016/j.envpol.2023.121832)
+Liang et al. (2023), *Environmental Pollution*. 65 citations.
+
+*Summary pending.*
 
 ### [Systematic Approach for the Prediction of Ground-Level Air Pollution (around an Industrial Port) Using an Artificial Neural Network](https://doi.org/10.4209/aaqr.2013.06.0191)
 Baawain et al. (2014), *Aerosol and Air Quality Research*. 64 citations.
@@ -21561,6 +22984,16 @@ Sturm et al. (2021), *Geoscientific Model Development*. 62 citations.
 - **Issues:** Tested on a box-model photochemical mechanism only; online stability and performance in a full chemical transport model are not shown.
 - *Basis: abstract*
 
+### [Global population exposure to landscape fire air pollution from 2000 to 2019](https://doi.org/10.1038/s41586-023-06398-6)
+Xu et al. (2023), *Nature*. 61 citations.
+
+*Summary pending.*
+
+### [Comparison of machine learning and deep learning techniques for the prediction of air pollution: a case study from China](https://doi.org/10.1007/s44273-023-00005-w)
+Ayus et al. (2023), *Asian Journal of Atmospheric Environment*. 61 citations.
+
+*Summary pending.*
+
 ### [Forecasting Extreme PM10 Concentrations Using Artificial Neural Networks](https://doi.org/10.22059/ijer.2011.493)
 Nejadkoorki et al. (2012), *International Journal of Environmental Research*. 60 citations.
 
@@ -21582,6 +23015,11 @@ Rahman et al. (2024), *Environmental Systems Research*. 60 citations.
 - **Open work:** True forecasting with meteorological inputs and temporal validation rather than classification of current status.
 - **Issues:** Perfect accuracy suggests the AQI category is directly derivable from the inputs (leakage); no temporal forecast horizon or independent test.
 - *Basis: abstract*
+
+### [Causal-inference machine learning reveals the drivers of China's 2022 ozone rebound](https://doi.org/10.1016/j.ese.2025.100524)
+Wang et al. (2025), *Environmental Science and Ecotechnology*. 60 citations.
+
+*Summary pending.*
 
 ### [A Genetic Algorithm Method to Assimilate Sensor Data for a Toxic Contaminant Release](https://doi.org/10.4304/jcp.2.6.85-93)
 Haupt et al. (2007), *Journal of Computers*. 59 citations.
@@ -21615,6 +23053,11 @@ Zia et al. (2011), *Venue not recorded*. 58 citations.
 - **Open work:** Testing at more stations and forecasting at longer lead times.
 - **Issues:** No abstract available; station-specific evaluation and no uncertainty quantification.
 - *Basis: assessment*
+
+### [Boosting Algorithm to Handle Unbalanced Classification of PM2.5 Concentration Levels by Observing Meteorological Parameters in Jakarta-Indonesia Using AdaBoost, XGBoost, CatBoost, and LightGBM](https://doi.org/10.1109/access.2023.3265019)
+Toharudin et al. (2023), *IEEE Access*. 58 citations.
+
+*Summary pending.*
 
 ### [Statistical and machine learning methods for evaluating trends in air quality under changing meteorological conditions](https://doi.org/10.5194/acp-22-10551-2022)
 Qiu et al. (2022), *Atmospheric Chemistry and Physics*. 57 citations.
@@ -21671,6 +23114,11 @@ Pérez (2012), *Atmospheric Environment*. 56 citations.
 - **Issues:** No abstract available; station-based, single-city evaluation.
 - *Basis: assessment*
 
+### [Transforming air pollution management in India with AI and machine learning technologies](https://doi.org/10.1038/s41598-024-71269-7)
+Rautela et al. (2024), *Scientific Reports*. 56 citations.
+
+*Summary pending.*
+
 ### [An inversion algorithm using neural networks to retrieve atmospheric CO total columns from high‐resolution nadir radiances](https://doi.org/10.1029/1999jd900431)
 Hadji-Lazaro et al. (1999), *Journal of Geophysical Research: Atmospheres*. 55 citations.
 
@@ -21692,6 +23140,11 @@ Cannon et al. (2000), *Journal of the Air & Waste Management Association*. 54 ci
 - **Open work:** Using forecast meteorology as inputs for operational use and improving prediction of high-ozone episodes.
 - **Issues:** Peak ozone episodes are rare and tend to be underpredicted; trained with observed rather than forecast meteorology.
 - *Basis: assessment*
+
+### [A city-based PM2.5 forecasting framework using Spatially Attentive Cluster-based Graph Neural Network model](https://doi.org/10.1016/j.jclepro.2023.137036)
+Mandal et al. (2023), *Journal of Cleaner Production*. 54 citations.
+
+*Summary pending.*
 
 ### [Improving 3-day deterministic air pollution forecasts using machine learning algorithms](https://doi.org/10.5194/acp-24-807-2024)
 Zhang et al. (2024), *Atmospheric Chemistry and Physics*. 53 citations.
@@ -21803,6 +23256,11 @@ Hájek et al. (2012), *Ecological Informatics*. 49 citations.
 - **Issues:** Abstract missing; likely limited to a single region's monitoring network.
 - *Basis: assessment*
 
+### [A hybrid deep learning air pollution prediction approach based on neighborhood selection and spatio-temporal attention](https://doi.org/10.1038/s41598-025-88086-1)
+Chen et al. (2025), *Scientific Reports*. 49 citations.
+
+*Summary pending.*
+
 ### [Neural networks for the dimensionality reduction of GOME measurement vector in the estimation of ozone profiles](https://doi.org/10.1016/j.jqsrt.2004.07.028)
 Frate et al. (2005), *Journal of Quantitative Spectroscopy and Radiative Transfer*. 47 citations.
 
@@ -21813,6 +23271,16 @@ Frate et al. (2005), *Journal of Quantitative Spectroscopy and Radiative Transfe
 - **Open work:** Applying the approach to successor instruments such as SCIAMACHY or GOME-2 and adding error characterization.
 - **Issues:** Training on simulations may not capture instrument degradation and real-world biases; validation with a limited set of lidar collocations.
 - *Basis: abstract*
+
+### [First retrieval of 24-hourly 1-km-resolution gapless surface ozone (O3) from space in China using artificial intelligence: Diurnal variations and implications for air quality and phytotoxicity](https://doi.org/10.1016/j.rse.2024.114482)
+Cheng et al. (2025), *Remote Sensing of Environment*. 47 citations.
+
+*Summary pending.*
+
+### [U-Plume: automated algorithm for plume detection and source quantification by satellite point-source imagers](https://doi.org/10.5194/amt-17-2625-2024)
+Bruno et al. (2024), *Atmospheric Measurement Techniques*. 47 citations.
+
+*Summary pending.*
 
 ### [Artificial neural network with backpropagation learning to predict mean monthly total ozone in Arosa, Switzerland](https://doi.org/10.1080/01431160701250440)
 Chattopadhyay et al. (2006), *International Journal of Remote Sensing*. 46 citations.
@@ -21879,6 +23347,11 @@ Alkasassbeh et al. (2013), *Venue not recorded*. 45 citations.
 - **Open work:** Longer forecast horizons and comparison with other ML and statistical models.
 - **Issues:** Abstract and venue missing; single site; metrics unverified.
 - *Basis: assessment*
+
+### [Daily Scale Air Quality Index Forecasting using Bidirectional Recurrent Neural Networks: Case Study of Delhi, India.](https://doi.org/10.1016/j.envpol.2024.124040)
+Pande et al. (2024), *Environmental Pollution*. 44 citations.
+
+*Summary pending.*
 
 ### [Analysis of the distribution of airborne pollution using genetic algorithms](https://doi.org/10.1016/0960-1686(93)90284-6)
 Cartwright et al. (1993), *Atmospheric Environment. Part A. General Topics*. 43 citations.
@@ -21979,6 +23452,11 @@ Guardani et al. (1999), *Journal of the Air & Waste Management Association*. 39 
 - **Issues:** Station-specific statistical model; limited insight into photochemistry and limited independent testing.
 - *Basis: abstract+knowledge*
 
+### [The explainable potential of coupling hybridized metaheuristics, XGBoost, and SHAP in revealing toluene behavior in the atmosphere.](https://doi.org/10.1016/j.scitotenv.2024.172195)
+Bačanin et al. (2024), *Science of The Total Environment*. 38 citations.
+
+*Summary pending.*
+
 ### [Ozone indices based on simple meteorological parameters: potentials and limitations of regression and neural network models](https://doi.org/10.1016/s1352-2310(99)00126-0)
 Soja et al. (1999), *Atmospheric Environment*. 37 citations.
 
@@ -22056,6 +23534,11 @@ Melas et al. (2000), *Journal of the Air & Waste Management Association*. 34 cit
 - **Issues:** Single urban area; extreme episodes are rare in training data.
 - *Basis: assessment*
 
+### [Machine Learning for Urban Air Quality Prediction Using Google AlphaEarth Foundations Satellite Embeddings: A Case Study of Quito, Ecuador](https://doi.org/10.3390/rs17203472)
+Álvarez et al. (2025), *Remote Sensing*. 34 citations.
+
+*Summary pending.*
+
 ### [Perceptron neural network-based model predicts air pollution](https://doi.org/10.1109/iis.1997.645288)
 Mlakar et al. (1997), *Proceedings Intelligent Information Systems. IIS'97*. 33 citations.
 
@@ -22066,6 +23549,11 @@ Mlakar et al. (1997), *Proceedings Intelligent Information Systems. IIS'97*. 33 
 - **Open work:** Better input selection and extension to more stations and pollutants would follow naturally.
 - **Issues:** Site-specific model in complex terrain; peak episodes are rare and harder to predict.
 - *Basis: abstract+knowledge*
+
+### [Urban PM2.5 concentration monitoring: A review of recent advances in ground-based, satellite, model, and machine learning integration](https://doi.org/10.1016/j.uclim.2025.102566)
+Lolli (2025), *Urban Climate*. 33 citations.
+
+*Summary pending.*
 
 ### [Fuzzy logic modeling of surface ozone concentrations](https://doi.org/10.1016/j.compchemeng.2005.01.008)
 Mintz et al. (2005), *Computers & Chemical Engineering*. 32 citations.
@@ -22089,6 +23577,11 @@ Chelani (2010), *Environmental Monitoring and Assessment*. 32 citations.
 - **Issues:** Single-site statistical model without chemistry; exceedance events are rare. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
 
+### [Insights into ozone pollution control in urban areas by decoupling meteorological factors based on machine learning](https://doi.org/10.5194/acp-25-1749-2025)
+Qiu et al. (2025), *Atmospheric Chemistry and Physics*. 32 citations.
+
+*Summary pending.*
+
 ### [Physics-informed learning of aerosol microphysics](https://doi.org/10.1017/eds.2022.22)
 Harder et al. (2022), *Environmental Data Science*. 31 citations.
 
@@ -22099,6 +23592,11 @@ Harder et al. (2022), *Environmental Data Science*. 31 citations.
 - **Open work:** Online coupling into ECHAM-HAM and assessing long-term stability.
 - **Issues:** Offline evaluation only; moderate R^2 for some variables; mass conservation only partially enforced.
 - *Basis: abstract*
+
+### [A study on the impact of meteorological and emission factors on PM2.5 concentrations based on machine learning.](https://doi.org/10.1016/j.jenvman.2025.124347)
+Zhao et al. (2025), *Journal of Environmental Management*. 30 citations.
+
+*Summary pending.*
 
 ### [Assimilating concentration observations for transport and dispersion modeling in a meandering wind field](https://doi.org/10.1016/j.atmosenv.2008.11.043)
 Haupt et al. (2009), *Atmospheric Environment*. 29 citations.
@@ -22121,6 +23619,11 @@ Pokrovsky et al. (2002), *Computers & Geosciences*. 28 citations.
 - **Open work:** Use of the fuzzy relationships for pollution forecasting and extension to other pollutants or cities.
 - **Issues:** No abstract available; case study for one city; fuzzy rules may not transfer.
 - *Basis: assessment*
+
+### [Tropospheric ozone trends and attributions over East and Southeast Asia in 1995–2019: an integrated assessment using statistical methods, machine learning models, and multiple chemical transport models](https://doi.org/10.5194/acp-25-7991-2025)
+Lu et al. (2025), *Atmospheric Chemistry and Physics*. 28 citations.
+
+*Summary pending.*
 
 ### [Prediction of air pollutants by using an artificial neural network](https://doi.org/10.1007/bf02707129)
 Sohn et al. (1999), *Korean Journal of Chemical Engineering*. 26 citations.
@@ -22177,6 +23680,11 @@ Gómez et al. (2003), *Systems Analysis Modelling Simulation*. 25 citations.
 - **Issues:** No abstract available; methods, data and skill are unknown from the record.
 - *Basis: assessment*
 
+### [An interpretable physics-informed deep learning model for estimating multiple air pollutants](https://doi.org/10.1080/15481603.2025.2482272)
+Chen et al. (2025), *GIScience & Remote Sensing*. 25 citations.
+
+*Summary pending.*
+
 ### [Forecasting Ambient Air SO2 Concentrations Using Artificial Neural Networks](https://doi.org/10.1080/009083190881526)
 Sofuoğlu et al. (2006), *Energy Sources, Part B: Economics, Planning, and Policy*. 24 citations.
 
@@ -22199,6 +23707,11 @@ Pfeiffer et al. (2009), *Atmospheric Environment*. 22 citations.
 - **Issues:** No abstract available; sparse monitoring sites limit spatial generalization.
 - *Basis: assessment*
 
+### [Dynamic synchronous graph transformer network for region-level air-quality forecasting](https://doi.org/10.1016/j.neucom.2024.128924)
+Xia et al. (2025), *Neurocomputing*. 22 citations.
+
+*Summary pending.*
+
 ### [Urban Air Pollution Forecasting Using Artificial Intelligence-Based Tools](https://doi.org/10.5772/10049)
 Hassan et al. (2010), *Venue not recorded*. 21 citations.
 
@@ -22209,6 +23722,31 @@ Hassan et al. (2010), *Venue not recorded*. 21 citations.
 - **Open work:** Compare multiple AI methods and incorporate source information.
 - **Issues:** The abstract gives motivation only; method and evaluation cannot be verified.
 - *Basis: assessment*
+
+### [Forecasting O3 and NO2 concentrations with spatiotemporally continuous coverage in southeastern China using a Machine learning approach.](https://doi.org/10.1016/j.envint.2024.109249)
+Li et al. (2025), *Environment International*. 21 citations.
+
+*Summary pending.*
+
+### [AI-driven approaches for air pollution modeling: A comprehensive systematic review.](https://doi.org/10.1016/j.envpol.2025.125937)
+Garbagna et al. (2025), *Environmental Pollution*. 21 citations.
+
+*Summary pending.*
+
+### [A hierarchical ensemble approach for multi-country PM10 forecasting using LightGBM and residual neural network](https://doi.org/10.1007/s44292-025-00072-4)
+Inam et al. (2026), *Discover Atmosphere*. 21 citations.
+
+*Summary pending.*
+
+### [Machine learning-guided integration of fixed and mobile sensors for high resolution urban PM2.5 mapping](https://doi.org/10.1038/s41612-025-00984-3)
+Li et al. (2025), *npj Climate and Atmospheric Science*. 20 citations.
+
+*Summary pending.*
+
+### [Nitrogen dioxide (NO2) Meteorology and predictability for air quality management using TROPOMI](https://doi.org/10.1038/s44407-024-00003-4)
+Asilevi et al. (2025), *npj Clean Air*. 19 citations.
+
+*Summary pending.*
 
 ### A Machine Learning Tool to Forecast PM10 Level
 Raimondo et al. (2007), *Venue not recorded*. 18 citations.
@@ -22232,6 +23770,11 @@ Ozdemir et al. (2008), *Environmental Engineering Science*. 18 citations.
 - **Issues:** Only correlation-type statistics are reported, there is no comparison with baseline models, and the sites and periods are limited.
 - *Basis: abstract*
 
+### [Uncovering Key Sources of Regional Ozone Simulation Biases Using Machine Learning and SHAP Analysis.](https://doi.org/10.1016/j.envpol.2025.126012)
+Yuan et al. (2025), *Environmental Pollution*. 18 citations.
+
+*Summary pending.*
+
 ### [Advancing operational global aerosol forecasting with machine learning](https://doi.org/10.1038/s41586-026-10234-y)
 Gui et al. (2026), *Nature*. 17 citations.
 
@@ -22242,6 +23785,21 @@ Gui et al. (2026), *Nature*. 17 citations.
 - **Open work:** Use for early warning of dust storms and wildfire smoke, and extend to more species and coupled meteorology.
 - **Issues:** Trained on reanalysis so inherits its biases, and depends on GEOS-FP initialization; dust skill only comparable to GEOS-FP.
 - *Basis: abstract+knowledge*
+
+### [Improved estimation of carbon dioxide and methane using machine learning with satellite observations over the Arabian Peninsula](https://doi.org/10.1038/s41598-024-84593-9)
+Alcibahy et al. (2025), *Scientific Reports*. 17 citations.
+
+*Summary pending.*
+
+### [Using machine learning to unravel chemical and meteorological effects on ground-level ozone: Insights for ozone-climate control strategies.](https://doi.org/10.1016/j.envint.2025.109567)
+Li et al. (2025), *Environment International*. 17 citations.
+
+*Summary pending.*
+
+### [Stacking Ensemble Learning and SHAP-Based Insights for Urban Air Quality Forecasting: Evidence from Shenyang and Global Implications](https://doi.org/10.3390/atmos16070776)
+Xu et al. (2025), *Atmosphere*. 16 citations.
+
+*Summary pending.*
 
 ### Local Maximum Ozone Concentration Prediction Using Neural Networks
 Wieland et al. (1999), *Venue not recorded*. 15 citations.
@@ -22331,6 +23889,11 @@ Finzi et al. (1998), *ICSC Symposium on Neural Computation*. 10 citations.
 - **Issues:** Episodes are few, so evaluation of extremes is limited; results are site-specific.
 - *Basis: assessment*
 
+### [Tracking surface ozone responses to clean air actions under a warming climate in China using machine learning](https://doi.org/10.5194/acp-26-851-2026)
+Fang et al. (2026), *Atmospheric Chemistry and Physics*. 10 citations.
+
+*Summary pending.*
+
 ### [Neural Network Modelling: Perspectives of Application for Monitoring and Forecasting Physical-Chemical Variables in the Boundary Layer](https://doi.org/10.1007/978-3-642-61120-9_26)
 Pasini et al. (1996), *Venue not recorded*. 9 citations.
 
@@ -22374,6 +23937,11 @@ Tanaka et al. (1992), *Proceedings of the 1992 International Conference on Indus
 - **Open work:** Implementing and testing the self-learning controller in practice.
 - **Issues:** Application setting and validation scope are unclear; fuzzy model identification may not transfer to other sites.
 - *Basis: assessment*
+
+### [Harnessing deep learning for air pollution forecasting: trends, techniques, and future prospects](https://doi.org/10.1007/s10462-026-11496-8)
+Lawrence et al. (2026), *Artificial Intelligence Review*. 9 citations.
+
+*Summary pending.*
 
 ### [Improvement of Air Pollution Forecasting Models Using Feature Determination and Pattern Selection Strategies](https://doi.org/10.1007/978-1-4757-9128-0_85)
 Božnar et al. (1998), *Venue not recorded*. 8 citations.
@@ -22440,6 +24008,16 @@ Nguyễn et al. (2009), *Venue not recorded*. 7 citations.
 - **Open work:** Testing at more stations and adding nonlinear or hybrid models and meteorological forecasts as inputs.
 - **Issues:** No abstract available, so methods, data and findings cannot be confirmed; statistical models trained locally may not transfer between cities.
 - *Basis: assessment*
+
+### [A physics-based AI algorithm integrating radiative transfer and machine learning for joint retrieval of aerosol layer height and optical thickness from hyperspectral satellite observations over the ocean](https://doi.org/10.1016/j.rse.2026.115379)
+Yao et al. (2026), *Remote Sensing of Environment*. 7 citations.
+
+*Summary pending.*
+
+### [Deciphering the impacts of meteorology on surface ozone variability in eastern China using explainable machine learning models](https://doi.org/10.5194/acp-26-6377-2026)
+Ye et al. (2026), *Atmospheric Chemistry and Physics*. 7 citations.
+
+*Summary pending.*
 
 ### [Advancing Sophisticated Photochemistry Simulation in Atmospheric Numerical Models With Artificial Intelligence PhotoChemistry (AIPC) Scheme Using the Feature‐Mapping Subspace Self‐Attention Algorithm](https://doi.org/10.1029/2024ms004646)
 Xia et al. (2025), *Journal of Advances in Modeling Earth Systems*. 6 citations.
@@ -27471,6 +29049,11 @@ Shiri et al. (2013), *Computers & Geosciences*. 173 citations.
 - **Issues:** No abstract available; details on data and quantitative results are not confirmed.
 - *Basis: abstract+knowledge*
 
+### [Regional hydrological frequency analysis at ungauged sites with random forest regression](https://doi.org/10.1016/j.jhydrol.2020.125861)
+Desai et al. (2020), *Journal of Hydrology*. 173 citations.
+
+*Summary pending.*
+
 ### [A Comparison of Algorithms for Retrieving Soil Moisture from ENVISAT/ASAR Images](https://doi.org/10.1109/tgrs.2008.920370)
 Paloscia et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*. 172 citations.
 
@@ -27724,6 +29307,11 @@ Nourani (2017), *Journal of Hydrology*. 166 citations.
 - **Issues:** Abstract not available; few catchments; the emotional parameters add tuning complexity and the model is a black box without physical constraints.
 - *Basis: abstract+knowledge*
 
+### [Machine Learning to Estimate Surface Soil Moisture from Remote Sensing Data](https://doi.org/10.3390/w12113223)
+Adab et al. (2020), *Water*. 166 citations.
+
+*Summary pending.*
+
 ### [Estimation of soil moisture content under high maize canopy coverage from UAV multimodal data and machine learning](https://doi.org/10.1016/j.agwat.2022.107530)
 Cheng et al. (2022), *Agricultural Water Management*. 165 citations.
 
@@ -27855,6 +29443,11 @@ Emamgholizadeh et al. (2014), *Water Resources Management*. 163 citations.
 - **Open work:** Testing management and climate scenarios and longer horizons.
 - **Issues:** Abstract not available; single aquifer; limited data length.
 - *Basis: abstract+knowledge*
+
+### [Improvement of Best First Decision Trees Using Bagging and Dagging Ensembles for Flood Probability Mapping](https://doi.org/10.1007/s11269-020-02603-7)
+Yariyan et al. (2020), *Water Resources Management*. 163 citations.
+
+*Summary pending.*
 
 ### [Use of a genetic algorithm combined with a local search method for the automatic calibration of conceptual rainfall-runoff models](https://doi.org/10.1080/02626669609491476)
 Franchini (1996), *Hydrological Sciences Journal*. 162 citations.
@@ -28098,6 +29691,21 @@ Hsu et al. (2010), *Advances in Water Resources*. 158 citations.
 - **Issues:** Abstract unavailable; cluster interpretation depends on SOM settings and gauge density.
 - *Basis: assessment*
 
+### [Flood Susceptibility Assessment by Using Bivariate Statistics and Machine Learning Models - A Useful Tool for Flood Risk Management](https://doi.org/10.1007/s11269-019-02301-z)
+Costache (2019), *Water Resources Management*. 158 citations.
+
+*Summary pending.*
+
+### [Groundwater Potential Mapping Using Remote Sensing and GIS-Based Machine Learning Techniques](https://doi.org/10.3390/rs12071200)
+Lee et al. (2020), *Remote Sensing*. 158 citations.
+
+*Summary pending.*
+
+### [Flash flood susceptibility modelling using functional tree and hybrid ensemble techniques](https://doi.org/10.1016/j.jhydrol.2020.125007)
+Arabameri et al. (2020), *Journal of Hydrology*. 158 citations.
+
+*Summary pending.*
+
 ### [Artificial neural networks versus gene expression programming for estimating reference evapotranspiration in arid climate](https://doi.org/10.1016/j.agwat.2015.09.009)
 Yassin et al. (2016), *Agricultural Water Management*. 157 citations.
 
@@ -28130,6 +29738,16 @@ Miro et al. (2018), *Remote Sensing*. 157 citations.
 - **Open work:** Applying the maps to local groundwater management and extending to other basins are proposed.
 - **Issues:** Validation NSE is low at some locations; limited period; no uncertainty quantification.
 - *Basis: abstract*
+
+### [Super ensemble learning for daily streamflow forecasting: large-scale demonstration and comparison with multiple machine learning algorithms](https://doi.org/10.1007/s00521-020-05172-3)
+Tyralis et al. (2020), *Neural Computing and Applications*. 157 citations.
+
+*Summary pending.*
+
+### [Spatial prediction of flood potential using new ensembles of bivariate statistics and artificial intelligence: A case study at the Putna river catchment of Romania.](https://doi.org/10.1016/j.scitotenv.2019.07.197)
+Costache et al. (2019), *Science of The Total Environment*. 157 citations.
+
+*Summary pending.*
 
 ### [Long-Term Prediction of Discharges in Manwan Reservoir Using Artificial Neural Network Models](https://doi.org/10.1007/11427469_165)
 Cheng et al. (2005), *International Symposium on Neural Networks*. 156 citations.
@@ -28230,6 +29848,11 @@ Guo et al. (2023), *Journal of Hydrology*. 156 citations.
 - **Issues:** No abstract available; catchment, metrics and combination weights cannot be verified. Hybrid physics-LSTM chains inherit errors of the process model.
 - *Basis: assessment*
 
+### [Combining statistical machine learning models with ARIMA for water level forecasting: The case of the Red river](https://doi.org/10.1016/j.advwatres.2020.103656)
+Phan et al. (2020), *Advances in Water Resources*. 156 citations.
+
+*Summary pending.*
+
 ### [A Comparison of SWAT and ANN Models for Daily Runoff Simulation in Different Climatic Zones of Peninsular Spain](https://doi.org/10.3390/w10020192)
 Jimeno-Sáez et al. (2018), *Water*. 155 citations.
 
@@ -28273,6 +29896,11 @@ Castangia et al. (2022), *Environmental Modelling & Software*. 155 citations.
 - **Open work:** Adding precipitation and meteorological forecasts as inputs and testing longer lead times and other basins would follow.
 - **Issues:** Single basin and event focus; one-day horizon only; inputs restricted to upstream water levels.
 - *Basis: abstract*
+
+### [Construction of a drought monitoring model using deep learning based on multi-source remote sensing data](https://doi.org/10.1016/j.jag.2019.03.006)
+Shen et al. (2019), *International Journal of Applied Earth Observation and Geoinformation*. 155 citations.
+
+*Summary pending.*
 
 ### [EC-SVM approach for real-time hydrologic forecasting](https://doi.org/10.2166/hydro.2004.0016)
 Yu et al. (2004), *Journal of Hydroinformatics*. 154 citations.
@@ -28339,6 +29967,21 @@ Zheng et al. (2023), *Scientific Data*. 153 citations.
 - **Open work:** Extending in time and to deeper soil layers, and validation in sparsely monitored regions.
 - **Issues:** Gap-filling inherits ERA5 biases; in situ validation is sparse in many regions; cross-validation may overstate accuracy.
 - *Basis: abstract*
+
+### [Forecasting river water temperature time series using a wavelet–neural network hybrid modelling approach](https://doi.org/10.1016/j.jhydrol.2019.124115)
+Graf et al. (2019), *Journal of Hydrology*. 153 citations.
+
+*Summary pending.*
+
+### [Drought forecasting: A review of modelling approaches 2007–2017](https://doi.org/10.2166/wcc.2019.236)
+Fung et al. (2019), *Journal of Water and Climate Change*. 153 citations.
+
+*Summary pending.*
+
+### [Application of machine learning techniques in groundwater potential mapping along the west coast of India](https://doi.org/10.1080/15481603.2020.1794104)
+Prasad et al. (2020), *GIScience & Remote Sensing*. 153 citations.
+
+*Summary pending.*
 
 ### [A note on leveraging synergy in multiple meteorological data sets with deep learning for rainfall–runoff modeling](https://doi.org/10.31223/osf.io/pjm5a)
 Kratzert et al. (2020), *Hydrology and Earth System Sciences*. 152 citations.
@@ -28417,6 +30060,26 @@ Li et al. (2023), *Nature Communications*. 152 citations.
 - **Issues:** Attribution relies on satellite proxies with their own retrieval uncertainties; separating physiology from structure is model-dependent.
 - *Basis: abstract*
 
+### [Long lead time drought forecasting using lagged climate variables and a stacked long short-term memory model.](https://doi.org/10.1016/j.scitotenv.2020.142638)
+Dikshit et al. (2020), *Science of The Total Environment*. 152 citations.
+
+*Summary pending.*
+
+### [Snow avalanche hazard prediction using machine learning methods](https://doi.org/10.1016/j.jhydrol.2019.123929)
+Choubin et al. (2019), *Journal of Hydrology*. 152 citations.
+
+*Summary pending.*
+
+### [Flood prediction based on weather parameters using deep learning](https://doi.org/10.2166/wcc.2019.321)
+Sankaranarayanan et al. (2019), *Journal of Water and Climate Change*. 152 citations.
+
+*Summary pending.*
+
+### [Flash flood susceptibility mapping using a novel deep learning model based on deep belief network, back propagation and genetic algorithm](https://doi.org/10.1016/j.gsf.2020.10.007)
+Shahabi et al. (2020), *Geoscience Frontiers*. 152 citations.
+
+*Summary pending.*
+
 ### [A comprehensive study of deep learning for soil moisture prediction](https://doi.org/10.5194/hess-28-917-2024)
 Wang et al. (2024), *Hydrology and Earth System Sciences*. 151 citations.
 
@@ -28461,6 +30124,26 @@ Young et al. (2017), *Applied Soft Computing*. 151 citations.
 - **Issues:** Limited number of extreme events; site-specific calibration; details partly from knowledge, abstract not available.
 - *Basis: abstract+knowledge*
 
+### [Novel hybrid intelligence models for flood-susceptibility prediction: Meta optimization of the GMDH and SVR models with the genetic algorithm and harmony search](https://doi.org/10.1016/j.jhydrol.2020.125423)
+Dodangeh et al. (2020), *Journal of Hydrology*. 151 citations.
+
+*Summary pending.*
+
+### [Exploring effectiveness of frequency ratio and support vector machine models in storm surge flood susceptibility assessment: A study of Sundarban Biosphere Reserve, India](https://doi.org/10.1016/j.catena.2019.104450)
+Sahana et al. (2020), *CATENA*. 151 citations.
+
+*Summary pending.*
+
+### [Comparison of stochastic and machine learning methods for multi-step ahead forecasting of hydrological processes](https://doi.org/10.1007/s00477-018-1638-6)
+Papacharalampous et al. (2019), *Stochastic Environmental Research and Risk Assessment*. 151 citations.
+
+*Summary pending.*
+
+### [Multi-step ahead forecasting of daily reference evapotranspiration using deep learning](https://doi.org/10.1016/j.compag.2020.105728)
+Ferreira et al. (2020), *Computers and Electronics in Agriculture*. 151 citations.
+
+*Summary pending.*
+
 ### [Support-Vector-Machine-Based Models for Modeling Daily Reference Evapotranspiration With Limited Climatic Data in Extreme Arid Regions](https://doi.org/10.1007/s11269-015-0990-2)
 Wen et al. (2015), *Water Resources Management*. 150 citations.
 
@@ -28482,6 +30165,16 @@ Karandish et al. (2016), *Journal of Hydrology*. 150 citations.
 - **Open work:** Test generalization of the data-driven models to other soils and management.
 - **Issues:** Single field site; ML models lack physical consistency and transferability; details partly from knowledge.
 - *Basis: abstract+knowledge*
+
+### [Reconstruction of missing groundwater level data by using Long Short-Term Memory (LSTM) deep neural network](https://doi.org/10.1016/j.jhydrol.2020.125776)
+Vu et al. (2020), *Journal of Hydrology*. 150 citations.
+
+*Summary pending.*
+
+### [Forecasting of water level in multiple temperate lakes using machine learning models](https://doi.org/10.1016/j.jhydrol.2020.124819)
+Zhu et al. (2020), *Journal of Hydrology*. 150 citations.
+
+*Summary pending.*
 
 ### [Integration of artificial neural networks with conceptual models in rainfall-runoff modeling](https://doi.org/10.1016/j.jhydrol.2005.06.017)
 Chen et al. (2006), *Journal of Hydrology*. 149 citations.
@@ -28736,6 +30429,11 @@ Granata et al. (2021), *Agricultural Water Management*. 145 citations.
 - **Issues:** Details unavailable without the abstract; site-based results may not transfer.
 - *Basis: assessment*
 
+### [Physics-Guided Architecture (PGA) of Neural Networks for Quantifying Uncertainty in Lake Temperature Modeling](https://doi.org/10.1137/1.9781611976236.60)
+Daw et al. (2019), *SDM*. 145 citations.
+
+*Summary pending.*
+
 ### [Prediction of Flow Based on a CNN-LSTM Combined Deep Learning Approach](https://doi.org/10.3390/w14060993)
 Li et al. (2022), *Water*. 144 citations.
 
@@ -28791,6 +30489,16 @@ Kasiviswanathan et al. (2016), *Journal of Hydrology*. 144 citations.
 - **Issues:** Details unavailable without the abstract; wavelet-based inputs can introduce boundary effects in real-time use.
 - *Basis: assessment*
 
+### [Comparing Thresholding with Machine Learning Classifiers for Mapping Complex Water](https://doi.org/10.3390/rs11111351)
+Bangira et al. (2019), *Remote Sensing*. 144 citations.
+
+*Summary pending.*
+
+### [Operation rule derivation of hydropower reservoir by k-means clustering method and extreme learning machine based on particle swarm optimization](https://doi.org/10.1016/j.jhydrol.2019.06.045)
+Feng et al. (2019), *Journal of Hydrology*. 144 citations.
+
+*Summary pending.*
+
 ### [Enhancing predictive skills in physically-consistent way: Physics Informed Machine Learning for Hydrological Processes](https://doi.org/10.1016/j.jhydrol.2022.128618)
 Bhasme et al. (2021), *Journal of Hydrology*. 143 citations.
 
@@ -28845,6 +30553,16 @@ Song et al. (2016), *Journal of Arid Land*. 143 citations.
 - **Open work:** Longer simulations and other regions are natural extensions.
 - **Issues:** Details unavailable without the abstract.
 - *Basis: assessment*
+
+### [Employing Machine Learning Algorithms for Streamflow Prediction: A Case Study of Four River Basins with Different Climatic Zones in the United States](https://doi.org/10.1007/s11269-020-02659-5)
+Parisouj et al. (2020), *Water Resources Management*. 143 citations.
+
+*Summary pending.*
+
+### [Development of multivariate adaptive regression spline integrated with differential evolution model for streamflow simulation](https://doi.org/10.1016/j.jhydrol.2019.03.004)
+Al-Sudani et al. (2019), *Journal of Hydrology*. 143 citations.
+
+*Summary pending.*
 
 ### [Estimating evapotranspiration from temperature and wind speed data using artificial and wavelet neural networks (WNNs)](https://doi.org/10.1016/j.agwat.2014.03.014)
 Falamarzi et al. (2014), *Agricultural Water Management*. 142 citations.
@@ -28934,6 +30652,26 @@ Shoaib et al. (2014), *Journal of Hydrology*. 141 citations.
 - **Issues:** Single-catchment study; deep decomposition levels may involve boundary effects and potential use of future information in preprocessing.
 - *Basis: abstract*
 
+### [Can deep learning algorithms outperform benchmark machine learning algorithms in flood susceptibility modeling?](https://doi.org/10.1016/j.jhydrol.2020.125615)
+Pham et al. (2020), *Journal of Hydrology*. 141 citations.
+
+*Summary pending.*
+
+### [Explore an evolutionary recurrent ANFIS for modelling multi-step-ahead flood forecasts](https://doi.org/10.1016/j.jhydrol.2018.12.040)
+Zhou et al. (2019), *Journal of Hydrology*. 141 citations.
+
+*Summary pending.*
+
+### [Estimating Agricultural Soil Moisture Content through UAV-Based Hyperspectral Images in the Arid Region](https://doi.org/10.3390/rs13081562)
+Ge et al. (2021), *Remote Sensing*. 141 citations.
+
+*Summary pending.*
+
+### [Deep learning neural networks for spatially explicit prediction of flash flood probability](https://doi.org/10.1016/j.gsf.2020.09.007)
+Panahi et al. (2020), *Geoscience Frontiers*. 141 citations.
+
+*Summary pending.*
+
 ### [Evaluation of random forests for short-term daily streamflow forecasting in rainfall- and snowmelt-driven watersheds](https://doi.org/10.5194/hess-25-2997-2021)
 Pham et al. (2021), *Hydrology and Earth System Sciences*. 140 citations.
 
@@ -28967,6 +30705,26 @@ Yin et al. (2022), *Journal of Hydrology*. 140 citations.
 - **Issues:** Evaluation limited to CAMELS US catchments; transformer models need more data and compute and offer limited physical interpretability.
 - *Basis: abstract+knowledge*
 
+### [Modeling and Uncertainty Analysis of Groundwater Level Using Six Evolutionary Optimization Algorithms Hybridized with ANFIS, SVM, and ANN](https://doi.org/10.3390/su12104023)
+Seifi et al. (2020), *Sustainability*. 140 citations.
+
+*Summary pending.*
+
+### [Artificial Neural Networks for Flood Susceptibility Mapping in Data-Scarce Urban Areas](https://doi.org/10.1016/b978-0-12-815226-3.00014-4)
+Falah et al. (2019), *Spatial Modeling in GIS and R for Earth and Environmental Sciences*. 140 citations.
+
+*Summary pending.*
+
+### [Machine learning techniques for monthly river flow forecasting of Hunza River, Pakistan](https://doi.org/10.1007/s12145-020-00450-z)
+Hussain et al. (2020), *Earth Science Informatics*. 140 citations.
+
+*Summary pending.*
+
+### [Forecast of short-term daily reference evapotranspiration under limited meteorological variables using a hybrid bi-directional long short-term memory model (Bi-LSTM)](https://doi.org/10.1016/j.agwat.2020.106386)
+Yin et al. (2020), *Agricultural Water Management*. 140 citations.
+
+*Summary pending.*
+
 ### [The classification of hydrologically homogeneous regions](https://doi.org/10.1080/02626669909492268)
 Hall et al. (1999), *Hydrological Sciences Journal*. 139 citations.
 
@@ -28999,6 +30757,16 @@ Woznicki et al. (2018), *Science of The Total Environment*. 139 citations.
 - **Open work:** Validation of identified headwater floodplains and improved performance in arid regions.
 - **Issues:** Trained on FEMA maps that are themselves incomplete or outdated; static map without climate change or event-specific inundation.
 - *Basis: abstract*
+
+### [Long‐Term (1979‐Present) Total Water Storage Anomalies Over the Global Land Derived by Reconstructing GRACE Data](https://doi.org/10.1029/2021gl093492)
+Li et al. (2021), *Geophysical Research Letters*. 139 citations.
+
+*Summary pending.*
+
+### [Urban flood susceptibility assessment based on convolutional neural networks](https://doi.org/10.1016/j.jhydrol.2020.125235)
+Zhao et al. (2020), *Journal of Hydrology*. 139 citations.
+
+*Summary pending.*
 
 ### [Deep learning, hydrological processes and the uniqueness of place](https://doi.org/10.1002/hyp.13805)
 Beven (2020), *Hydrological Processes*. 138 citations.
@@ -29055,6 +30823,21 @@ Degiorgis et al. (2012), *Journal of Hydrology*. 138 citations.
 - **Issues:** No abstract available; accuracy depends on the reference flood maps used for training.
 - *Basis: assessment*
 
+### [A hybrid deep learning algorithm and its application to streamflow prediction](https://doi.org/10.1016/j.jhydrol.2021.126636)
+Lin et al. (2021), *Journal of Hydrology*. 138 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility mapping by integrating frequency ratio and index of entropy with multilayer perceptron and classification and regression tree.](https://doi.org/10.1016/j.jenvman.2021.112449)
+Wang et al. (2021), *Journal of Environmental Management*. 138 citations.
+
+*Summary pending.*
+
+### [Comparison of Multiple Linear Regression, Artificial Neural Network, Extreme Learning Machine, and Support Vector Machine in Deriving Operation Rule of Hydropower Reservoir](https://doi.org/10.3390/w11010088)
+Niu et al. (2019), *Water*. 138 citations.
+
+*Summary pending.*
+
 ### [The Value of SMAP for Long-Term Soil Moisture Estimation With the Help of Deep Learning](https://doi.org/10.1109/tgrs.2018.2872131)
 Fang et al. (2019), *IEEE Transactions on Geoscience and Remote Sensing*. 137 citations.
 
@@ -29098,6 +30881,26 @@ Talei et al. (2010), *Expert Systems with Applications*. 137 citations.
 - **Open work:** Testing on more catchments and comparison with physically based models.
 - **Issues:** No abstract available; event-based setting and data details cannot be verified.
 - *Basis: assessment*
+
+### [Daily reference evapotranspiration prediction based on hybridized extreme learning machine model with bio-inspired optimization algorithms: Application in contrasting climates of China](https://doi.org/10.1016/j.jhydrol.2019.123960)
+Wu et al. (2019), *Journal of Hydrology*. 137 citations.
+
+*Summary pending.*
+
+### [Identification of areas prone to flash-flood phenomena using multiple-criteria decision-making, bivariate statistics, machine learning and their ensembles.](https://doi.org/10.1016/j.scitotenv.2019.136492)
+Costache et al. (2020), *Science of The Total Environment*. 137 citations.
+
+*Summary pending.*
+
+### [An ANN-based emulation modelling framework for flood inundation modelling: Application, challenges and future directions](https://doi.org/10.1016/j.envsoft.2019.104587)
+Chu et al. (2020), *Environmental Modelling & Software*. 137 citations.
+
+*Summary pending.*
+
+### [A hybrid support vector regression framework for streamflow forecast](https://doi.org/10.1016/j.jhydrol.2018.10.064)
+Luo et al. (2019), *Journal of Hydrology*. 137 citations.
+
+*Summary pending.*
 
 ### [Evaluation and machine learning improvement of global hydrological model-based flood simulations](https://doi.org/10.1088/1748-9326/ab4d5e)
 Yang et al. (2019), *Environmental Research Letters*. 136 citations.
@@ -29164,6 +30967,11 @@ Liao et al. (2023), *Journal of Hydrology*. 136 citations.
 - **Open work:** Generalization to unseen rainfall patterns and cities, and including drainage network effects.
 - **Issues:** No abstract available; as a surrogate it inherits hydrodynamic model errors.
 - *Basis: assessment*
+
+### [Comparison of physical-based, data-driven and hybrid modeling approaches for evapotranspiration estimation](https://doi.org/10.1016/j.jhydrol.2021.126592)
+Hu et al. (2021), *Journal of Hydrology*. 136 citations.
+
+*Summary pending.*
 
 ### [The Data Synergy Effects of Time‐Series Deep Learning Models in Hydrology](https://doi.org/10.1029/2021wr029583)
 Fang et al. (2021), *Water Resources Research*. 135 citations.
@@ -29275,6 +31083,16 @@ Wang et al. (2024), *Journal of Hydrology*. 134 citations.
 - **Issues:** Card based on the title only; SHAP attributions reflect correlations, not causation.
 - *Basis: assessment*
 
+### [Interpretable vs. noninterpretable machine learning models for data-driven hydro-climatological process modeling](https://doi.org/10.1016/j.eswa.2020.114498)
+Chakraborty et al. (2021), *Expert Systems with Applications*. 134 citations.
+
+*Summary pending.*
+
+### [Hybrid forecasting model for non-stationary daily runoff series: A case study in the Han River Basin, China](https://doi.org/10.1016/j.jhydrol.2019.123915)
+Xie et al. (2019), *Journal of Hydrology*. 134 citations.
+
+*Summary pending.*
+
 ### [Stream flow forecasting using neuro‐wavelet technique](https://doi.org/10.1002/hyp.7014)
 Kisi (2008), *Hydrological Processes*. 133 citations.
 
@@ -29341,6 +31159,21 @@ Yao et al. (2017), *Agricultural and Forest Meteorology*. 133 citations.
 - **Issues:** Flux towers unevenly distributed; details could not be verified from an abstract.
 - *Basis: abstract+knowledge*
 
+### [Quantifying Climate and Catchment Control on Hydrological Drought in the Continental United States](https://doi.org/10.1029/2018wr024620)
+Konapala et al. (2020), *Water Resources Research*. 133 citations.
+
+*Summary pending.*
+
+### [Flood risk assessment for Davao Oriental in the Philippines using geographic information system‐based multi‐criteria analysis and the maximum entropy model](https://doi.org/10.1111/jfr3.12607)
+Cabrera et al. (2020), *Journal of Flood Risk Management*. 133 citations.
+
+*Summary pending.*
+
+### [Comparative assessment of the flash-flood potential within small mountain catchments using bivariate statistics and their novel hybrid integration with machine learning models.](https://doi.org/10.1016/j.scitotenv.2019.134514)
+Costache et al. (2019), *Science of The Total Environment*. 133 citations.
+
+*Summary pending.*
+
 ### [Can artificial intelligence and data-driven machine learning models match or even replace process-driven hydrologic models for streamflow simulation?: A case study of four watersheds with different hydro-climatic regions across the CONUS](https://doi.org/10.1016/j.jhydrol.2021.126423)
 Kim et al. (2021), *Journal of Hydrology*. 132 citations.
 
@@ -29384,6 +31217,11 @@ Granata et al. (2022), *Journal of Hydrology*. 132 citations.
 - **Open work:** Test on more rivers and lead times.
 - **Issues:** Card based on the title only; data and results could not be verified.
 - *Basis: assessment*
+
+### [Downscaling GRACE TWSA Data into High-Resolution Groundwater Level Anomaly Using Machine Learning-Based Models in a Glacial Aquifer System](https://doi.org/10.3390/rs11070824)
+Seyoum et al. (2019), *Remote Sensing*. 132 citations.
+
+*Summary pending.*
 
 ### [Deep learning hybrid model with Boruta-Random forest optimiser algorithm for streamflow forecasting with climate mode indices, rainfall, and periodicity](https://doi.org/10.1016/j.jhydrol.2021.126350)
 Ahmed et al. (2021), *Journal of Hydrology*. 131 citations.
@@ -29429,6 +31267,21 @@ Galelli et al. (2013), *Hydrology and Earth System Sciences*. 131 citations.
 - **Issues:** Two case studies only; no uncertainty quantification; data-driven model without physical constraints.
 - *Basis: abstract*
 
+### [Rainfall-runoff modeling using LSTM-based multi-state-vector sequence-to-sequence model](https://doi.org/10.1016/j.jhydrol.2021.126378)
+Yin et al. (2021), *Journal of Hydrology*. 131 citations.
+
+*Summary pending.*
+
+### [Machine Learning-Based CYGNSS Soil Moisture Estimates over ISMN sites in CONUS](https://doi.org/10.3390/rs12071168)
+Senyurek et al. (2020), *Remote Sensing*. 131 citations.
+
+*Summary pending.*
+
+### [Soil moisture simulation using hybrid artificial intelligent model: Hybridization of adaptive neuro fuzzy inference system with grey wolf optimizer algorithm](https://doi.org/10.1016/j.jhydrol.2019.05.045)
+Maroufpoor et al. (2019), *Journal of Hydrology*. 131 citations.
+
+*Summary pending.*
+
 ### [Soil moisture retrieval from remotely sensed data: Neural network approach versus Bayesian method](https://doi.org/10.1109/tgrs.2007.909951)
 Notarnicola et al. (2008), *IEEE Transactions on Geoscience and Remote Sensing*. 130 citations.
 
@@ -29472,6 +31325,11 @@ Kisi (2016), *Agricultural Water Management*. 130 citations.
 - **Open work:** Cross-station and cross-climate validation of the models.
 - **Issues:** Station-based study with limited spatial transferability; targets are themselves empirical estimates; no abstract available.
 - *Basis: abstract+knowledge*
+
+### [Support vector regression optimized by meta-heuristic algorithms for daily streamflow prediction](https://doi.org/10.1007/s00477-020-01874-1)
+Malik et al. (2020), *Stochastic Environmental Research and Risk Assessment*. 130 citations.
+
+*Summary pending.*
 
 ### [Explore Spatio‐Temporal Learning of Large Sample Hydrology Using Graph Neural Networks](https://doi.org/10.1029/2021wr030394)
 Sun et al. (2021), *Water Resources Research*. 129 citations.
@@ -29549,6 +31407,21 @@ Pham-Duc et al. (2017), *Water*. 129 citations.
 - **Open work:** Extending to other regions and drought indices and quantifying forecast uncertainty.
 - **Issues:** Regional study; skill depends on teleconnection stability; no abstract available.
 - *Basis: abstract+knowledge*
+
+### [From local to regional compound flood mapping with deep learning and data fusion techniques](https://doi.org/10.1016/j.scitotenv.2021.146927)
+Muñoz et al. (2021), *Science of The Total Environment*. 129 citations.
+
+*Summary pending.*
+
+### [Rainfall-runoff modelling using improved machine learning methods: Harris hawks optimizer vs. particle swarm optimization](https://doi.org/10.1016/j.jhydrol.2020.125133)
+Tikhamarine et al. (2020), *Journal of Hydrology*. 129 citations.
+
+*Summary pending.*
+
+### [Modelling reference evapotranspiration using a new wavelet conjunction heuristic method: Wavelet extreme learning machine vs wavelet neural networks](https://doi.org/10.1016/j.agrformet.2018.08.007)
+Kisi et al. (2018), *Agricultural and Forest Meteorology*. 129 citations.
+
+*Summary pending.*
 
 ### [Prévision hydrologique par réseaux de neurones artificiels : état de l'art](https://doi.org/10.1139/l98-069)
 Coulibaly et al. (1999), *Canadian Journal of Civil Engineering*. 128 citations.
@@ -29649,6 +31522,11 @@ Sun et al. (2022), *Journal of Hydrology*. 128 citations.
 - **Issues:** Method and data details unavailable; no abstract available.
 - *Basis: assessment*
 
+### [Estimation of monthly reference evapotranspiration using novel hybrid machine learning approaches](https://doi.org/10.1080/02626667.2019.1678750)
+Tikhamarine et al. (2019), *Hydrological Sciences Journal*. 128 citations.
+
+*Summary pending.*
+
 ### [Simulation and prediction of suprapermafrost groundwater level variation in response to climate change using a neural network model](https://doi.org/10.1016/j.jhydrol.2015.09.038)
 Chang et al. (2015), *Journal of Hydrology*. 127 citations.
 
@@ -29726,6 +31604,11 @@ Kim et al. (2010), *Journal of Hydrology*. 127 citations.
 - **Issues:** Single watershed; no abstract available.
 - *Basis: assessment*
 
+### [Estimating surface soil moisture from SMAP observations using a Neural Network technique.](https://doi.org/10.1016/j.rse.2017.10.045)
+Kolassa et al. (2018), *Remote Sensing of Environment*. 127 citations.
+
+*Summary pending.*
+
 ### [NeuralHydrology - A Python library for Deep Learning research in hydrology](https://doi.org/10.21105/joss.04050)
 Kratzert et al. (2022), *Journal of Open Source Software*. 126 citations.
 
@@ -29758,6 +31641,16 @@ Pasolli et al. (2011), *IEEE Geoscience and Remote Sensing Letters*. 126 citatio
 - **Open work:** Extending to more sites and sensors and handling vegetation effects.
 - **Issues:** Limited training data; no abstract available.
 - *Basis: assessment*
+
+### [Generating high-resolution daily soil moisture by using spatial downscaling techniques: a comparison of six machine learning algorithms](https://doi.org/10.1016/j.advwatres.2020.103601)
+Liu et al. (2020), *Advances in Water Resources*. 126 citations.
+
+*Summary pending.*
+
+### [Drought monitoring and prediction using SPI, SPEI, and random forest model in various climates of Iran](https://doi.org/10.2166/wcc.2021.287)
+Lotfirad et al. (2021), *Journal of Water and Climate Change*. 126 citations.
+
+*Summary pending.*
 
 ### [Applications of fuzzy logic to the prediction of soil erosion in a large watershed](https://doi.org/10.1016/s0016-7061(98)00050-0)
 Mitra et al. (1998), *Geoderma*. 125 citations.
@@ -29813,6 +31706,16 @@ Lu et al. (2023), *Water*. 125 citations.
 - **Open work:** Applying to other basins, longer lead times and probabilistic forecasting.
 - **Issues:** Single reservoir; lead time and inputs unclear; no uncertainty quantification or extreme-flood analysis.
 - *Basis: abstract*
+
+### [Flash-Flood Potential assessment in the upper and middle sector of Prahova river catchment (Romania). A comparative approach between four hybrid models.](https://doi.org/10.1016/j.scitotenv.2018.12.397)
+Costache (2019), *Science of The Total Environment*. 125 citations.
+
+*Summary pending.*
+
+### [Examining LightGBM and CatBoost models for wadi flash flood susceptibility prediction](https://doi.org/10.1080/10106049.2021.1974959)
+Saber et al. (2021), *Geocarto International*. 125 citations.
+
+*Summary pending.*
 
 ### [Artificial neural networks in drought prediction in the 21st century-A scientometric analysis](https://doi.org/10.1016/j.asoc.2021.108080)
 Dikshit et al. (2021), *Applied Soft Computing*. 124 citations.
@@ -29901,6 +31804,31 @@ Martí et al. (2015), *Agricultural Water Management*. 124 citations.
 - **Open work:** Wider use of experimental targets for training and evaluating ET0 models; four new GEP equations provided.
 - **Issues:** Few lysimeter stations; conclusions from calculated-only benchmarks may be misleading, which also affects much prior literature.
 - *Basis: abstract*
+
+### [Comparison of support vector regression and extreme gradient boosting for decomposition-based data-driven 10-day streamflow forecasting](https://doi.org/10.1016/j.jhydrol.2019.124293)
+Yu et al. (2020), *Journal of Hydrology*. 124 citations.
+
+*Summary pending.*
+
+### [Modeling monthly pan evaporation using wavelet support vector regression and wavelet artificial neural networks in arid and humid climates](https://doi.org/10.1080/19942060.2018.1564702)
+Qasem et al. (2019), *Engineering Applications of Computational Fluid Mechanics*. 124 citations.
+
+*Summary pending.*
+
+### [How Do Climate and Catchment Attributes Influence Flood Generating Processes? A Large‐Sample Study for 671 Catchments Across the Contiguous USA](https://doi.org/10.1029/2020wr028300)
+Stein et al. (2021), *Water Resources Research*. 124 citations.
+
+*Summary pending.*
+
+### [Forecasting monthly precipitation using sequential modelling](https://doi.org/10.1080/02626667.2019.1595624)
+Kumar et al. (2019), *Hydrological Sciences Journal*. 124 citations.
+
+*Summary pending.*
+
+### [Mapping flood susceptibility in an arid region of southern Iraq using ensemble machine learning classifiers: a comparative study](https://doi.org/10.1007/s12517-018-3584-5)
+Alabadi (2018), *Arabian Journal of Geosciences*. 124 citations.
+
+*Summary pending.*
 
 ### [Comparative applications of data-driven models representing water table fluctuations](https://doi.org/10.1016/j.jhydrol.2019.02.051)
 Jeong et al. (2018), *Journal of Hydrology*. 123 citations.
@@ -30023,6 +31951,36 @@ Boo et al. (2024), *Water Research*. 123 citations.
 - **Issues:** Limited to WoS 2017–2023; reported exceptional results may reflect publication bias.
 - *Basis: abstract*
 
+### [Spatial predication of flood zonation mapping in Kan River Basin, Iran, using artificial neural network algorithm](https://doi.org/10.1016/j.wace.2019.100215)
+Jahangir et al. (2019), *Weather and Climate Extremes*. 123 citations.
+
+*Summary pending.*
+
+### [A review on the applications of machine learning for runoff modeling](https://doi.org/10.1007/s40899-021-00584-y)
+Mohammadi (2021), *Sustainable Water Resources Management*. 123 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility mapping and assessment using a novel deep learning model combining multilayer perceptron and autoencoder neural networks](https://doi.org/10.1111/jfr3.12683)
+Ahmadlou et al. (2020), *Journal of Flood Risk Management*. 123 citations.
+
+*Summary pending.*
+
+### [Two-phase extreme learning machines integrated with the complete ensemble empirical mode decomposition with adaptive noise algorithm for multi-scale runoff prediction problems](https://doi.org/10.1016/j.jhydrol.2018.12.060)
+Wen et al. (2019), *Journal of Hydrology*. 123 citations.
+
+*Summary pending.*
+
+### [Artificial intelligence modelling integrated with Singular Spectral analysis and Seasonal-Trend decomposition using Loess approaches for streamflow predictions](https://doi.org/10.1016/j.jhydrol.2021.126506)
+Apaydin et al. (2021), *Journal of Hydrology*. 123 citations.
+
+*Summary pending.*
+
+### [Modelling of daily lake surface water temperature from air temperature: Extremely randomized trees (ERT) versus Air2Water, MARS, M5Tree, RF and MLPNN](https://doi.org/10.1016/j.jhydrol.2020.125130)
+Heddam et al. (2020), *Journal of Hydrology*. 123 citations.
+
+*Summary pending.*
+
 ### [Application of artificial neural networks in regional flood frequency analysis: a case study for Australia](https://doi.org/10.1007/s00477-013-0771-5)
 Aziz et al. (2014), *Stochastic Environmental Research and Risk Assessment*. 122 citations.
 
@@ -30044,6 +32002,26 @@ Chen et al. (2013), *Journal of Hydrology*. 122 citations.
 - **Open work:** Extending to longer horizons and coupling with rainfall forecasts.
 - **Issues:** Error accumulation at longer steps; limited number of flood events; single catchment study.
 - *Basis: assessment*
+
+### [Downscaling of GRACE-Derived Groundwater Storage Based on the Random Forest Model](https://doi.org/10.3390/rs11242979)
+Chen et al. (2019), *Remote Sensing*. 122 citations.
+
+*Summary pending.*
+
+### [Groundwater spring potential mapping using population-based evolutionary algorithms and data mining methods.](https://doi.org/10.1016/j.scitotenv.2019.05.312)
+Chen et al. (2019), *Science of The Total Environment*. 122 citations.
+
+*Summary pending.*
+
+### [Daily Runoff Forecasting Using a Hybrid Model Based on Variational Mode Decomposition and Deep Neural Networks](https://doi.org/10.1007/s11269-019-2183-x)
+He et al. (2019), *Water Resources Management*. 122 citations.
+
+*Summary pending.*
+
+### [Ensemble modelling framework for groundwater level prediction in urban areas of India.](https://doi.org/10.1016/j.scitotenv.2019.135539)
+Yadav et al. (2019), *Science of The Total Environment*. 122 citations.
+
+*Summary pending.*
 
 ### [Groundwater Estimation from Major Physical Hydrology Components Using Artificial Neural Networks and Deep Learning](https://doi.org/10.3390/w12010005)
 Afzaal et al. (2019), *Water*. 121 citations.
@@ -30099,6 +32077,36 @@ Mohanty et al. (2015), *Water Resources Management*. 121 citations.
 - **Open work:** Longer-lead forecasts, uncertainty estimates and coupling with physically based models are natural extensions.
 - **Issues:** Purely data-driven, basin-specific model; performance depends on the observation record and may not transfer to other aquifers.
 - *Basis: assessment*
+
+### [Support vector regression snow-depth retrieval algorithm using passive microwave remote sensing data](https://doi.org/10.1016/j.rse.2018.03.008)
+Xiao et al. (2018), *Remote Sensing of Environment*. 121 citations.
+
+*Summary pending.*
+
+### [Comparison of Data‐Driven Techniques to Reconstruct (1992–2002) and Predict (2017–2018) GRACE‐Like Gridded Total Water Storage Changes Using Climate Inputs](https://doi.org/10.1029/2019wr026551)
+Li et al. (2020), *Water Resources Research*. 121 citations.
+
+*Summary pending.*
+
+### [Multi-station artificial intelligence based ensemble modeling of reference evapotranspiration using pan evaporation measurements](https://doi.org/10.1016/j.jhydrol.2019.123958)
+Nourani et al. (2019), *Journal of Hydrology*. 121 citations.
+
+*Summary pending.*
+
+### [Multi3Net: Segmenting Flooded Buildings via Fusion of Multiresolution, Multisensor, and Multitemporal Satellite Imagery](https://doi.org/10.1609/aaai.v33i01.3301702)
+Rudner et al. (2018), *AAAI Conference on Artificial Intelligence*. 121 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility assessment based on a novel random Naïve Bayes method: A comparison between different factor discretization methods](https://doi.org/10.1016/j.catena.2020.104536)
+Tang et al. (2020), *CATENA*. 121 citations.
+
+*Summary pending.*
+
+### [Modeling groundwater potential using novel GIS-based machine-learning ensemble techniques](https://doi.org/10.1016/j.ejrh.2021.100848)
+Arabameri et al. (2021), *Journal of Hydrology: Regional Studies*. 121 citations.
+
+*Summary pending.*
 
 ### [Weekly soil moisture forecasting with multivariate sequential, ensemble empirical mode decomposition and Boruta-random forest hybridizer algorithm approach](https://doi.org/10.1016/j.catena.2019.02.012)
 Prasad et al. (2019), *CATENA*. 120 citations.
@@ -30177,6 +32185,31 @@ Farajzadeh et al. (2014), *Water Resources and Industry*. 119 citations.
 - **Issues:** Modest correlation; multi-year extrapolation from past rainfall alone and a fixed runoff coefficient ignore climate and land-use change.
 - *Basis: abstract*
 
+### [Dongting Lake Water Level Forecast and Its Relationship with the Three Gorges Dam Based on a Long Short-Term Memory Network](https://doi.org/10.3390/w10101389)
+Liang et al. (2018), *Water*. 119 citations.
+
+*Summary pending.*
+
+### [A hybrid support vector regression–firefly model for monthly rainfall forecasting](https://doi.org/10.1007/s13762-018-1674-2)
+Mehr et al. (2018), *International Journal of Environmental Science and Technology*. 119 citations.
+
+*Summary pending.*
+
+### [A review on flood management technologies related to image processing and machine learning](https://doi.org/10.1016/j.autcon.2021.103916)
+Munawar et al. (2021), *Automation in Construction*. 119 citations.
+
+*Summary pending.*
+
+### [Machine Learning Applications in Hydrology](https://doi.org/10.1007/978-3-030-26086-6_10)
+Lange et al. (2020), *Venue not recorded*. 119 citations.
+
+*Summary pending.*
+
+### [Groundwater level prediction in Apulia region (Southern Italy) using NARX neural network.](https://doi.org/10.1016/j.envres.2020.110062)
+Nunno et al. (2020), *Environmental Research*. 119 citations.
+
+*Summary pending.*
+
 ### [Machine-learning methods for stream water temperature prediction](https://doi.org/10.5194/hess-25-2951-2021)
 Feigl et al. (2021), *Hydrology and Earth System Sciences*. 118 citations.
 
@@ -30243,6 +32276,16 @@ Piotrowski et al. (2015), *Journal of Hydrology*. 118 citations.
 - **Issues:** Abstract unavailable; findings may be specific to the studied catchments and inputs.
 - *Basis: assessment*
 
+### [A Comparative Assessment of Artificial Neural Network, Generalized Regression Neural Network, Least-Square Support Vector Regression, and K-Nearest Neighbor Regression for Monthly Streamflow Forecasting in Linear and Nonlinear Conditions](https://doi.org/10.1007/s11269-017-1807-2)
+Modaresi et al. (2018), *Water Resources Management*. 118 citations.
+
+*Summary pending.*
+
+### [Comparison of Deep Learning Techniques for River Streamflow Forecasting](https://doi.org/10.1109/access.2021.3077703)
+Le et al. (2021), *IEEE Access*. 118 citations.
+
+*Summary pending.*
+
 ### [Performance Evaluation of Artificial Neural Networks for Runoff Prediction](https://doi.org/10.1061/(asce)1084-0699(2000)5:4(424))
 Elshorbagy et al. (2000), *Journal of Hydrologic Engineering*. 117 citations.
 
@@ -30308,6 +32351,16 @@ Ali et al. (2023), *Remote Sensing*. 117 citations.
 - **Open work:** Validation of downscaled storage against independent in situ groundwater data.
 - **Issues:** Near-perfect scores are against GRACE-derived values, not independent fine-scale truth; downscaled detail is limited by predictor information.
 - *Basis: abstract*
+
+### [Novel hybrid models between bivariate statistics, artificial neural networks and boosting algorithms for flood susceptibility assessment.](https://doi.org/10.1016/j.jenvman.2020.110485)
+Costache et al. (2020), *Journal of Environmental Management*. 117 citations.
+
+*Summary pending.*
+
+### [Ensemble models of GLM, FDA, MARS, and RF for flood and erosion susceptibility mapping: a priority assessment of sub-basins](https://doi.org/10.1080/10106049.2020.1829101)
+Mosavi et al. (2020), *Geocarto International*. 117 citations.
+
+*Summary pending.*
 
 ### [Hydrologically Informed Machine Learning for Rainfall‐Runoff Modeling: A Genetic Programming‐Based Toolkit for Automatic Model Induction](https://doi.org/10.1029/2019wr026933)
 Chadalawada et al. (2020), *Water Resources Research*. 116 citations.
@@ -30419,6 +32472,26 @@ Piotrowski et al. (2011), *Journal of Hydrology*. 116 citations.
 - **Issues:** Conclusions depend on the chosen catchment, network sizes and optimizer settings; no abstract available to confirm results.
 - *Basis: assessment*
 
+### [Urban pluvial flooding prediction by machine learning approaches – a case study of Shenzhen city, China](https://doi.org/10.1016/j.advwatres.2020.103719)
+Ke et al. (2020), *Advances in Water Resources*. 116 citations.
+
+*Summary pending.*
+
+### [Using artificial neural network models for groundwater level forecasting and assessment of the relative impacts of influencing factors](https://doi.org/10.1007/s10040-018-1866-3)
+Lee et al. (2018), *Hydrogeology Journal*. 116 citations.
+
+*Summary pending.*
+
+### [DEM Resolution Effects on Machine Learning Performance for Flood Probability Mapping](https://doi.org/10.1016/j.jher.2021.10.002)
+Avand et al. (2021), *Journal of Hydro-environment Research*. 116 citations.
+
+*Summary pending.*
+
+### [Modeling the fluctuations of groundwater level by employing ensemble deep learning techniques](https://doi.org/10.1080/19942060.2021.1974093)
+Afan et al. (2021), *Engineering Applications of Computational Fluid Mechanics*. 116 citations.
+
+*Summary pending.*
+
 ### [Artificial neural networks for streamflow prediction](https://doi.org/10.1080/00221680209499899)
 Dolling et al. (2002), *Journal of Hydraulic Research*. 115 citations.
 
@@ -30473,6 +32546,21 @@ Panda et al. (2010), *Computers & Geosciences*. 115 citations.
 - **Open work:** Couple ANN and hydrodynamic models, and test under extreme floods.
 - **Issues:** ANN cannot extrapolate beyond observed conditions; single river reach; no abstract available.
 - *Basis: assessment*
+
+### [A Comparative Study of Kernel Logistic Regression, Radial Basis Function Classifier, Multinomial Naïve Bayes, and Logistic Model Tree for Flash Flood Susceptibility Mapping](https://doi.org/10.3390/w12010239)
+Pham et al. (2020), *Water*. 115 citations.
+
+*Summary pending.*
+
+### [Flood Forecasting System Based on Integrated Big and Crowdsource Data by Using Machine Learning Techniques](https://doi.org/10.1109/access.2019.2963819)
+Puttinaovarat et al. (2020), *IEEE Access*. 115 citations.
+
+*Summary pending.*
+
+### [Flash-Flood Forecasting in an Andean Mountain Catchment—Development of a Step-Wise Methodology Based on the Random Forest Algorithm](https://doi.org/10.3390/w10111519)
+Muñoz et al. (2018), *Water*. 115 citations.
+
+*Summary pending.*
 
 ### [Reconstruction of GRACE Total Water Storage Through Automated Machine Learning](https://doi.org/10.1029/2020wr028666)
 Sun et al. (2020), *Water Resources Research*. 114 citations.
@@ -30562,6 +32650,11 @@ Güldal et al. (2010), *Water Resources Management*. 114 citations.
 - **Issues:** Single lake and univariate-style setup; no abstract to confirm metrics.
 - *Basis: assessment*
 
+### [Spatial predicting of flood potential areas using novel hybridizations of fuzzy decision-making, bivariate statistics, and machine learning](https://doi.org/10.1016/j.jhydrol.2020.124808)
+Costache et al. (2020), *Journal of Hydrology*. 114 citations.
+
+*Summary pending.*
+
 ### [GENETIC PROGRAMMING: A NEW PARADIGM IN RAINFALL RUNOFF MODELING 1](https://doi.org/10.1111/j.1752-1688.2002.tb00991.x)
 Liong et al. (2002), *JAWRA Journal of the American Water Resources Association*. 113 citations.
 
@@ -30605,6 +32698,16 @@ Chau (2017), *Water*. 113 citations.
 - **Open work:** Advance effective hydrological predictions and precautionary flood measures.
 - **Issues:** Editorial with no new data or quantitative evaluation.
 - *Basis: abstract*
+
+### [Application of Deep Learning on UAV-Based Aerial Images for Flood Detection](https://doi.org/10.3390/smartcities4030065)
+Munawar et al. (2021), *Smart Cities*. 113 citations.
+
+*Summary pending.*
+
+### [Performance evaluation of artificial intelligence paradigms—artificial neural networks, fuzzy logic, and adaptive neuro-fuzzy inference system for flood prediction](https://doi.org/10.1007/s11356-021-12410-1)
+Tabbussum et al. (2021), *Environmental Science and Pollution Research*. 113 citations.
+
+*Summary pending.*
 
 ### [Mitigating Prediction Error of Deep Learning Streamflow Models in Large Data‐Sparse Regions With Ensemble Modeling and Soft Data](https://doi.org/10.1029/2021gl092999)
 Feng et al. (2020), *Geophysical Research Letters*. 112 citations.
@@ -30660,6 +32763,16 @@ Stefenon et al. (2023), *Energy*. 112 citations.
 - **Open work:** Adding hydrometeorological inputs such as precipitation and inflow forecasts and testing at more reservoirs and longer horizons.
 - **Issues:** Univariate-style time series approach may miss operational decisions and extreme hydrological events; details of benchmarks and errors unknown.
 - *Basis: assessment*
+
+### [Streamflow Prediction Using Deep Learning Neural Network: Case Study of Yangtze River](https://doi.org/10.1109/access.2020.2993874)
+Liu et al. (2020), *IEEE Access*. 112 citations.
+
+*Summary pending.*
+
+### [Flood Extent Mapping: An Integrated Method Using Deep Learning and Region Growing Using UAV Optical Data](https://doi.org/10.1109/jstars.2021.3051873)
+Hashemi-Beni et al. (2021), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 112 citations.
+
+*Summary pending.*
 
 ### [A Short-term Flood Prediction based on Spatial Deep Learning Network: A Case Study for Xi county, China](https://doi.org/10.1016/j.jhydrol.2022.127535)
 Chen et al. (2022), *Journal of Hydrology*. 111 citations.
@@ -30726,6 +32839,16 @@ Nourani et al. (2012), *Journal of Hydrologic Engineering*. 111 citations.
 - **Open work:** Testing in additional catchments and longer horizons.
 - **Issues:** Small catchment set; wavelet hybrids can leak future information; details unknown.
 - *Basis: assessment*
+
+### [Long Short-Term Memory Neural Network (LSTM-NN) for Aquifer Level Time Series Forecasting Using in-Situ Piezometric Observations](https://doi.org/10.1016/j.jhydrol.2021.126800)
+Solgi et al. (2021), *Journal of Hydrology*. 111 citations.
+
+*Summary pending.*
+
+### [Daily runoff forecasting by deep recursive neural network](https://doi.org/10.1016/j.jhydrol.2021.126067)
+Zhang et al. (2021), *Journal of Hydrology*. 111 citations.
+
+*Summary pending.*
 
 ### [Exploring the exceptional performance of a deep learning stream temperature model and the value of streamflow data](https://doi.org/10.1088/1748-9326/abd501)
 Rahmani et al. (2020), *Environmental Research Letters*. 110 citations.
@@ -30837,6 +32960,11 @@ Santos et al. (2014), *Hydrological Sciences Journal*. 110 citations.
 - **Issues:** Possible information leakage from non-causal wavelet decomposition; single-basin evaluation.
 - *Basis: assessment*
 
+### [A comprehensive comparison of recent developed meta-heuristic algorithms for streamflow time series forecasting problem](https://doi.org/10.1016/j.asoc.2021.107282)
+Ahmed et al. (2021), *Applied Soft Computing*. 110 citations.
+
+*Summary pending.*
+
 ### [NeuralHydrology - Interpreting LSTMs in Hydrology](https://doi.org/10.1007/978-3-030-28954-6_19)
 Kratzert et al. (2019), *Explainable AI*. 109 citations.
 
@@ -30880,6 +33008,26 @@ Han et al. (2023), *Scientific Data*. 109 citations.
 - **Open work:** Using GSSM1 km to study large-scale climate extremes and long-term trends.
 - **Issues:** ISMN stations are unevenly distributed, limiting validation in data-sparse regions; longitude as an important predictor suggests spatial overfitting.
 - *Basis: abstract*
+
+### [Flood susceptibility prediction using four machine learning techniques and comparison of their performance at Wadi Qena Basin, Egypt](https://doi.org/10.1007/s11069-020-04296-y)
+El-Haddad et al. (2020), *Natural Hazards*. 109 citations.
+
+*Summary pending.*
+
+### [Improving the performance of the mass transfer-based reference evapotranspiration estimation approaches through a coupled wavelet-random forest methodology](https://doi.org/10.1016/j.jhydrol.2018.04.042)
+Shiri (2018), *Journal of Hydrology*. 109 citations.
+
+*Summary pending.*
+
+### [Rainfall and runoff time-series trend analysis using LSTM recurrent neural network and wavelet neural network with satellite-based meteorological data: case study of Nzoia hydrologic basin](https://doi.org/10.1007/s40747-021-00365-2)
+Ouma et al. (2021), *Complex & Intelligent Systems*. 109 citations.
+
+*Summary pending.*
+
+### [Enhancement of Detecting Permanent Water and Temporary Water in Flood Disasters by Fusing Sentinel-1 and Sentinel-2 Imagery Using Deep Learning Algorithms: Demonstration of Sen1Floods11 Benchmark Datasets](https://doi.org/10.3390/rs13112220)
+Bai et al. (2021), *Remote Sensing*. 109 citations.
+
+*Summary pending.*
 
 ### [Regional flood inundation nowcast using hybrid SOM and dynamic neural networks](https://doi.org/10.1016/j.jhydrol.2014.07.036)
 Chang et al. (2014), *Journal of Hydrology*. 108 citations.
@@ -30958,6 +33106,16 @@ Kisi et al. (2015), *Theoretical and Applied Climatology*. 108 citations.
 - **Issues:** Number of stations and data period unknown; generalisation to other climates and depths is untested.
 - *Basis: assessment*
 
+### [Prediction of meteorological drought by using hybrid support vector regression optimized with HHO versus PSO algorithms](https://doi.org/10.1007/s11356-021-13445-0)
+Malik et al. (2021), *Environmental Science and Pollution Research*. 108 citations.
+
+*Summary pending.*
+
+### [River water temperature forecasting using a deep learning method](https://doi.org/10.1016/j.jhydrol.2021.126016)
+Qiu et al. (2021), *Journal of Hydrology*. 108 citations.
+
+*Summary pending.*
+
 ### [Physics‐Informed Neural Networks With Monotonicity Constraints for Richardson‐Richards Equation: Estimation of Constitutive Relationships and Soil Water Flux Density From Volumetric Water Content Measurements](https://doi.org/10.1029/2020wr027642)
 Bandai et al. (2021), *Water Resources Research*. 107 citations.
 
@@ -31013,6 +33171,11 @@ Choubin et al. (2017), *Environmental Earth Sciences*. 107 citations.
 - **Issues:** Abstract unavailable; single-region study and point forecasts without uncertainty.
 - *Basis: assessment*
 
+### [Simulating runoff under changing climatic conditions: A comparison of the long short-term memory network with two conceptual hydrologic models](https://doi.org/10.1016/j.jhydrol.2020.125779)
+Bai et al. (2021), *Journal of Hydrology*. 107 citations.
+
+*Summary pending.*
+
 ### [Assessing the Physical Realism of Deep Learning Hydrologic Model Projections Under Climate Change](https://doi.org/10.1029/2022wr032123)
 Wi et al. (2022), *Water Resources Research*. 106 citations.
 
@@ -31067,6 +33230,16 @@ Belayneh et al. (2013), *Journal of Water and Land Development*. 106 citations.
 - **Open work:** Longer lead times and inclusion of climate indices or other drought indices.
 - **Issues:** Single basin, short lead times, deterministic forecasts; SPI uses precipitation only.
 - *Basis: abstract*
+
+### [Rapid and large-scale mapping of flood inundation via integrating spaceborne synthetic aperture radar imagery with unsupervised deep learning](https://doi.org/10.1016/j.isprsjprs.2021.05.019)
+Jiang et al. (2021), *ISPRS Journal of Photogrammetry and Remote Sensing*. 106 citations.
+
+*Summary pending.*
+
+### [Monitoring the summer flooding in the Poyang Lake area of China in 2020 based on Sentinel-1 data and multiple convolutional neural networks](https://doi.org/10.1016/j.jag.2021.102400)
+Dong et al. (2021), *International Journal of Applied Earth Observation and Geoinformation*. 106 citations.
+
+*Summary pending.*
 
 ### [Fusing stacked autoencoder and long short-term memory for regional multistep-ahead flood inundation forecasts](https://doi.org/10.1016/j.jhydrol.2021.126371)
 Kao et al. (2021), *Journal of Hydrology*. 105 citations.
@@ -31144,6 +33317,16 @@ Li et al. (2023), *Science of The Total Environment*. 105 citations.
 - **Open work:** Improving classification near narrow river channels and separating permanent water from flood pixels.
 - **Issues:** Fails around narrow channels; single flood event and region; no quantitative scores in the abstract.
 - *Basis: abstract*
+
+### [Application of stacking hybrid machine learning algorithms in delineating multi-type flooding in Bangladesh.](https://doi.org/10.1016/j.jenvman.2021.113086)
+Rahman et al. (2021), *Journal of Environmental Management*. 105 citations.
+
+*Summary pending.*
+
+### [Forecasting standardized precipitation index using data intelligence models: regional investigation of Bangladesh](https://doi.org/10.1038/s41598-021-82977-9)
+Yaseen et al. (2021), *Scientific Reports*. 105 citations.
+
+*Summary pending.*
 
 ### [Application and comparison of two prediction models for groundwater levels: a case study in Western Jilin Province, China.](https://doi.org/10.1016/j.jaridenv.2008.11.008)
 Yang et al. (2009), *Journal of Arid Environments*. 104 citations.
@@ -31255,6 +33438,11 @@ Sahay et al. (2013), *Water Resources Management*. 103 citations.
 - **Issues:** Data-driven hybrid with limited extreme events; wavelet decomposition may leak future information if not done causally.
 - *Basis: assessment*
 
+### [Enhanced LSTM model for daily runoff prediction in the upper huai river basin, china](https://doi.org/10.1016/j.eng.2021.12.022)
+Man et al. (2022), *Engineering*. 103 citations.
+
+*Summary pending.*
+
 ### [Distributed Hydrological Modeling With Physics‐Encoded Deep Learning: A General Framework and Its Application in the Amazon](https://doi.org/10.1029/2023wr036170)
 Wang et al. (2024), *Water Resources Research*. 102 citations.
 
@@ -31309,6 +33497,31 @@ Chang et al. (2016), *Journal of Hydrology*. 102 citations.
 - **Open work:** Use of radar nowcasts for longer lead times.
 - **Issues:** Event-based training with few extreme storms; radar rainfall errors propagate to forecasts.
 - *Basis: assessment*
+
+### [Univariate streamflow forecasting using commonly used data-driven models: literature review and case study](https://doi.org/10.1080/02626667.2018.1469756)
+Zhang et al. (2018), *Hydrological Sciences Journal*. 102 citations.
+
+*Summary pending.*
+
+### [Bayesian convolutional neural networks for predicting the terrestrial water storage anomalies during GRACE and GRACE-FO gap](https://doi.org/10.1016/j.jhydrol.2021.127244)
+Mo et al. (2021), *Journal of Hydrology*. 102 citations.
+
+*Summary pending.*
+
+### [Modeling monthly reference evapotranspiration process in Turkey: application of machine learning methods](https://doi.org/10.1007/s10661-022-10662-z)
+Bayram et al. (2022), *Environmental Monitoring and Assessment*. 102 citations.
+
+*Summary pending.*
+
+### [Synergetic Use of Sentinel-1 and Sentinel-2 Data for Soil Moisture Mapping at Plot Scale](https://doi.org/10.3390/rs10081285)
+Attarzadeh et al. (2018), *Remote Sensing*. 102 citations.
+
+*Summary pending.*
+
+### [Groundwater level fluctuations simulation and prediction by ANFIS- and hybrid Wavelet-ANFIS/ fuzzy C-means (FCM) clustering models: Application to the Miandarband plain](https://doi.org/10.1016/j.jher.2017.11.004)
+Zare et al. (2018), *Journal of Hydro-environment Research*. 102 citations.
+
+*Summary pending.*
 
 ### [Improving Snow Water Equivalent Maps With Machine Learning of Snow Survey and Lidar Measurements](https://doi.org/10.1029/2018wr024146)
 Broxton et al. (2019), *Water Resources Research*. 101 citations.
@@ -31431,6 +33644,36 @@ Traoré et al. (2016), *Agricultural Water Management*. 101 citations.
 - **Issues:** Restricted inputs and forecast errors limit accuracy.
 - *Basis: assessment*
 
+### [Wavelet-linear genetic programming: A new approach for modeling monthly streamflow](https://doi.org/10.1016/j.jhydrol.2017.04.018)
+Ravansalar et al. (2017), *Journal of Hydrology*. 101 citations.
+
+*Summary pending.*
+
+### [Precipitation isotope time series predictions from machine learning applied in Europe](https://doi.org/10.1073/pnas.2024107118)
+Nelson et al. (2021), *Proceedings of the National Academy of Sciences*. 101 citations.
+
+*Summary pending.*
+
+### [Bayesian machine learning ensemble approach to quantify model uncertainty in predicting groundwater storage change.](https://doi.org/10.1016/j.scitotenv.2020.144715)
+Yin et al. (2021), *Science of The Total Environment*. 101 citations.
+
+*Summary pending.*
+
+### [A fusion-based methodology for meteorological drought estimation using remote sensing data](https://doi.org/10.1016/j.rse.2018.04.001)
+Alizadeh et al. (2018), *Remote Sensing of Environment*. 101 citations.
+
+*Summary pending.*
+
+### [Urban Flood Risk Assessment: Integration of Decision Making and Machine Learning](https://doi.org/10.20944/preprints202201.0133.v1)
+Taromideh et al. (2022), *Sustainability*. 101 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal pattern of terrestrial evapotranspiration in China during the past thirty years](https://doi.org/10.1016/j.agrformet.2018.04.020)
+Li et al. (2018), *Agricultural and Forest Meteorology*. 101 citations.
+
+*Summary pending.*
+
 ### [Simulation of Runoff and Sediment Yield using Artificial Neural Networks](https://doi.org/10.1016/j.biosystemseng.2006.02.014)
 Agarwal et al. (2006), *Biosystems Engineering*. 100 citations.
 
@@ -31552,6 +33795,16 @@ Mount et al. (2016), *Hydrological Sciences Journal*. 99 citations.
 - **Issues:** Position paper; claims are qualitative and not tested on a case study.
 - *Basis: assessment*
 
+### [Global dominance of seasonality in shaping lake-surface-extent dynamics](https://doi.org/10.1038/s41586-025-09046-3)
+Li et al. (2025), *Nature*. 99 citations.
+
+*Summary pending.*
+
+### [Short-term prediction of groundwater level using improved random forest regression with a combination of random features](https://doi.org/10.1007/s13201-018-0742-6)
+Wang et al. (2018), *Applied Water Science*. 99 citations.
+
+*Summary pending.*
+
 ### [Evaluation of artificial intelligence models for flood and drought forecasting in arid and tropical regions](https://doi.org/10.1016/j.envsoft.2021.105136)
 Adikari et al. (2021), *Environmental Modelling & Software*. 98 citations.
 
@@ -31628,6 +33881,36 @@ Ikram et al. (2023), *Journal of Marine Science and Engineering*. 98 citations.
 - **Open work:** Testing on other rivers and under climate change scenarios.
 - **Issues:** Single river; gains attributed to metaheuristic tuning may be modest relative to standard tuning; no uncertainty estimates.
 - *Basis: abstract*
+
+### [The Great Lakes Runoff Intercomparison Project Phase 4: the Great Lakes (GRIP-GL)](https://doi.org/10.5194/hess-26-3537-2022)
+Mai et al. (2022), *Hydrology and Earth System Sciences*. 98 citations.
+
+*Summary pending.*
+
+### [Flood disaster risk assessment based on random forest algorithm](https://doi.org/10.1007/s00521-021-05757-6)
+Zhu et al. (2021), *Neural Computing and Applications*. 98 citations.
+
+*Summary pending.*
+
+### [Application of the Hybrid Artificial Neural Network Coupled with Rolling Mechanism and Grey Model Algorithms for Streamflow Forecasting Over Multiple Time Horizons](https://doi.org/10.1007/s11269-018-1909-5)
+Yaseen et al. (2018), *Water Resources Management*. 98 citations.
+
+*Summary pending.*
+
+### [Modelling daily water temperature from air temperature for the Missouri River](https://doi.org/10.7717/peerj.4894)
+Zhu et al. (2018), *PeerJ*. 98 citations.
+
+*Summary pending.*
+
+### [Water Level Prediction Model Applying a Long Short-Term Memory (LSTM)–Gated Recurrent Unit (GRU) Method for Flood Prediction](https://doi.org/10.3390/w14142221)
+Cho et al. (2022), *Water*. 98 citations.
+
+*Summary pending.*
+
+### [Modeling daily water temperature for rivers: comparison between adaptive neuro-fuzzy inference systems and artificial neural networks models](https://doi.org/10.1007/s11356-018-3650-2)
+Zhu et al. (2018), *Environmental Science and Pollution Research*. 98 citations.
+
+*Summary pending.*
 
 ### [Streamflow simulation in data-scarce basins using Bayesian and physics-informed machine learning models](https://doi.org/10.1175/jhm-d-20-0082.1)
 Lu et al. (2021), *Journal of Hydrometeorology*. 97 citations.
@@ -31728,6 +34011,11 @@ Shirmohammadi et al. (2013), *Natural Hazards*. 97 citations.
 - **Issues:** Small regional dataset; wavelet decomposition may introduce boundary leakage.
 - *Basis: assessment*
 
+### [G‐RUN ENSEMBLE: A Multi‐Forcing Observation‐Based Global Runoff Reanalysis](https://doi.org/10.1029/2020wr028787)
+Ghiggi et al. (2021), *Water Resources Research*. 97 citations.
+
+*Summary pending.*
+
 ### [Continental-scale streamflow modeling of basins with reservoirs: Towards a coherent deep-learning-based strategy](https://doi.org/10.1016/j.jhydrol.2021.126455)
 Ouyang et al. (2021), *Journal of Hydrology*. 96 citations.
 
@@ -31815,6 +34103,16 @@ Ghumman et al. (2011), *Alexandria Engineering Journal*. 96 citations.
 - **Open work:** Testing on longer records and other watersheds.
 - **Issues:** Short, low-quality dataset; single watershed; quantitative results not given in the abstract.
 - *Basis: abstract*
+
+### [Groundwater level modeling framework by combining the wavelet transform with a long short-term memory data-driven model.](https://doi.org/10.1016/j.scitotenv.2021.146948)
+Wu et al. (2021), *Science of The Total Environment*. 96 citations.
+
+*Summary pending.*
+
+### [Differences in extremes and uncertainties in future runoff simulations using SWAT and LSTM for SSP scenarios.](https://doi.org/10.1016/j.scitotenv.2022.156162)
+Song et al. (2022), *Science of The Total Environment*. 96 citations.
+
+*Summary pending.*
 
 ### [Machine-learning- and deep-learning-based streamflow prediction in a hilly catchment for future scenarios using CMIP6 GCM data](https://doi.org/10.5194/hess-27-1047-2023)
 Singh et al. (2023), *Hydrology and Earth System Sciences*. 95 citations.
@@ -32014,6 +34312,26 @@ Kalra et al. (2013), *Advances in Water Resources*. 95 citations.
 - **Issues:** No abstract available; teleconnection relationships may be non-stationary under climate change.
 - *Basis: assessment*
 
+### [Real-time rainfall-runoff prediction using light gradient boosting machine coupled with singular spectrum analysis](https://doi.org/10.1016/j.jhydrol.2021.127124)
+Cui et al. (2021), *Journal of Hydrology*. 95 citations.
+
+*Summary pending.*
+
+### [Multi-variable flood damage modelling with limited data using supervised learning approaches](https://doi.org/10.5194/nhess-17-1683-2017)
+Wagenaar et al. (2017), *Natural Hazards and Earth System Sciences*. 95 citations.
+
+*Summary pending.*
+
+### [Complementary data-intelligence model for river flow simulation](https://doi.org/10.1016/j.jhydrol.2018.10.020)
+Yaseen et al. (2018), *Journal of Hydrology*. 95 citations.
+
+*Summary pending.*
+
+### [An improved global remote-sensing-based surface soil moisture (RSSSM) dataset covering 2003–2018](https://doi.org/10.5194/essd-13-1-2021)
+Chen et al. (2021), *Earth System Science Data*. 95 citations.
+
+*Summary pending.*
+
 ### [A spatial–temporal graph deep learning model for urban flood nowcasting leveraging heterogeneous community features](https://doi.org/10.1038/s41598-023-32548-x)
 Farahmand et al. (2021), *Scientific Reports*. 94 citations.
 
@@ -32113,6 +34431,11 @@ Saleh et al. (2024), *ISPRS Journal of Photogrammetry and Remote Sensing*. 94 ci
 - **Issues:** No abstract available; SAR struggles with flooded vegetation and urban areas.
 - *Basis: assessment*
 
+### [Overall negative trends for snow cover extent and duration in global mountain regions over 1982–2020](https://doi.org/10.1038/s41598-022-16743-w)
+Notarnicola (2022), *Scientific Reports*. 94 citations.
+
+*Summary pending.*
+
 ### [Deep learning for cross-region streamflow and flood forecasting at a global scale](https://doi.org/10.1016/j.xinn.2024.100617)
 Zhang et al. (2024), *The Innovation*. 93 citations.
 
@@ -32178,6 +34501,26 @@ Rahimikhoob (2010), *Theoretical and Applied Climatology*. 93 citations.
 - **Open work:** Transfer to other climates and addition of humidity or wind proxies.
 - **Issues:** No abstract available; reference ET0 is computed rather than measured.
 - *Basis: assessment*
+
+### [Comparison of multi-criteria-analytical hierarchy process and machine learning-boosted tree models for regional flood susceptibility mapping: a case study from Slovakia](https://doi.org/10.1080/19475705.2021.1912835)
+Vojtek et al. (2021), *Geomatics, Natural Hazards and Risk*. 93 citations.
+
+*Summary pending.*
+
+### [Drought sensitivity mapping using two one-class support vector machine algorithms](https://doi.org/10.1016/j.atmosres.2017.04.017)
+Roodposhti et al. (2017), *Atmospheric Research*. 93 citations.
+
+*Summary pending.*
+
+### [GW-PINN: A deep learning algorithm for solving groundwater flow equations](https://doi.org/10.1016/j.advwatres.2022.104243)
+Zhang et al. (2022), *Advances in Water Resources*. 93 citations.
+
+*Summary pending.*
+
+### [Use of multiple LIDAR-derived digital terrain indices and machine learning for high-resolution national-scale soil moisture mapping of the Swedish forest landscape](https://doi.org/10.1016/j.geoderma.2021.115280)
+Ågren et al. (2021), *Geoderma*. 93 citations.
+
+*Summary pending.*
 
 ### [Prospective Interest of Deep Learning for Hydrological Inference](https://doi.org/10.1111/gwat.12557)
 Marçais et al. (2017), *Groundwater*. 92 citations.
@@ -32300,6 +34643,26 @@ Akbarian et al. (2023), *Journal of Hydrology*. 92 citations.
 - **Issues:** No abstract available; skill depends on dynamical model forecast quality.
 - *Basis: assessment*
 
+### [Building ANN-Based Regional Multi-Step-Ahead Flood Inundation Forecast Models](https://doi.org/10.3390/w10091283)
+Chang et al. (2018), *Water*. 92 citations.
+
+*Summary pending.*
+
+### [A deep learning model for predicting river flood depth and extent](https://doi.org/10.1016/j.envsoft.2021.105186)
+Hosseiny (2021), *Environmental Modelling & Software*. 92 citations.
+
+*Summary pending.*
+
+### [Water Level Prediction through Hybrid SARIMA and ANN Models Based on Time Series Analysis: Red Hills Reservoir Case Study](https://doi.org/10.3390/su14031843)
+Azad et al. (2022), *Sustainability*. 92 citations.
+
+*Summary pending.*
+
+### [Artificial Neural Network and Multiple Linear Regression for Flood Prediction in Mohawk River, New York](https://doi.org/10.3390/w10091158)
+Tsakiri et al. (2018), *Water*. 92 citations.
+
+*Summary pending.*
+
 ### [Prediction of coastal flooding risk under climate change impacts in South Korea using machine learning algorithms](https://doi.org/10.1088/1748-9326/aba5b3)
 Park et al. (2020), *Environmental Research Letters*. 91 citations.
 
@@ -32399,6 +34762,21 @@ Buyukyildiz et al. (2014), *Water Resources Management*. 91 citations.
 - **Issues:** Abstract unavailable; single-lake data-driven study with limited generalization and no uncertainty reported.
 - *Basis: assessment*
 
+### [Groundwater level prediction in arid areas using wavelet analysis and Gaussian process regression](https://doi.org/10.1080/19942060.2021.1944913)
+Band et al. (2021), *Engineering Applications of Computational Fluid Mechanics*. 91 citations.
+
+*Summary pending.*
+
+### [Flash-flood hazard susceptibility mapping in Kangsabati River Basin, India](https://doi.org/10.1080/10106049.2021.1953618)
+Chakrabortty et al. (2021), *Geocarto International*. 91 citations.
+
+*Summary pending.*
+
+### [Downscaling Groundwater Storage Data in China to a 1-km Resolution Using Machine Learning Methods](https://doi.org/10.3390/rs13030523)
+Zhang et al. (2021), *Remote Sensing*. 91 citations.
+
+*Summary pending.*
+
 ### [Neural Networks to Simulate Regional Ground Water Levels Affected by Human Activities](https://doi.org/10.1111/j.1745-6584.2007.00366.x)
 Feng et al. (2008), *Groundwater*. 90 citations.
 
@@ -32487,6 +34865,26 @@ Habibi et al. (2023), *International Journal of Applied Earth Observation and Ge
 - **Issues:** Abstract unavailable; susceptibility maps are static and depend on inventory quality and spatial autocorrelation in validation.
 - *Basis: assessment*
 
+### [Streamflow modelling and forecasting for Canadian watersheds using LSTM networks with attention mechanism](https://doi.org/10.1007/s00521-022-07523-8)
+Girihagama et al. (2022), *Neural Computing and Applications*. 90 citations.
+
+*Summary pending.*
+
+### [Daily streamflow forecasting in Sobradinho Reservoir using machine learning models coupled with wavelet transform and bootstrapping](https://doi.org/10.1016/j.asoc.2021.107081)
+Saraiva et al. (2021), *Applied Soft Computing*. 90 citations.
+
+*Summary pending.*
+
+### [Input selection and data-driven model performance optimization to predict the Standardized Precipitation and Evaporation Index in a drought-prone region](https://doi.org/10.1016/j.atmosres.2018.05.012)
+Mouatadid et al. (2018), *Atmospheric Research*. 90 citations.
+
+*Summary pending.*
+
+### [Application of Artificial Neural Networks to Rainfall Forecasting in the Geum River Basin, Korea](https://doi.org/10.3390/w10101448)
+Lee et al. (2018), *Water*. 90 citations.
+
+*Summary pending.*
+
 ### [Rapid spatio-temporal flood modelling via hydraulics-based graph neural networks](https://doi.org/10.5194/hess-27-4227-2023)
 Bentivoglio et al. (2023), *Hydrology and Earth System Sciences*. 89 citations.
 
@@ -32552,6 +34950,26 @@ Worland et al. (2016), *Environmental Modelling & Software*. 89 citations.
 - **Open work:** Extension to other flow statistics and regions.
 - **Issues:** Abstract unavailable; ungaged predictions depend on representativeness of gaged training basins.
 - *Basis: assessment*
+
+### [Estimation of daily reference evapotranspiration (ETo) using artificial intelligence methods: Offering a new approach for lagged ETo data-based modeling](https://doi.org/10.1016/j.jhydrol.2018.02.060)
+Mehdizadeh (2018), *Journal of Hydrology*. 89 citations.
+
+*Summary pending.*
+
+### [Towards operational SAR-based flood mapping using neuro-fuzzy texture-based approaches](https://doi.org/10.1016/j.rse.2018.06.019)
+Dasgupta et al. (2018), *Remote Sensing of Environment*. 89 citations.
+
+*Summary pending.*
+
+### [The effect of calibration data length on the performance of a conceptual hydrological model versus LSTM and GRU: A case study for six basins from the CAMELS dataset](https://doi.org/10.1016/j.cageo.2021.104708)
+Ayzel et al. (2021), *Computers & Geosciences*. 89 citations.
+
+*Summary pending.*
+
+### [Nonlinear sensitivity of glacier mass balance to future climate change unveiled by deep learning](https://doi.org/10.1038/s41467-022-28033-0)
+Bolibar et al. (2022), *Nature Communications*. 89 citations.
+
+*Summary pending.*
 
 ### [A Multiscale Deep Learning Model for Soil Moisture Integrating Satellite and In Situ Data](https://doi.org/10.1029/2021gl096847)
 Liu et al. (2022), *Geophysical Research Letters*. 88 citations.
@@ -32629,6 +35047,36 @@ Kisi (2011), *Water Resources Management*. 88 citations.
 - **Open work:** Testing more stations.
 - **Issues:** Abstract unavailable; wavelet decomposition may leak future information.
 - *Basis: assessment*
+
+### [A data-driven SVR model for long-term runoff prediction and uncertainty analysis based on the Bayesian framework](https://doi.org/10.1007/s00704-017-2186-6)
+Liang et al. (2018), *Theoretical and Applied Climatology*. 88 citations.
+
+*Summary pending.*
+
+### [An Integrated Statistical-Machine Learning Approach for Runoff Prediction](https://doi.org/10.3390/su14138209)
+Singh et al. (2022), *Sustainability*. 88 citations.
+
+*Summary pending.*
+
+### [Integration of a Parsimonious Hydrological Model with Recurrent Neural Networks for Improved Streamflow Forecasting](https://doi.org/10.3390/w10111655)
+Tian et al. (2018), *Water*. 88 citations.
+
+*Summary pending.*
+
+### [Flood Hazard and Risk Mapping by Applying an Explainable Machine Learning Framework Using Satellite Imagery and GIS Data](https://doi.org/10.3390/su14063251)
+Antzoulatos et al. (2022), *Sustainability*. 88 citations.
+
+*Summary pending.*
+
+### [Modelling flood susceptibility based on deep learning coupling with ensemble learning models.](https://doi.org/10.1016/j.jenvman.2022.116450)
+Li et al. (2022), *Journal of Environmental Management*. 88 citations.
+
+*Summary pending.*
+
+### [Modelling long-term groundwater fluctuations by extreme learning machine using hydro-climatic data](https://doi.org/10.1080/02626667.2017.1410891)
+Alizamir et al. (2018), *Hydrological Sciences Journal*. 88 citations.
+
+*Summary pending.*
 
 ### [Flow Prediction in Ungauged Catchments Using Probabilistic Random Forests Regionalization and New Statistical Adequacy Tests](https://doi.org/10.1029/2018wr023254)
 Prieto et al. (2019), *Water Resources Research*. 87 citations.
@@ -32773,6 +35221,31 @@ Kalra et al. (2012), *Water Resources Research*. 87 citations.
 - **Issues:** Annual records give small samples, teleconnections can be non-stationary, and station-based evaluation may not represent the whole basin.
 - *Basis: abstract+knowledge*
 
+### [Toward improved lumped groundwater level predictions at catchment scale: mutual integration of water balance mechanism and deep learning method](https://doi.org/10.1016/j.jhydrol.2022.128495)
+Cai et al. (2022), *Journal of Hydrology*. 87 citations.
+
+*Summary pending.*
+
+### [Recent increase in the observation-derived land evapotranspiration due to global warming](https://doi.org/10.1088/1748-9326/ac4291)
+Wang et al. (2021), *Environmental Research Letters*. 87 citations.
+
+*Summary pending.*
+
+### [Hydropower Optimization Using Artificial Neural Network Surrogate Models of a High‐Fidelity Hydrodynamics and Water Quality Model](https://doi.org/10.1002/2017wr021039)
+Shaw et al. (2017), *Water Resources Research*. 87 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility zonation using advanced ensemble machine learning models within Himalayan foreland basin](https://doi.org/10.1016/j.nhres.2022.06.003)
+Ghosh et al. (2022), *Natural Hazards Research*. 87 citations.
+
+*Summary pending.*
+
+### [Urban flood hazard mapping using machine learning models: GARP, RF, MaxEnt and NB](https://doi.org/10.1007/s11069-020-04453-3)
+Norallahi et al. (2021), *Natural Hazards*. 87 citations.
+
+*Summary pending.*
+
 ### [Groundwater Storage Loss Associated With Land Subsidence in Western United States Mapped Using Machine Learning](https://doi.org/10.1029/2019wr026621)
 Smith et al. (2020), *Water Resources Research*. 86 citations.
 
@@ -32872,6 +35345,21 @@ Samadi-Koucheksaraee et al. (2024), *Scientific Reports*. 86 citations.
 - **Issues:** Single watershed; decomposition-based models risk information leakage if decomposition uses future data; very high scores warrant caution.
 - *Basis: abstract*
 
+### [Deep learning approach for Sentinel-1 surface water mapping leveraging Google Earth Engine](https://doi.org/10.1016/j.ophoto.2021.100005)
+Mayer et al. (2021), *ISPRS Open Journal of Photogrammetry and Remote Sensing*. 86 citations.
+
+*Summary pending.*
+
+### [Data Pre-Analysis and Ensemble of Various Artificial Neural Networks for Monthly Streamflow Forecasting](https://doi.org/10.3390/w10050628)
+Zhou et al. (2018), *Water*. 86 citations.
+
+*Summary pending.*
+
+### [OmbriaNet—Supervised Flood Mapping via Convolutional Neural Networks Using Multitemporal Sentinel-1 and Sentinel-2 Data Fusion](https://doi.org/10.1109/jstars.2022.3155559)
+Drakonakis et al. (2022), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 86 citations.
+
+*Summary pending.*
+
 ### [Constructing high-resolution groundwater drought at spatio-temporal scale using GRACE satellite data based on machine learning in the Indus Basin](https://doi.org/10.1016/j.jhydrol.2022.128295)
 Ali et al. (2022), *Journal of Hydrology*. 85 citations.
 
@@ -32948,6 +35436,36 @@ Singh et al. (2010), *Water Resources Management*. 85 citations.
 - **Open work:** Extending to flood quantiles of other return periods and larger catchment samples.
 - **Issues:** Small regional samples limit generalization; details unavailable without the abstract.
 - *Basis: assessment*
+
+### [Emotional ANN (EANN) and Wavelet-ANN (WANN) Approaches for Markovian and Seasonal Based Modeling of Rainfall-Runoff Process](https://doi.org/10.1007/s11269-018-2000-y)
+Sharghi et al. (2018), *Water Resources Management*. 85 citations.
+
+*Summary pending.*
+
+### [An evaluation of statistical, NMME and hybrid models for drought prediction in China](https://doi.org/10.1016/j.jhydrol.2018.09.020)
+Xu et al. (2018), *Journal of Hydrology*. 85 citations.
+
+*Summary pending.*
+
+### [The Development of a Hybrid Wavelet-ARIMA-LSTM Model for Precipitation Amounts and Drought Analysis](https://doi.org/10.3390/atmos12010074)
+Wu et al. (2021), *Atmosphere*. 85 citations.
+
+*Summary pending.*
+
+### [A Flood Forecasting Model Based on Deep Learning Algorithm via Integrating Stacked Autoencoders with BP Neural Network](https://doi.org/10.1109/bigmm.2017.29)
+Liu et al. (2017), *IEEE International Conference on Multimedia Big Data*. 85 citations.
+
+*Summary pending.*
+
+### [Urban flash flood forecast using support vector machine and numerical simulation](https://doi.org/10.2166/hydro.2017.175)
+Yan et al. (2018), *Journal of Hydroinformatics*. 85 citations.
+
+*Summary pending.*
+
+### [A Contemporary Review on Drought Modeling Using Machine Learning Approaches](https://doi.org/10.32604/cmes.2021.015528)
+Sundararajan et al. (2021), *Computer Modeling in Engineering & Sciences*. 85 citations.
+
+*Summary pending.*
 
 ### [River flooding mechanisms and their changes in Europe revealed by explainable machine learning](https://doi.org/10.5194/hess-26-6339-2022)
 Jiang et al. (2022), *Hydrology and Earth System Sciences*. 84 citations.
@@ -33037,6 +35555,41 @@ Kisi (2015), *Water Resources Management*. 84 citations.
 - **Issues:** Limited stations; details unavailable without the abstract.
 - *Basis: assessment*
 
+### [Evaluation of random forests and Prophet for daily streamflow forecasting](https://doi.org/10.5194/adgeo-45-201-2018)
+Papacharalampous et al. (2018), *Advances in Geosciences*. 84 citations.
+
+*Summary pending.*
+
+### [Directed Graph Deep Neural Network for Multi-step Daily Streamflow Forecasting](https://doi.org/10.1016/j.jhydrol.2022.127515)
+Liu et al. (2022), *Journal of Hydrology*. 84 citations.
+
+*Summary pending.*
+
+### [Hybrid Models Incorporating Bivariate Statistics and Machine Learning Methods for Flash Flood Susceptibility Assessment Based on Remote Sensing Datasets](https://doi.org/10.3390/rs13234945)
+Liu et al. (2021), *Remote Sensing*. 84 citations.
+
+*Summary pending.*
+
+### [Quasi-global machine learning-based soil moisture estimates at high spatio-temporal scales using CYGNSS and SMAP observations](https://doi.org/10.1016/j.rse.2022.113041)
+Lei et al. (2022), *Remote Sensing of Environment*. 84 citations.
+
+*Summary pending.*
+
+### [An adaptive daily runoff forecast model using VMD-LSTM-PSO hybrid approach](https://doi.org/10.1080/02626667.2021.1937631)
+Wang et al. (2021), *Hydrological Sciences Journal*. 84 citations.
+
+*Summary pending.*
+
+### [Groundwater Level Prediction with Meteorologically Sensitive Gated Recurrent Unit (GRU) Neural Networks](https://doi.org/10.1016/j.jhydrol.2022.128262)
+Gharehbaghi et al. (2022), *Journal of Hydrology*. 84 citations.
+
+*Summary pending.*
+
+### [Improved Runoff Forecasting Performance through Error Predictions using a Deep-Learning Approach](https://doi.org/10.1016/j.jhydrol.2022.127653)
+Han et al. (2022), *Journal of Hydrology*. 84 citations.
+
+*Summary pending.*
+
 ### [Improving Urban Flood Prediction using LSTM-DeepLabv3+ and Bayesian Optimization with Spatiotemporal feature fusion](https://doi.org/10.1016/j.jhydrol.2024.130743)
 Situ et al. (2023), *Journal of Hydrology*. 83 citations.
 
@@ -33125,6 +35678,31 @@ Londhe et al. (2010), *Hydrological Sciences Journal*. 83 citations.
 - **Issues:** Purely data-driven models without physical constraints; limited to the studied rivers and short lead times.
 - *Basis: abstract+knowledge*
 
+### [On Lack of Robustness in Hydrological Model Development Due to Absence of Guidelines for Selecting Calibration and Evaluation Data: Demonstration for Data‐Driven Models](https://doi.org/10.1002/2017wr021470)
+Zheng et al. (2018), *Water Resources Research*. 83 citations.
+
+*Summary pending.*
+
+### [Evaluation of Seasonally Classified Inputs for the Prediction of Daily Groundwater Levels: NARX Networks Vs Support Vector Machines](https://doi.org/10.1007/s10666-018-9639-x)
+Guzmán et al. (2018), *Environmental Modeling & Assessment*. 83 citations.
+
+*Summary pending.*
+
+### [Linear Regression Machine Learning Algorithms for Estimating Reference Evapotranspiration using Limited Climate Data](https://doi.org/10.3390/su141811674)
+Kim et al. (2022), *Sustainability*. 83 citations.
+
+*Summary pending.*
+
+### [Forecasting of Multi-Step Ahead Reference Evapotranspiration Using Wavelet- Gaussian Process Regression Model](https://doi.org/10.1007/s11269-017-1853-9)
+Karbasi (2018), *Water Resources Management*. 83 citations.
+
+*Summary pending.*
+
+### [Deep learning multilayer perceptron (MLP) for flood prediction model using wireless sensor network based hydrology time series data mining](https://doi.org/10.1109/innocit.2017.8319150)
+Widiasari et al. (2017), *2017 International Conference on Innovative and Creative Information Technology (ICITech)*. 83 citations.
+
+*Summary pending.*
+
 ### [A comparison of artificial neural networks used for river forecasting](https://doi.org/10.5194/hess-3-529-1999)
 Dawson et al. (1999), *Hydrology and Earth System Sciences*. 82 citations.
 
@@ -33191,6 +35769,16 @@ Xu et al. (2023), *Journal of Hydrology*. 82 citations.
 - **Issues:** Decomposition-based models can leak future information if decomposition is applied to the full series; complexity of the hybrid chain.
 - *Basis: assessment*
 
+### [Monthly streamflow forecasting using continuous wavelet and multi-gene genetic programming combination](https://doi.org/10.1016/j.jhydrol.2018.04.036)
+Hadi et al. (2018), *Journal of Hydrology*. 82 citations.
+
+*Summary pending.*
+
+### [Data-driven rapid flood prediction mapping with catchment generalizability](https://doi.org/10.1016/j.jhydrol.2022.127726)
+Guo et al. (2022), *Journal of Hydrology*. 82 citations.
+
+*Summary pending.*
+
 ### [Application example of neural networks for time series analysis: : Rainfall-runoff modeling](https://doi.org/10.1016/s0165-1684(97)00203-x)
 Furundžić (1998), *Signal Processing*. 81 citations.
 
@@ -33234,6 +35822,26 @@ Teshome et al. (2024), *Computers and Electronics in Agriculture*. 81 citations.
 - **Open work:** Testing across soils and climates and for longer lead times.
 - **Issues:** Details of data and evaluation unknown; generality cannot be judged.
 - *Basis: assessment*
+
+### [National-scale assessment of pan evaporation models across different climatic zones of China](https://doi.org/10.1016/j.jhydrol.2018.07.013)
+Feng et al. (2018), *Journal of Hydrology*. 81 citations.
+
+*Summary pending.*
+
+### [IHACRES, GR4J and MISD-based multi conceptual-machine learning approach for rainfall-runoff modeling](https://doi.org/10.1038/s41598-022-16215-1)
+Mohammadi et al. (2022), *Scientific Reports*. 81 citations.
+
+*Summary pending.*
+
+### [Deep insight into daily runoff forecasting based on a CNN-LSTM model](https://doi.org/10.1007/s11069-022-05363-2)
+Deng et al. (2022), *Natural Hazards*. 81 citations.
+
+*Summary pending.*
+
+### [Flash-flood hazard using Deep Learning based on H2O R package and fuzzy-multicriteria decision-making analysis](https://doi.org/10.1016/j.jhydrol.2022.127747)
+Costache et al. (2022), *Journal of Hydrology*. 81 citations.
+
+*Summary pending.*
 
 ### [Short-term flood probability density forecasting using a conceptual hydrological model with machine learning techniques](https://doi.org/10.1016/j.jhydrol.2021.127255)
 Zhou et al. (2021), *Journal of Hydrology*. 80 citations.
@@ -33323,6 +35931,21 @@ Mostafa et al. (2023), *Water*. 80 citations.
 - **Issues:** Location and quantitative scores are not given in the abstract; reference ET0 target is itself an empirical estimate.
 - *Basis: abstract*
 
+### [Using Optimized Deep Learning to Predict Daily Streamflow: A Comparison to Common Machine Learning Algorithms](https://doi.org/10.1007/s11269-021-03051-7)
+Khosravi et al. (2022), *Water Resources Management*. 80 citations.
+
+*Summary pending.*
+
+### [Short- and Mid-Term Forecasts of Actual Evapotranspiration with Deep Learning](https://doi.org/10.1016/j.jhydrol.2022.128078)
+Babaeian et al. (2022), *Journal of Hydrology*. 80 citations.
+
+*Summary pending.*
+
+### [Assessment Analysis of Flood Susceptibility in Tropical Desert Area: A Case Study of Yemen](https://doi.org/10.3390/rs14164050)
+Al-Aizari et al. (2022), *Remote Sensing*. 80 citations.
+
+*Summary pending.*
+
 ### [Probabilistic reservoir operation using Bayesian stochastic model and support vector machine](https://doi.org/10.1016/j.advwatres.2009.08.003)
 Karamouz et al. (2009), *Advances in Water Resources*. 79 citations.
 
@@ -33366,6 +35989,31 @@ Amiri et al. (2024), *Journal of Hydrology*. 79 citations.
 - **Open work:** Validation of future projections and uncertainty quantification of susceptibility maps would follow naturally.
 - **Issues:** No abstract available; susceptibility maps depend on inventory quality and future scenario assumptions.
 - *Basis: assessment*
+
+### [Data‐Driven Model Uncertainty Estimation in Hydrologic Data Assimilation](https://doi.org/10.1002/2018wr022627)
+Pathiraja et al. (2018), *Water Resources Research*. 79 citations.
+
+*Summary pending.*
+
+### [Downscaling of Soil Moisture Products Using Deep Learning: Comparison and Analysis on Tibetan Plateau](https://doi.org/10.1016/j.jhydrol.2022.127570)
+Zhao et al. (2022), *Journal of Hydrology*. 79 citations.
+
+*Summary pending.*
+
+### [FWENet: a deep convolutional neural network for flood water body extraction based on SAR images](https://doi.org/10.1080/17538947.2021.1995513)
+Wang et al. (2022), *International Journal of Digital Earth*. 79 citations.
+
+*Summary pending.*
+
+### [Forecasting weekly reference evapotranspiration using Auto Encoder Decoder Bidirectional LSTM model hybridized with a Boruta-CatBoost input optimizer](https://doi.org/10.1016/j.compag.2022.107121)
+Karbasi et al. (2022), *Computers and Electronics in Agriculture*. 79 citations.
+
+*Summary pending.*
+
+### [Research on soil moisture inversion method based on GA-BP neural network model](https://doi.org/10.1080/01431161.2018.1484961)
+Liang et al. (2018), *International Journal of Remote Sensing*. 79 citations.
+
+*Summary pending.*
 
 ### [Probing the limit of hydrologic predictability with the Transformer network](https://doi.org/10.1016/j.jhydrol.2024.131389)
 Liu et al. (2024), *Journal of Hydrology*. 78 citations.
@@ -33432,6 +36080,36 @@ Young et al. (2015), *Hydrological Sciences Journal*. 78 citations.
 - **Open work:** Testing on more events and basins and adding forecast rainfall inputs would follow naturally.
 - **Issues:** Only seven events for training and validation; single basin limits generality.
 - *Basis: abstract*
+
+### [Future flood susceptibility mapping under climate and land use change](https://doi.org/10.1038/s41598-025-97008-0)
+Khodaei et al. (2025), *Scientific Reports*. 78 citations.
+
+*Summary pending.*
+
+### [flood forecasting based on machine learning pattern recognition and dynamic migration of parameters](https://doi.org/10.1016/j.ejrh.2023.101406)
+Tang et al. (2023), *Journal of Hydrology: Regional Studies*. 78 citations.
+
+*Summary pending.*
+
+### [A stacking ensemble learning framework for annual river ice breakup dates](https://doi.org/10.1016/j.jhydrol.2018.04.008)
+Sun et al. (2018), *Journal of Hydrology*. 78 citations.
+
+*Summary pending.*
+
+### [Impacts of climate change on groundwater level and irrigation cost in a groundwater dependent irrigated region](https://doi.org/10.1016/j.agwat.2018.06.011)
+Salem et al. (2018), *Agricultural Water Management*. 78 citations.
+
+*Summary pending.*
+
+### [Prediction of Groundwater Level in Ardebil Plain Using Support Vector Regression and M5 Tree Model](https://doi.org/10.1111/gwat.12620)
+Sattari et al. (2018), *Groundwater*. 78 citations.
+
+*Summary pending.*
+
+### [Short-term runoff prediction using deep learning multi-dimensional ensemble method](https://doi.org/10.1016/j.jhydrol.2022.127762)
+Liu et al. (2022), *Journal of Hydrology*. 78 citations.
+
+*Summary pending.*
 
 ### [Generalization of an Encoder-Decoder LSTM model for flood prediction in ungauged catchments](https://doi.org/10.1016/j.jhydrol.2022.128577)
 Zhang et al. (2022), *Journal of Hydrology*. 77 citations.
@@ -33553,6 +36231,31 @@ Ke et al. (2024), *Journal of Hydrology*. 77 citations.
 - **Open work:** Testing across cities and linking explanations to drainage planning would follow naturally.
 - **Issues:** No abstract available; explanations describe model associations, not causal mechanisms.
 - *Basis: assessment*
+
+### [Water level prediction using various machine learning algorithms: a case study of Durian Tunggal river, Malaysia](https://doi.org/10.1080/19942060.2021.2019128)
+Ahmed et al. (2022), *Engineering Applications of Computational Fluid Mechanics*. 77 citations.
+
+*Summary pending.*
+
+### [AI for climate impacts: applications in flood risk](https://doi.org/10.1038/s41612-023-00388-1)
+Jones et al. (2023), *npj Climate and Atmospheric Science*. 77 citations.
+
+*Summary pending.*
+
+### [High temporal resolution urban flood prediction using attention-based LSTM models](https://doi.org/10.1016/j.jhydrol.2023.129499)
+Zhang et al. (2023), *Journal of Hydrology*. 77 citations.
+
+*Summary pending.*
+
+### [Uncertainty in Rainfall Intensity Duration Frequency Curves of Peninsular Malaysia under Changing Climate Scenarios](https://doi.org/10.3390/w10121750)
+Noor et al. (2018), *Water*. 77 citations.
+
+*Summary pending.*
+
+### [Review on applications of artificial intelligence methods for dam and reservoir-hydro-environment models](https://doi.org/10.1007/s11356-018-1867-8)
+Allawi et al. (2018), *Environmental Science and Pollution Research*. 77 citations.
+
+*Summary pending.*
 
 ### [Improving River Routing Using a Differentiable Muskingum‐Cunge Model and Physics‐Informed Machine Learning](https://doi.org/10.1029/2023wr035337)
 Bindas et al. (2024), *Water Resources Research*. 76 citations.
@@ -33697,6 +36400,31 @@ Talei et al. (2012), *Journal of Hydrology*. 76 citations.
 - **Issues:** No abstract available; event-based datasets are small and catchment-specific.
 - *Basis: assessment*
 
+### [Assessing spatio-temporal mapping and monitoring of climatic variability using SPEI and RF machine learning models](https://doi.org/10.1080/10106049.2022.2093411)
+Wahla et al. (2022), *Geocarto International*. 76 citations.
+
+*Summary pending.*
+
+### [Daily Prediction and Multi-Step Forward Forecasting of Reference Evapotranspiration Using LSTM and Bi-LSTM Models](https://doi.org/10.3390/agronomy12030594)
+Roy et al. (2022), *Agronomy*. 76 citations.
+
+*Summary pending.*
+
+### [Coupling SWAT and Bi-LSTM for improving daily-scale hydro-climatic simulation and climate change impact assessment in a tropical river basin.](https://doi.org/10.1016/j.jenvman.2023.117244)
+Yang et al. (2023), *Journal of Environmental Management*. 76 citations.
+
+*Summary pending.*
+
+### [Enhancing flood susceptibility modeling using multi-temporal SAR images, CHIRPS data, and hybrid machine learning algorithms.](https://doi.org/10.1016/j.scitotenv.2023.162066)
+Riazi et al. (2023), *Science of The Total Environment*. 76 citations.
+
+*Summary pending.*
+
+### [Drought indicator analysis and forecasting using data driven models: case study in Jaisalmer, India](https://doi.org/10.1007/s00477-022-02277-0)
+Elbeltagi et al. (2022), *Stochastic Environmental Research and Risk Assessment*. 76 citations.
+
+*Summary pending.*
+
 ### [Over-parameterisation, a major obstacle to the use of artificial neural networks in hydrology?](https://doi.org/10.5194/hess-7-693-2003)
 Gaume et al. (2003), *Hydrology and Earth System Sciences*. 75 citations.
 
@@ -33751,6 +36479,36 @@ Chen et al. (2013), *Journal of Earth System Science*. 75 citations.
 - **Open work:** More events and comparison with physically based models would follow naturally.
 - **Issues:** No abstract available; few typhoon events limit training and evaluation.
 - *Basis: assessment*
+
+### [Soil Moisture Prediction Using Remote Sensing and Machine Learning Algorithms: A Review on Progress, Challenges, and Opportunities](https://doi.org/10.3390/rs17142397)
+Lamichhane et al. (2025), *Remote Sensing*. 75 citations.
+
+*Summary pending.*
+
+### [Recent global decline in rainfall interception loss due to altered rainfall regimes](https://doi.org/10.1038/s41467-022-35414-y)
+Lian et al. (2022), *Nature Communications*. 75 citations.
+
+*Summary pending.*
+
+### [Machine Learning Models Coupled with Variational Mode Decomposition: A New Approach for Modeling Daily Rainfall-Runoff](https://doi.org/10.3390/atmos9070251)
+Seo et al. (2018), *Atmosphere*. 75 citations.
+
+*Summary pending.*
+
+### [Time series-based groundwater level forecasting using gated recurrent unit deep neural networks](https://doi.org/10.1080/19942060.2022.2104928)
+Lin et al. (2022), *Engineering Applications of Computational Fluid Mechanics*. 75 citations.
+
+*Summary pending.*
+
+### [Breaking Limits of Remote Sensing by Deep Learning From Simulated Data for Flood and Debris-Flow Mapping](https://doi.org/10.1109/tgrs.2020.3035469)
+Yokoya et al. (2022), *IEEE Transactions on Geoscience and Remote Sensing*. 75 citations.
+
+*Summary pending.*
+
+### [Estimating daily reference evapotranspiration using hybrid gamma test-least square support vector machine, gamma test-ANN, and gamma test-ANFIS models in an arid area of Iran](https://doi.org/10.2166/wcc.2018.003)
+Seifi et al. (2018), *Journal of Water and Climate Change*. 75 citations.
+
+*Summary pending.*
 
 ### [Empirical comparison of various methods for training feed‐Forward neural networks for salinity forecasting](https://doi.org/10.1029/1999wr900150)
 Maier et al. (1999), *Water Resources Research*. 74 citations.
@@ -33818,6 +36576,21 @@ Hitouri et al. (2024), *Remote Sensing*. 74 citations.
 - **Issues:** Single small watershed with moderate AUC values; flood inventory depends on SAR detection, and random train/test splitting can overstate skill due to spatial autocorrelation.
 - *Basis: abstract*
 
+### [Comparative Assessment of Improved SVM Method under Different Kernel Functions for Predicting Multi-scale Drought Index](https://doi.org/10.1007/s11269-023-03440-0)
+Pande et al. (2023), *Water Resources Management*. 74 citations.
+
+*Summary pending.*
+
+### [Water Level Forecasting Using Deep Learning Time-Series Analysis: A Case Study of Red River of the North](https://doi.org/10.3390/w14121971)
+Atashi et al. (2022), *Water*. 74 citations.
+
+*Summary pending.*
+
+### [A stacked machine learning model for multi-step ahead prediction of lake surface water temperature.](https://doi.org/10.1016/j.scitotenv.2023.164323)
+Nunno et al. (2023), *Science of The Total Environment*. 74 citations.
+
+*Summary pending.*
+
 ### [Evaluation and interpretation of convolutional long short-term memory networks for regional hydrological modelling](https://doi.org/10.5194/hess-26-795-2022)
 Anderson et al. (2022), *Hydrology and Earth System Sciences*. 73 citations.
 
@@ -33883,6 +36656,21 @@ Laaboudi et al. (2011), *International Journal of Biometeorology*. 73 citations.
 - **Open work:** Applying the model to other arid sites and with fewer inputs would test the claimed generalization.
 - **Issues:** Targets are Penman-Monteith estimates rather than lysimeter measurements, so the near-perfect scores mostly reflect learning a formula; site coverage is limited.
 - *Basis: abstract*
+
+### [Root-zone soil moisture estimation based on remote sensing data and deep learning.](https://doi.org/10.1016/j.envres.2022.113278)
+A et al. (2022), *Environmental Research*. 73 citations.
+
+*Summary pending.*
+
+### [An enhanced monthly runoff time series prediction using extreme learning machine optimized by salp swarm algorithm based on time varying filtering based empirical mode decomposition](https://doi.org/10.1016/j.jhydrol.2023.129460)
+Wang et al. (2023), *Journal of Hydrology*. 73 citations.
+
+*Summary pending.*
+
+### [A New Methodology for Reference Evapotranspiration Prediction and Uncertainty Analysis under Climate Change Conditions Based on Machine Learning, Multi Criteria Decision Making and Monte Carlo Methods](https://doi.org/10.3390/su14052601)
+Kadkhodazadeh et al. (2022), *Sustainability*. 73 citations.
+
+*Summary pending.*
 
 ### [Spatiotemporal deep learning rainfall-runoff forecasting combined with remote sensing precipitation products in large scale basins](https://doi.org/10.1016/j.jhydrol.2022.128727)
 Zhu et al. (2022), *Journal of Hydrology*. 72 citations.
@@ -33971,6 +36759,31 @@ Chang et al. (2014), *Journal of Hydrology*. 72 citations.
 - **Open work:** Extending lead times and coupling with flood warning models are natural next steps.
 - **Issues:** Limited to 13 typhoon events in one watershed; skill drops quickly with lead time.
 - *Basis: abstract*
+
+### [A Study on the Application of GIS and Machine Learning to Predict Flood Areas in Nigeria](https://doi.org/10.3390/su14095039)
+Ighile et al. (2022), *Sustainability*. 72 citations.
+
+*Summary pending.*
+
+### [Advanced Machine Learning Model for Prediction of Drought Indices using Hybrid SVR-RSM](https://doi.org/10.1007/s11269-022-03395-8)
+Piri et al. (2022), *Water Resources Management*. 72 citations.
+
+*Summary pending.*
+
+### [Runoff predictions in new-gauged basins using two transformer-based models](https://doi.org/10.1016/j.jhydrol.2023.129684)
+Yin et al. (2023), *Journal of Hydrology*. 72 citations.
+
+*Summary pending.*
+
+### [A Near-Real-Time Flood Detection Method Based on Deep Learning and SAR Images](https://doi.org/10.3390/rs15082046)
+Wu et al. (2023), *Remote Sensing*. 72 citations.
+
+*Summary pending.*
+
+### [A novel framework for addressing uncertainties in machine learning-based geospatial approaches for flood prediction.](https://doi.org/10.1016/j.jenvman.2022.116813)
+Adnan et al. (2022), *Journal of Environmental Management*. 72 citations.
+
+*Summary pending.*
 
 ### [Robust Runoff Prediction With Explainable Artificial Intelligence and Meteorological Variables From Deep Learning Ensemble Model](https://doi.org/10.1029/2023wr035676)
 Wu et al. (2023), *Water Resources Research*. 71 citations.
@@ -34071,6 +36884,21 @@ Ozkan et al. (2011), *Irrigation Science*. 71 citations.
 - **Issues:** Abstract unavailable; target ET0 is likely from an empirical formula, and station coverage is unknown.
 - *Basis: assessment*
 
+### [Metaheuristic evolutionary deep learning model based on temporal convolutional network, improved aquila optimizer and random forest for rainfall-runoff simulation and multi-step runoff prediction](https://doi.org/10.1016/j.eswa.2023.120616)
+Qiao et al. (2023), *Expert Systems with Applications*. 71 citations.
+
+*Summary pending.*
+
+### [Towards urban flood susceptibility mapping using data-driven models in Berlin, Germany](https://doi.org/10.1080/19475705.2022.2097131)
+Seleem et al. (2022), *Geomatics, Natural Hazards and Risk*. 71 citations.
+
+*Summary pending.*
+
+### [Machine learning based downscaling of GRACE-estimated groundwater in Central Valley, California.](https://doi.org/10.1016/j.scitotenv.2022.161138)
+Agarwal et al. (2022), *Science of The Total Environment*. 71 citations.
+
+*Summary pending.*
+
 ### [Data Assimilation for Streamflow Forecasting Using Extreme Learning Machines and Multilayer Perceptrons](https://doi.org/10.1029/2019wr026226)
 Boucher et al. (2020), *Water Resources Research*. 70 citations.
 
@@ -34137,6 +36965,21 @@ Hu et al. (2024), *Journal of Hydrology: Regional Studies*. 70 citations.
 - **Issues:** Abstract unavailable; data details and skill metrics are unknown.
 - *Basis: assessment*
 
+### [Sentinel-1-Based Water and Flood Mapping: Benchmarking Convolutional Neural Networks Against an Operational Rule-Based Processing Chain](https://doi.org/10.1109/jstars.2022.3152127)
+Helleis et al. (2022), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 70 citations.
+
+*Summary pending.*
+
+### [Revolutionizing Groundwater Management with Hybrid AI Models: A Practical Review](https://doi.org/10.3390/w15091750)
+Zaresefat et al. (2023), *Water*. 70 citations.
+
+*Summary pending.*
+
+### [Evapotranspiration Modeling Using Different Tree Based Ensembled Machine Learning Algorithm](https://doi.org/10.1007/s11269-022-03067-7)
+Agrawal et al. (2022), *Water Resources Management*. 70 citations.
+
+*Summary pending.*
+
 ### [Retrieving soil moisture from simulated brightness temperatures by a neural network](https://doi.org/10.1109/36.942544)
 Liou et al. (2001), *IEEE Transactions on Geoscience and Remote Sensing*. 69 citations.
 
@@ -34191,6 +37034,31 @@ Gao et al. (2024), *Journal of Hydrology*. 69 citations.
 - **Open work:** Generalization to other cities and rainfall regimes and validation against observed flood extents.
 - **Issues:** No abstract available; surrogate models trained on simulations inherit simulator assumptions, and post-hoc explanations may not reflect physical causality.
 - *Basis: assessment*
+
+### [Prediction of runoff at ungauged areas employing interpolation techniques and deep learning algorithm](https://doi.org/10.1016/j.hydres.2024.12.001)
+Mahakur et al. (2025), *HydroResearch*. 69 citations.
+
+*Summary pending.*
+
+### [Evaluate Transformer model and Self-Attention mechanism in the Yangtze River basin runoff prediction](https://doi.org/10.1016/j.ejrh.2023.101438)
+Wei et al. (2023), *Journal of Hydrology: Regional Studies*. 69 citations.
+
+*Summary pending.*
+
+### [On strictly enforced mass conservation constraints for modelling the Rainfall‐Runoff process](https://doi.org/10.1002/hyp.14847)
+Frame et al. (2022), *Hydrological Processes*. 69 citations.
+
+*Summary pending.*
+
+### [Monthly Runoff Forecasting Using Variational Mode Decomposition Coupled with Gray Wolf Optimizer-Based Long Short-term Memory Neural Networks](https://doi.org/10.1007/s11269-022-03133-0)
+Li et al. (2022), *Water Resources Management*. 69 citations.
+
+*Summary pending.*
+
+### [GTWS-MLrec: global terrestrial water storage reconstruction by machine learning from 1940 to present](https://doi.org/10.5194/essd-15-5597-2023)
+Yin et al. (2023), *Earth System Science Data*. 69 citations.
+
+*Summary pending.*
 
 ### [Transformer Versus LSTM: A Comparison of Deep Learning Models for Karst Spring Discharge Forecasting](https://doi.org/10.1029/2022wr032602)
 Pölz et al. (2024), *Water Resources Research*. 68 citations.
@@ -34301,6 +37169,26 @@ Kan et al. (2015), *Stochastic Environmental Research and Risk Assessment*. 68 c
 - **Open work:** Coupling with conceptual hydrological models and testing on more catchments.
 - **Issues:** No abstract available; limited number of flood events for training data-driven models.
 - *Basis: assessment*
+
+### [Interpretable physics‐informed graph neural networks for flood forecasting](https://doi.org/10.1111/mice.13484)
+Taghizadeh et al. (2025), *Computer-Aided Civil and Infrastructure Engineering*. 68 citations.
+
+*Summary pending.*
+
+### [Spatial-temporal Flood Inundation Nowcasts by Fusing Machine Learning Methods and Principal Component Analysis](https://doi.org/10.1016/j.jhydrol.2022.128086)
+Chang et al. (2022), *Journal of Hydrology*. 68 citations.
+
+*Summary pending.*
+
+### [Stable gap-filling for longer eddy covariance data gaps: A globally validated machine-learning approach for carbon dioxide, water, and energy fluxes](https://doi.org/10.1016/j.agrformet.2021.108777)
+Zhu et al. (2022), *Agricultural and Forest Meteorology*. 68 citations.
+
+*Summary pending.*
+
+### [Modelling daily reference evapotranspiration based on stacking hybridization of ANN with meta-heuristic algorithms under diverse agro-climatic conditions](https://doi.org/10.1007/s00477-022-02196-0)
+Elbeltagi et al. (2022), *Stochastic Environmental Research and Risk Assessment*. 68 citations.
+
+*Summary pending.*
 
 ### [USE OF A GENETIC ALGORITHM AND MULTI-OBJECTIVE PROGRAMMING FOR CALIBRATION OF A HYDROLOGIC MODEL](https://doi.org/10.13031/2013.17229)
 Balascio et al. (1998), *Transactions of the ASAE*. 67 citations.
@@ -34423,6 +37311,26 @@ Li et al. (2010), *International Journal of Climatology*. 67 citations.
 - **Issues:** No abstract available; single reservoir and limited record length.
 - *Basis: assessment*
 
+### [Streamflow Prediction Utilizing Deep Learning and Machine Learning Algorithms for Sustainable Water Supply Management](https://doi.org/10.1007/s11269-023-03499-9)
+Latif et al. (2023), *Water Resources Management*. 67 citations.
+
+*Summary pending.*
+
+### [Estimation of actual evapotranspiration: A novel hybrid method based on remote sensing and artificial intelligence](https://doi.org/10.1016/j.jhydrol.2022.127774)
+Hadadi et al. (2022), *Journal of Hydrology*. 67 citations.
+
+*Summary pending.*
+
+### [Forecasting Groundwater Levels using a Hybrid of Support Vector Regression and Particle Swarm Optimization](https://doi.org/10.1007/s11269-022-03118-z)
+Mozaffari et al. (2022), *Water Resources Management*. 67 citations.
+
+*Summary pending.*
+
+### [Explainable machine learning for the prediction and assessment of complex drought impacts.](https://doi.org/10.1016/j.scitotenv.2023.165509)
+Zhang et al. (2023), *Science of The Total Environment*. 67 citations.
+
+*Summary pending.*
+
 ### [Flash Drought: Review of Concept, Prediction and the Potential for Machine Learning, Deep Learning Methods](https://doi.org/10.1029/2022ef002723)
 Tyagi et al. (2022), *Earth's Future*. 66 citations.
 
@@ -34499,6 +37407,26 @@ Bhadra et al. (2010), *Water Resources Management*. 66 citations.
 - **Open work:** Testing in other catchments and data-availability settings.
 - **Issues:** No abstract available; method details cannot be confirmed.
 - *Basis: assessment*
+
+### [Generation of global 1 km daily soil moisture product from 2000 to 2020 using ensemble learning](https://doi.org/10.5194/essd-15-2055-2023)
+Zhang et al. (2023), *Earth System Science Data*. 66 citations.
+
+*Summary pending.*
+
+### [Rapid prediction of urban flood based on disaster-breeding environment clustering and Bayesian optimized deep learning model in the coastal city](https://doi.org/10.1016/j.scs.2023.104898)
+Wang et al. (2023), *Sustainable Cities and Society*. 66 citations.
+
+*Summary pending.*
+
+### [Spatial Analysis of Flood Hazard Zoning Map Using Novel Hybrid Machine Learning Technique in Assam, India](https://doi.org/10.3390/rs14246229)
+Singha et al. (2022), *Remote Sensing*. 66 citations.
+
+*Summary pending.*
+
+### [Generalizing rapid flood predictions to unseen urban catchments with conditional generative adversarial networks](https://doi.org/10.1016/j.jhydrol.2023.129276)
+Lago et al. (2023), *Journal of Hydrology*. 66 citations.
+
+*Summary pending.*
 
 ### [Dynamic-LSTM hybrid models to improve seasonal drought predictions over China](https://doi.org/10.1016/j.jhydrol.2022.128706)
 Wu et al. (2022), *Journal of Hydrology*. 65 citations.
@@ -34588,6 +37516,26 @@ Byaruhanga et al. (2024), *Water*. 65 citations.
 - **Issues:** Scoping review limited to two databases; descriptive synthesis without quantitative comparison of model skill.
 - *Basis: abstract*
 
+### [DeepGR4J: A deep learning hybridization approach for conceptual rainfall-runoff modelling](https://doi.org/10.1016/j.envsoft.2023.105831)
+Kapoor et al. (2023), *Environmental Modelling & Software*. 65 citations.
+
+*Summary pending.*
+
+### [Enhancing spatial resolution of GRACE-derived groundwater storage anomalies in Urmia catchment using machine learning downscaling methods.](https://doi.org/10.1016/j.jenvman.2022.117180)
+Sabzehee et al. (2023), *Journal of Environmental Management*. 65 citations.
+
+*Summary pending.*
+
+### [An Intelligent Early Flood Forecasting and Prediction Leveraging Machine and Deep Learning Algorithms with Advanced Alert System](https://doi.org/10.3390/pr11020481)
+Hayder et al. (2023), *Processes*. 65 citations.
+
+*Summary pending.*
+
+### [Application of genetic algorithm in optimization parallel ensemble-based machine learning algorithms to flood susceptibility mapping using radar satellite imagery.](https://doi.org/10.1016/j.scitotenv.2023.162285)
+Razavi-Termeh et al. (2023), *Science of The Total Environment*. 65 citations.
+
+*Summary pending.*
+
 ### [Comparing several genetic algorithm schemes for the calibration of conceptual rainfall-runoff models](https://doi.org/10.1080/02626669709492034)
 Franchini et al. (1997), *Hydrological Sciences Journal*. 64 citations.
 
@@ -34675,6 +37623,21 @@ Chen et al. (2014), *Journal of Hydrologic Engineering*. 64 citations.
 - **Open work:** Comparing with other input selection methods and applying to more basins.
 - **Issues:** Single case study; content not verified from the abstract.
 - *Basis: assessment*
+
+### [Enhancing Rainfall-Runoff Simulation in Data-Poor Watersheds: Integrating Remote Sensing and Hybrid Decomposition for Hydrologic Modelling](https://doi.org/10.1007/s11269-025-04215-5)
+Riazi et al. (2025), *Water Resources Management*. 64 citations.
+
+*Summary pending.*
+
+### [Enhancing streamflow simulation using hybridized machine learning models in a semi-arid basin of the Chinese Loess Plateau](https://doi.org/10.1016/j.jhydrol.2023.129115)
+Yu et al. (2023), *Journal of Hydrology*. 64 citations.
+
+*Summary pending.*
+
+### [Soil Moisture Dominates the Forest Productivity Decline During the 2022 China Compound Drought‐Heatwave Event](https://doi.org/10.1029/2023gl104539)
+Zhao et al. (2023), *Geophysical Research Letters*. 64 citations.
+
+*Summary pending.*
 
 ### [Can Transfer Learning Improve Hydrological Predictions in the Alpine Regions?](https://doi.org/10.1016/j.jhydrol.2023.130038)
 Yao et al. (2023), *Journal of Hydrology*. 63 citations.
@@ -34764,6 +37727,11 @@ Eslamian et al. (2012), *Arabian Journal for Science and Engineering*. 63 citati
 - **Issues:** Single case study; content not verified from the abstract.
 - *Basis: assessment*
 
+### [Sediment load prediction in Johor river: deep learning versus machine learning models](https://doi.org/10.1007/s13201-023-01874-w)
+Latif et al. (2023), *Applied Water Science*. 63 citations.
+
+*Summary pending.*
+
 ### [Toward interpretable LSTM-based modeling of hydrological systems](https://doi.org/10.5194/hess-28-945-2024)
 Fuente et al. (2024), *Hydrology and Earth System Sciences*. 62 citations.
 
@@ -34807,6 +37775,26 @@ Singha et al. (2024), *Environmental Science and Pollution Research*. 62 citatio
 - **Open work:** Dynamic hazard mapping with rainfall scenarios and validation against independent flood events.
 - **Issues:** Static susceptibility; inventory from SAR may miss short floods; spatial autocorrelation can inflate AUC.
 - *Basis: abstract*
+
+### [Artificial Intelligence (AI) in Surface Water Management: A Comprehensive Review of Methods, Applications, and Challenges](https://doi.org/10.3390/w17111707)
+Gacu et al. (2025), *Water*. 62 citations.
+
+*Summary pending.*
+
+### [Bayesian model averaging by combining deep learning models to improve lake water level prediction.](https://doi.org/10.1016/j.scitotenv.2023.167718)
+Li et al. (2023), *Science of The Total Environment*. 62 citations.
+
+*Summary pending.*
+
+### [Improved prediction of monthly streamflow in a mountainous region by Metaheuristic-Enhanced deep learning and machine learning models using hydroclimatic data](https://doi.org/10.1007/s00704-023-04624-9)
+Adnan et al. (2023), *Theoretical and Applied Climatology*. 62 citations.
+
+*Summary pending.*
+
+### [A New Benchmark on Machine Learning Methodologies for Hydrological Processes Modelling: A Comprehensive Review for Limitations and Future Research Directions](https://doi.org/10.51526/kbes.2023.4.3.65-103)
+Yaseen (2023), *Knowledge-Based Engineering and Sciences*. 62 citations.
+
+*Summary pending.*
 
 ### [Deep learning approaches for improving prediction of daily stream temperature in data‐scarce, unmonitored, and dammed basins](https://doi.org/10.1002/hyp.14400)
 Rahmani et al. (2021), *Hydrological Processes*. 61 citations.
@@ -34884,6 +37872,21 @@ Nourani et al. (2013), *Journal of Hydroinformatics*. 61 citations.
 - **Open work:** Testing on other catchments and multi-step forecasts.
 - **Issues:** Content not verified from the abstract.
 - *Basis: assessment*
+
+### [Prediction of Flood Discharge Using Hybrid PSO-SVM Algorithm in Barak River Basin](https://doi.org/10.1016/j.mex.2023.102060)
+Samantaray et al. (2023), *MethodsX*. 61 citations.
+
+*Summary pending.*
+
+### [Prediction of Soil Moisture Content from Sentinel-2 Images Using Convolutional Neural Network (CNN)](https://doi.org/10.3390/agronomy13030656)
+Hegazi et al. (2023), *Agronomy*. 61 citations.
+
+*Summary pending.*
+
+### [Development of wavelet-based Kalman Online Sequential Extreme Learning Machine optimized with Boruta-Random Forest for drought index forecasting](https://doi.org/10.1016/j.engappai.2022.105545)
+Jamei et al. (2023), *Engineering Applications of Artificial Intelligence*. 61 citations.
+
+*Summary pending.*
 
 ### [Multi‐Task Deep Learning of Daily Streamflow and Water Temperature](https://doi.org/10.1029/2021wr030138)
 Sadler et al. (2021), *Water Resources Research*. 60 citations.
@@ -35027,6 +38030,11 @@ Tan et al. (2024), *Journal of Hydrology: Regional Studies*. 60 citations.
 - **Open work:** Testing the robustness of factor rankings across regions and linking them to process understanding.
 - **Issues:** No abstract available; importance rankings depend on correlated predictors and the selection method, and results are region-specific.
 - *Basis: assessment*
+
+### [A Comparative Study on Forecasting of Long-term Daily Streamflow using ANN, ANFIS, BiLSTM and CNN-GRU-LSTM](https://doi.org/10.1007/s11269-023-03579-w)
+Vatanchi et al. (2023), *Water Resources Management*. 60 citations.
+
+*Summary pending.*
 
 ### [Gap Filling of High‐Resolution Soil Moisture for SMAP/Sentinel‐1: A Two‐Layer Machine Learning‐Based Framework](https://doi.org/10.1029/2019wr024902)
 Mao et al. (2019), *Water Resources Research*. 59 citations.
@@ -35182,6 +38190,31 @@ Al-Ruzouq et al. (2024), *Geoscience Frontiers*. 59 citations.
 - **Issues:** No abstract available; susceptibility labels from SAR-derived inventories carry detection errors, and spatial autocorrelation can inflate accuracy.
 - *Basis: assessment*
 
+### [Application of a New Hybrid Deep Learning Model That Considers Temporal and Feature Dependencies in Rainfall-Runoff Simulation](https://doi.org/10.3390/rs15051395)
+Zhou et al. (2023), *Remote Sensing*. 59 citations.
+
+*Summary pending.*
+
+### [A novel multi-step ahead forecasting model for flood based on time residual LSTM](https://doi.org/10.1016/j.jhydrol.2023.129521)
+Zou et al. (2023), *Journal of Hydrology*. 59 citations.
+
+*Summary pending.*
+
+### [Flood Forecasting by Using Machine Learning: A Study Leveraging Historic Climatic Records of Bangladesh](https://doi.org/10.3390/w15223970)
+Rajab et al. (2023), *Water*. 59 citations.
+
+*Summary pending.*
+
+### [A review of deep learning and machine learning techniques for hydrological inflow forecasting](https://doi.org/10.1007/s10668-023-03131-1)
+Latif et al. (2023), *Environment, Development and Sustainability*. 59 citations.
+
+*Summary pending.*
+
+### [A novel approach for assessing flood risk with machine learning and multi-criteria decision-making methods](https://doi.org/10.1016/j.apgeog.2023.103035)
+Shikhteymour et al. (2023), *Applied Geography*. 59 citations.
+
+*Summary pending.*
+
 ### [Applications of Deep Learning in Hydrology](https://doi.org/10.1002/9781119646181.ch19)
 Shen et al. (2021), *Deep Learning for the Earth Sciences*. 58 citations.
 
@@ -35281,6 +38314,21 @@ Kuok et al. (2010), *International Journal of Environmental Science & Technology
 - **Issues:** No abstract available; single-catchment evaluation and no uncertainty quantification.
 - *Basis: assessment*
 
+### [Artificial neural network for flood susceptibility mapping in Bangladesh](https://doi.org/10.1016/j.heliyon.2023.e16459)
+Rudra et al. (2023), *Heliyon*. 57 citations.
+
+*Summary pending.*
+
+### [Precipitation and vegetation transpiration variations dominate the dynamics of agricultural drought characteristics in China.](https://doi.org/10.1016/j.scitotenv.2023.165480)
+Guo et al. (2023), *Science of The Total Environment*. 57 citations.
+
+*Summary pending.*
+
+### [Flood Forecasting Using Hybrid LSTM and GRU Models with Lag Time Preprocessing](https://doi.org/10.3390/w15223982)
+Zhang et al. (2023), *Water*. 57 citations.
+
+*Summary pending.*
+
 ### [Developing a Physics‐Informed Deep Learning Model to Simulate Runoff Response to Climate Change in Alpine Catchments](https://doi.org/10.1029/2022wr034118)
 Zhong et al. (2023), *Water Resources Research*. 56 citations.
 
@@ -35358,6 +38406,31 @@ Artigue et al. (2012), *Natural Hazards and Earth System Sciences*. 56 citations
 - **Issues:** Short lead time; few flash flood events; single basin.
 - *Basis: abstract*
 
+### [A new multi-source remote sensing image sample dataset with high resolution for flood area extraction: GF-FloodNet](https://doi.org/10.1080/17538947.2023.2230978)
+Zhang et al. (2023), *International Journal of Digital Earth*. 56 citations.
+
+*Summary pending.*
+
+### [Time-series generative adversarial networks for flood forecasting](https://doi.org/10.1016/j.jhydrol.2023.129702)
+Weng et al. (2023), *Journal of Hydrology*. 56 citations.
+
+*Summary pending.*
+
+### [Modeling Various Drought Time Scales via a Merged Artificial Neural Network with a Firefly Algorithm](https://doi.org/10.3390/hydrology10030058)
+Mohammadi (2023), *Hydrology*. 56 citations.
+
+*Summary pending.*
+
+### [Unleashing the power of machine learning and remote sensing for robust seasonal drought monitoring: A stacking ensemble approach](https://doi.org/10.1016/j.jhydrol.2024.131102)
+Xu et al. (2024), *Journal of Hydrology*. 56 citations.
+
+*Summary pending.*
+
+### [A Novel Runoff Prediction Model Based on Support Vector Machine and Gate Recurrent unit with Secondary Mode Decomposition](https://doi.org/10.1007/s11269-024-03748-5)
+Dong et al. (2024), *Water Resources Management*. 56 citations.
+
+*Summary pending.*
+
 ### [Capabilities of Deep Learning Models on Learning Physical Relationships: Case of Rainfall-Runoff Modeling with LSTM](https://doi.org/10.1016/j.scitotenv.2021.149876)
 Yokoo et al. (2021), *Science of The Total Environment*. 55 citations.
 
@@ -35423,6 +38496,21 @@ Kisi et al. (2010), *Journal of Irrigation and Drainage Engineering*. 55 citatio
 - **Open work:** Evaluating the derived equations at other locations and comparing with neural and process-based approaches.
 - **Issues:** Abstract missing; station-based study with uncertain transferability of the evolved expressions.
 - *Basis: assessment*
+
+### [Use of one-dimensional CNN for input data size reduction in LSTM for improved computational efficiency and accuracy in hourly rainfall-runoff modeling.](https://doi.org/10.1016/j.jenvman.2024.120931)
+Ishida et al. (2024), *Journal of Environmental Management*. 55 citations.
+
+*Summary pending.*
+
+### [Exploring Random Forest Machine Learning and Remote Sensing Data for Streamflow Prediction: An Alternative Approach to a Process-Based Hydrologic Modeling in a Snowmelt-Driven Watershed](https://doi.org/10.3390/rs15163999)
+Islam et al. (2023), *Remote Sensing*. 55 citations.
+
+*Summary pending.*
+
+### [Urban Flooding Prediction Method Based on the Combination of LSTM Neural Network and Numerical Model](https://doi.org/10.3390/ijerph20021043)
+Chen et al. (2023), *International Journal of Environmental Research and Public Health*. 55 citations.
+
+*Summary pending.*
 
 ### [How can we benefit from regime information to make more effective use of long short-term memory (LSTM) runoff models?](https://doi.org/10.5194/hess-26-5793-2022)
 Hashemi et al. (2022), *Hydrology and Earth System Sciences*. 54 citations.
@@ -35501,6 +38589,21 @@ Toukourou et al. (2011), *Applied Intelligence*. 54 citations.
 - **Issues:** Abstract missing; few extreme events for training and validation; lead time limited by catchment response time.
 - *Basis: assessment*
 
+### [Physics-Informed Neural Networks for solving transient unconfined groundwater flow](https://doi.org/10.1016/j.cageo.2023.105494)
+Secci et al. (2024), *Computers & Geosciences*. 54 citations.
+
+*Summary pending.*
+
+### [A hybrid model coupling process-driven and data-driven models for improved real-time flood forecasting](https://doi.org/10.1016/j.jhydrol.2024.131494)
+Xu et al. (2024), *Journal of Hydrology*. 54 citations.
+
+*Summary pending.*
+
+### [From data to action in flood forecasting leveraging graph neural networks and digital twin visualization](https://doi.org/10.1038/s41598-024-68857-y)
+Roudbari et al. (2024), *Scientific Reports*. 54 citations.
+
+*Summary pending.*
+
 ### [Decentralized Flood Forecasting Using Deep Neural Networks](https://doi.org/10.31223/osf.io/e9xqr)
 Sit et al. (2019), *arXiv*. 53 citations.
 
@@ -35544,6 +38647,41 @@ Dorum et al. (2010), *Expert Systems with Applications*. 53 citations.
 - **Open work:** Comparison with process-based models and evaluation in other basins.
 - **Issues:** Abstract missing; single-basin study with unclear generalization.
 - *Basis: assessment*
+
+### [Advancing climate-resilient flood mitigation: Utilizing transformer-LSTM for water level forecasting at pumping stations.](https://doi.org/10.1016/j.scitotenv.2024.172246)
+Kow et al. (2024), *Science of The Total Environment*. 53 citations.
+
+*Summary pending.*
+
+### [Exploring machine learning algorithms for accurate water level forecasting in Muda river, Malaysia](https://doi.org/10.1016/j.heliyon.2023.e17689)
+Zakaria et al. (2023), *Heliyon*. 53 citations.
+
+*Summary pending.*
+
+### [Optimization of LSTM Parameters for Flash Flood Forecasting Using Genetic Algorithm](https://doi.org/10.1007/s11269-023-03713-8)
+Jhong et al. (2024), *Water Resources Management*. 53 citations.
+
+*Summary pending.*
+
+### [Urban flood extent segmentation and evaluation from real-world surveillance camera images using deep convolutional neural network](https://doi.org/10.1016/j.envsoft.2023.105939)
+Wang et al. (2024), *Environmental Modelling & Software*. 53 citations.
+
+*Summary pending.*
+
+### [Spatial-temporal graph neural networks for groundwater data](https://doi.org/10.1038/s41598-024-75385-2)
+Taccari et al. (2024), *Scientific Reports*. 53 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility mapping using support vector regression and hyper‐parameter optimization](https://doi.org/10.1111/jfr3.12920)
+Salvati et al. (2023), *Journal of Flood Risk Management*. 53 citations.
+
+*Summary pending.*
+
+### [A review of the Artificial Intelligence (AI) based techniques for estimating reference evapotranspiration: Current trends and future perspectives](https://doi.org/10.1016/j.compag.2023.107836)
+Goyal et al. (2023), *Computers and Electronics in Agriculture*. 53 citations.
+
+*Summary pending.*
 
 ### [Hybrid modeling of evapotranspiration: inferring stomatal and aerodynamic resistances using combined physics-based and machine learning](https://doi.org/10.1088/1748-9326/acbbe0)
 ElGhawi et al. (2023), *Environmental Research Letters*. 52 citations.
@@ -35677,6 +38815,36 @@ Sreekanth et al. (2011), *Environmental Earth Sciences*. 52 citations.
 - **Issues:** Abstract missing; likely a small, single-aquifer dataset.
 - *Basis: assessment*
 
+### [Transformer Based Water Level Prediction in Poyang Lake, China](https://doi.org/10.3390/w15030576)
+Xu et al. (2023), *Water*. 52 citations.
+
+*Summary pending.*
+
+### [GRU–Transformer: A Novel Hybrid Model for Predicting Soil Moisture Content in Root Zones](https://doi.org/10.3390/agronomy14030432)
+Zheng et al. (2024), *Agronomy*. 52 citations.
+
+*Summary pending.*
+
+### [Fast Prediction of Urban Flooding Water Depth Based on CNN−LSTM](https://doi.org/10.3390/w15071397)
+Chen et al. (2023), *Water*. 52 citations.
+
+*Summary pending.*
+
+### [Improved monthly runoff time series prediction using the CABES-LSTM mixture model based on CEEMDAN-VMD decomposition](https://doi.org/10.2166/hydro.2023.216)
+Xu et al. (2023), *Journal of Hydroinformatics*. 52 citations.
+
+*Summary pending.*
+
+### [Random Forest-Based Soil Moisture Estimation Using Sentinel-2, Landsat-8/9, and UAV-Based Hyperspectral Data](https://doi.org/10.3390/rs16111962)
+Shokati et al. (2024), *Remote Sensing*. 52 citations.
+
+*Summary pending.*
+
+### [Application of machine learning and deep learning for predicting groundwater levels in the West Coast Aquifer System, South Africa](https://doi.org/10.1007/s12145-024-01623-w)
+Igwebuike et al. (2024), *Earth Science Informatics*. 52 citations.
+
+*Summary pending.*
+
 ### [Regionalization in a Global Hydrologic Deep Learning Model: From Physical Descriptors to Random Vectors](https://doi.org/10.1029/2021wr031794)
 Li et al. (2022), *Water Resources Research*. 51 citations.
 
@@ -35764,6 +38932,21 @@ Maheswaran et al. (2013), *Computers & Geosciences*. 51 citations.
 - **Open work:** Including climatic drivers and abstraction data and quantifying forecast uncertainty.
 - **Issues:** Abstract missing; long-term forecasts are sensitive to changes in pumping and climate.
 - *Basis: assessment*
+
+### [Prediction of Streamflow Drought Index for Short-Term Hydrological Drought in the Semi-Arid Yesilirmak Basin Using Wavelet Transform and Artificial Intelligence Techniques](https://doi.org/10.3390/su15021109)
+Katipoğlu (2023), *Sustainability*. 51 citations.
+
+*Summary pending.*
+
+### [A Hydrological Data Prediction Model Based on LSTM with Attention Mechanism](https://doi.org/10.3390/w15040670)
+Dai et al. (2023), *Water*. 51 citations.
+
+*Summary pending.*
+
+### [Machine learning and SHAP-based susceptibility assessment of storm flood in rapidly urbanizing areas: a case study of Shenzhen, China](https://doi.org/10.1080/19475705.2024.2311889)
+Zhao et al. (2024), *Geomatics, Natural Hazards and Risk*. 51 citations.
+
+*Summary pending.*
 
 ### [Coupling Machine Learning Into Hydrodynamic Models to Improve River Modeling With Complex Boundary Conditions](https://doi.org/10.1029/2022wr032183)
 Huang et al. (2022), *Water Resources Research*. 50 citations.
@@ -35874,6 +39057,31 @@ Piotrowski et al. (2014), *Computers & Geosciences*. 50 citations.
 - **Open work:** Identifying robust training algorithms for other hydrological variables.
 - **Issues:** Abstract missing; ranking of algorithms may depend on the case study and tuning effort.
 - *Basis: assessment*
+
+### [Drought prediction using artificial intelligence models based on climate data and soil moisture](https://doi.org/10.1038/s41598-024-70406-6)
+Oyounalsoud et al. (2024), *Scientific Reports*. 50 citations.
+
+*Summary pending.*
+
+### [Leveraging GIS-based AHP, remote sensing, and machine learning for susceptibility assessment of different flood types in peshawar, Pakistan.](https://doi.org/10.1016/j.jenvman.2024.123094)
+Tayyab et al. (2024), *Journal of Environmental Management*. 50 citations.
+
+*Summary pending.*
+
+### [Deep Convolutional LSTM for improved flash flood prediction](https://doi.org/10.3389/frwa.2024.1346104)
+Oddo et al. (2024), *Frontiers in Water*. 50 citations.
+
+*Summary pending.*
+
+### [Automatic Flood Detection from Sentinel-1 Data Using a Nested UNet Model and a NASA Benchmark Dataset](https://doi.org/10.1007/s41064-024-00275-1)
+Ghosh et al. (2024), *PFG – Journal of Photogrammetry, Remote Sensing and Geoinformation Science*. 50 citations.
+
+*Summary pending.*
+
+### [Multiobjective multihydropower reservoir operation optimization with transformer-based deep reinforcement learning](https://doi.org/10.1016/j.jhydrol.2024.130904)
+Wu et al. (2024), *Journal of Hydrology*. 50 citations.
+
+*Summary pending.*
 
 ### [From RNNs to Transformers: benchmarking deep learning architectures for hydrologic prediction](https://doi.org/10.5194/hess-29-6811-2025)
 Liu et al. (2025), *Hydrology and Earth System Sciences*. 49 citations.
@@ -36018,6 +39226,16 @@ Mekonnen et al. (2012), *Hydrological Sciences Journal*. 49 citations.
 - **Issues:** Abstract missing; hybrid models may inherit structural errors of the process-based component.
 - *Basis: assessment*
 
+### [Enhancing urban resilience through machine learning-supported flood risk assessment: integrating flood susceptibility with building function vulnerability](https://doi.org/10.1038/s42949-025-00208-w)
+Qin et al. (2025), *npj Urban Sustainability*. 49 citations.
+
+*Summary pending.*
+
+### [Innovative approach for predicting daily reference evapotranspiration using improved shallow and deep learning models in a coastal region: A comparative study.](https://doi.org/10.1016/j.jenvman.2024.120246)
+Elzain et al. (2024), *Journal of Environmental Management*. 49 citations.
+
+*Summary pending.*
+
 ### [Unveiling the limits of deep learning models in hydrological extrapolation tasks](https://doi.org/10.5194/hess-29-5871-2025)
 Baste et al. (2025), *Hydrology and Earth System Sciences*. 48 citations.
 
@@ -36062,6 +39280,31 @@ Chaowanawatee et al. (2012), *2012 Fourth International Conference on Computatio
 - **Issues:** Conference paper without an available abstract; data, lead times and skill metrics cannot be verified. Likely limited to one basin.
 - *Basis: assessment*
 
+### [DeepFlood for Inundated Vegetation High-Resolution Dataset for Accurate Flood Mapping and Segmentation](https://doi.org/10.1038/s41597-025-04554-3)
+Fawakherji et al. (2025), *Scientific Data*. 48 citations.
+
+*Summary pending.*
+
+### [DeepSARFlood: Rapid and Automated SAR-based flood inundation mapping using Vision Transformer-based Deep Ensembles with uncertainty estimates](https://doi.org/10.1016/j.srs.2025.100203)
+Sharma et al. (2025), *Science of Remote Sensing*. 48 citations.
+
+*Summary pending.*
+
+### [Toward Explainable Flood Risk Prediction: Integrating A Novel Hybrid Machine Learning Model](https://doi.org/10.1016/j.scs.2025.106140)
+Wang et al. (2025), *Sustainable Cities and Society*. 48 citations.
+
+*Summary pending.*
+
+### [Harnessing machine learning for assessing climate change influences on groundwater resources: A comprehensive review](https://doi.org/10.1016/j.heliyon.2024.e37073)
+Bamal et al. (2024), *Heliyon*. 48 citations.
+
+*Summary pending.*
+
+### [Rapid urban flood inundation forecasting using a physics-informed deep learning approach](https://doi.org/10.1016/j.jhydrol.2024.131998)
+Yang et al. (2024), *Journal of Hydrology*. 48 citations.
+
+*Summary pending.*
+
 ### [Improved Understanding of How Catchment Properties Control Hydrological Partitioning Through Machine Learning](https://doi.org/10.1029/2021wr031412)
 Cheng et al. (2022), *Water Resources Research*. 47 citations.
 
@@ -36105,6 +39348,26 @@ Sauter et al. (2010), *International Journal of Climatology*. 47 citations.
 - **Open work:** Use for snow cover projections under climate scenarios and transfer to other mid-latitude mountain ranges.
 - **Issues:** Abstract missing, so accuracy figures and data details are unverified; regional, single-range study.
 - *Basis: assessment*
+
+### [Heterogeneous Dynamic Graph Convolutional Networks for Enhanced Spatiotemporal Flood Forecasting by Remote Sensing](https://doi.org/10.1109/jstars.2023.3349162)
+Jiang et al. (2024), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 47 citations.
+
+*Summary pending.*
+
+### [Deep dive into predictive excellence: Transformer's impact on groundwater level prediction](https://doi.org/10.1016/j.jhydrol.2024.131250)
+Sun et al. (2024), *Journal of Hydrology*. 47 citations.
+
+*Summary pending.*
+
+### [Enhancing long short-term memory (LSTM)-based streamflow prediction with a spatially distributed approach](https://doi.org/10.5194/hess-28-2107-2024)
+Yu et al. (2024), *Hydrology and Earth System Sciences*. 47 citations.
+
+*Summary pending.*
+
+### [Forecasting of compound ocean-fluvial floods using machine learning.](https://doi.org/10.1016/j.jenvman.2024.121295)
+Moradian et al. (2024), *Journal of Environmental Management*. 47 citations.
+
+*Summary pending.*
 
 ### [Towards interpreting machine learning models for predicting soil moisture droughts](https://doi.org/10.1088/1748-9326/acdbe0)
 Huang et al. (2023), *Environmental Research Letters*. 46 citations.
@@ -36227,6 +39490,16 @@ Sethi et al. (2010), *International journal of water resources and environmental
 - **Issues:** Abstract missing; single basin, skill metrics unverified.
 - *Basis: assessment*
 
+### [How extreme rainfall and failing dams unleashed the Derna flood disaster](https://doi.org/10.1038/s41467-025-59261-9)
+Nemnem et al. (2025), *Nature Communications*. 46 citations.
+
+*Summary pending.*
+
+### [Identification of influential weather parameters and seasonal drought prediction in Bangladesh using machine learning algorithm](https://doi.org/10.1038/s41598-023-51111-2)
+Mamun et al. (2024), *Scientific Reports*. 46 citations.
+
+*Summary pending.*
+
 ### [Long-term drought prediction using deep neural networks based on geospatial weather data](https://arxiv.org/abs/2309.06212)
 Grabar et al. (2023), *arXiv*. 45 citations.
 
@@ -36326,6 +39599,41 @@ Lamorski et al. (2013), *Vadose Zone Journal*. 45 citations.
 - **Issues:** Abstract missing; results unverified; likely site-specific.
 - *Basis: assessment*
 
+### [Enhanced streamflow forecasting using hybrid modelling integrating glacio-hydrological outputs, deep learning and wavelet transformation](https://doi.org/10.1038/s41598-025-87187-1)
+Ougahi et al. (2025), *Scientific Reports*. 45 citations.
+
+*Summary pending.*
+
+### [Assessment of the impact of climate change on streamflow of Ganjiang River catchment via LSTM-based models](https://doi.org/10.1016/j.ejrh.2024.101716)
+Deng et al. (2024), *Journal of Hydrology: Regional Studies*. 45 citations.
+
+*Summary pending.*
+
+### [A Critical Review of Emerging Technologies for Flash Flood Prediction: Examining Artificial Intelligence, Machine Learning, Internet of Things, Cloud Computing, and Robotics Techniques](https://doi.org/10.3390/w16142069)
+Al-Rawas et al. (2024), *Water*. 45 citations.
+
+*Summary pending.*
+
+### [Spatial downscaling of GRACE-derived groundwater storage changes across diverse climates and human interventions with Random Forests](https://doi.org/10.1016/j.jhydrol.2024.131708)
+Wang et al. (2024), *Journal of Hydrology*. 45 citations.
+
+*Summary pending.*
+
+### [High-resolution long-term average groundwater recharge in Africa estimated using random forest regression and residual interpolation](https://doi.org/10.5194/hess-28-2949-2024)
+Pazola et al. (2024), *Hydrology and Earth System Sciences*. 45 citations.
+
+*Summary pending.*
+
+### [Streamflow forecasting with deep learning models: A side-by-side comparison in Northwest Spain](https://doi.org/10.1007/s12145-024-01454-9)
+Farfán-Durán et al. (2024), *Earth Science Informatics*. 45 citations.
+
+*Summary pending.*
+
+### [Multimodal Fusion of Optimized GRU–LSTM with Self-Attention Layer for Hydrological Time Series Forecasting](https://doi.org/10.1007/s11269-024-03943-4)
+Kilinc et al. (2024), *Water Resources Management*. 45 citations.
+
+*Summary pending.*
+
 ### [Explainable deep learning for insights in El Niño and river flows](https://doi.org/10.1038/s41467-023-35968-5)
 Liu et al. (2022), *Nature Communications*. 44 citations.
 
@@ -36414,6 +39722,36 @@ Vafakhah (2013), *Arabian Journal of Geosciences*. 44 citations.
 - **Issues:** Abstract missing; single study area; metrics unverified.
 - *Basis: assessment*
 
+### [Global Daily Discharge Estimation Based on Grid Long Short‐Term Memory (LSTM) Model and River Routing](https://doi.org/10.1029/2024wr039764)
+Yang et al. (2025), *Water Resources Research*. 44 citations.
+
+*Summary pending.*
+
+### [Advancing flood risk assessment: Multitemporal SAR-based flood inventory generation using transfer learning and hybrid fuzzy-AHP-machine learning for flood susceptibility mapping in the Mahananda River Basin.](https://doi.org/10.1016/j.jenvman.2025.124972)
+Singha et al. (2025), *Journal of Environmental Management*. 44 citations.
+
+*Summary pending.*
+
+### [Physics-informed neural networks in groundwater flow modeling: Advantages and future directions](https://doi.org/10.1016/j.gsd.2024.101172)
+Ali et al. (2024), *Groundwater for Sustainable Development*. 44 citations.
+
+*Summary pending.*
+
+### [Advancing Hydrology through Machine Learning: Insights, Challenges, and Future Directions Using the CAMELS, Caravan, GRDC, CHIRPS, PERSIANN, NLDAS, GLDAS, and GRACE Datasets](https://doi.org/10.3390/w16131904)
+Hasan et al. (2024), *Water*. 44 citations.
+
+*Summary pending.*
+
+### [A national-scale hybrid model for enhanced streamflow estimation – consolidating a physically based hydrological model with long short-term memory (LSTM) networks](https://doi.org/10.5194/hess-28-2871-2024)
+Liu et al. (2024), *Hydrology and Earth System Sciences*. 44 citations.
+
+*Summary pending.*
+
+### [Urban Flood Depth Prediction and Visualization Based on the XGBoost-SHAP Model](https://doi.org/10.1007/s11269-024-04020-6)
+Liu et al. (2024), *Water Resources Management*. 44 citations.
+
+*Summary pending.*
+
 ### [Detecting the State of the Climate System via Artificial Intelligence to Improve Seasonal Forecasts and Inform Reservoir Operations](https://doi.org/10.1029/2019wr025035)
 Giuliani et al. (2019), *Water Resources Research*. 43 citations.
 
@@ -36457,6 +39795,11 @@ Shrestha et al. (2009), *Journal of Hydrologic Engineering*. 43 citations.
 - **Open work:** Combining both model types and propagating input uncertainty operationally in flood forecasts.
 - **Issues:** No abstract available; conclusions depend on the chosen catchment and on the assumed input uncertainty distributions.
 - *Basis: assessment*
+
+### [Application of bagging and boosting ensemble machine learning techniques for groundwater potential mapping in a drought-prone agriculture region of eastern India](https://doi.org/10.1186/s12302-024-00981-y)
+Halder et al. (2024), *Environmental Sciences Europe*. 43 citations.
+
+*Summary pending.*
 
 ### [Interpreting Conv-LSTM for Spatio-Temporal Soil Moisture Prediction in China](https://doi.org/10.3390/agriculture13050971)
 Huang et al. (2023), *Agriculture*. 42 citations.
@@ -36546,6 +39889,21 @@ Odoni et al. (2010), *Progress in Physical Geography: Earth and Environment*. 42
 - **Issues:** Conceptual argument without quantitative demonstration; formalizing heterogeneous knowledge remains difficult.
 - *Basis: abstract*
 
+### [Improving the Accuracy of Groundwater Level Forecasting by Coupling Ensemble Machine Learning Model and Coronavirus Herd Immunity Optimizer](https://doi.org/10.1007/s11269-025-04210-w)
+Saqr et al. (2025), *Water Resources Management*. 42 citations.
+
+*Summary pending.*
+
+### [Downscaled‐GRACE Data Reveal Anthropogenic and Climate‐Induced Water Storage Decline Across the Indus Basin](https://doi.org/10.1029/2023wr035882)
+Arshad et al. (2024), *Water Resources Research*. 42 citations.
+
+*Summary pending.*
+
+### [Hydro-informer: a deep learning model for accurate water level and flood predictions](https://doi.org/10.1007/s11069-024-06949-8)
+Almikaeel et al. (2024), *Natural Hazards*. 42 citations.
+
+*Summary pending.*
+
 ### [Deep learning for monthly rainfall–runoff modelling: a large-sample comparison with conceptual models across Australia](https://doi.org/10.5194/hess-28-1191-2024)
 Clark et al. (2024), *Hydrology and Earth System Sciences*. 41 citations.
 
@@ -36634,6 +39992,46 @@ Albaradeyia et al. (2011), *Environmental Monitoring and Assessment*. 41 citatio
 - **Issues:** Abstract missing; likely small sample of events; metrics unverified.
 - *Basis: assessment*
 
+### [Assessing the performance and interpretability of the CNN-LSTM-Attention model for daily streamflow forecasting in typical basins of the eastern Qinghai-Tibet Plateau](https://doi.org/10.1038/s41598-024-84810-5)
+Zhang et al. (2025), *Scientific Reports*. 41 citations.
+
+*Summary pending.*
+
+### [Multi-scale hydraulic graph neural networks for flood modelling](https://doi.org/10.5194/nhess-25-335-2025)
+Bentivoglio et al. (2025), *Natural Hazards and Earth System Sciences*. 41 citations.
+
+*Summary pending.*
+
+### [Optimizing flood predictions by integrating LSTM and physical-based models with mixed historical and simulated data](https://doi.org/10.1016/j.heliyon.2024.e33669)
+Li et al. (2024), *Heliyon*. 41 citations.
+
+*Summary pending.*
+
+### [Groundwater Level Forecasting Using Empirical Mode Decomposition and Wavelet-Based Long Short-Term Memory (LSTM) Neural Networks](https://doi.org/10.1016/j.gsd.2024.101397)
+Nazari et al. (2024), *Groundwater for Sustainable Development*. 41 citations.
+
+*Summary pending.*
+
+### [Enhancing hydrological modeling with transformers: a case study for 24-h streamflow prediction.](https://doi.org/10.2166/wst.2024.110)
+Demiray et al. (2024), *Water Science & Technology*. 41 citations.
+
+*Summary pending.*
+
+### [Enhancing spatial resolution of satellite soil moisture data through stacking ensemble learning techniques](https://doi.org/10.1038/s41598-024-77050-0)
+Tahmouresi et al. (2024), *Scientific Reports*. 41 citations.
+
+*Summary pending.*
+
+### [Impact of climate change on future flood susceptibility projections under shared socioeconomic pathway scenarios in South Asia using artificial intelligence algorithms.](https://doi.org/10.1016/j.jenvman.2024.121764)
+Janizadeh et al. (2024), *Journal of Environmental Management*. 41 citations.
+
+*Summary pending.*
+
+### [High-precision flood detection and mapping via multi-temporal SAR change analysis with semantic token-based transformer](https://doi.org/10.1016/j.jag.2024.103991)
+Saleh et al. (2024), *International Journal of Applied Earth Observation and Geoinformation*. 41 citations.
+
+*Summary pending.*
+
 ### [H2O-Net: Self-Supervised Flood Segmentation via Adversarial Domain Adaptation and Label Refinement](https://doi.org/10.1109/wacv48630.2021.00016)
 Akiva et al. (2020), *IEEE Workshop/Winter Conference on Applications of Computer Vision*. 40 citations.
 
@@ -36677,6 +40075,41 @@ Song et al. (2012), *Journal of Hydrologic Engineering*. 40 citations.
 - **Open work:** Testing in other catchments and multi-objective calibration.
 - **Issues:** Abstract missing; results unverified.
 - *Basis: assessment*
+
+### [Physics-Informed Neural Networks for Modeling Water Flows in a River Channel](https://doi.org/10.1109/tai.2022.3200028)
+Nazari et al. (2024), *IEEE Transactions on Artificial Intelligence*. 40 citations.
+
+*Summary pending.*
+
+### [A Comparative Assessment of Machine Learning and Deep Learning Models for the Daily River Streamflow Forecasting](https://doi.org/10.1007/s11269-024-04052-y)
+Danesh et al. (2024), *Water Resources Management*. 40 citations.
+
+*Summary pending.*
+
+### [Interpretable machine learning guided by physical mechanisms reveals drivers of runoff under dynamic land use changes.](https://doi.org/10.1016/j.jenvman.2024.121978)
+Wang et al. (2024), *Journal of Environmental Management*. 40 citations.
+
+*Summary pending.*
+
+### [Advancing rapid urban flood prediction: a spatiotemporal deep learning approach with uneven rainfall and attention mechanism](https://doi.org/10.2166/hydro.2024.024)
+Shao et al. (2024), *Journal of Hydroinformatics*. 40 citations.
+
+*Summary pending.*
+
+### [Multi-Step Ahead Water Level Forecasting Using Deep Neural Networks](https://doi.org/10.3390/w16213153)
+Sharafkhani et al. (2024), *Water*. 40 citations.
+
+*Summary pending.*
+
+### [To bucket or not to bucket? Analyzing the performance and interpretability of hybrid hydrological models with dynamic parameterization](https://doi.org/10.5194/hess-28-2705-2024)
+Espinoza et al. (2024), *Hydrology and Earth System Sciences*. 40 citations.
+
+*Summary pending.*
+
+### [A novel explainable PSO-XGBoost model for regional flood frequency analysis at a national scale: Exploring spatial heterogeneity in flood drivers](https://doi.org/10.1016/j.jhydrol.2024.131493)
+Kanani-Sadat et al. (2024), *Journal of Hydrology*. 40 citations.
+
+*Summary pending.*
 
 ### [Fuzzy Optimization Neural Network Approach for Ice Forecast in the Inner Mongolia Reach of the Yellow River/Approche d'Optimisation Floue de Réseau de Neurones pour la Prévision de la Glace Dans le Tronçon de Mongolie Intérieure du Fleuve Jaune](https://doi.org/10.1623/hysj.50.2.319.61793)
 Chen et al. (2005), *Hydrological Sciences Journal*. 39 citations.
@@ -36732,6 +40165,41 @@ Chua et al. (2010), *Journal of Hydrology*. 39 citations.
 - **Open work:** Testing on more catchments and events.
 - **Issues:** Abstract missing; results unverified.
 - *Basis: assessment*
+
+### [Improvement of drought forecasting by means of various machine learning algorithms and wavelet transformation](https://doi.org/10.1007/s11600-024-01399-z)
+Tuğrul et al. (2024), *Acta Geophysica*. 39 citations.
+
+*Summary pending.*
+
+### [Drought index time series forecasting via three-in-one machine learning concept for the Euphrates basin](https://doi.org/10.1007/s12145-024-01471-8)
+Latifoglu et al. (2024), *Earth Science Informatics*. 39 citations.
+
+*Summary pending.*
+
+### [Automated floodwater depth estimation using large multimodal model for rapid flood mapping](https://doi.org/10.1007/s43762-024-00123-3)
+Akinboyewa et al. (2024), *Computational Urban Science*. 39 citations.
+
+*Summary pending.*
+
+### [UrbanSARFloods: Sentinel-1 SLC-Based Benchmark Dataset for Urban and Open-Area Flood Mapping](https://doi.org/10.1109/cvprw63382.2024.00047)
+Zhao et al. (2024), *2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)*. 39 citations.
+
+*Summary pending.*
+
+### [Estimating soil moisture content in citrus orchards using multi-temporal sentinel-1A data-based LSTM and PSO-LSTM models](https://doi.org/10.1016/j.jhydrol.2024.131336)
+Wu et al. (2024), *Journal of Hydrology*. 39 citations.
+
+*Summary pending.*
+
+### [Improving rainfall-runoff modeling in the Mekong river basin using bias-corrected satellite precipitation products by convolutional neural networks](https://doi.org/10.1016/j.jhydrol.2024.130762)
+Le et al. (2024), *Journal of Hydrology*. 39 citations.
+
+*Summary pending.*
+
+### [A new interpretable streamflow prediction approach based on SWAT-BiLSTM and SHAP](https://doi.org/10.1007/s11356-024-32725-z)
+Huang et al. (2024), *Environmental Science and Pollution Research*. 39 citations.
+
+*Summary pending.*
 
 ### [High‐Resolution National‐Scale Water Modeling Is Enhanced by Multiscale Differentiable Physics‐Informed Machine Learning](https://doi.org/10.1029/2024wr038928)
 Song et al. (2025), *Water Resources Research*. 38 citations.
@@ -36821,6 +40289,31 @@ Sulaiman et al. (2011), *Water Resources Management*. 38 citations.
 - **Issues:** Single-site hydrological application; generalization and uncertainty are not established. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
 
+### [Addressing multi-scale temporal variability: deep integration and application of the CNN and transformer model in monthly streamflow prediction](https://doi.org/10.1016/j.eswa.2025.128658)
+Fan et al. (2025), *Expert Systems with Applications*. 38 citations.
+
+*Summary pending.*
+
+### [Meta-LSTM in hydrology: Advancing runoff predictions through model-agnostic meta-learning](https://doi.org/10.1016/j.jhydrol.2024.131521)
+Cai et al. (2024), *Journal of Hydrology*. 38 citations.
+
+*Summary pending.*
+
+### [From meteorological to agricultural drought: Propagation time and influencing factors over diverse underlying surfaces based on CNN-LSTM model](https://doi.org/10.1016/j.ecoinf.2024.102681)
+Long et al. (2024), *Ecological Informatics*. 38 citations.
+
+*Summary pending.*
+
+### [Machine learning downscaling of GRACE/GRACE-FO data to capture spatial-temporal drought effects on groundwater storage at a local scale under data-scarcity](https://doi.org/10.1186/s40068-024-00368-1)
+Shilengwe et al. (2024), *Environmental Systems Research*. 38 citations.
+
+*Summary pending.*
+
+### [Assessing Multi-source Random Forest Classification and Robustness of Predictor Variables in Flooded Areas Mapping](https://doi.org/10.1016/j.rsase.2024.101239)
+Albertini et al. (2024), *Remote Sensing Applications: Society and Environment*. 38 citations.
+
+*Summary pending.*
+
 ### [When ancient numerical demons meet physics-informed machine learning: adjoint-based gradients for implicit differentiable modeling](https://doi.org/10.5194/hess-28-3051-2024)
 Song et al. (2024), *Hydrology and Earth System Sciences*. 37 citations.
 
@@ -36876,6 +40369,46 @@ Can et al. (2012), *Water and Environment Journal*. 37 citations.
 - **Issues:** Basin-specific case study; univariate statistical baselines only. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
 
+### [CAMELS-IND: hydrometeorological time series and catchment attributes for 228 catchments in Peninsular India](https://doi.org/10.5194/essd-17-461-2025)
+Mangukiya et al. (2025), *Earth System Science Data*. 37 citations.
+
+*Summary pending.*
+
+### [Exploring the Controlling Factors of Watershed Streamflow Variability Using Hydrological and Machine Learning Models](https://doi.org/10.1029/2024wr039734)
+Ding et al. (2025), *Water Resources Research*. 37 citations.
+
+*Summary pending.*
+
+### [A surrogate machine learning modeling approach for enhancing the efficiency of urban flood modeling at metropolitan scales](https://doi.org/10.1016/j.scs.2025.106277)
+Aderyani et al. (2025), *Sustainable Cities and Society*. 37 citations.
+
+*Summary pending.*
+
+### [Enhancing flood prediction through remote sensing, machine learning, and Google Earth Engine](https://doi.org/10.3389/frwa.2025.1514047)
+Hajji et al. (2025), *Frontiers in Water*. 37 citations.
+
+*Summary pending.*
+
+### [Advancing flood susceptibility prediction: A comparative assessment and scalability analysis of machine learning algorithms via artificial intelligence in high‐risk regions of Pakistan](https://doi.org/10.1111/jfr3.13047)
+Waleed et al. (2024), *Journal of Flood Risk Management*. 37 citations.
+
+*Summary pending.*
+
+### [A singular spectrum analysis-enhanced BiTCN-selfattention model for runoff prediction](https://doi.org/10.1007/s12145-024-01524-y)
+Wang et al. (2024), *Earth Science Informatics*. 37 citations.
+
+*Summary pending.*
+
+### [Improving flood forecasting using time-distributed CNN-LSTM model: a time-distributed spatiotemporal method](https://doi.org/10.1007/s12145-024-01354-y)
+Malik et al. (2024), *Earth Science Informatics*. 37 citations.
+
+*Summary pending.*
+
+### [Integration of deep learning and improved multi-objective algorithm to optimize reservoir operation for balancing human and downstream ecological needs.](https://doi.org/10.1016/j.watres.2024.121314)
+Qiu et al. (2024), *Water Research*. 37 citations.
+
+*Summary pending.*
+
 ### [Regionalizing Root‐Zone Soil Moisture Estimates From ESA CCI Soil Water Index Using Machine Learning and Information on Soil, Vegetation, and Climate](https://doi.org/10.1029/2020wr029249)
 Grillakis et al. (2021), *Water Resources Research*. 36 citations.
 
@@ -36908,6 +40441,11 @@ Pan et al. (2011), *Natural Hazards and Earth System Sciences*. 36 citations.
 - **Open work:** Extend to longer lead times and more locations, and integrate into operational flood warning.
 - **Issues:** Trained largely on synthetic simulations, so it inherits hydraulic-model assumptions; forecasts only at representative points and 1-h lead.
 - *Basis: abstract*
+
+### [Deep learning-based downscaling of global digital elevation models for enhanced urban flood modeling](https://doi.org/10.1016/j.jhydrol.2025.132687)
+Zandsalimi et al. (2025), *Journal of Hydrology*. 36 citations.
+
+*Summary pending.*
 
 ### [Flood Uncertainty Estimation Using Deep Ensembles](https://doi.org/10.3390/w14192980)
 Chaudhary et al. (2022), *Water*. 35 citations.
@@ -37118,6 +40656,16 @@ Liu et al. (2010), *Water science and engineering*. 33 citations.
 - **Issues:** Single study area; quantitative gains not given in the abstract; relies on continuing in-situ observations for assimilation.
 - *Basis: abstract*
 
+### [CausalRivers - Scaling up benchmarking of causal discovery for real-world time-series](https://arxiv.org/abs/2503.17452)
+Stein et al. (2025), *International Conference on Learning Representations*. 33 citations.
+
+*Summary pending.*
+
+### [Analyzing the generalization capabilities of a hybrid hydrological model for extrapolation to extreme events](https://doi.org/10.5194/hess-29-1277-2025)
+Espinoza et al. (2025), *Hydrology and Earth System Sciences*. 33 citations.
+
+*Summary pending.*
+
 ### [On the challenges of global entity-aware deep learning models for groundwater level prediction](https://doi.org/10.5194/hess-28-525-2024)
 Heudorfer et al. (2024), *Hydrology and Earth System Sciences*. 32 citations.
 
@@ -37261,6 +40809,36 @@ Keskin et al. (2011), *Scientific Research and Essays*. 30 citations.
 - **Issues:** Few stations; modelling an index derived from the same precipitation limits forecasting value.
 - *Basis: abstract*
 
+### [Autonomous inverse modeling of complex groundwater systems via a physics-integrated large language model multi-agent framework.](https://doi.org/10.1016/j.watres.2026.125886)
+Ma et al. (2026), *Water Research*. 30 citations.
+
+*Summary pending.*
+
+### [Coupling SWAT+ with LSTM for enhanced and interpretable streamflow estimation in arid and semi-arid watersheds, a case study of the Tagus Headwaters River Basin, Spain](https://doi.org/10.1016/j.envsoft.2025.106360)
+Asadi et al. (2025), *Environmental Modelling & Software*. 30 citations.
+
+*Summary pending.*
+
+### [Drought risks are projected to increase in the future in central and southern regions of the Middle East](https://doi.org/10.1038/s43247-025-02359-1)
+Khosravi et al. (2025), *Communications Earth & Environment*. 30 citations.
+
+*Summary pending.*
+
+### [Forecasting monthly runoff in a glacierized catchment: A comparison of extreme gradient boosting (XGBoost) and deep learning models](https://doi.org/10.1371/journal.pone.0321008)
+Hameed et al. (2025), *PLOS One*. 30 citations.
+
+*Summary pending.*
+
+### [Are Deep Learning Models in Hydrology Entity Aware?](https://doi.org/10.1029/2024gl113036)
+Heudorfer et al. (2025), *Geophysical Research Letters*. 30 citations.
+
+*Summary pending.*
+
+### [Rapid flood inundation mapping by integrating deep learning-based image super-resolution with coarse-grid hydrodynamic modeling](https://doi.org/10.1080/19942060.2025.2481115)
+Song et al. (2025), *Engineering Applications of Computational Fluid Mechanics*. 30 citations.
+
+*Summary pending.*
+
 ### [Uncovering the Dynamic Drivers of Floods Through Interpretable Deep Learning](https://doi.org/10.1029/2024ef004751)
 Xu et al. (2024), *Earth's Future*. 29 citations.
 
@@ -37326,6 +40904,21 @@ Abudu et al. (2010), *Journal of Irrigation and Drainage Engineering*. 29 citati
 - **Open work:** Test transferability of infilling models across sites and seasons.
 - **Issues:** Infilling skill depends on availability of concurrent predictors. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
+
+### [Integration of Gaussian process regression and K means clustering for enhanced short term rainfall runoff modeling](https://doi.org/10.1038/s41598-025-91339-8)
+Kisi et al. (2025), *Scientific Reports*. 29 citations.
+
+*Summary pending.*
+
+### [Hybrid approaches enhance hydrological model usability for local streamflow prediction](https://doi.org/10.1038/s43247-025-02324-y)
+Du et al. (2025), *Communications Earth & Environment*. 29 citations.
+
+*Summary pending.*
+
+### [A hybrid process-data driven framework for real-time hydrological forecasting with interpretable deep learning](https://doi.org/10.1016/j.jhydrol.2025.134082)
+Zhu et al. (2025), *Journal of Hydrology*. 29 citations.
+
+*Summary pending.*
 
 ### [Rapid Flood Inundation Forecast Using Fourier Neural Operator](https://doi.org/10.1109/iccvw60793.2023.00401)
 Sun et al. (2023), *2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)*. 28 citations.
@@ -37470,6 +41063,16 @@ Hsu et al. (1998), *Water resources engineering*. 27 citations.
 - **Issues:** Black-box model with limited physical interpretability; single-basin evaluation.
 - *Basis: assessment*
 
+### [Artificial intelligence-incorporated prediction for urban flooding processes in the past 20 years: A critical review](https://doi.org/10.1016/j.envsoft.2025.106525)
+Li et al. (2025), *Environmental Modelling & Software*. 27 citations.
+
+*Summary pending.*
+
+### [Evaluation of LSTM vs. conceptual models for hourly rainfall runoff simulations with varied training period lengths](https://doi.org/10.1038/s41598-025-96577-4)
+Fathi et al. (2025), *Scientific Reports*. 27 citations.
+
+*Summary pending.*
+
 ### [Machine-learning-based downscaling of modelled climate change impacts on groundwater table depth](https://doi.org/10.5194/hess-26-5859-2022)
 Schneider et al. (2022), *Hydrology and Earth System Sciences*. 26 citations.
 
@@ -37503,6 +41106,31 @@ Reichert et al. (2024), *Hydrology and Earth System Sciences*. 26 citations.
 - **Issues:** Expected responses are qualitative and somewhat subjective; limited set of basins and models; does not establish which model is correct for future climates.
 - *Basis: abstract*
 
+### [Ensemble machine learning-based extrapolation of Penman-Monteith-Leuning evapotranspiration data](https://doi.org/10.1016/j.ecolind.2024.113012)
+Nourani et al. (2025), *Ecological Indicators*. 26 citations.
+
+*Summary pending.*
+
+### [Remotely Sensed High‐Resolution Soil Moisture and Evapotranspiration: Bridging the Gap Between Science and Society](https://doi.org/10.1029/2024wr037929)
+Huang et al. (2025), *Water Resources Research*. 26 citations.
+
+*Summary pending.*
+
+### [SwinFlood: A hybrid CNN-Swin Transformer model for rapid spatiotemporal flood simulation](https://doi.org/10.1016/j.jhydrol.2025.133280)
+Song et al. (2025), *Journal of Hydrology*. 26 citations.
+
+*Summary pending.*
+
+### [A knowledge-guided LSTM reservoir outflow model and its application to streamflow simulation in reservoir-regulated basins](https://doi.org/10.1016/j.jhydrol.2025.133164)
+Chen et al. (2025), *Journal of Hydrology*. 26 citations.
+
+*Summary pending.*
+
+### [CAMELS-DK: hydrometeorological time series and landscape attributes for 3330 Danish catchments with streamflow observations from 304 gauged stations](https://doi.org/10.5194/essd-17-1551-2025)
+Liu et al. (2025), *Earth System Science Data*. 26 citations.
+
+*Summary pending.*
+
 ### Application of a recurrent neural network to rainfall-runoff modeling
 Hsu et al. (1997), *Venue not recorded*. 25 citations.
 
@@ -37513,6 +41141,26 @@ Hsu et al. (1997), *Venue not recorded*. 25 citations.
 - **Open work:** Comparison with conceptual hydrologic models and feed-forward networks on multiple basins.
 - **Issues:** No abstract available; recurrent training difficulties and lack of physical constraints may limit extrapolation to extreme floods.
 - *Basis: assessment*
+
+### [Improve streamflow simulations by combining machine learning pre-processing and post-processing](https://doi.org/10.1016/j.jhydrol.2025.132904)
+Zhang et al. (2025), *Journal of Hydrology*. 25 citations.
+
+*Summary pending.*
+
+### [Mixture of experts leveraging informer and LSTM variants for enhanced daily streamflow forecasting](https://doi.org/10.1016/j.jhydrol.2025.132737)
+Rong et al. (2025), *Journal of Hydrology*. 25 citations.
+
+*Summary pending.*
+
+### [From bias to accuracy: Transforming satellite precipitation data in arid regions with machine learning and topographical insights](https://doi.org/10.1016/j.jhydrol.2025.132801)
+Baig et al. (2025), *Journal of Hydrology*. 25 citations.
+
+*Summary pending.*
+
+### [Integrating machine learning with process-based glacio-hydrological model for improving the performance of runoff simulation in cold regions](https://doi.org/10.1016/j.jhydrol.2025.132963)
+Mohammadi et al. (2025), *Journal of Hydrology*. 25 citations.
+
+*Summary pending.*
 
 ### [Deep Learning‐Based Approach for Enhancing Streamflow Prediction in Watersheds With Aggregated and Intermittent Observations](https://doi.org/10.1029/2024wr037331)
 Mangukiya et al. (2024), *Water Resources Research*. 24 citations.
@@ -37546,6 +41194,26 @@ Wang et al. (2025), *Journal of Hydrology*. 24 citations.
 - **Open work:** Likely comparison with standard LSTM and process-based models across hydroclimates; not confirmed.
 - **Issues:** Abstract unavailable, so card is based on the title only.
 - *Basis: assessment*
+
+### [A systematic review of machine learning models for groundwater level prediction](https://doi.org/10.1016/j.acags.2025.100303)
+Jesse et al. (2025), *Applied Computing and Geosciences*. 24 citations.
+
+*Summary pending.*
+
+### [A Transformer-based method to simulate multi-scale soil moisture](https://doi.org/10.1016/j.jhydrol.2025.132900)
+Liu et al. (2025), *Journal of Hydrology*. 24 citations.
+
+*Summary pending.*
+
+### [STURM-Flood: a curated dataset for deep learning-based flood extent mapping leveraging Sentinel-1 and Sentinel-2 imagery](https://doi.org/10.1080/20964471.2025.2458714)
+Notarangelo et al. (2025), *Big Earth Data*. 24 citations.
+
+*Summary pending.*
+
+### [Flood susceptibility mapping in arid urban areas using SHAP-enhanced stacked ensemble learning: A case study of Jeddah.](https://doi.org/10.1016/j.jenvman.2025.127128)
+Zerouali et al. (2025), *Journal of Environmental Management*. 24 citations.
+
+*Summary pending.*
 
 ### [Reinforcement learning–based adaptive strategies for climate change adaptation: An application for coastal flood risk management](https://doi.org/10.1073/pnas.2402826122)
 Feng et al. (2025), *Proceedings of the National Academy of Sciences*. 23 citations.
@@ -37590,6 +41258,21 @@ Duan et al. (2024), *Water Resources Research*. 23 citations.
 - **Open work:** Improving spatial extrapolation to ungauged terrain and integrating remote sensing of snow.
 - **Issues:** Training only at SNOTEL sites limits representativeness at other elevations; higher MSE than baselines; extrapolation needs normalization.
 - *Basis: abstract*
+
+### [FloodCastBench: A Large-Scale Dataset and Foundation Models for Flood Modeling and Forecasting](https://doi.org/10.1038/s41597-025-04725-2)
+Xu et al. (2025), *Scientific Data*. 23 citations.
+
+*Summary pending.*
+
+### [Physics-encoded deep learning for integrated modeling of watershed hydrology and reservoir operations](https://doi.org/10.1016/j.jhydrol.2025.133052)
+Yu et al. (2025), *Journal of Hydrology*. 23 citations.
+
+*Summary pending.*
+
+### [Urban flood modeling and forecasting with deep neural operator and transfer learning](https://doi.org/10.1016/j.jhydrol.2025.133705)
+Xu et al. (2025), *Journal of Hydrology*. 23 citations.
+
+*Summary pending.*
 
 ### [Probabilistic Diffusion Models Advance Extreme Flood Forecasting](https://doi.org/10.1029/2025gl115705)
 Ou et al. (2024), *Geophysical Research Letters*. 22 citations.
@@ -37646,6 +41329,26 @@ Mahabir et al. (2003), *Venue not recorded*. 22 citations.
 - **Issues:** No abstract available; few historical ice jam events for calibration.
 - *Basis: assessment*
 
+### [An adaptive rainfall-runoff model for daily runoff prediction under the changing environment: Stream-LSTM](https://doi.org/10.1016/j.envsoft.2025.106524)
+Hu et al. (2025), *Environmental Modelling & Software*. 22 citations.
+
+*Summary pending.*
+
+### [Future methane emissions from lakes and reservoirs](https://doi.org/10.1038/s44221-025-00532-6)
+Bastviken et al. (2025), *Nature Water*. 22 citations.
+
+*Summary pending.*
+
+### [Multi-layer grid-scale soil moisture estimation using spatiotemporal deep learning methods with physical constraints](https://doi.org/10.1016/j.jhydrol.2025.133086)
+Zhang et al. (2025), *Journal of Hydrology*. 22 citations.
+
+*Summary pending.*
+
+### [ML4FF: A machine-learning framework for flash flood forecasting applied to a Brazilian watershed](https://doi.org/10.1016/j.jhydrol.2025.132674)
+Soares et al. (2025), *Journal of Hydrology*. 22 citations.
+
+*Summary pending.*
+
 ### [Hydrological Projections in the Third Pole Using Artificial Intelligence and an Observation‐Constrained Cryosphere‐Hydrology Model](https://doi.org/10.1029/2023ef004222)
 Long et al. (2024), *Earth's Future*. 21 citations.
 
@@ -37678,6 +41381,51 @@ Panu et al. (1980), *Journal of Hydrology*. 21 citations.
 - **Open work:** Application and validation on real streamflow series, as in the companion parts.
 - **Issues:** No abstract available; methodological paper, so performance must be judged from later parts.
 - *Basis: assessment*
+
+### [Machine learning-based drought prediction using Palmer Drought Severity Index and TerraClimate data in Ethiopia](https://doi.org/10.1371/journal.pone.0326174)
+Melese et al. (2025), *PLOS One*. 21 citations.
+
+*Summary pending.*
+
+### [Training deep learning models with a multi-station approach and static aquifer attributes for groundwater level simulation: what is the best way to leverage regionalised information?](https://doi.org/10.5194/hess-29-841-2025)
+Chidepudi et al. (2025), *Hydrology and Earth System Sciences*. 21 citations.
+
+*Summary pending.*
+
+### [Performance and uncertainty analysis in deep learning frameworks for streamflow forecasting via Monte Carlo dropout technique](https://doi.org/10.1016/j.ejrh.2025.102668)
+Le et al. (2025), *Journal of Hydrology: Regional Studies*. 21 citations.
+
+*Summary pending.*
+
+### [AI-driven U.S. drought prediction using machine learning and deep learning](https://doi.org/10.1007/s00382-025-07720-w)
+Tanriverdi et al. (2025), *Climate Dynamics*. 21 citations.
+
+*Summary pending.*
+
+### [Are the Current Expectations for SAR Remote Sensing of Soil Moisture Using Machine Learning Overoptimistic?](https://doi.org/10.1109/tgrs.2025.3533927)
+Zhu et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 21 citations.
+
+*Summary pending.*
+
+### [Toward HydroLLM: a benchmark dataset for hydrology-specific knowledge assessment for large language models](https://doi.org/10.1017/eds.2025.10006)
+Kizilkaya et al. (2025), *Environmental Data Science*. 21 citations.
+
+*Summary pending.*
+
+### [A hybrid framework for real-time flash flood forecasting in small ungauged catchments: integrating hydrodynamic simulations with LSTM networks](https://doi.org/10.1016/j.jhydrol.2025.133688)
+An et al. (2025), *Journal of Hydrology*. 21 citations.
+
+*Summary pending.*
+
+### [Explainable AI for Interpreting Spatiotemporal Groundwater Predictions](https://doi.org/10.1029/2025wr041303)
+Clark et al. (2025), *Water Resources Research*. 21 citations.
+
+*Summary pending.*
+
+### [Streamflow forecasting using machine learning and remote sensing data in the Himalayan region](https://doi.org/10.2166/wpt.2025.153)
+Suwal et al. (2025), *Water Practice & Technology*. 21 citations.
+
+*Summary pending.*
 
 ### [Towards Interpretable Physical‐Conceptual Catchment‐Scale Hydrological Modeling Using the Mass‐Conserving‐Perceptron](https://doi.org/10.1029/2024wr037224)
 Wang et al. (2024), *Water Resources Research*. 20 citations.
@@ -37723,6 +41471,41 @@ Razavi et al. (2007), *Water International*. 20 citations.
 - **Issues:** No abstract available; extrapolation to unseen extreme floods is uncertain.
 - *Basis: assessment*
 
+### [Physics-Guided Deep Learning for Spatiotemporal Evolution of Urban Pluvial Flooding](https://doi.org/10.3390/w17081239)
+Woo et al. (2025), *Water*. 20 citations.
+
+*Summary pending.*
+
+### [Machine-learning-based reconstruction of long-term global terrestrial water storage anomalies from observed, satellite and land-surface model data](https://doi.org/10.5194/essd-17-2575-2025)
+Mandal et al. (2025), *Earth System Science Data*. 20 citations.
+
+*Summary pending.*
+
+### [Skillful subseasonal soil moisture drought forecasts with deep learning-dynamic models](https://doi.org/10.1038/s41467-025-62761-3)
+Lesinger et al. (2025), *Nature Communications*. 20 citations.
+
+*Summary pending.*
+
+### [GRAiCE: reconstructing terrestrial water storage anomalies with recurrent neural networks](https://doi.org/10.1038/s41597-025-04403-3)
+Palazzoli et al. (2025), *Scientific Data*. 20 citations.
+
+*Summary pending.*
+
+### [Advanced Framework for Predicting Rainfall-Runoff: Comparative Evaluation of AI Models for Enhanced Forecasting Accuracy](https://doi.org/10.1007/s11269-025-04106-9)
+Sanikhani et al. (2025), *Water Resources Management*. 20 citations.
+
+*Summary pending.*
+
+### [Flood risk assessment with machine learning: insights from the 2022 Pakistan mega-flood and climate adaptation strategies](https://doi.org/10.1038/s44304-025-00096-1)
+Peng et al. (2025), *npj Natural Hazards*. 20 citations.
+
+*Summary pending.*
+
+### [Estimating and forecasting daily reference crop evapotranspiration in China with temperature-driven deep learning models](https://doi.org/10.1016/j.agwat.2024.109268)
+Zhang et al. (2025), *Agricultural Water Management*. 20 citations.
+
+*Summary pending.*
+
 ### [Assessing the adequacy of traditional hydrological models for climate change impact studies: a case for long short-term memory (LSTM) neural networks](https://doi.org/10.5194/hess-29-2811-2025)
 Martel et al. (2025), *Hydrology and Earth System Sciences*. 19 citations.
 
@@ -37767,6 +41550,21 @@ Pankiewicz (1997), *International Journal of Remote Sensing*. 19 citations.
 - **Issues:** Details unknown without the abstract; early single-study classifier with likely limited training data and no uncertainty estimates.
 - *Basis: assessment*
 
+### [Uncertainty-Aware Flood Inundation Mapping With a Bayesian Deep Learning Framework Using SAR Imagery](https://doi.org/10.1109/jstars.2025.3610403)
+Garshasbi et al. (2025), *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*. 19 citations.
+
+*Summary pending.*
+
+### [Enhancing Soil Moisture Prediction in Drought-Prone Agricultural Regions Using Remote Sensing and Machine Learning Approaches](https://doi.org/10.3390/rs17020181)
+Zha et al. (2025), *Remote Sensing*. 19 citations.
+
+*Summary pending.*
+
+### [Deep learning model for flood probabilistic forecasting considering spatiotemporal rainfall distribution and hydrologic uncertainty](https://doi.org/10.1016/j.jhydrol.2025.132879)
+Xiang et al. (2025), *Journal of Hydrology*. 19 citations.
+
+*Summary pending.*
+
 ### [Accelerating flood warnings by 10 hours: the power of river network topology in AI-enhanced flood forecasting](https://doi.org/10.1038/s44304-025-00083-6)
 Wang et al. (2024), *npj Natural Hazards*. 18 citations.
 
@@ -37799,6 +41597,36 @@ Husic et al. (2025), *Hydrology and Earth System Sciences*. 18 citations.
 - **Open work:** Improving representation of soil water storage, arid processes, reservoirs and human influences in NWM and NHM.
 - **Issues:** Proof of concept; explains correlations with attributes rather than causal process errors; attribute data quality affects conclusions.
 - *Basis: abstract*
+
+### [Physics‐Informed, Differentiable Hydrologic Models for Capturing Unseen Extreme Events](https://doi.org/10.1029/2025wr040414)
+Song et al. (2026), *Water Resources Research*. 18 citations.
+
+*Summary pending.*
+
+### [Estimation of the Spatiotemporal Variability of Surface soil Moisture Using Machine Learning Methods Integrating Satellite and Ground-based Soil Moisture and Environmental Data](https://doi.org/10.1007/s11269-024-04069-3)
+Blanka-Végi et al. (2025), *Water Resources Management*. 18 citations.
+
+*Summary pending.*
+
+### [Real-time error correction of multiple-hour-ahead flash flood forecasting based on the sliding runoff-rain data and deep learning models](https://doi.org/10.1016/j.jhydrol.2025.132918)
+Zhou et al. (2025), *Journal of Hydrology*. 18 citations.
+
+*Summary pending.*
+
+### [A post-processing machine learning framework for bias-correcting National Water Model outputs by accounting for dominant streamflow drivers](https://doi.org/10.1016/j.envsoft.2025.106459)
+Neisary et al. (2025), *Environmental Modelling & Software*. 18 citations.
+
+*Summary pending.*
+
+### [Physics‐AI Synergized Optimization‐Learning‐Simulation Framework for Robust Cascade Reservoir Scheduling Under Future Hydrological Uncertainty](https://doi.org/10.1029/2025wr042149)
+Zhu et al. (2026), *Water Resources Research*. 18 citations.
+
+*Summary pending.*
+
+### [Multi-model ensemble machine learning-based downscaling and projection of GRACE data reveals groundwater decline in Saudi Arabia throughout the 21st century](https://doi.org/10.1016/j.ejrh.2025.102552)
+Arshad et al. (2025), *Journal of Hydrology: Regional Studies*. 18 citations.
+
+*Summary pending.*
 
 ### [Exploring the ability of LSTM-based hydrological models to simulate streamflow time series for flood frequency analysis](https://doi.org/10.5194/hess-29-4951-2025)
 Martel et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
@@ -37876,6 +41704,36 @@ Wedgbrow et al. (2005), *Climate Research*. 17 citations.
 - **Open work:** Operational testing and combination with dynamical seasonal forecasts.
 - **Issues:** Abstract unavailable; few seasons for verification and limited predictability of summer rainfall in the UK.
 - *Basis: assessment*
+
+### [A Meteorology-Driven Transformer Network to Predict Soil Moisture for Agriculture Drought Forecasting](https://doi.org/10.1109/tgrs.2025.3543611)
+Xiong et al. (2025), *IEEE Transactions on Geoscience and Remote Sensing*. 17 citations.
+
+*Summary pending.*
+
+### [Informing Risk Hotspots and Critical Mitigations for Rainstorms Using Machine Learning: Evidence from 268 Chinese Cities.](https://doi.org/10.1021/acs.est.4c08699)
+Hu et al. (2025), *Environmental Science & Technology*. 17 citations.
+
+*Summary pending.*
+
+### [Creating a national urban flood dataset for China from news texts (2000–2022) at the county level](https://doi.org/10.5194/hess-29-767-2025)
+Fu et al. (2025), *Hydrology and Earth System Sciences*. 17 citations.
+
+*Summary pending.*
+
+### [Downscaling soil moisture to sub-km resolutions with simple machine learning ensembles](https://doi.org/10.1016/j.jhydrol.2024.132624)
+Poehls et al. (2025), *Journal of Hydrology*. 17 citations.
+
+*Summary pending.*
+
+### [A deep learning-based probabilistic approach to flash flood warnings in mountainous catchments](https://doi.org/10.1016/j.jhydrol.2025.132677)
+Zhao et al. (2025), *Journal of Hydrology*. 17 citations.
+
+*Summary pending.*
+
+### [Evapotranspiration Partitioning Using Flux Tower Data in a Semi‐Arid Ecosystem](https://doi.org/10.1002/hyp.70083)
+Kar et al. (2025), *Hydrological Processes*. 17 citations.
+
+*Summary pending.*
 
 ### [Remote Sensing of River Discharge From Medium‐Resolution Satellite Imagery Based on Deep Learning](https://doi.org/10.1029/2023wr036880)
 Hao et al. (2024), *Water Resources Research*. 16 citations.
@@ -37964,6 +41822,31 @@ Maity et al. (2010), *Journal of Hydrometeorology*. 16 citations.
 - **Open work:** Test other teleconnection predictors and basins.
 - **Issues:** Teleconnection relations can be nonstationary. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
+
+### [Machine Learning Ensembles Can Enhance Hydrologic Predictions and Uncertainty Quantification](https://doi.org/10.1029/2025jh000732)
+Willard et al. (2025), *Journal of Geophysical Research: Machine Learning and Computation*. 16 citations.
+
+*Summary pending.*
+
+### [A Hybrid Physics‐Guided Deep Learning Modeling Framework for Predicting Surface Soil Moisture](https://doi.org/10.1029/2025jh000682)
+Xi et al. (2025), *Journal of Geophysical Research: Machine Learning and Computation*. 16 citations.
+
+*Summary pending.*
+
+### [On Using AI‐Based Large‐Sample Emulators for Land/Hydrology Model Calibration and Regionalization](https://doi.org/10.1029/2024wr039525)
+Tang et al. (2025), *Water Resources Research*. 16 citations.
+
+*Summary pending.*
+
+### [An Explainable Bayesian TimesNet for Probabilistic Groundwater Level Prediction](https://doi.org/10.1029/2025wr040191)
+Peng et al. (2025), *Water Resources Research*. 16 citations.
+
+*Summary pending.*
+
+### [A Modified Hierarchical Vision Transformer for Soil Moisture Retrieval From CYGNSS Data](https://doi.org/10.1029/2024wr039476)
+Yan et al. (2025), *Water Resources Research*. 16 citations.
+
+*Summary pending.*
 
 ### [Enforcing Water Balance in Multitask Deep Learning Models for Hydrological Forecasting](https://doi.org/10.1175/jhm-d-23-0073.1)
 Li et al. (2024), *Journal of Hydrometeorology*. 15 citations.
@@ -38063,6 +41946,16 @@ Solomatine et al. (2004), *Venue not recorded*. 15 citations.
 - **Open work:** Combination with hydrological models and longer lead times.
 - **Issues:** Abstract unavailable; single basin and limited extreme flood events.
 - *Basis: abstract+knowledge*
+
+### [Advancing Flood Susceptibility Mapping with Explainable AI: A Novel Application of Accumulated Local Effects (ALE)](https://doi.org/10.1007/s11269-025-04430-0)
+Tella et al. (2026), *Water Resources Management*. 15 citations.
+
+*Summary pending.*
+
+### [A Comprehensive Review of Machine Learning and Deep Learning Methods for Flood Inundation Mapping](https://doi.org/10.3390/earth7020044)
+Silwal et al. (2026), *Earth*. 15 citations.
+
+*Summary pending.*
 
 ### [A Deep State Space Model for Rainfall‐Runoff Simulations](https://doi.org/10.1029/2025wr039888)
 Wang et al. (2025), *Water Resources Research*. 14 citations.
@@ -38328,6 +42221,11 @@ Fleming et al. (2022), *JAWRA Journal of the American Water Resources Associatio
 - **Issues:** Only two basins; result may depend on process-informed feature selection protocols that mitigate overtraining.
 - *Basis: abstract*
 
+### [PINN framework for urban flood depth prediction: integrating data-driven insights with physical constraints](https://doi.org/10.1016/j.jhydrol.2025.134693)
+Liu et al. (2026), *Journal of Hydrology*. 11 citations.
+
+*Summary pending.*
+
 ### [Extended-range forecasting of stream water temperature with deep-learning models](https://doi.org/10.5194/hess-29-1685-2025)
 Padrón et al. (2025), *Hydrology and Earth System Sciences*. 10 citations.
 
@@ -38438,6 +42336,11 @@ Rahimikhoob (2008), *Irrigation Science*. 9 citations.
 - **Issues:** Single-region study limits transferability; no abstract available, so data, inputs and scores cannot be confirmed.
 - *Basis: assessment*
 
+### [A hybrid deep learning rainfall-runoff forecasting model Incorporating spatiotemporal information from multi-source data](https://doi.org/10.1016/j.eswa.2025.129974)
+Liu et al. (2026), *Expert Systems with Applications*. 9 citations.
+
+*Summary pending.*
+
 ### [Investigating Deep Learning Knowledge Transfer in Streamflow Prediction From Global to Local Catchment](https://doi.org/10.1029/2025wr041194)
 Ougahi et al. (2026), *Water Resources Research*. 8 citations.
 
@@ -38514,6 +42417,31 @@ Panu et al. (1980), *Journal of Hydrology*. 8 citations.
 - **Open work:** Applying the method to more rivers and comparing systematically with conventional stochastic models.
 - **Issues:** Performance depends on the chosen pattern segmentation and clustering; limited record lengths constrain pattern estimation.
 - *Basis: assessment*
+
+### [A hybrid Penman-Monteith and machine learning model for simulating evapotranspiration and its components](https://doi.org/10.1016/j.jhydrol.2026.134985)
+Chen et al. (2026), *Journal of Hydrology*. 8 citations.
+
+*Summary pending.*
+
+### [AI image-based method for a robust automatic real-time water level monitoring: a long-term application case](https://doi.org/10.5194/hess-30-797-2026)
+Blanch et al. (2026), *Hydrology and Earth System Sciences*. 8 citations.
+
+*Summary pending.*
+
+### [GEMS-GER: a machine learning benchmark dataset of long-term groundwater levels in Germany with meteorological forcings and site-specific environmental features](https://doi.org/10.5194/essd-18-77-2026)
+Ohmer et al. (2026), *Earth System Science Data*. 8 citations.
+
+*Summary pending.*
+
+### [Estimating actual evapotranspiration from widely available meteorological data with a hybrid CNN–LSTM](https://doi.org/10.1016/j.agwat.2025.110078)
+Woo (2026), *Agricultural Water Management*. 8 citations.
+
+*Summary pending.*
+
+### [Development of a Two-Stage LSTM for Multi-Step Runoff Forecasting Using a XAJ Model and EEMD](https://doi.org/10.1007/s11269-025-04420-2)
+Yang et al. (2026), *Water Resources Management*. 8 citations.
+
+*Summary pending.*
 
 ### [Improving Subseasonal Soil Moisture and Evaporative Stress Index Forecasts through Machine Learning: The Role of Initial Land State versus Dynamical Model Output](https://doi.org/10.1175/jhm-d-23-0074.1)
 Lorenz et al. (2024), *Journal of Hydrometeorology*. 7 citations.
@@ -38646,6 +42574,26 @@ Vila et al. (1999), *Ecological Modelling*. 7 citations.
 - **Open work:** Testing the selection framework on other environmental datasets and comparing it with cross-validation-based selection.
 - **Issues:** Small environmental datasets limit reliable model comparison; Bayesian approximations may be sensitive to prior choices; single application case.
 - *Basis: assessment*
+
+### [PhysWRNet: A physics-guided deep learning framework for flood inundation mapping with SAR and hydrodynamic simulations](https://doi.org/10.1016/j.jhydrol.2025.134662)
+Li et al. (2026), *Journal of Hydrology*. 7 citations.
+
+*Summary pending.*
+
+### [A GNN routing module is all you need for LSTM Rainfall–Runoff models](https://doi.org/10.5194/hess-30-2079-2026)
+Mosaffa et al. (2026), *Hydrology and Earth System Sciences*. 7 citations.
+
+*Summary pending.*
+
+### [Probabilistic hierarchical interpolation and interpretable neural network configurations for flood prediction](https://doi.org/10.5194/hess-30-371-2026)
+Saberian et al. (2026), *Hydrology and Earth System Sciences*. 7 citations.
+
+*Summary pending.*
+
+### [Advances and challenges in Artificial Intelligence-driven flood and drought risk management: A comprehensive review](https://doi.org/10.1016/j.engappai.2025.113354)
+MaddodiB et al. (2026), *Engineering Applications of Artificial Intelligence*. 7 citations.
+
+*Summary pending.*
 
 ### [Automated classification of atmospheric circulation types for compound flood risk assessment: CMIP6 model analysis utilising a deep learning ensemble](https://doi.org/10.1088/1748-9326/adddcb)
 Heinrich et al. (2025), *Environmental Research Letters*. 6 citations.
@@ -39065,6 +43013,11 @@ Gao et al. (2026), *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge D
 - **Issues:** Single region and one-month lead; point forecasts only; gains depend on backbone; compared mainly with the frozen backbone rather than domain models.
 - *Basis: abstract*
 
+### [Development of novel hybridized models for urban flood susceptibility mapping](https://doi.org/10.1038/s41598-020-69703-7)
+Rahmati et al. (2020), *Scientific Reports*. 1 citations.
+
+*Summary pending.*
+
 ### [Hydrology in the Age of Artificial Intelligence: From Fragmentation to Coherent Terrestrial Hydrosphere Science](https://doi.org/10.1029/2026wr043509)
 Painter et al. (2026), *Water Resources Research*. 0 citations.
 
@@ -39185,6 +43138,11 @@ Nguyen et al. (2012), *Hydrological Processes*. 0 citations.
 - **Open work:** Integrate with rainfall forecasts and quantify forecast uncertainty.
 - **Issues:** Single catchment; operational robustness to unseen extremes uncertain. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
+
+### [Non-tuned machine learning approach for hydrological time series forecasting](https://doi.org/10.1007/s00521-016-2763-0)
+Yaseen et al. (2016), *Neural Computing and Applications*. 0 citations.
+
+*Summary pending.*
 
 <a id="energy"></a>
 ## Weather & climate for energy
@@ -43633,6 +47591,11 @@ Liu et al. (2015), *Renewable Energy*. 168 citations.
 - **Issues:** Card based only on the title; decomposition of full series may leak future information if not causal.
 - *Basis: assessment*
 
+### [Gaining Insight Into Solar Photovoltaic Power Generation Forecasting Utilizing Explainable Artificial Intelligence Tools](https://doi.org/10.1109/access.2020.3031477)
+Kuzlu et al. (2020), *IEEE Access*. 168 citations.
+
+*Summary pending.*
+
 ### [Short term solar irradiance forecasting using a mixed wavelet neural network](https://doi.org/10.1016/j.renene.2016.01.020)
 Sharma et al. (2016), *Renewable Energy*. 167 citations.
 
@@ -43654,6 +47617,11 @@ Yona et al. (2008), *IEEJ Transactions on Power and Energy*. 167 citations.
 - **Open work:** Improving cloudy-day forecasts.
 - **Issues:** Single site; dependent on weather forecast accuracy.
 - *Basis: abstract+knowledge*
+
+### [Hybrid support vector machines with heuristic algorithms for prediction of daily diffuse solar radiation in air-polluted regions](https://doi.org/10.1016/j.renene.2019.07.104)
+Fan et al. (2020), *Renewable Energy*. 167 citations.
+
+*Summary pending.*
 
 ### [Multi-step wind speed prediction by combining a WRF simulation and an error correction strategy](https://doi.org/10.1016/j.renene.2020.09.032)
 Xu et al. (2021), *Renewable Energy*. 166 citations.
@@ -43743,6 +47711,11 @@ Wang et al. (2015), *Renewable Energy*. 164 citations.
 - **Issues:** No quantitative scores in the abstract; univariate inputs; three sites in one region.
 - *Basis: abstract*
 
+### [Short-term wind speed prediction based on LMD and improved FA optimized combined kernel function LSSVM](https://doi.org/10.1016/j.engappai.2020.103573)
+Tian (2020), *Engineering Applications of Artificial Intelligence*. 164 citations.
+
+*Summary pending.*
+
 ### [Short-term wind power prediction based on EEMD-LASSO-QRNN model](https://doi.org/10.1016/j.asoc.2021.107288)
 He et al. (2021), *Applied Soft Computing*. 163 citations.
 
@@ -43809,6 +47782,11 @@ Gan et al. (2021), *Electric Power Systems Research*. 161 citations.
 - **Issues:** Limited to two wind fields; numbers not given in the abstract.
 - *Basis: abstract*
 
+### [A novel deep learning ensemble model with data denoising for short-term wind speed forecasting](https://doi.org/10.1016/j.enconman.2020.112524)
+Peng et al. (2020), *Energy Conversion and Management*. 161 citations.
+
+*Summary pending.*
+
 ### [Convolutional neural networks for intra-hour solar forecasting based on sky image sequences](https://doi.org/10.1016/j.apenergy.2021.118438)
 Feng et al. (2022), *Applied Energy*. 160 citations.
 
@@ -43864,6 +47842,11 @@ Zhao et al. (2018), *IEEE Transactions on Sustainable Energy*. 160 citations.
 - **Issues:** Abstract unavailable; dependence on correctly identifying curtailment periods is a likely caveat.
 - *Basis: assessment*
 
+### [Evaluation of temperature-based machine learning and empirical models for predicting daily global solar radiation](https://doi.org/10.1016/j.enconman.2019.111780)
+Feng et al. (2019), *Energy Conversion and Management*. 160 citations.
+
+*Summary pending.*
+
 ### [Comparison of regression and artificial neural network models for estimation of global solar radiations](https://doi.org/10.1016/j.rser.2015.08.021)
 Kumar et al. (2015), *Renewable and Sustainable Energy Reviews*. 159 citations.
 
@@ -43897,6 +47880,11 @@ Li et al. (2016), *Protection and Control of Modern Power Systems*. 159 citation
 - **Issues:** The ELM alone performs poorly; the gain comes largely from persistence correction at very short horizons; short evaluation period.
 - *Basis: abstract*
 
+### [Machine learning for site-adaptation and solar radiation forecasting](https://doi.org/10.1016/j.renene.2020.11.089)
+Narváez et al. (2020), *Renewable Energy*. 159 citations.
+
+*Summary pending.*
+
 ### [The study and application of a novel hybrid forecasting model – A case study of wind speed forecasting in China](https://doi.org/10.1016/j.apenergy.2015.01.038)
 Wang et al. (2015), *Applied Energy*. 158 citations.
 
@@ -43929,6 +47917,16 @@ Cao et al. (2023), *Energy*. 158 citations.
 - **Open work:** Testing on more plants and with probabilistic outputs would extend the work.
 - **Issues:** Abstract unavailable; ensemble complexity and single-site evaluation are likely limitations.
 - *Basis: assessment*
+
+### [Multi-step short-term wind speed forecasting approach based on multi-scale dominant ingredient chaotic analysis, improved hybrid GWO-SCA optimization and ELM](https://doi.org/10.1016/j.enconman.2019.02.086)
+Fu et al. (2019), *Energy Conversion and Management*. 158 citations.
+
+*Summary pending.*
+
+### [Deep Learning Models for Long-Term Solar Radiation Forecasting Considering Microgrid Installation: A Comparative Study](https://doi.org/10.3390/en13010147)
+Aslam et al. (2019), *Energies*. 158 citations.
+
+*Summary pending.*
 
 ### [SolarNet: A sky image-based deep convolutional neural network for intra-hour solar forecasting](https://doi.org/10.1016/j.solener.2020.03.083)
 Feng et al. (2020), *Solar Energy*. 156 citations.
@@ -44216,6 +48214,16 @@ Kaba et al. (2018), *Energy*. 152 citations.
 - **Issues:** The abstract is inconsistent about station numbers (30 vs 34) and the train/test split; network design is not detailed; station-based evaluation only.
 - *Basis: abstract*
 
+### [A deep learning algorithm to estimate hourly global solar radiation from geostationary satellite data](https://doi.org/10.1016/j.rser.2019.109327)
+Jiang et al. (2019), *Renewable and Sustainable Energy Reviews*. 152 citations.
+
+*Summary pending.*
+
+### [A novel wind speed forecasting based on hybrid decomposition and online sequential outlier robust extreme learning machine](https://doi.org/10.1016/j.enconman.2018.10.089)
+Zhang et al. (2019), *Energy Conversion and Management*. 152 citations.
+
+*Summary pending.*
+
 ### [Selection of input parameters to model direct solar irradiance by using artificial neural networks](https://doi.org/10.1016/j.energy.2004.04.035)
 López et al. (2004), *Energy*. 151 citations.
 
@@ -44237,6 +48245,11 @@ Zhang et al. (2022), *Energy*. 151 citations.
 - **Open work:** Add multi-site and probabilistic forecasting and reduce computational cost.
 - **Issues:** Complex pipeline with risk of decomposition leakage and overfitting; single-variable inputs; details unverified without abstract.
 - *Basis: assessment*
+
+### [Convolutional Graph Autoencoder: A Generative Deep Neural Network for Probabilistic Spatio-Temporal Solar Irradiance Forecasting](https://doi.org/10.1109/tste.2019.2897688)
+Khodayar et al. (2020), *IEEE Transactions on Sustainable Energy*. 151 citations.
+
+*Summary pending.*
 
 ### [Short-Term Wind Speed or Power Forecasting With Heteroscedastic Support Vector Regression](https://doi.org/10.1109/tste.2015.2480245)
 Hu et al. (2016), *IEEE Transactions on Sustainable Energy*. 150 citations.
@@ -44326,6 +48339,11 @@ Nateghi et al. (2014), *Risk Analysis*. 149 citations.
 - **Issues:** Single utility service area; few historical storms; details partly from knowledge.
 - *Basis: abstract+knowledge*
 
+### [A comparative study of several machine learning based non-linear regression methods in estimating solar radiation: Case studies of the USA and Turkey regions](https://doi.org/10.1016/j.energy.2020.117239)
+Alizamir et al. (2020), *Energy*. 148 citations.
+
+*Summary pending.*
+
 ### [A hybrid wind power forecasting model based on data mining and wavelets analysis](https://doi.org/10.1016/j.enconman.2016.09.002)
 Azimi et al. (2016), *Energy Conversion and Management*. 147 citations.
 
@@ -44403,6 +48421,11 @@ Singla et al. (2021), *Earth Science Informatics*. 146 citations.
 - **Issues:** Single site and one year of data; wavelet decomposition of the full series may introduce look-ahead bias.
 - *Basis: abstract*
 
+### [Machine learning models to quantify and map daily global solar radiation and photovoltaic power](https://doi.org/10.1016/j.rser.2019.109393)
+Feng et al. (2020), *Renewable and Sustainable Energy Reviews*. 146 citations.
+
+*Summary pending.*
+
 ### [Forecasting and uncertainty analysis of day-ahead photovoltaic power using a novel forecasting method](https://doi.org/10.1016/j.apenergy.2021.117291)
 Gu et al. (2021), *Applied Energy*. 145 citations.
 
@@ -44413,6 +48436,16 @@ Gu et al. (2021), *Applied Energy*. 145 citations.
 - **Open work:** Validation across plants and climates is a natural next step.
 - **Issues:** Details unavailable without the abstract.
 - *Basis: assessment*
+
+### [Recurrent Neural Network-Based Hourly Prediction of Photovoltaic Power Output Using Meteorological Information](https://doi.org/10.3390/en12020215)
+Lee et al. (2019), *Energies*. 145 citations.
+
+*Summary pending.*
+
+### [Reliable solar irradiance prediction using ensemble learning-based models: A comparative study](https://doi.org/10.1016/j.enconman.2020.112582)
+Lee et al. (2020), *Energy Conversion and Management*. 145 citations.
+
+*Summary pending.*
 
 ### [Short-term prediction of household electricity consumption: Assessing weather sensitivity in a Mediterranean area](https://doi.org/10.1016/j.rser.2007.04.010)
 Beccali et al. (2008), *Renewable and Sustainable Energy Reviews*. 144 citations.
@@ -44479,6 +48512,11 @@ Li et al. (2016), *Applied Energy*. 144 citations.
 - **Open work:** Applying the approach at other plants and finer time resolution is natural.
 - **Issues:** Details unavailable without the abstract; single system.
 - *Basis: assessment*
+
+### [Current advances and approaches in wind speed and wind power forecasting for improved renewable energy integration: A review](https://doi.org/10.1002/eng2.12178)
+Santhosh et al. (2020), *Engineering Reports*. 144 citations.
+
+*Summary pending.*
 
 ### [Modeling and forecasting the mean hourly wind speed time series using GMDH-based abductive networks](https://doi.org/10.1016/j.renene.2009.01.001)
 Abdel-Aal et al. (2009), *Renewable Energy*. 143 citations.
@@ -44579,6 +48617,11 @@ Li et al. (2023), *Energy*. 142 citations.
 - **Issues:** Details unavailable without the abstract; metaheuristic tuning adds cost and overfitting risk.
 - *Basis: assessment*
 
+### [Predictions of electricity consumption in a campus building using occupant rates and weather elements with sensitivity analysis: Artificial neural network vs. linear regression](https://doi.org/10.1016/j.scs.2020.102385)
+Kim et al. (2020), *Sustainable Cities and Society*. 142 citations.
+
+*Summary pending.*
+
 ### [Deep Learning Based Multistep Solar Forecasting for PV Ramp-Rate Control Using Sky Images](https://doi.org/10.1109/tii.2020.2987916)
 Wen et al. (2021), *IEEE Transactions on Industrial Informatics*. 141 citations.
 
@@ -44644,6 +48687,16 @@ Sarmas et al. (2022), *Scientific Reports*. 141 citations.
 - **Open work:** Exploring source-domain selection, more plants and climates, and probabilistic forecasting.
 - **Issues:** Only six plants are tested; dependence on similarity between source and target plants is not fully characterized.
 - *Basis: abstract*
+
+### [A novel convolutional neural network framework based solar irradiance prediction method](https://doi.org/10.1016/j.ijepes.2019.105411)
+Dong et al. (2020), *International Journal of Electrical Power & Energy Systems*. 141 citations.
+
+*Summary pending.*
+
+### [A XGBoost Model with Weather Similarity Analysis and Feature Engineering for Short-Term Wind Power Forecasting](https://doi.org/10.3390/app9153019)
+Zheng et al. (2019), *Applied Sciences*. 141 citations.
+
+*Summary pending.*
 
 ### [Forecasting daily global solar irradiance generation using machine learning](https://doi.org/10.1016/j.rser.2017.08.066)
 Sharma et al. (2018), *Renewable and Sustainable Energy Reviews*. 140 citations.
@@ -44721,6 +48774,11 @@ Dai et al. (2022), *Social Science Research Network*. 139 citations.
 - **Open work:** Testing at more plants and adding probabilistic forecasts.
 - **Issues:** No abstract available (SSRN preprint); results cannot be verified, and smoothing may leak future information if applied to the full series.
 - *Basis: assessment*
+
+### [Application of hybrid model based on double decomposition, error correction and deep learning in short-term wind speed prediction](https://doi.org/10.1016/j.enconman.2019.112345)
+Ma et al. (2020), *Energy Conversion and Management*. 139 citations.
+
+*Summary pending.*
 
 ### [Forecast for surface solar irradiance at the Brazilian Northeastern region using NWP model and artificial neural networks](https://doi.org/10.1016/j.renene.2015.11.005)
 Lima et al. (2016), *Renewable Energy*. 138 citations.
@@ -44809,6 +48867,16 @@ Amjady et al. (2011), *Electric Power Systems Research*. 137 citations.
 - **Open work:** Comparison with other modern models and probabilistic extensions.
 - **Issues:** No abstract available; the listed venue (The Lancet) appears to be a metadata error.
 - *Basis: assessment*
+
+### [Assessment of machine learning, time series, response surface methodology and empirical models in prediction of global solar radiation](https://doi.org/10.1016/j.jclepro.2020.122353)
+Gürel et al. (2020), *Journal of Cleaner Production*. 137 citations.
+
+*Summary pending.*
+
+### [Wind Power Prediction Based on PSO-SVR and Grey Combination Model](https://doi.org/10.1109/access.2019.2942012)
+Zhang et al. (2019), *IEEE Access*. 137 citations.
+
+*Summary pending.*
 
 ### [An adaptively trained neural network](https://doi.org/10.1109/72.97910)
 Park et al. (1991), *IEEE Transactions on Neural Networks*. 136 citations.
@@ -44909,6 +48977,21 @@ Ozgoren et al. (2012), *Expert Systems with Applications*. 135 citations.
 - **Issues:** Monthly means only; station-based evaluation; details could not be fully verified from an abstract.
 - *Basis: abstract+knowledge*
 
+### [EALSTM-QR: Interval wind-power prediction model based on numerical weather prediction and deep learning](https://doi.org/10.1016/j.energy.2020.119692)
+Peng et al. (2021), *Energy*. 135 citations.
+
+*Summary pending.*
+
+### [Research and application based on the swarm intelligence algorithm and artificial intelligence for wind farm decision system](https://doi.org/10.1016/j.renene.2018.11.061)
+Zhao et al. (2019), *Renewable Energy*. 135 citations.
+
+*Summary pending.*
+
+### [3D-CNN-based feature extraction of ground-based cloud images for direct normal irradiance prediction](https://doi.org/10.1016/j.solener.2019.01.096)
+Zhao et al. (2019), *Solar Energy*. 135 citations.
+
+*Summary pending.*
+
 ### [A comparative evaluation for identifying the suitability of extreme learning machine to predict horizontal global solar radiation](https://doi.org/10.1016/j.rser.2015.07.173)
 Shamshirband et al. (2015), *Renewable and Sustainable Energy Reviews*. 134 citations.
 
@@ -44931,6 +49014,11 @@ Das et al. (2017), *Energies*. 134 citations.
 - **Issues:** Single location; coarse two-class weather split; no probabilistic output.
 - *Basis: abstract*
 
+### [Interval Deep Generative Neural Network for Wind Speed Forecasting](https://doi.org/10.1109/tsg.2018.2847223)
+Khodayar et al. (2019), *IEEE Transactions on Smart Grid*. 134 citations.
+
+*Summary pending.*
+
 ### [Daily solar irradiation estimation over a mountainous area using artificial neural networks](https://doi.org/10.1016/j.renene.2007.09.012)
 Bosch et al. (2008), *Renewable Energy*. 133 citations.
 
@@ -44941,6 +49029,11 @@ Bosch et al. (2008), *Renewable Energy*. 133 citations.
 - **Open work:** Mapping irradiation over larger mountainous regions.
 - **Issues:** Few stations; terrain effects only partly captured.
 - *Basis: assessment*
+
+### [A composite framework coupling multiple feature selection, compound prediction models and novel hybrid swarm optimizer-based synchronization optimization strategy for multi-step ahead short-term wind speed forecasting](https://doi.org/10.1016/j.enconman.2019.112461)
+Fu et al. (2020), *Energy Conversion and Management*. 133 citations.
+
+*Summary pending.*
 
 ### [Estimation of the daily global solar radiation based on Box–Jenkins and ANN models: A combined approach](https://doi.org/10.1016/j.rser.2015.12.111)
 Gairaa et al. (2016), *Renewable and Sustainable Energy Reviews*. 132 citations.
@@ -45118,6 +49211,11 @@ Chen et al. (2022), *International Journal of Electrical Power & Energy Systems*
 - **Issues:** Point time-series forecasting; limited generalization evidence; no abstract available.
 - *Basis: assessment*
 
+### [A deep generative model for probabilistic energy forecasting in power systems: normalizing flows](https://doi.org/10.1016/j.apenergy.2021.117871)
+Dumas et al. (2021), *Applied Energy*. 130 citations.
+
+*Summary pending.*
+
 ### [Forecast of solar irradiance using recurrent neural networks combined with wavelet analysis](https://doi.org/10.1016/j.applthermaleng.2004.06.017)
 Cao et al. (2005), *Applied Thermal Engineering*. 129 citations.
 
@@ -45173,6 +49271,11 @@ Hu et al. (2015), *Energy*. 129 citations.
 - **Issues:** Method details unavailable in the record; point time-series setting; no abstract available.
 - *Basis: assessment*
 
+### [Clustered ANFIS network using fuzzy c-means, subtractive clustering, and grid partitioning for hourly solar radiation forecasting](https://doi.org/10.1007/s00704-018-2576-4)
+Benmouiza et al. (2018), *Theoretical and Applied Climatology*. 129 citations.
+
+*Summary pending.*
+
 ### [Prediction of Wind Farm Power Ramp Rates: A Data-Mining](https://doi.org/10.1115/1.3142727)
 Zheng et al. (2009), *Journal of Solar Energy Engineering*. 128 citations.
 
@@ -45194,6 +49297,11 @@ Zhao et al. (2022), *Data Science and Management*. 128 citations.
 - **Open work:** Future research directions in AI and big data for wind forecasting.
 - **Issues:** Bibliometric analysis does not evaluate method performance; no abstract available.
 - *Basis: assessment*
+
+### [Physics-induced graph neural network: An application to wind-farm power estimation](https://doi.org/10.1016/j.energy.2019.115883)
+Park et al. (2019), *Energy*. 128 citations.
+
+*Summary pending.*
 
 ### [Wind Pattern Recognition and Reference Wind Mast Data Correlations With NWP for Improved Wind-Electric Power Forecasts](https://doi.org/10.1109/tii.2016.2543004)
 Buhan et al. (2016), *IEEE Transactions on Industrial Informatics*. 127 citations.
@@ -45239,6 +49347,21 @@ Yacef et al. (2012), *Renewable Energy*. 127 citations.
 - **Issues:** Limited site coverage; no abstract available.
 - *Basis: assessment*
 
+### [Solar Irradiance Forecasting Based on Deep Learning Methodologies and Multi-Site Data](https://doi.org/10.3390/sym12111830)
+Brahma et al. (2020), *Symmetry*. 127 citations.
+
+*Summary pending.*
+
+### [Short-Term Nacelle Orientation Forecasting Using Bilinear Transformation and ICEEMDAN Framework](https://doi.org/10.3389/fenrg.2021.780928)
+Li et al. (2021), *Frontiers in Energy Research*. 127 citations.
+
+*Summary pending.*
+
+### [Hybrid forecasting model based on long short term memory network and deep learning neural network for wind signal](https://doi.org/10.1016/j.apenergy.2018.11.063)
+Qin et al. (2019), *Applied Energy*. 127 citations.
+
+*Summary pending.*
+
 ### [Bagging–XGBoost algorithm based extreme weather identification and short-term load forecasting model](https://doi.org/10.1016/j.egyr.2022.06.072)
 Deng et al. (2022), *Energy Reports*. 126 citations.
 
@@ -45250,6 +49373,11 @@ Deng et al. (2022), *Energy Reports*. 126 citations.
 - **Issues:** Few extreme events limit training; no abstract available.
 - *Basis: assessment*
 
+### [Multi-layer perceptron hybrid model integrated with the firefly optimizer algorithm for windspeed prediction of target site using a limited set of neighboring reference station data](https://doi.org/10.1016/j.renene.2017.09.078)
+Deo et al. (2018), *Renewable Energy*. 126 citations.
+
+*Summary pending.*
+
 ### [Wind speed prediction using a hybrid model of EEMD and LSTM considering seasonal features](https://doi.org/10.1016/j.egyr.2022.07.007)
 Yan et al. (2022), *Energy Reports*. 125 citations.
 
@@ -45260,6 +49388,11 @@ Yan et al. (2022), *Energy Reports*. 125 citations.
 - **Open work:** Testing at more sites, longer horizons and with probabilistic outputs.
 - **Issues:** Decomposition-based hybrids risk information leakage if EEMD is applied to the whole series; single-site evaluation; deterministic only.
 - *Basis: assessment*
+
+### [Season specific approach for short-term load forecasting based on hybrid FA-SVM and similarity concept](https://doi.org/10.1016/j.energy.2019.03.010)
+Barman et al. (2019), *Energy*. 125 citations.
+
+*Summary pending.*
 
 ### [Probabilistic gradient boosting machines for GEFCom2014 wind forecasting](https://doi.org/10.1016/j.ijforecast.2016.02.002)
 Landry et al. (2016), *International Journal of Forecasting*. 124 citations.
@@ -45327,6 +49460,21 @@ Han et al. (2017), *Energy Conversion and Management*. 123 citations.
 - **Issues:** Model details, data and evaluation design not known here; hybrid gains are often site-specific.
 - *Basis: assessment*
 
+### [A Comprehensive Review of Wind Power Prediction Based on Machine Learning: Models, Applications, and Challenges](https://doi.org/10.3390/en18020350)
+Liu et al. (2025), *Energies*. 123 citations.
+
+*Summary pending.*
+
+### [Application of functional deep belief network for estimating daily global solar radiation: A case study in China](https://doi.org/10.1016/j.energy.2019.116502)
+Zang et al. (2020), *Energy*. 123 citations.
+
+*Summary pending.*
+
+### [A decomposition-clustering-ensemble learning approach for solar radiation forecasting](https://doi.org/10.1016/j.solener.2018.02.006)
+Sun et al. (2018), *Solar Energy*. 123 citations.
+
+*Summary pending.*
+
 ### [An artificial neural network hourly temperature forecaster with applications in load forecasting](https://doi.org/10.1109/59.496168)
 Khotanzad et al. (1996), *IEEE Transactions on Power Systems*. 122 citations.
 
@@ -45381,6 +49529,21 @@ Takara et al. (2024), *Applied Energy*. 122 citations.
 - **Open work:** Testing on more wind farms and longer horizons.
 - **Issues:** Data source, horizons and baselines not known here; deep ensembles are computationally heavy.
 - *Basis: assessment*
+
+### [Predicting the energy output of hybrid PV–wind renewable energy system using feature selection technique for smart grids](https://doi.org/10.1016/j.egyr.2021.01.018)
+Qadir et al. (2021), *Energy Reports*. 122 citations.
+
+*Summary pending.*
+
+### [A novel wind speed forecasting system based on hybrid data preprocessing and multi-objective optimization](https://doi.org/10.1016/j.apenergy.2018.09.012)
+Tian et al. (2018), *Applied Energy*. 122 citations.
+
+*Summary pending.*
+
+### [Clustered Hybrid Wind Power Prediction Model Based on ARMA, PSO-SVM, and Clustering Methods](https://doi.org/10.1109/access.2020.2968390)
+Wang et al. (2020), *IEEE Access*. 122 citations.
+
+*Summary pending.*
 
 ### Wind Power Prediction Based on Artificial Neural Network
 Dai (2008), *Venue not recorded*. 121 citations.
@@ -45447,6 +49610,11 @@ Reikard et al. (2011), *Ocean Engineering*. 121 citations.
 - **Open work:** Combining physical and statistical forecasts across horizons and testing more sites are natural follow-ups.
 - **Issues:** Limited number of buoy locations; statistical methods are simple linear time-series models rather than modern ML.
 - *Basis: abstract+knowledge*
+
+### [Comparison of artificial intelligence methods in estimation of daily global solar radiation](https://doi.org/10.1016/j.jclepro.2018.05.147)
+Khosravi et al. (2018), *Journal of Cleaner Production*. 121 citations.
+
+*Summary pending.*
 
 ### [DAILY INSOLATION FORECASTING USING A MULTI-STAGE NEURAL NETWORK](https://doi.org/10.1016/s0038-092x(99)00017-1)
 Kemmoku et al. (1999), *Solar Energy*. 120 citations.
@@ -45525,6 +49693,11 @@ Yadav et al. (2015), *Renewable and Sustainable Energy Reviews*. 119 citations.
 - **Issues:** Abstract unavailable; regional study with conventional ANN and limited methodological novelty.
 - *Basis: assessment*
 
+### [A robust deep learning framework for short-term wind power forecast of a full-scale wind farm using atmospheric variables](https://doi.org/10.1016/j.energy.2021.119759)
+Meka et al. (2021), *Energy*. 119 citations.
+
+*Summary pending.*
+
 ### [Artificial neural network model for prediction solar radiation data: application for sizing stand-alone photovoltaic power system](https://doi.org/10.1109/pes.2005.1489526)
 Mellit et al. (2005), *IEEE Power Engineering Society General Meeting*. 118 citations.
 
@@ -45558,6 +49731,11 @@ Lv et al. (2022), *Energy*. 118 citations.
 - **Issues:** Abstract unavailable; complex hybrid pipelines tuned on limited sites may not transfer.
 - *Basis: assessment*
 
+### [Assessment of machine learning techniques for deterministic and probabilistic intra-hour solar forecasts](https://doi.org/10.1016/j.renene.2018.02.006)
+Pedro et al. (2018), *Renewable Energy*. 118 citations.
+
+*Summary pending.*
+
 ### [Wind Power Forecasting Using Neural Network Ensembles With Feature Selection](https://doi.org/10.1109/tste.2015.2441747)
 Li et al. (2015), *IEEE Transactions on Sustainable Energy*. 117 citations.
 
@@ -45590,6 +49768,21 @@ Wan et al. (2013), *IEEE Transactions on Power Systems*. 117 citations.
 - **Open work:** Extension to multi-step horizons and to other renewable sources.
 - **Issues:** Intervals for single quantile levels; performance assessed on limited wind farm data.
 - *Basis: abstract+knowledge*
+
+### [Ultra-short term wind prediction with wavelet transform, deep belief network and ensemble learning](https://doi.org/10.1016/j.enconman.2019.112418)
+He et al. (2020), *Energy Conversion and Management*. 117 citations.
+
+*Summary pending.*
+
+### [A novel wind speed prediction strategy based on Bi-LSTM, MOOFADA and transfer learning for centralized control centers](https://doi.org/10.1016/j.energy.2021.120904)
+Liang et al. (2021), *Energy*. 117 citations.
+
+*Summary pending.*
+
+### [Smart wind speed forecasting using EWT decomposition, GWO evolutionary optimization, RELM learning and IEWT reconstruction](https://doi.org/10.1016/j.enconman.2018.02.006)
+Liu et al. (2018), *Energy Conversion and Management*. 117 citations.
+
+*Summary pending.*
 
 ### [A hybrid strategy of short term wind power prediction](https://doi.org/10.1016/j.renene.2012.07.022)
 Peng et al. (2013), *Renewable Energy*. 116 citations.
@@ -45646,6 +49839,16 @@ Ramli et al. (2015), *Energy Conversion and Management*. 116 citations.
 - **Issues:** Limited site coverage; no abstract available to confirm metrics or validation design.
 - *Basis: assessment*
 
+### [Multi-step-ahead wind speed forecasting based on optimal feature selection and a modified bat algorithm with the cognition strategy](https://doi.org/10.1016/j.renene.2017.10.075)
+Niu et al. (2018), *Renewable Energy*. 116 citations.
+
+*Summary pending.*
+
+### [Hybrid wind speed forecasting model based on multivariate data secondary decomposition approach and deep learning algorithm with attention mechanism](https://doi.org/10.1016/j.renene.2021.04.091)
+Zhang et al. (2021), *Renewable Energy*. 116 citations.
+
+*Summary pending.*
+
 ### State-of-the-art Methods and software tools for short-term prediction of wind energy production
 Giebel et al. (2003), *Venue not recorded*. 115 citations.
 
@@ -45701,6 +49904,11 @@ Zeng et al. (2011), *IEEE PES Power Systems Conference and Exposition*. 115 cita
 - **Issues:** Point forecasts only; single-site data; no abstract available to confirm metrics.
 - *Basis: assessment*
 
+### [Day-ahead spatiotemporal wind speed forecasting using robust design-based deep learning neural network](https://doi.org/10.1016/j.energy.2020.118441)
+Hong et al. (2020), *Energy*. 115 citations.
+
+*Summary pending.*
+
 ### [A novel Grouping Genetic Algorithm–Extreme Learning Machine approach for global solar radiation prediction from numerical weather models inputs](https://doi.org/10.1016/j.solener.2016.03.015)
 Aybar-Ruíz et al. (2016), *Solar Energy*. 114 citations.
 
@@ -45722,6 +49930,16 @@ Ouyang et al. (2017), *Energy Conversion and Management*. 114 citations.
 - **Open work:** Test on more wind farms and add probabilistic forecasts.
 - **Issues:** No abstract available to confirm methods, data or metrics.
 - *Basis: assessment*
+
+### [Analysis of different combinations of meteorological parameters in predicting the horizontal global solar radiation with ANN approach: A case study](https://doi.org/10.1016/j.rser.2018.03.096)
+K. et al. (2018), *Renewable and Sustainable Energy Reviews*. 114 citations.
+
+*Summary pending.*
+
+### [Spatiotemporal wind field prediction based on physics-informed deep learning and LIDAR measurements](https://doi.org/10.1016/j.apenergy.2021.116641)
+Zhang et al. (2021), *Applied Energy*. 114 citations.
+
+*Summary pending.*
 
 ### [Analysis of the effects of a passing cloud on a grid-interactive photovoltaic system with battery storage using neural networks](https://doi.org/10.1109/60.815107)
 Giraud et al. (1999), *IEEE Transactions on Energy Conversion*. 113 citations.
@@ -45799,6 +50017,16 @@ Qin et al. (2011), *Applied Energy*. 113 citations.
 - **Open work:** Extend to daily resolution and other regions.
 - **Issues:** Monthly-mean only; station coverage limits validation; no abstract available.
 - *Basis: abstract+knowledge*
+
+### [Random forest regression for improved mapping of solar irradiance at high latitudes](https://doi.org/10.1016/j.solener.2020.01.034)
+Babar et al. (2020), *Solar Energy*. 113 citations.
+
+*Summary pending.*
+
+### [Wind Power Forecasting Based on Echo State Networks and Long Short-Term Memory](https://doi.org/10.3390/en11030526)
+López et al. (2018), *Energies*. 113 citations.
+
+*Summary pending.*
 
 ### [Accurate short-term wind speed prediction by exploiting diversity in input data using banks of artificial neural networks](https://doi.org/10.1016/j.neucom.2008.09.010)
 Salcedo-Sanz et al. (2009), *Neurocomputing*. 112 citations.
@@ -45943,6 +50171,11 @@ Giorgi et al. (2016), *Energy*. 111 citations.
 - **Issues:** Single PV plant; relies on power history only, so skill on rapidly changing cloudy days is limited.
 - *Basis: abstract*
 
+### [Multistep forecasting for diurnal wind speed based on hybrid deep learning model with improved singular spectrum decomposition](https://doi.org/10.1016/j.enconman.2020.113456)
+Yan et al. (2020), *Energy Conversion and Management*. 111 citations.
+
+*Summary pending.*
+
 ### [Evaluating neural network models in site-specific solar PV forecasting using numerical weather prediction data and weather observations](https://doi.org/10.1016/j.renene.2023.02.130)
 Brester et al. (2023), *Renewable Energy*. 110 citations.
 
@@ -46020,6 +50253,11 @@ Lloyd (2014), *International Journal of Forecasting*. 110 citations.
 - **Issues:** Tailored to competition data and metric; temperatures were given rather than forecast, overstating operational skill.
 - *Basis: abstract+knowledge*
 
+### [A novel combined model for wind speed prediction – Combination of linear model, shallow neural networks, and deep learning approaches](https://doi.org/10.1016/j.energy.2021.121275)
+Wang et al. (2021), *Energy*. 110 citations.
+
+*Summary pending.*
+
 ### [Multistage Artificial Neural Network Short-Term Load Forecasting Engine With Front-End Weather Forecast](https://doi.org/10.1109/tia.2007.908190)
 Methaprayoon et al. (2006), *IEEE Transactions on Industry Applications*. 109 citations.
 
@@ -46064,6 +50302,16 @@ Jiang et al. (2017), *Energy Conversion and Management*. 109 citations.
 - **Issues:** Limited station validation; satellite retrieval errors propagate into estimates.
 - *Basis: assessment*
 
+### [Reliable Solar Irradiance Forecasting Approach Based on Choquet Integral and Deep LSTMs](https://doi.org/10.1109/tii.2020.2996235)
+Abdel-Nasser et al. (2021), *IEEE Transactions on Industrial Informatics*. 109 citations.
+
+*Summary pending.*
+
+### [Deterministic and probabilistic multi-step forecasting for short-term wind speed based on secondary decomposition and a deep learning method](https://doi.org/10.1016/j.enconman.2020.113098)
+Xiang et al. (2020), *Energy Conversion and Management*. 109 citations.
+
+*Summary pending.*
+
 ### [A convolutional Transformer-based truncated Gaussian density network with data denoising for wind speed forecasting](https://doi.org/10.1016/j.apenergy.2022.120601)
 Wang et al. (2023), *Applied Energy*. 108 citations.
 
@@ -46074,6 +50322,21 @@ Wang et al. (2023), *Applied Energy*. 108 citations.
 - **Open work:** Testing on more sites and longer horizons and adding NWP inputs.
 - **Issues:** Details of datasets and metrics unknown; denoising of the full series can leak information.
 - *Basis: assessment*
+
+### [Hybrid Techniques to Predict Solar Radiation Using Support Vector Machine and Search Optimization Algorithms: A Review](https://doi.org/10.3390/app11031044)
+Álvarez-Alvarado et al. (2021), *Applied Sciences*. 108 citations.
+
+*Summary pending.*
+
+### [Evaluating the effect of air pollution on global and diffuse solar radiation prediction using support vector machine modeling based on sunshine duration and air temperature](https://doi.org/10.1016/j.rser.2018.06.029)
+Fan et al. (2018), *Renewable and Sustainable Energy Reviews*. 108 citations.
+
+*Summary pending.*
+
+### [Comparison of physical and machine learning models for estimating solar irradiance and photovoltaic power](https://doi.org/10.1016/j.renene.2021.06.079)
+Ramadhan et al. (2021), *Renewable Energy*. 108 citations.
+
+*Summary pending.*
 
 ### [ALFA: automated load forecasting assistant](https://doi.org/10.1109/59.14540)
 Jabbour et al. (1988), *IEEE Transactions on Power Systems*. 107 citations.
@@ -46141,6 +50404,11 @@ Jiao et al. (2022), *IEEE Transactions on Industrial Informatics*. 107 citations
 - **Issues:** No quantitative scores in the abstract; graph construction and evaluation details unclear; deterministic forecasts only.
 - *Basis: abstract*
 
+### [Three-dimensional spatiotemporal wind field reconstruction based on physics-informed deep learning](https://doi.org/10.1016/j.apenergy.2021.117390)
+Zhang et al. (2021), *Applied Energy*. 107 citations.
+
+*Summary pending.*
+
 ### [Artificial neural network approach to spatial estimation of wind velocity data](https://doi.org/10.1016/j.enconman.2005.05.009)
 Öztopal (2006), *Energy Conversion and Management*. 106 citations.
 
@@ -46173,6 +50441,11 @@ Liang et al. (2016), *Energy Conversion and Management*. 106 citations.
 - **Open work:** Probabilistic extensions and testing across more wind farms.
 - **Issues:** Abstract unavailable; method and data details cannot be verified.
 - *Basis: assessment*
+
+### [Ultra-short-term exogenous forecasting of photovoltaic power production using genetically optimized non-linear auto-regressive recurrent neural networks](https://doi.org/10.1016/j.renene.2021.02.103)
+Hassan et al. (2021), *Renewable Energy*. 106 citations.
+
+*Summary pending.*
 
 ### [Short-Term Load Forecasting Using Comprehensive Combination Based on Multimeteorological Information](https://doi.org/10.1109/tia.2009.2023571)
 Fan et al. (2009), *IEEE Transactions on Industry Applications*. 105 citations.
@@ -46240,6 +50513,11 @@ Quan et al. (2015), *IEEE Transactions on Neural Networks and Learning Systems*.
 - **Issues:** Abstract unavailable; prediction-interval quality depends on training data and calibration.
 - *Basis: assessment*
 
+### [Photovoltaic power forecasting based on VMD-SSA-Transformer: Multidimensional analysis of dataset length, weather mutation and forecast accuracy](https://doi.org/10.1016/j.energy.2025.135971)
+Zhai et al. (2025), *Energy*. 105 citations.
+
+*Summary pending.*
+
 ### [Short-term wind power forecasting based on multivariate/multi-step LSTM with temporal feature attention mechanism](https://doi.org/10.1016/j.asoc.2023.111050)
 Liu et al. (2024), *Applied Soft Computing*. 104 citations.
 
@@ -46295,6 +50573,11 @@ Zjavka (2015), *Renewable Energy*. 104 citations.
 - **Issues:** Site-specific statistical correction; transferability, extreme winds and probabilistic output are not addressed as far as known.
 - *Basis: assessment*
 
+### [Evaluating Machine Learning and Deep Learning models for predicting Wind Turbine power output from environmental factors](https://doi.org/10.1371/journal.pone.0317619)
+Abdelsattar et al. (2025), *PLOS ONE*. 104 citations.
+
+*Summary pending.*
+
 ### [Promoting wind energy for sustainable development by precise wind speed prediction based on graph neural networks](https://doi.org/10.1016/j.renene.2022.09.036)
 Wu et al. (2022), *Renewable Energy*. 103 citations.
 
@@ -46316,6 +50599,16 @@ Michael et al. (2022), *Energies*. 103 citations.
 - **Open work:** Testing at other plants and climates and adding weather forecast or satellite inputs for longer horizons.
 - **Issues:** Single-site desert dataset; deterministic forecasts only, and baseline comparison partly relies on published values.
 - *Basis: abstract*
+
+### [A novel decomposition-ensemble prediction model for ultra-short-term wind speed](https://doi.org/10.1016/j.enconman.2021.114775)
+Tian et al. (2021), *Energy Conversion and Management*. 103 citations.
+
+*Summary pending.*
+
+### [Multi-Source and Temporal Attention Network for Probabilistic Wind Power Prediction](https://doi.org/10.1109/tste.2021.3086851)
+Zhang et al. (2021), *IEEE Transactions on Sustainable Energy*. 103 citations.
+
+*Summary pending.*
 
 ### [Wind speed estimation using multilayer perceptron](https://doi.org/10.1016/j.enconman.2014.02.017)
 Velo et al. (2014), *Energy Conversion and Management*. 102 citations.
@@ -46339,6 +50632,11 @@ Liu et al. (2013), *International Journal of Electrical Power & Energy Systems*.
 - **Issues:** Univariate, site-specific series; decomposition of full series can cause information leakage.
 - *Basis: assessment*
 
+### [A data-driven deep sequence-to-sequence long-short memory method along with a gated recurrent neural network for wind power forecasting](https://doi.org/10.1016/j.energy.2021.122109)
+Ahmad et al. (2022), *Energy*. 102 citations.
+
+*Summary pending.*
+
 ### [A semi-empirical approach using gradient boosting and k-nearest neighbors regression for GEFCom2014 probabilistic solar power forecasting](https://doi.org/10.1016/j.ijforecast.2015.11.002)
 Huang et al. (2016), *International Journal of Forecasting*. 101 citations.
 
@@ -46360,6 +50658,16 @@ Zheng et al. (2023), *Advances in Engineering Software*. 101 citations.
 - **Open work:** Hybrid and multi-step forecasting and evaluation at more sites.
 - **Issues:** Evaluation scope unknown; deterministic predictions only.
 - *Basis: assessment*
+
+### [Deep learning combined wind speed forecasting with hybrid time series decomposition and multi-objective parameter optimization](https://doi.org/10.1016/j.apenergy.2022.118674)
+Lv et al. (2022), *Applied Energy*. 101 citations.
+
+*Summary pending.*
+
+### [Wind speed forecasting method using wavelet, extreme learning machine and outlier correction algorithm](https://doi.org/10.1016/j.enconman.2017.09.034)
+Mi et al. (2017), *Energy Conversion and Management*. 101 citations.
+
+*Summary pending.*
 
 ### [Application of the diagonal recurrent wavelet neural network to solar irradiation forecast assisted with fuzzy technique](https://doi.org/10.1016/j.engappai.2008.02.003)
 Cao et al. (2008), *Engineering Applications of Artificial Intelligence*. 100 citations.
@@ -46427,6 +50735,16 @@ Jiang et al. (2024), *Applied Energy*. 100 citations.
 - **Issues:** Evaluation details unknown.
 - *Basis: assessment*
 
+### [Forecasting Power Output of Photovoltaic System Using A BP Network Method](https://doi.org/10.1016/j.egypro.2017.12.126)
+Liu et al. (2017), *Energy Procedia*. 100 citations.
+
+*Summary pending.*
+
+### [A Multi-Data Driven Hybrid Learning Method for Weekly Photovoltaic Power Scenario Forecast](https://doi.org/10.1109/tste.2021.3104656)
+Li et al. (2021), *IEEE Transactions on Sustainable Energy*. 100 citations.
+
+*Summary pending.*
+
 ### [Prediction of diffuse solar irradiance using machine learning and multivariable regression](https://doi.org/10.1016/j.apenergy.2016.08.093)
 Lou et al. (2016), *Applied Energy*. 99 citations.
 
@@ -46448,6 +50766,21 @@ Gao et al. (2023), *Energy Reports*. 99 citations.
 - **Open work:** Testing across more wind farms and forecast horizons, and adding probabilistic output, would follow naturally.
 - **Issues:** Single-site style evaluation; decomposition of the full series can leak future information if not applied causally; point forecasts only.
 - *Basis: assessment*
+
+### [Comparison of machine learning and deep learning algorithms for hourly global/diffuse solar radiation predictions](https://doi.org/10.1002/er.6529)
+Bamisile et al. (2021), *International Journal of Energy Research*. 99 citations.
+
+*Summary pending.*
+
+### [Comparison of deterministic and data-driven models for solar radiation estimation in China](https://doi.org/10.1016/j.rser.2017.08.037)
+Qin et al. (2018), *Renewable and Sustainable Energy Reviews*. 99 citations.
+
+*Summary pending.*
+
+### [Solar radiation prediction using boosted decision tree regression model: A case study in Malaysia](https://doi.org/10.1007/s11356-021-12435-6)
+Jumin et al. (2021), *Environmental Science and Pollution Research*. 99 citations.
+
+*Summary pending.*
 
 ### [Wind turbine power curve estimation based on cluster center fuzzy logic modeling](https://doi.org/10.1016/j.jweia.2008.02.001)
 Ustuntas et al. (2008), *Journal of Wind Engineering and Industrial Aerodynamics*. 98 citations.
@@ -46481,6 +50814,21 @@ Kardakos et al. (2013), *International Universities Power Engineering Conference
 - **Open work:** Incorporating numerical weather prediction inputs and probabilistic forecasting.
 - **Issues:** Site coverage is not reported here; findings may not transfer across climates.
 - *Basis: assessment*
+
+### [A hybrid forecasting approach applied in wind speed forecasting based on a data processing strategy and an optimized artificial intelligence algorithm](https://doi.org/10.1016/j.energy.2018.07.005)
+Yang et al. (2018), *Energy*. 98 citations.
+
+*Summary pending.*
+
+### [An efficient neuro-evolutionary hybrid modelling mechanism for the estimation of daily global solar radiation in the Sunshine State of Australia](https://doi.org/10.1016/j.apenergy.2017.10.076)
+Salcedo-Sanz et al. (2018), *Applied Energy*. 98 citations.
+
+*Summary pending.*
+
+### [Post-processing in solar forecasting: Ten overarching thinking tools](https://doi.org/10.1016/j.rser.2021.110735)
+Yang et al. (2021), *Renewable and Sustainable Energy Reviews*. 98 citations.
+
+*Summary pending.*
 
 ### [Powerformer: A temporal-based transformer model for wind power forecasting](https://doi.org/10.1016/j.egyr.2023.12.030)
 Mo et al. (2024), *Energy Reports*. 97 citations.
@@ -46526,6 +50874,21 @@ Hossain et al. (2023), *IEEE Transactions on Industrial Informatics*. 97 citatio
 - **Issues:** Decomposition-based hybrids may leak information if not applied causally; point forecasts only.
 - *Basis: abstract*
 
+### [A fuzzy regression with support vector machine approach to the estimation of horizontal global solar radiation](https://doi.org/10.1016/j.energy.2017.02.008)
+Başer et al. (2017), *Energy*. 97 citations.
+
+*Summary pending.*
+
+### [Multi-objective evolutionary optimization of prediction intervals for solar energy forecasting with neural networks](https://doi.org/10.1016/j.ins.2017.08.039)
+Galván et al. (2017), *Information Sciences*. 97 citations.
+
+*Summary pending.*
+
+### [A hybrid approach for multi-step wind speed forecasting based on two-layer decomposition, improved hybrid DE-HHO optimization and KELM](https://doi.org/10.1016/j.renene.2020.09.078)
+Fu et al. (2021), *Renewable Energy*. 97 citations.
+
+*Summary pending.*
+
 ### [Correlation of wind speed between neighboring measuring stations](https://doi.org/10.1109/tec.2004.827040)
 Bechrakis et al. (2004), *IEEE Transactions on Energy Conversion*. 96 citations.
 
@@ -46569,6 +50932,16 @@ Fantini et al. (2024), *Energy Conversion and Management*. 96 citations.
 - **Open work:** Testing across other sites and horizons.
 - **Issues:** Evaluation scope unknown without the abstract.
 - *Basis: assessment*
+
+### [Solar radiation forecasting based on convolutional neural network and ensemble learning](https://doi.org/10.1016/j.eswa.2021.115167)
+Cannizzaro et al. (2021), *Expert Systems with Applications*. 96 citations.
+
+*Summary pending.*
+
+### [Intra-hour irradiance forecasting techniques for solar power integration: a review](https://doi.org/10.1016/j.isci.2021.103136)
+Chu et al. (2021), *iScience*. 96 citations.
+
+*Summary pending.*
 
 ### [Neural Network Ensemble-Based Solar Power Generation Short-Term Forecasting](https://doi.org/10.20965/jaciii.2010.p0069)
 Chaouachi et al. (2009), *Journal of Advanced Computational Intelligence and Intelligent Informatics*. 95 citations.
@@ -46625,6 +50998,16 @@ Ahmad et al. (2015), *Solar Energy*. 95 citations.
 - **Issues:** No abstract available; limited sites; deterministic forecasts only.
 - *Basis: assessment*
 
+### [Wind Speed Prediction Using Artificial Neural Networks Based on Multiple Local Measurements in Eskisehir](https://doi.org/10.1016/j.egypro.2016.12.147)
+Filik et al. (2017), *Energy Procedia*. 94 citations.
+
+*Summary pending.*
+
+### [Forecasting of Energy Production for Photovoltaic Systems Based on ARIMA and ANN Advanced Models](https://doi.org/10.1155/2021/6777488)
+Fara et al. (2021), *International Journal of Photoenergy*. 94 citations.
+
+*Summary pending.*
+
 ### [A fuzzy expert system for the forecasting of wind speed and power generation in wind farms](https://doi.org/10.1109/pica.2001.932320)
 Damousis et al. (2001), *PICA 2001. Innovative Computing for Power - Electric Energy Meets the Market. 22nd IEEE Power Engineering Society. International Conference on Power Industry Computer Applications (Cat. No.01CH37195)*. 93 citations.
 
@@ -46657,6 +51040,21 @@ Kankanala et al. (2014), *IEEE Transactions on Power Systems*. 93 citations.
 - **Open work:** Forecasting with predicted weather and extension to other utilities.
 - **Issues:** No abstract available; utility-specific data; extreme storms are rare in training.
 - *Basis: assessment*
+
+### [Advanced Deep Learning Approach for Probabilistic Wind Speed Forecasting](https://doi.org/10.1109/tii.2020.3004436)
+Afrasiabi et al. (2021), *IEEE Transactions on Industrial Informatics*. 93 citations.
+
+*Summary pending.*
+
+### [Estimation of fractal representation of wind speed fluctuation by artificial neural network with different training algorothms](https://doi.org/10.1016/j.flowmeasinst.2017.01.007)
+Petković et al. (2017), *Flow Measurement and Instrumentation*. 93 citations.
+
+*Summary pending.*
+
+### [Wind Speed Ensemble Forecasting Based on Deep Learning Using Adaptive Dynamic Optimization Algorithm](https://doi.org/10.1109/access.2021.3111408)
+Ibrahim et al. (2021), *IEEE Access*. 93 citations.
+
+*Summary pending.*
 
 ### [Model data selection using gamma test for daily solar radiation estimation](https://doi.org/10.1002/hyp.7044)
 Remesan et al. (2008), *Hydrological Processes*. 92 citations.
@@ -46702,6 +51100,16 @@ Zhao et al. (2016), *Applied Energy*. 92 citations.
 - **Issues:** No abstract available; method and data details uncertain.
 - *Basis: assessment*
 
+### [Short-term wind speed forecasting over complex terrain using linear regression models and multivariable LSTM and NARX networks in the Andes Range, Ecuador](https://doi.org/10.1016/j.renene.2021.10.070)
+López et al. (2021), *Renewable Energy*. 92 citations.
+
+*Summary pending.*
+
+### [Data mining-assisted short-term wind speed forecasting by wavelet packet decomposition and Elman neural network](https://doi.org/10.1016/j.jweia.2018.01.020)
+Yu et al. (2018), *Journal of Wind Engineering and Industrial Aerodynamics*. 92 citations.
+
+*Summary pending.*
+
 ### [A novel wind power forecasting system integrating time series refining, nonlinear multi-objective optimized deep learning and linear error correction](https://doi.org/10.1016/j.enconman.2023.117818)
 Wang et al. (2024), *Energy Conversion and Management*. 91 citations.
 
@@ -46724,6 +51132,16 @@ Kisi (2014), *Energy*. 91 citations.
 - **Issues:** Abstract unavailable; regional station-based study whose spatial transferability is unclear.
 - *Basis: assessment*
 
+### [Hourly day ahead wind speed forecasting based on a hybrid model of EEMD, CNN-Bi-LSTM embedded with GA optimization](https://doi.org/10.1016/j.egyr.2022.05.110)
+Nguyen et al. (2022), *Energy Reports*. 91 citations.
+
+*Summary pending.*
+
+### [Two-Stage Attention Over LSTM With Bayesian Optimization for Day-Ahead Solar Power Forecasting](https://doi.org/10.1109/access.2021.3100105)
+Aslam et al. (2021), *IEEE Access*. 91 citations.
+
+*Summary pending.*
+
 ### [Estimation of 5-min time-step data of tilted solar global irradiation using ANN (Artificial Neural Network) model](https://doi.org/10.1016/j.energy.2014.04.011)
 Dahmani et al. (2014), *Energy*. 90 citations.
 
@@ -46734,6 +51152,41 @@ Dahmani et al. (2014), *Energy*. 90 citations.
 - **Open work:** Testing other tilt angles, sites and climates.
 - **Issues:** Abstract unavailable; single-site training limits transferability.
 - *Basis: assessment*
+
+### [Deep learning based solar radiation micro forecast by fusion of infrared cloud images and radiation data](https://doi.org/10.1016/j.apenergy.2021.117014)
+Ajith et al. (2021), *Applied Energy*. 90 citations.
+
+*Summary pending.*
+
+### [Prediction of daily diffuse solar radiation using artificial neural networks](https://doi.org/10.1016/j.ijhydene.2017.09.150)
+Xue (2017), *International Journal of Hydrogen Energy*. 90 citations.
+
+*Summary pending.*
+
+### [A hybrid neural network model for short-term wind speed forecasting based on decomposition, multi-learner ensemble, and adaptive multiple error corrections](https://doi.org/10.1016/j.renene.2020.11.002)
+Liu et al. (2021), *Renewable Energy*. 90 citations.
+
+*Summary pending.*
+
+### [Using artificial neural networks to estimate solar radiation in Kuwait](https://doi.org/10.1016/j.rser.2017.01.013)
+Bou-Rabee et al. (2017), *Renewable and Sustainable Energy Reviews*. 90 citations.
+
+*Summary pending.*
+
+### [A novel loss function of deep learning in wind speed forecasting](https://doi.org/10.1016/j.energy.2021.121808)
+Chen et al. (2022), *Energy*. 90 citations.
+
+*Summary pending.*
+
+### [Boosting solar radiation predictions with global climate models, observational predictors and hybrid deep-machine learning algorithms](https://doi.org/10.1016/j.apenergy.2022.119063)
+Ghimire et al. (2022), *Applied Energy*. 90 citations.
+
+*Summary pending.*
+
+### [Short-term wind speed forecasting based on spatial-temporal graph transformer networks](https://doi.org/10.1016/j.energy.2022.124095)
+Pan et al. (2022), *Energy*. 90 citations.
+
+*Summary pending.*
 
 ### [Predicting total solar irradiation values using artificial neural networks](https://doi.org/10.1016/j.renene.2008.01.009)
 Mubiru (2008), *Renewable Energy*. 89 citations.
@@ -46779,6 +51232,16 @@ Song et al. (2023), *Applied Energy*. 89 citations.
 - **Issues:** Abstract unavailable; station interpolation may miss local variability.
 - *Basis: assessment*
 
+### [Intra-Hour Photovoltaic Generation Forecasting Based on Multi-Source Data and Deep Learning Methods](https://doi.org/10.1109/tste.2021.3123337)
+Yao et al. (2022), *IEEE Transactions on Sustainable Energy*. 89 citations.
+
+*Summary pending.*
+
+### [Multi-step short-term wind speed prediction based on integrated multi-model fusion](https://doi.org/10.1016/j.apenergy.2021.117248)
+Tian et al. (2021), *Applied Energy*. 89 citations.
+
+*Summary pending.*
+
 ### [ARIMA vs. Neural networks for wind speed forecasting](https://doi.org/10.1109/cimsa.2009.5069932)
 Palomares-Salas et al. (2009), *2009 IEEE International Conference on Computational Intelligence for Measurement Systems and Applications*. 88 citations.
 
@@ -46823,6 +51286,11 @@ Yu et al. (2024), *Energies*. 88 citations.
 - **Issues:** Review without standardized benchmarking, so reported accuracies across studies are not directly comparable.
 - *Basis: abstract*
 
+### [Stacked LSTM Sequence-to-Sequence Autoencoder with Feature Selection for Daily Solar Radiation Prediction: A Review and New Modeling Results](https://doi.org/10.3390/en15031061)
+Ghimire et al. (2022), *Energies*. 88 citations.
+
+*Summary pending.*
+
 ### [Deep learning algorithms for very short term solar irradiance forecasting: A survey](https://doi.org/10.1016/j.rser.2023.113362)
 Ajith et al. (2023), *Renewable and Sustainable Energy Reviews*. 87 citations.
 
@@ -46856,6 +51324,31 @@ Chiteka et al. (2016), *Journal of Cleaner Production*. 87 citations.
 - **Issues:** Limited station coverage and site-specific training may restrict transferability; details unavailable without the abstract.
 - *Basis: assessment*
 
+### [Weather Impact on Solar Farm Performance: A Comparative Analysis of Machine Learning Techniques](https://doi.org/10.3390/su15010439)
+Gopi et al. (2022), *Sustainability*. 87 citations.
+
+*Summary pending.*
+
+### [A comprehensive wind speed prediction system based on Monte Carlo and artificial intelligence algorithms](https://doi.org/10.1016/j.apenergy.2021.117815)
+Zhang et al. (2022), *Applied Energy*. 87 citations.
+
+*Summary pending.*
+
+### [Ensemble Recurrent Neural Network Based Probabilistic Wind Speed Forecasting Approach](https://doi.org/10.3390/en11081958)
+Cheng et al. (2018), *Energies*. 87 citations.
+
+*Summary pending.*
+
+### [Artificial Intelligence Based Hybrid Forecasting Approaches for Wind Power Generation: Progress, Challenges and Prospects](https://doi.org/10.1109/access.2021.3097102)
+Lipu et al. (2021), *IEEE Access*. 87 citations.
+
+*Summary pending.*
+
+### [Multi-Meteorological-Factor-Based Graph Modeling for Photovoltaic Power Forecasting](https://doi.org/10.1109/tste.2021.3057521)
+Cheng et al. (2021), *IEEE Transactions on Sustainable Energy*. 87 citations.
+
+*Summary pending.*
+
 ### [Computational Solar Energy - Ensemble Learning Methods for Prediction of Solar Power Generation based on Meteorological Parameters in Eastern India](https://doi.org/10.1016/j.ref.2023.01.006)
 Chakraborty et al. (2023), *Renewable Energy Focus*. 86 citations.
 
@@ -46877,6 +51370,16 @@ Liu et al. (2024), *Applied Energy*. 86 citations.
 - **Open work:** Extending to probabilistic forecasts and testing across more wind farms and horizons.
 - **Issues:** Attention-based interpretability is not causal; results depend on site data whose details are unavailable without the abstract.
 - *Basis: assessment*
+
+### [An evolutionary robust solar radiation prediction model based on WT-CEEMDAN and IASO-optimized outlier robust extreme learning machine](https://doi.org/10.1016/j.apenergy.2022.119518)
+Zhang et al. (2022), *Applied Energy*. 86 citations.
+
+*Summary pending.*
+
+### [A novel wind speed prediction method: Hybrid of correlation-aided DWT, LSSVM and GARCH](https://doi.org/10.1016/j.jweia.2017.12.019)
+Jiang et al. (2018), *Journal of Wind Engineering and Industrial Aerodynamics*. 86 citations.
+
+*Summary pending.*
 
 ### [Sky image-based solar irradiance prediction methodologies using artificial neural networks](https://doi.org/10.1016/j.renene.2018.11.056)
 Kamadinata et al. (2019), *Renewable Energy*. 85 citations.
@@ -46966,6 +51469,11 @@ Dong et al. (2024), *IEEE Transactions on Sustainable Energy*. 85 citations.
 - **Issues:** Single case study; scenario quality depends on the deterministic forecast component.
 - *Basis: abstract*
 
+### [Improving the separation of direct and diffuse solar radiation components using machine learning by gradient boosting](https://doi.org/10.1016/j.solener.2017.05.018)
+Aler et al. (2017), *Solar Energy*. 85 citations.
+
+*Summary pending.*
+
 ### [An application of the multilayer perceptron: Solar radiation maps in Spain](https://doi.org/10.1016/j.solener.2004.11.013)
 Hontoria et al. (2005), *Solar Energy*. 84 citations.
 
@@ -46998,6 +51506,21 @@ Wang et al. (2023), *Expert Systems with Applications*. 84 citations.
 - **Open work:** Probabilistic extensions and testing on more sites and horizons.
 - **Issues:** Details unavailable without the abstract; decomposition-based pipelines can leak future information.
 - *Basis: assessment*
+
+### [A novel frequency-domain physics-informed neural network for accurate prediction of 3D Spatio-temporal wind fields in wind turbine applications](https://doi.org/10.1016/j.apenergy.2025.125526)
+Li et al. (2025), *Applied Energy*. 84 citations.
+
+*Summary pending.*
+
+### [Wind speed forecasting system based on gated recurrent units and convolutional spiking neural networks](https://doi.org/10.1016/j.apenergy.2021.116842)
+Wei et al. (2021), *Applied Energy*. 84 citations.
+
+*Summary pending.*
+
+### [Multi-step ahead forecasting of daily global and direct solar radiation: A review and case study of Ghardaia region](https://doi.org/10.1016/j.jclepro.2018.08.006)
+Guermoui et al. (2018), *Journal of Cleaner Production*. 84 citations.
+
+*Summary pending.*
 
 ### [Artificial intelligence techniques applied to hourly global irradiance estimation from satellite-derived cloud index](https://doi.org/10.1016/j.energy.2004.04.047)
 Zarzalejo et al. (2005), *Energy*. 83 citations.
@@ -47053,6 +51576,11 @@ Ibrahim et al. (2024), *Electrical Engineering*. 83 citations.
 - **Open work:** Testing on other sites and climates, longer horizons and probabilistic forecasts.
 - **Issues:** Single solar farm; deterministic point forecasts only; details of forecast horizon and data split are not given in the abstract.
 - *Basis: abstract*
+
+### [Wind Speed Prediction of IPSO-BP Neural Network Based on Lorenz Disturbance](https://doi.org/10.1109/access.2018.2869981)
+Zhang et al. (2018), *IEEE Access*. 83 citations.
+
+*Summary pending.*
 
 ### [Comparative analysis of regression and artificial neural network models for wind speed prediction](https://doi.org/10.1007/s00703-010-0093-9)
 Bilgili et al. (2010), *Meteorology and Atmospheric Physics*. 82 citations.
@@ -47142,6 +51670,26 @@ Hu et al. (2014), *Neural Networks*. 82 citations.
 - **Issues:** Performance depends on the correctness of the assumed noise distribution.
 - *Basis: assessment*
 
+### [Solar Irradiance Forecasting to Short-Term PV Power: Accuracy Comparison of ANN and LSTM Models](https://doi.org/10.3390/en15072457)
+Wentz et al. (2022), *Energies*. 82 citations.
+
+*Summary pending.*
+
+### [Multivariate selection-combination short-term wind speed forecasting system based on convolution-recurrent network and multi-objective chameleon swarm algorithm](https://doi.org/10.1016/j.eswa.2022.119129)
+Wang et al. (2022), *Expert Systems with Applications*. 82 citations.
+
+*Summary pending.*
+
+### [Ultra-Short-Term Spatiotemporal Forecasting of Renewable Resources: An Attention Temporal Convolutional Network-Based Approach](https://doi.org/10.1109/tsg.2022.3175451)
+Liang et al. (2022), *IEEE Transactions on Smart Grid*. 82 citations.
+
+*Summary pending.*
+
+### [An adaptive dynamic short-term wind speed forecasting model using secondary decomposition and an improved regularized extreme learning machine](https://doi.org/10.1016/j.energy.2018.09.180)
+Sun et al. (2018), *Energy*. 82 citations.
+
+*Summary pending.*
+
 ### [Enhancing solar PV output forecast by integrating ground and satellite observations with deep learning](https://doi.org/10.1016/j.rser.2022.112680)
 Qin et al. (2022), *Renewable and Sustainable Energy Reviews*. 81 citations.
 
@@ -47186,6 +51734,11 @@ Shrivastava et al. (2016), *Renewable Energy*. 81 citations.
 - **Issues:** Trade-off between coverage and width must be chosen by the user; details unknown.
 - *Basis: assessment*
 
+### [Efficient daily solar radiation prediction with deep learning 4-phase convolutional neural network, dual stage stacked regression and support vector machine CNN-REGST hybrid model](https://doi.org/10.1016/j.susmat.2022.e00429)
+Ghimire et al. (2022), *Sustainable Materials and Technologies*. 81 citations.
+
+*Summary pending.*
+
 ### [A novel ensemble system for short-term wind speed forecasting based on Two-stage Attention-Based Recurrent Neural Network](https://doi.org/10.1016/j.renene.2022.12.120)
 Zhang et al. (2023), *Renewable Energy*. 80 citations.
 
@@ -47219,6 +51772,16 @@ Piri et al. (2015), *Infrared Physics & Technology*. 80 citations.
 - **Issues:** Details unknown; site-specific calibration likely limits transferability.
 - *Basis: assessment*
 
+### [Hybrid deep learning CNN-LSTM model for forecasting direct normal irradiance: a study on solar potential in Ghardaia, Algeria](https://doi.org/10.1038/s41598-025-94239-z)
+Ladjal et al. (2025), *Scientific Reports*. 80 citations.
+
+*Summary pending.*
+
+### [Variational mode decomposition based low rank robust kernel extreme learning machine for solar irradiation forecasting](https://doi.org/10.1016/j.enconman.2018.06.021)
+Majumder et al. (2018), *Energy Conversion and Management*. 80 citations.
+
+*Summary pending.*
+
 ### [A Spatiotemporal Directed Graph Convolution Network for Ultra-Short-Term Wind Power Prediction](https://doi.org/10.1109/tste.2022.3198816)
 Li et al. (2023), *IEEE Transactions on Sustainable Energy*. 79 citations.
 
@@ -47241,6 +51804,36 @@ Troncoso et al. (2015), *Renewable Energy*. 79 citations.
 - **Issues:** Point forecasts only; evaluation limited to the studied wind farms and very short horizons.
 - *Basis: abstract*
 
+### [A review of PV power forecasting using machine learning techniques](https://doi.org/10.1016/j.pes.2025.100058)
+Gupta et al. (2025), *Progress in Engineering Science*. 79 citations.
+
+*Summary pending.*
+
+### [Benchmarking physics-informed machine learning-based short term PV-power forecasting tools](https://doi.org/10.1016/j.egyr.2022.05.006)
+Pombo et al. (2022), *Energy Reports*. 79 citations.
+
+*Summary pending.*
+
+### [Short-term solar radiation forecasting using hybrid deep residual learning and gated LSTM recurrent network with differential covariance matrix adaptation evolution strategy](https://doi.org/10.1016/j.energy.2023.127701)
+Neshat et al. (2023), *Energy*. 79 citations.
+
+*Summary pending.*
+
+### [Integrated Multi-Head Self-Attention Transformer model for electricity demand prediction incorporating local climate variables](https://doi.org/10.1016/j.egyai.2023.100302)
+Ghimire et al. (2023), *Energy and AI*. 78 citations.
+
+*Summary pending.*
+
+### [Solar irradiance forecast using aerosols measurements: A data driven approach](https://doi.org/10.1016/j.solener.2018.05.089)
+Alfadda et al. (2018), *Solar Energy*. 78 citations.
+
+*Summary pending.*
+
+### [Interpretable deep learning models for hourly solar radiation prediction based on graph neural network and attention](https://doi.org/10.1016/j.apenergy.2022.119288)
+Gao et al. (2022), *Applied Energy*. 78 citations.
+
+*Summary pending.*
+
 ### [Modelling and forecasting monthly electric energy consumption in eastern Saudi Arabia using abductive networks](https://doi.org/10.1016/s0360-5442(97)00019-4)
 Abdel-Aal et al. (1997), *Energy*. 77 citations.
 
@@ -47262,6 +51855,16 @@ Sun et al. (2024), *Energy Reports*. 77 citations.
 - **Open work:** Probabilistic forecasts and testing across farms would follow naturally.
 - **Issues:** No abstract available; decomposition-based hybrids risk information leakage if decomposition uses future data, and gains are often site-specific.
 - *Basis: assessment*
+
+### [Solar Radiation Forecasting Using Machine Learning and Ensemble Feature Selection](https://doi.org/10.3390/en15197049)
+Solano et al. (2022), *Energies*. 77 citations.
+
+*Summary pending.*
+
+### [An imputation and decomposition algorithms based integrated approach with bidirectional LSTM neural network for wind speed prediction](https://doi.org/10.1016/j.energy.2023.127799)
+Sareen et al. (2023), *Energy*. 77 citations.
+
+*Summary pending.*
 
 ### [Development and assessment of artificial neural network models for direct normal solar irradiance forecasting using operational numerical weather prediction data](https://doi.org/10.1016/j.egyai.2023.100314)
 Pereira et al. (2023), *Energy and AI*. 76 citations.
@@ -47318,6 +51921,21 @@ Chen et al. (2014), *Theoretical and Applied Climatology*. 76 citations.
 - **Issues:** No abstract available; station-trained models may not transfer across climates.
 - *Basis: assessment*
 
+### [A machine learning model for hub-height short-term wind speed prediction](https://doi.org/10.1038/s41467-025-58456-4)
+Zhang et al. (2025), *Nature Communications*. 76 citations.
+
+*Summary pending.*
+
+### [Self-adaptive differential evolutionary extreme learning machines for long-term solar radiation prediction with remotely-sensed MODIS satellite and Reanalysis atmospheric products in solar-rich cities](https://doi.org/10.1016/j.rse.2018.05.003)
+Ghimire et al. (2018), *Remote Sensing of Environment*. 76 citations.
+
+*Summary pending.*
+
+### [Ensemble Machine-Learning Models for Accurate Prediction of Solar Irradiation in Bangladesh](https://doi.org/10.3390/pr11030908)
+Alam et al. (2023), *Processes*. 76 citations.
+
+*Summary pending.*
+
 ### [Solar energy prediction using linear and non-linear regularization models: A study on AMS (American Meteorological Society) 2013–14 Solar Energy Prediction Contest](https://doi.org/10.1016/j.energy.2014.10.012)
 Aggarwal et al. (2014), *Energy*. 75 citations.
 
@@ -47328,6 +51946,16 @@ Aggarwal et al. (2014), *Energy*. 75 citations.
 - **Open work:** Combining with ensemble methods such as gradient boosting would follow naturally.
 - **Issues:** Contest setting with fixed data; generalization beyond Oklahoma not tested. Specific scores not reported here.
 - *Basis: abstract+knowledge*
+
+### [Adaptive Learning Hybrid Model for Solar Intensity Forecasting](https://doi.org/10.1109/tii.2017.2789289)
+Wang et al. (2018), *IEEE Transactions on Industrial Informatics*. 75 citations.
+
+*Summary pending.*
+
+### [A simple approach for short-term wind speed interval prediction based on independently recurrent neural networks and error probability distribution](https://doi.org/10.1016/j.energy.2021.122012)
+Saeed et al. (2022), *Energy*. 75 citations.
+
+*Summary pending.*
 
 ### [Multi-channel convolutional neural network for integration of meteorological and geographical features in solar power forecasting](https://doi.org/10.1016/j.apenergy.2021.117083)
 Heo et al. (2021), *Applied Energy*. 74 citations.
@@ -47361,6 +51989,16 @@ Chen et al. (2015), *Energy Conversion and Management*. 74 citations.
 - **Open work:** Extending the transferability analysis to other climate zones and to other machine learning models would test the generality of the selection strategy.
 - **Issues:** Restricted to one region of China and to temperature-only inputs; the derived altitude relationships are empirical and may not generalize.
 - *Basis: abstract*
+
+### [Quaternion convolutional long short-term memory neural model with an adaptive decomposition method for wind speed forecasting: North aegean islands case studies](https://doi.org/10.1016/j.enconman.2022.115590)
+Neshat et al. (2022), *Energy Conversion and Management*. 74 citations.
+
+*Summary pending.*
+
+### [Hybrid Convolutional Neural Network-Multilayer Perceptron Model for Solar Radiation Prediction](https://doi.org/10.1007/s12559-022-10070-y)
+Ghimire et al. (2022), *Cognitive Computation*. 74 citations.
+
+*Summary pending.*
 
 ### [Short-term load forecasting using neural networks and global climate models: An application to a large-scale electrical power system](https://doi.org/10.1016/j.apenergy.2023.121439)
 Morais et al. (2023), *Applied Energy*. 73 citations.
@@ -47416,6 +52054,21 @@ Najeebullah et al. (2015), *Computers & Electrical Engineering*. 72 citations.
 - **Open work:** Testing on more wind farms and longer horizons and adding probabilistic outputs are natural next steps.
 - **Issues:** Abstract unavailable; details on data, horizons and baselines are unknown.
 - *Basis: assessment*
+
+### [Short-term wind power prediction based on multiscale numerical simulation coupled with deep learning](https://doi.org/10.1016/j.renene.2025.122951)
+Li et al. (2025), *Renewable Energy*. 72 citations.
+
+*Summary pending.*
+
+### [Artificial neural network model with different backpropagation algorithms and meteorological data for solar radiation prediction](https://doi.org/10.1038/s41598-022-13532-3)
+Heng et al. (2022), *Scientific Reports*. 72 citations.
+
+*Summary pending.*
+
+### [A Multistep Direct and Indirect Strategy for Predicting Wind Direction Based on the EMD-LSTM Model](https://doi.org/10.1155/2023/4950487)
+Ding et al. (2023), *Structural Control and Health Monitoring*. 72 citations.
+
+*Summary pending.*
 
 ### [Computation of beam solar radiation at normal incidence using artificial neural network](https://doi.org/10.1016/j.renene.2005.07.010)
 Alam et al. (2006), *Renewable Energy*. 71 citations.
@@ -47560,6 +52213,16 @@ Khan et al. (2024), *Discover Sustainability*. 70 citations.
 - **Issues:** Small differences between models with no reported significance testing; data source and forecast horizon unclear, limiting reproducibility.
 - *Basis: abstract*
 
+### [Review on Deep Learning Research and Applications in Wind and Wave Energy](https://doi.org/10.3390/en15041510)
+Gu et al. (2022), *Energies*. 70 citations.
+
+*Summary pending.*
+
+### [Two-stage decomposition and temporal fusion transformers for interpretable wind speed forecasting](https://doi.org/10.1016/j.energy.2023.129728)
+Wu et al. (2023), *Energy*. 70 citations.
+
+*Summary pending.*
+
 ### [A Comprehensive Wind Power Forecasting System Integrating Artificial Intelligence and Numerical Weather Prediction](https://doi.org/10.3390/en13061372)
 Kosović et al. (2020), *Energies*. 69 citations.
 
@@ -47648,6 +52311,11 @@ Ghorbani et al. (2013), *Theoretical and Applied Climatology*. 68 citations.
 - **Issues:** No abstract available; input-importance results may be specific to the stations and network setup.
 - *Basis: assessment*
 
+### [A hybrid Extreme Learning Machine model with Lévy flight Chaotic Whale Optimization Algorithm for Wind Speed Forecasting](https://doi.org/10.1016/j.rineng.2023.101274)
+Syama et al. (2023), *Results in Engineering*. 68 citations.
+
+*Summary pending.*
+
 ### [Using Radial Basis Neural Networks to Estimate Wind Power Production](https://doi.org/10.1109/pes.2007.385812)
 Sideratos et al. (2007), *IEEE Power Engineering Society General Meeting*. 67 citations.
 
@@ -47681,6 +52349,11 @@ Wang et al. (2024), *Energy*. 67 citations.
 - **Issues:** No abstract available; PINN training can be costly and sensitive to loss weighting.
 - *Basis: assessment*
 
+### [Estimating hub-height wind speed based on a machine learning algorithm: implications for wind energy assessment](https://doi.org/10.5194/acp-23-3181-2023)
+Liu et al. (2023), *Atmospheric Chemistry and Physics*. 67 citations.
+
+*Summary pending.*
+
 ### [Short-term forecasting of solar irradiance without local telemetry: a generalized model using satellite data](https://doi.org/10.1016/j.solener.2018.07.050)
 Lago et al. (2018), *Solar Energy*. 66 citations.
 
@@ -47713,6 +52386,21 @@ Olaofe (2014), *Sustainable Energy Technologies and Assessments*. 66 citations.
 - **Open work:** Integration with NWP inputs to sustain skill at multi-day horizons.
 - **Issues:** No abstract available; purely statistical multi-day forecasts typically lose skill quickly without NWP information.
 - *Basis: assessment*
+
+### [Cloud Feature Extraction and Fluctuation Pattern Recognition Based Ultrashort-Term Regional PV Power Forecasting](https://doi.org/10.1109/tia.2022.3186662)
+Wang et al. (2022), *IEEE Transactions on Industry Applications*. 66 citations.
+
+*Summary pending.*
+
+### [An artificial intelligence-based solar radiation prophesy model for green energy utilization in energy management system](https://doi.org/10.1016/j.seta.2022.102060)
+Alassery et al. (2022), *Sustainable Energy Technologies and Assessments*. 66 citations.
+
+*Summary pending.*
+
+### [Using deep learning and meteorological parameters to forecast the photovoltaic generators intra-hour output power interval for smart grid control](https://doi.org/10.1016/j.energy.2021.122116)
+Rodríguez et al. (2022), *Energy*. 66 citations.
+
+*Summary pending.*
 
 ### [Wind direction forecasting with artificial neural networks and support vector machines](https://doi.org/10.1016/j.oceaneng.2014.12.026)
 Tagliaferri et al. (2015), *Ocean Engineering*. 65 citations.
@@ -47780,6 +52468,11 @@ Khosravi et al. (2014), *International Journal of Electrical Power & Energy Syst
 - **Issues:** Gaussian assumption of MVE; limited to three farms; horizon details not given in the abstract.
 - *Basis: abstract*
 
+### [Enhancing wind power forecasting accuracy through LSTM with adaptive wind speed calibration (C-LSTM)](https://doi.org/10.1038/s41598-025-89398-y)
+Wang et al. (2025), *Scientific Reports*. 64 citations.
+
+*Summary pending.*
+
 ### [Machine Learning Applications for Load, Price and Wind Power Prediction in Power Systems](https://doi.org/10.1109/isap.2009.5352820)
 Negnevitsky et al. (2009), *International Conference on Intelligent System Applications to Power Systems*. 63 citations.
 
@@ -47801,6 +52494,16 @@ Ramedani et al. (2013), *International Journal of Green Energy*. 63 citations.
 - **Open work:** Spatial mapping with satellite data and comparison with other regression methods.
 - **Issues:** Regional station data; generalization untested.
 - *Basis: assessment*
+
+### [Wind speed interval prediction based on multidimensional time series of Convolutional Neural Networks](https://doi.org/10.1016/j.engappai.2023.105987)
+Wang et al. (2023), *Engineering Applications of Artificial Intelligence*. 63 citations.
+
+*Summary pending.*
+
+### [Weather Image-Based Short-Term Dense Wind Speed Forecast with a ConvLSTM-LSTM Deep Learning Model](https://doi.org/10.2139/ssrn.4397690)
+Zheng et al. (2023), *Social Science Research Network*. 63 citations.
+
+*Summary pending.*
 
 ### [Solar-energy potential in Turkey](https://doi.org/10.1016/j.apenergy.2004.06.001)
 Sözen et al. (2005), *Applied Energy*. 62 citations.
@@ -47845,6 +52548,16 @@ Zarnani et al. (2012), *Engineering Applications of Artificial Intelligence*. 62
 - **Open work:** Integration with NWP forecasts for operational icing warnings.
 - **Issues:** Icing events are rare, limiting training samples; content not verified from the abstract.
 - *Basis: assessment*
+
+### [Advancements and Challenges in Photovoltaic Power Forecasting: A Comprehensive Review](https://doi.org/10.3390/en18082108)
+Leo et al. (2025), *Energies*. 62 citations.
+
+*Summary pending.*
+
+### [A Novel Machine Learning Approach for Solar Radiation Estimation](https://doi.org/10.3390/su151310609)
+Hissou et al. (2023), *Sustainability*. 62 citations.
+
+*Summary pending.*
 
 ### [Short-term electricity demand forecasting using machine learning methods enriched with ground-based climate and ECMWF Reanalysis atmospheric predictors in southeast Queensland, Australia](https://doi.org/10.1016/j.rser.2019.109293)
 Al-Musaylh et al. (2019), *Renewable and Sustainable Energy Reviews*. 61 citations.
@@ -47967,6 +52680,11 @@ Liu et al. (2024), *IEEE Transactions on Industry Applications*. 60 citations.
 - **Issues:** Pattern misclassification in the test set propagates to forecasts; quantitative gains and dataset details are not reported in the abstract.
 - *Basis: abstract*
 
+### [Decomposition-based wind speed forecasting model using causal convolutional network and attention mechanism](https://doi.org/10.1016/j.eswa.2023.119878)
+Shang et al. (2023), *Expert Systems with Applications*. 60 citations.
+
+*Summary pending.*
+
 ### [Wind power prediction using recurrent multilayer perceptron neural networks](https://doi.org/10.1109/pes.2003.1270992)
 Li (2003), *IEEE Power Engineering Society General Meeting*. 59 citations.
 
@@ -48011,6 +52729,11 @@ Mandal et al. (2014), *International Journal of Energy Research*. 59 citations.
 - **Issues:** No abstract available; wavelet-based models risk boundary effects and leakage, and results may be specific to the studied fleet.
 - *Basis: assessment*
 
+### [Short-Term Wind Speed and Power Forecasting for Smart City Power Grid With a Hybrid Machine Learning Framework](https://doi.org/10.1109/jiot.2023.3286568)
+Wang et al. (2023), *IEEE Internet of Things Journal*. 59 citations.
+
+*Summary pending.*
+
 ### [A new ANN-based methodology for very short-term wind speed prediction using Markov chain approach](https://doi.org/10.1109/epc.2008.4763386)
 Kani et al. (2008), *IEEE Canada Electric Power Conference*. 58 citations.
 
@@ -48021,6 +52744,16 @@ Kani et al. (2008), *IEEE Canada Electric Power Conference*. 58 citations.
 - **Open work:** Testing at more sites and horizons and extending to wind power prediction.
 - **Issues:** Single-site evaluation and lack of comparison with persistence and other time-series baselines limit generality.
 - *Basis: assessment*
+
+### [A revolutionary neural network architecture with interpretability and flexibility based on Kolmogorov–Arnold for solar radiation and temperature forecasting](https://doi.org/10.1016/j.apenergy.2024.124844)
+Gao et al. (2025), *Applied Energy*. 58 citations.
+
+*Summary pending.*
+
+### [Enhancing solar photovoltaic energy production prediction using diverse machine learning models tuned with the chimp optimization algorithm](https://doi.org/10.1038/s41598-024-69544-8)
+Al-Dahidi et al. (2024), *Scientific Reports*. 57 citations.
+
+*Summary pending.*
 
 ### [Forecasting Power output of PV Grid Connected System in Thailand without using Solar Radiation Measurement](https://doi.org/10.1016/j.egypro.2011.09.024)
 Chupong et al. (2011), *Energy Procedia*. 56 citations.
@@ -48044,6 +52777,26 @@ Chang (2013), *Energies*. 56 citations.
 - **Issues:** Single site; no quantitative skill metrics in the abstract.
 - *Basis: abstract*
 
+### [Hybrid short-term wind power forecasting model using theoretical power curves and temporal fusion transformers](https://doi.org/10.1016/j.renene.2025.124008)
+Michalakopoulos et al. (2026), *Renewable Energy*. 56 citations.
+
+*Summary pending.*
+
+### [Solar Radiation Forecasting Based on the Hybrid CNN-CatBoost Model](https://doi.org/10.1109/access.2023.3243252)
+Kim et al. (2023), *IEEE Access*. 56 citations.
+
+*Summary pending.*
+
+### [Optimum Power Forecasting Technique for Hybrid Renewable Energy Systems Using Deep Learning](https://doi.org/10.1080/15325008.2024.2316251)
+Singh et al. (2024), *Electric Power Components and Systems*. 56 citations.
+
+*Summary pending.*
+
+### [Statistical Machine Learning for Power Flow Analysis Considering the Influence of Weather Factors on Photovoltaic Power Generation](https://doi.org/10.1109/tnnls.2024.3382763)
+Fu et al. (2024), *IEEE Transactions on Neural Networks and Learning Systems*. 55 citations.
+
+*Summary pending.*
+
 ### [A deep learning model for intra-day forecasting of solar irradiance using satellite-based estimations in the vicinity of a PV power plant](https://doi.org/10.1016/j.solener.2021.02.033)
 Pérez et al. (2021), *Solar Energy*. 54 citations.
 
@@ -48054,6 +52807,26 @@ Pérez et al. (2021), *Solar Energy*. 54 citations.
 - **Open work:** Testing at more sites and adding probabilistic outputs would follow.
 - **Issues:** Single site; no quantitative scores in the abstract; inherits satellite retrieval errors.
 - *Basis: abstract*
+
+### [Evaluating the impact of deep learning approaches on solar and photovoltaic power forecasting: A systematic review](https://doi.org/10.1016/j.esr.2025.101735)
+Khouili et al. (2025), *Energy Strategy Reviews*. 54 citations.
+
+*Summary pending.*
+
+### [Short-Term Solar Irradiance Forecasting Using Deep Learning Techniques: A Comprehensive Case Study](https://doi.org/10.1109/access.2023.3325292)
+Tajjour et al. (2023), *IEEE Access*. 54 citations.
+
+*Summary pending.*
+
+### [Deep Learning for Wind Speed Forecasting Using Bi-LSTM with Selected Features](https://doi.org/10.32604/iasc.2023.030480)
+Sankari et al. (2023), *Intelligent Automation & Soft Computing*. 54 citations.
+
+*Summary pending.*
+
+### [Point and interval wind speed forecasting of multivariate time series based on dual-layer LSTM](https://doi.org/10.1016/j.energy.2024.130875)
+Zhang et al. (2024), *Energy*. 54 citations.
+
+*Summary pending.*
 
 ### Characterization of wind farm energy production in a zone by artificial neuronal networks
 Mur et al. (2003), *Venue not recorded*. 53 citations.
@@ -48099,6 +52872,16 @@ Ishak et al. (2012), *Water Resources Management*. 53 citations.
 - **Issues:** Abstract missing; likely site-specific correction with limited transferability.
 - *Basis: assessment*
 
+### [A multi-step ahead global solar radiation prediction method using an attention-based transformer model with an interpretable mechanism](https://doi.org/10.1016/j.ijhydene.2023.01.068)
+Zhou et al. (2023), *International Journal of Hydrogen Energy*. 52 citations.
+
+*Summary pending.*
+
+### [Short-Term Wind Power Forecast Based on Continuous Conditional Random Field](https://doi.org/10.1109/tpwrs.2023.3270662)
+Li et al. (2024), *IEEE Transactions on Power Systems*. 52 citations.
+
+*Summary pending.*
+
 ### [Estimation of Surface Solar Radiation with Artificial Neural Networks](https://doi.org/10.1007/978-3-540-77455-6_9)
 Tymvios et al. (2008), *Venue not recorded*. 51 citations.
 
@@ -48120,6 +52903,31 @@ Fugon et al. (2008), *Venue not recorded*. 51 citations.
 - **Open work:** Probabilistic forecasting and combination of models.
 - **Issues:** Abstract unavailable; site-specific evaluation; NWP errors limit achievable skill.
 - *Basis: assessment*
+
+### [Artificial intelligence-aided wind plant optimization for nationwide evaluation of land use and economic benefits of wake steering](https://doi.org/10.1038/s41560-024-01516-8)
+Harrison-Atlas et al. (2024), *Nature Energy*. 51 citations.
+
+*Summary pending.*
+
+### [Prediction of Solar Irradiance One Hour Ahead Based on Quantum Long Short-Term Memory Network](https://doi.org/10.1109/tqe.2023.3271362)
+Yu et al. (2023), *IEEE Transactions on Quantum Engineering*. 51 citations.
+
+*Summary pending.*
+
+### [A state-of-the-art analysis on decomposition method for short-term wind speed forecasting using LSTM and a novel hybrid deep learning model](https://doi.org/10.1016/j.energy.2024.133826)
+Liang et al. (2024), *Energy*. 51 citations.
+
+*Summary pending.*
+
+### [Hybrid attention-based deep neural networks for short-term wind power forecasting using meteorological data in desert regions](https://doi.org/10.1038/s41598-024-73076-6)
+Belletreche et al. (2024), *Scientific Reports*. 51 citations.
+
+*Summary pending.*
+
+### [GAOformer: An adaptive spatiotemporal feature fusion transformer utilizing GAT and optimizable graph matrixes for offshore wind speed prediction](https://doi.org/10.1016/j.energy.2024.130404)
+Lin et al. (2024), *Energy*. 51 citations.
+
+*Summary pending.*
 
 ### [Probabilistic forecasts of wind power generation in regions with complex topography using deep learning methods: An Arctic case](https://arxiv.org/abs/2203.07080)
 Eikeland et al. (2022), *arXiv*. 50 citations.
@@ -48176,6 +52984,21 @@ Ashraf et al. (2004), *International Journal of Global Energy Issues*. 50 citati
 - **Issues:** Abstract unavailable; single plant; no uncertainty estimates.
 - *Basis: assessment*
 
+### [Read-First LSTM model: A new variant of long short term memory neural network for predicting solar radiation data](https://doi.org/10.1016/j.enconman.2024.118267)
+Ehteram et al. (2024), *Energy Conversion and Management*. 50 citations.
+
+*Summary pending.*
+
+### [Forecasting and Performance Analysis of Energy Production in Solar Power Plants Using Long Short-Term Memory (LSTM) and Random Forest Models](https://doi.org/10.1109/access.2024.3432574)
+Olcay et al. (2024), *IEEE Access*. 50 citations.
+
+*Summary pending.*
+
+### [Short-Term Wind Power Prediction Based on Multi-Parameters Similarity Wind Process Matching and Weighed-Voting-Based Deep Learning Model Selection](https://doi.org/10.1109/tpwrs.2023.3257368)
+Yang et al. (2024), *IEEE Transactions on Power Systems*. 50 citations.
+
+*Summary pending.*
+
 ### [Improving *day-ahead* Solar Irradiance Time Series Forecasting by Leveraging Spatio-Temporal Context](https://doi.org/10.52202/075280-0109)
 Boussif et al. (2023), *Neural Information Processing Systems*. 49 citations.
 
@@ -48198,6 +53021,16 @@ Ji et al. (2007), *International Conference on Machine Learning and Computing*. 
 - **Issues:** Abstract unavailable; single site; short evaluation.
 - *Basis: assessment*
 
+### [Spatio-temporal graph neural networks for power prediction in offshore wind farms using SCADA data](https://doi.org/10.5194/wes-10-1137-2025)
+Daenens et al. (2025), *Wind Energy Science*. 49 citations.
+
+*Summary pending.*
+
+### [Physics-informed reinforcement learning for probabilistic wind power forecasting under extreme events](https://doi.org/10.1016/j.apenergy.2024.124068)
+Liu et al. (2024), *Applied Energy*. 49 citations.
+
+*Summary pending.*
+
 ### [An adaptive framework based on multi-model data fusion for one-day-ahead wind power forecasting](https://doi.org/10.1016/j.epsr.2010.11.009)
 Vaccaro et al. (2011), *Electric Power Systems Research*. 48 citations.
 
@@ -48219,6 +53052,11 @@ Vaccaro et al. (2011), *Electric Power Systems Research*. 48 citations.
 - **Open work:** Extending to more sites, temporal forecasting and turbine-specific power estimates.
 - **Issues:** Limited station network; spatial generalization and measurement height extrapolation are uncertain.
 - *Basis: assessment*
+
+### [Mixformer: Mixture transformer with hierarchical context for spatio-temporal wind speed forecasting](https://doi.org/10.1016/j.enconman.2023.117896)
+Wu et al. (2024), *Energy Conversion and Management*. 47 citations.
+
+*Summary pending.*
 
 ### Photovoltaic power generation output forecasting based on support vector machine regression technique
 Li (2008), *Electric Power*. 46 citations.
@@ -48275,6 +53113,21 @@ Kalogirou et al. (1999), *Venue not recorded*. 44 citations.
 - **Issues:** No abstract available; limited station data and short records constrain generalization.
 - *Basis: assessment*
 
+### [Solar Radiation Forecasting: A Systematic Meta-Review of Current Methods and Emerging Trends](https://doi.org/10.3390/en17133156)
+Chodakowska et al. (2024), *Energies*. 44 citations.
+
+*Summary pending.*
+
+### [Day-Ahead PV Power Forecasting Model Based on Fine-Grained Temporal Attention and Cloud-Coverage Spatial Attention](https://doi.org/10.1109/tste.2023.3326887)
+Yang et al. (2024), *IEEE Transactions on Sustainable Energy*. 44 citations.
+
+*Summary pending.*
+
+### [Advanced Fusion of MTM-LSTM and MLP Models for Time Series Forecasting: An Application for Forecasting the Solar Radiation](https://doi.org/10.1016/j.measen.2024.101179)
+Mohammadi et al. (2024), *Measurement: Sensors*. 43 citations.
+
+*Summary pending.*
+
 ### [Addressing Intermittency in Medium-Term Photovoltaic and Wind Power Forecasting Using a Hybrid xLSTM-TCCNN Model with Numerical Weather Predictions](https://doi.org/10.1016/j.renene.2025.123618)
 Hang et al. (2025), *Renewable Energy*. 42 citations.
 
@@ -48307,6 +53160,21 @@ Kramer et al. (2013), *Neurocomputing*. 41 citations.
 - **Open work:** Longer horizons and use of numerical weather prediction inputs.
 - **Issues:** Abstract missing; method and skill unverified.
 - *Basis: assessment*
+
+### [A novel U-LSTM-AFT model for hourly solar irradiance forecasting](https://doi.org/10.1016/j.renene.2024.121955)
+Zhu et al. (2025), *Renewable Energy*. 41 citations.
+
+*Summary pending.*
+
+### [Short-term wind power prediction framework using numerical weather predictions and residual convolutional long short-term memory attention network](https://doi.org/10.1016/j.engappai.2024.108543)
+Xie et al. (2024), *Engineering Applications of Artificial Intelligence*. 41 citations.
+
+*Summary pending.*
+
+### [Wind speed prediction in China with fully-convolutional deep neural network](https://doi.org/10.1016/j.rser.2024.114623)
+Zhang et al. (2024), *Renewable and Sustainable Energy Reviews*. 41 citations.
+
+*Summary pending.*
 
 ### [SKIPP'D: a SKy Images and Photovoltaic Power Generation Dataset for Short-term Solar Forecasting](https://arxiv.org/abs/2207.00913)
 Nie et al. (2022), *arXiv*. 40 citations.
@@ -48352,6 +53220,26 @@ Zhang et al. (2012), *Energies*. 39 citations.
 - **Issues:** No quantitative metrics in the abstract; dataset details unspecified.
 - *Basis: abstract*
 
+### [A cross-modal deep learning method for enhancing photovoltaic power forecasting with satellite imagery and time series data](https://doi.org/10.1016/j.enconman.2024.119218)
+Wang et al. (2025), *Energy Conversion and Management*. 39 citations.
+
+*Summary pending.*
+
+### [A comprehensive review of machine learning applications in forecasting solar PV and wind turbine power output](https://doi.org/10.1186/s43067-025-00239-4)
+Benitez et al. (2025), *Journal of Electrical Systems and Information Technology*. 38 citations.
+
+*Summary pending.*
+
+### [Comprehensive approach to photovoltaic power forecasting using numerical weather prediction data and physics-based models and data-driven techniques](https://doi.org/10.1016/j.renene.2025.123495)
+Pereira et al. (2025), *Renewable Energy*. 38 citations.
+
+*Summary pending.*
+
+### [An enhanced CNN with ResNet50 and LSTM deep learning forecasting model for climate change decision making](https://doi.org/10.1038/s41598-025-97401-9)
+Elshewey et al. (2025), *Scientific Reports*. 38 citations.
+
+*Summary pending.*
+
 ### Short-Term Wind Speed Forecasting Combing Time Series and Neural Network Method
 Tao (2008), *Power system technology*. 37 citations.
 
@@ -48373,6 +53261,16 @@ Kang et al. (2005), *IEEE transactions on industry applications*. 37 citations.
 - **Open work:** Integration with unit commitment and longer forecast horizons.
 - **Issues:** Single system; forecast uncertainty is not characterised.
 - *Basis: assessment*
+
+### [Enhanced Solar Power Prediction Models With Integrating Meteorological Data Toward Sustainable Energy Forecasting](https://doi.org/10.1155/er/8022398)
+Atiea et al. (2024), *International Journal of Energy Research*. 37 citations.
+
+*Summary pending.*
+
+### [Overview of Day-Ahead Solar Power Forecasts Based on Weather Classifications and a Case Study in Taiwan](https://doi.org/10.1109/tia.2023.3327035)
+Wu et al. (2024), *IEEE Transactions on Industry Applications*. 37 citations.
+
+*Summary pending.*
 
 ### Study on the Time-series Wind Speed Forecasting of the Wind farm Based on Neural Networks
 Huo (2007), *Energy Conservation Technology*. 36 citations.
@@ -48396,6 +53294,11 @@ Liu et al. (2009), *International Journal of Green Energy*. 36 citations.
 - **Issues:** Single wind farm; segmentation choices may be site-specific.
 - *Basis: assessment*
 
+### [A Principle-Constrained Wind Field Image Generation Framework for Short-Term Wind Power Forecasting](https://doi.org/10.1109/tpwrs.2024.3449938)
+Liu et al. (2025), *IEEE Transactions on Power Systems*. 36 citations.
+
+*Summary pending.*
+
 ### Local Short-Term Prediction of Wind Speed: A Neural Network Analysis
 Pérez-Llera et al. (2002), *Venue not recorded*. 34 citations.
 
@@ -48417,6 +53320,31 @@ Mishra et al. (2009), *International Conference on Sustainable Power Generation 
 - **Open work:** Comparison with other forecasting methods and longer horizons.
 - **Issues:** Conference paper with limited evaluation detail.
 - *Basis: assessment*
+
+### [Foundation Models for Clean Energy Forecasting: A Comprehensive Review](https://arxiv.org/abs/2507.23147)
+Ferdaus et al. (2025), *arXiv*. 34 citations.
+
+*Summary pending.*
+
+### [Machine learning and physics-based model hybridization to assess the impact of climate change on single- and dual-axis tracking solar-concentrated photovoltaic systems](https://doi.org/10.1016/j.pce.2025.103881)
+Nwokolo et al. (2025), *Physics and Chemistry of the Earth, Parts A/B/C*. 34 citations.
+
+*Summary pending.*
+
+### [A Robust Photovoltaic Power Forecasting Method Based on Multimodal Learning Using Satellite Images and Time Series](https://doi.org/10.1109/tste.2024.3494266)
+Wang et al. (2025), *IEEE Transactions on Sustainable Energy*. 33 citations.
+
+*Summary pending.*
+
+### [An optimized deep learning based hybrid model for prediction of daily average global solar irradiance using CNN SLSTM architecture](https://doi.org/10.1038/s41598-025-95118-3)
+Mariappan et al. (2025), *Scientific Reports*. 32 citations.
+
+*Summary pending.*
+
+### [Optimized CNN-LSTM with Hybrid Metaheuristic Approaches for Solar Radiation Forecasting](https://doi.org/10.1016/j.csite.2025.106356)
+Sener et al. (2025), *Case Studies in Thermal Engineering*. 32 citations.
+
+*Summary pending.*
 
 ### [Forecasting short term regional gas demand using an expert system](https://doi.org/10.1016/0957-4174(95)00052-6)
 Smith et al. (1996), *Expert Systems with Applications*. 31 citations.
@@ -48440,6 +53368,16 @@ Yang (2009), *Venue not recorded*. 31 citations.
 - **Issues:** No abstract available; single-site study; wavelet boundary effects can contaminate real-time forecasts.
 - *Basis: assessment*
 
+### [Systematic evaluation of transformer-based time series forecasting models for post-processing WRF-simulated wind speed and predicting short-term power output](https://doi.org/10.1016/j.apenergy.2025.127070)
+Xia et al. (2026), *Applied Energy*. 31 citations.
+
+*Summary pending.*
+
+### [Transformer approach to nowcasting solar energy using geostationary satellite data](https://doi.org/10.1016/j.apenergy.2024.124387)
+Li et al. (2025), *Applied Energy*. 31 citations.
+
+*Summary pending.*
+
 ### [Improved Wind Power Forecasting Using a Combined Neuro-fuzzy and Artificial Neural Network Model](https://doi.org/10.1007/11752912_13)
 Katsigiannis et al. (2006), *Hellenic Conference on Artificial Intelligence*. 30 citations.
 
@@ -48450,6 +53388,11 @@ Katsigiannis et al. (2006), *Hellenic Conference on Artificial Intelligence*. 30
 - **Open work:** Adding NWP inputs and testing at other wind farms and horizons.
 - **Issues:** No abstract available; single-site evaluation; no probabilistic forecasts.
 - *Basis: assessment*
+
+### [Very short-term solar irradiance forecasting based on open-source low-cost sky imager and hybrid deep-learning techniques](https://doi.org/10.1016/j.solener.2025.113516)
+Ansong et al. (2025), *Solar Energy*. 30 citations.
+
+*Summary pending.*
 
 ### [One-Month Ahead Prediction of Wind Speed and Output Power Based on EMD and LSSVM](https://doi.org/10.1109/iceet.2009.571)
 Wang et al. (2009), *International Conference on Energy and Environment Technology*. 29 citations.
@@ -48517,6 +53460,11 @@ Ferreira et al. (2008), *IEEE International Joint Conference on Neural Network*.
 - **Issues:** No abstract available; single-site evaluation; reservoir hyperparameters strongly affect results.
 - *Basis: assessment*
 
+### [Interpretable deep learning framework for hourly solar radiation forecasting based on decomposing multi-scale variations](https://doi.org/10.1016/j.apenergy.2024.124409)
+Li et al. (2025), *Applied Energy*. 28 citations.
+
+*Summary pending.*
+
 ### [PVNet: A LRCN Architecture for Spatio-Temporal Photovoltaic PowerForecasting from Numerical Weather Prediction](https://arxiv.org/abs/1902.01453)
 Mathe et al. (2019), *arXiv*. 26 citations.
 
@@ -48527,6 +53475,11 @@ Mathe et al. (2019), *arXiv*. 26 citations.
 - **Open work:** Probabilistic forecasting and extension to other regions and finer spatial targets.
 - **Issues:** Only aggregated national production predicted; coarse NWP input; quantitative improvements not reported in the abstract.
 - *Basis: abstract*
+
+### [Detection and Prediction of Wind and Solar Photovoltaic Power Ramp Events Based on Data-Driven Methods: A Critical Review](https://doi.org/10.3390/en18133290)
+Zhang et al. (2025), *Energies*. 26 citations.
+
+*Summary pending.*
 
 ### [A Novel 2-D Model Approach for the Prediction of Hourly Solar Radiation](https://doi.org/10.1007/978-3-540-73007-1_90)
 Hocaoğlu et al. (2007), *International Work-Conference on Artificial and Natural Neural Networks*. 25 citations.
@@ -48539,6 +53492,21 @@ Hocaoğlu et al. (2007), *International Work-Conference on Artificial and Natura
 - **Issues:** No abstract available; details of data, model and skill are unknown.
 - *Basis: assessment*
 
+### [A multimodal deep learning approach for very short-term solar forecasts using sky images and historical numerical data](https://doi.org/10.1016/j.renene.2025.123774)
+Jonathan et al. (2025), *Renewable Energy*. 25 citations.
+
+*Summary pending.*
+
+### [Multi-task prediction of wind speed and time-varying wind shear coefficient using dynamic graph interactive neural network](https://doi.org/10.1016/j.inffus.2025.103478)
+Fu et al. (2025), *Information Fusion*. 25 citations.
+
+*Summary pending.*
+
+### [SolarFusionNet: Enhanced Solar Irradiance Forecasting via Automated Multi-Modal Feature Selection and Cross-Modal Fusion](https://doi.org/10.1109/tste.2024.3482360)
+Jing et al. (2025), *IEEE Transactions on Sustainable Energy*. 25 citations.
+
+*Summary pending.*
+
 ### [Short to Medium Range Time Series Prediction of Solar Irradiance Using an Echo State Network](https://doi.org/10.1109/isap.2009.5352922)
 Ruffing et al. (2009), *International Conference on Intelligent System Applications to Power Systems*. 24 citations.
 
@@ -48549,6 +53517,11 @@ Ruffing et al. (2009), *International Conference on Intelligent System Applicati
 - **Open work:** Adding weather inputs and comparing with other recurrent and statistical predictors.
 - **Issues:** No abstract available; univariate time-series prediction cannot anticipate cloud changes.
 - *Basis: assessment*
+
+### [Enhancing solar radiation forecasting accuracy with a hybrid SA-Bi-LSTM-Bi-GRU model](https://doi.org/10.1007/s12145-025-01791-3)
+Sharma et al. (2025), *Earth Science Informatics*. 24 citations.
+
+*Summary pending.*
 
 ### [SolNet: Open-source deep learning models for photovoltaic power forecasting across the globe](https://doi.org/10.1016/j.ijforecast.2024.12.003)
 Depoortere et al. (2024), *International Journal of Forecasting*. 23 citations.
@@ -48572,6 +53545,21 @@ Crispim et al. (2006), *The 2006 IEEE International Joint Conference on Neural N
 - **Issues:** No abstract available; site coverage and skill are unknown.
 - *Basis: assessment*
 
+### [A Multi-Task End-to-End Multivariate Long-Sequence Time Series Prediction Model for Load Forecasting](https://doi.org/10.1109/tsg.2025.3605653)
+Zhang et al. (2026), *IEEE Transactions on Smart Grid*. 23 citations.
+
+*Summary pending.*
+
+### [Enhanced accuracy in solar irradiance forecasting through machine learning stack-based ensemble approach](https://doi.org/10.1080/15435075.2025.2450468)
+Naveed et al. (2025), *International Journal of Green Energy*. 23 citations.
+
+*Summary pending.*
+
+### [A Novel Hybrid Ensemble Wind Speed Forecasting Model Employing Wavelet Transform and Deep Learning](https://doi.org/10.1016/j.compeleceng.2024.109820)
+VishnuNamboodiri et al. (2025), *Computers and Electrical Engineering*. 23 citations.
+
+*Summary pending.*
+
 ### [Selecting effective NWP integration approaches for PV power forecasting with deep learning](https://doi.org/10.1016/j.solener.2025.113939)
 Chen et al. (2025), *Solar Energy*. 22 citations.
 
@@ -48593,6 +53581,31 @@ Falchetta et al. (2020), *Environmental Research Letters*. 22 citations.
 - **Open work:** Extending the framework to long-term infrastructure monitoring, other hydropower-dependent countries and climate change scenarios to identify vulnerable populations.
 - **Issues:** Single-country case study; nighttime lights are only an indirect proxy for electricity use, and random forest extrapolation to ungauged conditions may be uncertain under unprecedented extremes.
 - *Basis: abstract*
+
+### [Regional Wind Power Forecasting Based on Bayesian Feature Selection](https://doi.org/10.1109/tpwrs.2024.3388011)
+Konstantinou et al. (2025), *IEEE Transactions on Power Systems*. 22 citations.
+
+*Summary pending.*
+
+### [Combining meteorological and power information of station-measurement and model-prediction with the hybrid CNN-Transformer and CNN-BiLSTM for ultra-short-term photovoltaic power forecasting](https://doi.org/10.1016/j.ijepes.2025.111009)
+Dai et al. (2025), *International Journal of Electrical Power & Energy Systems*. 22 citations.
+
+*Summary pending.*
+
+### [A multi-year analysis of the impact of heatwaves and compound weather events on power outages](https://doi.org/10.1038/s41598-025-15065-x)
+Saki et al. (2025), *Scientific Reports*. 21 citations.
+
+*Summary pending.*
+
+### [A cross-dataset benchmark for neural network-based wind power forecasting](https://doi.org/10.1016/j.renene.2025.123463)
+Xu et al. (2025), *Renewable Energy*. 21 citations.
+
+*Summary pending.*
+
+### [Machine learning-driven solar irradiance prediction: advancing renewable energy in Rajasthan](https://doi.org/10.1007/s42452-025-06490-8)
+Tandon et al. (2025), *Discover Applied Sciences*. 21 citations.
+
+*Summary pending.*
 
 ### A 10 sec. forecast of wind turbine output with neural networks
 Tande et al. (1993), *Venue not recorded*. 20 citations.
@@ -48616,6 +53629,31 @@ Hayashi et al. (2001), *Venue not recorded*. 20 citations.
 - **Issues:** No abstract available; skill is unknown.
 - *Basis: assessment*
 
+### [LSTM and Transformer-based framework for bias correction of ERA5 hourly wind speeds](https://doi.org/10.1016/j.energy.2025.136498)
+Houndekindo et al. (2025), *Energy*. 20 citations.
+
+*Summary pending.*
+
+### [Multimodal deep learning for solar radiation forecasting](https://doi.org/10.1016/j.apenergy.2025.126061)
+Abad-Alcaraz et al. (2025), *Applied Energy*. 20 citations.
+
+*Summary pending.*
+
+### [A PatchTST-GRU based heterogeneous seq2seq model with numerical weather prediction refinement for multi-step wind power forecasting](https://doi.org/10.1038/s41598-025-00741-9)
+Xu et al. (2025), *Scientific Reports*. 19 citations.
+
+*Summary pending.*
+
+### [Enhanced global solar irradiance and temperature forecasting for rooftop PV power generation prediction using multi-step LSTM and GRU based hybrid models](https://doi.org/10.1016/j.ecmx.2025.101351)
+Fathi et al. (2025), *Energy Conversion and Management: X*. 19 citations.
+
+*Summary pending.*
+
+### [Deep multi-attribute spatial-temporal graph convolutional recurrent neural network-based multivariable spatial-temporal information fusion for short-term probabilistic forecast of multi-site photovoltaic power](https://doi.org/10.1016/j.eswa.2025.127458)
+Bai et al. (2025), *Expert Systems with Applications*. 19 citations.
+
+*Summary pending.*
+
 ### [Wind turbine power estimation by neural networks with Kalman filter training on a SIMD parallel machine](https://doi.org/10.1109/ijcnn.1999.836215)
 Li et al. (1999), *IJCNN'99. International Joint Conference on Neural Networks. Proceedings (Cat. No.99CH36339)*. 18 citations.
 
@@ -48638,6 +53676,11 @@ Wang (2010), *Power system technology*. 18 citations.
 - **Issues:** Wavelet decomposition can leak future information if applied to the full series. No abstract available; details of data, validation and skill cannot be confirmed from the record.
 - *Basis: assessment*
 
+### [Knowledge-Integrated GAN Model for Stochastic Time-Series Simulation of Year-Round Weather for Photovoltaic Integration Analysis](https://doi.org/10.1109/tpwrs.2025.3559455)
+Fu et al. (2025), *IEEE Transactions on Power Systems*. 18 citations.
+
+*Summary pending.*
+
 ### [Locally recurrent neural networks optimal filtering algorithms: application to wind speed prediction using spatial correlation](https://doi.org/10.1109/ijcnn.2005.1556353)
 Barbounis et al. (2005), *Proceedings. 2005 IEEE International Joint Conference on Neural Networks, 2005.*. 17 citations.
 
@@ -48648,6 +53691,21 @@ Barbounis et al. (2005), *Proceedings. 2005 IEEE International Joint Conference 
 - **Open work:** Longer horizons and inclusion of numerical weather prediction inputs.
 - **Issues:** Abstract unavailable; site-specific evaluation and higher training complexity of recurrent filtering algorithms.
 - *Basis: abstract+knowledge*
+
+### [Probabilistic Photovoltaic Power Forecasting with Reliable Uncertainty Quantification via Multi-Scale Temporal–Spatial Attention and Conformalized Quantile Regression](https://doi.org/10.3390/su18020739)
+Wang et al. (2026), *Sustainability*. 17 citations.
+
+*Summary pending.*
+
+### [Machine learning for subnational residential electricity demand forecasting to 2050 under shared socioeconomic pathways: Comparing tree-based, neural and kernel methods](https://doi.org/10.1016/j.energy.2025.138195)
+Gulaydin et al. (2025), *Energy*. 17 citations.
+
+*Summary pending.*
+
+### [Machine Learning Based Prediction of Long-Term Energy Consumption and Overheating Under Climate Change Impacts Using Urban Building Energy Modeling](https://doi.org/10.1016/j.scs.2025.106500)
+Canli et al. (2025), *Sustainable Cities and Society*. 17 citations.
+
+*Summary pending.*
 
 ### [Solar Irradiance Anticipative Transformer](https://doi.org/10.1109/cvprw59228.2023.00200)
 Mercier et al. (2023), *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)*. 15 citations.
@@ -48682,6 +53740,11 @@ Gómez et al. (2002), *Fuzzy Sets and Systems*. 14 citations.
 - **Issues:** Abstract unavailable; card is based on the title only.
 - *Basis: assessment*
 
+### [Interpretable transformer based intra-day solar forecasting with spatiotemporal satellite and numerical weather prediction inputs](https://doi.org/10.1016/j.egyai.2025.100667)
+Chen et al. (2026), *Energy and AI*. 14 citations.
+
+*Summary pending.*
+
 ### [Neural network for wind power generation with compressing function](https://doi.org/10.1109/icnn.1997.611648)
 Li et al. (1997), *International Conference on Neural Networks*. 13 citations.
 
@@ -48692,6 +53755,21 @@ Li et al. (1997), *International Conference on Neural Networks*. 13 citations.
 - **Open work:** Extension to forecasting and multiple turbines follows naturally.
 - **Issues:** No abstract available; single-site data limit generality.
 - *Basis: assessment*
+
+### [Spatio-Temporal Probabilistic Forecasting of Wind Speed Using Transformer-Based Diffusion Models](https://doi.org/10.1109/tste.2025.3591920)
+Liu et al. (2026), *IEEE Transactions on Sustainable Energy*. 13 citations.
+
+*Summary pending.*
+
+### [Application of deep learning in wind, solar, and ocean energy: An analysis of prediction, optimization, and operation & maintenance](https://doi.org/10.1016/j.rser.2025.116663)
+Song et al. (2026), *Renewable and Sustainable Energy Reviews*. 12 citations.
+
+*Summary pending.*
+
+### [Physics-constrained transformer for wind power forecasting](https://doi.org/10.1038/s41598-025-34348-x)
+Wang et al. (2026), *Scientific Reports*. 12 citations.
+
+*Summary pending.*
 
 ### Forecasting of wind speed using wavelets analysis and cascade-correlation neural networks
 Tran et al. (2009), *Venue not recorded*. 11 citations.
@@ -48715,6 +53793,11 @@ Kariniotakis et al. (1999), *Venue not recorded*. 10 citations.
 - **Issues:** Benefits depend on the system configuration and assumed forecast accuracy, limiting transferability.
 - *Basis: assessment*
 
+### [Unified Fourier Graph-Based Spatiotemporal Learning and Corrected NWP for Multi-Site Ultra-Short Term Photovoltaic Power Forecasting](https://doi.org/10.1109/tsg.2025.3628129)
+Zhang et al. (2026), *IEEE Transactions on Smart Grid*. 9 citations.
+
+*Summary pending.*
+
 ### [Wind speed conformal prediction in wind farm based on algorithmic randomness theory](https://doi.org/10.1109/icmlc.2008.4620392)
 Ji et al. (2008), *International Conference on Machine Learning and Computing*. 8 citations.
 
@@ -48725,6 +53808,11 @@ Ji et al. (2008), *International Conference on Machine Learning and Computing*. 
 - **Open work:** Extension to wind power forecasting, longer horizons and comparison with other probabilistic forecast methods.
 - **Issues:** Conformal validity assumes exchangeable data, which wind time series violate; single-site study; no abstract available.
 - *Basis: assessment*
+
+### [Probabilistic day-ahead forecasting of system-level renewable energy and electricity demand](https://doi.org/10.1038/s41467-026-69015-w)
+Terrén-Serrano et al. (2026), *Nature Communications*. 8 citations.
+
+*Summary pending.*
 
 ### [Experimental review and recent advances in deep learning techniques for solar irradiance forecasting and prediction](https://doi.org/10.1016/j.solener.2025.114175)
 Otuka et al. (2026), *Solar Energy*. 7 citations.
@@ -48824,6 +53912,11 @@ Barbero et al. (2008), *Venue not recorded*. 5 citations.
 - **Open work:** Handling the high dimensionality of gridded NWP inputs and extending to probabilistic forecasts.
 - **Issues:** No abstract available; high-dimensional NWP inputs make kernel models costly; no uncertainty estimates.
 - *Basis: assessment*
+
+### [Comparative analysis on hidden neurons estimation in multi layer perceptron neural networks for wind speed forecasting](https://doi.org/10.1007/s10462-016-9506-6)
+Madhiarasan et al. (2016), *Artificial Intelligence Review*. 5 citations.
+
+*Summary pending.*
 
 ### [Probabilistic Wind Power Forecasting with Tree-Based Machine Learning and Weather Ensembles](https://arxiv.org/abs/2602.13010)
 Bruninx et al. (2026), *arXiv*. 4 citations.
@@ -49510,6 +54603,11 @@ Wolanin et al. (2020), *Environmental Research Letters*. 174 citations.
 - **Issues:** Limited years of yield data; interpretation via activation maps is qualitative; regional scope.
 - *Basis: abstract+knowledge*
 
+### [A hybrid CNN-GRU model for predicting soil moisture in maize root zone](https://doi.org/10.1016/j.agwat.2020.106649)
+Yu et al. (2020), *Agricultural Water Management*. 173 citations.
+
+*Summary pending.*
+
 ### [New approach to estimate daily reference evapotranspiration based on hourly temperature and relative humidity using machine learning and deep learning](https://doi.org/10.1016/j.agwat.2020.106113)
 Ferreira et al. (2020), *Agricultural Water Management*. 172 citations.
 
@@ -49598,6 +54696,11 @@ Gavahi et al. (2021), *Expert Systems with Applications*. 164 citations.
 - **Issues:** Abstract not available; county aggregation limits field-scale use; interpretability is limited.
 - *Basis: abstract+knowledge*
 
+### [Crop Yield Prediction Using Machine Learning Algorithms](https://doi.org/10.1109/iciip47207.2019.8985951)
+Nigam et al. (2019), *International Conference on Intelligent Information Processing*. 161 citations.
+
+*Summary pending.*
+
 ### [Using machine learning for crop yield prediction in the past or the future](https://doi.org/10.3389/fpls.2023.1128388)
 Morales et al. (2023), *Frontiers in Plant Science*. 160 citations.
 
@@ -49675,6 +54778,16 @@ Xiao et al. (2024), *Nature Food*. 149 citations.
 - **Issues:** Model-based optimization may not reflect farmer constraints; details unverified without abstract.
 - *Basis: assessment*
 
+### [Spatio-temporal downscaling of gridded crop model yield estimates based on machine learning](https://doi.org/10.1016/j.agrformet.2018.09.021)
+Folberth et al. (2019), *Agricultural and Forest Meteorology*. 149 citations.
+
+*Summary pending.*
+
+### [Assessing the benefit of satellite-based Solar-Induced Chlorophyll Fluorescence in crop yield prediction](https://doi.org/10.1016/j.jag.2020.102126)
+Peng et al. (2020), *International Journal of Applied Earth Observation and Geoinformation*. 149 citations.
+
+*Summary pending.*
+
 ### [A GNN-RNN Approach for Harnessing Geospatial and Temporal Information: Application to Crop Yield Prediction](https://doi.org/10.1609/aaai.v36i11.21444)
 Fan et al. (2021), *AAAI Conference on Artificial Intelligence*. 147 citations.
 
@@ -49685,6 +54798,16 @@ Fan et al. (2021), *AAAI Conference on Artificial Intelligence*. 147 citations.
 - **Open work:** Extending to other crops and countries, and to projections under climate change scenarios.
 - **Issues:** US-only; yield trends from technology and management may be confounded with weather signal; interpretability of learned spatial relations is limited.
 - *Basis: abstract*
+
+### [Estimation of daily potato crop evapotranspiration using three different machine learning algorithms and four scenarios of available meteorological data](https://doi.org/10.1016/j.agwat.2019.105875)
+Yamaç et al. (2020), *Agricultural Water Management*. 146 citations.
+
+*Summary pending.*
+
+### [Incorporating environmental variables into a MODIS-based crop yield estimation method for United States corn and soybeans through the use of a random forest regression algorithm](https://doi.org/10.1016/j.isprsjprs.2019.12.012)
+Sakamoto (2020), *ISPRS Journal of Photogrammetry and Remote Sensing*. 144 citations.
+
+*Summary pending.*
 
 ### [Exploring uncertainties in global crop yield projections in a large ensemble of crop models and CMIP5 and CMIP6 climate scenarios](https://doi.org/10.1088/1748-9326/abd8fc)
 Müller et al. (2021), *Environmental Research Letters*. 143 citations.
@@ -49708,6 +54831,11 @@ Pulido-Calvo et al. (2009), *Biosystems Engineering*. 143 citations.
 - **Issues:** Single district; abstract unavailable so component details are uncertain.
 - *Basis: assessment*
 
+### [Supervised Machine learning Approach for Crop Yield Prediction in Agriculture Sector](https://doi.org/10.1109/icces48766.2020.9137868)
+Kumar et al. (2020), *International Conference on Communication and Electronics Systems*. 139 citations.
+
+*Summary pending.*
+
 ### [Crop yield prediction via explainable AI and interpretable machine learning: Dangers of black box models for evaluating climate change impacts on crop yield](https://doi.org/10.1016/j.agrformet.2023.109458)
 Hu et al. (2023), *Agricultural and Forest Meteorology*. 135 citations.
 
@@ -49718,6 +54846,11 @@ Hu et al. (2023), *Agricultural and Forest Meteorology*. 135 citations.
 - **Open work:** Develop interpretable, physically consistent yield models and compare attributions with process-based crop models.
 - **Issues:** Card based on the title only; details of data, models and quantitative findings could not be checked.
 - *Basis: assessment*
+
+### [Predicting rice yield at pixel scale through synthetic use of crop and deep learning models with satellite data in South and North Korea.](https://doi.org/10.1016/j.scitotenv.2021.149726)
+Jeong et al. (2021), *Science of The Total Environment*. 135 citations.
+
+*Summary pending.*
 
 ### PREDICTION OF CROP YIELDS ACROSS FOUR CLIMATE ZONES IN GERMANY: AN ARTIFICIAL NEURAL NETWORK APPROACH
 Heinzow et al. (2003), *Venue not recorded*. 134 citations.
@@ -49730,6 +54863,11 @@ Heinzow et al. (2003), *Venue not recorded*. 134 citations.
 - **Issues:** Preprint; statistical relations may not transfer to future climates.
 - *Basis: assessment*
 
+### [A Comparison Between Major Artificial Intelligence Models for Crop Yield Prediction: Case Study of the Midwestern United States, 2006-2015](https://doi.org/10.3390/ijgi8050240)
+Kim et al. (2019), *ISPRS International Journal of Geo-Information*. 134 citations.
+
+*Summary pending.*
+
 ### [Annual Irrigation Dynamics in the U.S. Northern High Plains Derived from Landsat Satellite Data](https://doi.org/10.1002/2017gl074071)
 Deines et al. (2017), *Geophysical Research Letters*. 133 citations.
 
@@ -49740,6 +54878,26 @@ Deines et al. (2017), *Geophysical Research Letters*. 133 citations.
 - **Open work:** Extend to other aquifer regions and link to groundwater depletion.
 - **Issues:** Classification errors in wet years; details could not be verified from an abstract.
 - *Basis: abstract+knowledge*
+
+### [Next-gen agriculture: integrating AI and XAI for precision crop yield predictions](https://doi.org/10.3389/fpls.2024.1451607)
+Mohan et al. (2025), *Frontiers in Plant Science*. 132 citations.
+
+*Summary pending.*
+
+### [Combining Optical, Fluorescence, Thermal Satellite, and Environmental Data to Predict County-Level Maize Yield in China Using Machine Learning Approaches](https://doi.org/10.3390/rs12010021)
+Zhang et al. (2019), *Remote Sensing*. 131 citations.
+
+*Summary pending.*
+
+### [Sugarcane growth prediction based on meteorological parameters using extreme learning machine and artificial neural network](https://doi.org/10.1080/19942060.2018.1526119)
+Ghazvinei et al. (2018), *Engineering Applications of Computational Fluid Mechanics*. 128 citations.
+
+*Summary pending.*
+
+### [A HYBRID APPROACH FOR CROP YIELD PREDICTION USING MACHINE LEARNING AND DEEP LEARNING ALGORITHMS](https://doi.org/10.1088/1742-6596/1714/1/012012)
+Agarwal et al. (2021), *Journal of Physics: Conference Series*. 127 citations.
+
+*Summary pending.*
 
 ### [Rice crop yield prediction using artificial neural networks](https://doi.org/10.1109/tiar.2016.7801222)
 Gandhi et al. (2016), *2016 IEEE Technological Innovations in ICT for Agriculture and Rural Development (TIAR)*. 126 citations.
@@ -49752,6 +54910,16 @@ Gandhi et al. (2016), *2016 IEEE Technological Innovations in ICT for Agricultur
 - **Issues:** Small regional dataset, no independent temporal test reported, and no comparison with process-based crop models.
 - *Basis: abstract+knowledge*
 
+### [Yield prediction with machine learning algorithms and satellite images.](https://doi.org/10.1002/jsfa.10696)
+Sharifi (2020), *Journal of the Science of Food and Agriculture*. 126 citations.
+
+*Summary pending.*
+
+### [Mapping irrigated cropland extent across the conterminous United States at 30 m resolution using a semi-automatic training approach on Google Earth Engine](https://doi.org/10.1016/j.isprsjprs.2019.07.005)
+Xie et al. (2019), *ISPRS Journal of Photogrammetry and Remote Sensing*. 123 citations.
+
+*Summary pending.*
+
 ### [Neural Network Models of the Greenhouse Climate](https://doi.org/10.1006/jaer.1994.1078)
 Seginer et al. (1994), *Journal of Agricultural Engineering Research*. 122 citations.
 
@@ -49762,6 +54930,11 @@ Seginer et al. (1994), *Journal of Agricultural Engineering Research*. 122 citat
 - **Open work:** Testing on other greenhouse types and seasons and coupling the models to climate-control or optimisation schemes.
 - **Issues:** Data-driven models are tied to the greenhouse used for training and may not transfer; limited physical interpretability.
 - *Basis: assessment*
+
+### [Integrating satellite-derived climatic and vegetation indices to predict smallholder maize yield using deep learning](https://doi.org/10.1016/j.agrformet.2021.108666)
+Zhang et al. (2021), *Agricultural and Forest Meteorology*. 122 citations.
+
+*Summary pending.*
 
 ### [Crop yield prediction using machine learning techniques](https://doi.org/10.1016/j.advengsoft.2022.103326)
 Iniyan et al. (2023), *Advances in Engineering Software*. 121 citations.
@@ -49785,6 +54958,31 @@ Paudel et al. (2022), *Field Crops Research*. 119 citations.
 - **Issues:** Abstract unavailable; short yield records and regional heterogeneity limit model training and generalization.
 - *Basis: assessment*
 
+### [Machine learning improves predictions of agricultural nitrous oxide (N2O) emissions from intensively managed cropping systems](https://doi.org/10.1088/1748-9326/abd2f3)
+Saha et al. (2020), *Environmental Research Letters*. 119 citations.
+
+*Summary pending.*
+
+### [Crop Yield Estimation Using Deep Learning Based on Climate Big Data and Irrigation Scheduling](https://doi.org/10.3390/en14113004)
+Alibabaei et al. (2021), *Energies*. 119 citations.
+
+*Summary pending.*
+
+### [The impact of climate changes on the water footprint of wheat and maize production in the Nile Delta, Egypt.](https://doi.org/10.1016/j.scitotenv.2020.140770)
+Elbeltagi et al. (2020), *Science of The Total Environment*. 119 citations.
+
+*Summary pending.*
+
+### [Projection of future drought and its impact on simulated crop yield over South Asia using ensemble machine learning approach.](https://doi.org/10.1016/j.scitotenv.2021.151029)
+Prodhan et al. (2021), *Science of The Total Environment*. 119 citations.
+
+*Summary pending.*
+
+### [No perfect storm for crop yield failure in Germany](https://doi.org/10.1088/1748-9326/aba2a4)
+Webber et al. (2020), *Environmental Research Letters*. 118 citations.
+
+*Summary pending.*
+
 ### [A proposed framework for crop yield prediction using hybrid feature selection approach and optimized machine learning](https://doi.org/10.1007/s00521-024-10226-x)
 Abdel-salam et al. (2024), *Neural Computing and Applications*. 117 citations.
 
@@ -49796,6 +54994,16 @@ Abdel-salam et al. (2024), *Neural Computing and Applications*. 117 citations.
 - **Issues:** No numbers or dataset details in the abstract; heavily engineered pipeline risks overfitting.
 - *Basis: abstract*
 
+### [Yield forecasting with machine learning and small data: What gains for grains?](https://doi.org/10.1016/j.agrformet.2021.108555)
+Meroni et al. (2021), *Agricultural and Forest Meteorology*. 117 citations.
+
+*Summary pending.*
+
+### [Evaluation of multiple linear, neural network and penalised regression models for prediction of rice yield based on weather parameters for west coast of India](https://doi.org/10.1007/s00484-018-1583-6)
+Das et al. (2018), *International Journal of Biometeorology*. 116 citations.
+
+*Summary pending.*
+
 ### [Support vector machine-based open crop model (SBOCM): Case of rice production in China](https://doi.org/10.1016/j.sjbs.2017.01.024)
 Su et al. (2017), *Saudi Journal of Biological Sciences*. 115 citations.
 
@@ -49806,6 +55014,11 @@ Su et al. (2017), *Saudi Journal of Biological Sciences*. 115 citations.
 - **Open work:** Integrate social and economic factors to improve accuracy and practicability.
 - **Issues:** Statistical model without physiological processes; accuracy metrics not reported; limited to rice and to scale ranges of training.
 - *Basis: abstract*
+
+### [Crop Yield Prediction using Machine Learning](https://doi.org/10.37896/aj9.4/012)
+B.Manjula et al. (2020), *Adalya Journal*. 115 citations.
+
+*Summary pending.*
 
 ### Application of artificial neural network in predicting crop yield: a review
 Bejo et al. (2014), *Venue not recorded*. 113 citations.
@@ -49828,6 +55041,11 @@ Nahvi et al. (2016), *Computers and Electronics in Agriculture*. 112 citations.
 - **Open work:** Test at more stations and depths and over longer periods.
 - **Issues:** Limited stations; no abstract available to confirm metrics.
 - *Basis: assessment*
+
+### [Evaluation of artificial intelligence models for actual crop evapotranspiration modeling in mulched and non-mulched maize croplands](https://doi.org/10.1016/j.compag.2018.07.029)
+Tang et al. (2018), *Computers and Electronics in Agriculture*. 112 citations.
+
+*Summary pending.*
 
 ### [Crop yield prediction algorithm (CYPA) in precision agriculture based on IoT techniques and climate changes](https://doi.org/10.1007/s00521-023-08619-5)
 Talaat (2023), *Neural Computing and Applications*. 110 citations.
@@ -49862,6 +55080,16 @@ Bunn et al. (2015), *PLOS ONE*. 108 citations.
 - **Issues:** Climate-only niche approach ignores soils and management; future projections depend on climate model choices.
 - *Basis: abstract*
 
+### [Crop yield forecasting and associated optimum lead time analysis based on multi-source environmental data across China](https://doi.org/10.1016/j.agrformet.2021.108558)
+Li et al. (2021), *Agricultural and Forest Meteorology*. 107 citations.
+
+*Summary pending.*
+
+### [Deep Learning for Monitoring Agricultural Drought in South Asia Using Remote Sensing Data](https://doi.org/10.3390/rs13091715)
+Prodhan et al. (2021), *Remote Sensing*. 107 citations.
+
+*Summary pending.*
+
 ### [Estimating crop yield from multi-temporal satellite data using multivariate regression and neural network techniques](https://doi.org/10.14358/pers.73.10.1149)
 Li et al. (2007), *Photogrammetric Engineering & Remote Sensing*. 104 citations.
 
@@ -49872,6 +55100,11 @@ Li et al. (2007), *Photogrammetric Engineering & Remote Sensing*. 104 citations.
 - **Open work:** Including weather inputs and finer spatial units.
 - **Issues:** Accuracy metric definition unclear; NDVI-only inputs miss weather shocks.
 - *Basis: abstract*
+
+### [A deep learning framework under attention mechanism for wheat yield estimation using remotely sensed indices in the Guanzhong Plain, PR China](https://doi.org/10.1016/j.jag.2021.102375)
+Tian et al. (2021), *International Journal of Applied Earth Observation and Geoinformation*. 104 citations.
+
+*Summary pending.*
 
 ### [An integrated, probabilistic model for improved seasonal forecasting of agricultural crop yield under environmental uncertainty](https://doi.org/10.3389/fenvs.2014.00017)
 Newlands et al. (2014), *Frontiers in Environmental Science*. 102 citations.
@@ -49884,6 +55117,11 @@ Newlands et al. (2014), *Frontiers in Environmental Science*. 102 citations.
 - **Issues:** Validated on one independent season; relies on survey data quality and region-specific predictor sets.
 - *Basis: abstract*
 
+### [Deep Learning Based Wheat Crop Yield Prediction Model in Punjab Region of North India](https://doi.org/10.1080/08839514.2021.1976091)
+Bali et al. (2021), *Applied Artificial Intelligence*. 101 citations.
+
+*Summary pending.*
+
 ### [Machine Learning Approaches to Corn Yield Estimation Using Satellite Images and Climate Data :A Case of Iowa State](https://doi.org/10.7848/ksgpc.2016.34.4.383)
 Kim et al. (2016), *Journal of the Korean Society of Surveying, Geodesy, Photogrammetry and Cartography*. 100 citations.
 
@@ -49894,6 +55132,31 @@ Kim et al. (2016), *Journal of the Korean Society of Surveying, Geodesy, Photogr
 - **Open work:** Extension to other states and earlier in-season prediction.
 - **Issues:** Limited years of training data.
 - *Basis: assessment*
+
+### [Prediction of drought-induced reduction of agricultural productivity in Chile from MODIS, rainfall estimates, and climate oscillation indices](https://doi.org/10.1016/j.rse.2018.10.006)
+Zambrano et al. (2018), *Remote Sensing of Environment*. 98 citations.
+
+*Summary pending.*
+
+### [Soil moisture forecast for smart irrigation: The primetime for machine learning](https://doi.org/10.1016/j.eswa.2022.117653)
+Togneri et al. (2022), *Expert Systems with Applications*. 95 citations.
+
+*Summary pending.*
+
+### [Prediction of Greenhouse Tomato Crop Evapotranspiration Using XGBoost Machine Learning Model](https://doi.org/10.3390/plants11151923)
+Ge et al. (2022), *Plants*. 95 citations.
+
+*Summary pending.*
+
+### [Mapping maize crop coefficient Kc using random forest algorithm based on leaf area index and UAV-based multispectral vegetation indices](https://doi.org/10.1016/j.agwat.2021.106906)
+Shao et al. (2021), *Agricultural Water Management*. 94 citations.
+
+*Summary pending.*
+
+### [Machine learning in crop yield modelling: A powerful tool, but no surrogate for science](https://doi.org/10.1016/j.agrformet.2021.108698)
+Lischeid et al. (2022), *Agricultural and Forest Meteorology*. 92 citations.
+
+*Summary pending.*
 
 ### [Robust Model Predictive Control of Irrigation Systems With Active Uncertainty Learning and Data Analytics](https://doi.org/10.1109/tcst.2019.2916753)
 Shang et al. (2018), *IEEE Transactions on Control Systems Technology*. 89 citations.
@@ -49916,6 +55179,11 @@ Kafy et al. (2023), *Science of The Total Environment*. 89 citations.
 - **Open work:** Using projections to plan drought mitigation and community preparedness.
 - **Issues:** Projections extrapolate past land-cover trends without climate scenario forcing; validation of future predictions is not possible; Landsat temporal sampling is coarse.
 - *Basis: abstract*
+
+### [Integrating climate and satellite remote sensing data for predicting county-level wheat yield in China using machine learning methods](https://doi.org/10.1016/j.jag.2022.102861)
+Zhou et al. (2022), *International Journal of Applied Earth Observation and Geoinformation*. 89 citations.
+
+*Summary pending.*
 
 ### [Linear regressions and neural approaches to water demand forecasting in irrigation districts with telemetry systems](https://doi.org/10.1016/j.biosystemseng.2007.03.003)
 Pulido-Calvo et al. (2007), *Biosystems Engineering*. 88 citations.
@@ -49961,6 +55229,11 @@ Hoffman et al. (2020), *Environmental Research Letters*. 84 citations.
 - **Issues:** Correlative county-level analysis; technology represented only by a time trend; extrapolation to future warming is uncertain.
 - *Basis: abstract*
 
+### [Global benefits of non‐continuous flooding to reduce greenhouse gases and irrigation water use without rice yield penalty](https://doi.org/10.1111/gcb.16132)
+Bo et al. (2022), *Global Change Biology*. 84 citations.
+
+*Summary pending.*
+
 ### [DeepCropNet: a deep spatial-temporal learning framework for county-level corn yield estimation](https://doi.org/10.1088/1748-9326/ab66cb)
 Lin et al. (2020), *Environmental Research Letters*. 82 citations.
 
@@ -49971,6 +55244,11 @@ Lin et al. (2020), *Environmental Research Letters*. 82 citations.
 - **Open work:** Adding soil, management and remote-sensing inputs and testing under future climate.
 - **Issues:** Only three meteorological inputs; no explicit technology or management variables; spatial generalization outside the Corn Belt untested.
 - *Basis: abstract*
+
+### [A Hybrid Approach to Tea Crop Yield Prediction Using Simulation Models and Machine Learning](https://doi.org/10.3390/plants11151925)
+Batool et al. (2022), *Plants*. 82 citations.
+
+*Summary pending.*
 
 ### [Forecasting of Crop Yield using Remote Sensing Data, Agrarian Factors and Machine Learning Approaches](https://doi.org/10.9734/jerr/2023/v24i12858)
 Bharadiya et al. (2023), *Journal of Engineering Research and Reports*. 81 citations.
@@ -49983,6 +55261,11 @@ Bharadiya et al. (2023), *Journal of Engineering Research and Reports*. 81 citat
 - **Issues:** Narrative review with no quantitative synthesis; selection criteria are loosely described.
 - *Basis: abstract*
 
+### [A Scalable Machine Learning System for Pre-Season Agriculture Yield Forecast](https://doi.org/10.1109/escience.2018.00131)
+Oliveira et al. (2018), *IEEE International Conference on e-Science*. 81 citations.
+
+*Summary pending.*
+
 ### [Comparative Analysis of Statistical and Machine Learning Techniques for Rice Yield Forecasting for Chhattisgarh, India](https://doi.org/10.3390/su15032786)
 Satpathi et al. (2023), *Sustainability*. 80 citations.
 
@@ -49993,6 +55276,11 @@ Satpathi et al. (2023), *Sustainability*. 80 citations.
 - **Open work:** Adding remote sensing and soil inputs and testing other crops.
 - **Issues:** Very short records (21 years) and near-perfect ANN scores suggest overfitting risk.
 - *Basis: abstract*
+
+### [Exploring the potential role of environmental and multi-source satellite data in crop yield prediction across Northeast China.](https://doi.org/10.1016/j.scitotenv.2021.152880)
+Li et al. (2022), *Science of The Total Environment*. 80 citations.
+
+*Summary pending.*
 
 ### [A generalized regression neural network and its application for leaf wetness prediction to forecast plant disease](https://doi.org/10.1016/s0169-7439(99)00006-4)
 Chtioui et al. (1999), *Chemometrics and Intelligent Laboratory Systems*. 79 citations.
@@ -50027,6 +55315,36 @@ Marj et al. (2011), *International Journal of Remote Sensing*. 78 citations.
 - **Issues:** No abstract available; teleconnection-based predictability is regionally limited and short records constrain ANN training.
 - *Basis: assessment*
 
+### [Enhancing Crop Yield Prediction Utilizing Machine Learning on Satellite-Based Vegetation Health Indices](https://doi.org/10.3390/s22030719)
+Pham et al. (2022), *Sensors*. 78 citations.
+
+*Summary pending.*
+
+### [Prediction of Frost Events Using Machine Learning and IoT Sensing Devices](https://doi.org/10.1109/jiot.2018.2867333)
+Diedrichs et al. (2018), *IEEE Internet of Things Journal*. 77 citations.
+
+*Summary pending.*
+
+### [Integrating random forest and crop modeling improves the crop yield prediction of winter wheat and oil seed rape](https://doi.org/10.3389/frsen.2022.1010978)
+Dhillon et al. (2023), *Frontiers in Remote Sensing*. 75 citations.
+
+*Summary pending.*
+
+### [Smart Weather Data Management Based on Artificial Intelligence and Big Data Analytics for Precision Agriculture](https://doi.org/10.3390/agriculture13010095)
+ELHACHIMI et al. (2022), *Agriculture*. 74 citations.
+
+*Summary pending.*
+
+### [Rice Yield Prediction and Model Interpretation Based on Satellite and Climatic Indicators Using a Transformer Method](https://doi.org/10.3390/rs14195045)
+Liu et al. (2022), *Remote Sensing*. 73 citations.
+
+*Summary pending.*
+
+### [Data-driven projections suggest large opportunities to improve Europe’s soybean self-sufficiency under climate change](https://doi.org/10.1038/s43016-022-00481-3)
+Guilpart et al. (2022), *Nature Food*. 72 citations.
+
+*Summary pending.*
+
 ### [Yield prediction for crops by gradient-based algorithms](https://doi.org/10.1371/journal.pone.0291928)
 Mahesh et al. (2024), *PLOS ONE*. 71 citations.
 
@@ -50037,6 +55355,11 @@ Mahesh et al. (2024), *PLOS ONE*. 71 citations.
 - **Open work:** Adding soil, management and remote sensing predictors would strengthen yield prediction.
 - **Issues:** Low R2 values conflict with the claimed 99% accuracy, and inputs are few; data provenance is unclear.
 - *Basis: abstract*
+
+### [Multimodal Deep Learning for Rice Yield Prediction Using UAV-Based Multispectral Imagery and Weather Data](https://doi.org/10.3390/rs15102511)
+Mia et al. (2023), *Remote Sensing*. 71 citations.
+
+*Summary pending.*
 
 ### [Demand Forecasting for Irrigation Water Distribution Systems](https://doi.org/10.1061/(asce)0733-9437(2003)129:6(422))
 Pulido-Calvo et al. (2003), *Journal of Irrigation and Drainage Engineering*. 70 citations.
@@ -50059,6 +55382,16 @@ Guo et al. (2014), *Mathematical Problems in Engineering*. 69 citations.
 - **Open work:** Improving forecasts for extreme (abnormal) yield years and stabilizing temporal network training.
 - **Issues:** Accuracy limited to normal ranges; short annual series and inconsistent temporal model behaviour; no quantitative skill given in the abstract.
 - *Basis: abstract*
+
+### [A data-driven crop model for maize yield prediction](https://doi.org/10.1038/s42003-023-04833-y)
+Chang et al. (2023), *Communications Biology*. 68 citations.
+
+*Summary pending.*
+
+### [IrriMap_CN: Annual irrigation maps across China in 2000–2019 based on satellite observations, environmental variables, and machine learning](https://doi.org/10.1016/j.rse.2022.113184)
+Zhang et al. (2022), *Remote Sensing of Environment*. 66 citations.
+
+*Summary pending.*
 
 ### [Deep Learning for Multi-Source Data-Driven Crop Yield Prediction in Northeast China](https://doi.org/10.3390/agriculture14060794)
 Lu et al. (2024), *Agriculture*. 65 citations.
@@ -50104,6 +55437,16 @@ Ashfaq et al. (2024), *IEEE Access*. 64 citations.
 - **Issues:** Very short six-year record and a single region; high reported accuracy risks overfitting with small samples.
 - *Basis: abstract*
 
+### [Integrating machine learning and environmental variables to constrain uncertainty in crop yield change projections under climate change](https://doi.org/10.1016/j.eja.2023.126917)
+Li et al. (2023), *European Journal of Agronomy*. 62 citations.
+
+*Summary pending.*
+
+### [Tackling Food Insecurity Using Remote Sensing and Machine Learning-Based Crop Yield Prediction](https://doi.org/10.1109/access.2023.3321020)
+Shafi et al. (2023), *IEEE Access*. 62 citations.
+
+*Summary pending.*
+
 ### [Incorporating Meteorological Data and Pesticide Information to Forecast Crop Yields Using Machine Learning](https://doi.org/10.1109/access.2024.3383309)
 Hoque et al. (2024), *IEEE Access*. 60 citations.
 
@@ -50114,6 +55457,16 @@ Hoque et al. (2024), *IEEE Access*. 60 citations.
 - **Open work:** Validation on multi-year, multi-region data and with independent out-of-sample years.
 - **Issues:** Near-perfect R2 suggests possible leakage or overfitting; only one year of data, and logistic regression is an odd choice for a continuous target.
 - *Basis: abstract*
+
+### [Evaluation of artificial intelligence algorithms with sensor data assimilation in estimating crop evapotranspiration and crop water stress index for irrigation water management](https://doi.org/10.1016/j.atech.2023.100176)
+Katimbo et al. (2023), *Smart Agricultural Technology*. 59 citations.
+
+*Summary pending.*
+
+### [Rapid Rice Yield Estimation Using Integrated Remote Sensing and Meteorological Data and Machine Learning](https://doi.org/10.3390/rs15092374)
+Islam et al. (2023), *Remote Sensing*. 58 citations.
+
+*Summary pending.*
 
 ### [Probabilistic assessments of climate change impacts on durum wheat in the Mediterranean region](https://doi.org/10.5194/nhess-11-1293-2011)
 Ferrise et al. (2011), *Natural Hazards and Earth System Sciences*. 56 citations.
@@ -50137,6 +55490,11 @@ Aghajanloo et al. (2012), *Neural Computing and Applications*. 55 citations.
 - **Issues:** Abstract missing; regional, data-limited study with likely limited generalization beyond the study area.
 - *Basis: assessment*
 
+### [Development of a Soil Moisture Prediction Model Based on Recurrent Neural Network Long Short-Term Memory (RNN-LSTM) in Soybean Cultivation](https://doi.org/10.3390/s23041976)
+Park et al. (2023), *Sensors*. 55 citations.
+
+*Summary pending.*
+
 ### [Coupling machine learning and weather forecast to predict farmland flood disaster: A case study in Yangtze River basin](https://doi.org/10.1016/j.envsoft.2022.105436)
 Jiang et al. (2022), *Environmental Modelling & Software*. 53 citations.
 
@@ -50147,6 +55505,11 @@ Jiang et al. (2022), *Environmental Modelling & Software*. 53 citations.
 - **Open work:** Extending lead time and transferring to other agricultural regions would follow.
 - **Issues:** Abstract missing, so the card is based on the title only; skill depends on weather forecast accuracy.
 - *Basis: assessment*
+
+### [Analysis of Wheat-Yield Prediction Using Machine Learning Models under Climate Change Scenarios](https://doi.org/10.3390/su16166976)
+Iqbal et al. (2024), *Sustainability*. 51 citations.
+
+*Summary pending.*
 
 ### [Using Growing Degree Days, Agrometeorological Variables, Linear Regression, and Data Mining Methods to Help Improve Prediction of Sweetpotato Harvest Date in Louisiana](https://doi.org/10.21273/hortsci.19.1.133)
 Villordon et al. (2009), *HortScience*. 50 citations.
@@ -50192,6 +55555,11 @@ Arshad et al. (2023), *Field Crops Research*. 47 citations.
 - **Issues:** Abstract unavailable, so methods, data and skill cannot be verified; likely limited yield record length and regional statistics.
 - *Basis: assessment*
 
+### [Changes in Compound Extreme Events and Their Impacts on Cropland Productivity in China, 1985–2019](https://doi.org/10.1029/2024ef005038)
+Liu et al. (2025), *Earth's Future*. 47 citations.
+
+*Summary pending.*
+
 ### [Seasonal forecasting of daily mean air temperatures using a coupled global climate model and machine learning algorithm for field-scale agricultural management](https://doi.org/10.1016/j.agrformet.2019.107858)
 Shin et al. (2020), *Agricultural and Forest Meteorology*. 46 citations.
 
@@ -50213,6 +55581,11 @@ Robinson et al. (1997), *Computers and Electronics in Agriculture*. 46 citations
 - **Open work:** Operational deployment and integration with frost-protection actions.
 - **Issues:** No abstract available; site-specific training limits transfer to other orchards.
 - *Basis: assessment*
+
+### [From data to harvest: Leveraging ensemble machine learning for enhanced crop yield predictions across Canada amidst climate change.](https://doi.org/10.1016/j.scitotenv.2024.175764)
+Gharakhanlou et al. (2024), *Science of The Total Environment*. 46 citations.
+
+*Summary pending.*
 
 ### [Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback](https://doi.org/10.1371/journal.pwat.0000169)
 Saikai et al. (2023), *PLOS Water*. 45 citations.
@@ -50236,6 +55609,11 @@ Singh et al. (2008), *Agricultural Economics Research Review*. 44 citations.
 - **Issues:** Small dataset; no weather variables; limited validation.
 - *Basis: abstract*
 
+### [PAMICRM: Improving Precision Agriculture Through Multimodal Image Analysis for Crop Water Requirement Estimation Using Multidomain Remote Sensing Data Samples](https://doi.org/10.1109/access.2024.3386552)
+Munaganuri et al. (2024), *IEEE Access*. 44 citations.
+
+*Summary pending.*
+
 ### [How can machine learning help in understanding the impact of climate change on crop yields?](https://doi.org/10.1088/1748-9326/acb164)
 Sidhu et al. (2023), *Environmental Research Letters*. 43 citations.
 
@@ -50257,6 +55635,16 @@ Liu et al. (2022), *Artificial Intelligence for the Earth Systems*. 41 citations
 - **Open work:** Apply to other crops and regions and to projections under climate change.
 - **Issues:** Performance drops for unprecedented extremes; regional US-only evaluation.
 - *Basis: abstract*
+
+### [Mapping global yields of four major crops at 5-minute resolution from 1982 to 2015 using multi-source data and machine learning](https://doi.org/10.1038/s41597-025-04650-4)
+Cao et al. (2025), *Scientific Data*. 41 citations.
+
+*Summary pending.*
+
+### [Deep-Transfer-Learning Strategies for Crop Yield Prediction Using Climate Records and Satellite Image Time-Series Data](https://doi.org/10.3390/rs16244804)
+Joshi et al. (2024), *Remote Sensing*. 41 citations.
+
+*Summary pending.*
 
 ### [Multi-modal Data Fusion and Deep Ensemble Learning for Accurate Crop Yield Prediction](https://arxiv.org/abs/2502.06062)
 Yewle et al. (2025), *arXiv*. 40 citations.
@@ -50280,6 +55668,16 @@ Zhu et al. (2021), *Earth's Future*. 39 citations.
 - **Issues:** Statistical extrapolation to future climates beyond the training range; no adaptation or CO2 effects; attribution is associative.
 - *Basis: abstract*
 
+### [Crop Yield Prediction using Deep Learning Algorithm based on CNN-LSTM with Attention Layer and Skip Connection](https://doi.org/10.18805/ijare.a-6300)
+Kalmani et al. (2024), *Indian Journal Of Agricultural Research*. 39 citations.
+
+*Summary pending.*
+
+### [Global Gridded Crop Production Dataset at 10 km Resolution from 2010 to 2020](https://doi.org/10.1038/s41597-024-04248-2)
+Qin et al. (2024), *Scientific Data*. 38 citations.
+
+*Summary pending.*
+
 ### [Uncovering Current and Future Variations of Irrigation Water Use Across China Using Machine Learning](https://doi.org/10.1029/2023ef003562)
 Liu et al. (2024), *Earth's Future*. 37 citations.
 
@@ -50301,6 +55699,11 @@ Frate et al. (2004), *IEEE Transactions on Geoscience and Remote Sensing*. 35 ci
 - **Open work:** Application to other crops and operational SAR missions.
 - **Issues:** Few test sites; performance depends on the fidelity of the backscatter model.
 - *Basis: abstract*
+
+### [Multi-Modal sensing for soil moisture mapping: Integrating drone-based ground penetrating radar and RGB-thermal imaging with deep learning](https://doi.org/10.1016/j.compag.2025.110423)
+Vahidi et al. (2025), *Computers and Electronics in Agriculture*. 35 citations.
+
+*Summary pending.*
 
 ### [An Open and Large-Scale Dataset for Multi-Modal Climate Change-aware Crop Yield Predictions](https://doi.org/10.1145/3637528.3671536)
 Lin et al. (2024), *Knowledge Discovery and Data Mining*. 34 citations.
@@ -50335,6 +55738,11 @@ Yang et al. (1997), *Canadian Journal of Soil Science*. 34 citations.
 - **Issues:** Site-specific training; physical soil properties are not represented explicitly.
 - *Basis: assessment*
 
+### [Stacked ensemble model for accurate crop yield prediction using machine learning techniques](https://doi.org/10.1088/2515-7620/adb9c0)
+V et al. (2025), *Environmental Research Communications*. 34 citations.
+
+*Summary pending.*
+
 ### [Estimation of daily reference evapotranspiration using support vector machines and artificial neural networks in greenhouse.](https://doi.org/10.3923/rjes.2009.439.447)
 Eslamian et al. (2009), *Research Journal of Environmental Sciences*. 33 citations.
 
@@ -50368,6 +55776,21 @@ Yang et al. (1997), *Transactions of the ASAE*. 30 citations.
 - **Issues:** Site-specific training; no explicit representation of soil moisture or thermal properties.
 - *Basis: assessment*
 
+### [A novel agricultural drought index based on multi-source remote sensing data and interpretable machine learning](https://doi.org/10.1016/j.agwat.2025.109303)
+Chen et al. (2025), *Agricultural Water Management*. 27 citations.
+
+*Summary pending.*
+
+### [Evaluating statistical and machine learning techniques for sugarcane yield forecasting in the tarai region of North India](https://doi.org/10.1016/j.compag.2024.109667)
+Satpathi et al. (2025), *Computers and Electronics in Agriculture*. 27 citations.
+
+*Summary pending.*
+
+### [Agricultural drought forecasting using remote sensing: A hybrid modeling framework by integrating wavelet transformation and machine learning techniques](https://doi.org/10.1016/j.agwat.2025.109922)
+Zubair et al. (2025), *Agricultural Water Management*. 27 citations.
+
+*Summary pending.*
+
 ### [Prediction of crop yields with the use of neural networks](https://doi.org/10.3103/s1068367407060031)
 Savin et al. (2007), *Russian Agricultural Sciences*. 26 citations.
 
@@ -50390,6 +55813,11 @@ Chakraborty et al. (2004), *Plant Pathology*. 25 citations.
 - **Issues:** Abstract not available; data size, inputs and error metrics are unknown, and small field datasets risk overfitting.
 - *Basis: assessment*
 
+### [Prediction of sugar beet yield and quality parameters using stacked-LSTM model with pre-harvest UAV time series data and meteorological factors](https://doi.org/10.1016/j.aiia.2025.02.004)
+Wang et al. (2025), *Artificial Intelligence in Agriculture*. 25 citations.
+
+*Summary pending.*
+
 ### Machine learning for forewarning crop diseases.
 Jain et al. (2009), *Venue not recorded*. 24 citations.
 
@@ -50401,6 +55829,16 @@ Jain et al. (2009), *Venue not recorded*. 24 citations.
 - **Issues:** No abstract available; disease records are typically short, making models prone to overfitting.
 - *Basis: assessment*
 
+### [Recent Trends in Machine Learning, Deep Learning, Ensemble Learning, and Explainable Artificial Intelligence Techniques for Evaluating Crop Yields Under Abnormal Climate Conditions](https://doi.org/10.3390/plants14182841)
+Choi et al. (2025), *Plants*. 24 citations.
+
+*Summary pending.*
+
+### [Advances in machine learning for agricultural water management: a review of techniques and applications](https://doi.org/10.2166/hydro.2025.258)
+Mortazavizadeh et al. (2025), *Journal of Hydroinformatics*. 24 citations.
+
+*Summary pending.*
+
 ### [Estimation of flood-damaged cropland area using a convolutional neural network](https://doi.org/10.1088/1748-9326/abeba0)
 Lazin et al. (2021), *Environmental Research Letters*. 23 citations.
 
@@ -50411,6 +55849,21 @@ Lazin et al. (2021), *Environmental Research Letters*. 23 citations.
 - **Open work:** Seasonal forecasting of crop flood damage, future climate impact studies and global food security assessment.
 - **Issues:** Relative RMSE up to 75% is large; damage records may be incomplete; limited to two crops in one region.
 - *Basis: abstract*
+
+### [Geospatial Robust Wheat Yield Prediction Using Machine Learning and Integrated Crop Growth Model and Time-Series Satellite Data](https://doi.org/10.3390/rs17071140)
+Ishaq et al. (2025), *Remote Sensing*. 23 citations.
+
+*Summary pending.*
+
+### [Advanced machine learning for regional potato yield prediction: analysis of essential drivers](https://doi.org/10.1038/s44264-025-00052-6)
+Tamayo-Vera et al. (2025), *npj Sustainable Agriculture*. 21 citations.
+
+*Summary pending.*
+
+### [Integrating deep learning algorithms for forecasting evapotranspiration and assessing crop water stress in agricultural water management.](https://doi.org/10.1016/j.jenvman.2025.124363)
+Rahman et al. (2025), *Journal of Environmental Management*. 21 citations.
+
+*Summary pending.*
 
 ### [Impacts of climate change on spatial wheat yield and nutritional values using hybrid machine learning](https://doi.org/10.1088/1748-9326/ad75ab)
 Kheir et al. (2024), *Environmental Research Letters*. 20 citations.
@@ -50434,6 +55887,26 @@ Yin et al. (2022), *Environmental Research Letters*. 19 citations.
 - **Issues:** Simple uniform climate perturbations; statistical and LSTM models may extrapolate poorly outside observed climates; large cross-model discrepancies remain for temperature effects.
 - *Basis: abstract*
 
+### [Using solar-induced chlorophyll fluorescence to predict winter wheat actual evapotranspiration through machine learning and deep learning methods](https://doi.org/10.1016/j.agwat.2025.109322)
+Li et al. (2025), *Agricultural Water Management*. 19 citations.
+
+*Summary pending.*
+
+### [Aligning satellite-based phenology in a deep learning model for improved crop yield estimates over large regions](https://doi.org/10.1016/j.agrformet.2025.110675)
+Zhang et al. (2025), *Agricultural and Forest Meteorology*. 18 citations.
+
+*Summary pending.*
+
+### [Random forest model that incorporates solar-induced chlorophyll fluorescence data can accurately track crop yield variations under drought conditions](https://doi.org/10.1016/j.ecoinf.2024.102972)
+Geng et al. (2025), *Ecological Informatics*. 18 citations.
+
+*Summary pending.*
+
+### [Integrating crop models and machine learning for projecting climate change impacts on crops in data-limited environments](https://doi.org/10.1016/j.agsy.2025.104367)
+Alimagham et al. (2025), *Agricultural Systems*. 18 citations.
+
+*Summary pending.*
+
 ### [Machine-learning methods to assess the effects of a non-linear damage spectrum taking into account soil moisture on winter wheat yields in Germany](https://doi.org/10.5194/hess-25-6523-2021)
 Peichl et al. (2021), *Hydrology and Earth System Sciences*. 17 citations.
 
@@ -50444,6 +55917,16 @@ Peichl et al. (2021), *Hydrology and Earth System Sciences*. 17 citations.
 - **Open work:** Developing targeted decision support and extending to other crops and climate projections.
 - **Issues:** Heat effects are missed if clusters are poorly defined; district aggregation and modelled soil moisture introduce uncertainty.
 - *Basis: abstract+knowledge*
+
+### [Reinforcement Learning-Based Agricultural Fertilization and Irrigation Considering N2O Emissions and Uncertain Climate Variability](https://doi.org/10.3390/agriengineering7080252)
+Wang et al. (2025), *AgriEngineering*. 16 citations.
+
+*Summary pending.*
+
+### [CY-Bench: a comprehensive benchmark dataset for sub-national crop yield forecasting](https://doi.org/10.5194/essd-18-3997-2026)
+Kallenberg et al. (2026), *Earth System Science Data*. 15 citations.
+
+*Summary pending.*
 
 ### [A review of artificial intelligence applications for predicting crop performance and enhancing food security under drought-induced water stress](https://doi.org/10.1016/j.agwat.2026.110212)
 Fares et al. (2026), *Agricultural Water Management*. 14 citations.
@@ -50466,6 +55949,11 @@ Sharma et al. (2026), *Proceedings of the National Academy of Sciences*. 11 cita
 - **Open work:** Use the system to refine ecosystem model processes, target measurements and evaluate N2O mitigation strategies.
 - **Issues:** Only the significance statement is available, so data, metrics and skill gains are unspecified; flux observations are sparse and highly episodic.
 - *Basis: assessment*
+
+### [Evaluating the Performance of AlphaEarth Foundation Embeddings for Irrigated Cropland Mapping Across Regions and Years](https://doi.org/10.3390/rs18071065)
+Yang et al. (2026), *Remote Sensing*. 9 citations.
+
+*Summary pending.*
 
 ### [Predictive drivers and transferability of multi-scale machine learning based crop yield prediction under drought across European and Asian climates](https://doi.org/10.1016/j.agwat.2026.110254)
 Sahu et al. (2026), *Agricultural Water Management*. 8 citations.
@@ -50499,6 +55987,11 @@ Jin et al. (1997), *Venue not recorded*. 7 citations.
 - **Open work:** Operational testing and extension to other regions.
 - **Issues:** Small samples of disaster years; overfitting risk; details unclear.
 - *Basis: assessment*
+
+### [A deep learning-based composite agricultural drought index for monitoring and impact assessment in Central Asia](https://doi.org/10.1016/j.agwat.2025.110043)
+Xing et al. (2026), *Agricultural Water Management*. 7 citations.
+
+*Summary pending.*
 
 ### [MALTING BARLEY WATER AND NUTRIENT MANAGEMENT KNOWLEDGE-BASED SYSTEM](https://doi.org/10.13031/2013.31915)
 King et al. (1991), *Transactions of the ASAE*. 6 citations.
@@ -50832,6 +56325,11 @@ Ashkboos et al. (2022), *Neural Information Processing Systems*. 25 citations.
 - **Open work:** More members, lead times and variables, and stronger architectures for ensemble post-processing.
 - **Issues:** Only 10 members and twice-weekly initializations; limited lead times; targets are ERA5 rather than observations.
 - *Basis: assessment*
+
+### [SeasFire cube - a multivariate dataset for global wildfire modeling](https://doi.org/10.1038/s41597-025-04546-3)
+Karasante et al. (2025), *Scientific Data*. 18 citations.
+
+*Summary pending.*
 
 ### [Probabilistic measures afford fair comparisons of AIWP and NWP model output](https://doi.org/10.1175/aies-d-25-0054.1)
 Gneiting et al. (2025), *Artificial Intelligence for the Earth Systems*. 14 citations.
@@ -51385,6 +56883,11 @@ Peng et al. (2023), *arXiv*. 105 citations.
 - **Open work:** Including thermal effects and other microclimate variables, and validating on real cities and measurements.
 - **Issues:** Trained and evaluated only on simulations of one urban domain; no observational validation; long-rollout stability not reported.
 - *Basis: abstract*
+
+### [Discovering and forecasting extreme events via active learning in neural operators](https://arxiv.org/abs/2204.02488)
+Pickering et al. (2022), *arXiv*. 98 citations.
+
+*Summary pending.*
 
 ### [A Framework for Machine Learning of Model Error in Dynamical Systems](https://doi.org/10.1090/cams/10)
 Levine et al. (2021), *Communications of the American Mathematical Society*. 86 citations.

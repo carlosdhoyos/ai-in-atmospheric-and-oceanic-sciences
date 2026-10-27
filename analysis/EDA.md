@@ -10,17 +10,17 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 - a cross-tab explorer for any two categories
 - the recurring limitations and open problems, with quotes from the most-cited papers
 
-**Read this first.** This is a curated catalog of 4681 papers (1980–2026), not a census of the field. The analysis below uses its core set of 2584 papers: hand-picked landmark papers plus, in every publication year, the papers cited at or above that year's median rate. Searches reached different depths in different decades, and the core set makes periods comparable. It over-represents landmark and highly cited work. Recent years are covered (2025: 102, 2026: 59 papers); the most recent papers have had little time to accumulate citations. The trends below describe the catalog. They point in the direction the field has moved, but the percentages are not field-wide estimates. Categories come from keyword rules applied to the structured summaries (see [Categories](#categories)), so a paper is tagged by what its summary says.
+**Read this first.** This is a curated catalog of 5784 papers (1980–2026), not a census of the field. The analysis below uses its core set of 3097 papers: hand-picked landmark papers plus, in every publication year, the papers cited at or above that year's median rate. Searches reached different depths in different decades, and the core set makes periods comparable. It over-represents landmark and highly cited work. Recent years are covered (2025: 222, 2026: 86 papers); the most recent papers have had little time to accumulate citations. The trends below describe the catalog. They point in the direction the field has moved, but the percentages are not field-wide estimates. Categories come from keyword rules applied to the structured summaries (see [Categories](#categories)), so a paper is tagged by what its summary says.
 
 ## Headlines
 
-1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were 8% of architecture tags in 2019–20 and 57% in 2025–26. CNN/U-Net went from 21% to 14% over the same periods.
-2. **ERA5 and operational NWP / reforecasts are the main data sources, on par.** ERA5 appears in 10 papers in 2019–20 and 36 in 2025–26, where it is used by 26% of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from 15 papers in 2021–22 to 6 in 2025–26.
-3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: 5% (≤1999), 12% (2000–09), 20% (2010–18), 26% (2019–20), 24% (2021–22), 27% (2023–24), 46% (2025–26).
-4. **Goals have shifted.** Hydrological prediction is the most common goal overall (776 papers). Comparing papers from 2019–20 and 2021–22 with papers from 2023–24 and 2025–26, the fastest-growing goals are Medium-range weather forecasting (+14 pts), Climate emulation & projection (+5 pts), Benchmarking, evaluation & feasibility (+4 pts); the largest declines are Parameterization & physics emulation (-3 pts), Energy forecasting (-5 pts).
-5. **Subfields keep distinct architecture signatures.** Dominant group per subfield among papers since 2019: Hydrology & water resources: Classical ML (108 of 249 papers); Weather & climate for energy: RNN / LSTM (117 of 188 papers); Extremes & tropical cyclones: Classical ML (57 of 121 papers); Medium-range weather: Graph & operator nets (31 of 88 papers); Remote sensing & clouds: CNN / U-Net (30 of 53 papers); Climate emulation & detection: MLP / generic NN (16 of 50 papers); Ensembles & generative: Generative (diffusion/GAN/VAE) (26 of 48 papers); Air quality & chemistry: Classical ML (21 of 43 papers).
-6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: MLP / generic NN: Limited evaluation (22%); Classical ML: Limited evaluation (23%); RNN / LSTM: Limited evaluation (34%); CNN / U-Net: Limited evaluation (25%); Expert systems & fuzzy logic: Limited evaluation (20%); Transformers: Limited evaluation (25%); Generative (diffusion/GAN/VAE): Limited evaluation (22%); Graph & operator nets: Depends on reanalysis / NWP analyses (28%). The most common open problems across all papers are Longer lead times (417), Probabilistic forecasts & uncertainty (415), Generalization & transfer (378).
-7. **Citation rates.** Among method papers from 2018–2024, which have had time to collect citations, median citations per year are Graph & operator nets 46 (n=37), Transformers 42 (n=79), RNN / LSTM 38 (n=277), Classical ML 35 (n=254), CNN / U-Net 34 (n=210), MLP / generic NN 33 (n=171), Expert systems & fuzzy logic 32 (n=15), Generative (diffusion/GAN/VAE) 31 (n=67). The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from 2025 on are too recent to compare this way.
+1. **The architecture mix has turned over.** Transformers, graph/operator networks and generative models were 7% of architecture tags in 2019–20 and 36% in 2025–26. CNN/U-Net went from 21% to 12% over the same periods.
+2. **ERA5 is the most common training set.** ERA5 appears in 10 papers in 2019–20 and 19 in 2025–26, where it is used by 7% of method papers. Idealized and toy-model studies (Lorenz-96, quasi-geostrophic turbulence, aquaplanets) went from 16 papers in 2021–22 to 2 in 2025–26.
+3. **Probabilistic output keeps growing.** Share of method papers producing ensembles, distributions or other uncertainty: 5% (≤1999), 12% (2000–09), 21% (2010–18), 24% (2019–20), 20% (2021–22), 26% (2023–24), 20% (2025–26).
+4. **Goals have shifted.** Hydrological prediction is the most common goal overall (970 papers). Comparing papers from 2019–20 and 2021–22 with papers from 2023–24 and 2025–26, the fastest-growing goals are Medium-range weather forecasting (+5 pts), Process understanding & discovery (+2 pts), Climate emulation & projection (+1 pts); the largest declines are Parameterization & physics emulation (-3 pts), Detection & classification (-3 pts).
+5. **Subfields keep distinct architecture signatures.** Dominant group per subfield among papers since 2019: Hydrology & water resources: Classical ML (151 of 362 papers); Weather & climate for energy: RNN / LSTM (148 of 269 papers); Extremes & tropical cyclones: Classical ML (73 of 155 papers); Medium-range weather: Transformers (27 of 86 papers); Remote sensing & clouds: CNN / U-Net (39 of 82 papers); Air quality & chemistry: Classical ML (35 of 65 papers); Climate & water for agriculture: Classical ML (39 of 65 papers); Climate emulation & detection: MLP / generic NN (18 of 56 papers).
+6. **Each architecture family has its own typical weakness.** Besides narrow or idealized test settings, which affect every group, the most frequent limitation per group is: MLP / generic NN: Limited evaluation (21%); Classical ML: Limited evaluation (24%); RNN / LSTM: Limited evaluation (32%); CNN / U-Net: Limited evaluation (26%); Expert systems & fuzzy logic: Limited evaluation (20%); Transformers: Limited evaluation (20%); Generative (diffusion/GAN/VAE): Limited evaluation (21%); Graph & operator nets: Depends on reanalysis / NWP analyses (25%). The most common open problems across all papers are Probabilistic forecasts & uncertainty (447), Longer lead times (440), Generalization & transfer (402).
+7. **Citation rates.** Among method papers from 2018–2024, which have had time to collect citations, median citations per year are Transformers 38 (n=97), RNN / LSTM 34 (n=352), Expert systems & fuzzy logic 32 (n=18), Classical ML 32 (n=338), CNN / U-Net 31 (n=259), Graph & operator nets 30 (n=51), Generative (diffusion/GAN/VAE) 29 (n=75), MLP / generic NN 27 (n=242). The leaders are carried by a few flagship models, and the interquartile ranges are wide and overlap. Papers from 2025 on are too recent to compare this way.
 8. **Machine learning in these fields is older than deep learning.** The catalog has 778 papers from before 2010, starting with 1980 expert systems and pattern-recognition studies. Their methods were mostly MLP / generic NN (479), Classical ML (234), Expert systems & fuzzy logic (98), RNN / LSTM (34), applied above all to hydrology & water resources (347), remote sensing & clouds (132), weather & climate for energy (125). Many questions now revisited with deep learning (rainfall–runoff, satellite retrievals, emulating model physics, ENSO prediction) were first posed with these shallow models.
 
 ## Figures
@@ -28,12 +28,12 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 ### Papers per year
 ![Papers per year by primary subfield](figures/01_papers_per_year_by_subfield.png)
 
-Bar heights show search depth, not publication volume: every candidate up to 2009 was screened; from 2010 on, only the 400 most cited candidates of each year. Read the chart for the subfield mix within a year, not for growth between years.
+Bar heights show search depth, not publication volume: every candidate up to 2009 was screened; from 2010 on, the most cited 30% of each year's candidates (at least 400 a year). Read the chart for the subfield mix within a year, not for growth between years.
 
 ### Model families
 ![Model families](figures/02_architecture_families.png)
 
-MLP is the most common family (578 papers), followed by RNN / LSTM (369) and Neural network (unspecified) (333). "Neural network (unspecified)" (333) mostly covers dense networks whose summaries don't name the layer type. Approaches that sit on top of a model are tagged separately and excluded from this chart: hybrid physics-ML coupling (292), data-assimilation schemes (16), XAI methods (44) and physics-informed constraints (35).
+MLP is the most common family (611 papers), followed by RNN / LSTM (459) and Neural network (unspecified) (407). "Neural network (unspecified)" (407) mostly covers dense networks whose summaries don't name the layer type. Approaches that sit on top of a model are tagged separately and excluded from this chart: hybrid physics-ML coupling (366), data-assimilation schemes (16), XAI methods (61) and physics-informed constraints (47).
 
 ### Architecture shift
 ![Architecture share by period](figures/03_architecture_share_by_period.png)
@@ -42,16 +42,16 @@ MLP is the most common family (578 papers), followed by RNN / LSTM (369) and Neu
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | ≤1999 | 231 | 0% | 60% | 1% | 24% | 0% | 0% | 0% | 15% |
 | 2000–09 | 615 | 0% | 55% | 5% | 29% | 0% | 0% | 0% | 10% |
-| 2010–18 | 672 | 4% | 37% | 7% | 43% | 2% | 0% | 0% | 6% |
-| 2019–20 | 381 | 21% | 17% | 22% | 31% | 5% | 2% | 1% | 2% |
-| 2021–22 | 337 | 21% | 15% | 29% | 23% | 3% | 6% | 2% | 1% |
-| 2023–24 | 368 | 17% | 12% | 23% | 15% | 10% | 15% | 8% | 0% |
-| 2025–26 | 164 | 14% | 13% | 12% | 4% | 18% | 21% | 18% | 0% |
+| 2010–18 | 749 | 4% | 36% | 8% | 42% | 2% | 0% | 0% | 6% |
+| 2019–20 | 464 | 21% | 17% | 21% | 32% | 4% | 2% | 1% | 2% |
+| 2021–22 | 437 | 19% | 18% | 28% | 22% | 3% | 5% | 3% | 1% |
+| 2023–24 | 457 | 17% | 13% | 23% | 15% | 9% | 15% | 8% | 0% |
+| 2025–26 | 180 | 12% | 28% | 18% | 6% | 6% | 19% | 11% | 1% |
 
 ### Data sources
 ![Data sources by period](figures/04_data_sources_by_period.png)
 
-CMIP and other climate-model output appears in 2, 12, 17, 18, 24, 21, 18 papers across the periods (≤1999, 2000–09, 2010–18, 2019–20, 2021–22, 2023–24, 2025–26); it is used for emulation, detection and transfer learning. Operational NWP archives and reforecasts grow alongside ERA5 (1, 5, 26, 8, 17, 31, 39), because ML weather models are verified against and fine-tuned on operational analyses.
+CMIP and other climate-model output appears in 2, 12, 20, 18, 26, 25, 7 papers across the periods (≤1999, 2000–09, 2010–18, 2019–20, 2021–22, 2023–24, 2025–26); it is used for emulation, detection and transfer learning. Operational NWP archives and reforecasts grow alongside ERA5 (1, 5, 31, 9, 18, 35, 14), because ML weather models are verified against and fine-tuned on operational analyses.
 
 ### Research goals over time
 ![Goals by period](figures/09_goals_by_period.png)
@@ -75,7 +75,7 @@ Method papers from 2018 to 2024. Citations per year are total citations divided 
 ### Venues
 ![Venue families](figures/08_venue_families.png)
 
-The main homes of the catalog's papers are Energy journals (451), Hydrology & water journals (430), AGU journals (217). ML conferences account for 59 papers, and 73 exist only on arXiv.
+The main homes of the catalog's papers are Energy journals (554), Hydrology & water journals (510), IEEE & remote sensing (224). ML conferences account for 66 papers, and 60 exist only on arXiv.
 
 ## Journals
 
@@ -87,110 +87,128 @@ each venue's most influential papers, is [`journals.html`](../journals.html).
 
 | Venue | Group | Papers | Impact index | Top 10% | Median cites/yr | Tier |
 |---|---|---:|---:|---:|---:|---|
-| Nature | Nature & Science | 16 | 5.75 | 81% | 171.3 | Leading |
-| ICML | ML conferences | 8 | 2.76 | 62% | 39.6 | Leading |
+| Nature | Nature & Science | 19 | 5.60 | 74% | 154.4 | Leading |
+| Frontiers in Plant Science | Agricultural journals | 5 | 2.55 | 60% | 88.0 | Leading |
 | IEEE Transactions on Energy Conversion | Energy journals | 8 | 2.54 | 62% | 13.1 | Leading |
-| IEEE Transactions on Power Systems | Energy journals | 32 | 1.81 | 31% | 12.5 | Leading |
-| Communications Earth & Environment | Nature & Science | 5 | 1.68 | 20% | 26.7 | Leading |
-| ICLR | ML conferences | 5 | 1.59 | 40% | 51.6 | Leading |
-| KDD | ML conferences | 5 | 1.52 | 20% | 42.7 | Leading |
-| Nature Machine Intelligence | Nature & Science | 5 | 1.50 | 20% | 52.4 | Strong |
+| Atmosphere | MDPI & Frontiers | 7 | 2.21 | 43% | 40.0 | Leading |
+| Geoscience Frontiers | MDPI & Frontiers | 5 | 2.10 | 40% | 67.1 | Leading |
+| IEEE Transactions on Knowledge and Data Engineering | IEEE & remote sensing | 5 | 1.95 | 20% | 51.9 | Leading |
+| Nature Machine Intelligence | Nature & Science | 5 | 1.77 | 20% | 52.4 | Leading |
+| ICML | ML conferences | 8 | 1.67 | 38% | 39.6 | Leading |
+| Environmental Science & Technology | Environmental science journals | 6 | 1.50 | 33% | 44.1 | Leading |
+| KDD | ML conferences | 6 | 1.49 | 17% | 33.7 | Strong |
 | Journal of Water Resources Planning and Management | Hydrology & water journals | 10 | 1.48 | 30% | 7.7 | Strong |
 | IEEE Transactions on Neural Networks | IEEE & remote sensing | 6 | 1.48 | 33% | 6.4 | Strong |
+| IEEE Transactions on Power Systems | Energy journals | 36 | 1.47 | 28% | 14.1 | Strong |
 | Journal of Irrigation and Drainage Engineering | Hydrology & water journals | 7 | 1.47 | 14% | 9.8 | Strong |
-| Nature Climate Change | Nature & Science | 9 | 1.40 | 11% | 40.7 | Strong |
-| Solar Energy | Energy journals | 34 | 1.39 | 12% | 16.9 | Strong |
-| Nature Communications | Nature & Science | 30 | 1.34 | 27% | 44.8 | Strong |
-| PNAS | PNAS & multidisciplinary | 12 | 1.34 | 25% | 39.1 | Strong |
-| Journal of Cleaner Production | Environmental science journals | 12 | 1.28 | 8% | 39.1 | Strong |
-| Agricultural and Forest Meteorology | Agricultural journals | 13 | 1.28 | 0% | 34.9 | Strong |
+| ICLR | ML conferences | 6 | 1.42 | 33% | 36.8 | Strong |
+| Nature Communications | Nature & Science | 34 | 1.42 | 26% | 43.6 | Strong |
+| Bulletin of the American Meteorological Society | AMS journals | 13 | 1.38 | 31% | 16.2 | Strong |
+| Solar Energy | Energy journals | 38 | 1.30 | 11% | 19.4 | Strong |
+| PNAS | PNAS & multidisciplinary | 12 | 1.30 | 33% | 39.1 | Strong |
+| Engineering Applications of Computational Fluid Mechanics | Physics & applied math | 5 | 1.29 | 0% | 33.8 | Strong |
+| Geomatics, Natural Hazards and Risk | Other geoscience journals | 5 | 1.28 | 0% | 34.4 | Strong |
+| Scientific Data | Environmental science journals | 11 | 1.28 | 18% | 35.6 | Strong |
+| Water Research | Hydrology & water journals | 5 | 1.25 | 20% | 32.8 | Strong |
+| Nature Climate Change | Nature & Science | 10 | 1.24 | 20% | 38.0 | Strong |
+| ISPRS Journal of Photogrammetry and Remote Sensing | IEEE & remote sensing | 6 | 1.21 | 0% | 34.4 | Strong |
 | Journal of Hydrologic Engineering | Hydrology & water journals | 33 | 1.20 | 15% | 8.3 | Strong |
-| Applied Energy | Energy journals | 58 | 1.20 | 10% | 31.9 | Strong |
-| Renewable Energy | Energy journals | 85 | 1.20 | 8% | 19.9 | Strong |
-| Neural Computing and Applications | Soft computing & engineering | 12 | 1.20 | 8% | 27.6 | Strong |
-| Environmental Science & Technology | Environmental science journals | 6 | 1.18 | 33% | 44.1 | Strong |
-| IEEE Transactions on Sustainable Energy | Energy journals | 23 | 1.17 | 0% | 25.7 | Strong |
-| Scientific Reports | PNAS & multidisciplinary | 20 | 1.14 | 10% | 40.8 | Strong |
-| Environmental Research Letters | PNAS & multidisciplinary | 8 | 1.13 | 12% | 41.2 | Strong |
-| ISPRS Journal of Photogrammetry and Remote Sensing | IEEE & remote sensing | 5 | 1.12 | 0% | 37.6 | Strong |
+| Agricultural and Forest Meteorology | Agricultural journals | 16 | 1.19 | 0% | 30.1 | Strong |
+| Scientific Reports | PNAS & multidisciplinary | 46 | 1.19 | 11% | 27.3 | Strong |
+| Social Science Research Network | Other venues | 5 | 1.18 | 0% | 30.9 | Strong |
+| Science Advances | Nature & Science | 14 | 1.16 | 21% | 33.2 | Strong |
+| Renewable Energy | Energy journals | 101 | 1.15 | 8% | 21.7 | Strong |
+| Reviews of Geophysics | AGU journals | 5 | 1.14 | 20% | 36.6 | Strong |
+| Energy Conversion and Management | Energy journals | 78 | 1.14 | 6% | 25.4 | Strong |
+| International Journal of Electrical Power & Energy Systems | Energy journals | 8 | 1.12 | 0% | 28.5 | Strong |
 | Journal of Atmospheric and Oceanic Technology | AMS journals | 12 | 1.11 | 0% | 8.2 | Strong |
-| Atmospheric Chemistry and Physics | EGU / Copernicus journals | 8 | 1.11 | 25% | 40.3 | Strong |
-| Bulletin of the American Meteorological Society | AMS journals | 15 | 1.10 | 20% | 14.0 | Strong |
-| Science of The Total Environment | Environmental science journals | 35 | 1.10 | 3% | 32.8 | Strong |
-| Advances in Water Resources | Hydrology & water journals | 7 | 1.10 | 29% | 12.9 | Strong |
-| Neural Networks | Soft computing & engineering | 6 | 1.10 | 0% | 11.9 | Strong |
-| Atmospheric Environment | Other geoscience journals | 20 | 1.10 | 15% | 15.3 | Strong |
-| Atmospheric Pollution Research | Other geoscience journals | 5 | 1.09 | 0% | 30.0 | Strong |
-| Scientific Data | Environmental science journals | 8 | 1.09 | 0% | 40.5 | Strong |
-| Science Advances | Nature & Science | 13 | 1.07 | 23% | 31.7 | Strong |
-| Energy Conversion and Management | Energy journals | 68 | 1.07 | 4% | 27.4 | Strong |
-| Water Resources Research | AGU journals | 75 | 1.07 | 21% | 13.4 | Strong |
-| Engineering Applications of Artificial Intelligence | Soft computing & engineering | 17 | 1.06 | 6% | 11.4 | Strong |
-| Journal of Hydrology | Hydrology & water journals | 217 | 1.06 | 10% | 20.9 | Strong |
-| Energy | Energy journals | 53 | 1.06 | 6% | 36.2 | Strong |
-| Sustainability | MDPI & Frontiers | 7 | 1.05 | 0% | 34.2 | Strong |
-| Environmental Modelling & Software | Other geoscience journals | 26 | 1.04 | 12% | 13.1 | Strong |
-| Agricultural Water Management | Agricultural journals | 17 | 1.03 | 6% | 16.4 | Strong |
-| Water | Hydrology & water journals | 20 | 1.03 | 10% | 36.4 | Strong |
+| Neural Computing and Applications | Soft computing & engineering | 14 | 1.11 | 14% | 25.6 | Strong |
+| Applied Energy | Energy journals | 76 | 1.11 | 11% | 28.0 | Strong |
+| PLOS ONE | Environmental science journals | 6 | 1.11 | 33% | 34.8 | Strong |
+| Energy | Energy journals | 69 | 1.10 | 7% | 32.4 | Strong |
+| Neural Networks | Soft computing & engineering | 6 | 1.10 | 17% | 11.9 | Strong |
+| Energies | Energy journals | 24 | 1.10 | 4% | 28.8 | Strong |
+| Sustainable Cities and Society | Environmental science journals | 8 | 1.09 | 0% | 28.8 | Strong |
+| Renewable and Sustainable Energy Reviews | Energy journals | 33 | 1.08 | 15% | 23.9 | Strong |
+| Water Resources Research | AGU journals | 83 | 1.08 | 19% | 17.3 | Strong |
+| Atmospheric Environment | Other geoscience journals | 22 | 1.07 | 14% | 17.5 | Strong |
+| Energy Reports | Energy journals | 8 | 1.06 | 0% | 28.1 | Strong |
+| Water | Hydrology & water journals | 35 | 1.06 | 9% | 27.4 | Strong |
+| Journal of Hydrology | Hydrology & water journals | 259 | 1.06 | 10% | 21.1 | Strong |
+| Procedia Computer Science | Soft computing & engineering | 6 | 1.06 | 0% | 20.9 | Strong |
+| Philosophical Transactions of the Royal Society A | RMetS / Royal Society | 9 | 1.05 | 22% | 33.4 | Strong |
+| Journal of Cleaner Production | Environmental science journals | 15 | 1.05 | 20% | 33.2 | Strong |
+| Earth System Science Data | EGU / Copernicus journals | 9 | 1.04 | 0% | 17.3 | Strong |
+| IEEE Transactions on Sustainable Energy | Energy journals | 31 | 1.03 | 0% | 22.0 | Strong |
+| Engineering Applications of Artificial Intelligence | Soft computing & engineering | 19 | 1.03 | 5% | 11.4 | Strong |
 | Hydrological Sciences Journal | Hydrology & water journals | 28 | 1.03 | 14% | 6.9 | Strong |
-| Remote Sensing of Environment | IEEE & remote sensing | 29 | 1.02 | 7% | 27.7 | Strong |
-| Atmospheric Research | Other geoscience journals | 11 | 1.02 | 0% | 22.9 | Strong |
-| IEEE Access | IEEE & remote sensing | 18 | 1.02 | 0% | 36.5 | Strong |
-| Renewable and Sustainable Energy Reviews | Energy journals | 29 | 1.01 | 14% | 23.9 | Strong |
-| Journal of Hydroinformatics | Hydrology & water journals | 10 | 1.01 | 0% | 10.6 | Strong |
+| Atmospheric Research | Other geoscience journals | 15 | 1.02 | 0% | 21.0 | Strong |
+| JAWRA Journal of the American Water Resources Association | Hydrology & water journals | 6 | 1.01 | 0% | 6.7 | Strong |
+| Ocean Engineering | Soft computing & engineering | 23 | 1.01 | 0% | 8.1 | Strong |
+| Nature Geoscience | Nature & Science | 5 | 1.00 | 0% | 31.4 | Strong |
+| Applied Soft Computing | Soft computing & engineering | 17 | 1.00 | 18% | 23.7 | Strong |
+| Journal of Hydroinformatics | Hydrology & water journals | 11 | 1.00 | 0% | 10.9 | Strong |
+| IJCAI | ML conferences | 5 | 1.00 | 0% | 21.9 | Strong |
 | Journal of Computing in Civil Engineering | Soft computing & engineering | 5 | 1.00 | 20% | 7.3 | Strong |
-| Energies | Energy journals | 16 | 1.00 | 0% | 31.1 | Steady |
-| Expert Systems with Applications | Soft computing & engineering | 17 | 0.99 | 0% | 11.7 | Steady |
-| Applied Soft Computing | Soft computing & engineering | 15 | 0.99 | 20% | 25.1 | Steady |
-| International Journal of Electrical Power & Energy Systems | Energy journals | 7 | 0.98 | 0% | 28.9 | Steady |
-| Environment International | Other geoscience journals | 5 | 0.97 | 20% | 31.2 | Steady |
-| CVPR | ML conferences | 5 | 0.96 | 0% | 16.5 | Steady |
-| Computers & Geosciences | Soft computing & engineering | 10 | 0.96 | 0% | 11.1 | Steady |
-| Remote Sensing | MDPI & Frontiers | 20 | 0.95 | 5% | 33.0 | Steady |
-| Ocean Engineering | Soft computing & engineering | 20 | 0.94 | 0% | 7.9 | Steady |
-| Philosophical Transactions of the Royal Society A | RMetS / Royal Society | 9 | 0.94 | 33% | 33.4 | Steady |
-| JAWRA Journal of the American Water Resources Association | Hydrology & water journals | 6 | 0.93 | 0% | 6.7 | Steady |
+| Science of The Total Environment | Environmental science journals | 51 | 1.00 | 4% | 26.8 | Strong |
+| Remote Sensing of Environment | IEEE & remote sensing | 41 | 1.00 | 7% | 25.1 | Strong |
+| IEEE Access | IEEE & remote sensing | 25 | 1.00 | 4% | 30.6 | Strong |
+| Remote Sensing | MDPI & Frontiers | 35 | 0.99 | 6% | 27.1 | Steady |
+| Electric Power Systems Research | Energy journals | 5 | 0.99 | 0% | 29.3 | Steady |
+| Expert Systems with Applications | Soft computing & engineering | 22 | 0.99 | 5% | 14.3 | Steady |
+| IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing | IEEE & remote sensing | 9 | 0.97 | 0% | 22.0 | Steady |
+| Communications Earth & Environment | Nature & Science | 10 | 0.97 | 10% | 20.7 | Steady |
+| Atmospheric Chemistry and Physics | EGU / Copernicus journals | 15 | 0.96 | 13% | 22.7 | Steady |
+| Environmental Modelling & Software | Other geoscience journals | 31 | 0.96 | 10% | 18.0 | Steady |
+| CVPR | ML conferences | 5 | 0.96 | 0% | 21.6 | Steady |
+| Environmental Research Letters | PNAS & multidisciplinary | 11 | 0.95 | 9% | 30.1 | Steady |
+| Atmospheric Pollution Research | Other geoscience journals | 7 | 0.94 | 0% | 27.8 | Steady |
+| IEEE Transactions on Industry Applications | IEEE & remote sensing | 8 | 0.94 | 0% | 18.8 | Steady |
 | JGR: Oceans | AGU journals | 8 | 0.93 | 0% | 5.2 | Steady |
-| Hydrology and Earth System Sciences | EGU / Copernicus journals | 54 | 0.92 | 7% | 18.0 | Steady |
 | Journal of Applied Meteorology and Climatology | AMS journals | 19 | 0.92 | 11% | 5.2 | Steady |
-| Earth System Science Data | EGU / Copernicus journals | 5 | 0.91 | 0% | 29.6 | Steady |
-| Journal of Environmental Management | Environmental science journals | 5 | 0.91 | 0% | 31.8 | Steady |
-| International Journal of Climatology | RMetS / Royal Society | 10 | 0.91 | 10% | 10.5 | Steady |
-| Procedia Computer Science | Soft computing & engineering | 6 | 0.90 | 0% | 20.9 | Steady |
-| Geoscientific Model Development | EGU / Copernicus journals | 19 | 0.89 | 0% | 16.7 | Steady |
-| Applied Sciences | MDPI & Frontiers | 7 | 0.89 | 0% | 33.5 | Steady |
-| Water Resources Management | Hydrology & water journals | 34 | 0.89 | 3% | 10.5 | Steady |
+| Environmental Pollution | Other geoscience journals | 8 | 0.91 | 0% | 20.2 | Steady |
+| IEEE Transactions on Neural Networks and Learning Systems | IEEE & remote sensing | 5 | 0.91 | 20% | 18.2 | Steady |
+| Geocarto International | Other geoscience journals | 5 | 0.90 | 0% | 28.4 | Steady |
+| Advances in Engineering Software | Soft computing & engineering | 7 | 0.90 | 0% | 10.3 | Steady |
+| Sensors | MDPI & Frontiers | 5 | 0.90 | 20% | 27.9 | Steady |
+| Artificial Intelligence Review | Soft computing & engineering | 5 | 0.90 | 20% | 24.4 | Steady |
+| Hydrology and Earth System Sciences | EGU / Copernicus journals | 61 | 0.90 | 7% | 23.3 | Steady |
+| Computers & Geosciences | Soft computing & engineering | 11 | 0.90 | 0% | 12.7 | Steady |
 | International Journal of Remote Sensing | IEEE & remote sensing | 11 | 0.89 | 18% | 3.5 | Steady |
+| Agricultural Water Management | Agricultural journals | 24 | 0.89 | 0% | 18.0 | Steady |
 | Hydrological Processes | Hydrology & water journals | 30 | 0.89 | 7% | 7.1 | Steady |
-| Energy Reports | Energy journals | 6 | 0.88 | 0% | 28.8 | Steady |
-| Environmental Science and Pollution Research | Environmental science journals | 6 | 0.86 | 0% | 26.1 | Steady |
-| Neurocomputing | Soft computing & engineering | 18 | 0.86 | 0% | 10.8 | Steady |
-| Computers and Electronics in Agriculture | Agricultural journals | 14 | 0.86 | 14% | 19.6 | Steady |
-| Stochastic Environmental Research and Risk Assessment | Hydrology & water journals | 9 | 0.85 | 0% | 10.9 | Steady |
-| Environmental Pollution | Other geoscience journals | 6 | 0.84 | 0% | 23.7 | Steady |
-| Electric Power Systems Research | Energy journals | 5 | 0.84 | 0% | 29.3 | Steady |
-| IEEE Transactions on Industry Applications | IEEE & remote sensing | 8 | 0.83 | 0% | 18.8 | Steady |
-| IEEE Geoscience and Remote Sensing Letters | IEEE & remote sensing | 6 | 0.83 | 0% | 30.3 | Steady |
-| Journal of Hydrometeorology | AMS journals | 13 | 0.82 | 0% | 8.7 | Steady |
-| IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing | IEEE & remote sensing | 6 | 0.82 | 0% | 28.0 | Steady |
-| npj Climate and Atmospheric Science | Nature & Science | 15 | 0.79 | 7% | 22.8 | Steady |
-| JGR: Machine Learning and Computation | AGU journals | 8 | 0.79 | 0% | 7.8 | Steady |
-| Advances in Engineering Software | Soft computing & engineering | 7 | 0.77 | 0% | 10.3 | Steady |
-| Geophysical Research Letters | AGU journals | 36 | 0.76 | 0% | 20.3 | Steady |
-| IEEE Transactions on Industrial Informatics | IEEE & remote sensing | 6 | 0.76 | 0% | 27.6 | Steady |
-| IEEE Transactions on Geoscience and Remote Sensing | IEEE & remote sensing | 42 | 0.76 | 7% | 6.3 | Steady |
+| IEEE Transactions on Industrial Informatics | IEEE & remote sensing | 8 | 0.89 | 0% | 26.5 | Steady |
+| IEEE Geoscience and Remote Sensing Letters | IEEE & remote sensing | 7 | 0.88 | 0% | 30.0 | Steady |
+| Environmental Science and Pollution Research | Environmental science journals | 7 | 0.88 | 0% | 26.2 | Steady |
+| Water Resources Management | Hydrology & water journals | 46 | 0.88 | 2% | 12.6 | Steady |
+| npj Climate and Atmospheric Science | Nature & Science | 14 | 0.88 | 7% | 24.3 | Steady |
+| Journal of Hydrometeorology | AMS journals | 12 | 0.87 | 0% | 8.8 | Steady |
+| Sustainability | MDPI & Frontiers | 16 | 0.87 | 6% | 22.6 | Steady |
+| Advances in Water Resources | Hydrology & water journals | 10 | 0.87 | 20% | 20.3 | Steady |
+| Environment International | Other geoscience journals | 11 | 0.86 | 9% | 23.4 | Steady |
+| Computers and Electronics in Agriculture | Agricultural journals | 18 | 0.86 | 11% | 19.6 | Steady |
+| Stochastic Environmental Research and Risk Assessment | Hydrology & water journals | 10 | 0.86 | 0% | 15.1 | Steady |
+| Neurocomputing | Soft computing & engineering | 19 | 0.85 | 5% | 11.0 | Steady |
+| Journal of Hydrology: Regional Studies | Hydrology & water journals | 7 | 0.85 | 0% | 24.0 | Steady |
+| Journal of Environmental Management | Environmental science journals | 16 | 0.84 | 0% | 22.0 | Steady |
+| International Journal of Climatology | RMetS / Royal Society | 12 | 0.84 | 8% | 11.7 | Steady |
+| Applied Sciences | MDPI & Frontiers | 13 | 0.83 | 0% | 25.7 | Steady |
+| Environmental Earth Sciences | Environmental science journals | 6 | 0.82 | 17% | 18.4 | Steady |
+| International Journal of Applied Earth Observation and Geoinformation | Other geoscience journals | 5 | 0.80 | 0% | 23.3 | Steady |
+| Theoretical and Applied Climatology | Other geoscience journals | 6 | 0.80 | 0% | 17.4 | Steady |
+| Geoscientific Model Development | EGU / Copernicus journals | 20 | 0.79 | 0% | 18.0 | Steady |
+| IEEE Transactions on Geoscience and Remote Sensing | IEEE & remote sensing | 48 | 0.78 | 8% | 7.1 | Steady |
+| Geophysical Research Letters | AGU journals | 33 | 0.76 | 0% | 21.6 | Steady |
+| AAAI | ML conferences | 7 | 0.75 | 0% | 22.7 | Steady |
 | Journal of Climate | AMS journals | 18 | 0.73 | 6% | 4.8 | Steady |
-| Theoretical and Applied Climatology | Other geoscience journals | 5 | 0.71 | 0% | 16.1 | Steady |
-| NeurIPS | ML conferences | 26 | 0.68 | 15% | 18.3 | Steady |
-| Weather and Forecasting | AMS journals | 18 | 0.67 | 6% | 5.2 | Steady |
+| NeurIPS | ML conferences | 25 | 0.68 | 20% | 21.7 | Steady |
+| Climate Dynamics | Other geoscience journals | 13 | 0.68 | 0% | 6.5 | Steady |
 | Ecological Modelling | Environmental science journals | 5 | 0.66 | 20% | 4.0 | Steady |
-| Climate Dynamics | Other geoscience journals | 12 | 0.65 | 0% | 6.2 | Steady |
-| JGR: Atmospheres | AGU journals | 18 | 0.63 | 6% | 6.2 | Steady |
-| Artificial Intelligence for the Earth Systems | AMS journals | 14 | 0.62 | 0% | 14.9 | Steady |
-| Quarterly Journal of the Royal Meteorological Society | RMetS / Royal Society | 6 | 0.58 | 17% | 14.4 | Lower impact |
-| Monthly Weather Review | AMS journals | 12 | 0.58 | 0% | 12.3 | Lower impact |
-| Journal of Advances in Modeling Earth Systems | AGU journals | 60 | 0.48 | 5% | 15.0 | Lower impact |
-| The Cryosphere | EGU / Copernicus journals | 5 | 0.40 | 0% | 10.0 | Lower impact |
+| Weather and Forecasting | AMS journals | 18 | 0.65 | 6% | 5.2 | Steady |
+| Monthly Weather Review | AMS journals | 11 | 0.64 | 0% | 13.1 | Steady |
+| JGR: Atmospheres | AGU journals | 19 | 0.63 | 5% | 6.7 | Steady |
+| Artificial Intelligence for the Earth Systems | AMS journals | 10 | 0.62 | 0% | 20.0 | Steady |
+| Journal of Advances in Modeling Earth Systems | AGU journals | 57 | 0.53 | 4% | 16.6 | Lower impact |
 
 ## Categories
 
@@ -210,4 +228,4 @@ each venue's most influential papers, is [`journals.html`](../journals.html).
 
 **Fixing a category.** For one paper, add a row to `data/category_overrides.csv` (`paper_id,dimension,label,action,note`, where action is `add`, `remove` or `set`). For a systematic problem, edit the regex in `scripts/taxonomy.py`. Then rerun `python3 scripts/build_db.py && python3 analysis/eda.py`. 3 manual corrections are applied.
 
-**Known limitations.** The rules can only see what the summaries say. 957 summaries are partly editorial assessments, and 1425 papers had no abstract available. Multi-label tagging means a paper using a U-Net inside a diffusion model counts under both families.
+**Known limitations.** The rules can only see what the summaries say. 1001 summaries are partly editorial assessments, and 1600 papers had no abstract available. Multi-label tagging means a paper using a U-Net inside a diffusion model counts under both families.

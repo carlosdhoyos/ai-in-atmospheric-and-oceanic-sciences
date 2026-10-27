@@ -126,7 +126,7 @@ PROBABILISTIC = (r"probabilis|ensemble|diffusion|\bgan|generative|uncertaint|qua
 # Venue families for normalizing ~150 venue strings.
 # How deeply each year was searched (scripts/discover_era.py + update.py screen-batches --share); shown under the
 # papers-per-year charts so bar heights are not read as publication volume
-SCREEN_SHARE = None  # share of each year's candidates screened from 2010 on; None = the 400 most cited per year
+SCREEN_SHARE = 0.3  # share of each year's candidates screened from 2010 on; None = the 400 most cited per year
 SAMPLING_NOTE = ("Bar heights show search depth, not publication volume: every candidate up to 2009 was screened; "
                  + (f"from 2010 on, the most cited {SCREEN_SHARE:.0%} of each year's candidates (at least 400 a year)."
                     if SCREEN_SHARE else "from 2010 on, only the 400 most cited candidates of each year."))
