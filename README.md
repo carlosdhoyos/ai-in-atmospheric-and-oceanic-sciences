@@ -67,7 +67,7 @@ catalog" in the slice menu).
 
 1. **Curated seeds** — `data/seeds.tsv` lists landmark papers by subfield (one title per line).
 2. **Discovery** — `scripts/discover.py` runs citation-ranked Semantic Scholar searches per subfield; relevant hits are screened by hand into `data/additions.tsv`.
-3. **Identifier resolution** — `scripts/resolve_ids.py` matches titles to DOIs (Crossref) and arXiv IDs (arXiv API) with a fuzzy-title check.
+3. **Identifier resolution** — `scripts/resolve_ids.py` matches titles to DOIs (Crossref) and arXiv IDs (arXiv API) with a fuzzy-title check. `resolve_ids.py --dois` also caches each DOI's Crossref record (`data/cache_doi_crossref.json`); the build takes journal names, publication type and missing years from it, because Semantic Scholar's venue field is sometimes wrong. `update.py build` runs it automatically.
 4. **Metadata and citations** — `scripts/build.py` fetches authors, venue, abstract and citation counts from Semantic Scholar in batch, merges journal and preprint versions of the same work, and writes `index.html`, `papers.bib` and `data/papers.json`.
 
 To refresh citation counts or add papers:

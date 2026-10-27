@@ -140,7 +140,7 @@ VENUE_FAMILY = [
     ("RMetS / Royal Society", r"quarterly journal|philosophical transactions|atmospheric science letters|meteorological "
                               r"applications|international journal of climatology|proceedings of the royal society"),
     ("ML conferences", r"neural information|neurips|international conference on machine learning|learning representations|"
-                       r"knowledge discovery|aaai|computer vision|artificial intelligence and statistics|ijcai"),
+                       r"knowledge discovery|aaai|computer vision|artificial intelligence and statistics|ijcai|joint conference on artificial|supercomputing|sigspatial"),
     ("arXiv preprint", r"^arxiv"),
     ("Venue not recorded", r"^venue not recorded"),
     ("Hydrology & water journals", r"journal of hydrology|hydrological processes|advances in water resources|"
@@ -151,10 +151,13 @@ VENUE_FAMILY = [
                                    r"canadian water resources|korea water resources|stochastic environmental research"),
     ("Energy journals", r"applied energy|renewable energy|solar energy|^energy$|energy and ai|energy conversion|"
                         r"renewable and sustainable energy|wind energy|energy reports|sustainable energy|"
-                        r"electric power|power systems|energies|nature energy|journal of renewable"),
+                        r"electric power|power systems|energies|nature energy|journal of renewable|electrical power|renewable power|energy research|power system technology|"
+                        r"energy and buildings|energy procedia|photoenergy|green energy|energy policy|power and energy|"
+                        r"power symposium|power engineering|thermal engineering"),
     ("Agricultural journals", r"transactions of the asabe|biosystems engineering|geoderma|agricultural and forest meteorology|agricultural water management|field crops|"
                               r"computers and electronics in agriculture|agricultural systems|european journal of agronomy|"
-                              r"nature food|agronomy|precision agriculture|plant science|global food security"),
+                              r"nature food|agronomy|precision agriculture|plant science|global food security|transactions of the asae|irrigation science|"
+                              r"^agriculture$|journal of agricultural science"),
     ("PNAS & multidisciplinary", r"proceedings of the national academy|scientific reports|science bulletin|"
                                  r"environmental research letters|wires|annual review|acm computing surveys"),
     ("IEEE & remote sensing", r"ieee|remote sensing of environment|geoscience and remote sensing|pattern recogni|"
@@ -165,10 +168,19 @@ VENUE_FAMILY = [
                                      r"computing in civil engineering|civil engineering|conference on (artificial )?neural "
                                      r"networks|ijcnn|joint conference on neural|control engineering|ifac|intelligent "
                                      r"information systems|computers & geosciences|computational geosciences|fuzzy|"
-                                     r"soft computing|knowledge-based systems|ocean engineering|coastal engineering"),
+                                     r"soft computing|knowledge-based systems|ocean engineering|coastal engineering|procedia computer science|"
+                                     r"forecasting$|^machine learning$|artificial intelligence review|mathematical problems|"
+                                     r"applied intelligence|information sciences|journal of big data|computer-aided civil|"
+                                     r"mathematical and computer modelling|^measurement$|alexandria engineering|"
+                                     r"applied mathematics and computation|signal processing|knowledge and information systems|"
+                                     r"computational methods in engineering|statistical analysis and data mining|"
+                                     r"simulation modelling|chemometrics|marine structures"),
     ("Environmental science journals", r"ecological modelling|air and waste management|science of the total environment|"
                                        r"chemosphere|environmetrics|environmental (monitoring|science|software)|"
-                                       r"ecological informatics|plos one|natural hazards$|journal of environmental"),
+                                       r"ecological informatics|plos one|natural hazards$|journal of environmental|cleaner production|air (&|and) waste|"
+                                       r"environmental (earth|engineering|research)|sustainable cities|global change biology|"
+                                       r"ecological indicators|risk analysis|disaster risk|urban climate|water, air|arid environments|"
+                                       r"catena|transportation research part d|scientific data"),
     ("MDPI & Frontiers", r"^remote sensing$|^atmosphere$|applied sciences|frontiers|^sensors$|^water$|^algorithms$|"
                          r"sustainability|energies|^climate$|^axioms$|^electronics$|^ai$"),
     ("Physics & applied math", r"physical review|reviews of modern physics|computational physics|fluid mechanics|chaos|"
@@ -181,7 +193,12 @@ VENUE_FAMILY = [
                                   r"annales geophysicae|meteorology and atmospheric physics|earth system science|"
                                   r"cold regions|meteorological magazine|oceanographic literature|journal of glaciology|"
                                   r"boundary-layer|tellus|journal of marine systems|progress in oceanography|"
-                                  r"deep-sea research|continental shelf|journal of climatology|meteorolog"),
+                                  r"deep-sea research|continental shelf|journal of climatology|meteorolog|solar-terrestrial|physics and chemistry of the "
+                                  r"earth|geomatics|geocarto|applied earth observation|progress in physical geography|"
+                                  r"machine learning: earth|deep learning for the earth|pure and applied geophysics|"
+                                  r"limnology|journal of sea research|quaternary|coastal research|acta geophysica|"
+                                  r"earth science informatics|arabian journal of geosciences|marine science|current science|"
+                                  r"water and climate change|hydraulic engineering|iahs"),
 ]
 
 

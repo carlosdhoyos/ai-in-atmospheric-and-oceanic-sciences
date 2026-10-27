@@ -234,6 +234,10 @@ in the journal assessment, anything unresolved, and summaries marked `assessment
   take an hour on a shared IP. OpenAlex is not used because its free daily quota is often exhausted.
 - **Crossref returns abstracts or preprint copies** (EGU abstracts, EarthArXiv, SSRN) with the same title:
   `resolve_ids.py` already skips those DOI prefixes; add new ones to `NON_FINAL_DOI` if they appear.
+- **Journal names come from Crossref.** `update.py build` runs `resolve_ids.py --dois`, which caches each DOI's
+  Crossref type, journal and year; the build prefers these over Semantic Scholar's venue (which has filed papers
+  under *The Lancet*). After a build, check the "Other venues" family in the database and extend `VENUE_FAMILY`
+  in `scripts/taxonomy.py` for any journal with several papers.
 - **A paper appears twice** (preprint and journal version as separate entries): add the journal ID as an
   override for the seed title, or replace the ID in `additions.tsv`, then rebuild.
 - **Retrieval date**: the pages show the date citations were last downloaded; it only moves when a build fetches

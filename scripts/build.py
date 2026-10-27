@@ -8,6 +8,7 @@ Pipeline:
 import csv
 import datetime as dt
 import glob
+import html
 import json
 import os
 import re
@@ -210,10 +211,15 @@ def main():
         arxiv = ext.get("ArXiv")
         # Crossref's journal title for the DOI when the seed's title match gave none (see resolve_ids.py --dois)
         cr = e["cr"] or doi_cr.get(doi or "")
+        if cr:
+            cr = dict(cr, venue=html.unescape(cr.get("venue") or ""))
+            if cr["venue"] == "CrossRef Listing of Deleted DOIs":
+                cr = None
         jr = main.get("journal") or {}
         s2venue = main.get("venue") or jr.get("name") or ""
         types = set(main.get("publicationTypes") or [])
-        if cr and cr.get("type") == "journal-article" and not PREPRINT_VENUES.search(cr["venue"]):
+        if cr and cr.get("type") == "journal-article" and not PREPRINT_VENUES.search(cr["venue"]) \
+                and not CONFERENCES.search(cr["venue"]):  # Crossref files AAAI proceedings as a journal
             kind, venue = "journal", cr["venue"]
         elif cr and cr.get("type") == "proceedings-article" or CONFERENCES.search(s2venue) or "Conference" in types:
             kind, venue = "conference", (s2venue if s2venue and not PREPRINT_VENUES.search(s2venue) else (cr or {}).get("venue", ""))
