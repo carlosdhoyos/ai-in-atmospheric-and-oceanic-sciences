@@ -234,6 +234,10 @@ in the journal assessment, anything unresolved, and summaries marked `assessment
   take an hour on a shared IP. OpenAlex is not used because its free daily quota is often exhausted.
 - **Crossref returns abstracts or preprint copies** (EGU abstracts, EarthArXiv, SSRN) with the same title:
   `resolve_ids.py` already skips those DOI prefixes; add new ones to `NON_FINAL_DOI` if they appear.
+- **Sample years in proportion.** For era searches from 2010 on, screen a fixed share of each year's candidates, not a
+  fixed number: `update.py screen-batches --file <csv> --share 0.3 --per-year 400` (add `--skip-per-year K` to leave
+  out the K most cited already screened). Keep `SCREEN_SHARE` in `scripts/taxonomy.py` in step: it writes the note
+  under the papers-per-year charts saying bar heights show search depth.
 - **Conference and journal versions are merged.** `build.py` folds a conference (or venue-less) record into the
   journal record of the same work (title similarity >= 0.93, two shared author surnames, <= 4 years apart) and keeps
   the other DOI under `alt_ids`; it prints each `MERGED` pair. `update.py verify` fails on two records with the same

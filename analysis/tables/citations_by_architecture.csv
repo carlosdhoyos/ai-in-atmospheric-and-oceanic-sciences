@@ -1,9 +1,9 @@
 arch_group,papers,median_cites_per_year,q25,q75
-MLP / generic NN,242,26.98,21.11,38.905
-Generative (diffusion/GAN/VAE),75,29.455,17.2625,44.6875
-Graph & operator nets,51,30.0,22.89,78.18
-CNN / U-Net,259,30.62,23.935000000000002,43.21
-Classical ML,338,31.54,24.93,41.89
-Expert systems & fuzzy logic,18,31.68,28.445,33.165
-RNN / LSTM,352,33.735,26.6025,46.1375
-Transformers,97,37.6,25.2,52.8
+MLP / generic NN,245,26.8,21.08,38.86
+Generative (diffusion/GAN/VAE),81,28.0,19.770000000000003,40.885000000000005
+Graph & operator nets,53,28.4,22.65,72.98
+Classical ML,370,29.33,24.0,40.53
+CNN / U-Net,272,29.85,23.46,42.11
+Expert systems & fuzzy logic,20,31.435,27.535000000000004,32.835
+RNN / LSTM,370,33.215,24.885,45.574999999999996
+Transformers,99,37.43,25.045,52.254999999999995

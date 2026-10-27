@@ -1,22 +1,22 @@
 subfield,CNN / U-Net,MLP / generic NN,RNN / LSTM,Classical ML,Generative (diffusion/GAN/VAE),Transformers,Graph & operator nets,Expert systems & fuzzy logic
-Hydrology & water resources,61,413,165,396,10,27,13,88
-Weather & climate for energy,87,255,191,171,13,51,10,31
-Extremes & tropical cyclones,38,89,33,130,9,12,10,35
-Remote sensing & clouds,44,129,11,78,7,6,0,18
-Medium-range weather,27,55,36,47,8,27,23,9
-Air quality & chemistry,16,71,31,89,4,6,4,5
-Climate & water for agriculture,12,61,24,73,0,5,1,9
-Ocean,15,75,11,35,5,5,2,7
-Core ML methods,11,45,16,43,6,6,17,2
-Climate emulation & detection,12,37,9,51,3,3,9,3
-Downscaling,13,24,2,43,18,0,0,2
-Ensembles & generative,11,21,11,12,21,11,5,1
-"S2S, ENSO & MJO",8,26,6,29,2,3,1,2
-Nowcasting,15,16,12,5,10,11,0,2
-Explainability & causality,9,15,10,17,0,7,0,0
+Hydrology & water resources,72,413,183,425,12,31,13,89
+Weather & climate for energy,96,257,206,184,17,56,11,32
+Extremes & tropical cyclones,41,89,39,144,9,15,11,36
+Remote sensing & clouds,54,130,11,84,9,9,0,18
+Medium-range weather,28,59,39,51,9,31,27,9
+Air quality & chemistry,17,71,34,98,4,7,5,5
+Climate & water for agriculture,16,60,29,85,0,5,1,9
+Ocean,21,74,12,37,7,6,2,7
+Core ML methods,11,46,19,44,7,7,18,2
+Climate emulation & detection,14,39,11,59,3,4,9,3
+Downscaling,15,21,3,45,19,2,0,2
+Ensembles & generative,13,21,13,12,23,12,5,1
+Nowcasting,18,15,16,5,11,12,0,2
+"S2S, ENSO & MJO",8,26,7,29,2,3,1,2
+Explainability & causality,9,17,10,26,0,8,0,1
 Parameterization & hybrid models,4,40,3,7,2,0,2,0
-Post-processing,5,19,6,18,2,2,1,0
-Benchmarks & datasets,3,12,5,8,0,6,3,0
-Data assimilation,0,8,4,2,7,1,3,0
-Sea ice,9,6,0,3,0,2,1,2
-Foundation models,2,1,0,0,2,5,0,0
+Post-processing,5,19,8,19,3,2,1,0
+Benchmarks & datasets,7,10,8,8,1,7,3,0
+Data assimilation,0,8,4,2,8,1,3,0
+Sea ice,10,5,0,3,0,2,1,2
+Foundation models,2,2,0,2,2,5,0,0
