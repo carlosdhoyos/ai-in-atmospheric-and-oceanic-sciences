@@ -1,0 +1,539 @@
+
+<!-- ═════════ PART 2 · ARCHITECTURE ═════════ -->
+
+<section class="slide" id="a-hier" data-g="a" data-sec="2 · Architecture">
+  <p class="kicker k-arch">Part 2 · Architecture</p>
+  <h2>Every network is simple arithmetic, organized in four levels</h2>
+  <p class="lead">The architecture is how numbers flow and connect: which values talk to which, with what weights, and what operation combines them. Multiply, add, apply a simple function, repeat many times. Click an item to see how it is built.</p>
+  <div class="fig-wrap" id="hierFig" style="margin-top:8px"></div>
+  <div class="panel" id="hierCard" style="margin-top:12px"></div>
+</section>
+
+<section class="slide" id="a-bias" data-g="a" data-sec="2 · Architecture · Inductive bias">
+  <p class="kicker k-arch">Unifying idea · inductive bias</p>
+  <h2>Each operation hard-codes an assumption about who should be connected to whom</h2>
+  <div class="two">
+    <div>
+      <div class="stack" id="ibPicks">
+        <button class="pick" data-v="dense" aria-pressed="true"><b>Dense</b><span>Everything connects to everything. No assumption.</span></button>
+        <button class="pick" data-v="conv" aria-pressed="false"><b>Convolution</b><span>Nearby values matter together, and the same pattern can appear anywhere.</span></button>
+        <button class="pick" data-v="rnn" aria-pressed="false"><b>Recurrence</b><span>Data comes in order; carry a memory forward step by step.</span></button>
+        <button class="pick" data-v="attn" aria-pressed="false"><b>Attention</b><span>Anything can connect to anything; the strength is computed from the content.</span></button>
+        <button class="pick" data-v="graph" aria-pressed="false"><b>Graph</b><span>Connections follow a given graph: stations, roads, molecules.</span></button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Seven days of input → the output for one day (click a day)</h3>
+      <div id="ibFig"></div>
+      <div class="readout" id="ibRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-geo" data-g="a" data-sec="2 · Architecture · Inductive bias">
+  <p class="kicker k-arch">The geometric view</p>
+  <h2>Choose the operation by the shape and symmetry of the data</h2>
+  <p class="lead">Geometric deep learning (Bronstein et al., 2021): a good architecture respects the symmetry the problem already has.</p>
+  <div class="four" id="geoCards" style="margin-top:8px"></div>
+  <div class="panel" id="geoText" style="margin-top:12px"></div>
+</section>
+
+<section class="slide" id="a-neuron" data-g="a" data-sec="2 · Architecture · A single neuron">
+  <p class="kicker k-arch">A single neuron</p>
+  <h2>A neuron multiplies, adds, and decides whether to pass the result on</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y = f(w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + b)</div>
+      <p>The worked example: x = [2, 3], w = [0.5, −1], b = 1. The sum is 2 × 0.5 + 3 × (−1) + 1 = −1, and ReLU(−1) = 0: the neuron stays silent. Change w<sub>2</sub> to +1 and the sum is 5: it fires.</p>
+      <div class="chips" id="nrAct"><button class="chip" data-v="relu" aria-pressed="true">ReLU</button><button class="chip" data-v="sigmoid">Sigmoid</button><button class="chip" data-v="tanh">Tanh</button><button class="chip" data-v="linear">None (linear)</button></div>
+      <div class="chips"><button class="btn" id="nrA" type="button">Example: silent (w₂ = −1)</button><button class="btn" id="nrB" type="button">Example: fires (w₂ = +1)</button></div>
+    </div>
+    <div class="panel">
+      <div id="nrFig"></div>
+      <div class="ctl"><label for="nrx1">x₁</label><input id="nrx1" type="range" min="-4" max="4" step="0.5" value="2"><output></output></div>
+      <div class="ctl"><label for="nrx2">x₂</label><input id="nrx2" type="range" min="-4" max="4" step="0.5" value="3"><output></output></div>
+      <div class="ctl"><label for="nrw1">w₁</label><input id="nrw1" type="range" min="-2" max="2" step="0.1" value="0.5"><output></output></div>
+      <div class="ctl"><label for="nrw2">w₂</label><input id="nrw2" type="range" min="-2" max="2" step="0.1" value="-1"><output></output></div>
+      <div class="ctl"><label for="nrb">b</label><input id="nrb" type="range" min="-3" max="3" step="0.5" value="1"><output></output></div>
+      <div class="calc" id="nrCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-dense" data-g="a" data-sec="2 · Architecture · Dense layer">
+  <p class="kicker k-arch">A dense (fully connected) layer</p>
+  <h2>Many neurons side by side: a matrix multiplication plus a bias</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y = f(W·x + b)</div>
+      <p>Each row of W is one neuron's weights over the same inputs. Three weather inputs to two outputs need 3 × 2 = 6 weights and 2 biases: <b>8 parameters</b>.</p>
+      <p>Edit any weight in the matrix. Hover an output to see its row of the multiplication.</p>
+      <div class="ctl"><label for="dnT">Temperature</label><input id="dnT" type="range" min="-2" max="2" step="0.1" value="1.2"><output></output></div>
+      <div class="ctl"><label for="dnH">Humidity</label><input id="dnH" type="range" min="-2" max="2" step="0.1" value="0.8"><output></output></div>
+      <div class="ctl"><label for="dnW">Wind</label><input id="dnW" type="range" min="-2" max="2" step="0.1" value="-0.5"><output></output></div>
+      <p class="note">Inputs are standardized (z-scores), as Part 1 recommends.</p>
+    </div>
+    <div class="panel">
+      <div id="dnFig"></div>
+      <div class="fig-wrap" id="dnMat" style="margin-top:8px"></div>
+      <div class="calc" id="dnCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-act" data-g="a" data-sec="2 · Architecture · Activation functions">
+  <p class="kicker k-arch">Activation functions</p>
+  <h2>A simple nonlinear function on each value</h2>
+  <div class="two">
+    <div>
+      <table class="tb" id="actTable"></table>
+      <p class="note" style="margin-top:10px">ReLU is the default in most hidden layers. Sigmoid gives a probability for a yes/no output. Tanh keeps values centred on zero (RNNs). GELU is a smooth ReLU used in transformers.</p>
+    </div>
+    <div class="panel">
+      <div class="chips" id="actPick"><button class="chip" data-v="relu" aria-pressed="true">ReLU</button><button class="chip" data-v="sigmoid">Sigmoid</button><button class="chip" data-v="tanh">Tanh</button><button class="chip" data-v="gelu">GELU</button></div>
+      <div id="actFig"></div>
+      <div class="ctl"><label for="actX">Input x</label><input id="actX" type="range" min="-4" max="4" step="0.1" value="-2"><output></output></div>
+      <div class="readout" id="actRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-whyact" data-g="a" data-sec="2 · Architecture · Activation functions">
+  <p class="kicker k-arch">Why activations matter</p>
+  <h2>Without a nonlinearity, ten layers are no better than one</h2>
+  <div class="two">
+    <div>
+      <p>Two dense layers without an activation are W₂(W₁x) = (W₂W₁)x: still one straight line. A nonlinearity between them lets each hidden neuron add a bend, and enough bends can follow any curve.</p>
+      <p>Target here: how runoff responds to rainfall. Nothing happens until the soil is saturated, then runoff rises steeply.</p>
+      <div class="chips" id="waMode"><button class="chip" data-v="relu" aria-pressed="true">With ReLU</button><button class="chip" data-v="linear">Without activation</button></div>
+      <div class="ctl"><label for="waN">Hidden neurons</label><input id="waN" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+    </div>
+    <div class="panel">
+      <div id="waFig"></div>
+      <div class="readout" id="waRead"></div>
+      <p class="note">The best fit for each setting, found by least squares on the output layer with the hidden neurons' "hinges" spread over the range.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-softmax" data-g="a" data-sec="2 · Architecture · Activation functions">
+  <p class="kicker k-arch">Softmax</p>
+  <h2>Softmax turns any list of scores into probabilities that sum to 1</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">p<sub>i</sub> = e<sup>z<sub>i</sub></sup> / Σ<sub>j</sub> e<sup>z<sub>j</sub></sup></div>
+      <p>The worked example: scores [2, 1, 0] become about [0.67, 0.24, 0.09]. Bigger scores win more than proportionally, because of the exponential.</p>
+      <p>A <b>temperature</b> T divides the scores first: low T makes the largest score take nearly everything; high T flattens the probabilities. The same knob appears in attention and in text generation.</p>
+    </div>
+    <div class="panel">
+      <h3>Season classifier: scores for tomorrow</h3>
+      <div class="ctl"><label for="smA">Dry</label><input id="smA" type="range" min="-3" max="5" step="0.1" value="2"><output></output></div>
+      <div class="ctl"><label for="smB">Normal</label><input id="smB" type="range" min="-3" max="5" step="0.1" value="1"><output></output></div>
+      <div class="ctl"><label for="smC">Wet</label><input id="smC" type="range" min="-3" max="5" step="0.1" value="0"><output></output></div>
+      <div class="ctl"><label for="smT">Temperature</label><input id="smT" type="range" min="0.2" max="4" step="0.1" value="1"><output></output></div>
+      <div id="smFig"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-conv1d" data-g="a" data-sec="2 · Architecture · Convolution">
+  <p class="kicker k-arch">Convolution in 1D</p>
+  <h2>A small filter of shared weights slides along the series</h2>
+  <div class="two">
+    <div>
+      <p>Daily rainfall [0, 2, 8, 3, 0] and the filter [1, 1, 1] (a 3-day sum): 0 + 2 + 8 = 10, 2 + 8 + 3 = 13, 8 + 3 + 0 = 11. The filter [−1, 0, 1] instead detects increases. The network <b>learns</b> the filter values.</p>
+      <div class="chips" id="c1Pick"><button class="chip" data-v="sum" aria-pressed="true">[1, 1, 1] 3-day sum</button><button class="chip" data-v="diff">[−1, 0, 1] increase</button><button class="chip" data-v="smooth">[¼, ½, ¼] smooth</button></div>
+      <div class="ctl"><label for="c1Dil">Dilation</label><input id="c1Dil" type="range" min="1" max="3" step="1" value="1"><output></output></div>
+      <p class="note"><b>Dilated convolution</b> skips positions: with dilation 2 a 3-tap filter covers days t, t−2 and t−4, seeing farther with the same 3 weights.</p>
+    </div>
+    <div class="panel nosw">
+      <h3>Rainfall (mm) · click a value to edit it</h3>
+      <div class="cells" id="c1In"></div>
+      <h3 style="margin-top:12px">Filter weights</h3>
+      <div class="cells" id="c1W"></div>
+      <h3 style="margin-top:12px">Output · slide the window</h3>
+      <div class="cells" id="c1Out"></div>
+      <div class="ctl"><label for="c1Pos">Position</label><input id="c1Pos" type="range" min="0" max="10" step="1" value="0"><output></output></div>
+      <div class="calc" id="c1Calc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-conv2d" data-g="a" data-sec="2 · Architecture · Convolution">
+  <p class="kicker k-arch">Convolution in 2D</p>
+  <h2>The same idea on a grid: one 3 × 3 filter scans the whole field</h2>
+  <div class="two">
+    <div>
+      <p>On an image or a gridded climate field, the filter is a small square. At each position it multiplies the 9 values under it by its 9 weights and adds them up. The same 9 weights are used everywhere: that is <b>weight sharing</b>.</p>
+      <div class="chips" id="c2Pick"><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="ex">Vertical edges</button><button class="chip" data-v="ey">Horizontal edges</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="id">Identity</button></div>
+      <div class="fig-wrap" id="c2K" style="margin-top:8px"></div>
+      <div class="calc" id="c2Calc"></div>
+    </div>
+    <div class="panel nosw">
+      <h3>Precipitation field → feature map (hover or tap a cell)</h3>
+      <div class="two even" style="gap:12px"><div id="c2In"></div><div id="c2Out"></div></div>
+      <div class="readout" id="c2Read"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-pool" data-g="a" data-sec="2 · Architecture · Pooling">
+  <p class="kicker k-arch">Pooling</p>
+  <h2>Pooling summarizes each neighbourhood with one number</h2>
+  <div class="two">
+    <div>
+      <p>Max pooling keeps the largest value; average pooling keeps the mean; global pooling summarizes the whole input. No weights to learn: it only shrinks and summarizes.</p>
+      <div class="calc" id="poCalc1"></div>
+      <div class="chips" id="poPick"><button class="chip" data-v="max" aria-pressed="true">Max</button><button class="chip" data-v="avg">Average</button></div>
+      <p class="note">The 4 × 4 grid is daily maximum temperature (°C). 2 × 2 max pooling keeps the hottest cell of each block: [[25, 19], [15, 26]].</p>
+    </div>
+    <div class="panel">
+      <div class="two even" style="gap:12px;align-items:center"><div id="poIn"></div><div id="poOut"></div></div>
+      <div class="readout" id="poRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-resize" data-g="a" data-sec="2 · Architecture · Resizing">
+  <p class="kicker k-arch">Downsampling and upsampling</p>
+  <h2>Shrink to see context, grow back to draw a map</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Downsampling:</b> strided convolution or pooling halves the resolution.</li>
+        <li><b>Upsampling:</b> interpolation, or a <b>transposed convolution</b>, which spreads each value over a larger output with learned weights. Used to turn a coarse 10 × 10 field into 20 × 20, as in downscaling.</li>
+        <li><b>U-Net</b> does both: an encoder shrinks the input to capture context, a decoder grows it back to a pixel-level map, and skip connections pass fine detail across.</li>
+      </ul>
+      <div class="chips" id="rsPick"><button class="chip" data-v="near" aria-pressed="true">Nearest neighbour</button><button class="chip" data-v="bil">Bilinear</button><button class="chip" data-v="tconv">Transposed conv (learned)</button></div>
+      <div class="two even" style="gap:12px;margin-top:6px"><div id="rsIn"></div><div id="rsOut"></div></div>
+    </div>
+    <div class="panel">
+      <h3>U-Net: the shape of the data through the network</h3>
+      <div id="unetFig"></div>
+      <div class="ctl"><label for="unDepth">Levels</label><input id="unDepth" type="range" min="2" max="4" step="1" value="3"><output></output></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-sep" data-g="a" data-sec="2 · Architecture · Convolution">
+  <p class="kicker k-arch">Depthwise separable convolution</p>
+  <h2>Split one big convolution into two cheap ones</h2>
+  <div class="two">
+    <div>
+      <p>A standard convolution mixes space and channels at once. A depthwise separable one first filters each channel on its own (depthwise), then mixes channels with a 1 × 1 convolution (pointwise). MobileNet uses it to run on phones.</p>
+      <div class="eq arch">standard: k·k·C<sub>in</sub>·C<sub>out</sub> &nbsp;&nbsp; separable: k·k·C<sub>in</sub> + C<sub>in</sub>·C<sub>out</sub></div>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="dsK">Kernel k</label><input id="dsK" type="range" min="1" max="7" step="2" value="3"><output></output></div>
+      <div class="ctl"><label for="dsCi">Channels in</label><input id="dsCi" type="range" min="1" max="256" step="1" value="64"><output></output></div>
+      <div class="ctl"><label for="dsCo">Channels out</label><input id="dsCo" type="range" min="1" max="256" step="1" value="128"><output></output></div>
+      <div id="dsFig"></div>
+      <div class="readout" id="dsRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-rnn" data-g="a" data-sec="2 · Architecture · Recurrence">
+  <p class="kicker k-arch">Recurrence</p>
+  <h2>Read one day at a time and carry a memory forward</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">h<sub>t</sub> = tanh(a · h<sub>t−1</sub> + b · x<sub>t</sub>)</div>
+      <p>The worked example: a = 0.5, b = 1, h₀ = 0, standardized rainfall [1, 0, 2]. Day 1: tanh(1) = 0.76. Day 2: tanh(0.38) = 0.36. Day 3: tanh(0.18 + 2) = 0.97. The state remembers wet days and fades during dry ones.</p>
+      <p>The same a and b are reused at every step: an LSTM layer reading 30 days of streamflow reuses its weights 30 times.</p>
+      <div class="ctl"><label for="rnA">Memory a</label><input id="rnA" type="range" min="0" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="ctl"><label for="rnB">Input b</label><input id="rnB" type="range" min="0" max="2" step="0.1" value="1"><output></output></div>
+    </div>
+    <div class="panel nosw">
+      <h3>Input (click a day to change it: 0 → 1 → 2)</h3>
+      <div class="cells" id="rnIn"></div>
+      <div id="rnFig"></div>
+      <div class="calc" id="rnCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-lstm" data-g="a" data-sec="2 · Architecture · Recurrence">
+  <p class="kicker k-arch">LSTM and GRU: gated memory</p>
+  <h2>Gates decide what to keep, what to forget and what to output</h2>
+  <div class="two">
+    <div>
+      <p>In a simple RNN the memory of a wet month decays by a factor a every day, so after a few weeks it is gone. An LSTM keeps a separate <b>cell state</b> c and a <b>forget gate</b> f between 0 and 1 that it learns to hold near 1 when the past matters.</p>
+      <div class="eq arch">c<sub>t</sub> = f · c<sub>t−1</sub> + i · x<sub>t</sub></div>
+      <p class="note">A gate is a valve: a learned number between 0 and 1 that multiplies a signal. A gate of 0.1 lets 10% through. GRUs use the same idea with two gates instead of three.</p>
+    </div>
+    <div class="panel">
+      <h3>Memory of a 10-day wet spell, 90 days later</h3>
+      <div class="ctl"><label for="lsA">RNN a</label><input id="lsA" type="range" min="0.5" max="0.99" step="0.01" value="0.8"><output></output></div>
+      <div class="ctl"><label for="lsF">LSTM forget f</label><input id="lsF" type="range" min="0.5" max="1" step="0.005" value="0.98"><output></output></div>
+      <div id="lsFig2"></div>
+      <div class="readout" id="lsRead2"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-attn" data-g="a" data-sec="2 · Architecture · Attention">
+  <p class="kicker k-arch">Attention</p>
+  <h2>Each word scores every other word, then takes a weighted average</h2>
+  <div class="two">
+    <div>
+      <ol class="pts" style="padding-left:20px">
+        <li>Score how related the chosen word is to every word (a dot product of learned vectors).</li>
+        <li>Softmax turns the scores into weights that sum to 1.</li>
+        <li>The output is the weighted average of the words' values.</li>
+      </ol>
+      <p>For "it" in <i>the cat sat because it was tired</i>, the scores against [the, cat, sat, tired] are [0, 3, 1, 2], and softmax gives about [0.03, 0.64, 0.09, 0.24]: "it" takes its meaning mostly from "cat".</p>
+      <div class="ctl"><label for="atT">Temperature</label><input id="atT" type="range" min="0.3" max="3" step="0.1" value="1"><output></output></div>
+    </div>
+    <div class="panel">
+      <h3>Click a word to make it the query</h3>
+      <div id="atFig"></div>
+      <div class="calc" id="atCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-heads" data-g="a" data-sec="2 · Architecture · Attention">
+  <p class="kicker k-arch">Multi-head attention in a forecast</p>
+  <h2>Several heads, each learning a different kind of relation</h2>
+  <div class="two">
+    <div>
+      <p>In forecasting, today can attend to the most relevant past days, not only the most recent. Different heads specialize: one looks at the last few days, another at the same season last year.</p>
+      <div class="chips" id="hdPick"><button class="chip" data-v="rec" aria-pressed="true">Head 1: recent days</button><button class="chip" data-v="sea">Head 2: same season</button><button class="chip" data-v="both">Both heads</button></div>
+      <div class="ctl"><label for="hdW">Recency width</label><input id="hdW" type="range" min="2" max="30" step="1" value="7"><output></output></div>
+      <p class="note"><b>Self-attention:</b> elements of one sequence attend to each other. <b>Cross-attention:</b> one sequence attends to another, as when a forecast attends to satellite inputs.</p>
+    </div>
+    <div class="panel">
+      <h3>Attention weights over the past 2 years (today = right edge)</h3>
+      <div id="hdFig"></div>
+      <div class="readout" id="hdRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-graph" data-g="a" data-sec="2 · Architecture · Graphs">
+  <p class="kicker k-arch">Graph message passing</p>
+  <h2>Each station updates itself from the messages of its neighbours</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">h<sub>i</sub> ← α · h<sub>i</sub> + (1 − α) · mean<sub>j ∈ N(i)</sub> h<sub>j</sub></div>
+      <p>Real graph networks use learned weights on the messages; this keeps only the averaging. After one round each station knows its neighbours; after k rounds, stations k hops away.</p>
+      <div class="ctl"><label for="gnA">Self weight α</label><input id="gnA" type="range" min="0" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="chips"><button class="btn" id="gnStep" type="button">Run one round</button><button class="btn" id="gnReset" type="button">Reset</button></div>
+    </div>
+    <div class="panel nosw">
+      <h3>Rain gauges as a graph · click a station to see its messages</h3>
+      <div id="gnFig"></div>
+      <div class="calc" id="gnCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-embed" data-g="a" data-sec="2 · Architecture · Embeddings">
+  <p class="kicker k-arch">Embedding lookup</p>
+  <h2>A category ID picks a row from a table of learnable vectors</h2>
+  <div class="two">
+    <div>
+      <p>125 municipalities of Antioquia, each mapped to 4 numbers: a 125 × 4 table, <b>500 parameters</b>. Municipality 17 → row 17 → [0.2, −1.1, 0.7, 0.0]. After training, municipalities with similar attrition patterns end up with similar vectors.</p>
+      <div class="ctl"><label for="emV">Categories</label><input id="emV" type="range" min="0" max="5" step="1" value="0"><output></output></div>
+      <div class="ctl"><label for="emD">Vector size</label><input id="emD" type="range" min="0" max="5" step="1" value="0"><output></output></div>
+      <div class="readout" id="emRead"></div>
+    </div>
+    <div class="panel">
+      <h3>Two of the four learned dimensions (illustrative)</h3>
+      <div id="emFig"></div>
+      <div class="calc" id="emCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-norm" data-g="a" data-sec="2 · Architecture · Normalization">
+  <p class="kicker k-arch">Normalization</p>
+  <h2>Rescale intermediate values to keep training in a healthy range</h2>
+  <div class="two">
+    <div>
+      <p>Layer norm example: [2, 4, 6] has mean 4 and standard deviation 1.63, so it becomes [−1.22, 0, 1.22]. A learned scale and shift then adjust it: × 2 + 1 gives [−1.45, 1, 3.45].</p>
+      <div class="ctl"><label for="nmG">Scale γ</label><input id="nmG" type="range" min="0" max="3" step="0.1" value="2"><output></output></div>
+      <div class="ctl"><label for="nmB">Shift β</label><input id="nmB" type="range" min="-2" max="2" step="0.1" value="1"><output></output></div>
+      <div class="calc" id="nmCalc"></div>
+    </div>
+    <div class="panel">
+      <h3>Which numbers are normalized together?</h3>
+      <div class="chips" id="nmPick"><button class="chip" data-v="layer" aria-pressed="true">Layer norm</button><button class="chip" data-v="batch">Batch norm</button></div>
+      <div id="nmFig"></div>
+      <p class="note" id="nmNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-wiring" data-g="a" data-sec="2 · Architecture · Wiring tricks">
+  <p class="kicker k-arch">Wiring tricks</p>
+  <h2>Residuals, concatenation and gates: three ways to route the numbers</h2>
+  <div class="three">
+    <div class="panel">
+      <h4>Residual (skip) connection</h4>
+      <div class="eq arch" style="font-size:17px">out = x + layer(x)</div>
+      <div class="ctl"><label for="wrX">Input x</label><input id="wrX" type="range" min="-10" max="10" step="0.5" value="5"><output></output></div>
+      <div class="ctl"><label for="wrL">layer(x)</label><input id="wrL" type="range" min="-2" max="2" step="0.1" value="0.2"><output></output></div>
+      <div class="readout" id="wrRead"></div>
+      <p class="note">The layer only learns the correction. Even a layer that outputs 0 passes x through, which keeps very deep networks trainable.</p>
+    </div>
+    <div class="panel">
+      <h4>Concatenation</h4>
+      <div id="wcFig"></div>
+      <p class="note">Stack outputs side by side: satellite features next to station features before a dense layer, or encoder features next to decoder features in a U-Net.</p>
+    </div>
+    <div class="panel">
+      <h4>Gating</h4>
+      <div class="ctl"><label for="wgG">Gate</label><input id="wgG" type="range" min="0" max="1" step="0.05" value="0.1"><output></output></div>
+      <div id="wgFig"></div>
+      <p class="note">A learned value between 0 and 1 multiplies the signal, like a valve. The core of LSTMs and GRUs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-dropout" data-g="a" data-sec="2 · Architecture · Dropout">
+  <p class="kicker k-arch">Dropout (training only)</p>
+  <h2>Switch off random neurons in training so no single one becomes a crutch</h2>
+  <div class="two">
+    <div>
+      <p>With rate 0.5, [4, 2, 6, 8] might become [8, 0, 12, 0]: the survivors are scaled up by 1 / (1 − rate) so the average stays the same. At prediction time dropout is off.</p>
+      <p>In a student attrition model, dropout of 0.3 after a dense layer of 64 neurons switches off about 19 random neurons at every training step, so the model cannot memorize one shortcut like "absences &gt; 10".</p>
+      <div class="ctl"><label for="doR">Rate</label><input id="doR" type="range" min="0" max="0.9" step="0.05" value="0.3"><output></output></div>
+      <div class="chips" id="doMode"><button class="chip" data-v="train" aria-pressed="true">Training step</button><button class="chip" data-v="pred">Prediction</button></div>
+      <div class="chips"><button class="btn" id="doNext" type="button">Next training step</button></div>
+    </div>
+    <div class="panel">
+      <h3>A dense layer of 64 neurons</h3>
+      <div id="doFig"></div>
+      <div class="readout" id="doRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-roles" data-g="a" data-sec="2 · Architecture · Layers">
+  <p class="kicker k-arch">Layers by position</p>
+  <h2>The input layer is a shape, the hidden layers build representations, the task sets the output</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Input layer:</b> not a computation, just the shape of the data: 5 features per student, or a 64 × 64 field with 3 variables.</li>
+        <li><b>Hidden layers:</b> early ones find simple patterns (edges, short rain bursts); deeper ones combine them (shapes, storm systems).</li>
+        <li><b>Output layer:</b> chosen by the task. Pick one.</li>
+      </ul>
+      <div class="stack" id="roPicks">
+        <button class="pick" data-v="reg" aria-pressed="true"><b>Regression</b><span>Tomorrow's rainfall in mm.</span></button>
+        <button class="pick" data-v="bin" aria-pressed="false"><b>Binary classification</b><span>Fraud or not; attrition or not.</span></button>
+        <button class="pick" data-v="multi" aria-pressed="false"><b>Multiclass</b><span>Dry, normal or wet season.</span></button>
+        <button class="pick" data-v="map" aria-pressed="false"><b>Spatial output</b><span>A downscaled precipitation map.</span></button>
+      </div>
+    </div>
+    <div class="panel">
+      <div id="roFig"></div>
+      <div class="calc" id="roCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-params" data-g="a" data-sec="2 · Architecture · Layers">
+  <p class="kicker k-arch">Common layer types · counting parameters</p>
+  <h2>Count the weights by hand and "big models" stop being mysterious</h2>
+  <div class="two">
+    <div class="stack" id="pcPicks"></div>
+    <div class="panel">
+      <h3 id="pcTitle"></h3>
+      <div id="pcCtl"></div>
+      <div class="eq arch" id="pcFormula" style="font-size:18px"></div>
+      <div class="readout" id="pcRead"></div>
+      <p class="note" id="pcNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-shapes" data-g="a" data-sec="2 · Architecture · Shapes">
+  <p class="kicker k-arch">Shapes and parameters through a network</p>
+  <h2>Track the shape at every layer: the most practical skill there is</h2>
+  <div class="two">
+    <div>
+      <p>The worked example: a 28 × 28 image → convolution with 8 filters → 28 × 28 × 8 → max pooling → 14 × 14 × 8 → flatten → 1,568 → dense → 10 classes. Total 15,770 parameters, and 99% sit in the last dense layer.</p>
+      <div class="ctl"><label for="shF">Conv filters</label><input id="shF" type="range" min="1" max="64" step="1" value="8"><output></output></div>
+      <div class="ctl"><label for="shK">Kernel size</label><input id="shK" type="range" min="1" max="7" step="2" value="3"><output></output></div>
+      <div class="ctl"><label for="shP">Pooling</label><input id="shP" type="range" min="0" max="2" step="1" value="1"><output></output></div>
+      <div class="ctl"><label for="shH">Extra dense layer</label><input id="shH" type="range" min="0" max="256" step="16" value="0"><output></output></div>
+      <div class="ctl"><label for="shC">Classes</label><input id="shC" type="range" min="2" max="20" step="1" value="10"><output></output></div>
+    </div>
+    <div class="panel">
+      <div class="fig-wrap" id="shTable"></div>
+      <div id="shBar" style="margin-top:10px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-width" data-g="a" data-sec="2 · Architecture · Width and depth">
+  <p class="kicker k-arch">Width and depth</p>
+  <h2>Wider sees more patterns at once; deeper builds more abstract ones</h2>
+  <div class="two">
+    <div>
+      <p><b>Width</b> is the number of neurons or filters in a layer; <b>depth</b> is the number of layers. An image model with three convolution layers finds edges, then corners and textures, then whole objects. A very wide but shallow dense layer can fit the training data yet generalizes worse than a moderately deep one.</p>
+      <div class="ctl"><label for="wdIn">Inputs</label><input id="wdIn" type="range" min="2" max="50" step="1" value="10"><output></output></div>
+      <div class="ctl"><label for="wdW">Width</label><input id="wdW" type="range" min="4" max="512" step="4" value="64"><output></output></div>
+      <div class="ctl"><label for="wdD">Hidden layers</label><input id="wdD" type="range" min="1" max="8" step="1" value="2"><output></output></div>
+      <div class="readout" id="wdRead"></div>
+    </div>
+    <div class="panel">
+      <div id="wdFig"></div>
+      <div class="three" style="margin-top:10px" id="wdHier"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-trainable" data-g="a" data-sec="2 · Architecture · Layers">
+  <p class="kicker k-arch">Trainable or not?</p>
+  <h2>Which layers learn weights, and which only move numbers around?</h2>
+  <div class="two">
+    <div>
+      <p>Dense, convolutional, recurrent, attention, embedding and normalization layers learn. Pooling, flatten and dropout do not: they summarize, rearrange or switch values off.</p>
+      <div class="callout violet">In the shapes example, the convolution has 80 parameters, pooling and flatten have 0, and the dense layer has 1,568 × 10 + 10 = 15,690. Total 15,770.</div>
+    </div>
+    <div class="panel">
+      <h3>Does this layer have trainable weights?</h3>
+      <div class="quiz" id="trQuiz"></div>
+      <div class="readout"><div><span>Correct</span><b id="trScore" class="c-ok">0 / 0</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-families" data-g="a" data-sec="2 · Architecture · Families">
+  <p class="kicker k-arch">Architecture families</p>
+  <h2>Whole networks are blocks stacked in a pattern</h2>
+  <div class="two">
+    <div class="stack" id="fmPicks"></div>
+    <div class="panel">
+      <div id="fmFig"></div>
+      <p id="fmText" style="margin-top:10px"></p>
+      <div class="three" id="fmEx"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="a-close" data-g="a" data-sec="2 · Architecture · Summary">
+  <p class="kicker k-arch">Summary and next steps</p>
+  <h2>Data shapes what can be learned; architecture shapes how</h2>
+  <div class="two even">
+    <div class="stack">
+      <div class="card"><h4 style="color:var(--data)">Part 1 · Data foundation</h4><p>Know where the numbers come from, check them, encode and scale them with training statistics only, ask why data is missing, split by time, hunt for leakage, and respect the people behind the records.</p></div>
+      <div class="card"><h4 style="color:var(--arch)">Part 2 · Architecture</h4><p>Operations are multiply, add and a simple function. Layers add weights, blocks repeat layers, families stack blocks. Pick the operation that matches the shape of the data, and track shapes and parameters at every step.</p></div>
+    </div>
+    <div class="panel">
+      <h3>Coming next</h3>
+      <ul class="pts">
+        <li>Activation functions in detail: dying ReLU, saturation, why GELU.</li>
+        <li>Training: loss functions, gradient descent and backpropagation, step by step with numbers.</li>
+        <li>Overfitting and regularization: early stopping, weight decay, dropout in practice.</li>
+        <li>How blocks stack into the main families, with real climate, health and education examples.</li>
+      </ul>
+      <p class="sources">Reference for the geometric view: M. M. Bronstein, J. Bruna, T. Cohen and P. Veličković (2021), <i>Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges</i>, arXiv:2104.13478. All data in this deck are synthetic examples built for teaching.</p>
+      <button class="btn" data-go="0" type="button">← Back to the cover</button>
+    </div>
+  </div>
+</section>

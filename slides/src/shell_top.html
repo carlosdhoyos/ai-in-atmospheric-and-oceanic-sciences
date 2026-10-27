@@ -1,0 +1,42 @@
+<title>Inside a Neural Network</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Interactive class deck: the data foundation and the architecture of neural networks, with worked numerical examples.">
+<script>
+(function(){var d=document.documentElement,t;try{t=localStorage.getItem('theme')}catch(e){}
+if(t)d.dataset.theme=t;d.lang='en';})()
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+/*CSS*/
+</style>
+<div class="deck">
+<header class="top">
+  <a class="back" href="https://carlosdhoyos.github.io/semillero/ia-atmosfera-oceano/">← AI study group</a>
+  <div class="sec" id="secLabel"><b>Neural networks</b></div>
+  <button class="theme-tg" id="themeTg" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<main id="main">
+
+<!-- COVER -->
+<section class="slide" id="cover" data-g="" data-sec="Neural networks">
+  <div class="cover">
+    <p class="kicker">Neural networks · conceptual components</p>
+    <h1>Inside a neural network: <span class="hl">data in, simple arithmetic, repeated</span></h1>
+    <p class="lead">Everything that happens to the numbers before they reach the network, and everything that happens to them inside it. Each idea comes with a small example you can change: rain gauges and climate fields, hospital records, fraud, and student attrition.</p>
+    <div class="toc">
+      <button class="c-data" data-go="d-pipeline"><div class="n">Part 1</div><div class="t">The data foundation</div><div class="d">Acquisition, quality control, data types and encoding, transformations, missing data, splits, leakage, dimensionality, imbalance, augmentation, labels, bias, privacy and governance.</div></button>
+      <button class="c-arch" data-go="a-hier"><div class="n">Part 2</div><div class="t">Architecture</div><div class="d">From operations to layers, blocks and families. A neuron, dense layers, activations, convolution, pooling, recurrence, attention, graphs, embeddings, normalization, wiring tricks, shapes and parameter counts.</div></button>
+    </div>
+    <p class="note">Use ← → (or swipe), the buttons below, or the <button class="btn" data-go="toc" style="padding:2px 10px;font-size:12.5px">table of contents</button>. Every slide has its own link.</p>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="slide" id="toc" data-g="" data-sec="Contents">
+  <p class="kicker">Contents</p>
+  <h2>Table of contents</h2>
+  <p class="note">Click any title to jump to it. The number is the slide's position.</p>
+  <div id="tocList" class="toclist"></div>
+</section>

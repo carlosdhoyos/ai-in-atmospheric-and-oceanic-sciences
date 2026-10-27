@@ -1,0 +1,489 @@
+
+<!-- ═════════ PART 1 · DATA FOUNDATION ═════════ -->
+
+<section class="slide" id="d-pipeline" data-g="d" data-sec="1 · Data foundation">
+  <p class="kicker k-data">Part 1 · The data foundation</p>
+  <h2>Most of the work happens before the first neuron</h2>
+  <p class="lead" style="margin-bottom:16px">A network only sees a table of numbers. Every choice that turns measurements into that table shapes what it can learn. Click a stage.</p>
+  <div class="fig-wrap" id="pipeFig"></div>
+  <div class="two" style="margin-top:14px">
+    <div class="panel" id="pipeCard"></div>
+    <div class="stack">
+      <div class="callout teal"><b>The rule of thumb.</b> Garbage in, garbage out still holds. A bigger network does not fix a mislabeled target, a leaky feature or a test set that overlaps the training set.</div>
+      <div class="callout"><b>Terminology.</b> We say <i>student attrition</i>, not "school dropout", so it is never confused with <i>dropout</i>, the regularization technique of Part 2.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-acq" data-g="d" data-sec="1 · Data foundation · Acquisition">
+  <p class="kicker k-data">Measurement and acquisition</p>
+  <h2>The same rain, three instruments, three different numbers</h2>
+  <div class="two">
+    <div>
+      <p>Data comes from platforms that measure different things. A rain gauge samples a point the size of a bucket. Radar infers rain from reflected microwaves over a few square kilometers. Satellites estimate it from cloud-top temperature or microwave emission over tens of kilometers.</p>
+      <ul class="pts">
+        <li>Each source has its own <b>resolution, bias and failure modes</b>. Radar overestimates in the melting layer; satellites miss light rain and underestimate convective peaks.</li>
+        <li>Combining them is already a modelling decision: which one is the "truth" you train against?</li>
+        <li>The same happens outside climate: hospital records from different clinics, or enrollment systems that code a student's status differently.</li>
+      </ul>
+      <div class="three" style="margin-top:6px">
+        <div class="card"><h4>Basin rainfall</h4><p>Gauges, radar, satellite products such as CHIRPS or IMERG.</p></div>
+        <div class="card"><h4>Health</h4><p>Hospital records, lab systems, insurance claims.</p></div>
+        <div class="card"><h4>Education</h4><p>Enrollment systems, attendance logs, national test scores.</p></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>60 days over one basin (synthetic example)</h3>
+      <div class="chips" id="acqChips">
+        <button class="chip" data-v="gauge" aria-pressed="true">Gauge</button>
+        <button class="chip" data-v="radar" aria-pressed="true">Radar</button>
+        <button class="chip" data-v="sat" aria-pressed="true">Satellite</button>
+      </div>
+      <div id="acqFig"></div>
+      <div class="readout" id="acqRead"></div>
+      <p class="note" style="margin-top:8px">Click a chip to show or hide a source. Correlation and bias are computed against the gauge.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-qc" data-g="d" data-sec="1 · Data foundation · QA/QC">
+  <p class="kicker k-data">Quality control and quality assurance (QA/QC)</p>
+  <h2>Automatic checks catch most broken values before they reach the model</h2>
+  <div class="two">
+    <div>
+      <p><b>Quality assurance</b> prevents errors (calibration, maintenance, clear protocols). <b>Quality control</b> detects them afterwards. Four classic checks:</p>
+      <ul class="pts">
+        <li><b>Range:</b> physically impossible values (−99 used as a missing code, a student aged 150).</li>
+        <li><b>Flatline:</b> a sensor stuck at the same value for days.</li>
+        <li><b>Spike:</b> a jump far larger than the series' usual day-to-day change.</li>
+        <li><b>Gaps:</b> missing timestamps, which we treat on their own slide.</li>
+      </ul>
+      <div class="callout amber">A flag is a question, not a verdict. A spike can be a real heatwave; QC decides what to inspect, and a person decides what to drop.</div>
+    </div>
+    <div class="panel">
+      <h3>Daily maximum temperature, one station (synthetic)</h3>
+      <div class="chips" id="qcChips">
+        <button class="chip" data-v="none" aria-pressed="true">Raw series</button>
+        <button class="chip" data-v="range">Range check</button>
+        <button class="chip" data-v="flat">Flatline check</button>
+        <button class="chip" data-v="spike">Spike check</button>
+        <button class="chip" data-v="all">All checks</button>
+      </div>
+      <div id="qcFig"></div>
+      <div class="ctl"><label for="qcK">Spike limit</label><input id="qcK" type="range" min="2" max="8" step="0.5" value="4"><output></output></div>
+      <div class="readout" id="qcRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-types" data-g="d" data-sec="1 · Data foundation · Data types">
+  <p class="kicker k-data">Data types</p>
+  <h2>Numbers are not all the same kind of number</h2>
+  <div class="two">
+    <div>
+      <div class="four" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="card"><span class="tag t-data">numerical</span><h4 style="margin-top:6px">Continuous</h4><p>Any value in a range: rainfall in mm, income, temperature.</p></div>
+        <div class="card"><span class="tag t-data">numerical</span><h4 style="margin-top:6px">Discrete</h4><p>Counts: number of failed courses, hospital visits.</p></div>
+        <div class="card"><span class="tag t-arch">categorical</span><h4 style="margin-top:6px">Nominal</h4><p>Labels with no order: municipality, blood type.</p></div>
+        <div class="card"><span class="tag t-arch">categorical</span><h4 style="margin-top:6px">Ordinal</h4><p>Ordered labels: estrato 1 to 6, a 1–5 satisfaction score.</p></div>
+      </div>
+      <p class="note" style="margin-top:12px">The type decides the encoding (next slide) and which transformations make sense. Averaging municipality codes is meaningless; averaging estrato is debatable; averaging rainfall is fine.</p>
+    </div>
+    <div class="panel">
+      <h3>Classify each variable</h3>
+      <div class="quiz" id="typesQuiz"></div>
+      <div class="readout"><div><span>Correct</span><b id="typesScore" class="c-ok">0 / 0</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-enc" data-g="d" data-sec="1 · Data foundation · Encoding">
+  <p class="kicker k-data">Encoding categorical variables</p>
+  <h2>Pick the encoding that keeps the structure the category really has</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>One-hot:</b> one column per category, a 1 in the matching column. No order is implied. Right for municipality.</li>
+        <li><b>Ordinal:</b> one column with the rank. Right for estrato, whose levels have a natural order.</li>
+        <li><b>Embedding:</b> a learned vector per category, inside the network (Part 2). Useful when there are hundreds of categories.</li>
+      </ul>
+      <div class="callout red" id="encWarn"></div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="encVar"><button class="chip" data-v="muni" aria-pressed="true">Municipality</button><button class="chip" data-v="estrato">Estrato</button></div>
+      <div class="chips" id="encKind"><button class="chip" data-v="onehot" aria-pressed="true">One-hot</button><button class="chip" data-v="ordinal">Ordinal</button></div>
+      <div class="fig-wrap" id="encTable"></div>
+      <div class="readout" id="encRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-trans" data-g="d" data-sec="1 · Data foundation · Transformations">
+  <p class="kicker k-data">Transformations</p>
+  <h2>Rescale so no variable dominates just because of its units</h2>
+  <div class="two even">
+    <div class="panel">
+      <h3>Scaling two features: income and age</h3>
+      <div class="chips" id="trScale"><button class="chip" data-v="raw" aria-pressed="true">Raw</button><button class="chip" data-v="minmax">Min–max [0, 1]</button><button class="chip" data-v="z">Standardize (z)</button></div>
+      <div id="trScatter"></div>
+      <div class="calc" id="trCalc"></div>
+    </div>
+    <div class="panel">
+      <h3>Skewed variables: daily rainfall</h3>
+      <div class="chips" id="trLog"><button class="chip" data-v="raw" aria-pressed="true">mm</button><button class="chip" data-v="log">log(1 + mm)</button></div>
+      <div id="trHist"></div>
+      <p class="note">Most days are dry or nearly dry and a few are extreme. A log transform spreads the small values and pulls in the long tail, so the extremes stop dominating the loss. Transaction amounts behave the same way.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:12px"><b>Min–max</b> maps to [0, 1] with the training minimum and maximum. <b>Standardization</b> subtracts the training mean and divides by the training standard deviation. Either way, fit the statistics on the training set only (see <button class="btn" data-go="d-leak-scale" style="padding:1px 8px;font-size:12px">leakage</button>).</p>
+</section>
+
+<section class="slide" id="d-unstr" data-g="d" data-sec="1 · Data foundation · Unstructured data">
+  <p class="kicker k-data">Raw unstructured data into numbers</p>
+  <h2>Text becomes token IDs; an image is already a grid of numbers</h2>
+  <div class="two even">
+    <div class="panel">
+      <h3>Tokenizing text</h3>
+      <input type="text" id="tokIn" value="Heavy rain is expected tomorrow in Medellín" aria-label="Sentence to tokenize" style="width:100%">
+      <div class="cells" id="tokOut" style="margin-top:12px"></div>
+      <div class="cells" id="tokIds" style="margin-top:8px"></div>
+      <p class="note" style="margin-top:10px">This toy tokenizer splits on words and punctuation and gives each new word the next free ID. Real tokenizers split rare words into sub-word pieces (Medellín → Med · ell · ín) so the vocabulary stays fixed, around 50,000 tokens.</p>
+    </div>
+    <div class="panel">
+      <h3>An image is a grid of pixel values (draw on it)</h3>
+      <div class="two even" style="gap:14px">
+        <canvas id="pxCanvas" width="240" height="240" style="width:100%;max-width:240px;border:1px solid var(--line);border-radius:12px;touch-action:none;cursor:crosshair" aria-label="Drawing grid, 8 by 8 pixels"></canvas>
+        <div class="fig-wrap"><div id="pxNums" class="mono" style="font-size:11.5px;line-height:1.55;white-space:pre"></div></div>
+      </div>
+      <div class="chips"><button class="btn" id="pxClear" type="button">Clear</button><button class="btn" id="pxDemo" type="button">Example: a cloud</button></div>
+      <p class="note">8 × 8 = 64 numbers between 0 (empty) and 1 (full). A colour photo has three such grids (red, green, blue); a satellite scene can have dozens of bands.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-gray" data-g="d" data-sec="1 · Data foundation · Embeddings">
+  <p class="kicker k-data">Gray zone: embeddings</p>
+  <h2>Where does an embedding belong: data preparation or the network?</h2>
+  <p class="lead">It depends on who sets its numbers. Pick a case and see where it sits.</p>
+  <div class="two">
+    <div class="stack" id="grayPicks">
+      <button class="pick" data-v="0" aria-pressed="true"><b>Tokenization, pixel arrays</b><span>Fixed rules turn raw data into numbers. Nothing is learned.</span></button>
+      <button class="pick" data-v="1" aria-pressed="false"><b>Learned embedding layer</b><span>A lookup table whose values are trained with the rest of the network.</span></button>
+      <button class="pick" data-v="2" aria-pressed="false"><b>Frozen pretrained embeddings</b><span>Vectors from another model, used as fixed input features.</span></button>
+    </div>
+    <div class="panel">
+      <div id="grayFig"></div>
+      <p id="grayText" style="margin-top:10px"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-missing" data-g="d" data-sec="1 · Data foundation · Missing data">
+  <p class="kicker k-data">Missing data · why is it missing?</p>
+  <h2>The reason values are missing decides whether ignoring them biases the result</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Missing completely at random (MCAR):</b> a sensor battery fails on random days. Dropping those records loses data but adds no bias.</li>
+        <li><b>Missing at random (MAR):</b> missingness depends on something you observe, e.g. rural schools answer the survey less often. Correct for it using that variable.</li>
+        <li><b>Missing not at random (MNAR):</b> students at risk skip the survey <i>because</i> they are at risk. Missingness itself is informative.</li>
+      </ul>
+      <div class="callout teal">Add a <b>"was missing"</b> flag as a feature. When missingness carries information (MNAR), the model can use it directly.</div>
+    </div>
+    <div class="panel">
+      <h3>Survey of 400 students: average risk score</h3>
+      <div class="chips" id="misMech"><button class="chip" data-v="mcar" aria-pressed="true">MCAR</button><button class="chip" data-v="mar">MAR</button><button class="chip" data-v="mnar">MNAR</button></div>
+      <div class="ctl"><label for="misRate">Missing</label><input id="misRate" type="range" min="0" max="60" step="5" value="30"><output></output></div>
+      <div id="misFig"></div>
+      <div class="readout" id="misRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-gapfill" data-g="d" data-sec="1 · Data foundation · Missing data">
+  <p class="kicker k-data">Missing data · filling the gap</p>
+  <h2>Filling a gap in a rain gauge: neighbours beat the average</h2>
+  <div class="two">
+    <div>
+      <p>Options, from simplest to richest:</p>
+      <ul class="pts">
+        <li><b>Drop</b> the records with gaps.</li>
+        <li><b>Simple imputation:</b> fill with the mean or median.</li>
+        <li><b>Interpolation</b> between the last and next valid values; fine for smooth variables, poor for rain.</li>
+        <li><b>Model-based imputation:</b> predict the gap from correlated neighbouring stations.</li>
+      </ul>
+      <p class="note">Whatever you choose, keep the flag: an imputed value is an estimate, and the model should know it.</p>
+    </div>
+    <div class="panel">
+      <h3>Station A has a 12-day gap; B and C are nearby</h3>
+      <div class="chips" id="gfChips"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="interp">Linear interpolation</button><button class="chip" data-v="nbr">Neighbour regression</button></div>
+      <div id="gfFig"></div>
+      <div class="readout" id="gfRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-splits" data-g="d" data-sec="1 · Data foundation · Data splits">
+  <p class="kicker k-data">Data splits</p>
+  <h2>Three subsets with three jobs: fit, choose, and judge once</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Training set:</b> fits the weights.</li>
+        <li><b>Validation set:</b> evaluated during development to tune hyperparameters and pick models.</li>
+        <li><b>Test set:</b> untouched until the end; the final, unbiased estimate.</li>
+      </ul>
+      <div class="callout amber"><b>Terminology trap.</b> Some fields (and some hydrology papers) swap "validation" and "test". Define them explicitly every time.</div>
+      <p>For time series and climate data, <b>split by time</b>: train on the past, test on the future. Neighbouring days are correlated, so a random split hides near-copies of test days in the training set.</p>
+    </div>
+    <div class="panel">
+      <div class="chips" id="spMode"><button class="chip" data-v="time" aria-pressed="true">Split by time</button><button class="chip" data-v="random">Random split</button></div>
+      <div class="ctl"><label for="spTrain">Training</label><input id="spTrain" type="range" min="40" max="80" step="5" value="60"><output></output></div>
+      <div class="ctl"><label for="spVal">Validation</label><input id="spVal" type="range" min="10" max="30" step="5" value="20"><output></output></div>
+      <div id="spFig"></div>
+      <div class="readout" id="spRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-leak" data-g="d" data-sec="1 · Data foundation · Data leakage">
+  <p class="kicker k-data">Data leakage</p>
+  <h2>If a feature only exists after the answer is known, it is leaking the answer</h2>
+  <div class="two">
+    <div>
+      <p>Leakage is information the model would not have at prediction time. Test scores look excellent; real-world performance collapses. Check for it every time you build features or splits.</p>
+      <div class="stack" id="lkCases">
+        <button class="pick" data-v="fraud" aria-pressed="true"><b>Fraud</b><span>Predict at the moment of the transaction.</span></button>
+        <button class="pick" data-v="health" aria-pressed="false"><b>Health</b><span>Predict the disease at the first visit.</span></button>
+        <button class="pick" data-v="att" aria-pressed="false"><b>Student attrition</b><span>Predict at the start of the school year.</span></button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>When does each feature become known? Toggle features in and out</h3>
+      <div id="lkFig"></div>
+      <div class="readout" id="lkRead"></div>
+      <p class="note" id="lkNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-leak-scale" data-g="d" data-sec="1 · Data foundation · Data leakage">
+  <p class="kicker k-data">Data leakage · the classic mistake</p>
+  <h2>Fit the scaler on the training set only</h2>
+  <div class="two">
+    <div>
+      <p>Standardizing with the mean and standard deviation of the <i>full</i> dataset, before splitting, lets the test period's statistics into training. With a trend (warming, growing enrollment, inflation) the effect is large.</p>
+      <div class="eq data">z = (x − μ<sub>train</sub>) / σ<sub>train</sub></div>
+      <ol class="pts" style="padding-left:20px">
+        <li>Split first.</li>
+        <li>Fit the scaler, imputer, encoder and feature selector on the training set.</li>
+        <li>Apply the fitted transforms, unchanged, to validation and test.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h3>A warming series: where is the split?</h3>
+      <div class="chips" id="lsMode"><button class="chip" data-v="train" aria-pressed="true">Scaler fit on training</button><button class="chip" data-v="all">Scaler fit on all data</button></div>
+      <div class="ctl"><label for="lsSplit">Split year</label><input id="lsSplit" type="range" min="1995" max="2015" step="1" value="2010"><output></output></div>
+      <div id="lsFig"></div>
+      <div class="readout" id="lsRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-dimred" data-g="d" data-sec="1 · Data foundation · Dimensionality">
+  <p class="kicker k-data">Dimensionality reduction and feature selection</p>
+  <h2>Correlated inputs can be compressed into a few directions that carry most of the variance</h2>
+  <div class="two">
+    <div>
+      <p>Useful with many correlated features, few samples, or noisy high-dimensional data.</p>
+      <ul class="pts">
+        <li><b>PCA / EOFs:</b> new axes along the directions of largest variance. Climate example: a few EOFs of gridded sea surface temperature capture ENSO.</li>
+        <li><b>Filter methods:</b> rank features by correlation or mutual information with the target.</li>
+        <li><b>Wrapper methods:</b> try subsets and keep the one that validates best.</li>
+        <li><b>L1 regularization:</b> pushes useless weights to exactly zero.</li>
+      </ul>
+      <p class="note">Health: a handful of informative lab tests out of thousands. Attrition: dozens of socioeconomic and academic variables reduced to the few that drive risk.</p>
+    </div>
+    <div class="panel">
+      <h3>SST anomaly at two nearby grid cells: rotate the axis</h3>
+      <div id="pcaFig"></div>
+      <div class="ctl"><label for="pcaAng">Axis angle</label><input id="pcaAng" type="range" min="0" max="180" step="1" value="10"><output></output></div>
+      <div class="chips"><button class="btn" id="pcaSnap" type="button">Snap to the first principal component</button></div>
+      <div class="readout" id="pcaRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-imb" data-g="d" data-sec="1 · Data foundation · Class imbalance">
+  <p class="kicker k-data">Class imbalance</p>
+  <h2>When the event is rare, 99.9% accuracy can mean the model never finds it</h2>
+  <div class="two">
+    <div>
+      <p>Fraud is maybe 0.1% of transactions; student attrition 5–15% per year; a rare disease far less. Predicting "never" is accurate and useless.</p>
+      <ul class="pts">
+        <li><b>Metrics:</b> precision, recall, F1 or PR-AUC instead of accuracy.</li>
+        <li><b>Resampling:</b> oversample the rare class (or SMOTE), undersample the common one.</li>
+        <li><b>Class weights</b> in the loss: errors on the rare class cost more.</li>
+        <li><b>Threshold:</b> move the decision threshold to trade precision for recall.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>A classifier's scores on 10,000 cases</h3>
+      <div class="ctl"><label for="imPrev">Rare class</label><input id="imPrev" type="range" min="0" max="12" step="1" value="4"><output></output></div>
+      <div class="ctl"><label for="imThr">Threshold</label><input id="imThr" type="range" min="0.05" max="0.95" step="0.01" value="0.5"><output></output></div>
+      <div id="imFig"></div>
+      <div class="two even" style="gap:14px;margin-top:8px">
+        <div class="fig-wrap" id="imCM"></div>
+        <div class="readout" id="imRead" style="margin-top:0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-aug" data-g="d" data-sec="1 · Data foundation · Augmentation">
+  <p class="kicker k-data">Data augmentation</p>
+  <h2>New training examples from changes that should not change the answer</h2>
+  <div class="two even">
+    <div class="panel">
+      <h3>Images: a radar echo (click to augment)</h3>
+      <div class="chips" id="augBtns">
+        <button class="btn" data-v="flip" type="button">Flip</button><button class="btn" data-v="rot" type="button">Rotate 90°</button>
+        <button class="btn" data-v="crop" type="button">Shift / crop</button><button class="btn" data-v="bright" type="button">Brightness</button>
+        <button class="btn" data-v="noise" type="button">Noise</button><button class="btn" data-v="reset" type="button">Original</button>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <canvas id="augCanvas" width="192" height="192" style="width:160px;border:1px solid var(--line);border-radius:12px" aria-label="Augmented example image"></canvas>
+        <div id="augLog" class="note" style="flex:1;min-width:12em"></div>
+      </div>
+      <p class="note" style="margin-top:8px">Medical images (X-rays) use the same tricks, but only those that keep the diagnosis: never flip left–right if the side matters.</p>
+    </div>
+    <div class="panel">
+      <h3>Rare classes: SMOTE makes synthetic minority cases</h3>
+      <div id="smoteFig"></div>
+      <div class="chips"><button class="btn" id="smoteAdd" type="button">Add 10 synthetic cases</button><button class="btn" id="smoteReset" type="button">Reset</button></div>
+      <p class="note">Each synthetic point lies on the segment between a minority case and one of its minority neighbours. Text has its own versions: paraphrases, synonym replacement, back-translation.</p>
+      <div class="callout red" style="margin-bottom:0"><b>Augment only the training set.</b> Never the validation or test set, or you evaluate on copies of what you trained on.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-labels" data-g="d" data-sec="1 · Data foundation · Labels">
+  <p class="kicker k-data">Labeling and ground truth</p>
+  <h2>A model cannot be more right than its labels</h2>
+  <div class="two">
+    <div>
+      <p>Who decides what counts as fraud, disease or attrition, and how consistently? Fraud is often confirmed weeks later; two doctors may disagree on a diagnosis; a student who transfers may be recorded as having left.</p>
+      <div class="callout amber"><b>Noisy labels set a ceiling.</b> Even a perfect model is "wrong" on the cases whose label is wrong, and it learns from those mistakes during training.</div>
+      <p class="note">Delayed labels also matter: if fraud is confirmed 30 days later, the most recent month of training data is mislabeled as "not fraud".</p>
+    </div>
+    <div class="panel">
+      <h3>Two doctors label the same 200 X-rays</h3>
+      <div class="ctl"><label for="lbAgree">Agreement</label><input id="lbAgree" type="range" min="50" max="100" step="1" value="85"><output></output></div>
+      <div class="ctl"><label for="lbPrev">Disease</label><input id="lbPrev" type="range" min="5" max="50" step="5" value="20"><output></output></div>
+      <div id="lbFig"></div>
+      <div class="readout" id="lbRead"></div>
+      <p class="note">Cohen's κ corrects the raw agreement for agreement expected by chance. Below about 0.6, the labels themselves are a research problem.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-outliers" data-g="d" data-sec="1 · Data foundation · Outliers">
+  <p class="kicker k-data">Outliers and anomalies</p>
+  <h2>An outlier can be an error to remove or exactly the event you want to predict</h2>
+  <div class="two">
+    <div>
+      <p>A statistical rule flags values far from the rest. Whether to remove them is a domain decision.</p>
+      <ul class="pts">
+        <li>A gauge reading of 900 mm in a day, next to dry neighbours, is a recording error.</li>
+        <li>A record 180 mm storm, confirmed by radar, is not noise. Removing it destroys what a flood model needs to learn.</li>
+      </ul>
+      <div class="callout teal">Click a flagged point to remove it or keep it, and watch what happens to the design storm.</div>
+    </div>
+    <div class="panel">
+      <h3>20 years of annual maximum daily rainfall (synthetic)</h3>
+      <div class="ctl"><label for="olZ">Flag above</label><input id="olZ" type="range" min="1.5" max="4" step="0.1" value="2.5"><output></output></div>
+      <div id="olFig"></div>
+      <div class="readout" id="olRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-bias" data-g="d" data-sec="1 · Data foundation · Bias">
+  <p class="kicker k-data">Bias and representativeness</p>
+  <h2>A model learns the population it was trained on, not the one it is used on</h2>
+  <div class="two">
+    <div>
+      <p>An attrition model trained only on urban schools may fail in rural ones, where distance, harvest seasons and transport change who leaves. The same applies to a rainfall model trained on lowland stations and used in the Andes.</p>
+      <div class="callout amber">Check the training sample against the deployment population, group by group, and report errors per group, not only the overall average.</div>
+    </div>
+    <div class="panel">
+      <h3>Training sample: share of rural students</h3>
+      <div class="ctl"><label for="biRural">Rural share</label><input id="biRural" type="range" min="0" max="50" step="5" value="5"><output></output></div>
+      <div id="biFig"></div>
+      <div class="readout" id="biRead"></div>
+      <p class="note">Risk rises with absences in both groups, but faster in rural schools. A single line fit to an urban-heavy sample underestimates rural risk.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-privacy" data-g="d" data-sec="1 · Data foundation · Privacy and ethics">
+  <p class="kicker k-data">Privacy and ethics</p>
+  <h2>Removing names is not enough to anonymize a dataset</h2>
+  <div class="two">
+    <div>
+      <p>Health and student records are sensitive personal data. Colombia's personal data protection law (Ley 1581 de 2012) and Europe's GDPR require a legal basis, informed consent where applicable, purpose limitation and security.</p>
+      <ul class="pts">
+        <li><b>Direct identifiers</b> (name, ID number) must go.</li>
+        <li><b>Quasi-identifiers</b> (age, municipality, school) can still single a person out when combined.</li>
+        <li><b>k-anonymity:</b> every combination of quasi-identifiers is shared by at least k people.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Student records (fictional)</h3>
+      <div class="chips" id="pvSteps">
+        <button class="chip" data-v="0" aria-pressed="true">Raw</button>
+        <button class="chip" data-v="1">Drop identifiers</button>
+        <button class="chip" data-v="2">Age in bands</button>
+        <button class="chip" data-v="3">Municipality → subregion</button>
+      </div>
+      <div class="fig-wrap" id="pvTable"></div>
+      <div class="readout" id="pvRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-lineage" data-g="d" data-sec="1 · Data foundation · Versioning and lineage">
+  <p class="kicker k-data">Data versioning and lineage</p>
+  <h2>Know which data, transformed how, trained which model</h2>
+  <div class="two">
+    <div>
+      <p>A reanalysis gets a new version and your model's skill changes. Without versioning you cannot tell whether the model, the code or the data changed.</p>
+      <ul class="pts">
+        <li>Version raw data, code and configuration together (dataset version + git commit).</li>
+        <li>Record each transformation as a step with its inputs and outputs.</li>
+        <li>Store, with every trained model, the exact versions it came from.</li>
+      </ul>
+      <div class="callout teal">Click a data source to update it and see everything downstream that must be rebuilt.</div>
+    </div>
+    <div class="panel">
+      <div id="lnFig"></div>
+      <p class="note" id="lnNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-gov" data-g="d" data-sec="1 · Data foundation · Governance">
+  <p class="kicker k-data">Data governance</p>
+  <h2>Governance ties quality, privacy, ethics, lineage and compliance together</h2>
+  <p class="lead">The policies, roles and processes that decide how data is collected, owned, accessed, documented, protected and used. Models are only as trustworthy as the data and the rules around it.</p>
+  <div class="two" style="margin-top:8px">
+    <div class="stack" id="govRoles"></div>
+    <div class="panel">
+      <h3 id="govTitle"></h3>
+      <p id="govText"></p>
+      <h3 style="margin-top:14px">Skills</h3>
+      <div class="chips" id="govSkills"></div>
+      <div class="callout green" style="margin-bottom:0"><b>A career path.</b> Governance is a growing field for people who want to be part of the data and AI revolution without the deep mathematical side.</div>
+    </div>
+  </div>
+</section>
