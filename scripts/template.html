@@ -120,6 +120,7 @@ main { padding-block: 8px 60px; }
 .summary-card .basis { grid-column: 1 / -1; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6px; }
 @media (max-width: 520px) { .summary-card { grid-template-columns: minmax(0, 1fr); } .summary-card dt { padding-top: 6px; } }
 .empty { padding: 48px 0; color: var(--muted); text-align: center; }
+.more { padding: 24px 0 48px; color: var(--muted); text-align: center; font-size: 13px; }
 .toast { position: fixed; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 13px; z-index: 20; }
 dialog { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); width: min(760px, calc(100vw - 32px)); padding: 16px; }
 dialog textarea { width: 100%; height: 50vh; font: 12px/1.4 var(--f-mono); background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
@@ -382,7 +383,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
         <button type="button" role="tab" id="tab-reviews" aria-selected="false" aria-controls="reviews">Key reviews</button>
         <button type="button" role="tab" id="tab-insights" aria-selected="false" aria-controls="insights">Insights</button>
       </div>
-      <button class="btn primary" id="bib-all" type="button">BibTeX for shown papers</button>
+      <button class="btn primary" id="bib-all" type="button">BibTeX for all matching papers</button>
       <button class="btn" id="reset" type="button">Clear filters</button>
       <span class="summary" id="summary"></span>
     </div>
@@ -391,6 +392,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
 <div class="wrap">
   <main id="list" aria-live="polite"></main>
+  <div id="more" class="more" hidden><span id="more-note"></span> <button class="btn" id="more-btn" type="button">Show more</button></div>
   <section id="reviews" hidden aria-label="Key reviews">
     <div class="findings">
       <h2>Highly cited reviews and perspectives</h2>
@@ -660,6 +662,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     renderFacets();
     $("summary").textContent = `${fmt(rows.length)} of ${fmt(P.length)} papers · ${fmt(rows.reduce((a, p) => a + p.cites, 0))} citations`;
     $("list").hidden = state.tab !== "papers";
+    if (state.tab !== "papers") clearList();  // no paper DOM behind the other tabs
     $("insights").hidden = state.tab !== "insights";
     $("reviews").hidden = state.tab !== "reviews";
     $("journals").hidden = state.tab !== "journals";
@@ -672,14 +675,15 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     renderList(rows);
   }
 
-  function renderList(rows) {
-    const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
-    const maxC = Math.max(1, ...P.map(p => p.cites));
-    if (!rows.length) { $("list").innerHTML = `<p class="empty">No papers match these filters. Try a shorter search or clear the filters.</p>`; return; }
-    $("list").innerHTML = rows.map(p => {
-      const url = p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
-      const open = state.open.has(p.id), sOpen = state.sum.has(p.id);
-      return `<article class="paper" data-id="${p.id}">
+  // The list renders in chunks: filtering, sorting, counts, BibTeX and the other tabs use the full selection,
+  // but only the first CHUNK matching papers are in the DOM until the reader scrolls (or presses "Show more").
+  const CHUNK = 50, maxC = Math.max(1, ...P.map(p => p.cites));
+  let listRows = [], shown = 0;
+  function paperHtml(p, terms) {
+    const url = p.doi ? `https://doi.org/${p.doi}` : p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url;
+    const open = state.open.has(p.id), sOpen = state.sum.has(p.id);
+    // abstract and summary are only built once expanded
+    return `<article class="paper" data-id="${p.id}">
         <div class="cites"><b>${fmt(p.cites)}</b><span>citations</span><span>${p.rate >= 10 ? Math.round(p.rate) : p.rate.toFixed(1)}/yr</span>
           <div class="meter" aria-hidden="true"><i style="width:${Math.max(2, Math.sqrt(p.cites / maxC) * 100)}%"></i></div></div>
         <div>
@@ -699,10 +703,32 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
             <button type="button" data-act="bib">BibTeX</button>
           </div>
           ${p.summary && sOpen ? `<dl class="summary-card">${SUMMARY_FIELDS.map(([k, l]) => `<dt>${l}</dt><dd>${hl(p.summary[k] || "Not reported.", terms)}</dd>`).join("")}<p class="basis">${BASIS[p.summary.basis] || ""}</p></dl>` : ""}
-          ${p.abstract ? `<p class="abstract" ${open ? "" : "hidden"}>${hl(p.abstract, terms)}</p>` : ""}
+          ${p.abstract && open ? `<p class="abstract">${hl(p.abstract, terms)}</p>` : ""}
         </div></article>`;
-    }).join("");
   }
+  const searchTerms = () => state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  function showMore(upTo = shown + CHUNK) {
+    const end = Math.min(listRows.length, upTo), terms = searchTerms();
+    if (end > shown) $("list").insertAdjacentHTML("beforeend", listRows.slice(shown, end).map(p => paperHtml(p, terms)).join(""));
+    shown = end;
+    $("more").hidden = shown >= listRows.length;
+    $("more-note").textContent = `Showing ${fmt(shown)} of ${fmt(listRows.length)}.`;
+    if (io) { io.unobserve($("more")); if (!$("more").hidden) io.observe($("more")); }  // re-check: still near the end?
+  }
+  function renderList(rows) {
+    listRows = rows; shown = 0;
+    $("list").innerHTML = rows.length ? "" : `<p class="empty">No papers match these filters. Try a shorter search or clear the filters.</p>`;
+    showMore(CHUNK);
+  }
+  function clearList() { listRows = []; shown = 0; $("list").innerHTML = ""; $("more").hidden = true; }
+  function rerenderPaper(p) {  // after expanding or collapsing one paper; keeps the rest of the list and the scroll position
+    const el = document.querySelector(`.paper[data-id="${p.id}"]`);
+    if (el) el.outerHTML = paperHtml(p, searchTerms());
+  }
+  $("more-btn").onclick = () => showMore();
+  const io = "IntersectionObserver" in window &&
+    new IntersectionObserver(es => { if (es.some(e => e.isIntersecting) && state.tab === "papers") showMore(); },
+                             { rootMargin: "800px 0px" });
 
   // Citation helpers
   const byId = Object.fromEntries(P.map(p => [p.id, p]));
@@ -745,8 +771,8 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
     const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.topic) { state.topics = new Set([b.dataset.topic]); syncChips(); render(); window.scrollTo({ top: 0 }); return; }
     const p = byId[b.closest(".paper").dataset.id];
-    if (b.dataset.act === "abs") { state.open.has(p.id) ? state.open.delete(p.id) : state.open.add(p.id); render(); }
-    if (b.dataset.act === "sum") { state.sum.has(p.id) ? state.sum.delete(p.id) : state.sum.add(p.id); render(); }
+    if (b.dataset.act === "abs") { state.open.has(p.id) ? state.open.delete(p.id) : state.open.add(p.id); rerenderPaper(p); }
+    if (b.dataset.act === "sum") { state.sum.has(p.id) ? state.sum.delete(p.id) : state.sum.add(p.id); rerenderPaper(p); }
     if (b.dataset.act === "bib") copy(bibtex(p), "BibTeX");
     if (b.dataset.act === "cite") copy(citation(p), "Citation");
   });
@@ -885,6 +911,8 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
 
   function openPaper(id) {
     state.tab = "papers"; state.sum.add(id); render();
+    const i = listRows.findIndex(p => p.id === id);
+    if (i >= shown) showMore(i + 1);
     const el = document.querySelector(`.paper[data-id="${id}"]`);
     if (el) el.scrollIntoView({ block: "center" });
   }
