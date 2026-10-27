@@ -22,7 +22,7 @@ def write(con, periods_sql, order, n_all=None):
     y0, y1 = q("SELECT min(year), max(year) FROM papers")[0]
     per_year = dict(q("SELECT year, count(*) FROM papers GROUP BY 1"))
     recent = {y: per_year.get(y, 0) for y in (y1 - 1, y1)}
-    from taxonomy import BASELINE
+    from taxonomy import BASELINE, SAMPLING_NOTE
     b = order.index(BASELINE)  # "then vs now" comparisons start at the first deep-learning-era period
     first, last, second = order[b], order[-1], order[b + 1]
 
@@ -133,7 +133,6 @@ def write(con, periods_sql, order, n_all=None):
                               for j, fam, n, idx, t, c in jrows)
 
     # figure captions
-    peak = sorted(per_year.items(), key=lambda x: -x[1])[:2]
     fam = q("""SELECT family, count(DISTINCT paper_id) FROM paper_architecture a JOIN papers p USING (paper_id)
                WHERE a.tag_kind = 'model_family' AND p.paper_type <> 'review' GROUP BY 1 ORDER BY 2 DESC""")
     fam_d = dict(fam)
@@ -179,7 +178,7 @@ Built from `data/papers.duckdb` by [`analysis/eda.py`](eda.py), which also write
 ### Papers per year
 ![Papers per year by primary subfield](figures/01_papers_per_year_by_subfield.png)
 
-The busiest years in the catalog are {peak[0][0]} ({peak[0][1]} papers) and {peak[1][0]} ({peak[1][1]}).
+{SAMPLING_NOTE} Read the chart for the subfield mix within a year, not for growth between years.
 
 ### Model families
 ![Model families](figures/02_architecture_families.png)

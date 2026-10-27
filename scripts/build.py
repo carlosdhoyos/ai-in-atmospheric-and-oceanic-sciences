@@ -17,7 +17,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import s2
 from resolve_ids import sim
-from taxonomy import PERIODS, categorize, load_overrides
+from taxonomy import PERIODS, SAMPLING_NOTE, categorize, load_overrides
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 D = lambda *p: os.path.join(ROOT, "data", *p)
@@ -285,6 +285,7 @@ def main():
         tpl = template.replace("/*DATA*/", blob)
         for k in ("TITLE", "EYEBROW", "H1", "LEDE"):
             tpl = tpl.replace(f"__{k}__", page[k.lower()])
+        tpl = tpl.replace("__SAMPLING__", SAMPLING_NOTE)
         # Standalone page for the repo / GitHub Pages, with a link to its sibling page
         repo = tpl.replace("__XLINK__", page["xlink"])
         head, _, body = repo.partition('<div class="wrap">')

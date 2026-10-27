@@ -73,6 +73,7 @@ h1 { font-family: var(--f-display); font-stretch: 112%; font-weight: 800; font-s
 
 .hist { margin: 8px 0 0; }
 .hist svg { display: block; width: 100%; height: 86px; }
+.hist-note { margin: 4px 0 0; font-size: 11px; line-height: 1.4; color: var(--muted); max-width: 340px; }
 .hist .cap { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
 .hist rect { cursor: pointer; }
 
@@ -345,6 +346,7 @@ dialog textarea { border-radius: 12px; background: var(--bg); color: var(--fg); 
       <div class="hist" aria-label="Papers per year; click a bar to filter that year">
         <svg id="hist" viewBox="0 0 340 86" preserveAspectRatio="none" role="img"></svg>
         <div class="cap"><span id="h-min"></span><span>papers per year (click to filter)</span><span id="h-max"></span></div>
+        <p class="hist-note">Bar heights show search depth, not publication volume: every candidate up to 2009 was screened; from 2010 on, only the 400 most cited candidates of each year.</p>
       </div>
     </div>
   </header>
