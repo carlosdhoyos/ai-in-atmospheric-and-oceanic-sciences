@@ -85,7 +85,8 @@ def crossref_doi(doi):
     if not raw:
         return None
     it = json.loads(raw)["message"]
-    return {"type": it.get("type"), "venue": (it.get("container-title") or [""])[0]}
+    year = ((it.get("issued") or {}).get("date-parts") or [[None]])[0][0]
+    return {"type": it.get("type"), "venue": (it.get("container-title") or [""])[0], "year": year}
 
 
 def dois():

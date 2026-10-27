@@ -241,7 +241,7 @@ def main():
             "title": clean_title(main["title"]),
             "authors": [a["name"] for a in main.get("authors") or []],
             "year": main.get("year") or int((main.get("publicationDate") or "0000")[:4]) or
-                    next((r.get("year") for r in recs if r.get("year")), 0),
+                    next((r.get("year") for r in recs if r.get("year")), 0) or (cr or {}).get("year", 0),
             "date": main.get("publicationDate"),
             "venue": venue, "kind": kind,
             "volume": (jr.get("volume") or "").strip() or None,
