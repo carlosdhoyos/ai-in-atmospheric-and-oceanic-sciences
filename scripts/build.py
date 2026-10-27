@@ -75,8 +75,15 @@ PAGES = [
 ]
 
 
+# Semantic Scholar titles damaged at the source (first letters lost in PDF extraction)
+TITLE_FIXES = {"pplication of artificial neural networks for the soil moisture retrieval rom active and passive "
+               "microwave spaceborne sensors": "Application of artificial neural networks for the soil moisture "
+               "retrieval from active and passive microwave spaceborne sensors"}
+
+
 def clean_title(t):
     t = t.replace("{\\deg}", "°").replace("\\deg", "°")
+    t = TITLE_FIXES.get(re.sub(r"\s+", " ", t).strip(), t)
     return re.sub(r"\s+", " ", t).strip()
 
 
