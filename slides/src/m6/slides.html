@@ -1,0 +1,26 @@
+
+<section class="slide" id="cover" data-g="" data-sec="Module 6 · Optimization">
+  <div class="cover">
+    <p class="kicker k-arch">Neural networks · Module 6 · Coming next</p>
+    <h1>Optimization: <span class="hl">how the weights are found</span></h1>
+    <p class="lead">This module is a placeholder. It will take the idea from Module 0 (start random, measure the error, nudge every weight, repeat) and open it up: where the slopes come from in a deep network, why the landscape is hard, and the methods that make training work.</p>
+    <p class="note">Start with the two slides in the overview: <a href="index.html#o-learn">how it learns</a> and <a href="index.html#o-landscape">one bowl or many valleys</a>.</p>
+  </div>
+</section>
+
+<section class="slide" id="opt-plan" data-g="a" data-sec="Module 6 · Planned contents">
+  <p class="kicker k-arch">Planned contents</p>
+  <h2>What this module will cover</h2>
+  <div class="three" style="margin-top:8px">
+    <div class="card"><h4 style="color:var(--arch)">Loss functions</h4><p>Mean squared error, cross-entropy, losses for rare events and for whole maps; what each one rewards.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Backpropagation</h4><p>The chain rule worked by hand through a two-layer network, then automatic differentiation as libraries do it.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Gradient descent and friends</h4><p>Step size, mini-batches and stochastic gradients, momentum, Adam, learning-rate schedules and warm-up.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">The landscape</h4><p>Local minima, saddle points and plateaus; why random starts end in different places; why wide valleys generalize better.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Gradients that vanish or explode</h4><p>Why deep stacks struggle, and how initialization, normalization and residual shortcuts fix it.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Regularization and stopping</h4><p>Weight decay, dropout, early stopping and validation curves: training well without memorizing.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">When the chain breaks</h4><p>Kinks, hard decisions and sampling: surrogate gradients, straight-through and reparameterization tricks.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Black-box physics</h4><p>Models with no derivatives: trial nudges, adjoint models as in 4D-Var data assimilation, differentiable physics (JAX).</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Practice</h4><p>Reading training curves, choosing a learning rate, and the usual failure signs, with atmospheric and ocean examples.</p></div>
+  </div>
+  <p class="note" style="margin-top:12px">Back to <a href="index.html">Module 0 · Overview</a> · <a href="layers.html">Module 3 · Layers</a>.</p>
+</section>

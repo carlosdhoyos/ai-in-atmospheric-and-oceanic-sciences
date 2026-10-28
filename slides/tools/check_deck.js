@@ -1,5 +1,5 @@
 // Headless check of one module deck: every slide is shown at desktop (light) and phone (dark) width; reports JS errors,
-// horizontal overflow and empty demo hosts. Optional screenshots of named slides.
+// horizontal overflow, empty demo hosts and duplicate element ids. Optional screenshots of named slides.
 //   node slides/tools/check_deck.js slides/operations.html [outdir slideId slideId …]
 const { chromium } = require('playwright');
 const path = require('path');
@@ -11,6 +11,8 @@ const path = require('path');
     p.on('pageerror', e => errs.push(`${vw}: ${e.message}`)); p.on('console', m => m.type() === 'error' && errs.push(`${vw} console: ${m.text()}`));
     await p.goto(url); await p.waitForTimeout(400);
     const n = await p.evaluate(() => document.querySelectorAll('.slide').length), probs = [];
+    const dup = await p.evaluate(() => { const c = {}; document.querySelectorAll('[id]').forEach(e => c[e.id] = (c[e.id] || 0) + 1); return Object.keys(c).filter(k => c[k] > 1); });
+    if (dup.length) probs.push(`duplicate ids: ${dup.join(',')}`);
     for (let i = 0; i < n; i++) {
       if (i) await p.click('#next');
       await p.waitForTimeout(50);

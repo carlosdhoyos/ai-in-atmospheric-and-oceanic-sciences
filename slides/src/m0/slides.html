@@ -125,6 +125,10 @@
       <p><b>Try it:</b> one neuron, ŷ = w·x + b, learns temperature from elevation at five stations. It starts from a random w and b. Each step does the same four things, shown with the current numbers:</p>
       <div class="calc" id="oLearnSteps" style="line-height:1.65"></div>
       <details class="why" style="margin-top:8px"><summary>How is the slope known at the very first step? Doesn't it need two points?</summary><div id="oLearnWhy" style="margin-top:6px"></div></details>
+      <details class="why" style="margin-top:6px"><summary>Does this work for any network, or only because it is a line?</summary>
+        <p>For almost any network. A network is a chain of simple pieces (multiply, add, ReLU, sigmoid, softmax, convolution, attention), and each piece has a known derivative. The <b>chain rule</b> multiplies them along the path from the error back to every weight. That is <b>backpropagation</b>; libraries such as PyTorch or JAX do it automatically, still from one point, even for a billion weights.</p>
+        <p>What <i>is</i> special about the line is the landscape: one bowl, so going downhill always reaches the best answer. A network's landscape has many valleys, so the exact slope is only <i>local</i>. Try it on the <button class="btn" type="button" data-go="o-landscape" style="padding:1px 8px;font-size:12.5px">next slide</button>. Kinks, hard decisions and black-box models need extra care; <a href="optimization.html">Module 6 · Optimization</a> (coming next) covers all of this.</p>
+      </details>
       <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
       <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
       <div class="readout" id="oLearnRead"></div>
@@ -141,6 +145,29 @@
   </div>
 </section>
 
+<section class="slide" id="o-landscape" data-g="a" data-sec="Module 0 · How it learns">
+  <p class="kicker k-arch">How it learns · the landscape</p>
+  <h2>The slope is exact for any network, but only a line has a single valley</h2>
+  <div class="two">
+    <div>
+      <p>Every building block has a known derivative, and the chain rule links them, so backpropagation gives the exact slope for every weight of any network, from one point. The slope says which way is downhill <b>here</b>. For a line the error is one bowl; for a network it has many valleys.</p>
+      <p><b>Try it:</b> the error as one weight changes. Drop balls at random starts; each follows the slope downhill.</p>
+      <div class="chips" id="oBasinKind"><button class="chip" data-v="bowl" aria-pressed="true">A line: one bowl</button><button class="chip" data-v="net">A network: many valleys</button></div>
+      <div class="chips"><button class="btn" id="oBasinOne" type="button">Drop a ball</button><button class="btn" id="oBasinTen" type="button">Drop 10 balls</button><button class="btn" id="oBasinClear" type="button">Clear</button></div>
+      <div class="ctl"><label for="oBasinLr">Step size η</label><input id="oBasinLr" type="range" min="0.02" max="0.5" step="0.02" value="0.1"><output></output></div>
+      <div class="readout" id="oBasinRead"></div>
+    </div>
+    <div class="panel"><div id="oBasinFig"></div><p class="note" id="oBasinNote" style="margin:6px 0 0"></p></div>
+  </div>
+  <div class="four" style="margin-top:12px">
+    <div class="card"><h4>Kinks</h4><p style="font-size:13.5px">ReLU's corner at 0 and max-pooling have no slope at one exact point; libraries use a convention. Harmless in practice.</p></div>
+    <div class="card"><h4>Steps and hard decisions</h4><p style="font-size:13.5px">Rounding, thresholds, argmax, sampling: flat almost everywhere, slope 0. Fixes: smooth versions, straight-through tricks.</p></div>
+    <div class="card"><h4>Black-box physics</h4><p style="font-size:13.5px">A model code with no derivatives breaks the chain: trial nudges, adjoint models (as in 4D-Var), or differentiable physics.</p></div>
+    <div class="card"><h4>Mini-batches</h4><p style="font-size:13.5px">Slopes are computed on a few examples at a time: exact for that batch, a noisy estimate for all the data.</p></div>
+  </div>
+  <p class="note" style="margin-top:8px">All of this, in depth: <a href="optimization.html">Module 6 · Optimization</a> (coming next).</p>
+</section>
+
 <section class="slide" id="o-next" data-g="" data-sec="Module 0 · Where to go next">
   <p class="kicker">Where to go next</p>
   <h2>Pick a module</h2>
@@ -153,6 +180,7 @@
     <div class="stack">
       <div class="pick" style="opacity:.6;cursor:default"><b>4 · Blocks</b><span>Residual and transformer blocks, encoders and decoders. Coming next.</span></div>
       <div class="pick" style="opacity:.6;cursor:default"><b>5 · Architecture Families</b><span>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</span></div>
+      <a class="pick" href="optimization.html" style="opacity:.75"><b>6 · Optimization</b><span>How the weights are found: backpropagation, gradient descent, Adam, landscapes. Coming next; planned contents only.</span></a>
       <p class="note">Every module is interactive: each operation and idea has a control you can move. All data are synthetic examples built for teaching.</p>
     </div>
   </div>

@@ -7,7 +7,7 @@
 
 Layout of slides/src:
   common/   deck.css, core.js (helpers, navigation), helpers.js, datasets.js (shared example data), boot.js
-  m0 … m3/  one folder per module: its slides (*.html, order below) and demos (*.js, same order)
+  m0 … m6/  one folder per module (m6 is a placeholder for now): its slides (*.html, order below) and demos (*.js, same order)
 Each script file goes in its own <script> tag, so an error in one group's demos cannot stop the others.
 """
 import html
@@ -22,6 +22,7 @@ MODULES = [
     ("2", "operations.html", "Operations", "Neural Networks: Operations",
      ["m2/intro.html"] + [f"m2/g{i}.html" for i in range(1, 7)] + ["m2/outro.html"], ["m2/intro.js"] + [f"m2/g{i}.js" for i in range(1, 7)]),
     ("3", "layers.html", "Layers", "Neural Networks: Layers", ["m3/slides.html"], ["m3/demos.js"]),
+    ("6", "optimization.html", "Optimization", "Neural Networks: Optimization", ["m6/slides.html"], []),
 ]
 LATER = [("4", "Blocks"), ("5", "Architecture Families")]
 COMMON_JS = ["common/core.js", "common/helpers.js", "common/datasets.js"]
@@ -33,9 +34,10 @@ def read(name):
 
 
 def page(num, title, doc_title, parts, js):
+    series = sorted([(n, f, t) for n, f, t, *_ in MODULES] + [(n, None, t) for n, t in LATER], key=lambda m: int(m[0]))
     nav = "".join(
-        f'<a href="{f}" class="mod{" on" if n == num else ""}"{" aria-current=\"page\"" if n == num else ""}><span>{n}</span> {t}</a>'
-        for n, f, t, *_ in MODULES) + "".join(f'<span class="mod later" title="Coming next"><span>{n}</span> {t}</span>' for n, t in LATER)
+        f'<a href="{f}" class="mod{" on" if n == num else ""}"{" aria-current=\"page\"" if n == num else ""}><span>{n}</span> {t}</a>' if f
+        else f'<span class="mod later" title="Coming next"><span>{n}</span> {t}</span>' for n, f, t in series)
     top = f"""<title>{html.escape(doc_title)}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Neural networks, Module {num}: {html.escape(title)}. Interactive class deck with worked numerical examples.">

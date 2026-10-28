@@ -426,7 +426,7 @@ demo("o-learn", () => {
   const lamMax = 2 * ((mxx + 1) + Math.sqrt((mxx - 1) ** 2 + 4 * mx * mx)) / 2, etaMax = 2 / lamMax;   // steps above this overshoot
   let w, b, hist, trail, last, timer = null, rnd = rng(7);
   const gl = slider("oLr", v => fmt(v, 2), () => render());
-  $("#o-learn details.why").addEventListener("toggle", fitSlide);   // re-fit the slide when the note opens or closes
+  $$("#o-learn details.why").forEach(d => d.addEventListener("toggle", fitSlide));   // re-fit the slide when a note opens or closes
   const lossAt = (w, b) => mean(P.map(([x, y]) => (w * x + b - y) ** 2));
   const grads = () => { const e = P.map(([x, y]) => w * x + b - y); return { e, gw: mean(e.map((v, i) => 2 * v * P[i][0])), gb: mean(e.map(v => 2 * v)) }; };
   function reset() { w = +(-4 + 8 * rnd()).toFixed(1); b = +(5 + 15 * rnd()).toFixed(1); hist = [lossAt(w, b)]; trail = [[w, b]]; last = null; }
@@ -509,5 +509,52 @@ demo("o-learn", () => {
   }
   let path_;
   reset(); w = 2; b = 10; hist = [lossAt(w, b)]; trail = [[w, b]];
+  render(); return render;
+});
+
+/* 9b · the landscape: one bowl for a line, many valleys for a network; balls follow the exact local slope */
+demo("o-landscape", () => {
+  const E = {
+    bowl: w => 0.5 * (w - 1) ** 2 + 0.3,
+    net: w => 0.12 * w * w + Math.sin(2 * w) + 0.45 * Math.sin(0.7 * w + 1) + 1.6,
+  };
+  let kind = "bowl", balls = [], timer = null;
+  chips($("#oBasinKind"), v => { kind = v; balls = []; render(); });
+  const gl = slider("oBasinLr", v => fmt(v, 2));
+  const dE = w => (E[kind](w + 1e-4) - E[kind](w - 1e-4)) / 2e-4;   // the slope at one point (here numerically; backprop gives it exactly)
+  const W0 = -4, W1 = 4, grid = Array.from({ length: 401 }, (_, i) => W0 + i * (W1 - W0) / 400);
+  const minima = () => { const f = E[kind], m = []; grid.forEach((w, i) => { if (i && i < grid.length - 1 && f(w) <= f(grid[i - 1]) && f(w) <= f(grid[i + 1])) m.push(w); }); return m; };
+  const COL = ["--lw", "--cool", "--sw", "--mag", "--ok", "--arch"];
+  function drop(n) {
+    for (let k = 0; k < n; k++) { const w = W0 + 0.3 + Math.random() * (W1 - W0 - 0.6); balls.push({ trail: [w], col: COL[balls.length % COL.length] }); }
+    if (!timer) timer = setInterval(tick, 60);
+  }
+  function tick() {
+    let moving = false; const lr = gl();
+    balls.forEach(b => { const w = b.trail[b.trail.length - 1]; if (b.trail.length > 80) return; const nw = clamp(w - lr * dE(w), W0, W1); if (Math.abs(nw - w) > 1e-4) { b.trail.push(nw); moving = true; } });
+    if (!moving) { clearInterval(timer); timer = null; }
+    render();
+  }
+  $("#oBasinOne").addEventListener("click", () => drop(1));
+  $("#oBasinTen").addEventListener("click", () => drop(10));
+  $("#oBasinClear").addEventListener("click", () => { balls = []; render(); });
+  function render() {
+    const f = E[kind], ys = grid.map(f), y1 = Math.max(...ys) + 0.3, W = 480, H = 250, svg = svgIn($("#oBasinFig"), W, H);
+    const A = axes(svg, { W, H, x0: W0, x1: W1, y0: 0, y1, xt: [-4, -2, 0, 2, 4], yt: [0, Math.round(y1 / 2), Math.round(y1)], xl: "one weight w", yl: "error E" });
+    el("path", { d: path(grid.map((w, i) => [A.x(w), A.y(ys[i])])), stroke: css("--muted"), "stroke-width": 2.5, fill: "none" }, svg);
+    const ms = minima(), best = ms.reduce((a, w) => f(w) < f(a) ? w : a, ms[0]);
+    ms.forEach(w => el("text", { x: A.x(w), y: A.y(f(w)) + 18, "text-anchor": "middle", "font-size": 12, fill: css(w === best ? "--ok" : "--muted") }, svg, w === best ? "lowest" : "valley"));
+    balls.forEach(b => {
+      el("path", { d: path(b.trail.map(w => [A.x(w), A.y(f(w)) - 6])), stroke: css(b.col), "stroke-width": 1.5, fill: "none", opacity: .7 }, svg);
+      el("circle", { cx: A.x(b.trail[0]), cy: A.y(f(b.trail[0])) - 6, r: 3, fill: "none", stroke: css(b.col) }, svg);
+      const w = b.trail[b.trail.length - 1]; el("circle", { cx: A.x(w), cy: A.y(f(w)) - 7, r: 6, fill: css(b.col), stroke: css("--bg") }, svg);
+    });
+    const ends = balls.map(b => b.trail[b.trail.length - 1]), near = w => ms.reduce((a, m) => Math.abs(m - w) < Math.abs(a - w) ? m : a, ms[0]);
+    const reached = new Set(ends.map(w => fmt(near(w), 1))), atBest = ends.filter(w => Math.abs(near(w) - best) < 1e-6).length;
+    $("#oBasinRead").innerHTML = `<div><span>Balls</span><b>${balls.length}</b></div><div><span>Valleys reached</span><b class="c-arch">${balls.length ? reached.size : 0} of ${ms.length}</b></div><div><span>In the lowest valley</span><b class="${balls.length && atBest < balls.length ? "c-sw" : "c-ok"}">${atBest} of ${balls.length}</b></div>`;
+    $("#oBasinNote").textContent = kind === "bowl"
+      ? "One bowl: wherever a ball starts, the slope leads it to the same bottom. That is why the line on the previous slide always finds the lapse rate."
+      : "The slope is just as exact here, but only local: each ball rolls into the nearest valley, and some valleys are worse than the lowest one. A real network has millions of weights, so its landscape has countless valleys, flat plateaus and saddles. Methods to cope with this (momentum, Adam, schedules, good starts) are the topic of Module 6.";
+  }
   render(); return render;
 });
