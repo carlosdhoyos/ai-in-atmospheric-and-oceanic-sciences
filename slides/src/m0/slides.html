@@ -109,13 +109,21 @@
   <h2>Start random, measure the error, nudge every weight, repeat</h2>
   <div class="two">
     <div>
-      <p>The weights start random. Compare predictions with the truth, measure the error, and nudge every weight a little in the direction that reduces it. Repeat many times.</p>
-      <p><b>Try it:</b> one neuron, y = w·x + b, fitting temperature against elevation at five stations.</p>
-      <div class="chips"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">Reset</button></div>
-      <div class="ctl"><label for="oLr">Step size</label><input id="oLr" type="range" min="0.01" max="0.3" step="0.01" value="0.1"><output></output></div>
+      <p><b>Try it:</b> one neuron, ŷ = w·x + b, learns temperature from elevation at five stations. It starts from a random w and b. Each step does the same four things, shown with the current numbers:</p>
+      <div class="calc" id="oLearnSteps" style="line-height:1.65"></div>
+      <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
+      <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
       <div class="readout" id="oLearnRead"></div>
+      <p class="note" id="oLearnNote" style="margin-top:6px"></p>
     </div>
-    <div class="panel"><div id="oLearnFig"></div><div id="oLossFig"></div></div>
+    <div class="panel">
+      <div id="oLearnFig"></div>
+      <div class="two even" style="gap:12px;margin-top:4px">
+        <div><h3>Error at each step (log scale)</h3><div id="oLossFig"></div></div>
+        <div><h3>The error landscape over w and b</h3><div id="oLandFig"></div></div>
+      </div>
+      <p class="note" style="margin:6px 0 0">Landscape: brighter = lower error; × = the best possible line; the path shows every step taken so far.</p>
+    </div>
   </div>
 </section>
 

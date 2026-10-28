@@ -366,13 +366,21 @@ a.pick{text-decoration:none}
   <h2>Start random, measure the error, nudge every weight, repeat</h2>
   <div class="two">
     <div>
-      <p>The weights start random. Compare predictions with the truth, measure the error, and nudge every weight a little in the direction that reduces it. Repeat many times.</p>
-      <p><b>Try it:</b> one neuron, y = w·x + b, fitting temperature against elevation at five stations.</p>
-      <div class="chips"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">Reset</button></div>
-      <div class="ctl"><label for="oLr">Step size</label><input id="oLr" type="range" min="0.01" max="0.3" step="0.01" value="0.1"><output></output></div>
+      <p><b>Try it:</b> one neuron, ŷ = w·x + b, learns temperature from elevation at five stations. It starts from a random w and b. Each step does the same four things, shown with the current numbers:</p>
+      <div class="calc" id="oLearnSteps" style="line-height:1.65"></div>
+      <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
+      <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
       <div class="readout" id="oLearnRead"></div>
+      <p class="note" id="oLearnNote" style="margin-top:6px"></p>
     </div>
-    <div class="panel"><div id="oLearnFig"></div><div id="oLossFig"></div></div>
+    <div class="panel">
+      <div id="oLearnFig"></div>
+      <div class="two even" style="gap:12px;margin-top:4px">
+        <div><h3>Error at each step (log scale)</h3><div id="oLossFig"></div></div>
+        <div><h3>The error landscape over w and b</h3><div id="oLandFig"></div></div>
+      </div>
+      <p class="note" style="margin:6px 0 0">Landscape: brighter = lower error; × = the best possible line; the path shows every step taken so far.</p>
+    </div>
   </div>
 </section>
 
@@ -895,17 +903,22 @@ demo("o-bias", () => {
   render(); return render;
 });
 
-/* 9 · how it learns: gradient descent on y = w·x + b, temperature vs elevation */
+/* 9 · how it learns: gradient descent on ŷ = w·x + b, temperature vs elevation */
 demo("o-learn", () => {
-  const P = [[0.1, 27.6], [0.5, 25.1], [1.5, 18.9], [2.2, 14.2], [2.6, 11.6]];
-  let w, b, hist, timer = null;
-  const gl = slider("oLr", v => fmt(v, 2));
-  const loss = () => mean(P.map(([x, y]) => (w * x + b - y) ** 2));
-  function reset() { w = 2; b = 10; hist = [loss()]; }
+  const P = [[0.1, 27.6], [0.5, 25.1], [1.5, 18.9], [2.2, 14.2], [2.6, 11.6]], names = ["A", "B", "C", "D", "E"];
+  const mx = mean(P.map(p => p[0])), mxx = mean(P.map(p => p[0] ** 2)), mxy = mean(P.map(p => p[0] * p[1])), my = mean(P.map(p => p[1]));
+  const wBest = (mxy - mx * my) / (mxx - mx * mx), bBest = my - wBest * mx;          // least-squares answer, for the landscape only
+  const lamMax = 2 * ((mxx + 1) + Math.sqrt((mxx - 1) ** 2 + 4 * mx * mx)) / 2, etaMax = 2 / lamMax;   // steps above this overshoot
+  let w, b, hist, trail, last, timer = null, rnd = rng(7);
+  const gl = slider("oLr", v => fmt(v, 2), () => render());
+  const lossAt = (w, b) => mean(P.map(([x, y]) => (w * x + b - y) ** 2));
+  const grads = () => { const e = P.map(([x, y]) => w * x + b - y); return { e, gw: mean(e.map((v, i) => 2 * v * P[i][0])), gb: mean(e.map(v => 2 * v)) }; };
+  function reset() { w = +(-4 + 8 * rnd()).toFixed(1); b = +(5 + 15 * rnd()).toFixed(1); hist = [lossAt(w, b)]; trail = [[w, b]]; last = null; }
   function step() {
-    const lr = gl(), gw = mean(P.map(([x, y]) => 2 * (w * x + b - y) * x)), gb = mean(P.map(([x, y]) => 2 * (w * x + b - y)));
-    w -= lr * gw; b -= lr * gb; hist.push(loss());
-    if (!isFinite(w) || Math.abs(w) > 1e6) { stop(); reset(); }
+    const lr = gl(), { gw, gb } = grads(), w0 = w, b0 = b;
+    w -= lr * gw; b -= lr * gb; hist.push(lossAt(w, b)); trail.push([w, b]);
+    last = { lr, gw, gb, w0, b0 };
+    if (!isFinite(w) || Math.abs(w) > 1e6) { stop(); reset(); last = { blown: true }; }
   }
   function stop() { clearInterval(timer); timer = null; $("#oTrainPlay").textContent = "Autoplay"; }
   $("#oTrain1").addEventListener("click", () => { step(); render(); });
@@ -915,27 +928,67 @@ demo("o-learn", () => {
     $("#oTrainPlay").textContent = "Pause";
     timer = setInterval(() => { step(); render(); if (hist.length > 300) stop(); }, 90);
   });
+  const f2 = v => (v >= 0 ? "+" : "−") + fmt(Math.abs(v), Math.abs(v) >= 100 ? 0 : 2);
   function render() {
-    const W = 460, H = 200, svg = svgIn($("#oLearnFig"), W, H);
+    const { e, gw, gb } = grads(), L = lossAt(w, b), lr = gl();
+    /* the four steps, with numbers */
+    $("#oLearnSteps").innerHTML =
+      `<b>1 · Predict</b> ŷ = w·x + b at each station <span class="m">(w = ${fmt(w, 2)}, b = ${fmt(b, 1)})</span><br>`
+      + `<b>2 · Measure</b> errors ŷ − y = [${e.map(v => f2(v)).join(", ")}] °C<br>`
+      + `&nbsp;&nbsp;&nbsp;&nbsp;mean squared error E = <span class="r">${L < 0.1 ? fmt(L, 3) : fmt(L, 1)}</span><br>`
+      + `<b>3 · Direction</b> ∂E/∂w = mean(2·err·x) = <span class="k">${f2(gw)}</span>, ∂E/∂b = mean(2·err) = <span class="k">${f2(gb)}</span><br>`
+      + `<b>4 · Nudge</b> <span class="m">(what Train does next)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;w ← ${fmt(w, 2)} − ${fmt(lr, 2)} × (${f2(gw)}) = <span class="g">${fmt(w - lr * gw, 2)}</span><br>`
+      + `&nbsp;&nbsp;&nbsp;&nbsp;b ← ${fmt(b, 2)} − ${fmt(lr, 2)} × (${f2(gb)}) = <span class="g">${fmt(b - lr * gb, 2)}</span>`;
+    /* fit chart with error bars labelled */
+    const W = 460, H = 190, svg = svgIn($("#oLearnFig"), W, H);
     const A = axes(svg, { W, H, x0: 0, x1: 3, y0: 0, y1: 32, xt: [0, 1, 2], yt: [0, 10, 20, 30], xl: "elevation (km)", yl: "temperature (°C)" });
-    P.forEach(([x, y]) => {
-      const yy = w * x + b;
-      el("line", { x1: A.x(x), x2: A.x(x), y1: A.y(y), y2: A.y(clamp(yy, -5, 40)), stroke: css("--lw"), "stroke-dasharray": "3 3" }, svg);
-      el("circle", { cx: A.x(x), cy: A.y(y), r: 5, fill: css("--data") }, svg);
-    });
     const yl = v => A.y(clamp(v, -2, 34));
     el("path", { d: path([[A.x(0), yl(b)], [A.x(3), yl(w * 3 + b)]]), stroke: css("--arch"), "stroke-width": 2.5, fill: "none" }, svg);
-    const H2 = 130, s2 = svgIn($("#oLossFig"), W, H2), L = hist.map(v => Math.log10(Math.max(v, 1e-3)));
-    const n = Math.max(20, hist.length - 1), top = Math.max(3, Math.ceil(Math.max(...L))), bot = Math.min(-1, Math.floor(Math.min(...L)));
-    const B = axes(s2, { W, H: H2, x0: 0, x1: n, y0: bot, y1: top, xt: [0], yt: [bot, Math.round((bot + top) / 2), top], yf: v => "1e" + v, xl: "step", yl: "error (mean squared, log scale)" });
-    el("path", { d: path(L.map((v, i) => [B.x(i), B.y(v)])), stroke: css("--lw"), "stroke-width": 2, fill: "none" }, s2);
-    el("circle", { cx: B.x(L.length - 1), cy: B.y(L[L.length - 1]), r: 4, fill: css("--lw") }, s2);
-    const e = loss(), diverge = hist.length > 3 && e > hist[hist.length - 2] * 1.01;
+    P.forEach(([x, y], i) => {
+      el("line", { x1: A.x(x), x2: A.x(x), y1: A.y(y), y2: yl(w * x + b), stroke: css("--lw"), "stroke-dasharray": "3 3" }, svg);
+      el("circle", { cx: A.x(x), cy: A.y(y), r: 5, fill: css("--data") }, svg);
+      el("text", { x: A.x(x) - 8, y: A.y(y) - 6, "text-anchor": "end", "font-size": 11, fill: css("--muted") }, svg, names[i]);
+      if (Math.abs(e[i]) >= 0.05) el("text", { x: A.x(x) + 8, y: (A.y(y) + yl(w * x + b)) / 2 + 4, class: "mono", "font-size": 10.5, fill: css("--lw") }, svg, f2(e[i]));
+    });
+    /* error per step, log scale */
+    const W2 = 230, H2 = 150, s2 = svgIn($("#oLossFig"), W2, H2), Lg = hist.map(v => Math.log10(Math.max(v, 1e-3)));
+    const n = Math.max(20, hist.length - 1), top = Math.max(3, Math.ceil(Math.max(...Lg))), bot = Math.min(-1, Math.floor(Math.min(...Lg)));
+    const B = axes(s2, { W: W2, H: H2, m: { l: 40, r: 8, t: 10, b: 24 }, x0: 0, x1: n, y0: bot, y1: top, xt: [0, n], yt: [bot, top], yf: v => "1e" + v });
+    el("path", { d: path(Lg.map((v, i) => [B.x(i), B.y(v)])), stroke: css("--lw"), "stroke-width": 2, fill: "none" }, s2);
+    el("circle", { cx: B.x(Lg.length - 1), cy: B.y(Lg[Lg.length - 1]), r: 4, fill: css("--lw") }, s2);
+    /* landscape over (w, b) with the path */
+    const W3 = 230, H3 = 150, s3 = svgIn($("#oLandFig"), W3, H3), w0 = -10, w1 = 4, b0 = 5, b1 = 35, nx = 28, ny = 20;
+    const X = lin(w0, w1, 30, W3 - 6), Y = lin(b0, b1, H3 - 22, 6), cw = (W3 - 36) / nx, ch = (H3 - 28) / ny;
+    const lmin = Math.log10(lossAt(wBest, bBest) + 1e-3), lmax = Math.log10(lossAt(w0, b0));
+    for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) {
+      const ww = w0 + (i + .5) * (w1 - w0) / nx, bb = b0 + (j + .5) * (b1 - b0) / ny;
+      el("rect", { x: 30 + i * cw, y: H3 - 22 - (j + 1) * ch, width: cw + .5, height: ch + .5, fill: heat(lmax - Math.log10(lossAt(ww, bb) + 1e-3), 0, lmax - lmin) }, s3);
+    }
+    [[w0, "−10"], [-5, "−5"], [0, "0"]].forEach(([v, t]) => el("text", { x: X(v), y: H3 - 8, "text-anchor": "middle", class: "mut mono", "font-size": 10 }, s3, t));
+    [[b0, "5"], [b1, "35"]].forEach(([v, t]) => el("text", { x: 26, y: Y(v) + 4, "text-anchor": "end", class: "mut mono", "font-size": 10 }, s3, t));
+    el("text", { x: W3 - 6, y: H3 - 8, "text-anchor": "end", "font-size": 10.5, fill: css("--muted") }, s3, "w");
+    el("text", { x: 4, y: 72, "font-size": 10.5, fill: css("--muted") }, s3, "b");
+    const cp = ([ww, bb]) => [clamp(X(ww), 30, W3 - 6), clamp(Y(bb), 6, H3 - 22)];
+    el("text", { x: X(wBest), y: Y(bBest) + 5, "text-anchor": "middle", "font-size": 14, fill: css("--ok") }, s3, "×");
+    el("path", { d: path(path_ = trail.map(cp)), stroke: css("--lw"), "stroke-width": 1.6, fill: "none" }, s3);
+    path_.forEach((p, i) => i % 5 === 0 && el("circle", { cx: p[0], cy: p[1], r: 1.8, fill: css("--lw") }, s3));
+    const cur = cp([w, b]); el("circle", { cx: cur[0], cy: cur[1], r: 4.5, fill: css("--lw"), stroke: css("--fg") }, s3);
+    /* readout and an explanation that follows what is happening */
     $("#oLearnRead").innerHTML = `<div><span>Step</span><b>${hist.length - 1}</b></div><div><span>w (°C per km)</span><b class="c-arch">${fmt(w, 2)}</b></div>`
-      + `<div><span>b (°C)</span><b class="c-arch">${fmt(b, 1)}</b></div><div><span>Error</span><b class="c-lw">${e < 0.1 ? fmt(e, 3) : fmt(e, 1)}</b></div>`
-      + `<p class="note" style="flex-basis:100%;margin:0">${diverge ? "The error is growing: the step is too large, so each nudge overshoots. Lower the step size and reset." : hist.length < 3 ? "The line starts from a random guess. Press Train." : "w settles near −6.4 °C per km: the network rediscovers the lapse rate."}</p>`;
+      + `<div><span>b (°C)</span><b class="c-arch">${fmt(b, 1)}</b></div><div><span>Error E</span><b class="c-lw">${L < 0.1 ? fmt(L, 3) : fmt(L, 1)}</b></div>`;
+    const grow = hist.length > 2 && hist[hist.length - 1] > hist[hist.length - 2];
+    let note;
+    if (last && last.blown) note = "The steps overshot so badly that the numbers blew up, so training restarted from a new random point. Use a smaller step size.";
+    else if (hist.length === 1) note = `Random start: the line is far from the stations. Step 3 says which way to move: ∂E/∂b ${gb < 0 ? "< 0, so the line is too cold on average and b must go up" : "> 0, so the line is too warm on average and b must go down"}.`;
+    else if (grow) note = `The error is growing: each step jumps past the bottom of the valley and lands higher on the other side. With these stations any η above about ${fmt(etaMax, 2)} overshoots; you have ${fmt(lr, 2)}. Lower it and the error falls again, even from far away.`;
+    else if (L < 0.02) note = `Converged: the gradient is almost zero, so the steps are tiny. w ≈ ${fmt(wBest, 2)} °C per km, the lapse rate, and b ≈ ${fmt(bBest, 1)} °C at sea level. The network learned them from five numbers.`;
+    else if (lr < 0.04) note = "Small steps: safe but slow. The valley is long and flat along one direction, so it takes many steps to reach the bottom.";
+    else note = "Each step moves w and b downhill on the landscape. The path first drops quickly into the valley, then slides slowly along its floor towards ×.";
+    $("#oLearnNote").textContent = note;
   }
-  reset(); render(); return render;
+  let path_;
+  reset(); w = 2; b = 10; hist = [lossAt(w, b)]; trail = [[w, b]];
+  render(); return render;
 });
 
 </script>
