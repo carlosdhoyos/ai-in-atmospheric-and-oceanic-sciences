@@ -175,16 +175,21 @@ demo("o-blocks", () => {
       el("text", { x: cx, y: yM - 2, "text-anchor": "middle", "font-size": 13 }, svg, txt); el("text", { x: cx, y: yM + 15, "text-anchor": "middle", class: "mono", "font-size": 12 }, svg, sub); };
     node(60, "input x", fmt(x, 1), "--data");
     node(230, "layer F(x)", (f > 0 ? "+" : "") + fmt(f, 1), "--arch");
-    el("circle", { cx: 360, cy: yM, r: 18, fill: css("--card"), stroke: css(on ? "--ok" : "--line") }, svg);
-    el("text", { x: 360, y: yM + 6, "text-anchor": "middle", "font-size": 18 }, svg, "+");
+    if (on) {
+      el("circle", { cx: 360, cy: yM, r: 18, fill: css("--card"), stroke: css("--ok") }, svg);
+      el("text", { x: 360, y: yM + 6, "text-anchor": "middle", "font-size": 18 }, svg, "+");
+      el("line", { x1: 276, y1: yM, x2: 340, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
+      el("line", { x1: 378, y1: yM, x2: 432, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
+    } else el("line", { x1: 276, y1: yM, x2: 432, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
     node(480, "output", fmt(y, 1), on ? "--ok" : "--lw");
     el("line", { x1: 106, y1: yM, x2: 182, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
-    el("line", { x1: 276, y1: yM, x2: 340, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
-    el("line", { x1: 378, y1: yM, x2: 432, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
     el("path", { d: `M60 ${yM - 24} C60 20, 360 20, 360 ${yM - 20}`, fill: "none", stroke: css(on ? "--ok" : "--line"), "stroke-width": on ? 3 : 1.5, "stroke-dasharray": on ? "" : "5 5", "marker-end": on ? "url(#obs)" : "" }, svg);
-    el("text", { x: 210, y: 36, "text-anchor": "middle", "font-size": 12, fill: css(on ? "--ok" : "--muted") }, svg, on ? "skip connection: x passes straight through" : "skip connection cut");
+    el("text", { x: 210, y: 36, "text-anchor": "middle", "font-size": 12, fill: css(on ? "--ok" : "--muted") }, svg, on ? "skip connection: x passes straight through" : "skip connection removed");
+    const target = x + f, tf = fmt(target, 1);
     $("#oBlockRead").innerHTML = `<div><span>Output</span><b class="${on ? "c-ok" : "c-lw"}">${fmt(y, 1)}</b></div><div><span>Formula</span><b style="font-size:18px">${on ? "x + F(x) = 5 + " + fmt(f, 1) : "F(x) = " + fmt(f, 1)}</b></div>`
-      + `<p class="note" style="flex-basis:100%;margin:0">${on ? "The layer only has to learn the small correction; the input is kept. Stacking many such blocks stays easy to train." : "Without the skip, the layer must rebuild the whole value 5 from scratch, and the input is lost."}</p>`;
+      + `<div><span>To output ${tf}, F must learn</span><b class="c-arch" style="font-size:18px">${on ? fmt(f, 1) + " (small)" : tf + " (all of it)"}</b></div>`
+      + `<p class="note" style="flex-basis:100%;margin:0">${on ? "The layer only has to learn the small correction; the input passes through unchanged. With F = 0, the block simply copies its input, which is why deep stacks of these blocks train well."
+        : `Same layer, skip removed: the input 5 is lost and only ${fmt(f, 1)} comes out. A plain layer that should output ${tf} has to learn the whole value itself, not just a small correction.`}</p>`;
   }
   render(); return render;
 });
