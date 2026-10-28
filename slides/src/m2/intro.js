@@ -62,6 +62,7 @@ demo("op-bias", () => {
   function render() {
     const W = 520, H = 250, svg = svgIn($("#inBiasFig"), W, H), x = i => 50 + i * 70, yIn = 205, yOut = 40, yH = 125;
     arrowDefs(svg, "ib", css("--arch"));
+    { const mk = svg.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 9); mk.setAttribute("markerHeight", 9); } // same arrowhead size on thick lines
     let links = [], note = "", nw = "";
     if (op === "dense") { links = vals.map((_, i) => [i, 1]); note = "Every day feeds every output with its own weight."; nw = "7 per output · 49 in the layer"; }
     if (op === "conv") { links = [-1, 0, 1].map(d => [tgt + d, 1, d]).filter(l => l[0] >= 0 && l[0] < 7); note = "Only the 3 neighbouring days, and the same 3 weights for every output day."; nw = "3, shared by all outputs"; }
@@ -93,6 +94,55 @@ demo("op-bias", () => {
   render(); return render;
 });
 
+
+/* dense versus attention: stored weights per slot vs weights computed from this week's content */
+demo("op-dvsa", () => {
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], WEEKS = [[3, 0, 12, 1, 10, 0, 2], [14, 1, 0, 0, 11, 2, 0], [0, 1, 0, 2, 1, 0, 1]];
+  // the dense layer's trained weights: one fixed number per (output day, input day), mostly local, some negative
+  const r = rng(5), Wd = days.map((_, t) => days.map((_, i) => +(0.45 * Math.exp(-Math.abs(t - i) / 1.6) + 0.12 * gauss(r)).toFixed(2)));
+  let week = 0, vals = WEEKS[0].slice(), tgt = 4, shuffled = false;
+  chips($("#dvWeek"), v => { week = +v; vals = WEEKS[week].slice(); shuffled = false; render(); });
+  $("#dvShuffle").addEventListener("click", () => {
+    const idx = vals.map((_, i) => i).filter(i => i !== tgt), pool = idx.map(i => vals[i]);
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    idx.forEach((i, k) => vals[i] = pool[k]); shuffled = true; render();
+  });
+  function draw(host, ws, kind) {
+    const W = 420, H = 168, svg = svgIn(host, W, H), x = i => 30 + i * 60, yIn = 130, yOut = 24;
+    arrowDefs(svg, "dv" + kind, css("--arch"));
+    { const mk = svg.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 8); mk.setAttribute("markerHeight", 8); }
+    const mx = Math.max(...ws.map(Math.abs)) || 1;
+    ws.forEach((w, i) => {
+      const t = Math.abs(w) / mx;
+      el("line", { x1: x(i), y1: yIn - 16, x2: x(tgt), y2: yOut + 15, stroke: css(kind === "d" ? (w >= 0 ? "--pos" : "--neg") : "--arch"), "stroke-width": 0.6 + 6 * t, opacity: .35 + .65 * t, "marker-end": `url(#dv${kind})` }, svg);
+      const lx = x(i) + (x(tgt) - x(i)) * 0.25, ly = yIn - 16 - (yIn - yOut - 31) * 0.25;
+      el("text", { x: lx + (i < tgt ? -4 : i > tgt ? 4 : 8), y: ly, "text-anchor": i < tgt ? "end" : "start", class: "mono", "font-size": 11, fill: css(kind === "d" ? "--muted" : "--arch") }, svg, kind === "d" ? fmt(w, 2) : fmtN(100 * w) + "%");
+    });
+    vals.forEach((v, i) => {
+      el("circle", { cx: x(i), cy: yIn, r: 16, fill: css(v >= 8 ? "--cool-soft" : "--card"), stroke: css(v >= 8 ? "--cool" : "--line") }, svg);
+      el("text", { x: x(i), y: yIn + 4, "text-anchor": "middle", class: "mono", "font-size": 12 }, svg, v);
+      el("text", { x: x(i), y: yIn + 32, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, days[i]);
+      const g = el("g", { style: "cursor:pointer" }, svg);
+      el("circle", { cx: x(i), cy: yOut, r: 14, fill: i === tgt ? css("--arch") : css("--card"), stroke: css(i === tgt ? "--arch" : "--line") }, g);
+      el("text", { x: x(i), y: yOut + 4, "text-anchor": "middle", "font-size": 10.5, fill: i === tgt ? css("--bg") : css("--muted") }, g, "out");
+      g.addEventListener("click", () => { tgt = i; render(); });
+    });
+  }
+  function render() {
+    const wd = Wd[tgt], att = softmax(vals.map(v => -Math.abs(v - vals[tgt]) / 2)), D = days[tgt];
+    draw($("#dvDenseFig"), wd, "d"); draw($("#dvAttnFig"), att, "a");
+    const od = wd.reduce((s, w, i) => s + w * vals[i], 0), oa = att.reduce((s, w, i) => s + w * vals[i], 0);
+    const top = att.map((w, i) => [w, i]).filter(([, i]) => i !== tgt).sort((a, b) => b[0] - a[0])[0];
+    $("#dvDenseCalc").innerHTML = `out(${D}) = Σ W[${D}, day] × rain = <span class="g">${fmt(od, 2)}</span><span class="m"> · the same ${wd.length} weights every week</span>`;
+    $("#dvAttnCalc").innerHTML = `weights = softmax(similarity to ${D}'s ${vals[tgt]} mm) → most to ${days[top[1]]} (${fmtN(100 * top[0])}%)<br>out(${D}) = weighted average = <span class="g">${fmt(oa, 2)}</span> mm`;
+    $("#dvNote").textContent = shuffled
+      ? `Shuffled: the dense weights stayed with the slots, so its output changed (${fmt(od, 2)}). Attention's weights moved with the rain amounts, so its output is the same as before the shuffle: it does not know the order of the days.`
+      : week === 2
+        ? "A dry week: dense still uses exactly the same weights. Attention spreads its weight over all the similar dry days."
+        : `Compare weeks: the dense lines (left) never change. The attention lines (right) jump to whichever day looks like ${D} this week.`;
+  }
+  render(); return render;
+});
 
 demo("op-geo", () => {
   const G = [["Grid", "Images, gridded climate fields, radar mosaics.", "Translation: a storm is a storm wherever it is on the map.", "Convolution (CNN, U-Net)"],

@@ -60,6 +60,30 @@
   </div>
 </section>
 
+<section class="slide" id="op-dvsa" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Unifying idea · dense versus attention</p>
+  <h2 style="max-width:none">Dense stores its weights; attention computes them from the content, every time</h2>
+  <p style="margin:0 0 6px"><b>Try it:</b> same seven days, same output day, two layers. Change the week or shuffle the other days and watch which lines move; click an output circle to pick another day.</p>
+  <div class="chips" id="dvWeek"><button class="chip" data-v="0" aria-pressed="true">Week 1: storms Wed and Fri</button><button class="chip" data-v="1">Week 2: storm on Mon</button><button class="chip" data-v="2">Week 3: a dry week</button><button class="btn" type="button" id="dvShuffle">Shuffle the other days</button></div>
+  <div class="two even" style="margin-top:8px;gap:14px">
+    <div class="panel"><h3>Dense · weights fixed after training</h3><div id="dvDenseFig"></div><div class="calc" id="dvDenseCalc" style="font-size:12.5px"></div></div>
+    <div class="panel"><h3>Attention · weights recomputed for this week</h3><div id="dvAttnFig"></div><div class="calc" id="dvAttnCalc" style="font-size:12.5px"></div></div>
+  </div>
+  <p class="note" id="dvNote" style="margin:8px 0 0"></p>
+  <div class="two" style="margin-top:8px;gap:14px;align-items:start">
+    <div class="fig-wrap"><table class="tb" style="font-size:12.5px;line-height:1.3">
+      <thead><tr><th></th><th>Dense</th><th>Attention</th></tr></thead>
+      <tbody>
+        <tr><td>Connection weights</td><td>Fixed numbers, one per pair of positions</td><td>Recomputed for every input from the content</td></tr>
+        <tr><td>What it learns</td><td>"Slot Monday matters this much for slot Friday"</td><td>"Days like this should listen to days like that": a rule, via the query and key matrices</td></tr>
+        <tr><td>Parameters</td><td>n × n, tied to the input length (7 days → 49)</td><td>Independent of length: the same projections work for 7 days or 365</td></tr>
+        <tr><td>Knows the order?</td><td>Yes, each slot has its own weight</td><td>No; it needs <button class="btn" type="button" data-go="op-pos" style="padding:0 8px;font-size:12px">positional encoding</button></td></tr>
+        <tr><td>Weights sum to</td><td>Anything</td><td>1 (softmax): a weighted average</td></tr>
+      </tbody></table></div>
+    <div class="callout violet" style="margin:0;font-size:14px"><b>The key idea.</b> For any single week, some dense weight matrix gives exactly the same output as attention, but no <i>single</i> dense matrix works for every week. Attention is like a dense layer whose weights are rewritten for each input by a small network inside it. Inside, it still uses dense layers: the query, key and value projections. <span style="color:var(--muted)">Here the similarity is simply how close the rain amounts are; a trained layer learns its own scoring (<button class="btn" type="button" data-go="op-self" style="padding:0 8px;font-size:12px">self-attention</button>).</span></div>
+  </div>
+</section>
+
 <section class="slide" id="op-geo" data-g="a" data-sec="2 · Operations">
   <p class="kicker k-arch">The geometric view</p>
   <h2>Choose the operation by the shape and symmetry of the data</h2>
