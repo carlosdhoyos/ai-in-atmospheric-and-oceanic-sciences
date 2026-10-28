@@ -454,11 +454,15 @@ details.why p{margin:6px 0 0}
       <div class="eq arch">y = f(W·x + b) &nbsp;·&nbsp; params = in × out + out</div>
       <p>3 inputs (temperature, humidity, wind) into 2 neurons: 3 × 2 = <b>6 weights + 2 biases</b>.</p>
       <p>Here: absences, grade and estrato of 20 synthetic students, standardized (z-scores), feed the hidden neurons, which feed one sigmoid output: the attrition probability. Pick a student.</p>
-      <div id="g1dnTable" style="position:relative;max-height:220px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
-      <div class="callout amber"><b>Parameters grow fast.</b> A 100 × 100 image is 10,000 inputs. Into 100 neurons that is 10,000 × 100 = <b>1,000,000 weights</b>, for one layer. That is why images use convolution instead.</div>
+      <div id="g1dnTable" style="position:relative;max-height:150px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
+      <h3 style="margin-top:10px">What the network has learned: attrition probability</h3>
+      <div id="g1dnMapFig"></div>
+      <p class="note" id="g1dnMapNote" style="margin:2px 0 0"></p>
+      <div class="callout amber" style="font-size:14px"><b>Parameters grow fast.</b> A 100 × 100 image into 100 neurons is 10,000 × 100 = <b>1,000,000 weights</b> for one layer, which is why images use convolution.</div>
     </div>
     <div class="panel">
       <div class="ctl"><label for="g1dnH">Hidden neurons</label><input id="g1dnH" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+      <div class="chips" id="g1dnAct"><span class="mut" style="font-size:13px;align-self:center">Hidden activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="sigm">sigmoid</button><button class="chip" data-v="none">none</button></div>
       <div id="g1dnFig"></div>
       <p class="note" style="margin:2px 0 0">Click a neuron to see its incoming weights and its sum. Weights were fitted to the 20 synthetic students, for illustration only.</p>
       <div class="calc" id="g1dnCalc"></div>
@@ -1929,25 +1933,31 @@ demo("op-dense", () => {
   const mu = keys.map(k => mean(S.map(s => s[k]))), sg = keys.map(k => sd(S.map(s => s[k])));
   const X = S.map(s => keys.map((k, i) => (s[k] - mu[i]) / sg[i])), Y = S.map(s => s.attrition);
   const cache = {};
-  // fit a 3 → H (tanh) → 1 (sigmoid) network to the 20 students by plain gradient descent (deterministic, a few ms)
+  // hidden activations and their slopes (written in terms of the neuron's value h, or of z for ReLU)
+  const ACT = { tanh: { f: Math.tanh, d: (z, h) => 1 - h * h, name: "tanh" }, relu: { f: relu, d: z => +(z > 0), name: "ReLU" },
+    sigm: { f: sigm, d: (z, h) => h * (1 - h), name: "sigmoid" }, none: { f: z => z, d: () => 1, name: "none" } };
+  let act = "tanh";
+  // fit a 3 → H (activation) → 1 (sigmoid) network to the 20 students by plain gradient descent (deterministic, a few ms)
   function fit(H) {
-    if (cache[H]) return cache[H];
+    const key = H + act; if (cache[key]) return cache[key];
+    const A = ACT[act];
     const r = rng(300 + H), W1 = Array.from({ length: H }, () => keys.map(() => 0.8 * gauss(r))), b1 = new Array(H).fill(0), W2 = Array.from({ length: H }, () => 0.8 * gauss(r));
     let b2 = 0; const lr = 0.3, lam = 0.01, n = X.length;
     for (let it = 0; it < 1500; it++) {
       const gW1 = W1.map(rw => rw.map(() => 0)), gb1 = new Array(H).fill(0), gW2 = new Array(H).fill(0); let gb2 = 0;
       X.forEach((x, s) => {
-        const h = W1.map((rw, j) => Math.tanh(rw.reduce((a, w, i) => a + w * x[i], b1[j]))), p = sigm(h.reduce((a, v, j) => a + v * W2[j], b2)), d = p - Y[s];
-        gb2 += d; h.forEach((v, j) => { gW2[j] += d * v; const dh = d * W2[j] * (1 - v * v); gb1[j] += dh; x.forEach((xi, i) => gW1[j][i] += dh * xi); });
+        const z = W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], b1[j])), h = z.map(A.f), p = sigm(h.reduce((a, v, j) => a + v * W2[j], b2)), d = p - Y[s];
+        gb2 += d; h.forEach((v, j) => { gW2[j] += d * v; const dh = d * W2[j] * A.d(z[j], v); gb1[j] += dh; x.forEach((xi, i) => gW1[j][i] += dh * xi); });
       });
       W1.forEach((rw, j) => { rw.forEach((w, i) => rw[i] -= lr * (gW1[j][i] / n + lam * w)); b1[j] -= lr * gb1[j] / n; W2[j] -= lr * (gW2[j] / n + lam * W2[j]); });
       b2 -= lr * gb2 / n;
     }
-    return cache[H] = { W1, b1, W2, b2 };
+    return cache[key] = { W1, b1, W2, b2 };
   }
-  const fwd = (net, x) => { const z1 = net.W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], net.b1[j])), h = z1.map(Math.tanh), z2 = h.reduce((a, v, j) => a + v * net.W2[j], net.b2); return { z1, h, z2, p: sigm(z2) }; };
+  const fwd = (net, x) => { const z1 = net.W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], net.b1[j])), h = z1.map(ACT[act].f), z2 = h.reduce((a, v, j) => a + v * net.W2[j], net.b2); return { z1, h, z2, p: sigm(z2) }; };
   let stu = 14, sel = 0; // selected student; selected neuron (0..H-1 hidden, -1 output)
   const gh = slider("g1dnH", v => v, () => render());
+  chips($("#g1dnAct"), v => { act = v; render(); });
   function table(net) {
     $("#g1dnTable").innerHTML = `<style>#g1dnTable th{position:sticky;top:0;background:var(--bg);z-index:1}</style><table class="tb" style="font-size:12.5px"><thead><tr><th>#</th><th>Absences</th><th>Grade</th><th>Estrato</th><th>Left?</th><th>Model p</th></tr></thead><tbody>${S.map((s, k) =>
       `<tr data-k="${k}" style="cursor:pointer;${k === stu ? "background:var(--arch-soft);font-weight:600" : ""}"><td class="n">${s.id}</td><td class="n">${s.absences}</td><td class="n">${fmt(s.grade, 1)}</td><td class="n">${s.estrato}</td><td>${s.attrition ? "yes" : "no"}</td><td class="n">${fmt(fwd(net, X[k]).p, 2)}</td></tr>`).join("")}</tbody></table>`;
@@ -1982,18 +1992,38 @@ demo("op-dense", () => {
     f.h.forEach((v, j) => node(xh, yh(j), rh, v, sel === j, j, "hidden neuron " + (j + 1)));
     node(xo, yo, 24, f.p, sel === -1, -1, "output neuron");
     el("text", { x: xo, y: yo + 42, "text-anchor": "middle", style: `font-size:${12 }px`}, svg, "attrition p");
-    el("text", { x: xh, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, `${H} hidden (tanh)`);
+    el("text", { x: xh, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, `${H} hidden (${ACT[act].name})`);
     el("text", { x: xi, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, "3 inputs (z-scores)");
     el("text", { x: xo, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, "1 output (sigmoid)");
     if (sel >= 0) {
       const rw = net.W1[sel];
-      $("#g1dnCalc").innerHTML = `hidden ${sel + 1}: z = ${rw.map((w, i) => `${fmt(w, 2)}×(${fmt(x[i], 2)})`).join(" + ")} + ${fmt(net.b1[sel], 2)} = <span class="k">${fmt(f.z1[sel], 2)}</span>\n         tanh(${fmt(f.z1[sel], 2)}) = <span class="g">${fmt(f.h[sel], 2)}</span>`;
+      $("#g1dnCalc").innerHTML = `hidden ${sel + 1}: z = ${rw.map((w, i) => `${fmt(w, 2)}×(${fmt(x[i], 2)})`).join(" + ")} + ${fmt(net.b1[sel], 2)} = <span class="k">${fmt(f.z1[sel], 2)}</span>\n         ${act === "none" ? "no activation: h = z" : ACT[act].name + "(" + fmt(f.z1[sel], 2) + ")"} = <span class="g">${fmt(f.h[sel], 2)}</span>`;
     } else {
       const terms = net.W2.map((w, j) => `${fmt(w, 1)}×(${fmt(f.h[j], 2)})`), shown = terms.length > 4 ? terms.slice(0, 3).concat("…") : terms;
       $("#g1dnCalc").innerHTML = `output: z = ${shown.join(" + ")} + ${fmt(net.b2, 2)} = <span class="k">${fmt(f.z2, 2)}</span>\n        σ(${fmt(f.z2, 2)}) = <span class="g">${fmt(f.p, 2)}</span> <span class="m">(student ${s.id} ${s.attrition ? "did" : "did not"} leave)</span>`;
     }
+    /* how well it fits the 20 students, and the probability it has learned over absences × grade */
+    const P = X.map(x => fwd(net, x).p), right = P.filter((p, k) => (p > .5) === !!Y[k]).length;
+    const ll = -mean(P.map((p, k) => Y[k] ? Math.log(Math.max(p, 1e-9)) : Math.log(Math.max(1 - p, 1e-9))));
+    const MW = 380, MH = 150, ms = svgIn($("#g1dnMapFig"), MW, MH + 22), nx = 40, ny = 16, a0 = 0, a1 = 25, g0 = 1.5, g1 = 4.2, est = s.estrato;
+    const mx = lin(a0, a1, 34, MW - 4), my = lin(g0, g1, MH, 4);
+    for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) {
+      const ab = a0 + (i + .5) * (a1 - a0) / nx, gr = g0 + (j + .5) * (g1 - g0) / ny, pz = fwd(net, [(ab - mu[0]) / sg[0], (gr - mu[1]) / sg[1], (est - mu[2]) / sg[2]]).p;
+      el("rect", { x: mx(a0 + i * (a1 - a0) / nx), y: my(g0 + (j + 1) * (g1 - g0) / ny), width: (MW - 38) / nx + .5, height: MH / ny + .5, fill: div(pz - .5, .5) }, ms);
+    }
+    S.forEach((t, k) => { const cx = mx(t.absences), cy = my(clamp(t.grade, g0, g1)); el("circle", { cx, cy, r: k === stu ? 6 : 4, fill: t.attrition ? css("--fg") : css("--bg"), stroke: css("--fg"), "stroke-width": k === stu ? 2.5 : 1.2 }, ms); });
+    [0, 10, 20].forEach(v => el("text", { x: mx(v), y: MH + 14, "text-anchor": "middle", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, v));
+    [2, 3, 4].forEach(v => el("text", { x: 28, y: my(v) + 4, "text-anchor": "end", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, v));
+    el("text", { x: MW - 4, y: MH + 14, "text-anchor": "end", style: "font-size:11px", fill: css("--muted") }, ms, "absences →");
+    el("text", { x: 0, y: 10, style: "font-size:11px", fill: css("--muted") }, ms, "grade");
+    $("#g1dnMapNote").textContent = `Red: likely to leave; blue: likely to stay (estrato fixed at ${est}, student ${s.id}'s). Dots: the 20 students, filled = left. `
+      + (act === "none" ? "With no activation the hidden layer adds nothing: the network is plain logistic regression, so the boundary is a straight line, whatever the number of neurons."
+        : H === 1 ? "One hidden neuron can only bend the boundary a little. Add neurons to let it curve."
+        : `${ACT[act].name} bends let the boundary curve. ${H >= 6 ? "With many neurons and only 20 students it starts to wrap around individual students: overfitting." : ""}`
+        + (act === "relu" && f.h.some(v => v === 0) ? ` Hidden neurons showing 0.00 are switched off for this student (their sum is negative).` : "")
+        + (act === "sigm" ? " Sigmoid's flat ends give small slopes, so the same training gets less far." : ""));
     const p1 = 3 * H + H, p2 = H + 1;
-    $("#g1dnRead").innerHTML = `<div><span>Layer 1: 3 × ${H} + ${H}</span><b class="c-arch">${p1}</b></div><div><span>Layer 2: ${H} × 1 + 1</span><b class="c-arch">${p2}</b></div><div><span>Total parameters</span><b>${p1 + p2}</b></div>`;
+    $("#g1dnRead").innerHTML = `<div><span>Layer 1: 3 × ${H} + ${H}</span><b class="c-arch">${p1}</b></div><div><span>Layer 2: ${H} × 1 + 1</span><b class="c-arch">${p2}</b></div><div><span>Total parameters</span><b>${p1 + p2}</b></div><div><span>Students right</span><b class="c-ok">${right} / ${S.length}</b></div><div><span>Training error (log-loss)</span><b class="c-lw">${fmt(ll, 2)}</b></div>`;
   }
   render(); return render;
 });

@@ -101,11 +101,15 @@
       <div class="eq arch">y = f(W·x + b) &nbsp;·&nbsp; params = in × out + out</div>
       <p>3 inputs (temperature, humidity, wind) into 2 neurons: 3 × 2 = <b>6 weights + 2 biases</b>.</p>
       <p>Here: absences, grade and estrato of 20 synthetic students, standardized (z-scores), feed the hidden neurons, which feed one sigmoid output: the attrition probability. Pick a student.</p>
-      <div id="g1dnTable" style="position:relative;max-height:220px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
-      <div class="callout amber"><b>Parameters grow fast.</b> A 100 × 100 image is 10,000 inputs. Into 100 neurons that is 10,000 × 100 = <b>1,000,000 weights</b>, for one layer. That is why images use convolution instead.</div>
+      <div id="g1dnTable" style="position:relative;max-height:150px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
+      <h3 style="margin-top:10px">What the network has learned: attrition probability</h3>
+      <div id="g1dnMapFig"></div>
+      <p class="note" id="g1dnMapNote" style="margin:2px 0 0"></p>
+      <div class="callout amber" style="font-size:14px"><b>Parameters grow fast.</b> A 100 × 100 image into 100 neurons is 10,000 × 100 = <b>1,000,000 weights</b> for one layer, which is why images use convolution.</div>
     </div>
     <div class="panel">
       <div class="ctl"><label for="g1dnH">Hidden neurons</label><input id="g1dnH" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+      <div class="chips" id="g1dnAct"><span class="mut" style="font-size:13px;align-self:center">Hidden activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="sigm">sigmoid</button><button class="chip" data-v="none">none</button></div>
       <div id="g1dnFig"></div>
       <p class="note" style="margin:2px 0 0">Click a neuron to see its incoming weights and its sum. Weights were fitted to the 20 synthetic students, for illustration only.</p>
       <div class="calc" id="g1dnCalc"></div>
