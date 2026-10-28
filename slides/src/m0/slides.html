@@ -124,6 +124,7 @@
     <div>
       <p><b>Try it:</b> one neuron, ŷ = w·x + b, learns temperature from elevation at five stations. It starts from a random w and b. Each step does the same four things, shown with the current numbers:</p>
       <div class="calc" id="oLearnSteps" style="line-height:1.65"></div>
+      <details class="why" style="margin-top:8px"><summary>How is the slope known at the very first step? Doesn't it need two points?</summary><div id="oLearnWhy" style="margin-top:6px"></div></details>
       <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
       <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
       <div class="readout" id="oLearnRead"></div>

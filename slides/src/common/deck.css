@@ -228,3 +228,6 @@ a.pick{text-decoration:none}
 .maprow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:10px}
 .maprow .pick{display:flex;flex-direction:column;gap:4px}
 @media (max-width:900px){.maprow{grid-template-columns:minmax(0,1fr)}}
+details.why{font-size:14.5px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card)}
+details.why summary{cursor:pointer;color:var(--accent);font-weight:500}
+details.why p{margin:6px 0 0}

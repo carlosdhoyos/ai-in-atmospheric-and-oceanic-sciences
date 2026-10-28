@@ -426,6 +426,7 @@ demo("o-learn", () => {
   const lamMax = 2 * ((mxx + 1) + Math.sqrt((mxx - 1) ** 2 + 4 * mx * mx)) / 2, etaMax = 2 / lamMax;   // steps above this overshoot
   let w, b, hist, trail, last, timer = null, rnd = rng(7);
   const gl = slider("oLr", v => fmt(v, 2), () => render());
+  $("#o-learn details.why").addEventListener("toggle", fitSlide);   // re-fit the slide when the note opens or closes
   const lossAt = (w, b) => mean(P.map(([x, y]) => (w * x + b - y) ** 2));
   const grads = () => { const e = P.map(([x, y]) => w * x + b - y); return { e, gw: mean(e.map((v, i) => 2 * v * P[i][0])), gb: mean(e.map(v => 2 * v)) }; };
   function reset() { w = +(-4 + 8 * rnd()).toFixed(1); b = +(5 + 15 * rnd()).toFixed(1); hist = [lossAt(w, b)]; trail = [[w, b]]; last = null; }
@@ -454,6 +455,11 @@ demo("o-learn", () => {
       + `<b>3 · Direction</b> ∂E/∂w = mean(2·err·x) = <span class="k">${f2(gw)}</span>, ∂E/∂b = mean(2·err) = <span class="k">${f2(gb)}</span><br>`
       + `<b>4 · Nudge</b> <span class="m">(what Train does next)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;w ← ${fmt(w, 2)} − ${fmt(lr, 2)} × (${f2(gw)}) = <span class="g">${fmt(w - lr * gw, 2)}</span><br>`
       + `&nbsp;&nbsp;&nbsp;&nbsp;b ← ${fmt(b, 2)} − ${fmt(lr, 2)} × (${f2(gb)}) = <span class="g">${fmt(b - lr * gb, 2)}</span>`;
+    /* why one point is enough: the formula's slope versus a brute-force check with a tiny nudge */
+    const hh = 0.01, Ew = lossAt(w + hh, b), num = (Ew - L) / hh;
+    $("#oLearnWhy").innerHTML = `<p>No. The error is a formula of w and b, E = mean((w·x + b − y)²), so calculus gives its slope exactly at the current point: ∂E/∂w = mean(2·err·x) uses only the five errors you see now. One point is enough.</p>`
+      + `<p><b>Check by trial:</b> nudge w by ${hh} and recompute the error: E goes from ${fmt(L, 3)} to ${fmt(Ew, 3)}, so the slope ≈ (${fmt(Ew, 3)} − ${fmt(L, 3)}) / ${hh} = <b>${fmt(num, 2)}</b>, almost exactly the formula's <b>${fmt(gw, 2)}</b>.</p>`
+      + `<p style="color:var(--muted)">Trial nudges cost one extra calculation per weight, which is hopeless with millions of weights. Real networks use <b>backpropagation</b>: the chain rule applied layer by layer gives every weight's slope in one backward pass.</p>`;
     /* fit chart with error bars labelled */
     const W = 460, H = 190, svg = svgIn($("#oLearnFig"), W, H);
     const A = axes(svg, { W, H, x0: 0, x1: 3, y0: 0, y1: 32, xt: [0, 1, 2], yt: [0, 10, 20, 30], xl: "elevation (km)", yl: "temperature (°C)" });

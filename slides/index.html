@@ -243,6 +243,9 @@ a.pick{text-decoration:none}
 .maprow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:10px}
 .maprow .pick{display:flex;flex-direction:column;gap:4px}
 @media (max-width:900px){.maprow{grid-template-columns:minmax(0,1fr)}}
+details.why{font-size:14.5px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card)}
+details.why summary{cursor:pointer;color:var(--accent);font-weight:500}
+details.why p{margin:6px 0 0}
 
 </style>
 </head>
@@ -381,6 +384,7 @@ a.pick{text-decoration:none}
     <div>
       <p><b>Try it:</b> one neuron, ŷ = w·x + b, learns temperature from elevation at five stations. It starts from a random w and b. Each step does the same four things, shown with the current numbers:</p>
       <div class="calc" id="oLearnSteps" style="line-height:1.65"></div>
+      <details class="why" style="margin-top:8px"><summary>How is the slope known at the very first step? Doesn't it need two points?</summary><div id="oLearnWhy" style="margin-top:6px"></div></details>
       <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
       <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
       <div class="readout" id="oLearnRead"></div>
@@ -1083,6 +1087,7 @@ demo("o-learn", () => {
   const lamMax = 2 * ((mxx + 1) + Math.sqrt((mxx - 1) ** 2 + 4 * mx * mx)) / 2, etaMax = 2 / lamMax;   // steps above this overshoot
   let w, b, hist, trail, last, timer = null, rnd = rng(7);
   const gl = slider("oLr", v => fmt(v, 2), () => render());
+  $("#o-learn details.why").addEventListener("toggle", fitSlide);   // re-fit the slide when the note opens or closes
   const lossAt = (w, b) => mean(P.map(([x, y]) => (w * x + b - y) ** 2));
   const grads = () => { const e = P.map(([x, y]) => w * x + b - y); return { e, gw: mean(e.map((v, i) => 2 * v * P[i][0])), gb: mean(e.map(v => 2 * v)) }; };
   function reset() { w = +(-4 + 8 * rnd()).toFixed(1); b = +(5 + 15 * rnd()).toFixed(1); hist = [lossAt(w, b)]; trail = [[w, b]]; last = null; }
@@ -1111,6 +1116,11 @@ demo("o-learn", () => {
       + `<b>3 · Direction</b> ∂E/∂w = mean(2·err·x) = <span class="k">${f2(gw)}</span>, ∂E/∂b = mean(2·err) = <span class="k">${f2(gb)}</span><br>`
       + `<b>4 · Nudge</b> <span class="m">(what Train does next)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;w ← ${fmt(w, 2)} − ${fmt(lr, 2)} × (${f2(gw)}) = <span class="g">${fmt(w - lr * gw, 2)}</span><br>`
       + `&nbsp;&nbsp;&nbsp;&nbsp;b ← ${fmt(b, 2)} − ${fmt(lr, 2)} × (${f2(gb)}) = <span class="g">${fmt(b - lr * gb, 2)}</span>`;
+    /* why one point is enough: the formula's slope versus a brute-force check with a tiny nudge */
+    const hh = 0.01, Ew = lossAt(w + hh, b), num = (Ew - L) / hh;
+    $("#oLearnWhy").innerHTML = `<p>No. The error is a formula of w and b, E = mean((w·x + b − y)²), so calculus gives its slope exactly at the current point: ∂E/∂w = mean(2·err·x) uses only the five errors you see now. One point is enough.</p>`
+      + `<p><b>Check by trial:</b> nudge w by ${hh} and recompute the error: E goes from ${fmt(L, 3)} to ${fmt(Ew, 3)}, so the slope ≈ (${fmt(Ew, 3)} − ${fmt(L, 3)}) / ${hh} = <b>${fmt(num, 2)}</b>, almost exactly the formula's <b>${fmt(gw, 2)}</b>.</p>`
+      + `<p style="color:var(--muted)">Trial nudges cost one extra calculation per weight, which is hopeless with millions of weights. Real networks use <b>backpropagation</b>: the chain rule applied layer by layer gives every weight's slope in one backward pass.</p>`;
     /* fit chart with error bars labelled */
     const W = 460, H = 190, svg = svgIn($("#oLearnFig"), W, H);
     const A = axes(svg, { W, H, x0: 0, x1: 3, y0: 0, y1: 32, xt: [0, 1, 2], yt: [0, 10, 20, 30], xl: "elevation (km)", yl: "temperature (°C)" });
