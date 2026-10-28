@@ -3,7 +3,7 @@ const OPS2 = [
   ["Foundations", [["01", "Weighted sum (the neuron)", "op-wsum"], ["02", "Element-wise operations", "op-elem"], ["03", "Activation functions", "op-act"], ["03", "Softmax", "op-softmax"]]],
   ["Connecting values", [["04", "Dense (fully connected)", "op-dense"], ["05", "Convolution in 1D", "op-conv1d"], ["05", "Convolution in 2D", "op-conv2d"], ["05", "Learned vs fixed filters", "op-conv-learned"], ["05", "Channels: how filters combine", "op-channels"],
     ["06", "Dilated convolution", "op-dilated"], ["07", "Transposed convolution", "op-tconv"], ["08", "Depthwise separable conv.", "op-sep"], ["08b", "1×1 convolution", "op-1x1"],
-    ["09", "Recurrence (simple RNN)", "op-rnn"], ["10", "Gated recurrence (LSTM, GRU)", "op-lstm"], ["11", "Self-attention", "op-self"], ["11b", "Multi-head attention", "op-mha"],
+    ["09", "Recurrence (simple RNN)", "op-rnn"], ["10", "Gated recurrence (LSTM, GRU)", "op-lstm"], ["10", "Inside the LSTM cell", "op-lstm-steps"], ["11", "Self-attention", "op-self"], ["11", "Self-attention step by step", "op-self-steps"], ["11b", "Multi-head attention", "op-mha"],
     ["11c", "Causal masking", "op-causal"], ["12", "Cross-attention", "op-cross"], ["13", "Graph message passing", "op-graph"]]],
   ["Summarizing and resizing", [["14", "Pooling", "op-pool"], ["15", "Upsampling and downsampling", "op-resample"], ["16", "Flatten and reshape", "op-flatten"]]],
   ["Representing inputs", [["17", "Embedding lookup", "op-embed"], ["18", "Positional encoding", "op-pos"]]],

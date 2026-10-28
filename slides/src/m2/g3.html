@@ -58,6 +58,27 @@
   </div>
 </section>
 
+<section class="slide" id="op-lstm-steps" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">10</span>Inside the LSTM cell, step by step</p>
+  <h2>One month through the cell: six small computations, all with the same weights every month</h2>
+  <div class="two">
+    <div>
+      <p><b>Think of the cell as a reservoir.</b> The cell state c is the water stored. The <b style="color:var(--sw)">forget gate f</b> is how much stays from last month; the <b style="color:var(--ok)">input gate i</b> is how much of this month's inflow g is let in; the <b style="color:var(--cool)">output gate o</b> is how much is released downstream as the output h.</p>
+      <p><b>Each gate is a small dense layer with a sigmoid:</b> it reads last month's output h and this month's input x and gives a number between 0 (closed) and 1 (open). Training learns their weights; here they are hand-set.</p>
+      <div class="callout violet" style="font-size:14px"><b>Why it remembers.</b> The memory path only multiplies by f and adds new water. With f near 1, nothing is squashed, so a wet season survives a dry year, and during training the error signal can flow back many months without fading. A simple RNN pushes its memory through a weight and tanh every step, so both fade quickly (the vanishing gradient).</div>
+      <p class="note">A <b>GRU</b> does the same with two gates: an update gate that both forgets and lets in (one valve, two outlets), and a reset gate; it has no separate cell state.</p>
+    </div>
+    <div class="panel nosw">
+      <div class="ctl"><label for="g3lzM">Month</label><input id="g3lzM" type="range" min="1" max="60" step="1" value="27"><output></output></div>
+      <div class="ctl"><label for="g3lzF">Forget f</label><input id="g3lzF" type="range" min="0.5" max="0.99" step="0.01" value="0.9"><output></output></div>
+      <div class="chips"><button class="btn" id="g3lzPrev" type="button">← Step</button><button class="btn" id="g3lzNext" type="button">Step →</button><span id="g3lzStep" class="mut" style="align-self:center;font-size:13px"></span></div>
+      <div class="fig-wrap"><div id="g3lzFig" style="min-width:440px"></div></div>
+      <div class="calc" id="g3lzCalc" style="font-size:12.8px;white-space:pre-line"></div>
+    </div>
+  </div>
+</section>
+
+
 <section class="slide" id="op-self" data-g="a" data-sec="2 · Operations · Connecting values">
   <p class="kicker k-arch"><span class="opnum">11</span>Self-attention</p>
   <h2>Each word scores every word, softmax turns scores into weights, and the output is a weighted average</h2>
@@ -87,6 +108,31 @@
     </div>
   </div>
 </section>
+
+<section class="slide" id="op-self-steps" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">11</span>Self-attention, step by step</p>
+  <h2>Ask, compare, weigh, mix: how "it" picks up the meaning of "cat"</h2>
+  <div class="two">
+    <div>
+      <p><b>A library analogy.</b> Each word writes a <b>query</b> (what am I looking for?), a <b>key</b> (the label on my spine) and a <b>value</b> (my contents). A word compares its query with every key, decides how much to read from each book, and mixes their contents.</p>
+      <ul class="pts">
+        <li>q, k and v come from three learned matrices, W<sub>q</sub>, W<sub>k</sub>, W<sub>v</sub>: the same for every word.</li>
+        <li>Dividing by √d (d = vector length) keeps scores from growing with d, so softmax does not become all-or-nothing.</li>
+        <li>Every word does this at once: in matrix form, out = softmax(QKᵀ / √d) V.</li>
+        <li>The output is a new vector for the word, a blend of the words it attended to: "it" moves towards "cat".</li>
+      </ul>
+      <p class="note">Tiny example: each word is 2 numbers (d = 2) so the arithmetic is visible; real models use hundreds. W<sub>q</sub> = [[4, 0], [0, 1]], W<sub>k</sub> = [[2, 0], [0, 0.5]], W<sub>v</sub> = identity, hand-set.</p>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3szQ"></div>
+      <div class="chips"><button class="btn" id="g3szPrev" type="button">← Step</button><button class="btn" id="g3szNext" type="button">Step →</button><span id="g3szStep" class="mut" style="align-self:center;font-size:13px"></span></div>
+      <div id="g3szFig"></div>
+      <div class="fig-wrap" id="g3szTable" style="margin-top:4px"></div>
+      <div class="calc" id="g3szCalc" style="font-size:12.8px;white-space:pre-line"></div>
+    </div>
+  </div>
+</section>
+
 
 <section class="slide" id="op-mha" data-g="a" data-sec="2 · Operations · Connecting values">
   <p class="kicker k-arch"><span class="opnum">11b</span>Multi-head attention</p>

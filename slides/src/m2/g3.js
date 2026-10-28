@@ -431,4 +431,104 @@
     }
     render(); return render;
   });
+
+  /* ───────── 10 · inside the LSTM cell, one month at a time ───────── */
+  demo("op-lstm-steps", () => {
+    const Rn = DS.monthly.rain, N = Rn.length, STEPS = ["Inputs", "Forget gate", "Input gate and candidate", "Update the memory", "Output gate", "Output"];
+    let k = 0;
+    const gm = slider("g3lzM", v => "month " + v, () => render()), gf = slider("g3lzF", v => fmt(v, 2), () => render());
+    $("#g3lzPrev").onclick = () => { k = Math.max(0, k - 1); render(); };
+    $("#g3lzNext").onclick = () => { k = Math.min(STEPS.length - 1, k + 1); render(); };
+    // the same toy cell as the previous slide: i, g, o from this month's rain (scaled x = rain/300); f held at the slider
+    function state(m, f) { let c = 0, h = 0, S = null;
+      for (let t = 0; t <= m; t++) { const x = Rn[t] / 300, i = sigm(6 * (x - 0.45)), g = Math.tanh(0.15 * x), o = sigm(1.5 + x), cp = c, hp = h; c = f * c + i * g; h = o * Math.tanh(c); S = { x, i, g, o, f, cp, hp, c, h, rain: Rn[t] }; }
+      return S; }
+    function render() {
+      const m = gm() - 1, s = state(m, gf()), W = 560, H = 230, svg = svgIn($("#g3lzFig"), W, H), on = j => k >= j, now = j => k === j;
+      arrowDefs(svg, "g3lz", css("--muted")); { const mk = svg.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 10); mk.setAttribute("markerHeight", 10); }
+      $("#g3lzStep").textContent = `step ${k + 1} of 6: ${STEPS[k]}`;
+      const op = j => now(j) ? 1 : on(j) ? .8 : .25, yC = 40, yG = 140, yIn = 205;
+      const box = (x, y, lab, val, tok, j, fn) => { const g = el("g", { opacity: op(j) }, svg);
+        el("rect", { x: x - 30, y: y - 22, width: 60, height: 44, rx: 9, fill: now(j) ? `color-mix(in srgb, ${css(tok)} 22%, ${css("--card")})` : css("--card"), stroke: css(tok), "stroke-width": now(j) ? 2.5 : 1.2 }, g);
+        el("text", { x, y: y - 5, "text-anchor": "middle", "font-size": 11.5, fill: css(tok) }, g, lab + " " + fn);
+        el("text", { x, y: y + 13, "text-anchor": "middle", class: "mono", "font-size": 12 }, g, on(j) ? fmt(val, 2) : "?"); return g; };
+      const node = (x, y, sym, j) => { const g = el("g", { opacity: op(j) }, svg); el("circle", { cx: x, cy: y, r: 12, fill: css("--card"), stroke: css("--fg") }, g); el("text", { x, y: y + 5, "text-anchor": "middle", "font-size": 15 }, g, sym); };
+      const wire = (d, tok, j, w = 1.6, arrow = true) => el("path", { d, fill: "none", stroke: css(tok), "stroke-width": w, opacity: op(j), "marker-end": arrow ? "url(#g3lz)" : "" }, svg);
+      // memory line on top: c(t−1) → × f → + i·g → c(t)
+      el("text", { x: 6, y: yC - 14, "font-size": 11, fill: css("--muted") }, svg, "memory (cell state)");
+      el("text", { x: 6, y: yC + 4, class: "mono", "font-size": 12 }, svg, "c₍ₜ₋₁₎ " + fmt(s.cp, 2));
+      wire(`M84 ${yC} L${132} ${yC}`, "--arch", 0, 2.5); node(145, yC, "×", 1); wire(`M157 ${yC} L${282} ${yC}`, "--arch", 1, 2.5); node(295, yC, "+", 3);
+      wire(`M307 ${yC} L${420} ${yC}`, "--arch", 3, 2.5);
+      el("text", { x: 360, y: yC - 12, "text-anchor": "middle", class: "mono", "font-size": 12, opacity: op(3), fill: css("--arch") }, svg, on(3) ? "cₜ " + fmt(s.c, 2) : "cₜ ?");
+      if (on(1)) el("text", { x: 220, y: yC - 10, "text-anchor": "middle", class: "mono", "font-size": 10.5, fill: css("--sw") }, svg, "kept " + fmt(s.f * s.cp, 2));
+      // input line at the bottom: [h(t−1), x(t)] feeds the four gates
+      el("text", { x: 6, y: yIn + 4, class: "mono", "font-size": 12 }, svg, `[h₍ₜ₋₁₎ ${fmt(s.hp, 2)}, xₜ ${fmt(s.x, 2)}]`);
+      el("text", { x: 6, y: yIn + 20, "font-size": 10.5, fill: css("--muted") }, svg, `rain this month ${fmtN(s.rain)} mm`);
+      el("line", { x1: 150, x2: 470, y1: yIn, y2: yIn, stroke: css("--line"), "stroke-width": 2 }, svg);
+      box(145, yG, "forget", s.f, "--sw", 1, "σ"); wire(`M145 ${yG - 22} L145 ${yC + 14}`, "--sw", 1);
+      box(230, yG, "input", s.i, "--ok", 2, "σ"); box(310, yG, "cand.", s.g, "--cool", 2, "tanh");
+      node(270, 88, "×", 2); wire(`M230 ${yG - 22} L262 98`, "--ok", 2); wire(`M310 ${yG - 22} L278 98`, "--cool", 2); wire(`M270 76 L289 ${yC + 11}`, "--ok", 2);
+      if (on(2)) el("text", { x: 238, y: 82, "text-anchor": "end", class: "mono", "font-size": 10.5, fill: css("--ok") }, svg, "added " + fmt(s.i * s.g, 3));
+      box(420, yG, "output", s.o, "--cool", 4, "σ");
+      wire(`M420 ${yC} L470 ${yC} L470 ${yG - 6}`, "--arch", 5, 1.6, false); node(470, yG + 6, "×", 5); wire(`M420 ${yG + 6} L456 ${yG + 6}`, "--cool", 4, 1.6, false);
+      el("text", { x: 478, y: 90, "font-size": 10.5, fill: css("--muted"), opacity: op(5) }, svg, "tanh");
+      wire(`M482 ${yG + 6} L520 ${yG + 6}`, "--cool", 5, 2.2);
+      el("text", { x: 524, y: yG + 2, class: "mono", "font-size": 12, opacity: op(5) }, svg, "hₜ");
+      el("text", { x: 524, y: yG + 17, class: "mono", "font-size": 12, opacity: op(5), fill: css("--cool") }, svg, on(5) ? fmt(s.h, 2) : "?");
+      [145, 230, 310, 420].forEach(x => el("line", { x1: x, x2: x, y1: yIn, y2: yG + 22, stroke: css("--line") }, svg));
+      const T = [
+        `Inputs for month ${m + 1}: last month's memory c₍ₜ₋₁₎ = ${fmt(s.cp, 2)}, last month's output h₍ₜ₋₁₎ = ${fmt(s.hp, 2)}, and this month's rain, scaled: xₜ = ${fmtN(s.rain)}/300 = ${fmt(s.x, 2)}.`,
+        `Forget gate f = σ(W_f·[h, x] + b_f): how much of the memory stays. Here f is held at ${fmt(s.f, 2)}, so kept = ${fmt(s.f, 2)} × ${fmt(s.cp, 2)} = ${fmt(s.f * s.cp, 2)}.`,
+        `Input gate i = σ(W_i·[h, x] + b_i) = ${fmt(s.i, 2)} (${s.i > .5 ? "open: a wet month" : "mostly shut: a dry month"}).\nCandidate g = tanh(W_g·[h, x] + b_g) = ${fmt(s.g, 3)}: the new water on offer. Added = i × g = ${fmt(s.i * s.g, 3)}.`,
+        `New memory: cₜ = f·c₍ₜ₋₁₎ + i·g = ${fmt(s.f * s.cp, 2)} + ${fmt(s.i * s.g, 3)} = ${fmt(s.c, 2)}. Only multiply and add: nothing squashes the memory.`,
+        `Output gate o = σ(W_o·[h, x] + b_o) = ${fmt(s.o, 2)}: how much of the memory is released this month.`,
+        `Output hₜ = o × tanh(cₜ) = ${fmt(s.o, 2)} × ${fmt(Math.tanh(s.c), 2)} = ${fmt(s.h, 2)}. It goes to the next layer (here the streamflow estimate) and, with cₜ, into next month's step.`];
+      $("#g3lzCalc").textContent = `Step ${k + 1}. ${T[k]}`;
+    }
+    render(); return render;
+  });
+
+  /* ───────── 11 · self-attention, step by step, with 2-number word vectors ───────── */
+  demo("op-self-steps", () => {
+    const Wd = DS.sentence, X = [[0.1, 0.0], [1.0, 0.2], [0.1, 1.0], [0.0, 0.1], [0.8, 0.3], [0.1, 0.6], [0.5, 0.9]];
+    const mv = (M, v) => [M[0][0] * v[0] + M[0][1] * v[1], M[1][0] * v[0] + M[1][1] * v[1]];
+    const Wq = [[4, 0], [0, 1]], Wk = [[2, 0], [0, 0.5]], Wv = [[1, 0], [0, 1]], d = 2;
+    const STEPS = ["Word vectors", "Query, keys, values", "Scores q·k/√d", "Softmax: weights", "Weighted average"];
+    let q = 4, k = 0;
+    $("#g3szQ").innerHTML = `<span class="mut" style="font-size:13px;align-self:center">Query word:</span>` + Wd.map((w, j) => `<button class="chip" data-j="${j}" aria-pressed="${j === q}">${w}</button>`).join("");
+    $$("#g3szQ button").forEach(b => b.addEventListener("click", () => { q = +b.dataset.j; press($$("#g3szQ button"), b); render(); }));
+    $("#g3szPrev").onclick = () => { k = Math.max(0, k - 1); render(); };
+    $("#g3szNext").onclick = () => { k = Math.min(STEPS.length - 1, k + 1); render(); };
+    const v2 = v => `(${+v[0].toFixed(2)}, ${+v[1].toFixed(2)})`;
+    function render() {
+      const Q = mv(Wq, X[q]), K = X.map(x => mv(Wk, x)), V = X.map(x => mv(Wv, x)), sc = K.map(kk => (Q[0] * kk[0] + Q[1] * kk[1]) / Math.sqrt(d)), w = softmax(sc);
+      const out = [0, 1].map(c => w.reduce((s, a, j) => s + a * V[j][c], 0));
+      $("#g3szStep").textContent = `step ${k + 1} of 5: ${STEPS[k]}`;
+      /* the words as points in 2-D; lines from the query sized by weight; the output as a new point */
+      const W = 500, H = 190, svg = svgIn($("#g3szFig"), W, H), x = lin(-0.05, 1.25, 14, W - 8), y = lin(-0.05, 1.05, H - 22, 22);
+      arrowDefs(svg, "g3sz", css("--arch")); { const mk = svg.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 9); mk.setAttribute("markerHeight", 9); }
+      el("line", { x1: x(0), x2: x(1.1), y1: y(0), y2: y(0), class: "ax" }, svg); el("line", { x1: x(0), x2: x(0), y1: y(0), y2: y(1.05), class: "ax" }, svg);
+      el("text", { x: x(1.1), y: y(0) + 16, "text-anchor": "end", "font-size": 10.5, fill: css("--muted") }, svg, "number 1 ('thing-ness')");
+      el("text", { x: 2, y: 12, "font-size": 10.5, fill: css("--muted") }, svg, "↑ number 2 ('action-ness')");
+      if (k >= 3) X.forEach((p, j) => el("line", { x1: x(X[q][0]), y1: y(X[q][1]), x2: x(p[0]), y2: y(p[1]), stroke: css("--arch"), "stroke-width": 0.5 + 9 * w[j], opacity: .25 + .75 * w[j] }, svg));
+      X.forEach((p, j) => { const isQ = j === q;
+        el("circle", { cx: x(p[0]), cy: y(p[1]), r: isQ ? 7 : 5, fill: isQ ? css("--arch") : css("--card"), stroke: css(isQ ? "--arch" : "--fg") }, svg);
+        el("text", { x: x(p[0]) + 9, y: y(p[1]) + (j === 0 ? 14 : -6), "font-size": 11.5, fill: css(isQ ? "--arch" : "--fg") }, svg, Wd[j]); });
+      if (k >= 4) { el("line", { x1: x(X[q][0]), y1: y(X[q][1]), x2: x(out[0]), y2: y(out[1]), stroke: css("--sw"), "stroke-width": 2.2, "marker-end": "url(#g3sz)" }, svg);
+        el("circle", { cx: x(out[0]), cy: y(out[1]), r: 6, fill: css("--sw") }, svg); el("text", { x: x(out[0]), y: y(out[1]) + 20, "text-anchor": "middle", "font-size": 11, fill: css("--sw") }, svg, `new "${Wd[q]}"`); }
+      /* table revealing one column per step */
+      const cols = [["word", j => Wd[j]], ["x", j => v2(X[j])]].concat(k >= 1 ? [["key k", j => v2(K[j])], ["value v", j => v2(V[j])]] : [], k >= 2 ? [["score", j => fmt(sc[j], 2)]] : [], k >= 3 ? [["weight", j => fmt(w[j], 2)]] : []);
+      $("#g3szTable").innerHTML = `<table class="tb" style="font-size:12px;white-space:nowrap"><thead><tr>${cols.map(c => `<th>${c[0]}</th>`).join("")}</tr></thead><tbody>${Wd.map((_, j) => `<tr${j === q ? ' style="background:var(--arch-soft);font-weight:600"' : ""}>${cols.map((c, ci) => `<td class="${ci ? "n" : ""}">${c[1](j)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+      const top = w.map((a, j) => [a, j]).sort((a, b) => b[0] - a[0]);
+      const T = [
+        `Each word starts as a vector of 2 numbers (learned embeddings). "${Wd[q]}" = ${v2(X[q])}.`,
+        `Query of "${Wd[q]}": q = W_q·x = ${v2(Q)}. Every word also gets a key k = W_k·x and a value v = W_v·x (columns in the table).`,
+        `Score for each word: q·k / √${d}. For "${Wd[top[0][1]]}": (${fmt(Q[0], 2)}×${fmt(K[top[0][1]][0], 2)} + ${fmt(Q[1], 2)}×${fmt(K[top[0][1]][1], 2)}) / ${fmt(Math.sqrt(d), 2)} = ${fmt(sc[top[0][1]], 2)}. A big score means the key matches what the query looks for.`,
+        `Softmax turns the scores into weights that sum to 1: most goes to "${Wd[top[0][1]]}" (${fmtN(100 * top[0][0])}%), then "${Wd[top[1][1]]}" (${fmtN(100 * top[1][0])}%). Line thickness = weight.`,
+        (() => { const o = top.find(([, j]) => j !== q)[1], dist = p => Math.hypot(p[0] - X[o][0], p[1] - X[o][1]);
+          return `Output = Σ weight × value = ${v2(out)}. The new "${Wd[q]}" is a blend of the words it attended to` + (dist(out) < dist(X[q]) ? `: it has moved from ${v2(X[q])} towards "${Wd[o]}" and now carries part of its meaning.` : ` (mostly itself and "${Wd[o]}"); with weights this spread out it stays near the middle of them.`) + ` All 7 words do this at the same time.`; })()];
+      $("#g3szCalc").textContent = `Step ${k + 1}. ${T[k]}`;
+    }
+    render(); return render;
+  });
 })();
