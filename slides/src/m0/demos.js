@@ -169,44 +169,132 @@ demo("o-ops", () => {
   render(); return render;
 });
 
-/* 5 · layers: stack a small CNN and watch shapes and parameter counts */
+/* 5 · layers: stack a small CNN, and open any layer to see where its parameters come from */
 demo("o-layers", () => {
-  let stack = ["conv", "pool"];
-  const btns = $$("#oStackBtns button");
-  function shapes() {
-    let s = [28, 28, 1]; const out = [{ name: "Input image", shape: s, p: 0 }];
+  let stack = ["conv", "pool"], sel = 1;
+  const btns = $$("#oStackBtns button"), COLS = ["--arch", "--cool", "--sw", "--lw", "--mag", "--data"];
+  function layers() {
+    let s = [28, 28, 1]; const out = [{ t: "input", name: "Input image", inS: null, shape: s, p: 0 }];
     for (const t of stack) {
-      if (t === "conv") { const p = (9 * s[2] + 1) * 8; s = [s[0], s[1], 8]; out.push({ name: "Conv 8 × (3×3), same padding", shape: s, p, f: `(3·3·${out[out.length - 1].shape[2]} + 1) × 8` }); }
-      if (t === "pool") { s = [Math.floor(s[0] / 2), Math.floor(s[1] / 2), s[2]]; out.push({ name: "Max pool 2×2", shape: s, p: 0, f: "no weights" }); }
-      if (t === "flat") { s = [s[0] * s[1] * s[2]]; out.push({ name: "Flatten", shape: s, p: 0, f: "reshape only" }); }
-      if (t === "dense") { const p = (s[0] + 1) * 10; s = [10]; out.push({ name: "Dense 10", shape: s, p, f: `(${fmtN(out[out.length - 1].shape[0])} + 1) × 10` }); }
+      const inS = s;
+      if (t === "conv") { s = [s[0], s[1], 8]; out.push({ t, name: "Conv 8 filters 3×3", inS, shape: s, p: (9 * inS[2] + 1) * 8 }); }
+      if (t === "pool") { s = [Math.floor(s[0] / 2), Math.floor(s[1] / 2), s[2]]; out.push({ t, name: "Max pool 2×2", inS, shape: s, p: 0 }); }
+      if (t === "flat") { s = [s[0] * s[1] * s[2]]; out.push({ t, name: "Flatten", inS, shape: s, p: 0 }); }
+      if (t === "dense") { s = [10]; out.push({ t, name: "Dense 10", inS, shape: s, p: (inS[0] + 1) * 10 }); }
     }
+    let k = 0; out.forEach(l => { if (l.p) l.col = COLS[k++ % COLS.length]; });
     return out;
   }
   btns.forEach(b => b.addEventListener("click", () => {
     const v = b.dataset.v;
     if (v === "undo") stack.pop(); else if (v === "reset") stack = []; else stack.push(v);
-    render();
+    sel = stack.length; render();
   }));
+  const shp = s => s.join(" × ");
+  function anatomy(l) {
+    const W = 380, H = 175, svg = svgIn($("#oAnatFig"), W, H), r = rng(11);
+    arrowDefs(svg, "oan", css("--muted"));
+    const sq = (x, y, z, fill, stroke) => el("rect", { x, y, width: z, height: z, rx: 1.5, fill, stroke: stroke || "none", "stroke-width": 1.5 }, svg);
+    const txt = (x, y, t, o = {}) => el("text", { x, y, "font-size": 12, fill: css("--muted"), ...o }, svg, t);
+    let title = "", calc = "";
+    if (l.t === "conv") {
+      const cin = l.inS[2], per = 9 * cin, pos = l.inS[0] * l.inS[1];
+      for (let i = 0; i < 6; i++) for (let j = 0; j < 6; j++) sq(4 + j * 13, 30 + i * 13, 11, css("--well"), (i >= 1 && i <= 3 && j >= 1 && j <= 3) ? css(l.col) : null);
+      txt(42, 124, "input", { "text-anchor": "middle" }); txt(42, 139, shp(l.inS), { "text-anchor": "middle", class: "mono" });
+      el("line", { x1: 86, y1: 69, x2: 110, y2: 69, stroke: css("--muted"), "marker-end": "url(#oan)" }, svg);
+      txt(116, 14, "8 filters, each with its own weights", { fill: css(l.col) });
+      for (let f = 0; f < 8; f++) {
+        const x0 = 116 + f * 33, y0 = 40, depth = Math.min(cin, 3);
+        for (let d = depth - 1; d >= 0; d--) for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++)
+          sq(x0 + d * 3 + j * 8, y0 - d * 3 + i * 8, 7, d ? css("--line") : div(r() * 2 - 1, 1));
+        if (cin > 1) txt(x0 + 12, y0 + 38, "×" + cin, { "text-anchor": "middle", "font-size": 11 });
+        el("circle", { cx: x0 + 11, cy: y0 + 52, r: 5, fill: css("--sw") }, svg);
+      }
+      txt(116, 122, `each filter: 3 × 3${cin > 1 ? " × " + cin : ""} = ${per} weights`, { fill: css("--fg") });
+      el("circle", { cx: 121, cy: 136, r: 5, fill: css("--sw") }, svg); txt(131, 140, "+ 1 bias per filter", { fill: css("--fg") });
+      txt(4, 166, `The window slides over all ${fmtN(pos)} positions, always with the same filters.`, { "font-size": 11.5 });
+      title = `Conv 8 filters 3×3: where the ${fmtN(l.p)} come from`;
+      calc = `one filter: 3 × 3${cin > 1 ? ` × <span class="k">${cin}</span> channels` : ""} = ${per} weights + 1 bias = <b>${per + 1}</b><br>`
+        + `8 filters × ${per + 1} = <span class="g">${fmtN(l.p)}</span> parameters<br>`
+        + `<span class="m">${cin > 1 ? `With ${cin} input channels each filter has one 3 × 3 slice per channel. ` : ""}The same numbers are reused at every position, so a bigger image needs no more parameters.</span>`;
+    } else if (l.t === "dense") {
+      const nin = l.inS[0], ys = [26, 42, 58, 74, 106, 122, 138], yo = Array.from({ length: 10 }, (_, k) => 20 + k * 13.5);
+      ys.forEach(y => yo.forEach((y2, k) => el("line", { x1: 26, y1: y, x2: 132, y2: y2, stroke: css(k === 0 ? l.col : "--line"), "stroke-width": k === 0 ? 1.4 : .5, opacity: k === 0 ? 1 : .6 }, svg)));
+      ys.forEach(y => el("circle", { cx: 20, cy: y, r: 5.5, fill: css("--data") }, svg));
+      txt(20, 94, "⋮", { "text-anchor": "middle", "font-size": 16 }); txt(4, 160, `${fmtN(nin)} inputs`);
+      yo.forEach((y, k) => el("circle", { cx: 138, cy: y, r: 5, fill: css(k === 0 ? l.col : "--arch-soft"), stroke: css(l.col) }, svg));
+      txt(112, 172, "10 neurons");
+      txt(150, 24, "← neuron 1 gets one weight", { fill: css(l.col) }); txt(150, 39, `   from every input: ${fmtN(nin)}`, { fill: css(l.col) });
+      const mx = 220, my = 70, mw = 120, mh = 70;
+      for (let k = 0; k < 10; k++) for (let c = 0; c < 24; c++) el("rect", { x: mx + c * mw / 24, y: my + k * mh / 10, width: mw / 24 - .6, height: mh / 10 - .6, fill: k === 0 ? css(l.col) : div(r() * 2 - 1, 1.3) }, svg);
+      for (let k = 0; k < 10; k++) el("rect", { x: mx + mw + 6, y: my + k * mh / 10, width: 8, height: mh / 10 - .6, fill: css("--sw") }, svg);
+      txt(mx, my - 8, `weights W: 10 × ${fmtN(nin)}`, { fill: css("--fg") }); txt(mx + mw - 10, my + mh + 15, "bias b: 10", { fill: css("--sw") });
+      txt(mx, my + mh + 30, "one row per neuron");
+      title = `Dense 10: where the ${fmtN(l.p)} come from`;
+      calc = `one neuron: ${fmtN(nin)} weights (one per input) + 1 bias = <b>${fmtN(nin + 1)}</b><br>`
+        + `10 neurons × ${fmtN(nin + 1)} = <span class="g">${fmtN(l.p)}</span> parameters<br>`
+        + `<span class="m">Every input connects to every neuron, so the count grows with the size of the input. That is why the dense layer usually holds most of the parameters.</span>`;
+    } else if (l.t === "pool") {
+      const G = [[24, 26, 18, 17], [25, 23, 16, 15], [22, 21, 12, 14], [20, 19, 13, 11]], c = 25;
+      G.forEach((row, i) => row.forEach((v, j) => {
+        const bi = Math.floor(i / 2) * 2, bj = Math.floor(j / 2) * 2, isMax = v === Math.max(G[bi][bj], G[bi][bj + 1], G[bi + 1][bj], G[bi + 1][bj + 1]);
+        const x = 4 + j * c + (j > 1 ? 5 : 0), y = 26 + i * c + (i > 1 ? 5 : 0);
+        el("rect", { x, y, width: c - 2, height: c - 2, rx: 4, fill: css(isMax ? "--cool-soft" : "--well"), stroke: isMax ? css("--cool") : "none" }, svg);
+        txt(x + 11.5, y + 16, v, { "text-anchor": "middle", class: "mono", fill: css("--fg") });
+      }));
+      el("line", { x1: 116, y1: 80, x2: 152, y2: 80, stroke: css("--muted"), "marker-end": "url(#oan)" }, svg); txt(134, 72, "max", { "text-anchor": "middle" });
+      [[26, 18], [22, 14]].forEach((row, i) => row.forEach((v, j) => { el("rect", { x: 160 + j * 30, y: 52 + i * 30, width: 28, height: 28, rx: 4, fill: css("--cool-soft"), stroke: css("--cool") }, svg); txt(174 + j * 30, 71 + i * 30, v, { "text-anchor": "middle", class: "mono", fill: css("--fg") }); }));
+      txt(234, 68, "a fixed rule:", { fill: css("--fg") }); txt(234, 84, "keep the largest of 4"); txt(234, 100, "nothing to learn");
+      title = "Max pool 2×2: no parameters";
+      calc = `Each 2 × 2 block is replaced by its largest value. The rule is fixed, so there is nothing to learn: <span class="g">0</span> parameters.<br><span class="m">It only shrinks the grid: ${shp(l.inS)} → ${shp(l.shape)}.</span>`;
+    } else if (l.t === "flat") {
+      for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) { el("rect", { x: 4 + j * 25, y: 44 + i * 25, width: 23, height: 23, rx: 3, fill: div((i * 3 + j) / 4 - 1, 1.2) }, svg); txt(15.5 + j * 25, 60 + i * 25, i * 3 + j + 1, { "text-anchor": "middle", class: "mono", fill: css("--fg") }); }
+      el("line", { x1: 86, y1: 81, x2: 112, y2: 81, stroke: css("--muted"), "marker-end": "url(#oan)" }, svg);
+      for (let k = 0; k < 9; k++) { el("rect", { x: 118 + k * 28, y: 69, width: 26, height: 24, rx: 3, fill: div(k / 4 - 1, 1.2) }, svg); txt(131 + k * 28, 86, k + 1, { "text-anchor": "middle", class: "mono", fill: css("--fg") }); }
+      txt(118, 120, "the same numbers in one row: nothing to learn");
+      title = "Flatten: no parameters";
+      calc = `${shp(l.inS)} = ${fmtN(l.shape[0])} numbers, rearranged into one list so a dense layer can read them: <span class="g">0</span> parameters.`;
+    } else {
+      for (let i = 0; i < 7; i++) for (let j = 0; j < 7; j++) sq(4 + j * 15, 24 + i * 15, 13, heat(Math.exp(-((i - 3) ** 2 + (j - 3) ** 2) / 5), 0, 1));
+      txt(124, 66, "the data itself:", { fill: css("--fg") }); txt(124, 82, "28 × 28 pixels × 1 channel"); txt(124, 98, "= 784 numbers, nothing to learn");
+      title = "Input: no parameters";
+      calc = `The input layer is just the data's shape, ${shp(l.shape)}: <span class="g">0</span> parameters.`;
+    }
+    $("#oAnatT").textContent = title; $("#oAnatCalc").innerHTML = calc;
+  }
   function render() {
-    const L = shapes(), last = L[L.length - 1].shape, flat = last.length === 1, full = stack.length >= 7;
+    const L = layers(), last = L[L.length - 1].shape, flat = last.length === 1, full = stack.length >= 7;
+    sel = clamp(sel, 0, L.length - 1);
     btns.forEach(b => {
       const v = b.dataset.v;
       b.disabled = v === "undo" || v === "reset" ? !stack.length : full || ((v === "conv" || v === "pool" || v === "flat") ? flat || (v === "pool" && last[0] < 2) : !flat);
     });
-    $("#oStackNote").textContent = flat ? "The data is now a flat vector: only dense layers can follow. Remove layers to add convolutions again."
-      : "Convolution and pooling keep the grid. Flatten before a dense layer, which needs a vector.";
-    const W = 520, rh = 34, H = L.length * (rh + 10) + 4, svg = svgIn($("#oStackFig"), W, H);
+    $("#oStackNote").textContent = flat ? "The data is now a flat list: only dense layers can follow. Remove layers to add convolutions again."
+      : "Convolution and pooling keep the grid. Flatten before a dense layer, which needs a list.";
+    const W = 480, rh = 30, gap = 8, H = L.length * (rh + gap), svg = svgIn($("#oStackFig"), W, H);
     L.forEach((l, i) => {
-      const y = 2 + i * (rh + 10), col = i === 0 ? "--data" : l.p ? "--arch" : "--muted";
-      el("rect", { x: 2, y, width: W - 4, height: rh, rx: 8, fill: `color-mix(in srgb, var(${col}) 12%, var(--card))`, stroke: css(col) }, svg);
-      el("text", { x: 14, y: y + 21, "font-size": 13 }, svg, l.name);
-      el("text", { x: 300, y: y + 21, class: "mono", "font-size": 12.5 }, svg, l.shape.join(" × "));
-      el("text", { x: W - 14, y: y + 21, "text-anchor": "end", class: "mono", "font-size": 12.5, fill: css(l.p ? "--arch" : "--muted") }, svg, l.p ? fmtN(l.p) + " params" : (l.f || ""));
+      const y = i * (rh + gap), col = i === 0 ? "--data" : l.p ? l.col : "--muted", on = i === sel;
+      const g = el("g", { style: "cursor:pointer", role: "button", tabindex: 0, "aria-label": l.name }, svg);
+      el("rect", { x: 2, y, width: W - 4, height: rh, rx: 8, fill: `color-mix(in srgb, var(${col}) ${on ? 26 : 10}%, var(--card))`, stroke: css(col), "stroke-width": on ? 2.5 : 1 }, g);
+      el("text", { x: 14, y: y + 19, "font-size": 13, "font-weight": on ? 600 : 400 }, g, l.name);
+      el("text", { x: 250, y: y + 19, class: "mono", "font-size": 12.5 }, g, shp(l.shape));
+      el("text", { x: W - 14, y: y + 19, "text-anchor": "end", class: "mono", "font-size": 12.5, fill: css(l.p ? l.col : "--muted") }, g, l.p ? fmtN(l.p) + " params" : "0");
+      const pick = () => { sel = i; render(); };
+      g.addEventListener("click", pick); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
-    const tot = L.reduce((s, l) => s + l.p, 0);
-    $("#oStackRead").innerHTML = `<div><span>Output shape</span><b>${last.join(" × ")}</b></div><div><span>Trainable parameters</span><b class="c-arch">${fmtN(tot)}</b></div>`
-      + (L.length > 1 && L[L.length - 1].f ? `<div><span>Last layer</span><b style="font-size:16px">${L[L.length - 1].f}</b></div>` : "");
+    /* share of all parameters, one segment per trainable layer */
+    const tot = L.reduce((s, l) => s + l.p, 0), sv = svgIn($("#oShareFig"), W, 48);
+    if (!tot) el("text", { x: 0, y: 24, "font-size": 12, fill: css("--muted") }, sv, "No trainable layers yet.");
+    let x = 0; L.forEach(l => {
+      if (!l.p) return; const w = Math.max(2, (W - 2) * l.p / tot);
+      el("rect", { x, y: 2, width: w, height: 24, fill: css(l.col), opacity: .85 }, sv);
+      if (w > 70) el("text", { x: x + 6, y: 19, "font-size": 11.5, fill: css("--bg") }, sv, `${l.name.split(" ")[0]} ${fmt(100 * l.p / tot, 1)}%`);
+      x += w;
+    });
+    const big = L.reduce((a, l) => l.p > a.p ? l : a, L[0]);
+    if (tot) el("text", { x: 0, y: 44, "font-size": 11.5, fill: css("--muted") }, sv, `${big.name} holds ${fmt(100 * big.p / tot, 1)}% of all ${fmtN(tot)} parameters`);
+    $("#oStackRead").innerHTML = `<div><span>Output shape</span><b>${shp(last)}</b></div><div><span>Trainable parameters</span><b class="c-arch">${fmtN(tot)}</b></div>`;
+    anatomy(L[sel]);
   }
   render(); return render;
 });

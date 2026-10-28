@@ -63,15 +63,21 @@
   <h2>Operations packaged with their own trainable weights, stacked in order</h2>
   <div class="two">
     <div>
-      <p>We stack layers; the output layer is shaped by the task. <b>Try it:</b> stack layers like blocks. Each new layer shows its output shape and parameter count, and the total updates as you go.</p>
+      <p>A layer's <b>parameters</b> are the numbers training adjusts: its weights and biases. <b>Try it:</b> stack layers, then click any layer on the right to see exactly where its parameters come from.</p>
       <div class="chips" id="oStackBtns">
         <button class="btn" type="button" data-v="conv">+ Conv 8 filters 3×3</button><button class="btn" type="button" data-v="pool">+ Max pool 2×2</button>
         <button class="btn" type="button" data-v="flat">+ Flatten</button><button class="btn" type="button" data-v="dense">+ Dense 10</button>
         <button class="btn" type="button" data-v="undo">Remove last</button><button class="btn" type="button" data-v="reset">Reset</button>
       </div>
       <p class="note" id="oStackNote"></p>
+      <div class="panel" style="margin-top:8px"><h3 id="oAnatT"></h3><div id="oAnatFig"></div><div class="calc" id="oAnatCalc"></div></div>
     </div>
-    <div class="panel"><div id="oStackFig"></div><div class="readout" id="oStackRead"></div></div>
+    <div class="panel">
+      <div id="oStackFig"></div>
+      <h3 style="margin-top:8px">Where the parameters live</h3>
+      <div id="oShareFig"></div>
+      <div class="readout" id="oStackRead"></div>
+    </div>
   </div>
 </section>
 
