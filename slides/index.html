@@ -299,7 +299,7 @@ details.why p{margin:6px 0 0}
       <div class="readout" id="oDataRead"></div>
       <p class="note" id="oDataNote"></p>
     </div>
-    <div class="panel"><div class="fig-wrap" id="oDataTable"></div><p class="note" id="oDataRule" style="margin:8px 0 0"></p></div>
+    <div class="panel"><div class="fig-wrap" id="oDataTable"></div><p class="note" id="oDataRule" style="margin:8px 0 0"></p><div class="calc" id="oDataFill" style="font-size:12.5px"></div></div>
   </div>
 </section>
 
@@ -796,6 +796,13 @@ demo("o-data", () => {
         + `<td class="n">${r.y ? "yes" : "no"}</td><td class="n" style="color:var(${test(r) ? (hit ? "--ok" : "--lw") : "--muted"})">${r.pred ? "yes" : "no"}</td></tr>`;
     });
     $("#oDataTable").innerHTML = h + "</tbody></table>";
+    /* how the fill value is computed: the training days that have a reading */
+    const have = rows.filter(r => !test(r) && r.rain != null), srt = have.map(r => r.rain).sort((x, y) => x - y), mid = (srt.length - 1) / 2;
+    $("#oDataFill").innerHTML = `<b>Fill value</b>: the ${have.length} training days with a reading (not day 5, never the test days)<br>`
+      + `sorted daily rain: ${srt.map((v, i) => imp !== "mean" && i === mid ? `<span class="k">[${v}]</span>` : v).join(", ")} mm<br>`
+      + (imp === "mean" ? `<span class="k">mean</span> = (${srt.join(" + ")}) / ${srt.length} = ${srt.reduce((a, b) => a + b, 0)} / ${srt.length} = <span class="g">${fmt(fill.mean, 1)} mm</span>`
+        : `<span class="k">median</span> = the middle (${mid + 1}th) value = <span class="g">${fmt(fill.median, 1)} mm</span>`)
+      + `<br><span class="m">Real practice: fill from climatology, a nearby gauge or the satellite estimate.</span>`;
     $("#oDataRule").textContent = "Model: heavy rain tomorrow if −4 + 0.12 × rain + 0.2 × (humidity − 80)" + (imp === "flag" ? " + 4 × gauge failed" : "") + " > 0. Green: right on a test day; red: wrong.";
     $("#oDataRead").innerHTML = `<div><span>Filled rain</span><b class="c-sw">${fmt(fill[imp], 1)} mm</b></div>`
       + `<div><span>Test accuracy</span><b class="${leak.feat ? "c-lw" : acc >= .75 ? "c-ok" : "c-sw"}">${Math.round(acc * 100)}%</b></div>`
@@ -806,7 +813,7 @@ demo("o-data", () => {
       : imp === "median" ? `The median (${fmt(fill.median, 1)} mm) is a typical day, so the failed days look ordinary.`
       : "Gauges often fail in the heaviest storms (clogged funnels, power cuts), so a gap is itself a sign of a storm. With the flag column the model learns that, and day 9 is caught.");
     if (imp !== "flag") n.push("Day 9 really had 41 mm: any single fill value makes it look like an ordinary day, and the storm is missed. The gaps are not random.");
-    n.push("Fill values come from the 8 training days only. Day 12 is humid but stayed below 20 mm: a miss no fill can fix.");
+    n.push("Day 12 is humid but stayed below 20 mm: a miss no fill can fix.");
     if (leak.split) n.push("Scaling before the split lets the test days shape the mean and sd: information from the future reaches training. Here the score does not move, but the evaluation is no longer clean; in flexible models such leaks inflate scores.");
     if (leak.feat) n.push("The flood alert is issued after the heavy rain has fallen, so it reveals the answer: 100% on test, useless for a forecast.");
     $("#oDataNote").textContent = n.join(" ");
