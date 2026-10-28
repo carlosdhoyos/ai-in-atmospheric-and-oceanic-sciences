@@ -1458,14 +1458,15 @@ const DS = (() => {
   });
   return { daily: { rain, tmax }, monthly: { rain: mr, streamflow: q }, mask, elev, temp, precip, students, sentence: ["the", "cat", "sat", "because", "it", "was", "tired"] };
 })();
-/* draw a gridded field (rows of numbers, null = ocean / no data) into an SVG inside host; returns the svg */
-function fieldSVG(host, F, { cell = 16, color = v => heat(v, 0, 1), onCell = null, hi = null, label = false, digits = 0 } = {}) {
+/* draw a gridded field (rows of numbers, null = ocean / no data) into an SVG inside host; returns the svg.
+   onCell fires on click, and also on hover unless hover is false */
+function fieldSVG(host, F, { cell = 16, color = v => heat(v, 0, 1), onCell = null, hi = null, label = false, digits = 0, hover = true } = {}) {
   const R = F.length, C = F[0].length, svg = svgIn(host, C * cell + 2, R * cell + 2);
   F.forEach((row, i) => row.forEach((v, j) => {
     const g = el("g", onCell ? { style: "cursor:pointer" } : {}, svg);
     el("rect", { x: 1 + j * cell, y: 1 + i * cell, width: cell - 1, height: cell - 1, rx: 2, fill: v == null ? "transparent" : color(v), stroke: hi && hi(i, j) ? css("--fg") : "none", "stroke-width": 2 }, g);
     if (label && v != null) el("text", { x: 1 + j * cell + cell / 2, y: 1 + i * cell + cell / 2 + 4, "text-anchor": "middle", "font-size": Math.min(11, cell * 0.4), class: "mono" }, g, fmt(v, digits));
-    if (onCell) { g.addEventListener("mouseenter", () => onCell(i, j)); g.addEventListener("click", () => onCell(i, j)); }
+    if (onCell) { if (hover) g.addEventListener("mouseenter", () => onCell(i, j)); g.addEventListener("click", () => onCell(i, j)); }
   }));
   return svg;
 }

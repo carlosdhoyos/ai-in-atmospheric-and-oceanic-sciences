@@ -48,12 +48,13 @@
   <h2>The basic mechanisms, each with an assumption about the data</h2>
   <div class="two">
     <div>
-      <p>Weighted sum, activation, convolution, recurrence, attention, normalization, residual connections and more. Example: a 3 × 3 filter sliding over a temperature map finds edges, like a front, or here the slopes of the Andes.</p>
-      <p><b>Try it.</b> Pick a filter. Module 2 has the full editable 3 × 3 grid.</p>
-      <div class="chips" id="oConvPick"><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="sx">Sobel x</button><button class="chip" data-v="sy">Sobel y</button></div>
+      <p>Weighted sum, activation, convolution, recurrence, attention, normalization, residual connections and more. Example: a 3 × 3 filter slides over a temperature map; at each cell it multiplies the 9 neighbours by its 9 weights and adds them up. Different weights find different things: smooth areas, edges, slopes.</p>
+      <p><b>Try it.</b> Pick a filter, then click any cell of the temperature map to see its sum worked out. Module 2 has the full editable grid.</p>
+      <div class="chips" id="oConvPick"><button class="chip" data-v="id">Identity</button><button class="chip" data-v="box">Box blur</button><button class="chip" data-v="blur" aria-pressed="true">Gaussian blur</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="sx">Sobel x</button><button class="chip" data-v="sy">Sobel y</button><button class="chip" data-v="diag">Diagonal</button><button class="chip" data-v="lap">Laplacian</button><button class="chip" data-v="emb">Emboss</button></div>
       <div class="calc" id="oConvK"></div>
+      <div class="calc" id="oConvPix"></div>
     </div>
-    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div><p class="note" id="oConvLeg" style="margin:6px 0 0"></p></div>
+    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C) · click a cell</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div><p class="note" id="oConvLeg" style="margin:6px 0 0"></p></div>
   </div>
 </section>
 

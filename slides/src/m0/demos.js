@@ -121,21 +121,44 @@ demo("o-data", () => {
 
 /* 4 · operations: a 3 × 3 filter over the temperature map */
 demo("o-ops", () => {
-  const K = { blur: [[1, 2, 1], [2, 4, 2], [1, 2, 1]].map(r => r.map(v => v / 16)), sharp: [[0, -1, 0], [-1, 5, -1], [0, -1, 0]],
-    sx: [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], sy: [[-1, -2, -1], [0, 0, 0], [1, 2, 1]] };
+  // weights as integers over a divisor, so they read as on paper (2/16, 1/9 …)
+  const K = {
+    id: [[[0, 0, 0], [0, 1, 0], [0, 0, 0]], 1, "copies the centre cell: output = input", "Identity changes nothing: a filter whose only weight is 1 at the centre."],
+    box: [[[1, 1, 1], [1, 1, 1], [1, 1, 1]], 9, "plain average of the 9 cells", "Box blur gives every neighbour the same weight, 1/9: a 3 × 3 moving average."],
+    blur: [[[1, 2, 1], [2, 4, 2], [1, 2, 1]], 16, "weighted average, centre counts most: smooths the map", "Gaussian blur softens the sharp edges between cordilleras and valleys, but less crudely than the box."],
+    sharp: [[[0, -1, 0], [-1, 5, -1], [0, -1, 0]], 1, "centre minus neighbours: boosts contrast", "Sharpen exaggerates the contrast at the edges of the mountains."],
+    sx: [[[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], 1, "right minus left: west–east slopes", "Output: red where it gets warmer towards the east, blue where it gets colder; pale where flat."],
+    sy: [[[-1, -2, -1], [0, 0, 0], [1, 2, 1]], 1, "below minus above: north–south slopes", "Output: red where it gets warmer towards the south, blue where it gets colder; pale where flat."],
+    diag: [[[-2, -1, 0], [-1, 0, 1], [0, 1, 2]], 1, "lower-right minus upper-left: diagonal slopes", "Output: red where it gets warmer towards the south-east, blue towards the north-west. The cordilleras run SW → NE, so this catches their flanks."],
+    lap: [[[0, 1, 0], [1, -4, 1], [0, 1, 0]], 1, "neighbours minus 4 × centre: bumps and dips", "Laplacian ignores even slopes and lights up curvature. Red: the cell is colder than its neighbours (cold peaks and ridge tops). Blue: warmer than its neighbours (valleys between the cordilleras)."],
+    emb: [[[-2, -1, 0], [-1, 1, 1], [0, 1, 2]], 1, "centre plus a diagonal slope: a relief-map look", "Emboss keeps the temperature and adds the diagonal slope, so the map looks lit from one side, like shaded relief."],
+  };
   let k = "blur"; chips($("#oConvPick"), v => { k = v; render(); });
   const F = DS.temp, R = F.length, C = F[0].length;
-  const at = (i, j, c) => (i < 0 || j < 0 || i >= R || j >= C || F[i][j] == null) ? c : F[i][j];
+  const inside = (i, j) => i >= 0 && j >= 0 && i < R && j < C && F[i][j] != null;
+  const at = (i, j, c) => inside(i, j) ? F[i][j] : c;
+  const conv = (M, d, i, j) => M.reduce((s, kr, a) => s + kr.reduce((t, w, b) => t + w * at(i + a - 1, j + b - 1, F[i][j]), 0), 0) / d;
+  // start on the cell where the west–east slope is steepest, so the first click-free view is interesting
+  let sel = [0, 0], best = -1;
+  F.forEach((row, i) => row.forEach((v, j) => { if (v == null) return; const g = Math.abs(conv(K.sx[0], 1, i, j)); if (g > best) { best = g; sel = [i, j]; } }));
+  const wl = (w, d) => d === 1 ? (w < 0 ? "−" + -w : "" + w) : (w < 0 ? "−" : "") + Math.abs(w) + "/" + d;
   function render() {
-    const M = K[k], O = F.map((row, i) => row.map((v, j) => v == null ? null : M.reduce((s, kr, a) => s + kr.reduce((t, w, b) => t + w * at(i + a - 1, j + b - 1, v), 0), 0)));
-    const tc = v => div(v - 20, 9), edge = k === "sx" || k === "sy";
+    const [M, d, short, legend] = K[k], O = F.map((row, i) => row.map((v, j) => v == null ? null : conv(M, d, i, j)));
+    const tc = v => div(v - 20, 9), edge = M.flat().reduce((s, v) => s + v, 0) === 0;
     const mx = Math.max(...O.flat().filter(v => v != null).map(Math.abs));
-    $("#oConvK").innerHTML = M.map(r => r.map(v => (k === "blur" ? fmt(v * 16, 0) + "/16" : (v > 0 ? " " : "") + v).padStart(5, " ")).join(" ")).join("<br>").replace(/ /g, "&nbsp;")
-      + `<br><span class="m">${{ blur: "averages neighbours: smooths the map", sharp: "centre minus neighbours: boosts contrast", sx: "right minus left: west–east slopes", sy: "below minus above: north–south slopes" }[k]}</span>`;
-    fieldSVG($("#oConvIn"), F, { cell: 13, color: tc });
-    fieldSVG($("#oConvOut"), O, { cell: 13, color: v => edge ? div(v, mx) : tc(v) });
-    $("#oConvLeg").textContent = edge ? `Input: red warm, blue cold. Output: red where it gets warmer towards the ${k === "sx" ? "east" : "south"}, blue where it gets colder; pale where the temperature is flat. The strongest colours trace the Andean slopes.`
-      : "Both maps: red warm (lowlands, about 28 °C), blue cold (the Andes). " + (k === "blur" ? "Blur softens the sharp edges between cordilleras and valleys." : "Sharpen exaggerates the contrast at those edges.");
+    $("#oConvK").innerHTML = `<b>Filter weights</b><br>` + M.map(r => r.map(v => wl(v, d).padStart(5, " ")).join(" ")).join("<br>").replace(/ /g, "&nbsp;") + `<br><span class="m">${short}</span>`;
+    const win = (i, j) => Math.abs(i - sel[0]) <= 1 && Math.abs(j - sel[1]) <= 1;
+    fieldSVG($("#oConvIn"), F, { cell: 13, color: tc, hi: win, hover: false, onCell: (i, j) => { if (F[i][j] != null) { sel = [i, j]; render(); } } });
+    fieldSVG($("#oConvOut"), O, { cell: 13, color: v => edge ? div(v, mx) : tc(v), hi: (i, j) => i === sel[0] && j === sel[1] });
+    /* the selected cell, worked out: 9 products and their sum */
+    const [si, sj] = sel; let ocean = false;
+    const rows = M.map((kr, a) => kr.map((w, b) => { const ii = si + a - 1, jj = sj + b - 1, v = at(ii, jj, F[si][sj]); if (!inside(ii, jj)) ocean = true; return { v, w, p: w * v / d, own: inside(ii, jj) }; }));
+    const sum = rows.flat().reduce((s, c) => s + c.p, 0);
+    $("#oConvPix").innerHTML = `<b>Cell row ${si + 1}, column ${sj + 1}</b> <span class="m">(${fmt(F[si][sj], 1)} °C)</span><br>`
+      + rows.map(r => r.map(c => `${c.own ? "" : "<span class=\"m\">"}${fmt(c.v, 1).padStart(4, " ")}${c.own ? "" : "</span>"}×<span class="k">${wl(c.w, d)}</span>`).join("  ")).join("<br>").replace(/ {2}/g, "&nbsp;&nbsp;")
+      + `<br>sum = ${d === 1 ? "" : "(… ) / " + d + " = "}<span class="g">${fmt(sum, 2)}</span>${edge ? "" : " °C"} <span class="m">→ the highlighted output cell</span>`
+      + (ocean ? `<br><span class="m">Grey values are ocean or off the map: the centre value is reused there.</span>` : "");
+    $("#oConvLeg").textContent = (edge ? "Input: red warm, blue cold. " : "Both maps: red warm (lowlands, about 28 °C), blue cold (the Andes). ") + legend;
   }
   render(); return render;
 });
