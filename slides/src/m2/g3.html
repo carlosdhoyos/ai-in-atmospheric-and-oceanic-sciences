@@ -32,24 +32,28 @@
   <div class="two">
     <div>
       <div class="eq arch">c<sub>t</sub> = f · c<sub>t−1</sub> + i · g<sub>t</sub> &nbsp;&nbsp; h<sub>t</sub> = o · tanh(c<sub>t</sub>)</div>
-      <ul class="pts">
-        <li><b>Forget gate f</b> (0 to 1): how much of last month's cell state to keep. f = 0.9 keeps 90%.</li>
-        <li><b>Input gate i</b>: how much of the new candidate g (from this month's rain) to add. A wet month opens it and raises the stored state.</li>
-        <li><b>Output gate o</b>: how much of the memory to release as the output h, here the streamflow signal.</li>
+      <ul class="pts" style="margin-bottom:4px">
+        <li><b style="color:var(--sw)">Forget f</b>: share of last month's memory kept (0.9 keeps 90%).</li>
+        <li><b style="color:var(--ok)">Input i</b>: how much of this month's rain signal g is added; a wet month opens it.</li>
+        <li><b style="color:var(--cool)">Output o</b>: how much memory is released as the output h.</li>
       </ul>
-      <p>Over the long dry spell, the cell state drains slowly, like a basin's groundwater. A simple RNN with a = 0.5 has forgotten the wet season within a few months.</p>
-      <div class="callout violet">An LSTM is a composite of simpler operations: weighted sums, sigmoid gates, tanh, element-wise multiply and add. It is used as one layer, and Module 3 treats it there. A GRU does the same with two gates.</div>
-      <p class="note">Toy cell with hand-set weights on synthetic data. The forget gate is held at its bias; a trained one also varies with the input.</p>
+      <h3>How long a storm stays in memory (months after it)</h3>
+      <div id="g3lsDecay"></div>
+      <p class="note" id="g3lsDecayNote" style="margin:2px 0 6px"></p>
+      <div class="readout" id="g3lsRead" style="margin-top:4px"></div>
+      <div class="callout violet" style="font-size:14px">An LSTM is a composite of weighted sums, sigmoid gates, tanh, multiply and add, used as one layer (Module 3). A GRU does the same with two gates. <span style="color:var(--muted)">Toy cell, hand-set weights, synthetic data; f is held at the slider value.</span></div>
     </div>
     <div class="panel nosw">
       <div class="ctl"><label for="g3lsF">Forget f</label><input id="g3lsF" type="range" min="0.5" max="0.99" step="0.01" value="0.9"><output></output></div>
       <div class="ctl"><label for="g3lsA">RNN a</label><input id="g3lsA" type="range" min="0" max="0.95" step="0.05" value="0.5"><output></output></div>
+      <div class="chips" id="g3lsScen"><span class="mut" style="font-size:13px;align-self:center">Rain:</span><button class="chip" data-v="real" aria-pressed="true">Record</button><button class="chip" data-v="nonino">No El Niño</button><button class="chip" data-v="two">Two El Niños</button><button class="chip" data-v="storm">Dry-year storm</button></div>
+      <div class="chips" id="g3lsMode"><span class="mut" style="font-size:13px;align-self:center">Click the chart to:</span><button class="chip" data-v="month" aria-pressed="true">pick a month</button><button class="chip" data-v="draw">draw rain</button></div>
       <div style="display:flex;gap:10px;align-items:center"><button class="btn" id="g3lsPlay" type="button">Play</button><div class="ctl" style="flex:1"><label for="g3lsM">Month</label><input id="g3lsM" type="range" min="1" max="60" step="1" value="30"><output></output></div></div>
       <div id="g3lsFig"></div>
       <div class="legend"><span><i style="background:var(--cool);opacity:.5"></i>Rain (monthly)</span><span><i style="background:var(--data)"></i>Streamflow</span><span><i style="background:var(--arch)"></i>LSTM output</span><span><i style="background:var(--lw)"></i>Simple RNN</span></div>
-      <h3 style="margin-top:12px">The cell this month</h3>
+      <div id="g3lsStrip" style="margin-top:4px"></div>
+      <h3 style="margin-top:6px">The cell this month</h3>
       <div class="fig-wrap"><div id="g3lsValve" style="min-width:440px"></div></div>
-      <div class="readout" id="g3lsRead"></div>
     </div>
   </div>
 </section>

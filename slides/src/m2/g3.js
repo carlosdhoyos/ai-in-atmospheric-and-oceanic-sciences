@@ -75,11 +75,23 @@
 
   /* ───────── 10 LSTM ───────── */
   demo("op-lstm", slide => {
-    const Rn = DS.monthly.rain, Q = DS.monthly.streamflow, N = Rn.length;
+    const R0 = DS.monthly.rain, N = R0.length;
+    // the same toy basin that generated DS.monthly: a store that drains 18% a month and gains 6% of the rain
+    const basin = R => { let st = 20; return R.map(p => (st = 0.82 * st + 0.06 * p, +st.toFixed(1))); };
+    const SCEN = {
+      real: () => R0.slice(),
+      nonino: () => R0.map((r, t) => t >= 24 && t < 36 ? Math.round(mean([0, 1, 3, 4].map(y => R0[y * 12 + t % 12]))) : r),
+      two: () => R0.map((r, t) => t >= 36 && t < 48 ? Math.round(r * 0.45) : r),
+      storm: () => R0.map((r, t) => t === 29 ? r + 600 : r),
+    };
+    let Rn = SCEN.real(), Q = basin(Rn), mode = "month", edited = false;
+    chips($("#g3lsScen"), v => { Rn = SCEN[v](); Q = basin(Rn); edited = false; render(); });
+    chips($("#g3lsMode"), v => { mode = v; render(); });
     const gf = slider("g3lsF", v => fmt(v, 2), () => render()), ga = slider("g3lsA", v => fmt(v, 2), () => render());
     const gm = slider("g3lsM", v => "month " + v, () => render());
     let timer = null;
     const stop = () => { clearInterval(timer); timer = null; $("#g3lsPlay").textContent = "Play"; };
+    const setMonth = t => { const m = $("#g3lsM"); m.value = clamp(t + 1, 1, N); m.dispatchEvent(new Event("input")); };
     $("#g3lsPlay").onclick = () => {
       if (timer) return stop();
       const m = $("#g3lsM"); if (+m.value >= N) m.value = 1;
@@ -105,20 +117,38 @@
       el("path", { d: `M${cxp} ${cyp} L${cxp} ${cyp - 16} A16 16 0 ${ang > Math.PI ? 1 : 0} 1 ${ex.toFixed(1)} ${ey.toFixed(1)} Z`, fill: css(tok), opacity: .75 }, svg);
       el("text", { x: cxp, y: cyp + 36, "text-anchor": "middle", "font-size": 11.5, fill: css(tok) }, svg, `${label} ${fmt(v, 2)}`);
     }
+    const small = v => v === 0 ? "0" : v < 0.001 ? v.toExponential(1) : v < 0.1 ? fmt(v, 3) : fmt(v, 2);
     function render() {
       const f = gf(), a = ga(), m = gm() - 1, S = run(f, a), pl = fit(S.map(s => s.h)), pr = fit(S.map(s => s.hr));
-      /* time series */
-      const W = 580, H = 190, svg = svgIn($("#g3lsFig"), W, H), ymax = Math.max(...Q, ...pl) * 1.1;
-      const { x: X, y: Y } = axes(svg, { W, H, m: { l: 36, r: 10, t: 14, b: 24 }, x0: 0, x1: N - 1, y0: 0, y1: ymax, xt: [0, 12, 24, 36, 48, 59], xf: v => v + 1, yt: [0, 20, 40, 60, 80].filter(v => v < ymax), xl: "month", yl: "streamflow (m³/s)" });
+      /* time series; clicking picks a month or draws rain */
+      const W = 580, H = 190, svg = svgIn($("#g3lsFig"), W, H), ymax = Math.max(...Q, ...pl) * 1.1, RMAX = 700, rh = 60;
+      const { x: X, y: Y } = axes(svg, { W, H, m: { l: 36, r: 10, t: 14, b: 24 }, x0: 0, x1: N - 1, y0: 0, y1: ymax, xt: [0, 12, 24, 36, 48, 59], xf: v => v + 1, yt: [0, 20, 40, 60, 80, 100].filter(v => v < ymax), xl: "month", yl: "streamflow (m³/s)" });
       el("rect", { x: X(23.5), y: 14, width: X(35.5) - X(23.5), height: H - 38, fill: css("--sw-soft") }, svg);
       el("text", { x: X(29.5), y: 28, "text-anchor": "middle", "font-size": 10.5, fill: css("--sw") }, svg, "dry El Niño year");
-      const rmax = Math.max(...Rn), bw = (X(1) - X(0)) * 0.7;
-      Rn.forEach((r, t) => el("rect", { x: X(t) - bw / 2, y: Y(0) - 50 * r / rmax, width: bw, height: 50 * r / rmax, fill: css("--cool"), opacity: .3 }, svg));
+      const bw = (X(1) - X(0)) * 0.7;
+      Rn.forEach((r, t) => el("rect", { x: X(t) - bw / 2, y: Y(0) - rh * Math.min(r, RMAX) / RMAX, width: bw, height: rh * Math.min(r, RMAX) / RMAX, fill: css("--cool"), opacity: mode === "draw" ? .55 : .3 }, svg));
       el("path", { d: path(Q.map((v, t) => [X(t), Y(v)])), fill: "none", stroke: css("--data"), "stroke-width": 2.4 }, svg);
       el("path", { d: path(pr.map((v, t) => [X(t), Y(clamp(v, 0, ymax))])), fill: "none", stroke: css("--lw"), "stroke-width": 1.6, "stroke-dasharray": "5 3" }, svg);
       el("path", { d: path(pl.map((v, t) => [X(t), Y(v)])), fill: "none", stroke: css("--arch"), "stroke-width": 2 }, svg);
       el("line", { x1: X(m), x2: X(m), y1: 14, y2: Y(0), stroke: css("--fg"), "stroke-width": 1, "stroke-dasharray": "2 2" }, svg);
       el("circle", { cx: X(m), cy: Y(pl[m]), r: 4, fill: css("--arch") }, svg);
+      const hit = el("rect", { x: 36, y: 14, width: W - 46, height: H - 38, fill: "transparent", style: `cursor:${mode === "draw" ? "ns-resize" : "pointer"}` }, svg);
+      const at = e => { const r = svg.getBoundingClientRect(), sx = W / r.width; return [(e.clientX - r.left) * sx, (e.clientY - r.top) * sx]; };
+      const act = e => { const [px, py] = at(e), t = clamp(Math.round((px - X(0)) / (X(1) - X(0))), 0, N - 1);
+        if (mode === "month") return setMonth(t);
+        Rn[t] = Math.round(clamp((Y(0) - py) / rh, 0, 1) * RMAX); Q = basin(Rn); edited = true; setMonth(t); };
+      let down = false;
+      hit.addEventListener("pointerdown", e => { down = true; hit.setPointerCapture(e.pointerId); act(e); });
+      hit.addEventListener("pointermove", e => { if (down) act(e); });
+      hit.addEventListener("pointerup", () => { down = false; });
+      /* gate strips: f, i, o for every month */
+      const SW = 580, rows = [["f", s => s.f, "--sw"], ["i", s => s.i, "--ok"], ["o", s => s.o, "--cool"]], st = svgIn($("#g3lsStrip"), SW, 3 * 13 + 14);
+      rows.forEach(([lab, get, tok], r) => {
+        el("text", { x: 30, y: r * 13 + 10, "text-anchor": "end", class: "mono", "font-size": 10.5, fill: css(tok) }, st, lab);
+        S.forEach((s, t) => { const c = el("rect", { x: X(t) - (X(1) - X(0)) / 2, y: r * 13, width: X(1) - X(0) - .4, height: 12, fill: `color-mix(in srgb, ${css(tok)} ${Math.round(100 * get(s))}%, ${css("--well")})`, style: "cursor:pointer" }, st); c.addEventListener("click", () => setMonth(t)); });
+      });
+      el("rect", { x: X(m) - (X(1) - X(0)) / 2, y: 0, width: X(1) - X(0), height: 39, fill: "none", stroke: css("--fg"), "stroke-width": 1.5 }, st);
+      el("text", { x: 36, y: 50, "font-size": 10.5, fill: css(mode === "draw" ? "--cool" : "--muted") }, st, mode === "draw" ? "drawing: press on the chart and drag up or down to set each month's rain" : "gates each month: darker = more open (click a month)");
       /* valves for month m */
       const s = S[m], V = svgIn($("#g3lsValve"), 580, 170), cy = 38, wmax = 12, wc = v => 1 + wmax * clamp(v / 0.8, 0, 1);
       arrowDefs(V, "g3lsAr", css("--muted"));
@@ -130,24 +160,33 @@
       valve(V, 150, cy, s.f, "--sw", "forget f");
       el("circle", { cx: 300, cy, r: 11, fill: css("--card"), stroke: css("--fg") }, V); el("text", { x: 300, y: cy + 5, "text-anchor": "middle", "font-size": 15 }, V, "+");
       el("text", { x: 360, y: cy - 12, "text-anchor": "middle", class: "mono", "font-size": 11 }, V, `cₜ = ${fmt(s.c, 2)}`);
-      /* input path */
       el("text", { x: 196, y: 150, "text-anchor": "middle", class: "mono", "font-size": 11 }, V, `rain ${fmtN(Rn[m])} mm`);
       el("text", { x: 196, y: 164, "text-anchor": "middle", class: "mut mono", "font-size": 10 }, V, `g = ${fmt(s.g, 3)}`);
       el("path", { d: `M196 136 L196 116 L278 116`, fill: "none", stroke: css("--cool"), "stroke-width": 1 + 20 * s.g, opacity: .6 }, V);
       valve(V, 300, 116, s.i, "--ok", "input i");
       el("line", { x1: 300, x2: 300, y1: 96, y2: cy + 13, stroke: css("--ok"), "stroke-width": 1 + 20 * s.i * s.g, "marker-end": "url(#g3lsAr)" }, V);
-      /* output path */
       el("path", { d: `M420 ${cy} L470 ${cy} L470 96`, fill: "none", stroke: css("--arch"), "stroke-width": wc(s.c), opacity: .5 }, V);
       el("text", { x: 476, y: cy + 30, class: "mut", "font-size": 10.5 }, V, "tanh");
       valve(V, 470, 116, s.o, "--cool", "output o");
       el("line", { x1: 490, x2: 540, y1: 116, y2: 116, stroke: css("--cool"), "stroke-width": 1 + 14 * s.h, "marker-end": "url(#g3lsAr)" }, V);
       el("text", { x: 548, y: 112, class: "mono", "font-size": 11 }, V, "h");
       el("text", { x: 548, y: 127, class: "mono", "font-size": 11 }, V, fmt(s.h, 2));
+      /* how long a storm stays in memory: f^k for the LSTM cell, a^k for the simple RNN */
+      const DW = 420, DH = 130, ds = svgIn($("#g3lsDecay"), DW, DH), K = 24;
+      const D = axes(ds, { W: DW, H: DH, m: { l: 34, r: 10, t: 10, b: 22 }, x0: 0, x1: K, y0: 0, y1: 1, xt: [0, 6, 12, 18, 24], yt: [0, 0.5, 1], yf: v => fmtN(100 * v) + "%" });
+      [[f, "--arch", "LSTM cell (f)"], [a, "--lw", "simple RNN (a)"]].forEach(([q, tok, lab], r) => {
+        el("path", { d: path(Array.from({ length: K + 1 }, (_, k) => [D.x(k), D.y(q ** k)])), stroke: css(tok), "stroke-width": 2.2, fill: "none", "stroke-dasharray": r ? "5 3" : "" }, ds);
+        const hl = q > 0 && q < 1 ? Math.log(0.5) / Math.log(q) : Infinity;
+        if (hl <= K) { el("circle", { cx: D.x(hl), cy: D.y(0.5), r: 4, fill: css(tok) }, ds); el("text", { x: D.x(hl) + 6, y: D.y(0.5) - 6 - 12 * r, "font-size": 10.5, fill: css(tok) }, ds, `half gone after ${fmt(hl, 1)} months`); }
+        el("text", { x: DW - 12, y: 22 + 13 * r, "text-anchor": "end", "font-size": 11, fill: css(tok) }, ds, lab);
+      });
+      el("line", { x1: D.x(12), x2: D.x(12), y1: 10, y2: DH - 22, stroke: css("--line"), "stroke-dasharray": "2 2" }, ds);
+      $("#g3lsDecayNote").textContent = `After 12 months the cell still holds f¹² = ${small(f ** 12)} of a storm; the simple RNN holds a¹² = ${small(a ** 12)}. A forget gate near 1 is what lets the LSTM carry a wet season through a dry year.`;
       const nino = t => t >= 24 && t < 40, cL = corr(pl, Q), cR = corr(pr, Q), idx = [...Array(N).keys()].filter(nino);
       const cLn = corr(idx.map(t => pl[t]), idx.map(t => Q[t])), cRn = corr(idx.map(t => pr[t]), idx.map(t => Q[t]));
       $("#g3lsRead").innerHTML = `<div><span>Fit, all months (r)</span><b class="c-arch">${fmt(cL, 2)}</b></div><div><span>Simple RNN (r)</span><b class="c-lw">${fmt(cR, 2)}</b></div>` +
-        `<div><span>El Niño year + 4 months</span><b class="c-arch">${fmt(cLn, 2)} <small style="font-size:15px;color:var(--lw)">vs ${fmt(cRn, 2)}</small></b></div>` +
-        `<div><span>Memory after 12 months</span><b style="font-size:19px">f${sup(12)} = ${fmt(f ** 12, 2)} · a${sup(12)} = ${a ** 12 < 0.005 ? fmt(a ** 12, 4) : fmt(a ** 12, 2)}</b></div>`;
+        `<div><span>Months 25–40 (r)</span><b class="c-arch">${fmt(cLn, 2)} <small style="font-size:15px;color:var(--lw)">vs ${fmt(cRn, 2)}</small></b></div>`
+        + (edited ? `<p class="note" style="flex-basis:100%;margin:0">You edited the rain: the streamflow (green) was recomputed with the same toy basin, so the comparison stays fair.</p>` : "");
     }
     render(); return render;
   });
