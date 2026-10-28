@@ -32,14 +32,14 @@
   <h2>The network only sees numbers, so good models start with the table</h2>
   <div class="two">
     <div>
-      <p>Measure, clean, encode, scale, split, and watch for leakage, bias and missing values. Example: rain gauges and satellite rainfall; the student table with estrato and municipality.</p>
-      <p><b>Try it.</b> Two students have no absence count. Pick how to fill the gap. Then try the two leakage switches.</p>
-      <div class="chips" id="oImp"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="median">Median</button><button class="chip" data-v="flag">Median + "was missing" flag</button></div>
-      <div class="chips" id="oLeak"><button class="chip" data-v="split" aria-pressed="false" type="button">Scale before split</button><button class="chip" data-v="feat" aria-pressed="false" type="button">Use "withdrawal form filed"</button></div>
+      <p>Measure, clean, encode, scale, split, and watch for leakage, bias and missing values. Example: a rain gauge and a humidity sensor at one station, used to predict <b>heavy rain tomorrow</b> (more than 20 mm). Days 1–8 train the model; days 9–12 test it.</p>
+      <p><b>Try it.</b> The gauge failed on days 5 and 9, so their rain is missing. Pick how to fill the gap, then try the two leakage switches.</p>
+      <div class="chips" id="oImp"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="median">Median</button><button class="chip" data-v="flag">Median + "gauge failed" flag</button></div>
+      <div class="chips" id="oLeak"><button class="chip" data-v="split" aria-pressed="false" type="button">Scale before split</button><button class="chip" data-v="feat" aria-pressed="false" type="button">Use "flood alert issued"</button></div>
       <div class="readout" id="oDataRead"></div>
       <p class="note" id="oDataNote"></p>
     </div>
-    <div class="panel"><div class="fig-wrap" id="oDataTable"></div></div>
+    <div class="panel"><div class="fig-wrap" id="oDataTable"></div><p class="note" id="oDataRule" style="margin:8px 0 0"></p></div>
   </div>
 </section>
 

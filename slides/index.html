@@ -289,14 +289,14 @@ a.pick{text-decoration:none}
   <h2>The network only sees numbers, so good models start with the table</h2>
   <div class="two">
     <div>
-      <p>Measure, clean, encode, scale, split, and watch for leakage, bias and missing values. Example: rain gauges and satellite rainfall; the student table with estrato and municipality.</p>
-      <p><b>Try it.</b> Two students have no absence count. Pick how to fill the gap. Then try the two leakage switches.</p>
-      <div class="chips" id="oImp"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="median">Median</button><button class="chip" data-v="flag">Median + "was missing" flag</button></div>
-      <div class="chips" id="oLeak"><button class="chip" data-v="split" aria-pressed="false" type="button">Scale before split</button><button class="chip" data-v="feat" aria-pressed="false" type="button">Use "withdrawal form filed"</button></div>
+      <p>Measure, clean, encode, scale, split, and watch for leakage, bias and missing values. Example: a rain gauge and a humidity sensor at one station, used to predict <b>heavy rain tomorrow</b> (more than 20 mm). Days 1–8 train the model; days 9–12 test it.</p>
+      <p><b>Try it.</b> The gauge failed on days 5 and 9, so their rain is missing. Pick how to fill the gap, then try the two leakage switches.</p>
+      <div class="chips" id="oImp"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="median">Median</button><button class="chip" data-v="flag">Median + "gauge failed" flag</button></div>
+      <div class="chips" id="oLeak"><button class="chip" data-v="split" aria-pressed="false" type="button">Scale before split</button><button class="chip" data-v="feat" aria-pressed="false" type="button">Use "flood alert issued"</button></div>
       <div class="readout" id="oDataRead"></div>
       <p class="note" id="oDataNote"></p>
     </div>
-    <div class="panel"><div class="fig-wrap" id="oDataTable"></div></div>
+    <div class="panel"><div class="fig-wrap" id="oDataTable"></div><p class="note" id="oDataRule" style="margin:8px 0 0"></p></div>
   </div>
 </section>
 
@@ -706,7 +706,7 @@ demo("o-idea", () => {
 /* 2 · the map of five levels */
 demo("o-map", () => {
   const L = [
-    ["1", "Data Foundation", "data-foundation.html", "--data", "Turning the world into a clean table of numbers.", "Rain gauges vs. satellite rainfall; a student table with estrato and municipality.", "Is the table honest: no leakage, no hidden bias, gaps handled?"],
+    ["1", "Data Foundation", "data-foundation.html", "--data", "Turning the world into a clean table of numbers.", "Rain gauges vs. satellite rainfall; a station table with gaps where the gauge failed.", "Is the table honest: no leakage, no hidden bias, gaps handled?"],
     ["2", "Operations", "operations.html", "--arch", "The basic mechanisms, about thirty of them.", "A 3 × 3 filter on a temperature map; attention over a sentence.", "Which assumption about the data does each mechanism make?"],
     ["3", "Layers", "layers.html", "--accent", "Operations packaged with trainable weights.", "Conv 8 filters 3 × 3 on a 28 × 28 image: 80 parameters.", "What shape comes out, and how many weights does it cost?"],
     ["4", "Blocks", null, "--sw", "Repeated groups of layers.", "A residual block: output = input + small correction.", "Which group of layers do we repeat, and why does it train well?"],
@@ -731,41 +731,47 @@ demo("o-map", () => {
   text(); return text;
 });
 
-/* 3 · data foundation: imputation and two leakage switches on the student table */
+/* 3 · data foundation: a rain gauge with gaps, imputation and two leakage switches */
 demo("o-data", () => {
-  const rows = DS.students.filter(s => s.id <= 8 || (s.id >= 13 && s.id <= 16)).map(s => ({ ...s })), test = r => r.id > 8, MISS = [3, 13];
-  const train = rows.filter(r => !test(r) && !MISS.includes(r.id)).map(r => r.absences);
+  // day, rain today (mm, null = gauge failed; true value kept for the note), humidity (%), heavy rain tomorrow (> 20 mm)
+  const rows = [[1, 0, 70, 0], [2, 3, 78, 0], [3, 22, 90, 1], [4, 1, 75, 0], [5, null, 93, 1, 38], [6, 8, 82, 0], [7, 0, 68, 0], [8, 20, 89, 1],
+    [9, null, 84, 1, 41], [10, 0, 72, 0], [11, 30, 94, 1], [12, 15, 95, 0]].map(([day, rain, rh, y, truth]) => ({ day, rain, rh, y, truth }));
+  const test = r => r.day > 8, obs = rows.filter(r => !test(r) && r.rain != null).map(r => r.rain);
   const med = a => { const s = [...a].sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; };
-  const fill = { mean: mean(train), median: med(train), flag: med(train) };
-  const risk = r => sigm(-3 + 0.18 * r.abs - 0.9 * (r.grade - 3) - 0.25 * (r.estrato - 3) + (r.rural ? 0.6 : 0)) > 0.5 ? 1 : 0;
+  const fill = { mean: mean(obs), median: med(obs), flag: med(obs) };
+  // the "trained" model: a fixed logistic rule; with the flag column it has also learned that a failed gauge means a storm
+  const z = r => -4 + 0.12 * r.r + 0.2 * (r.rh - 80) + (imp === "flag" ? 4 * r.miss : 0);
   let imp = "mean"; const leak = { split: false, feat: false };
   chips($("#oImp"), v => { imp = v; render(); });
   $$("#oLeak button").forEach(b => b.addEventListener("click", () => { leak[b.dataset.v] = !leak[b.dataset.v]; b.setAttribute("aria-pressed", leak[b.dataset.v]); render(); }));
   function render() {
-    rows.forEach(r => { r.miss = MISS.includes(r.id); r.abs = r.miss ? fill[imp] : r.absences; r.pred = leak.feat ? r.attrition : risk(r); });
-    const T = rows.filter(test), acc = T.filter(r => r.pred === r.attrition).length / T.length;
-    const fitOn = leak.split ? rows.map(r => r.abs) : rows.filter(r => !test(r)).map(r => r.abs);
-    const cols = ["id", "absences", "grade", "estrato"].concat(imp === "flag" ? ["was missing"] : [], leak.feat ? ["form filed"] : [], ["attrition", "predicted"]);
+    rows.forEach(r => { r.miss = +(r.rain == null); r.r = r.miss ? fill[imp] : r.rain; r.pred = leak.feat ? r.y : +(z(r) > 0); });
+    const T = rows.filter(test), acc = T.filter(r => r.pred === r.y).length / T.length;
+    const fitOn = (leak.split ? rows : rows.filter(r => !test(r))).map(r => r.r);
+    const cols = ["day", "rain today (mm)", "humidity (%)"].concat(imp === "flag" ? ["gauge failed"] : [], leak.feat ? ["flood alert"] : [], ["heavy rain tomorrow", "predicted"]);
     let h = `<table class="tb"><thead><tr>${cols.map(c => `<th>${c}</th>`).join("")}</tr></thead><tbody>`;
     rows.forEach(r => {
-      const bg = test(r) ? ` style="background:var(--well)"` : "", hit = r.pred === r.attrition;
-      h += `<tr${bg}><td class="n">${r.id}${test(r) ? ' <span class="mut" style="font-size:11px">test</span>' : ""}</td>`
-        + `<td class="n"${r.miss ? ' style="color:var(--sw);font-weight:600"' : ""}>${r.miss ? fmt(r.abs, 1) : r.abs}</td><td class="n">${fmt(r.grade, 1)}</td><td class="n">${r.estrato}</td>`
-        + (imp === "flag" ? `<td class="n">${+r.miss}</td>` : "") + (leak.feat ? `<td class="n" style="color:var(--lw)">${r.attrition}</td>` : "")
-        + `<td class="n">${r.attrition}</td><td class="n" style="color:var(${test(r) ? (hit ? "--ok" : "--lw") : "--muted"})">${r.pred}</td></tr>`;
+      const hit = r.pred === r.y;
+      h += `<tr${test(r) ? ' style="background:var(--well)"' : ""}><td class="n" style="white-space:nowrap">${test(r) ? '<span class="mut" style="font-size:11px">test </span>' : ""}${r.day}</td>`
+        + `<td class="n"${r.miss ? ' style="color:var(--sw);font-weight:600"' : ""}>${r.miss ? fmt(r.r, 1) : r.r}</td><td class="n">${r.rh}</td>`
+        + (imp === "flag" ? `<td class="n">${r.miss}</td>` : "") + (leak.feat ? `<td class="n" style="color:var(--lw)">${r.y}</td>` : "")
+        + `<td class="n">${r.y ? "yes" : "no"}</td><td class="n" style="color:var(${test(r) ? (hit ? "--ok" : "--lw") : "--muted"})">${r.pred ? "yes" : "no"}</td></tr>`;
     });
     $("#oDataTable").innerHTML = h + "</tbody></table>";
-    $("#oDataRead").innerHTML = `<div><span>Filled value</span><b class="c-sw">${fmt(fill[imp], 1)}</b></div>`
-      + `<div><span>Test accuracy</span><b class="${leak.feat ? "c-lw" : "c-ok"}">${Math.round(acc * 100)}%</b></div>`
-      + `<div><span>Scaler mean / sd</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
-      + `<div><span>Test rows the scaler saw</span><b class="${leak.split ? "c-lw" : "c-ok"}">${leak.split ? T.length : 0}</b></div>`;
-    const notes = [];
-    const mm = fill.mean, md = fill.median, gap = mm < md ? `Here the mean (${fmt(mm, 1)}) is below the median (${fmt(md, 1)}): two students with almost no absences pull it down.` : `Here the mean (${fmt(mm, 1)}) is above the median (${fmt(md, 1)}): a few students with many absences pull it up.`;
-    notes.push(imp === "mean" ? gap : imp === "median" ? "The median is the middle value, so one extreme student cannot drag it. " + gap : "The flag adds a column so a model could learn whether a missing record itself signals risk (this toy rule does not use it).");
-    notes.push("Fill values come from the 8 training rows only. Student 13 really missed 12 days; any fill value hides part of that risk.");
-    if (leak.split) notes.push("Scaling before the split lets the test rows shape μ and σ: information from the future reaches training. With this tiny linear model the score happens not to move, but the evaluation is no longer clean, and in flexible models the leak can inflate scores.");
-    if (leak.feat) notes.push("The withdrawal form is filed after a student leaves, so it reveals the answer: 100% on test, useless in practice.");
-    $("#oDataNote").textContent = notes.join(" ");
+    $("#oDataRule").textContent = "Model: heavy rain tomorrow if −4 + 0.12 × rain + 0.2 × (humidity − 80)" + (imp === "flag" ? " + 4 × gauge failed" : "") + " > 0. Green: right on a test day; red: wrong.";
+    $("#oDataRead").innerHTML = `<div><span>Filled rain</span><b class="c-sw">${fmt(fill[imp], 1)} mm</b></div>`
+      + `<div><span>Test accuracy</span><b class="${leak.feat ? "c-lw" : acc >= .75 ? "c-ok" : "c-sw"}">${Math.round(acc * 100)}%</b></div>`
+      + `<div><span>Rain scaler mean / sd</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
+      + `<div><span>Test days the scaler saw</span><b class="${leak.split ? "c-lw" : "c-ok"}">${leak.split ? T.length : 0}</b></div>`;
+    const n = [];
+    n.push(imp === "mean" ? `The mean (${fmt(fill.mean, 1)} mm) is pulled up by the few stormy days; rain is skewed, most days are nearly dry.`
+      : imp === "median" ? `The median (${fmt(fill.median, 1)} mm) is a typical day, so the failed days look ordinary.`
+      : "Gauges often fail in the heaviest storms (clogged funnels, power cuts), so a gap is itself a sign of a storm. With the flag column the model learns that, and day 9 is caught.");
+    if (imp !== "flag") n.push("Day 9 really had 41 mm: any single fill value makes it look like an ordinary day, and the storm is missed. The gaps are not random.");
+    n.push("Fill values come from the 8 training days only. Day 12 is humid but stayed below 20 mm: a miss no fill can fix.");
+    if (leak.split) n.push("Scaling before the split lets the test days shape the mean and sd: information from the future reaches training. Here the score does not move, but the evaluation is no longer clean; in flexible models such leaks inflate scores.");
+    if (leak.feat) n.push("The flood alert is issued after the heavy rain has fallen, so it reveals the answer: 100% on test, useless for a forecast.");
+    $("#oDataNote").textContent = n.join(" ");
   }
   render(); return render;
 });
