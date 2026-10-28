@@ -53,7 +53,7 @@
       <div class="chips" id="oConvPick"><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="sx">Sobel x</button><button class="chip" data-v="sy">Sobel y</button></div>
       <div class="calc" id="oConvK"></div>
     </div>
-    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div></div>
+    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div><p class="note" id="oConvLeg" style="margin:6px 0 0"></p></div>
   </div>
 </section>
 
@@ -128,7 +128,7 @@
         <div><h3>Error at each step (log scale)</h3><div id="oLossFig"></div></div>
         <div><h3>The error landscape over w and b</h3><div id="oLandFig"></div></div>
       </div>
-      <p class="note" style="margin:6px 0 0">Landscape: brighter = lower error; × = the best possible line; the path shows every step taken so far.</p>
+      <p class="note" style="margin:6px 0 0">Landscape: deeper blue = lower error; × = the best possible line; the path shows every step taken so far.</p>
     </div>
   </div>
 </section>
@@ -143,8 +143,8 @@
       <a class="pick" href="layers.html"><b>3 · Layers</b><span>Layer types, shapes, parameter counts, LSTM and GRU as composite layers.</span></a>
     </div>
     <div class="stack">
-      <div class="card" style="opacity:.75"><h4>4 · Blocks</h4><p>Residual and transformer blocks, encoders and decoders. Coming next.</p></div>
-      <div class="card" style="opacity:.75"><h4>5 · Architecture Families</h4><p>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</p></div>
+      <div class="pick" style="opacity:.6;cursor:default"><b>4 · Blocks</b><span>Residual and transformer blocks, encoders and decoders. Coming next.</span></div>
+      <div class="pick" style="opacity:.6;cursor:default"><b>5 · Architecture Families</b><span>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</span></div>
       <p class="note">Every module is interactive: each operation and idea has a control you can move. All data are synthetic examples built for teaching.</p>
     </div>
   </div>

@@ -310,7 +310,7 @@ a.pick{text-decoration:none}
       <div class="chips" id="oConvPick"><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="sx">Sobel x</button><button class="chip" data-v="sy">Sobel y</button></div>
       <div class="calc" id="oConvK"></div>
     </div>
-    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div></div>
+    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div><p class="note" id="oConvLeg" style="margin:6px 0 0"></p></div>
   </div>
 </section>
 
@@ -385,7 +385,7 @@ a.pick{text-decoration:none}
         <div><h3>Error at each step (log scale)</h3><div id="oLossFig"></div></div>
         <div><h3>The error landscape over w and b</h3><div id="oLandFig"></div></div>
       </div>
-      <p class="note" style="margin:6px 0 0">Landscape: brighter = lower error; × = the best possible line; the path shows every step taken so far.</p>
+      <p class="note" style="margin:6px 0 0">Landscape: deeper blue = lower error; × = the best possible line; the path shows every step taken so far.</p>
     </div>
   </div>
 </section>
@@ -400,8 +400,8 @@ a.pick{text-decoration:none}
       <a class="pick" href="layers.html"><b>3 · Layers</b><span>Layer types, shapes, parameter counts, LSTM and GRU as composite layers.</span></a>
     </div>
     <div class="stack">
-      <div class="card" style="opacity:.75"><h4>4 · Blocks</h4><p>Residual and transformer blocks, encoders and decoders. Coming next.</p></div>
-      <div class="card" style="opacity:.75"><h4>5 · Architecture Families</h4><p>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</p></div>
+      <div class="pick" style="opacity:.6;cursor:default"><b>4 · Blocks</b><span>Residual and transformer blocks, encoders and decoders. Coming next.</span></div>
+      <div class="pick" style="opacity:.6;cursor:default"><b>5 · Architecture Families</b><span>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</span></div>
       <p class="note">Every module is interactive: each operation and idea has a control you can move. All data are synthetic examples built for teaching.</p>
     </div>
   </div>
@@ -755,10 +755,11 @@ demo("o-data", () => {
     $("#oDataTable").innerHTML = h + "</tbody></table>";
     $("#oDataRead").innerHTML = `<div><span>Filled value</span><b class="c-sw">${fmt(fill[imp], 1)}</b></div>`
       + `<div><span>Test accuracy</span><b class="${leak.feat ? "c-lw" : "c-ok"}">${Math.round(acc * 100)}%</b></div>`
-      + `<div><span>Scaler μ / σ</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
+      + `<div><span>Scaler mean / sd</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
       + `<div><span>Test rows the scaler saw</span><b class="${leak.split ? "c-lw" : "c-ok"}">${leak.split ? T.length : 0}</b></div>`;
     const notes = [];
-    notes.push(imp === "mean" ? "The mean is pulled up by students with many absences." : imp === "median" ? "The median ignores the extreme absence counts." : "The flag lets the model learn whether a missing record itself signals risk.");
+    const mm = fill.mean, md = fill.median, gap = mm < md ? `Here the mean (${fmt(mm, 1)}) is below the median (${fmt(md, 1)}): two students with almost no absences pull it down.` : `Here the mean (${fmt(mm, 1)}) is above the median (${fmt(md, 1)}): a few students with many absences pull it up.`;
+    notes.push(imp === "mean" ? gap : imp === "median" ? "The median is the middle value, so one extreme student cannot drag it. " + gap : "The flag adds a column so a model could learn whether a missing record itself signals risk (this toy rule does not use it).");
     notes.push("Fill values come from the 8 training rows only. Student 13 really missed 12 days; any fill value hides part of that risk.");
     if (leak.split) notes.push("Scaling before the split lets the test rows shape μ and σ: information from the future reaches training. With this tiny linear model the score happens not to move, but the evaluation is no longer clean, and in flexible models the leak can inflate scores.");
     if (leak.feat) notes.push("The withdrawal form is filed after a student leaves, so it reveals the answer: 100% on test, useless in practice.");
@@ -782,6 +783,8 @@ demo("o-ops", () => {
       + `<br><span class="m">${{ blur: "averages neighbours: smooths the map", sharp: "centre minus neighbours: boosts contrast", sx: "right minus left: west–east slopes", sy: "below minus above: north–south slopes" }[k]}</span>`;
     fieldSVG($("#oConvIn"), F, { cell: 13, color: tc });
     fieldSVG($("#oConvOut"), O, { cell: 13, color: v => edge ? div(v, mx) : tc(v) });
+    $("#oConvLeg").textContent = edge ? `Input: red warm, blue cold. Output: red where it gets warmer towards the ${k === "sx" ? "east" : "south"}, blue where it gets colder; pale where the temperature is flat. The strongest colours trace the Andean slopes.`
+      : "Both maps: red warm (lowlands, about 28 °C), blue cold (the Andes). " + (k === "blur" ? "Blur softens the sharp edges between cordilleras and valleys." : "Sharpen exaggerates the contrast at those edges.");
   }
   render(); return render;
 });

@@ -106,10 +106,11 @@ demo("o-data", () => {
     $("#oDataTable").innerHTML = h + "</tbody></table>";
     $("#oDataRead").innerHTML = `<div><span>Filled value</span><b class="c-sw">${fmt(fill[imp], 1)}</b></div>`
       + `<div><span>Test accuracy</span><b class="${leak.feat ? "c-lw" : "c-ok"}">${Math.round(acc * 100)}%</b></div>`
-      + `<div><span>Scaler μ / σ</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
+      + `<div><span>Scaler mean / sd</span><b>${fmt(mean(fitOn), 1)} / ${fmt(sd(fitOn), 1)}</b></div>`
       + `<div><span>Test rows the scaler saw</span><b class="${leak.split ? "c-lw" : "c-ok"}">${leak.split ? T.length : 0}</b></div>`;
     const notes = [];
-    notes.push(imp === "mean" ? "The mean is pulled up by students with many absences." : imp === "median" ? "The median ignores the extreme absence counts." : "The flag lets the model learn whether a missing record itself signals risk.");
+    const mm = fill.mean, md = fill.median, gap = mm < md ? `Here the mean (${fmt(mm, 1)}) is below the median (${fmt(md, 1)}): two students with almost no absences pull it down.` : `Here the mean (${fmt(mm, 1)}) is above the median (${fmt(md, 1)}): a few students with many absences pull it up.`;
+    notes.push(imp === "mean" ? gap : imp === "median" ? "The median is the middle value, so one extreme student cannot drag it. " + gap : "The flag adds a column so a model could learn whether a missing record itself signals risk (this toy rule does not use it).");
     notes.push("Fill values come from the 8 training rows only. Student 13 really missed 12 days; any fill value hides part of that risk.");
     if (leak.split) notes.push("Scaling before the split lets the test rows shape μ and σ: information from the future reaches training. With this tiny linear model the score happens not to move, but the evaluation is no longer clean, and in flexible models the leak can inflate scores.");
     if (leak.feat) notes.push("The withdrawal form is filed after a student leaves, so it reveals the answer: 100% on test, useless in practice.");
@@ -133,6 +134,8 @@ demo("o-ops", () => {
       + `<br><span class="m">${{ blur: "averages neighbours: smooths the map", sharp: "centre minus neighbours: boosts contrast", sx: "right minus left: west–east slopes", sy: "below minus above: north–south slopes" }[k]}</span>`;
     fieldSVG($("#oConvIn"), F, { cell: 13, color: tc });
     fieldSVG($("#oConvOut"), O, { cell: 13, color: v => edge ? div(v, mx) : tc(v) });
+    $("#oConvLeg").textContent = edge ? `Input: red warm, blue cold. Output: red where it gets warmer towards the ${k === "sx" ? "east" : "south"}, blue where it gets colder; pale where the temperature is flat. The strongest colours trace the Andean slopes.`
+      : "Both maps: red warm (lowlands, about 28 °C), blue cold (the Andes). " + (k === "blur" ? "Blur softens the sharp edges between cordilleras and valleys." : "Sharpen exaggerates the contrast at those edges.");
   }
   render(); return render;
 });
