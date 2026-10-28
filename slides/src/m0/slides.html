@@ -75,8 +75,8 @@
   <h2>Repeated groups of layers: building with prefabricated walls instead of bricks</h2>
   <div class="two">
     <div>
-      <p>A residual block, a transformer block, an encoder or a decoder is used again and again. <b>Try it:</b> toggle the skip connection on a residual block and watch an input of 5 plus a correction of 0.2 become 5.2.</p>
-      <div class="chips" id="oSkip"><button class="chip" data-v="on" aria-pressed="true">Skip connection on</button><button class="chip" data-v="off">Skip connection off</button></div>
+      <p>A residual block, a transformer block, an encoder or a decoder is used again and again. In a residual block the layer always runs; a copy of the input also takes a <b>shortcut</b> around it (the "skip connection": the input skips the layer, the layer is not skipped), and the two are added. <b>Try it:</b> an input of 5 plus a layer correction of 0.2 becomes 5.2.</p>
+      <div class="chips" id="oSkip"><button class="chip" data-v="on" aria-pressed="true">Shortcut on: x + F(x)</button><button class="chip" data-v="off">Shortcut off: F(x) only</button></div>
       <div class="ctl"><label for="oCorr">Layer output</label><input id="oCorr" type="range" min="-1" max="1" step="0.1" value="0.2"><output></output></div>
     </div>
     <div class="panel"><div id="oBlockFig"></div><div class="readout" id="oBlockRead"></div></div>

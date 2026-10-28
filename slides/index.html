@@ -332,8 +332,8 @@ a.pick{text-decoration:none}
   <h2>Repeated groups of layers: building with prefabricated walls instead of bricks</h2>
   <div class="two">
     <div>
-      <p>A residual block, a transformer block, an encoder or a decoder is used again and again. <b>Try it:</b> toggle the skip connection on a residual block and watch an input of 5 plus a correction of 0.2 become 5.2.</p>
-      <div class="chips" id="oSkip"><button class="chip" data-v="on" aria-pressed="true">Skip connection on</button><button class="chip" data-v="off">Skip connection off</button></div>
+      <p>A residual block, a transformer block, an encoder or a decoder is used again and again. In a residual block the layer always runs; a copy of the input also takes a <b>shortcut</b> around it (the "skip connection": the input skips the layer, the layer is not skipped), and the two are added. <b>Try it:</b> an input of 5 plus a layer correction of 0.2 becomes 5.2.</p>
+      <div class="chips" id="oSkip"><button class="chip" data-v="on" aria-pressed="true">Shortcut on: x + F(x)</button><button class="chip" data-v="off">Shortcut off: F(x) only</button></div>
       <div class="ctl"><label for="oCorr">Layer output</label><input id="oCorr" type="range" min="-1" max="1" step="0.1" value="0.2"><output></output></div>
     </div>
     <div class="panel"><div id="oBlockFig"></div><div class="readout" id="oBlockRead"></div></div>
@@ -819,12 +819,12 @@ demo("o-blocks", () => {
     node(480, "output", fmt(y, 1), on ? "--ok" : "--lw");
     el("line", { x1: 106, y1: yM, x2: 182, y2: yM, stroke: css("--muted"), "marker-end": "url(#ob)" }, svg);
     el("path", { d: `M60 ${yM - 24} C60 20, 360 20, 360 ${yM - 20}`, fill: "none", stroke: css(on ? "--ok" : "--line"), "stroke-width": on ? 3 : 1.5, "stroke-dasharray": on ? "" : "5 5", "marker-end": on ? "url(#obs)" : "" }, svg);
-    el("text", { x: 210, y: 36, "text-anchor": "middle", "font-size": 12, fill: css(on ? "--ok" : "--muted") }, svg, on ? "skip connection: x passes straight through" : "skip connection removed");
+    el("text", { x: 210, y: 36, "text-anchor": "middle", "font-size": 12, fill: css(on ? "--ok" : "--muted") }, svg, on ? "shortcut (skip connection): a copy of x goes around the layer" : "shortcut removed: only the layer's path is left");
     const target = x + f, tf = fmt(target, 1);
     $("#oBlockRead").innerHTML = `<div><span>Output</span><b class="${on ? "c-ok" : "c-lw"}">${fmt(y, 1)}</b></div><div><span>Formula</span><b style="font-size:18px">${on ? "x + F(x) = 5 + " + fmt(f, 1) : "F(x) = " + fmt(f, 1)}</b></div>`
       + `<div><span>To output ${tf}, F must learn</span><b class="c-arch" style="font-size:18px">${on ? fmt(f, 1) + " (small)" : tf + " (all of it)"}</b></div>`
       + `<p class="note" style="flex-basis:100%;margin:0">${on ? "The layer only has to learn the small correction; the input passes through unchanged. With F = 0, the block simply copies its input, which is why deep stacks of these blocks train well."
-        : `Same layer, skip removed: the input 5 is lost and only ${fmt(f, 1)} comes out. A plain layer that should output ${tf} has to learn the whole value itself, not just a small correction.`}</p>`;
+        : `Same layer, shortcut removed: the input 5 is lost and only ${fmt(f, 1)} comes out. A plain layer that should output ${tf} has to learn the whole value itself, not just a small correction.`}</p>`;
   }
   render(); return render;
 });
