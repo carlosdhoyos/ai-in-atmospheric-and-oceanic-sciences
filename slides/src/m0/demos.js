@@ -190,6 +190,13 @@ demo("o-blocks", () => {
       + `<div><span>To output ${tf}, F must learn</span><b class="c-arch" style="font-size:18px">${on ? fmt(f, 1) + " (small)" : tf + " (all of it)"}</b></div>`
       + `<p class="note" style="flex-basis:100%;margin:0">${on ? "The layer only has to learn the small correction; the input passes through unchanged. With F = 0, the block simply copies its input, which is why deep stacks of these blocks train well."
         : `Same layer, shortcut removed: the input 5 is lost and only ${fmt(f, 1)} comes out. A plain layer that should output ${tf} has to learn the whole value itself, not just a small correction.`}</p>`;
+    /* the same thing in everyday terms: tomorrow's river level */
+    const ch = (f >= 0 ? "+" : "−") + fmt(Math.abs(f), 1) + " m";
+    $("#oBlockLay").innerHTML = `<b>In everyday terms: forecasting a river.</b> The river is at <b>5.0 m</b> today (the input x); the block must say how high it will be tomorrow.<br><span style="display:block;height:6px"></span>`
+      + (on ? `With the shortcut, the forecaster is handed today's level and only predicts the <b>change</b>, ${ch}, so the forecast is 5.0 ${f >= 0 ? "+" : "−"} ${fmt(Math.abs(f), 1)} = <b>${fmt(y, 1)} m</b>. `
+          + (Math.abs(f) < 0.05 ? "Even with no idea at all (change 0) it says “same as today”, 5.0 m: a sensible first guess." : "If it had no idea at all (change 0), it would still say “same as today”, 5.0 m: a sensible first guess.")
+        : `Without the shortcut, the forecaster still looks at today's level but must write the <b>whole</b> answer itself. This layer outputs only ${fmt(f, 1)}, so the forecast is <b>${fmt(f, 1)} m</b>. To be right it must learn to say ${tf} m from scratch, and an untrained one that outputs 0 claims the river is dry.`)
+      + `<span style="display:block;color:var(--muted);font-size:13.5px;margin-top:6px">Stack 50 blocks: with shortcuts each one adds a small correction to a value that is passed along intact. Without them, every layer must copy everything forward perfectly, like a message whispered down a line of 50 people.</span>`;
   }
   render(); return render;
 });
