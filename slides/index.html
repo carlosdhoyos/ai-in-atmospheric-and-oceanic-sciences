@@ -387,7 +387,7 @@ details.why p{margin:6px 0 0}
       <details class="why" style="margin-top:8px"><summary>How is the slope known at the very first step? Doesn't it need two points?</summary><div id="oLearnWhy" style="margin-top:6px"></div></details>
       <details class="why" style="margin-top:6px"><summary>Does this work for any network, or only because it is a line?</summary>
         <p>For almost any network. A network is a chain of simple pieces (multiply, add, ReLU, sigmoid, softmax, convolution, attention), and each piece has a known derivative. The <b>chain rule</b> multiplies them along the path from the error back to every weight. That is <b>backpropagation</b>; libraries such as PyTorch or JAX do it automatically, still from one point, even for a billion weights.</p>
-        <p>What <i>is</i> special about the line is the landscape: one bowl, so going downhill always reaches the best answer. A network's landscape has many valleys, so the exact slope is only <i>local</i>. Try it on the <button class="btn" type="button" data-go="o-landscape" style="padding:1px 8px;font-size:12.5px">next slide</button>. Kinks, hard decisions and black-box models need extra care; <a href="optimization.html">Module 6 · Optimization</a> (coming next) covers all of this.</p>
+        <p>What <i>is</i> special about the line is the landscape: one bowl, so going downhill always reaches the best answer. A network's landscape has many valleys, so the exact slope is only <i>local</i>. Try it on the <button class="btn" type="button" data-go="o-landscape" style="padding:1px 8px;font-size:12.5px">next slide</button>. Kinks, hard decisions and black-box models need extra care; <a href="optimization.html">Module 6 · Optimization</a> covers this: training step by step, early stopping, random starts, with more coming.</p>
       </details>
       <div class="chips" style="margin-top:10px"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">New random start</button></div>
       <div class="ctl"><label for="oLr">Step size η</label><input id="oLr" type="range" min="0.01" max="0.4" step="0.01" value="0.1"><output></output></div>
@@ -425,7 +425,7 @@ details.why p{margin:6px 0 0}
     <div class="card"><h4>Black-box physics</h4><p style="font-size:13.5px">A model code with no derivatives breaks the chain: trial nudges, adjoint models (as in 4D-Var), or differentiable physics.</p></div>
     <div class="card"><h4>Mini-batches</h4><p style="font-size:13.5px">Slopes are computed on a few examples at a time: exact for that batch, a noisy estimate for all the data.</p></div>
   </div>
-  <p class="note" style="margin-top:8px">All of this, in depth: <a href="optimization.html">Module 6 · Optimization</a> (coming next).</p>
+  <p class="note" style="margin-top:8px">In depth: <a href="optimization.html">Module 6 · Optimization</a>: training step by step, early stopping, random starts. More coming.</p>
 </section>
 
 <section class="slide" id="o-next" data-g="" data-sec="Module 0 · Where to go next">
@@ -440,7 +440,7 @@ details.why p{margin:6px 0 0}
     <div class="stack">
       <div class="pick" style="opacity:.6;cursor:default"><b>4 · Blocks</b><span>Residual and transformer blocks, encoders and decoders. Coming next.</span></div>
       <div class="pick" style="opacity:.6;cursor:default"><b>5 · Architecture Families</b><span>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</span></div>
-      <a class="pick" href="optimization.html" style="opacity:.75"><b>6 · Optimization</b><span>How the weights are found: backpropagation, gradient descent, Adam, landscapes. Coming next; planned contents only.</span></a>
+      <a class="pick" href="optimization.html"><b>6 · Optimization</b><span>How the weights are found: training step by step, early stopping, random starts. More coming.</span></a>
       <p class="note">Every module is interactive: each operation and idea has a control you can move. All data are synthetic examples built for teaching.</p>
     </div>
   </div>

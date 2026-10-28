@@ -2827,6 +2827,7 @@ demo("op-dense-fit", () => {
       /* valves for month m */
       const s = S[m], V = svgIn($("#g3lsValve"), 580, 170), cy = 38, wmax = 12, wc = v => 1 + wmax * clamp(v / 0.8, 0, 1);
       arrowDefs(V, "g3lsAr", css("--muted"));
+      { const mk = V.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 12); mk.setAttribute("markerHeight", 12); } // fixed arrowhead size, whatever the line width
       el("text", { x: 4, y: cy - 16, class: "mut", "font-size": 11 }, V, "cell state c (the memory)");
       el("line", { x1: 30, x2: 130, y1: cy, y2: cy, stroke: css("--arch"), "stroke-width": wc(s.cp), "stroke-linecap": "round", opacity: .8 }, V);
       el("line", { x1: 170, x2: 290, y1: cy, y2: cy, stroke: css("--arch"), "stroke-width": wc(s.f * s.cp), "stroke-linecap": "round", opacity: .8 }, V);
@@ -2839,11 +2840,11 @@ demo("op-dense-fit", () => {
       el("text", { x: 196, y: 164, "text-anchor": "middle", class: "mut mono", "font-size": 10 }, V, `g = ${fmt(s.g, 3)}`);
       el("path", { d: `M196 136 L196 116 L278 116`, fill: "none", stroke: css("--cool"), "stroke-width": 1 + 20 * s.g, opacity: .6 }, V);
       valve(V, 300, 116, s.i, "--ok", "input i");
-      el("line", { x1: 300, x2: 300, y1: 96, y2: cy + 13, stroke: css("--ok"), "stroke-width": 1 + 20 * s.i * s.g, "marker-end": "url(#g3lsAr)" }, V);
+      el("line", { x1: 300, x2: 300, y1: 96, y2: cy + 13, stroke: css("--ok"), "stroke-width": Math.min(8, 1 + 20 * s.i * s.g), "marker-end": "url(#g3lsAr)" }, V);
       el("path", { d: `M420 ${cy} L470 ${cy} L470 96`, fill: "none", stroke: css("--arch"), "stroke-width": wc(s.c), opacity: .5 }, V);
       el("text", { x: 476, y: cy + 30, class: "mut", "font-size": 10.5 }, V, "tanh");
       valve(V, 470, 116, s.o, "--cool", "output o");
-      el("line", { x1: 490, x2: 540, y1: 116, y2: 116, stroke: css("--cool"), "stroke-width": 1 + 14 * s.h, "marker-end": "url(#g3lsAr)" }, V);
+      el("line", { x1: 490, x2: 540, y1: 116, y2: 116, stroke: css("--cool"), "stroke-width": Math.min(8, 1 + 14 * s.h), "marker-end": "url(#g3lsAr)" }, V);
       el("text", { x: 548, y: 112, class: "mono", "font-size": 11 }, V, "h");
       el("text", { x: 548, y: 127, class: "mono", "font-size": 11 }, V, fmt(s.h, 2));
       /* how long a storm stays in memory: f^k for the LSTM cell, a^k for the simple RNN */
