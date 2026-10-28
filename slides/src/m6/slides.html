@@ -1,26 +1,91 @@
 
 <section class="slide" id="cover" data-g="" data-sec="Module 6 · Optimization">
   <div class="cover">
-    <p class="kicker k-arch">Neural networks · Module 6 · Coming next</p>
+    <p class="kicker k-arch">Neural networks · Module 6 · in progress</p>
     <h1>Optimization: <span class="hl">how the weights are found</span></h1>
-    <p class="lead">This module is a placeholder. It will take the idea from Module 0 (start random, measure the error, nudge every weight, repeat) and open it up: where the slopes come from in a deep network, why the landscape is hard, and the methods that make training work.</p>
-    <p class="note">Start with the two slides in the overview: <a href="index.html#o-learn">how it learns</a> and <a href="index.html#o-landscape">one bowl or many valleys</a>.</p>
+    <p class="lead">Module 0 showed one neuron learning a line: start random, measure the error, nudge every weight, repeat. Here the same loop trains a real (small) network, the student-attrition network of Module 2, and we look at what can go right and wrong.</p>
+    <div class="three" style="margin-top:8px">
+      <button class="pick" type="button" data-go="opt-watch"><b>Watch it train</b><span>The map and the error, step by step; one weight's update worked out.</span></button>
+      <button class="pick" type="button" data-go="opt-split"><b>Train and test: when to stop</b><span>Hold out students; watch the test error turn back up.</span></button>
+      <button class="pick" type="button" data-go="opt-restart"><b>Different random starts</b><span>Same data, same size, different answers.</span></button>
+    </div>
+    <p class="note">Background: <a href="index.html#o-learn">how it learns</a> and <a href="index.html#o-landscape">one bowl or many valleys</a> (Module 0), the <a href="operations.html#op-dense">dense layer</a> (Module 2). More topics are listed at the <button class="btn" type="button" data-go="opt-plan" style="padding:2px 10px;font-size:12.5px">end</button>.</p>
   </div>
 </section>
 
-<section class="slide" id="opt-plan" data-g="a" data-sec="Module 6 · Planned contents">
-  <p class="kicker k-arch">Planned contents</p>
-  <h2>What this module will cover</h2>
+<section class="slide" id="opt-watch" data-g="a" data-sec="Module 6 · Training">
+  <p class="kicker k-arch">Watch it train</p>
+  <h2>Every step: predict all students, measure the error, backpropagate, nudge every weight</h2>
+  <div class="two">
+    <div>
+      <p>The 3 → hidden → 1 network of Module 2 (absences, grade, estrato → attrition), starting from random weights. One <b>step</b> uses all 20 students: a forward pass, the log-loss, backpropagation for every weight's slope, and a nudge of −η × slope.</p>
+      <div class="ctl"><label for="owH">Hidden neurons</label><input id="owH" type="range" min="1" max="8" step="1" value="4"><output></output></div>
+      <div class="chips" id="owAct"><span class="mut" style="font-size:13px;align-self:center">Activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="sigm">sigmoid</button><button class="chip" data-v="none">none</button></div>
+      <div class="ctl"><label for="owLr">Step size η</label><input id="owLr" type="range" min="0.05" max="3" step="0.05" value="0.3"><output></output></div>
+      <div class="chips"><button class="btn" id="owPlay" type="button">Play</button><button class="btn" id="owStep" type="button">10 steps</button><button class="btn" id="owReset" type="button">New random start</button></div>
+      <div class="readout" id="owRead"></div>
+      <div class="calc" id="owCalc" style="font-size:12.5px"></div>
+    </div>
+    <div class="panel">
+      <h3>The attrition probability, as it is learned (estrato 2)</h3>
+      <div id="owMap"></div>
+      <h3 style="margin-top:6px">Training error (log-loss, log scale)</h3>
+      <div id="owLoss"></div>
+      <p class="note" id="owNote" style="margin:4px 0 0"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="opt-split" data-g="a" data-sec="Module 6 · Training">
+  <p class="kicker k-arch">Train and test · when to stop</p>
+  <h2>Training error always falls; the test error tells you when the network starts memorizing</h2>
+  <div class="two">
+    <div>
+      <p>Five students are <b>held out</b>: the network never trains on them (and the scaling uses the 15 training students only, as in Module 1). A big network (8 neurons) keeps lowering its training error, but at some point its error on the held-out students turns back up. Stopping there is <b>early stopping</b>.</p>
+      <div class="chips" id="osSplit"><span class="mut" style="font-size:13px;align-self:center">Held-out students:</span><button class="chip" data-v="0" aria-pressed="true">Split A</button><button class="chip" data-v="1">Split B</button><button class="chip" data-v="2">Split C</button></div>
+      <div class="ctl"><label for="osH">Hidden neurons</label><input id="osH" type="range" min="1" max="8" step="1" value="8"><output></output></div>
+      <div class="chips"><button class="btn" id="osPlay" type="button">Play</button><button class="btn" id="osEnd" type="button">Run to the end</button><button class="btn" id="osReset" type="button">Reset</button></div>
+      <div class="readout" id="osRead"></div>
+      <p class="note" id="osNote"></p>
+    </div>
+    <div class="panel">
+      <h3>Error on the training and the held-out students (log-loss)</h3>
+      <div id="osCurve"></div>
+      <h3 style="margin-top:6px">The map at this step (estrato 2) · squares are held out</h3>
+      <div id="osMap"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="opt-restart" data-g="a" data-sec="Module 6 · Training">
+  <p class="kicker k-arch">Different random starts</p>
+  <h2>Same data, same network, same training: four random starts, four different answers</h2>
+  <div class="two">
+    <div>
+      <p>Each map is the same 3 → hidden → 1 network trained for 1,500 steps on the same 20 students. Only the random starting weights differ. Training goes downhill from wherever it starts, and a network's error landscape has many valleys (<a href="index.html#o-landscape">Module 0</a>), so each start can settle in a different one.</p>
+      <div class="ctl"><label for="orH">Hidden neurons</label><input id="orH" type="range" min="1" max="8" step="1" value="4"><output></output></div>
+      <div class="chips" id="orAct"><span class="mut" style="font-size:13px;align-self:center">Activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="none">none</button></div>
+      <div class="chips"><button class="btn" id="orNew" type="button">Four new random starts</button></div>
+      <div class="callout violet" style="font-size:14px"><b>What to look for.</b> Where the students are, the maps mostly agree and the errors are similar. Far from any student they can disagree completely: the data does not decide there. With no activation every start gives the same straight boundary: the network can only draw a straight line, and there is one best line.</div>
+      <p class="note">In practice: train several times and compare, or average several networks (an ensemble), and do not trust a network far from its training data.</p>
+    </div>
+    <div class="panel"><div class="two even" id="orGrid" style="gap:10px"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="opt-plan" data-g="a" data-sec="Module 6 · Still to come">
+  <p class="kicker k-arch">Still to come</p>
+  <h2>What else this module will cover</h2>
   <div class="three" style="margin-top:8px">
     <div class="card"><h4 style="color:var(--arch)">Loss functions</h4><p>Mean squared error, cross-entropy, losses for rare events and for whole maps; what each one rewards.</p></div>
-    <div class="card"><h4 style="color:var(--arch)">Backpropagation</h4><p>The chain rule worked by hand through a two-layer network, then automatic differentiation as libraries do it.</p></div>
-    <div class="card"><h4 style="color:var(--arch)">Gradient descent and friends</h4><p>Step size, mini-batches and stochastic gradients, momentum, Adam, learning-rate schedules and warm-up.</p></div>
-    <div class="card"><h4 style="color:var(--arch)">The landscape</h4><p>Local minima, saddle points and plateaus; why random starts end in different places; why wide valleys generalize better.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Backpropagation by hand</h4><p>The chain rule worked through a two-layer network, then automatic differentiation as libraries do it.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Gradient descent and friends</h4><p>Mini-batches and stochastic gradients, momentum, Adam, learning-rate schedules and warm-up.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Saddles and plateaus</h4><p>Beyond local valleys: flat regions and saddle points; why wide valleys generalize better.</p></div>
     <div class="card"><h4 style="color:var(--arch)">Gradients that vanish or explode</h4><p>Why deep stacks struggle, and how initialization, normalization and residual shortcuts fix it.</p></div>
-    <div class="card"><h4 style="color:var(--arch)">Regularization and stopping</h4><p>Weight decay, dropout, early stopping and validation curves: training well without memorizing.</p></div>
+    <div class="card"><h4 style="color:var(--arch)">Regularization</h4><p>Weight decay, dropout, data augmentation; cross-validation instead of a single split.</p></div>
     <div class="card"><h4 style="color:var(--arch)">When the chain breaks</h4><p>Kinks, hard decisions and sampling: surrogate gradients, straight-through and reparameterization tricks.</p></div>
     <div class="card"><h4 style="color:var(--arch)">Black-box physics</h4><p>Models with no derivatives: trial nudges, adjoint models as in 4D-Var data assimilation, differentiable physics (JAX).</p></div>
     <div class="card"><h4 style="color:var(--arch)">Practice</h4><p>Reading training curves, choosing a learning rate, and the usual failure signs, with atmospheric and ocean examples.</p></div>
   </div>
-  <p class="note" style="margin-top:12px">Back to <a href="index.html">Module 0 · Overview</a> · <a href="layers.html">Module 3 · Layers</a>.</p>
+  <p class="note" style="margin-top:12px">Back to <a href="index.html">Module 0 · Overview</a> · <a href="operations.html">Module 2 · Operations</a> · <a href="layers.html">Module 3 · Layers</a>.</p>
 </section>

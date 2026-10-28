@@ -7,7 +7,7 @@
 
 Layout of slides/src:
   common/   deck.css, core.js (helpers, navigation), helpers.js, datasets.js (shared example data), boot.js
-  m0 … m6/  one folder per module (m6 is a placeholder for now): its slides (*.html, order below) and demos (*.js, same order)
+  m0 … m6/  one folder per module: its slides (*.html, order below) and demos (*.js, same order)
 Each script file goes in its own <script> tag, so an error in one group's demos cannot stop the others.
 """
 import html
@@ -22,7 +22,7 @@ MODULES = [
     ("2", "operations.html", "Operations", "Neural Networks: Operations",
      ["m2/intro.html"] + [f"m2/g{i}.html" for i in range(1, 7)] + ["m2/outro.html"], ["m2/intro.js"] + [f"m2/g{i}.js" for i in range(1, 7)]),
     ("3", "layers.html", "Layers", "Neural Networks: Layers", ["m3/slides.html"], ["m3/demos.js"]),
-    ("6", "optimization.html", "Optimization", "Neural Networks: Optimization", ["m6/slides.html"], []),
+    ("6", "optimization.html", "Optimization", "Neural Networks: Optimization", ["m6/slides.html"], ["m6/demos.js"]),
 ]
 LATER = [("4", "Blocks"), ("5", "Architecture Families")]
 COMMON_JS = ["common/core.js", "common/helpers.js", "common/datasets.js"]

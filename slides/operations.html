@@ -453,20 +453,46 @@ details.why p{margin:6px 0 0}
     <div>
       <div class="eq arch">y = f(W·x + b) &nbsp;·&nbsp; params = in × out + out</div>
       <p>3 inputs (temperature, humidity, wind) into 2 neurons: 3 × 2 = <b>6 weights + 2 biases</b>.</p>
-      <p>Here: absences, grade and estrato of 20 synthetic students, standardized (z-scores), feed the hidden neurons, which feed one sigmoid output: the attrition probability. Pick a student.</p>
-      <div id="g1dnTable" style="position:relative;max-height:150px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
-      <h3 style="margin-top:10px">What the network has learned: attrition probability</h3>
-      <div id="g1dnMapFig"></div>
-      <p class="note" id="g1dnMapNote" style="margin:2px 0 0"></p>
-      <div class="callout amber" style="font-size:14px"><b>Parameters grow fast.</b> A 100 × 100 image into 100 neurons is 10,000 × 100 = <b>1,000,000 weights</b> for one layer, which is why images use convolution.</div>
+      <p>Here: absences, grade and estrato of 20 synthetic students, standardized (z-scores), feed the hidden neurons, which feed one sigmoid output: the attrition probability. Pick a student. Switch to <b>Matrix</b> to see the same sums as W × x + b: one row of W per neuron.</p>
+      <div id="g1dnTable" style="position:relative;max-height:220px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
+      <div class="callout amber"><b>Parameters grow fast.</b> A 100 × 100 image is 10,000 inputs. Into 100 neurons that is 10,000 × 100 = <b>1,000,000 weights</b>, for one layer. That is why images use convolution instead.</div>
     </div>
     <div class="panel">
       <div class="ctl"><label for="g1dnH">Hidden neurons</label><input id="g1dnH" type="range" min="1" max="8" step="1" value="3"><output></output></div>
       <div class="chips" id="g1dnAct"><span class="mut" style="font-size:13px;align-self:center">Hidden activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="sigm">sigmoid</button><button class="chip" data-v="none">none</button></div>
+      <div class="chips" id="g1dnView"><span class="mut" style="font-size:13px;align-self:center">View:</span><button class="chip" data-v="net" aria-pressed="true">Network</button><button class="chip" data-v="mat">Matrix</button></div>
       <div id="g1dnFig"></div>
+      <div class="chips" id="g1dnPick"></div>
       <p class="note" style="margin:2px 0 0">Click a neuron to see its incoming weights and its sum. Weights were fitted to the 20 synthetic students, for illustration only.</p>
       <div class="calc" id="g1dnCalc"></div>
       <div class="readout" id="g1dnRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-dense-fit" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">04</span>Dense · what it has learned</p>
+  <h2>What the dense network has learned, and what if a student were different?</h2>
+  <div class="two">
+    <div>
+      <p>Same network as the previous slide. <b>Try it:</b> change a student's absences, grade or estrato and watch the prediction and the triangle on the map.</p>
+      <div class="ctl"><label for="g1dfStu">Student</label><select id="g1dfStu" style="font:inherit;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:4px 8px"></select></div>
+      <div class="ctl"><label for="g1dfA">What if absences</label><input id="g1dfA" type="range" min="0" max="30" step="1" value="0"><output></output></div>
+      <div class="ctl"><label for="g1dfG">What if grade</label><input id="g1dfG" type="range" min="1" max="5" step="0.1" value="3"><output></output></div>
+      <div class="ctl"><label for="g1dfE">What if estrato</label><input id="g1dfE" type="range" min="1" max="6" step="1" value="2"><output></output></div>
+      <div class="chips"><button class="btn" type="button" id="g1dfReset">Back to the real student</button></div>
+      <div class="readout" id="g1dfRead"></div>
+      <div class="calc" id="g1dfNudge"></div>
+      <div class="callout red" style="font-size:13.5px;margin-top:8px"><b>Should estrato be an input?</b> If estrato alone moves p, the model treats students differently by socioeconomic level: real risk, or encoded bias? See <a href="data-foundation.html">Module 1</a>.</div>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="g1dfH">Hidden neurons</label><input id="g1dfH" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+      <div class="chips" id="g1dfAct"><span class="mut" style="font-size:13px;align-self:center">Hidden activation:</span><button class="chip" data-v="tanh" aria-pressed="true">tanh</button><button class="chip" data-v="relu">ReLU</button><button class="chip" data-v="sigm">sigmoid</button><button class="chip" data-v="none">none</button></div>
+      <h3>Attrition probability the network has learned</h3>
+      <div id="g1dfMap"></div>
+      <p class="note" id="g1dfNote" style="margin:4px 0 0"></p>
+      <div class="readout" id="g1dfFit" style="margin-top:6px"></div>
+      <p class="note" style="margin:6px 0 0">How training finds these weights, and how to tell a good fit from memorizing: <a href="optimization.html">Module 6 · Optimization</a>.</p>
     </div>
   </div>
 </section>
@@ -1927,48 +1953,86 @@ demo("op-softmax", () => {
   render(); return render;
 });
 
-/* 04 · dense layer: students → hidden neurons → attrition probability */
-demo("op-dense", () => {
+/* 04 · dense layer. The network, its fitting and the shared selection live in G1DN, used by op-dense and op-dense-fit */
+const G1DN = (() => {
   const S = DS.students, keys = ["absences", "grade", "estrato"];
   const mu = keys.map(k => mean(S.map(s => s[k]))), sg = keys.map(k => sd(S.map(s => s[k])));
-  const X = S.map(s => keys.map((k, i) => (s[k] - mu[i]) / sg[i])), Y = S.map(s => s.attrition);
-  const cache = {};
-  // hidden activations and their slopes (written in terms of the neuron's value h, or of z for ReLU)
-  const ACT = { tanh: { f: Math.tanh, d: (z, h) => 1 - h * h, name: "tanh" }, relu: { f: relu, d: z => +(z > 0), name: "ReLU" },
-    sigm: { f: sigm, d: (z, h) => h * (1 - h), name: "sigmoid" }, none: { f: z => z, d: () => 1, name: "none" } };
-  let act = "tanh";
+  const z = v => keys.map((k, i) => (v[i] - mu[i]) / sg[i]), X = S.map(s => z(keys.map(k => s[k]))), Y = S.map(s => s.attrition);
+  // hidden activations and their slopes (in terms of z, or of the neuron's value h)
+  const ACT = { tanh: { f: Math.tanh, d: (q, h) => 1 - h * h, name: "tanh" }, relu: { f: relu, d: q => +(q > 0), name: "ReLU" },
+    sigm: { f: sigm, d: (q, h) => h * (1 - h), name: "sigmoid" }, none: { f: q => q, d: () => 1, name: "none" } };
+  const state = { H: 3, act: "tanh", stu: 14, sel: 0 }, cache = {};
   // fit a 3 → H (activation) → 1 (sigmoid) network to the 20 students by plain gradient descent (deterministic, a few ms)
-  function fit(H) {
+  function fit(H, act) {
     const key = H + act; if (cache[key]) return cache[key];
-    const A = ACT[act];
-    const r = rng(300 + H), W1 = Array.from({ length: H }, () => keys.map(() => 0.8 * gauss(r))), b1 = new Array(H).fill(0), W2 = Array.from({ length: H }, () => 0.8 * gauss(r));
+    const A = ACT[act], r = rng(300 + H), W1 = Array.from({ length: H }, () => keys.map(() => 0.8 * gauss(r))), b1 = new Array(H).fill(0), W2 = Array.from({ length: H }, () => 0.8 * gauss(r));
     let b2 = 0; const lr = 0.3, lam = 0.01, n = X.length;
     for (let it = 0; it < 1500; it++) {
       const gW1 = W1.map(rw => rw.map(() => 0)), gb1 = new Array(H).fill(0), gW2 = new Array(H).fill(0); let gb2 = 0;
       X.forEach((x, s) => {
-        const z = W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], b1[j])), h = z.map(A.f), p = sigm(h.reduce((a, v, j) => a + v * W2[j], b2)), d = p - Y[s];
-        gb2 += d; h.forEach((v, j) => { gW2[j] += d * v; const dh = d * W2[j] * A.d(z[j], v); gb1[j] += dh; x.forEach((xi, i) => gW1[j][i] += dh * xi); });
+        const q = W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], b1[j])), h = q.map(A.f), p = sigm(h.reduce((a, v, j) => a + v * W2[j], b2)), d = p - Y[s];
+        gb2 += d; h.forEach((v, j) => { gW2[j] += d * v; const dh = d * W2[j] * A.d(q[j], v); gb1[j] += dh; x.forEach((xi, i) => gW1[j][i] += dh * xi); });
       });
       W1.forEach((rw, j) => { rw.forEach((w, i) => rw[i] -= lr * (gW1[j][i] / n + lam * w)); b1[j] -= lr * gb1[j] / n; W2[j] -= lr * (gW2[j] / n + lam * W2[j]); });
       b2 -= lr * gb2 / n;
     }
     return cache[key] = { W1, b1, W2, b2 };
   }
-  const fwd = (net, x) => { const z1 = net.W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], net.b1[j])), h = z1.map(ACT[act].f), z2 = h.reduce((a, v, j) => a + v * net.W2[j], net.b2); return { z1, h, z2, p: sigm(z2) }; };
-  let stu = 14, sel = 0; // selected student; selected neuron (0..H-1 hidden, -1 output)
-  const gh = slider("g1dnH", v => v, () => render());
-  chips($("#g1dnAct"), v => { act = v; render(); });
+  const fwd = (net, x, act) => { const z1 = net.W1.map((rw, j) => rw.reduce((a, w, i) => a + w * x[i], net.b1[j])), h = z1.map(ACT[act].f), z2 = h.reduce((a, v, j) => a + v * net.W2[j], net.b2); return { z1, h, z2, p: sigm(z2) }; };
+  return { S, keys, mu, sg, z, X, Y, ACT, state, fit, fwd };
+})();
+
+demo("op-dense", () => {
+  const { S, keys, X, ACT, state: st, fit } = G1DN, fwd = (net, x) => G1DN.fwd(net, x, st.act);
+  let view = "net";
+  const gh = slider("g1dnH", v => v, v => { st.H = v; render(); });
+  const ga = $$("#g1dnAct button.chip");
+  ga.forEach(b => b.addEventListener("click", () => { st.act = b.dataset.v; render(); }));
+  chips($("#g1dnView"), v => { view = v; render(); });
   function table(net) {
     $("#g1dnTable").innerHTML = `<style>#g1dnTable th{position:sticky;top:0;background:var(--bg);z-index:1}</style><table class="tb" style="font-size:12.5px"><thead><tr><th>#</th><th>Absences</th><th>Grade</th><th>Estrato</th><th>Left?</th><th>Model p</th></tr></thead><tbody>${S.map((s, k) =>
-      `<tr data-k="${k}" style="cursor:pointer;${k === stu ? "background:var(--arch-soft);font-weight:600" : ""}"><td class="n">${s.id}</td><td class="n">${s.absences}</td><td class="n">${fmt(s.grade, 1)}</td><td class="n">${s.estrato}</td><td>${s.attrition ? "yes" : "no"}</td><td class="n">${fmt(fwd(net, X[k]).p, 2)}</td></tr>`).join("")}</tbody></table>`;
-    const box = $("#g1dnTable"), tr = box.querySelector(`tr[data-k="${stu}"]`); if (tr) box.scrollTop = Math.max(0, tr.offsetTop - 70);
-    $$("#g1dnTable tr[data-k]").forEach(tr => tr.addEventListener("click", () => { stu = +tr.dataset.k; render(); }));
+      `<tr data-k="${k}" style="cursor:pointer;${k === st.stu ? "background:var(--arch-soft);font-weight:600" : ""}"><td class="n">${s.id}</td><td class="n">${s.absences}</td><td class="n">${fmt(s.grade, 1)}</td><td class="n">${s.estrato}</td><td>${s.attrition ? "yes" : "no"}</td><td class="n">${fmt(fwd(net, X[k]).p, 2)}</td></tr>`).join("")}</tbody></table>`;
+    const box = $("#g1dnTable"), tr = box.querySelector(`tr[data-k="${st.stu}"]`); if (tr) box.scrollTop = Math.max(0, tr.offsetTop - 70);
+    $$("#g1dnTable tr[data-k]").forEach(tr => tr.addEventListener("click", () => { st.stu = +tr.dataset.k; render(); }));
+  }
+  /* the same arithmetic as a matrix product: W (rows = neurons) × x + b = z, then f(z) */
+  function matrix(svg, M, v, b, zz, out, colLab, fname, rowLab, selRow) {
+    const R = M.length, C = M[0].length, cs = Math.min(40, 210 / Math.max(R, v.length), 230 / (C + 4)), y0 = 40, mx = Math.max(...M.flat().map(Math.abs)) || 1;
+    const cell = (x, y, val, fill, on, dg = 2) => { el("rect", { x, y, width: cs - 2, height: cs - 2, rx: 3, fill, stroke: on ? css("--fg") : "none", "stroke-width": 2 }, svg);
+      if (cs >= 24) el("text", { x: x + cs / 2 - 1, y: y + cs / 2 + 3.5, "text-anchor": "middle", class: "mono", style: `font-size:${cs >= 36 ? 11 : 9.5}px` }, svg, fmt(val, dg)); };
+    const colY = n => y0 + (R * cs - n * cs) / 2;
+    let x = 40;
+    el("text", { x: x + C * cs / 2, y: y0 - 22, "text-anchor": "middle", style: "font-size:11.5px", fill: css("--fg") }, svg, `W (${R} × ${C})`);
+    colLab.forEach((l, i) => el("text", { x: x + i * cs + cs / 2, y: y0 - 6, "text-anchor": "middle", style: "font-size:10px", fill: css("--muted") }, svg, l));
+    M.forEach((row, r) => { row.forEach((w, c) => cell(x + c * cs, y0 + r * cs, w, div(w, mx), r === selRow)); el("text", { x: x - 6, y: y0 + r * cs + cs / 2 + 3, "text-anchor": "end", style: "font-size:10px", fill: css(r === selRow ? "--fg" : "--muted") }, svg, rowLab(r)); });
+    x += C * cs + 10; el("text", { x: x + 4, y: y0 + R * cs / 2 + 4, style: "font-size:15px", fill: css("--muted") }, svg, "×"); x += 18;
+    el("text", { x: x + cs / 2, y: y0 - 22, "text-anchor": "middle", style: "font-size:11.5px", fill: css("--fg") }, svg, "x");
+    v.forEach((val, i) => cell(x, colY(v.length) + i * cs, val, css("--data-soft"), selRow >= 0));
+    x += cs + 8; el("text", { x: x + 2, y: y0 + R * cs / 2 + 4, style: "font-size:15px", fill: css("--muted") }, svg, "+"); x += 16;
+    el("text", { x: x + cs / 2, y: y0 - 22, "text-anchor": "middle", style: "font-size:11.5px", fill: css("--fg") }, svg, "b");
+    b.forEach((val, r) => cell(x, y0 + r * cs, val, css("--sw-soft"), r === selRow));
+    x += cs + 8; el("text", { x: x + 2, y: y0 + R * cs / 2 + 4, style: "font-size:15px", fill: css("--muted") }, svg, "="); x += 16;
+    el("text", { x: x + cs / 2, y: y0 - 22, "text-anchor": "middle", style: "font-size:11.5px", fill: css("--fg") }, svg, "z");
+    zz.forEach((val, r) => cell(x, y0 + r * cs, val, css("--well"), r === selRow));
+    x += cs + 8; el("text", { x: x + 2, y: y0 + R * cs / 2 + 4, style: "font-size:12px", fill: css("--muted") }, svg, fname + " →"); x += fname.length * 7 + 22;
+    el("text", { x: x + cs / 2, y: y0 - 22, "text-anchor": "middle", style: "font-size:11.5px", fill: css("--fg") }, svg, "out");
+    out.forEach((val, r) => cell(x, y0 + r * cs, val, css("--arch-soft"), r === selRow));
   }
   function render() {
-    const H = gh(), net = fit(H); if (sel >= H) sel = H - 1;
-    const x = X[stu], f = fwd(net, x), s = S[stu];
+    const H = st.H, net = fit(H, st.act); if (st.sel >= H) st.sel = H - 1; const sel = st.sel;
+    $("#g1dnH").value = H; $("#g1dnH").parentElement.querySelector("output").textContent = H; press(ga, ga.find(b => b.dataset.v === st.act));
+    const x = X[st.stu], f = fwd(net, x), s = S[st.stu];
     table(net);
-    const W = 520, HH = 270, svg = svgIn($("#g1dnFig"), W, HH), xi = 110, xh = 290, xo = 450;
+    const W = 520, HH = view === "mat" ? 0 : 270, xi = 110, xh = 290, xo = 450;
+    let svg;
+    if (view === "mat") {
+      const rows = sel === -1 ? Math.max(1, H) : Math.max(H, 3), cs = Math.min(40, 210 / rows, 230 / ((sel === -1 ? H : 3) + 4)), MH = 40 + rows * cs + 26;
+      svg = svgIn($("#g1dnFig"), W, MH);
+      if (sel === -1) matrix(svg, [net.W2], f.h, [net.b2], [f.z2], [f.p], f.h.map((_, j) => "h" + (j + 1)), "σ", () => "out", 0);
+      else matrix(svg, net.W1, x, net.b1, f.z1, f.h, ["abs.", "grade", "estr."], st.act === "none" ? "none" : ACT[st.act].name, r => "neuron " + (r + 1), sel);
+      el("text", { x: 40, y: MH - 6, style: "font-size:11px", fill: css("--muted") }, svg, sel === -1 ? "Layer 2: one row (the output neuron) times the hidden values." : "Layer 1: one row of W per hidden neuron; each row times the same input x. Outlined: the clicked neuron.");
+    } else {
+    svg = svgIn($("#g1dnFig"), W, HH);
     const yi = i => 70 + i * 70, yh = j => H === 1 ? 140 : 24 + j * (210 / (H - 1)), yo = 140;
     const m1 = Math.max(...net.W1.flat().map(Math.abs)), m2 = Math.max(...net.W2.map(Math.abs));
     const wc = w => css(w >= 0 ? "--pos" : "--neg");
@@ -1977,56 +2041,93 @@ demo("op-dense", () => {
     const raw = [s.absences, fmt(s.grade, 1), s.estrato];
     keys.forEach((k, i) => {
       el("circle", { cx: xi, cy: yi(i), r: 22, fill: css("--card"), stroke: css("--data") }, svg);
-      el("text", { x: xi, y: yi(i) + 4, "text-anchor": "middle", class: "mono", style: `font-size:${12 }px`}, svg, fmt(x[i], 2));
-      el("text", { x: xi - 30, y: yi(i) - 2, "text-anchor": "end", style: `font-size:${12 }px`}, svg, k);
-      el("text", { x: xi - 30, y: yi(i) + 13, "text-anchor": "end", class: "mut mono", style: `font-size:${11 }px`}, svg, "raw " + raw[i]);
+      el("text", { x: xi, y: yi(i) + 4, "text-anchor": "middle", class: "mono", style: `font-size:12px` }, svg, fmt(x[i], 2));
+      el("text", { x: xi - 30, y: yi(i) - 2, "text-anchor": "end", style: `font-size:12px` }, svg, k);
+      el("text", { x: xi - 30, y: yi(i) + 13, "text-anchor": "end", class: "mut mono", style: `font-size:11px` }, svg, "raw " + raw[i]);
     });
     const node = (cx, cy, r, v, on, idx, lab) => {
       const g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button", "aria-label": lab }, svg);
       el("circle", { cx, cy, r, fill: on ? css("--arch") : css("--arch-soft"), stroke: css("--arch"), "stroke-width": on ? 2 : 1 }, g);
       el("text", { x: cx, y: cy + 4, "text-anchor": "middle", class: "mono", style: `font-size:${H > 6 && idx >= 0 ? 10 : 11.5}px`, fill: on ? css("--bg") : css("--fg") }, g, fmt(v, 2));
-      const pick = () => { sel = idx; render(); };
+      const pick = () => { st.sel = idx; render(); };
       g.addEventListener("click", pick); g.addEventListener("keydown", e => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), pick()));
     };
     const rh = H > 6 ? 14 : 18;
     f.h.forEach((v, j) => node(xh, yh(j), rh, v, sel === j, j, "hidden neuron " + (j + 1)));
     node(xo, yo, 24, f.p, sel === -1, -1, "output neuron");
-    el("text", { x: xo, y: yo + 42, "text-anchor": "middle", style: `font-size:${12 }px`}, svg, "attrition p");
-    el("text", { x: xh, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, `${H} hidden (${ACT[act].name})`);
-    el("text", { x: xi, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, "3 inputs (z-scores)");
-    el("text", { x: xo, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:${11 }px`}, svg, "1 output (sigmoid)");
+    el("text", { x: xo, y: yo + 42, "text-anchor": "middle", style: `font-size:12px` }, svg, "attrition p");
+    el("text", { x: xh, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:11px` }, svg, `${H} hidden (${ACT[st.act].name})`);
+    el("text", { x: xi, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:11px` }, svg, "3 inputs (z-scores)");
+    el("text", { x: xo, y: HH - 2, "text-anchor": "middle", class: "mut", style: `font-size:11px` }, svg, "1 output (sigmoid)");
+    }
+    /* neuron picker for the matrix view (the network view picks by clicking circles) */
+    $("#g1dnPick").innerHTML = view === "mat" ? `<span class="mut" style="font-size:13px;align-self:center">Neuron:</span>` + f.h.map((_, j) => `<button class="chip" data-j="${j}" aria-pressed="${sel === j}">${j + 1}</button>`).join("") + `<button class="chip" data-j="-1" aria-pressed="${sel === -1}">output</button>` : "";
+    $$("#g1dnPick button").forEach(b => b.addEventListener("click", () => { st.sel = +b.dataset.j; render(); }));
     if (sel >= 0) {
       const rw = net.W1[sel];
-      $("#g1dnCalc").innerHTML = `hidden ${sel + 1}: z = ${rw.map((w, i) => `${fmt(w, 2)}×(${fmt(x[i], 2)})`).join(" + ")} + ${fmt(net.b1[sel], 2)} = <span class="k">${fmt(f.z1[sel], 2)}</span>\n         ${act === "none" ? "no activation: h = z" : ACT[act].name + "(" + fmt(f.z1[sel], 2) + ")"} = <span class="g">${fmt(f.h[sel], 2)}</span>`;
+      $("#g1dnCalc").innerHTML = `hidden ${sel + 1}: z = ${rw.map((w, i) => `${fmt(w, 2)}×(${fmt(x[i], 2)})`).join(" + ")} + ${fmt(net.b1[sel], 2)} = <span class="k">${fmt(f.z1[sel], 2)}</span>\n         ${st.act === "none" ? "no activation: h = z" : ACT[st.act].name + "(" + fmt(f.z1[sel], 2) + ")"} = <span class="g">${fmt(f.h[sel], 2)}</span>`;
     } else {
       const terms = net.W2.map((w, j) => `${fmt(w, 1)}×(${fmt(f.h[j], 2)})`), shown = terms.length > 4 ? terms.slice(0, 3).concat("…") : terms;
       $("#g1dnCalc").innerHTML = `output: z = ${shown.join(" + ")} + ${fmt(net.b2, 2)} = <span class="k">${fmt(f.z2, 2)}</span>\n        σ(${fmt(f.z2, 2)}) = <span class="g">${fmt(f.p, 2)}</span> <span class="m">(student ${s.id} ${s.attrition ? "did" : "did not"} leave)</span>`;
     }
-    /* how well it fits the 20 students, and the probability it has learned over absences × grade */
-    const P = X.map(x => fwd(net, x).p), right = P.filter((p, k) => (p > .5) === !!Y[k]).length;
-    const ll = -mean(P.map((p, k) => Y[k] ? Math.log(Math.max(p, 1e-9)) : Math.log(Math.max(1 - p, 1e-9))));
-    const MW = 380, MH = 150, ms = svgIn($("#g1dnMapFig"), MW, MH + 22), nx = 40, ny = 16, a0 = 0, a1 = 25, g0 = 1.5, g1 = 4.2, est = s.estrato;
-    const mx = lin(a0, a1, 34, MW - 4), my = lin(g0, g1, MH, 4);
-    for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) {
-      const ab = a0 + (i + .5) * (a1 - a0) / nx, gr = g0 + (j + .5) * (g1 - g0) / ny, pz = fwd(net, [(ab - mu[0]) / sg[0], (gr - mu[1]) / sg[1], (est - mu[2]) / sg[2]]).p;
-      el("rect", { x: mx(a0 + i * (a1 - a0) / nx), y: my(g0 + (j + 1) * (g1 - g0) / ny), width: (MW - 38) / nx + .5, height: MH / ny + .5, fill: div(pz - .5, .5) }, ms);
-    }
-    S.forEach((t, k) => { const cx = mx(t.absences), cy = my(clamp(t.grade, g0, g1)); el("circle", { cx, cy, r: k === stu ? 6 : 4, fill: t.attrition ? css("--fg") : css("--bg"), stroke: css("--fg"), "stroke-width": k === stu ? 2.5 : 1.2 }, ms); });
-    [0, 10, 20].forEach(v => el("text", { x: mx(v), y: MH + 14, "text-anchor": "middle", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, v));
-    [2, 3, 4].forEach(v => el("text", { x: 28, y: my(v) + 4, "text-anchor": "end", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, v));
-    el("text", { x: MW - 4, y: MH + 14, "text-anchor": "end", style: "font-size:11px", fill: css("--muted") }, ms, "absences →");
-    el("text", { x: 0, y: 10, style: "font-size:11px", fill: css("--muted") }, ms, "grade");
-    $("#g1dnMapNote").textContent = `Red: likely to leave; blue: likely to stay (estrato fixed at ${est}, student ${s.id}'s). Dots: the 20 students, filled = left. `
-      + (act === "none" ? "With no activation the hidden layer adds nothing: the network is plain logistic regression, so the boundary is a straight line, whatever the number of neurons."
-        : H === 1 ? "One hidden neuron can only bend the boundary a little. Add neurons to let it curve."
-        : `${ACT[act].name} bends let the boundary curve. ${H >= 6 ? "With many neurons and only 20 students it starts to wrap around individual students: overfitting." : ""}`
-        + (act === "relu" && f.h.some(v => v === 0) ? ` Hidden neurons showing 0.00 are switched off for this student (their sum is negative).` : "")
-        + (act === "sigm" ? " Sigmoid's flat ends give small slopes, so the same training gets less far." : ""));
     const p1 = 3 * H + H, p2 = H + 1;
-    $("#g1dnRead").innerHTML = `<div><span>Layer 1: 3 × ${H} + ${H}</span><b class="c-arch">${p1}</b></div><div><span>Layer 2: ${H} × 1 + 1</span><b class="c-arch">${p2}</b></div><div><span>Total parameters</span><b>${p1 + p2}</b></div><div><span>Students right</span><b class="c-ok">${right} / ${S.length}</b></div><div><span>Training error (log-loss)</span><b class="c-lw">${fmt(ll, 2)}</b></div>`;
+    $("#g1dnRead").innerHTML = `<div><span>Layer 1: 3 × ${H} + ${H}</span><b class="c-arch">${p1}</b></div><div><span>Layer 2: ${H} × 1 + 1</span><b class="c-arch">${p2}</b></div><div><span>Total parameters</span><b>${p1 + p2}</b></div>`;
   }
+  DEMOS["op-dense"].onShow = render;   // the next slide can change the shared student and settings
   render(); return render;
 });
+
+/* 04 · what the dense network has learned: the probability map, what-if sliders and how much each input moves p */
+demo("op-dense-fit", () => {
+  const { S, keys, X, Y, ACT, state: st, fit, z } = G1DN;
+  const ga = $$("#g1dfAct button.chip");
+  ga.forEach(b => b.addEventListener("click", () => { st.act = b.dataset.v; render(); }));
+  slider("g1dfH", v => v, v => { st.H = v; render(); });
+  const sel = $("#g1dfStu");
+  sel.innerHTML = S.map((s, k) => `<option value="${k}">Student ${s.id} (${s.attrition ? "left" : "stayed"})</option>`).join("");
+  sel.addEventListener("change", () => { st.stu = +sel.value; load(); render(); });
+  const ids = ["g1dfA", "g1dfG", "g1dfE"], fmts = [v => v, v => fmt(v, 1), v => v];
+  ids.forEach((id, i) => slider(id, fmts[i], () => render()));
+  let loaded = -1;
+  function load() { const s = S[st.stu]; ids.forEach((id, i) => { const r = $("#" + id); r.value = s[keys[i]]; r.parentElement.querySelector("output").textContent = fmts[i](+r.value); }); loaded = st.stu; }
+  $("#g1dfReset").addEventListener("click", () => { load(); render(); });
+  function render() {
+    if (loaded !== st.stu) load();
+    sel.value = st.stu; $("#g1dfH").value = st.H; $("#g1dfH").parentElement.querySelector("output").textContent = st.H; press(ga, ga.find(b => b.dataset.v === st.act));
+    const H = st.H, act = st.act, net = fit(H, act), s = S[st.stu], v = ids.map(id => +$("#" + id).value), p = G1DN.fwd(net, z(v), act).p, p0 = G1DN.fwd(net, X[st.stu], act).p;
+    const changed = v.some((x, i) => Math.abs(x - s[keys[i]]) > 1e-9);
+    /* the map over absences × grade at the what-if estrato */
+    const MW = 480, MH = 250, ms = svgIn($("#g1dfMap"), MW, MH + 24), nx = 48, ny = 20, a0 = 0, a1 = 30, g0 = 1, g1 = 5;
+    const mx = lin(a0, a1, 34, MW - 4), my = lin(g0, g1, MH, 4);
+    for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) {
+      const ab = a0 + (i + .5) * (a1 - a0) / nx, gr = g0 + (j + .5) * (g1 - g0) / ny, pz = G1DN.fwd(net, z([ab, gr, v[2]]), act).p;
+      el("rect", { x: mx(a0 + i * (a1 - a0) / nx), y: my(g0 + (j + 1) * (g1 - g0) / ny), width: (MW - 38) / nx + .5, height: MH / ny + .5, fill: div(pz - .5, .5) }, ms);
+    }
+    S.forEach((t, k) => el("circle", { cx: mx(t.absences), cy: my(t.grade), r: 4, fill: t.attrition ? css("--fg") : css("--bg"), stroke: css("--fg"), "stroke-width": 1.2, opacity: t.estrato === v[2] ? 1 : .45 }, ms));
+    if (changed) el("line", { x1: mx(s.absences), y1: my(s.grade), x2: mx(v[0]), y2: my(v[1]), stroke: css("--fg"), "stroke-dasharray": "3 3" }, ms);
+    el("circle", { cx: mx(s.absences), cy: my(s.grade), r: 8, fill: "none", stroke: css("--fg"), "stroke-width": 2 }, ms);
+    el("path", { d: `M${mx(v[0])} ${my(v[1]) - 9} L${mx(v[0]) + 8} ${my(v[1]) + 6} L${mx(v[0]) - 8} ${my(v[1]) + 6} Z`, fill: css("--sw"), stroke: css("--bg"), "stroke-width": 1.5 }, ms);
+    [0, 10, 20].forEach(t => el("text", { x: mx(t), y: MH + 15, "text-anchor": "middle", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, t));
+    [1, 2, 3, 4].forEach(t => el("text", { x: 28, y: my(t) + 4, "text-anchor": "end", class: "mono", style: "font-size:10.5px", fill: css("--muted") }, ms, t));
+    el("text", { x: MW - 4, y: MH + 15, "text-anchor": "end", style: "font-size:11px", fill: css("--muted") }, ms, "absences →");
+    el("text", { x: 0, y: 10, style: "font-size:11px", fill: css("--muted") }, ms, "grade");
+    /* fit quality, and how much each input moves this prediction */
+    const P = X.map(x => G1DN.fwd(net, x, act).p), right = P.filter((q, k) => (q > .5) === !!Y[k]).length;
+    const ll = -mean(P.map((q, k) => Y[k] ? Math.log(Math.max(q, 1e-9)) : Math.log(Math.max(1 - q, 1e-9))));
+    const nud = [[0, 5, "+5 absences"], [1, 0.5, "+0.5 grade"], [2, 1, "+1 estrato"]].map(([i, d, l]) => { const w = v.slice(); w[i] += d; return [l, G1DN.fwd(net, z(w), act).p - p]; });
+    $("#g1dfRead").innerHTML = `<div><span>p(leave), ${changed ? "what if" : "student " + s.id}</span><b class="${p > .5 ? "c-lw" : "c-ok"}">${fmt(p, 2)}</b></div>`
+      + (changed ? `<div><span>Real student</span><b>${fmt(p0, 2)}</b></div>` : "");
+    $("#g1dfFit").innerHTML = `<div><span>Students right</span><b class="c-ok" style="font-size:20px">${right} / 20</b></div><div><span>Training log-loss</span><b class="c-lw" style="font-size:20px">${fmt(ll, 2)}</b></div>`;
+    $("#g1dfNudge").innerHTML = `<b>How much each input moves p here</b><br>` + nud.map(([l, d]) => `${l.padEnd(13, " ")} → p ${d >= 0 ? "+" : "−"}${fmt(Math.abs(d), 2)}`).join("<br>").replace(/ /g, "&nbsp;").replace(/&nbsp;→/g, " →")
+      + `<br><span class="m">one input at a time, the others kept</span>`;
+    $("#g1dfNote").textContent = `Red: likely to leave; blue: likely to stay, at estrato ${v[2]} (dots at other estratos are faded). Ring: the real student; triangle: the what-if. `
+      + (act === "none" ? "With no activation the boundary is a straight line, whatever the number of neurons: plain logistic regression."
+        : `${ACT[act].name} bends let the boundary curve${H >= 6 ? "; with this many neurons it wraps around individual students: overfitting" : ""}.`);
+  }
+  DEMOS["op-dense-fit"].onShow = render;
+  render(); return render;
+});
+
 
 </script>
 <script>/* m2/g2.js */
