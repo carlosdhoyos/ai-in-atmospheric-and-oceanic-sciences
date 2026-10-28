@@ -265,7 +265,7 @@ details.why p{margin:6px 0 0}
     <h1>Operations: <span class="hl">the basic mechanisms</span></h1>
     <p class="lead">Weighted sums, activations, convolution, recurrence, attention, normalization, residual connections and more: 30 operations, one per slide, each with a worked numeric example you can change. Each one makes an assumption about the data.</p>
     <div class="toc" id="inCover"></div>
-    <p class="note">Previous: <a href="data-foundation.html">Module 1, Data Foundation</a> · Next: <a href="layers.html">Module 3, Layers</a> · Use ← → or the <button class="btn" data-go="op-list" style="padding:2px 10px;font-size:12.5px">list of operations</button>.</p>
+    <p class="note">Previous: <a href="data-foundation.html">Module 1, Data Foundation</a> · Next: <a href="layers.html">Module 3, Layers</a> · Use ← → or the <button class="btn" data-go="op-list" style="padding:2px 10px;font-size:12.5px">list of operations</button> or the <button class="btn" data-go="op-gloss1" style="padding:2px 10px;font-size:12.5px">glossary</button>.</p>
   </div>
 </section>
 
@@ -279,8 +279,29 @@ details.why p{margin:6px 0 0}
 <section class="slide" id="op-list" data-g="a" data-sec="2 · Operations">
   <p class="kicker k-arch">The list</p>
   <h2>Thirty operations in eight groups</h2>
-  <p class="lead">Click an operation to go to its slide. Numbers follow the detailed guide; 08b, 11b and 11c were added after the first pass.</p>
+  <p class="lead">Click an operation to go to its slide. Numbers follow the detailed guide; 08b, 11b and 11c were added after the first pass. The next three slides say in one line what each one is and what it is for.</p>
   <div class="four" id="inList" style="margin-top:6px;align-items:start"></div>
+</section>
+
+<section class="slide" id="op-gloss1" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Glossary · 1 of 3</p>
+  <h2>What each operation is, and what it is for</h2>
+  <p class="note" style="margin:0 0 6px">A map to come back to, not to memorize. Click a row to open that operation's slide; the list continues on the next slide.</p>
+  <div class="fig-wrap" id="inGloss1"></div>
+</section>
+
+<section class="slide" id="op-gloss2" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Glossary · 2 of 3</p>
+  <h2>What each operation is, and what it is for (continued)</h2>
+  <p class="note" style="margin:0 0 6px">Click a row to open that operation's slide.</p>
+  <div class="fig-wrap" id="inGloss2"></div>
+</section>
+
+<section class="slide" id="op-gloss3" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Glossary · 3 of 3</p>
+  <h2>What each operation is, and what it is for (continued)</h2>
+  <p class="note" style="margin:0 0 6px">Click a row to open that operation's slide. Back to the <button class="btn" type="button" data-go="op-list" style="padding:1px 8px;font-size:12.5px">list of operations</button>.</p>
+  <div class="fig-wrap" id="inGloss3"></div>
 </section>
 
 <section class="slide" id="op-data" data-g="a" data-sec="2 · Operations">
@@ -1721,6 +1742,57 @@ demo("op-geo", () => {
   render(); return render;
 });
 
+
+
+/* glossary: one line of what each operation is and one of what it is for; rows open the operation's slide */
+(function () {
+  const G = {
+    "op-wsum": ["Multiply each input by a weight, add them up, add a bias: z = w·x + b", "Combine several inputs into one number, each weighted by its importance"],
+    "op-elem": ["The same arithmetic on each value separately (add, multiply, mask), with broadcasting", "Adjust, scale, mask or combine arrays of the same shape"],
+    "op-act": ["A simple nonlinear function on each value: ReLU, sigmoid, tanh, GELU", "Add bends, so stacked layers model curves instead of one straight line"],
+    "op-softmax": ["Turns a list of scores into positive values that sum to 1", "Probabilities over classes, or attention weights"],
+    "op-dense": ["Every input connects to every output with its own weight: one matrix multiplication", "Learn any combination of the inputs, with no assumption about structure"],
+    "op-conv1d": ["A small filter of shared weights slides along a series", "Detect local patterns (bursts, ramps) anywhere in time, with few weights"],
+    "op-conv2d": ["A small filter of shared weights slides across a grid", "Detect local patterns (edges, fronts) anywhere on a map"],
+    "op-conv-learned": ["Filter values learned by training, or set by hand (Sobel, finite differences)", "Learn the useful patterns, or build in known physics"],
+    "op-channels": ["Each filter makes one map; the maps stack into channels; the next layer reads them all", "Describe each location with many features and combine them layer by layer"],
+    "op-dilated": ["A filter with gaps between its taps", "See far back or far away without more weights or layers"],
+    "op-tconv": ["A learned “reverse” convolution that spreads each value over a larger output", "Learned upsampling, for example coarse to fine maps"],
+    "op-sep": ["Filter each channel on its own, then mix channels with a 1 × 1 convolution", "The job of a normal convolution with far fewer weights"],
+    "op-1x1": ["A weighted sum across channels at each pixel, with no spatial neighbours", "Mix variables at each location, or change the number of channels"],
+    "op-rnn": ["Read a sequence step by step, carrying a hidden state forward with the same weights", "Model order and short-term memory"],
+    "op-lstm": ["Recurrence with learned gates that decide what to keep, add and release", "Remember over long spans (wet seasons, basin storage)"],
+    "op-self": ["Each element scores every other, softmaxes the scores, takes a weighted average", "Let anything relate to anything, with weights computed from the content"],
+    "op-mha": ["Several attention heads in parallel, each with its own projections, then combined", "Capture several kinds of relation at once"],
+    "op-causal": ["Blocks attention to future positions", "No peeking at the future when forecasting or generating"],
+    "op-cross": ["One set (queries) attends to another (keys and values)", "Fuse two sources, e.g. a station attending to a satellite field"],
+    "op-graph": ["Each node updates from messages sent by its linked neighbours", "Learn on given networks: stations, rivers, meshes"],
+    "op-pool": ["Replace each window by its maximum or average; no weights", "Shrink maps, keep the strongest signal, tolerate small shifts"],
+    "op-resample": ["Change resolution by stride, pooling, interpolation or learned filters", "Move between coarse and fine grids (encoders, decoders, downscaling)"],
+    "op-flatten": ["Rearrange the same numbers into a new shape", "Feed grid data to a dense layer; match the next operation's shape"],
+    "op-embed": ["A category ID selects a row of learned numbers", "Turn categories (municipalities, words) into useful vectors"],
+    "op-pos": ["Add a pattern that encodes each element's position", "Give attention a sense of order, which it lacks on its own"],
+    "op-bn": ["Rescale each feature with the batch's mean and spread, then a learned scale and shift", "Keep values in a healthy range: faster, more stable training"],
+    "op-ln": ["The same, but across the features of one example", "Stable training whatever the batch size (transformers, RNNs)"],
+    "op-res": ["output = input + layer(input)", "The layer learns only a correction; very deep networks become trainable"],
+    "op-concat": ["Place feature sets side by side", "Combine information from different sources or levels (U-Net skips)"],
+    "op-gate": ["Multiply a signal by a learned value between 0 and 1", "Let the network decide how much of a signal passes, like a valve"],
+    "op-dropout": ["Switch off a random fraction of values at each training step", "Reduce overfitting: no reliance on any single neuron"],
+    "op-moe": ["A router sends each input to a few of many expert subnetworks", "Huge capacity while using only a small part per prediction"],
+    "op-ssm": ["A linear recurrence (state updated by A, input by B, read by C), optionally input-dependent", "Long sequences at linear cost, cheaper than attention"],
+    "op-fno": ["Transform the field to frequencies, weight a few modes, transform back, plus a local path", "Learn global, resolution-independent maps between physical fields"],
+  };
+  const table = groups => `<style>.gloss tr[data-go]{cursor:pointer}.gloss tr[data-go]:hover td{background:var(--arch-soft)}.gloss td{padding:3px 8px;vertical-align:top}</style>`
+    + `<table class="tb gloss" style="font-size:12.8px;line-height:1.3"><thead><tr><th style="width:3em">#</th><th style="width:21%">Operation</th><th>What it is</th><th style="width:33%">What it is for</th></tr></thead><tbody>`
+    + groups.map(([g, ops]) => `<tr><td colspan="4" style="padding-top:8px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--arch)">${g}</td></tr>`
+      + ops.filter(([, , id]) => G[id] && document.getElementById(id)).map(([n, t, id]) => `<tr data-go="${id}"><td class="mono" style="color:var(--muted)">${n}</td><td><b style="font-weight:600">${t}</b></td><td>${G[id][0]}</td><td style="color:var(--muted)">${G[id][1]}</td></tr>`).join("")).join("")
+    + `</tbody></table>`;
+  // three slides of about a dozen rows each: the "connecting values" group is split between dense/convolution and sequences/attention/graphs
+  const conn = OPS2[1][1], cut = conn.findIndex(o => o[2] === "op-rnn");
+  const parts = [[OPS2[0], ["Connecting values · dense and convolution", conn.slice(0, cut)]],
+    [["Connecting values · sequences, attention, graphs", conn.slice(cut)], OPS2[2], OPS2[3]], OPS2.slice(4)];
+  ["#inGloss1", "#inGloss2", "#inGloss3"].forEach((id, k) => { const h = $(id); if (h) h.innerHTML = table(parts[k]); });
+})();
 
 </script>
 <script>/* m2/g1.js */
