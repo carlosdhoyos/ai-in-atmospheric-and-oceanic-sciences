@@ -82,6 +82,24 @@
   </div>
 </section>
 
+<section class="slide" id="op-channels" data-g="a" data-sec="2 · Operations · Convolution">
+  <p class="kicker k-arch"><span class="opnum">05</span>Channels: how filters combine</p>
+  <h2>Filters run side by side; their maps stack into channels; the next layer reads them all</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Within a layer, in parallel.</b> All 4 filters look at the <i>same</i> input, independently. Each makes its own map; their order does not matter.</li>
+        <li><b>Stacked.</b> The 4 maps are kept together as one block, 16 × 16 × 4: each pixel now has <b>4 numbers</b> instead of 1, one per filter. Each layer of the block is a <b>channel</b>, like the red, green and blue of a photo, the bands of a satellite image, or temperature, rain and elevation on one grid.</li>
+        <li><b>Across layers, in sequence.</b> A layer-2 filter has one 3 × 3 slice per channel (3 × 3 × 4) and adds them all up, so it can combine "vertical edge here" and "horizontal edge here" into "corner here".</li>
+      </ul>
+      <p><b>Try it:</b> click a pixel in any map.</p>
+      <div class="calc" id="g2chCalc" style="font-size:12.5px"></div>
+      <div class="readout" id="g2chRead"></div>
+    </div>
+    <div class="panel"><div id="g2chFig"></div><p class="note" id="g2chNote" style="margin:4px 0 0"></p></div>
+  </div>
+</section>
+
 <section class="slide" id="op-dilated" data-g="a" data-sec="2 · Operations · Dilated convolution">
   <p class="kicker k-arch"><span class="opnum">06</span>Dilated convolution</p>
   <h2>Skipping days lets the same few weights see much farther back</h2>

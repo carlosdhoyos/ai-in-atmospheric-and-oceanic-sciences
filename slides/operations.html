@@ -580,6 +580,24 @@ details.why p{margin:6px 0 0}
   </div>
 </section>
 
+<section class="slide" id="op-channels" data-g="a" data-sec="2 · Operations · Convolution">
+  <p class="kicker k-arch"><span class="opnum">05</span>Channels: how filters combine</p>
+  <h2>Filters run side by side; their maps stack into channels; the next layer reads them all</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Within a layer, in parallel.</b> All 4 filters look at the <i>same</i> input, independently. Each makes its own map; their order does not matter.</li>
+        <li><b>Stacked.</b> The 4 maps are kept together as one block, 16 × 16 × 4: each pixel now has <b>4 numbers</b> instead of 1, one per filter. Each layer of the block is a <b>channel</b>, like the red, green and blue of a photo, the bands of a satellite image, or temperature, rain and elevation on one grid.</li>
+        <li><b>Across layers, in sequence.</b> A layer-2 filter has one 3 × 3 slice per channel (3 × 3 × 4) and adds them all up, so it can combine "vertical edge here" and "horizontal edge here" into "corner here".</li>
+      </ul>
+      <p><b>Try it:</b> click a pixel in any map.</p>
+      <div class="calc" id="g2chCalc" style="font-size:12.5px"></div>
+      <div class="readout" id="g2chRead"></div>
+    </div>
+    <div class="panel"><div id="g2chFig"></div><p class="note" id="g2chNote" style="margin:4px 0 0"></p></div>
+  </div>
+</section>
+
 <section class="slide" id="op-dilated" data-g="a" data-sec="2 · Operations · Dilated convolution">
   <p class="kicker k-arch"><span class="opnum">06</span>Dilated convolution</p>
   <h2>Skipping days lets the same few weights see much farther back</h2>
@@ -1533,7 +1551,7 @@ function fieldSVG(host, F, { cell = 16, color = v => heat(v, 0, 1), onCell = nul
 /* ═════════ MODULE 2 · intro: list, datasets, inductive bias, geometric view ═════════ */
 const OPS2 = [
   ["Foundations", [["01", "Weighted sum (the neuron)", "op-wsum"], ["02", "Element-wise operations", "op-elem"], ["03", "Activation functions", "op-act"], ["03", "Softmax", "op-softmax"]]],
-  ["Connecting values", [["04", "Dense (fully connected)", "op-dense"], ["05", "Convolution in 1D", "op-conv1d"], ["05", "Convolution in 2D", "op-conv2d"], ["05", "Learned vs fixed filters", "op-conv-learned"],
+  ["Connecting values", [["04", "Dense (fully connected)", "op-dense"], ["05", "Convolution in 1D", "op-conv1d"], ["05", "Convolution in 2D", "op-conv2d"], ["05", "Learned vs fixed filters", "op-conv-learned"], ["05", "Channels: how filters combine", "op-channels"],
     ["06", "Dilated convolution", "op-dilated"], ["07", "Transposed convolution", "op-tconv"], ["08", "Depthwise separable conv.", "op-sep"], ["08b", "1×1 convolution", "op-1x1"],
     ["09", "Recurrence (simple RNN)", "op-rnn"], ["10", "Gated recurrence (LSTM, GRU)", "op-lstm"], ["11", "Self-attention", "op-self"], ["11b", "Multi-head attention", "op-mha"],
     ["11c", "Causal masking", "op-causal"], ["12", "Cross-attention", "op-cross"], ["13", "Graph message passing", "op-graph"]]],
@@ -2577,6 +2595,73 @@ demo("op-dense-fit", () => {
       $("#g2pwCalc").innerHTML = `pixel (row ${hi0 + 1}, col ${hj + 1}): T = ${nf(v[0], 1)}, H = ${nf(v[1], 2)}, W = ${nf(v[2], 1)}\n` +
         `y = ${w.map((x, k) => `${fmt(x, 2)}×${nf(v[k], CH[k].d)}`).join(" + ")} = ${prod.map(p => fmt(p, 2)).join(" + ")} = <span class="k">${fmt(prod.reduce((a, b) => a + b, 0), 2)}</span>\n` +
         `<span class="m">temperature dominates because its numbers are largest; real models standardize the channels first</span>`;
+    }
+    render(); return render;
+  });
+  /* channels: four layer-1 filters in parallel, their maps stacked, one layer-2 filter reading all four */
+  demo("op-channels", () => {
+    const N = 16, scene = Array.from({ length: N }, (_, i) => Array.from({ length: N }, (_, j) => {
+      let v = 0.1;
+      if (i >= 3 && i <= 9 && j >= 3 && j <= 10) v = 1;                                   // a bright building
+      if (i >= 11 && Math.abs((j - 2) - (i - 11) * 1.6) < 1) v = 0.85;                    // a road running down to the right
+      v += 0.6 * Math.exp(-((i - 12.5) ** 2 + (j - 12.5) ** 2) / 3);                       // a soft bright patch
+      return clamp(v, 0, 1); }));
+    const F = [["vertical edge", [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]], ["horizontal edge", [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]],
+      ["diagonal edge", [[-2, -1, 0], [-1, 0, 1], [0, 1, 2]]], ["blur", [[1, 2, 1], [2, 4, 2], [1, 2, 1]].map(r => r.map(v => v / 16))]];
+    const conv = (M, K) => M.map((row, i) => row.map((_, j) => K.reduce((s, kr, a) => s + kr.reduce((t, w, b) => { const ii = i + a - 1, jj = j + b - 1; return t + w * (ii >= 0 && jj >= 0 && ii < N && jj < N ? M[ii][jj] : 0); }, 0), 0)));
+    // layer 1: each filter on the same input, then ReLU
+    const L1 = F.map(([, K]) => conv(scene, K).map(r => r.map(relu)));
+    // layer 2: one filter with a 3 × 3 slice per channel; it adds the vertical- and horizontal-edge channels and ignores the others
+    const third = [[1, 1, 1], [1, 1, 1], [1, 1, 1]].map(r => r.map(v => v / 3)), zero = [[0, 0, 0], [0, 0, 0], [0, 0, 0]], K2 = [third, third, zero, zero];
+    const part = L1.map((m, c) => conv(m, K2[c])), single = Math.max(...part[0].flat(), ...part[1].flat());
+    const b2 = -+(1.05 * single).toFixed(2), L2 = scene.map((row, i) => row.map((_, j) => relu(part.reduce((s, m) => s + m[i][j], 0) + b2)));
+    const mx1 = L1.map(m => Math.max(...m.flat())), mx2 = Math.max(...L2.flat()) || 1;
+    let sel = [3, 3];
+    function grid(svg, M, x0, y0, c, colorFn, { hi = null, win = 0, win2 = 0, click = true } = {}) {
+      M.forEach((row, i) => row.forEach((v, j) => {
+        const r = el("rect", { x: x0 + j * c, y: y0 + i * c, width: c - .6, height: c - .6, fill: colorFn(v), style: click ? "cursor:pointer" : "" }, svg);
+        if (click) r.addEventListener("click", () => { sel = [i, j]; render(); });
+      }));
+      const [si, sj] = sel;
+      if (win2) el("rect", { x: x0 + (sj - win2) * c, y: y0 + (si - win2) * c, width: (2 * win2 + 1) * c, height: (2 * win2 + 1) * c, fill: "none", stroke: css("--sw"), "stroke-width": 1.5, "stroke-dasharray": "3 2" }, svg);
+      if (win) el("rect", { x: x0 + (sj - win) * c, y: y0 + (si - win) * c, width: (2 * win + 1) * c, height: (2 * win + 1) * c, fill: "none", stroke: css("--accent"), "stroke-width": 1.5 }, svg);
+      el("rect", { x: x0 + sj * c - .5, y: y0 + si * c - .5, width: c + .4, height: c + .4, fill: "none", stroke: css("--fg"), "stroke-width": 2 }, svg);
+    }
+    const t = (svg, x, y, s, o = {}) => el("text", { x, y, "font-size": 11, fill: css("--muted"), ...o }, svg, s);
+    function render() {
+      const W = 560, H = 392, svg = svgIn($("#g2chFig"), W, H), [si, sj] = sel;
+      arrowDefs(svg, "g2ch", css("--muted"));
+      const chCol = ["--pos", "--cool", "--sw", "--ok"], seqc = (c, v) => `color-mix(in srgb, ${css(chCol[c])} ${Math.round(clamp(v / (mx1[c] || 1), 0, 1) * 85)}%, ${css("--well")})`;
+      // input
+      t(svg, 4, 14, "input 16 × 16 × 1", { fill: css("--fg") });
+      grid(svg, scene, 4, 22, 6.5, gray, { win: 1, win2: 2 });
+      el("line", { x1: 112, y1: 74, x2: 134, y2: 74, stroke: css("--muted"), "marker-end": "url(#g2ch)" }, svg);
+      // the four maps, side by side
+      t(svg, 140, 14, "layer 1: 4 filters, each on the same input", { fill: css("--fg") });
+      L1.forEach((m, c) => { const x0 = 140 + (c % 2) * 92, y0 = 22 + Math.floor(c / 2) * 100; grid(svg, m, x0, y0, 5, v => seqc(c, v)); t(svg, x0, y0 + 92, F[c][0], { fill: css(chCol[c]), "font-size": 10.5 }); });
+      el("line", { x1: 328, y1: 105, x2: 352, y2: 105, stroke: css("--muted"), "marker-end": "url(#g2ch)" }, svg);
+      // the stack: the same four maps piled up, front to back
+      t(svg, 360, 14, "stacked: 16 × 16 × 4", { fill: css("--fg") });
+      for (let c = 3; c >= 0; c--) { const x0 = 362 + c * 16, y0 = 70 - c * 14; el("rect", { x: x0 - 2, y: y0 - 2, width: 84, height: 84, fill: css("--card"), stroke: css(chCol[c]), "stroke-width": 1.5 }, svg); grid(svg, L1[c], x0, y0, 5, v => seqc(c, v), { click: false }); }
+      el("line", { x1: 364 + sj * 5 + 2.5, y1: 70 + si * 5 + 2.5, x2: 364 + 48 + sj * 5 + 2.5, y2: 70 - 42 + si * 5 + 2.5, stroke: css("--fg"), "stroke-width": 1.5, "stroke-dasharray": "2 2" }, svg);
+      t(svg, 362, 168, "each pixel: 4 numbers, one per channel", { "font-size": 10.5 });
+      // layer 2: one filter, one 3 × 3 slice per channel
+      const y2 = 262;
+      t(svg, 4, y2 - 12, "layer 2: one filter = 4 slices of 3 × 3 + 1 bias", { fill: css("--fg") });
+      K2.forEach((K, c) => { const x0 = 4 + c * 74; K.forEach((r, a) => r.forEach((w, b) => { el("rect", { x: x0 + b * 18, y: y2 + a * 18, width: 17, height: 17, rx: 2, fill: w ? css(chCol[c]) : css("--well"), opacity: w ? .75 : 1 }, svg); t(svg, x0 + b * 18 + 8.5, y2 + a * 18 + 12, w ? "⅓" : "0", { "text-anchor": "middle", "font-size": 10, fill: css(w ? "--bg" : "--muted") }); }));
+        t(svg, x0, y2 + 68, "slice for", { "font-size": 10 }); t(svg, x0, y2 + 80, F[c][0], { "font-size": 10, fill: css(chCol[c]) }); });
+      t(svg, 4, y2 + 104, `+ bias ${fmt(b2, 2)}, then ReLU: fires only where both edges are present`, { "font-size": 10.5 });
+      el("line", { x1: 300, y1: y2 + 30, x2: 330, y2: y2 + 30, stroke: css("--muted"), "marker-end": "url(#g2ch)" }, svg);
+      t(svg, 338, y2 - 12, "layer-2 map: corners, 16 × 16 × 1", { fill: css("--fg") });
+      grid(svg, L2, 338, y2, 6.5, v => `color-mix(in srgb, ${css("--arch")} ${Math.round(clamp(v / mx2, 0, 1) * 90)}%, ${css("--well")})`);
+      t(svg, 4, H - 8, "On the input: blue box = what layer 1 sees for this pixel (3 × 3); dashed = what layer 2 sees (5 × 5).", { "font-size": 10.5 });
+      const v4 = L1.map(m => m[si][sj]);
+      $("#g2chCalc").innerHTML = `<b>Pixel row ${si + 1}, column ${sj + 1}</b><br>input: 1 number = ${fmt(scene[si][sj], 2)}<br>after layer 1: 4 numbers = [${v4.map((v, c) => `<span style="color:var(${chCol[c]})">${fmt(v, 2)}</span>`).join(", ")}]<br><span class="m">(vertical, horizontal, diagonal, blur)</span><br>`
+        + `layer 2 at this pixel: ReLU( sum over 4 slices ${fmt(part[0][si][sj] + part[1][si][sj], 2)} ${b2 < 0 ? "−" : "+"} ${fmt(Math.abs(b2), 2)} ) = <span class="g">${fmt(L2[si][sj], 2)}</span>`;
+      $("#g2chRead").innerHTML = `<div><span>Layer 1 output</span><b class="c-arch" style="font-size:19px">16 × 16 × 4</b></div><div><span>Numbers</span><b style="font-size:19px">256 → 1,024</b></div><div><span>Layer-2 filter weights</span><b class="c-arch" style="font-size:19px">3·3·4 + 1 = 37</b></div>`;
+      $("#g2chNote").textContent = L2[si][sj] > 0 ? "This pixel is at a corner: both the vertical- and the horizontal-edge channels are high here, so the layer-2 filter fires."
+        : v4[0] > 0 || v4[1] > 0 ? "Only one kind of edge here, so the sum stays below the bias and the layer-2 filter stays at 0. Try the top-left corner of the building."
+        : "Weights here are hand-set to show the idea; a trained CNN learns many such layer-2 filters, each combining the channels in its own way.";
     }
     render(); return render;
   });
