@@ -1,0 +1,148 @@
+<section class="slide" id="op-bn" data-g="a" data-sec="2 · Operations · Stabilizing">
+  <p class="kicker k-arch"><span class="opnum">19</span>Batch normalization</p>
+  <h2>Batch norm rescales each feature to mean 0 and std 1 using the examples in the batch</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">x̂ = (x − μ<sub>batch</sub>) / √(σ<sup>2</sup><sub>batch</sub> + ε) &nbsp;·&nbsp; y = γ x̂ + β</div>
+      <p>Rainfall in a batch of 3 days: [0, 10, 20] mm. The mean is 10 mm and the standard deviation is 8.16 mm.</p>
+      <div class="calc" id="g5bnCalc"></div>
+      <ul class="pts">
+        <li>γ (scale) and β (shift) are learned, one pair per feature, so the network can undo the normalization if that helps.</li>
+        <li>The statistics come from the batch, so they are noisy when the batch is small. Try 4 days on the right.</li>
+      </ul>
+      <div class="callout amber"><b>At prediction time</b> there may be one example, not a batch. The layer then uses <b>running averages</b> of the mean and std saved during training. <b>ε</b> (e.g. 0.001) avoids dividing by zero when every value in a batch is equal, like a batch of dry days.</div>
+    </div>
+    <div class="panel">
+      <h3>Daily rainfall feature, one batch at a time</h3>
+      <div class="ctl"><label for="g5bnB">Batch size</label><input id="g5bnB" type="range" min="2" max="128" step="1" value="32"><output></output></div>
+      <div class="chips" id="g5bnMode"><button class="chip" data-v="train" aria-pressed="true">Training: batch stats</button><button class="chip" data-v="pred">Prediction: running averages</button></div>
+      <div class="chips"><button class="btn" id="g5bnNext" type="button">Next batch</button></div>
+      <div id="g5bnFig"></div>
+      <div class="readout" id="g5bnRead"></div>
+      <p class="note">Synthetic Medellín-like daily rainfall (DS.daily). Each batch draws random days from the year.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-ln" data-g="a" data-sec="2 · Operations · Stabilizing">
+  <p class="kicker k-arch"><span class="opnum">20</span>Layer normalization</p>
+  <h2>Layer norm does the same arithmetic on a row of the table, so it works with a batch of one</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">x̂<sub>i</sub> = (x<sub>i</sub> − mean(x)) / √(var(x) + ε) &nbsp;·&nbsp; y<sub>i</sub> = γ x̂<sub>i</sub> + β</div>
+      <p>One example with 3 features: [2, 4, 6]. Mean 4, std 1.63, so it becomes [−1.22, 0, 1.22]. Then scale 2 and shift 1 give [−1.45, 1, 3.45].</p>
+      <div class="ctl"><label for="g5lnG">Scale γ</label><input id="g5lnG" type="range" min="0" max="3" step="0.1" value="2"><output></output></div>
+      <div class="ctl"><label for="g5lnBt">Shift β</label><input id="g5lnBt" type="range" min="-2" max="2" step="0.1" value="1"><output></output></div>
+      <div class="calc" id="g5lnCalc"></div>
+      <div class="callout violet"><b>Batch norm</b> normalizes a <b>column</b>: one feature across examples. <b>Layer norm</b> normalizes a <b>row</b>: all features of one example. Transformers and RNNs use layer norm because it does not depend on the batch.</div>
+    </div>
+    <div class="panel">
+      <h3>Same data table, two axes</h3>
+      <div class="chips" id="g5lnMode"><button class="chip" data-v="layer" aria-pressed="true">Layer norm (rows)</button><button class="chip" data-v="batch">Batch norm (columns)</button></div>
+      <div class="chips" id="g5lnBatch"><button class="chip" data-v="3" aria-pressed="true">Batch of 3</button><button class="chip" data-v="1">Batch of 1</button></div>
+      <div class="fig-wrap"><div id="g5lnFig" style="min-width:400px"></div></div>
+      <p class="note" id="g5lnNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-res" data-g="a" data-sec="2 · Operations · Wiring">
+  <p class="kicker k-arch"><span class="opnum">21</span>Residual connections</p>
+  <h2>A skip connection adds the input back, so the layer only has to learn the correction</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">output = x + layer(x)</div>
+      <div class="ctl"><label for="g5rsX">Input x</label><input id="g5rsX" type="range" min="-10" max="10" step="0.5" value="5"><output></output></div>
+      <div class="ctl"><label for="g5rsF">layer(x)</label><input id="g5rsF" type="range" min="-2" max="2" step="0.1" value="0.2"><output></output></div>
+      <div class="calc" id="g5rsCalc"></div>
+      <ul class="pts">
+        <li><b>Doing nothing is easy:</b> if the best move is to pass x unchanged, the layer just outputs 0.</li>
+        <li><b>Direct gradient path:</b> the + passes the gradient straight back, which is what makes networks with 100+ layers trainable (ResNet).</li>
+        <li><b>Shapes must match</b> to add. If the layer changes the number of channels, a 1×1 convolution on the skip adjusts them.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>A deep stack of tanh layers, with and without skips</h3>
+      <div class="ctl"><label for="g5rsL">Layers</label><input id="g5rsL" type="range" min="5" max="120" step="1" value="30"><output></output></div>
+      <div class="ctl"><label for="g5rsW">Weight scale</label><input id="g5rsW" type="range" min="0.3" max="1.2" step="0.05" value="0.8"><output></output></div>
+      <div id="g5rsStack"></div>
+      <div id="g5rsFig"></div>
+      <div class="legend"><span><i style="background:var(--ok)"></i>with skips</span><span><i style="background:var(--lw)"></i>without skips</span><span>solid: signal size (forward) · dashed: gradient size (backward)</span></div>
+      <div class="readout" id="g5rsRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-concat" data-g="a" data-sec="2 · Operations · Wiring">
+  <p class="kicker k-arch"><span class="opnum">22</span>Concatenation</p>
+  <h2>Concatenation stacks two sets of features side by side, so the size grows</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">[a ; b] = [a<sub>1</sub> … a<sub>8</sub>, b<sub>1</sub> … b<sub>4</sub>]</div>
+      <p>8 satellite features + 4 station features = 12 features. A dense layer of 4 neurons on top then has 12 × 4 + 4 = 52 weights.</p>
+      <ul class="pts">
+        <li><b>Concatenation</b> keeps both sets separate: 8 + 4 → 12 values. The next layer learns how to mix them.</li>
+        <li><b>Residual addition</b> merges them: 4 + 4 → 4 values. Sizes must match.</li>
+        <li><b>U-Net</b> concatenates encoder maps with decoder maps of the same size, so fine detail lost by downsampling comes back.</li>
+      </ul>
+      <p class="note">Click any feature block to take it in or out of the join.</p>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g5ccMode"><button class="chip" data-v="cat" aria-pressed="true">Concatenate</button><button class="chip" data-v="add">Add</button><button class="chip" data-v="unet">U-Net skips</button></div>
+      <div class="fig-wrap"><div id="g5ccFig" style="min-width:460px"></div></div>
+      <div class="calc" id="g5ccCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-gate" data-g="a" data-sec="2 · Operations · Wiring">
+  <p class="kicker k-arch"><span class="opnum">23</span>Gating</p>
+  <h2>A gate multiplies a signal by a learned value between 0 and 1, like a valve</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y = g ⊙ x, &nbsp; g = sigmoid(w·x + b) ∈ (0, 1)</div>
+      <p>Gate 0.1 passes 10% of a value: 20 mm × 0.1 = 2 mm. Gate 1 passes everything, gate 0 blocks everything.</p>
+      <ul class="pts">
+        <li>The multiply is element-wise: every value has its own gate.</li>
+        <li>Usually the gate is computed from the input itself, so the network decides how much passes at each step.</li>
+      </ul>
+      <div class="callout violet"><b>LSTM and GRU</b> (<button class="btn" data-go="op-lstm" type="button" style="padding:1px 8px;font-size:12.5px">operation 10</button>) are built from gates: a forget gate decides how much memory to keep, an input gate how much new rain information to write, an output gate how much to show.</div>
+      <div class="calc" id="g5gtCalc"></div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g5gtMode"><button class="chip" data-v="fixed" aria-pressed="true">Fixed valve</button><button class="chip" data-v="sig">Gate from the input (sigmoid)</button></div>
+      <div id="g5gtFixed"><div class="ctl"><label for="g5gtG">Gate g</label><input id="g5gtG" type="range" min="0" max="1" step="0.01" value="0.1"><output></output></div></div>
+      <div id="g5gtSig" hidden>
+        <div class="ctl"><label for="g5gtW">Weight w</label><input id="g5gtW" type="range" min="-1" max="1" step="0.05" value="0.4"><output></output></div>
+        <div class="ctl"><label for="g5gtB">Bias b</label><input id="g5gtB" type="range" min="-6" max="4" step="0.1" value="-4"><output></output></div>
+      </div>
+      <div id="g5gtFig"></div>
+      <div class="legend"><span><i style="background:var(--well);border:1px solid var(--muted)"></i>input rain</span><span><i style="background:var(--arch)"></i>output = g × rain</span><span><i style="background:var(--sw)"></i>gate g (right axis)</span></div>
+      <div class="readout" id="g5gtRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-dropout" data-g="a" data-sec="2 · Operations · Training-only">
+  <p class="kicker k-arch"><span class="opnum">24</span>Dropout</p>
+  <h2>Dropout switches off random neurons during training and scales up the survivors</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y<sub>i</sub> = m<sub>i</sub> · x<sub>i</sub> / (1 − rate), &nbsp; m<sub>i</sub> ∈ {0, 1}</div>
+      <p>With rate 0.5, [4, 2, 6, 8] can become [8, 0, 12, 0] (one possible random draw). Survivors are multiplied by 1 / (1 − 0.5) = 2, so the expected total stays the same.</p>
+      <div class="calc" id="g5doCalc"></div>
+      <ul class="pts">
+        <li>Each step trains a different thinned network. The full network at prediction time acts like an average of all of them.</li>
+        <li>No neuron can rely on one partner, so the model cannot memorize a single shortcut.</li>
+        <li>Off at prediction time: every neuron is on and nothing is scaled.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="g5doR">Rate</label><input id="g5doR" type="range" min="0" max="0.9" step="0.05" value="0.5"><output></output></div>
+      <div class="chips" id="g5doMode"><button class="chip" data-v="train" aria-pressed="true">Training</button><button class="chip" data-v="pred">Prediction</button></div>
+      <div class="chips"><button class="btn" id="g5doPlay" type="button">Play</button><button class="btn" id="g5doStep" type="button">One step</button></div>
+      <div id="g5doFig"></div>
+      <div class="readout" id="g5doRead"></div>
+    </div>
+  </div>
+</section>

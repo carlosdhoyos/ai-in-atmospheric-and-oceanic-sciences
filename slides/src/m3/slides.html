@@ -1,0 +1,227 @@
+
+<section class="slide" id="cover" data-g="" data-sec="Module 3 · Layers">
+  <div class="cover">
+    <p class="kicker k-arch">Neural networks · Module 3</p>
+    <h1>Layers: <span class="hl">operations packaged with their own weights</span></h1>
+    <p class="lead">A layer takes a tensor in and gives a tensor out. Operations (Module 2) are the mechanisms; layers are the units we stack. Here we count their weights, track their shapes and see why the bends between them matter.</p>
+    <div class="three" style="margin-top:8px">
+      <div class="card"><h4 style="color:var(--arch)">Count</h4><p>Dense 4 → 3 has 15 parameters. A 3 × 3 convolution with 16 filters has 160, whatever the image size.</p></div>
+      <div class="card"><h4 style="color:var(--arch)">Track</h4><p>28 × 28 → conv → pool → flatten 1,568 → dense 10: 15,770 parameters, 99% in the last layer.</p></div>
+      <div class="card"><h4 style="color:var(--arch)">Bend</h4><p>Two dense layers without an activation equal one dense layer.</p></div>
+    </div>
+    <p class="note">Previous: <a href="operations.html">Module 2, Operations</a> · Next: Module 4, Blocks (coming next) · Use ← → or the <button class="btn" data-go="toc" style="padding:2px 10px;font-size:12.5px">contents</button>.</p>
+  </div>
+</section>
+
+<section class="slide" id="toc" data-g="" data-sec="Contents">
+  <p class="kicker">Contents</p>
+  <h2>Module 3 · table of contents</h2>
+  <p class="note">Click any title to jump to it.</p>
+  <div id="tocList" class="toclist"></div>
+</section>
+
+<section class="slide" id="l-what" data-g="a" data-sec="3 · What a layer is">
+  <p class="kicker k-arch">What a layer is</p>
+  <h2>One or more operations, plus the weights they own, from a tensor in to a tensor out</h2>
+  <div class="two">
+    <div>
+      <p>Open a layer and you find the operations of Module 2 chained together. The parts with <b style="color:var(--arch)">learned weights</b> make the layer trainable; the rest are fixed functions.</p>
+      <div class="chips" id="lwPick"><button class="chip" data-v="dense" aria-pressed="true">Dense</button><button class="chip" data-v="conv">Convolutional</button><button class="chip" data-v="pool">Pooling</button><button class="chip" data-v="rnn">Recurrent</button><button class="chip" data-v="attn">Attention</button><button class="chip" data-v="norm">Layer norm</button></div>
+      <div class="calc" id="lwCalc"></div>
+    </div>
+    <div class="panel"><div id="lwFig"></div><div class="readout" id="lwRead"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="l-hier" data-g="a" data-sec="3 · What a layer is">
+  <p class="kicker k-arch">From operations to layers</p>
+  <h2>Operations become layers, layers become blocks, blocks become families</h2>
+  <p class="lead">Click any item to trace what it is built from and where it is used. Operations link to their slide in Module 2; layers link to this module.</p>
+  <div class="hierwrap">
+    <div class="fig-wrap" id="lhFig"></div>
+    <div class="panel" id="hierCard"></div>
+  </div>
+</section>
+
+<section class="slide" id="l-roles" data-g="a" data-sec="3 · Roles by position">
+  <p class="kicker k-arch">Roles by position</p>
+  <h2>The input layer is a shape, the hidden layers build representations, the task sets the output</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Input layer:</b> receives the prepared data from the Data Foundation: 5 features per student, or a 64 × 64 field with 3 variables.</li>
+        <li><b>Hidden layers:</b> transform representations step by step. Early ones find simple patterns (edges, short rain bursts); deeper ones combine them.</li>
+        <li><b>Output layer:</b> shaped by the task. Pick one.</li>
+      </ul>
+      <div class="stack" id="lrPicks">
+        <button class="pick" data-v="reg" aria-pressed="true"><b>Regression</b><span>Tomorrow's rainfall in mm.</span></button>
+        <button class="pick" data-v="bin" aria-pressed="false"><b>Yes / no</b><span>Will this student leave?</span></button>
+        <button class="pick" data-v="multi" aria-pressed="false"><b>Several classes</b><span>Dry, normal or wet season.</span></button>
+        <button class="pick" data-v="map" aria-pressed="false"><b>Spatial output</b><span>A downscaled precipitation map.</span></button>
+      </div>
+    </div>
+    <div class="panel">
+      <div id="lrFig"></div>
+      <div class="calc" id="lrCalc" style="white-space:pre-line"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-types" data-g="a" data-sec="3 · Layer types">
+  <p class="kicker k-arch">Common layer types · counting parameters</p>
+  <h2>Count the weights by hand and "big models" stop being mysterious</h2>
+  <div class="two">
+    <div class="stack" id="ltPicks" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start"></div>
+    <div class="panel">
+      <h3 id="ltTitle"></h3>
+      <div id="ltCtl"></div>
+      <div class="eq arch" id="ltFormula" style="font-size:18px"></div>
+      <div class="readout" id="ltRead"></div>
+      <p class="note" id="ltNote"></p>
+      <h3 style="margin-top:10px">Worked example</h3>
+      <div class="calc" id="ltEx" style="white-space:pre-line;margin-top:4px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-composite" data-g="a" data-sec="3 · Composite layers">
+  <p class="kicker k-arch">Composite layers · LSTM and GRU</p>
+  <h2>A whole small circuit of gates, used in practice as one layer</h2>
+  <div class="two">
+    <div>
+      <p>An LSTM layer is several dense operations, sigmoid gates and a multiply–add memory, repeated at every time step with the same weights. A GRU merges the gates into two and drops the separate cell. One unit here; move the inputs and watch each gate.</p>
+      <div class="chips" id="lcKind"><button class="chip" data-v="lstm" aria-pressed="true">LSTM</button><button class="chip" data-v="gru">GRU</button></div>
+      <div class="ctl"><label for="lcX">Today's rain xₜ</label><input id="lcX" type="range" min="0" max="2" step="0.1" value="1"><output></output></div>
+      <div class="ctl"><label for="lcH">Yesterday's output hₜ₋₁</label><input id="lcH" type="range" min="-1" max="1" step="0.1" value="0.2"><output></output></div>
+      <div class="ctl" id="lcCrow"><label for="lcC">Yesterday's cell cₜ₋₁</label><input id="lcC" type="range" min="-2" max="2" step="0.1" value="0.5"><output></output></div>
+      <div class="calc" id="lcCalc"></div>
+    </div>
+    <div class="panel">
+      <div id="lcFig"></div>
+      <h3 style="margin-top:6px">The same cell over 40 days of rain at the station</h3>
+      <div id="lcSeq"></div>
+      <div class="readout" id="lcRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-whyact" data-g="a" data-sec="3 · Why activations matter">
+  <p class="kicker k-arch">Why activations matter between layers</p>
+  <h2>Without a nonlinearity, ten layers are no better than one</h2>
+  <div class="two">
+    <div>
+      <p>Two dense layers without an activation are W₂(W₁x) = (W₂W₁)x: still one straight line. A nonlinearity between them lets each hidden neuron add a bend, and enough bends can follow any curve.</p>
+      <div class="calc" id="waCollapse"></div>
+      <p>Target: how runoff responds to rainfall. Nothing happens until the soil is saturated, then runoff rises steeply.</p>
+      <div class="chips" id="waMode"><button class="chip" data-v="relu" aria-pressed="true">With ReLU</button><button class="chip" data-v="linear">Without activation</button></div>
+      <div class="ctl"><label for="waN">Hidden neurons</label><input id="waN" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+    </div>
+    <div class="panel">
+      <div id="waFig"></div>
+      <div class="readout" id="waRead"></div>
+      <p class="note">The best fit for each setting, found by least squares on the output layer with the hidden neurons' bends spread over the range.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-width" data-g="a" data-sec="3 · Width and depth">
+  <p class="kicker k-arch">Width and depth</p>
+  <h2>Wider sees more patterns at once; deeper builds more abstract ones</h2>
+  <div class="two">
+    <div>
+      <p><b>Width</b> is the number of neurons or filters in a layer; <b>depth</b> is the number of layers. An image model with three convolution layers finds edges, then corners and textures, then whole objects. A very wide but shallow network can fit the training data yet often generalizes worse than a moderately deep one.</p>
+      <div class="ctl"><label for="wdIn">Inputs</label><input id="wdIn" type="range" min="2" max="50" step="1" value="10"><output></output></div>
+      <div class="ctl"><label for="wdW">Width</label><input id="wdW" type="range" min="4" max="512" step="4" value="64"><output></output></div>
+      <div class="ctl"><label for="wdD">Hidden layers</label><input id="wdD" type="range" min="1" max="8" step="1" value="2"><output></output></div>
+      <div class="readout" id="wdRead"></div>
+    </div>
+    <div class="panel">
+      <div id="wdFig"></div>
+      <div class="three" style="margin-top:10px" id="wdHier"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-shapes" data-g="a" data-sec="3 · Shapes and parameters">
+  <p class="kicker k-arch">Shapes and parameters through a network</p>
+  <h2>Track the shape at every layer: the most practical skill there is</h2>
+  <div class="two">
+    <div>
+      <p>The worked example: a 28 × 28 image → convolution with 8 filters → 28 × 28 × 8 → max pooling → 14 × 14 × 8 → flatten → 1,568 → dense → 10 classes. Total 15,770 parameters, and 99% sit in the last dense layer.</p>
+      <div class="ctl"><label for="shF">Conv filters</label><input id="shF" type="range" min="1" max="64" step="1" value="8"><output></output></div>
+      <div class="ctl"><label for="shK">Kernel size</label><input id="shK" type="range" min="1" max="7" step="2" value="3"><output></output></div>
+      <div class="ctl"><label for="shP">Pooling</label><input id="shP" type="range" min="0" max="2" step="1" value="1"><output></output></div>
+      <div class="ctl"><label for="shH">Extra dense layer</label><input id="shH" type="range" min="0" max="256" step="16" value="0"><output></output></div>
+      <div class="ctl"><label for="shC">Classes</label><input id="shC" type="range" min="2" max="20" step="1" value="10"><output></output></div>
+    </div>
+    <div class="panel">
+      <div class="fig-wrap" id="shTable"></div>
+      <div id="shBar" style="margin-top:10px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-trainable" data-g="a" data-sec="3 · Shapes and parameters">
+  <p class="kicker k-arch">Trainable or not?</p>
+  <h2>Which layers learn weights, and which only move numbers around?</h2>
+  <div class="two">
+    <div>
+      <p>Dense, convolutional, recurrent, attention, embedding and normalization layers learn. Pooling, flatten and dropout do not: they summarize, rearrange or switch values off.</p>
+      <div class="callout violet">In the shapes example, the convolution has 80 parameters, pooling and flatten have 0, and the dense layer has 1,568 × 10 + 10 = 15,690. Total 15,770.</div>
+      <p class="note">Batch norm also keeps running means and variances. They are stored with the model but not trained by gradient descent: "non-trainable parameters" in most libraries.</p>
+    </div>
+    <div class="panel">
+      <h3>Does this layer have trainable weights?</h3>
+      <div class="quiz" id="trQuiz"></div>
+      <div class="readout"><div><span>Correct</span><b id="trScore" class="c-ok">0 / 0</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-examples" data-g="a" data-sec="3 · Running examples">
+  <p class="kicker k-arch">Running examples</p>
+  <h2>Three datasets, three stacks of layers</h2>
+  <p class="lead">The same rules, applied to the series' examples. Pick a dataset, then a layer, to see what it does there.</p>
+  <div class="chips" id="leData"><button class="chip" data-v="rain" aria-pressed="true">Rainfall at a Medellín station</button><button class="chip" data-v="field">Climate fields over Colombia</button><button class="chip" data-v="stud">The student table</button></div>
+  <div class="two" style="margin-top:10px">
+    <div class="panel"><div class="fig-wrap" id="leTable"></div><div class="readout" id="leRead"></div></div>
+    <div class="panel"><h3 id="leTitle"></h3><p id="leText" style="margin:0"></p><div id="leFig" style="margin-top:8px"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="l-preview" data-g="a" data-sec="3 · Coming next">
+  <p class="kicker k-arch">Preview · blocks and families</p>
+  <h2>Whole networks are layers grouped into blocks, stacked in a pattern</h2>
+  <div class="two">
+    <div class="stack" id="fmPicks" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start"></div>
+    <div class="panel">
+      <div id="fmFig"></div>
+      <p id="fmText" style="margin-top:10px"></p>
+      <div class="three" id="fmEx"></div>
+      <p class="note">Module 4 (Blocks) and Module 5 (Architecture Families) take these apart. Coming next.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="l-next" data-g="" data-sec="3 · Summary">
+  <p class="kicker">Summary</p>
+  <h2>Layers own the weights; count them, track the shapes, and bend between them</h2>
+  <div class="two even">
+    <div class="stack">
+      <div class="card"><h4 style="color:var(--arch)">What to remember</h4>
+        <ul class="pts">
+          <li>A layer = operations + their weights, tensor in → tensor out.</li>
+          <li>Input is a shape; hidden layers build representations; the task shapes the output.</li>
+          <li>Parameters: dense in × out + out; conv k·k·c_in·f + f; pooling, flatten and dropout 0.</li>
+          <li>LSTM and GRU are composite layers: gates and memory, the same weights at every step.</li>
+          <li>Without activations, stacked layers collapse into one.</li>
+        </ul></div>
+    </div>
+    <div class="stack">
+      <a class="pick" href="operations.html"><b>← 2 · Operations</b><span>The mechanisms inside every layer.</span></a>
+      <a class="pick" href="index.html"><b>0 · Overview</b><span>The map of the whole series.</span></a>
+      <div class="card" style="opacity:.75"><h4>4 · Blocks</h4><p>Residual and transformer blocks, encoders and decoders. Coming next.</p></div>
+      <p class="note">All data in this deck are synthetic examples built for teaching.</p>
+    </div>
+  </div>
+</section>

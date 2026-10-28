@@ -1,16 +1,38 @@
 
+<section class="slide" id="cover" data-g="" data-sec="Module 1 · Data Foundation">
+  <div class="cover">
+    <p class="kicker k-data">Neural networks · Module 1</p>
+    <h1>Data foundation: <span class="hl">the network only sees numbers</span></h1>
+    <p class="lead">Everything that happens before data enters the network: measure, clean, encode, scale, split, and watch for leakage, bias and missing values. The quality of those numbers sets the ceiling on any model. Every slide has a small example you can change.</p>
+    <div class="toc">
+      <button class="c-data" data-go="d-pipeline"><div class="n">The pipeline</div><div class="t">From sensors to a table</div><div class="d">Acquisition, QA/QC, data types, encoding, transformations, text and images as numbers, embeddings.</div></button>
+      <button class="c-data" data-go="d-missing"><div class="n">Preparing for training</div><div class="t">Gaps, splits and leakage</div><div class="d">Missing data, data splits, leakage, dimensionality reduction, class imbalance, augmentation.</div></button>
+      <button class="c-data" data-go="d-labels"><div class="n">Trust</div><div class="t">Labels, outliers and bias</div><div class="d">Ground truth, outliers and extremes, representativeness.</div></button>
+      <button class="c-data" data-go="d-privacy"><div class="n">Rules</div><div class="t">Privacy, lineage and governance</div><div class="d">Ley 1581 de 2012 and GDPR, data versioning, governance roles and careers.</div></button>
+    </div>
+    <p class="note">Previous: <a href="index.html">Module 0, Overview</a> · Next: <a href="operations.html">Module 2, Operations</a> · Use ← → or the <button class="btn" data-go="toc" style="padding:2px 10px;font-size:12.5px">table of contents</button>.</p>
+  </div>
+</section>
+
+<section class="slide" id="toc" data-g="" data-sec="Contents">
+  <p class="kicker">Contents</p>
+  <h2>Module 1 · table of contents</h2>
+  <p class="note">Click any title to jump to it.</p>
+  <div id="tocList" class="toclist"></div>
+</section>
+
 <!-- ═════════ PART 1 · DATA FOUNDATION ═════════ -->
 
 <section class="slide" id="d-pipeline" data-g="d" data-sec="1 · Data foundation">
-  <p class="kicker k-data">Part 1 · The data foundation</p>
+  <p class="kicker k-data">Module 1 · The data foundation</p>
   <h2>Most of the work happens before the first neuron</h2>
   <p class="lead" style="margin-bottom:16px">A network only sees a table of numbers. Every choice that turns measurements into that table shapes what it can learn. Click a stage.</p>
   <div class="fig-wrap" id="pipeFig"></div>
   <div class="two" style="margin-top:14px">
     <div class="panel" id="pipeCard"></div>
     <div class="stack">
-      <div class="callout teal"><b>The rule of thumb.</b> Garbage in, garbage out still holds. A bigger network does not fix a mislabeled target, a leaky feature or a test set that overlaps the training set.</div>
-      <div class="callout"><b>Terminology.</b> We say <i>student attrition</i>, not "school dropout", so it is never confused with <i>dropout</i>, the regularization technique of Part 2.</div>
+      <div class="callout teal"><b>Rule of thumb.</b> Garbage in, garbage out still holds. A bigger network does not fix a mislabeled target, a leaky feature or a test set that overlaps the training set.</div>
+      <div class="callout"><b>Terminology.</b> We say <i>student attrition</i>, not "school dropout", so it is never confused with <i>dropout</i>, the regularization technique of Module 2.</div>
     </div>
   </div>
 </section>
@@ -105,7 +127,7 @@
       <ul class="pts">
         <li><b>One-hot:</b> one column per category, a 1 in the matching column. No order is implied. Right for municipality.</li>
         <li><b>Ordinal:</b> one column with the rank. Right for estrato, whose levels have a natural order.</li>
-        <li><b>Embedding:</b> a learned vector per category, inside the network (Part 2). Useful when there are hundreds of categories.</li>
+        <li><b>Embedding:</b> a learned vector per category, inside the network (Module 2, operation 17). Useful when there are hundreds of categories.</li>
       </ul>
       <div class="callout red" id="encWarn"></div>
     </div>
@@ -319,7 +341,7 @@
   <h2>When the event is rare, 99.9% accuracy can mean the model never finds it</h2>
   <div class="two">
     <div>
-      <p>Fraud is maybe 0.1% of transactions; student attrition 5–15% per year; a rare disease far less. Predicting "never" is accurate and useless.</p>
+      <p>Fraud is maybe 0.1% of transactions; student attrition perhaps 5–15% per year (an illustrative range, to be replaced with Colombian figures); a rare disease far less. Predicting "never" is accurate and useless.</p>
       <ul class="pts">
         <li><b>Metrics:</b> precision, recall, F1 or PR-AUC instead of accuracy.</li>
         <li><b>Resampling:</b> oversample the rare class (or SMOTE), undersample the common one.</li>
@@ -484,6 +506,24 @@
       <h3 style="margin-top:14px">Skills</h3>
       <div class="chips" id="govSkills"></div>
       <div class="callout green" style="margin-bottom:0"><b>A career path.</b> Governance is a growing field for people who want to be part of the data and AI revolution without the deep mathematical side.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="d-next" data-g="d" data-sec="Module 1 · Next">
+  <p class="kicker k-data">End of Module 1</p>
+  <h2>The table is ready; next, what the network does with it</h2>
+  <div class="two even">
+    <div class="stack">
+      <div class="card"><h4 style="color:var(--data)">Checklist before training</h4><p>Where does each number come from? Did QC run? Are categories encoded by their real structure? Were scalers and imputers fit on the training set only? Is the split by time? Could any feature be known only after the answer? Is the rare class measured with recall and precision? Who is missing from the sample? May you use this data, and which version is it?</p></div>
+    </div>
+    <div class="panel">
+      <h3>Series</h3>
+      <div class="stack">
+        <a class="pick" href="index.html"><b>0 · Overview</b><span>The short presentation.</span></a>
+        <a class="pick" href="operations.html"><b>2 · Operations →</b><span>Weighted sums, convolution, recurrence, attention and the rest, one by one.</span></a>
+        <a class="pick" href="layers.html"><b>3 · Layers</b><span>Operations packaged with weights; shapes and parameter counts.</span></a>
+      </div>
     </div>
   </div>
 </section>

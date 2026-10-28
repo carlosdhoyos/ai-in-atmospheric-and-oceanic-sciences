@@ -1,0 +1,150 @@
+
+<section class="slide" id="op-graph" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">13</span>Graph message passing</p>
+  <h2>Each station updates itself from the messages of its neighbours</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">h<sub>i</sub> ← α · h<sub>i</sub> + (1 − α) · mean<sub>j ∈ N(i)</sub> h<sub>j</sub></div>
+      <p>Stations are nodes, edges say who talks to whom. Station A has 10 mm and neighbours with 20 and 30 mm:
+        new A = 0.5 · 10 + 0.5 · mean(20, 30) = <b>17.5 mm</b>. Real graph networks put learned weights on the messages; this keeps only the averaging.</p>
+      <ul class="pts">
+        <li>After k rounds a station holds information from stations k hops away (ringed on the map).</li>
+        <li>Too many rounds and every station looks alike: <b>over-smoothing</b>. Watch the spread fall.</li>
+      </ul>
+      <div class="ctl"><label for="g4gnA">Self weight α</label><input id="g4gnA" type="range" min="0" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="chips" id="g4gnMode"><button class="chip" data-v="inspect" aria-pressed="true">Click = inspect</button><button class="chip" data-v="edit">Click = edit edges</button></div>
+      <div class="chips"><button class="btn" id="g4gnStep" type="button">One round</button><button class="btn" id="g4gnPlay" type="button">Play 10 rounds</button><button class="btn" id="g4gnReset" type="button">Reset</button></div>
+      <p class="note" id="g4gnHint"></p>
+    </div>
+    <div class="panel nosw">
+      <h3>Rain gauges over Colombia as a graph (synthetic values, mm)</h3>
+      <div id="g4gnFig"></div>
+      <div class="readout" id="g4gnRead"></div>
+      <div class="calc" id="g4gnCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-pool" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">14</span>Pooling</p>
+  <h2>Pooling summarizes each neighbourhood with one number and has no weights</h2>
+  <div class="two">
+    <div>
+      <p>Slide a window over the grid and keep its maximum (max pooling) or its mean (average pooling). With a 2 × 2 window and stride 2 a 4 × 4 grid becomes 2 × 2.</p>
+      <div id="g4plEx"></div>
+      <div class="chips"><button class="btn" id="g4plNudge" type="button">Move the 25 one cell</button></div>
+      <ul class="pts">
+        <li><b>No weights:</b> nothing to learn, only a fixed rule.</li>
+        <li><b>Shift tolerance:</b> if the peak moves inside its window, the max does not change.</li>
+        <li><b>Global average pooling</b> averages the whole map. Many CNNs use it to turn a stack of maps into one feature vector.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g4plMode"><button class="chip" data-v="max" aria-pressed="true">Max</button><button class="chip" data-v="avg">Average</button></div>
+      <div class="chips" id="g4plWin"><button class="chip" data-v="2" aria-pressed="true">2 × 2</button><button class="chip" data-v="3">3 × 3</button><button class="chip" data-v="4">4 × 4</button><button class="chip" data-v="g">Global</button></div>
+      <h3>Annual mean temperature (°C, synthetic) shrinking · hover an output cell</h3>
+      <div id="g4plFig"></div>
+      <div class="readout" id="g4plRead"></div>
+      <div class="calc" id="g4plCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-resample" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">15</span>Upsampling and downsampling</p>
+  <h2>Shrink a field to see context, grow it back to draw a detailed map</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Downsampling:</b> pooling or a strided convolution keeps one value per f × f block.</li>
+        <li><b>Upsampling:</b> copy the nearest value, interpolate (bilinear), or learn the weights with a transposed convolution.</li>
+        <li><b>U-Net</b> shrinks a precipitation field to capture context, then grows it back to a pixel-level map. Skip connections bring the fine detail across.</li>
+      </ul>
+      <h3>U-Net on the precipitation field (illustrative)</h3>
+      <div id="g4rsUnet"></div>
+      <div class="ctl"><label for="g4rsDepth">Levels</label><input id="g4rsDepth" type="range" min="1" max="3" step="1" value="3"><output></output></div>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="g4rsF">Coarse factor</label><input id="g4rsF" type="range" min="1" max="4" step="1" value="2"><output></output></div>
+      <div class="chips" id="g4rsDown"><button class="chip" data-v="avg" aria-pressed="true">Shrink: average pooling</button><button class="chip" data-v="stride">Shrink: stride (keep one cell)</button></div>
+      <div class="chips" id="g4rsSrc"><button class="chip" data-v="self" aria-pressed="true">Learned kernel fitted on this field</button><button class="chip" data-v="other">… on other fields</button></div>
+      <h3>Annual precipitation (mm/yr, synthetic): shrink, then grow back</h3>
+      <div class="fig-wrap"><div id="g4rsFig"></div></div>
+      <div class="readout" id="g4rsRead"></div>
+      <p class="note" id="g4rsNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-flatten" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">16</span>Flatten and reshape</p>
+  <h2>Flatten and reshape move numbers around without changing any of them</h2>
+  <div class="two">
+    <div>
+      <p>A 2 × 2 grid becomes a list of 4, and reshaping brings it back:</p>
+      <div class="cells" style="margin-bottom:12px">
+        <span class="cell">[[1, 2],</span><span class="cell">[3, 4]]</span><span class="arrow">→</span>
+        <span class="cell out">1</span><span class="cell out">2</span><span class="cell out">3</span><span class="cell out">4</span><span class="arrow">→</span>
+        <span class="cell">[[1, 2], [3, 4]]</span>
+      </div>
+      <ul class="pts">
+        <li><b>No arithmetic, no weights.</b> Only the shape label changes.</li>
+        <li>Flatten turns a map from a convolution into a vector a dense layer can read.</li>
+        <li>The order is a convention. Row-major (NumPy, PyTorch) reads row by row. Mix conventions and the map is scrambled.</li>
+      </ul>
+      <div class="callout violet">A 4 × 4 grid holds 16 numbers whatever its shape: 4 × 4, 1 × 16 or 2 × 8.</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g4flShape"><button class="chip" data-v="4x4" aria-pressed="true">4 × 4</button><button class="chip" data-v="1x16">1 × 16 (flatten)</button><button class="chip" data-v="2x8">2 × 8</button></div>
+      <div class="chips" id="g4flOrder"><button class="chip" data-v="row" aria-pressed="true">Row-major</button><button class="chip" data-v="col">Column-major</button></div>
+      <div class="chips"><button class="btn" id="g4flPlay" type="button">Play: flatten and back</button></div>
+      <div id="g4flFig"></div>
+      <div class="readout" id="g4flRead"></div>
+      <div class="calc" id="g4flCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-embed" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">17</span>Embedding lookup</p>
+  <h2>A category ID picks one row from a table of learnable vectors</h2>
+  <div class="two">
+    <div>
+      <p>125 municipalities of Antioquia, each with 4 numbers: a 125 × 4 table, <b>500 parameters</b>. Municipality 17 → row 17 → [0.2, −1.1, 0.7, 0.0].
+        A lookup is exactly a one-hot vector times the table (a dense layer with no bias), only faster. It replaces 125 one-hot columns with 4 meaningful numbers.</p>
+      <div class="ctl"><label for="g4emId">Municipality ID</label><input id="g4emId" type="range" min="1" max="125" step="1" value="17"><output></output></div>
+      <div id="g4emFig"></div>
+      <div class="calc" id="g4emCalc"></div>
+    </div>
+    <div class="panel nosw">
+      <h3>Dimensions 1 and 2 of the table (illustrative values) · click a point</h3>
+      <div class="chips"><button class="btn" id="g4emTrain" type="button">Train</button><button class="btn" id="g4emReset" type="button">Reset to random</button></div>
+      <div id="g4emMap"></div>
+      <div class="readout" id="g4emRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-pos" data-g="a" data-sec="2 · Operations · Graphs, resizing and inputs">
+  <p class="kicker k-arch"><span class="opnum">18</span>Positional encoding</p>
+  <h2>Attention ignores order, so each position gets its own wave pattern</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">PE(pos) = [ sin(pos), cos(pos) ]</div>
+      <div class="calc" id="g4peCalc"></div>
+      <ul class="pts">
+        <li>Each position gets a unique pattern. Real models use many sine–cosine pairs at different frequencies and add them to the inputs.</li>
+        <li>It is a Fourier basis: fast waves tell neighbours apart, slow waves give the coarse place in the sequence, like the harmonics in spectral analysis.</li>
+      </ul>
+      <h3>16 dimensions × 40 positions · click a position</h3>
+      <div id="g4peFig"></div>
+    </div>
+    <div class="panel nosw">
+      <h3>Attention of “it” over the sentence · line width = weight</h3>
+      <div class="chips"><button class="btn" id="g4peShuf" type="button">Shuffle the words</button><button class="btn" id="g4peRestore" type="button">Restore order</button></div>
+      <div id="g4peAtt"></div>
+      <div class="readout" id="g4peRead"></div>
+      <p class="note">Toy self-attention with 4-number word vectors (synthetic); queries, keys and values are the inputs themselves.</p>
+    </div>
+  </div>
+</section>

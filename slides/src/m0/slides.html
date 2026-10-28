@@ -1,0 +1,137 @@
+
+<section class="slide" id="o-idea" data-g="" data-sec="Module 0 · Overview">
+  <div class="cover" style="padding-block:2vh 0">
+    <p class="kicker">Neural networks · Module 0 · Overview</p>
+    <h1>A neural network is mostly <span class="hl">multiply and add</span>, repeated many times, with a few simple bends in between</h1>
+    <p class="lead">Everything else is organization. Try it: one neuron, inputs [2, 3], bias 1. Drag a weight and watch the sum cross zero, so ReLU switches the neuron on and off.</p>
+    <div class="two" style="align-items:center">
+      <div class="panel">
+        <div class="ctl"><label for="oW1">Weight w₁</label><input id="oW1" type="range" min="-2" max="2" step="0.1" value="0.5"><output></output></div>
+        <div class="ctl"><label for="oW2">Weight w₂</label><input id="oW2" type="range" min="-2" max="2" step="0.1" value="-1"><output></output></div>
+        <div class="calc" id="oIdeaCalc"></div>
+      </div>
+      <div id="oIdeaFig"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="o-map" data-g="" data-sec="Module 0 · The map">
+  <p class="kicker">The map</p>
+  <h2>Five levels, from raw data to whole architectures</h2>
+  <p class="lead">Each module zooms into one level. Hover a level for a one-line preview; click it to open that module.</p>
+  <div class="maprow" id="oMap"></div>
+  <div class="panel" id="oMapText" style="margin-top:14px"></div>
+</section>
+
+<section class="slide" id="o-data" data-g="d" data-sec="Module 0 · Data foundation">
+  <p class="kicker k-data">Level 1 · Data foundation</p>
+  <h2>The network only sees numbers, so good models start with the table</h2>
+  <div class="two">
+    <div>
+      <p>Measure, clean, encode, scale, split, and watch for leakage, bias and missing values. Example: rain gauges and satellite rainfall; the student table with estrato and municipality.</p>
+      <p><b>Try it.</b> Two students have no absence count. Pick how to fill the gap. Then try the two leakage switches.</p>
+      <div class="chips" id="oImp"><button class="chip" data-v="mean" aria-pressed="true">Mean</button><button class="chip" data-v="median">Median</button><button class="chip" data-v="flag">Median + "was missing" flag</button></div>
+      <div class="chips" id="oLeak"><button class="chip" data-v="split" aria-pressed="false" type="button">Scale before split</button><button class="chip" data-v="feat" aria-pressed="false" type="button">Use "withdrawal form filed"</button></div>
+      <div class="readout" id="oDataRead"></div>
+      <p class="note" id="oDataNote"></p>
+    </div>
+    <div class="panel"><div class="fig-wrap" id="oDataTable"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="o-ops" data-g="a" data-sec="Module 0 · Operations">
+  <p class="kicker k-arch">Level 2 · Operations</p>
+  <h2>The basic mechanisms, each with an assumption about the data</h2>
+  <div class="two">
+    <div>
+      <p>Weighted sum, activation, convolution, recurrence, attention, normalization, residual connections and more. Example: a 3 × 3 filter sliding over a temperature map finds edges, like a front, or here the slopes of the Andes.</p>
+      <p><b>Try it.</b> Pick a filter. Module 2 has the full editable 3 × 3 grid.</p>
+      <div class="chips" id="oConvPick"><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="sharp">Sharpen</button><button class="chip" data-v="sx">Sobel x</button><button class="chip" data-v="sy">Sobel y</button></div>
+      <div class="calc" id="oConvK"></div>
+    </div>
+    <div class="panel"><div class="two even" style="gap:12px"><div><h3>Temperature (°C)</h3><div id="oConvIn"></div></div><div><h3>Filter output</h3><div id="oConvOut"></div></div></div></div>
+  </div>
+</section>
+
+<section class="slide" id="o-layers" data-g="a" data-sec="Module 0 · Layers">
+  <p class="kicker k-arch">Level 3 · Layers</p>
+  <h2>Operations packaged with their own trainable weights, stacked in order</h2>
+  <div class="two">
+    <div>
+      <p>We stack layers; the output layer is shaped by the task. <b>Try it:</b> stack layers like blocks. Each new layer shows its output shape and parameter count, and the total updates as you go.</p>
+      <div class="chips" id="oStackBtns">
+        <button class="btn" type="button" data-v="conv">+ Conv 8 filters 3×3</button><button class="btn" type="button" data-v="pool">+ Max pool 2×2</button>
+        <button class="btn" type="button" data-v="flat">+ Flatten</button><button class="btn" type="button" data-v="dense">+ Dense 10</button>
+        <button class="btn" type="button" data-v="undo">Remove last</button><button class="btn" type="button" data-v="reset">Reset</button>
+      </div>
+      <p class="note" id="oStackNote"></p>
+    </div>
+    <div class="panel"><div id="oStackFig"></div><div class="readout" id="oStackRead"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="o-blocks" data-g="a" data-sec="Module 0 · Blocks">
+  <p class="kicker k-arch">Level 4 · Blocks</p>
+  <h2>Repeated groups of layers: building with prefabricated walls instead of bricks</h2>
+  <div class="two">
+    <div>
+      <p>A residual block, a transformer block, an encoder or a decoder is used again and again. <b>Try it:</b> toggle the skip connection on a residual block and watch an input of 5 plus a correction of 0.2 become 5.2.</p>
+      <div class="chips" id="oSkip"><button class="chip" data-v="on" aria-pressed="true">Skip connection on</button><button class="chip" data-v="off">Skip connection off</button></div>
+      <div class="ctl"><label for="oCorr">Layer output</label><input id="oCorr" type="range" min="-1" max="1" step="0.1" value="0.2"><output></output></div>
+    </div>
+    <div class="panel"><div id="oBlockFig"></div><div class="readout" id="oBlockRead"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="o-families" data-g="a" data-sec="Module 0 · Families">
+  <p class="kicker k-arch">Level 5 · Architecture families</p>
+  <h2>Choose the family by the shape of your data</h2>
+  <p class="lead">MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. <b>Try it:</b> what does your data look like?</p>
+  <div class="chips" id="oShape"><button class="chip" data-v="table" aria-pressed="true">A table</button><button class="chip" data-v="grid">An image or grid</button><button class="chip" data-v="seq">A sequence</button><button class="chip" data-v="graph">A graph</button><button class="chip" data-v="field">A physical field</button></div>
+  <div class="four" id="oFam" style="margin-top:10px"></div>
+</section>
+
+<section class="slide" id="o-bias" data-g="a" data-sec="Module 0 · Inductive bias">
+  <p class="kicker k-arch">Inductive bias</p>
+  <h2>Every choice encodes an assumption about who connects to whom</h2>
+  <div class="two">
+    <div>
+      <p>Dense: none. Convolution: nearby things matter. Recurrence: order and memory. Attention: anything can relate to anything. Graph: the connections are given.</p>
+      <p><b>Try it:</b> the same 5 rainfall days wired five ways. Lines show who connects to whom; thickness is the weight.</p>
+      <div class="chips" id="oBiasPick"><button class="chip" data-v="dense" aria-pressed="true">Dense</button><button class="chip" data-v="conv">Convolution</button><button class="chip" data-v="rnn">Recurrence</button><button class="chip" data-v="attn">Attention</button><button class="chip" data-v="graph">Graph</button></div>
+    </div>
+    <div class="panel"><h3>Five days of rain (mm) → output for one day (click a day)</h3><div id="oBiasFig"></div><p class="note" id="oBiasNote"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="o-learn" data-g="a" data-sec="Module 0 · How it learns">
+  <p class="kicker k-arch">How it learns</p>
+  <h2>Start random, measure the error, nudge every weight, repeat</h2>
+  <div class="two">
+    <div>
+      <p>The weights start random. Compare predictions with the truth, measure the error, and nudge every weight a little in the direction that reduces it. Repeat many times.</p>
+      <p><b>Try it:</b> one neuron, y = w·x + b, fitting temperature against elevation at five stations.</p>
+      <div class="chips"><button class="btn" id="oTrain1" type="button">Train one step</button><button class="btn" id="oTrainPlay" type="button">Autoplay</button><button class="btn" id="oTrainReset" type="button">Reset</button></div>
+      <div class="ctl"><label for="oLr">Step size</label><input id="oLr" type="range" min="0.01" max="0.3" step="0.01" value="0.1"><output></output></div>
+      <div class="readout" id="oLearnRead"></div>
+    </div>
+    <div class="panel"><div id="oLearnFig"></div><div id="oLossFig"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="o-next" data-g="" data-sec="Module 0 · Where to go next">
+  <p class="kicker">Where to go next</p>
+  <h2>Pick a module</h2>
+  <div class="two even">
+    <div class="stack">
+      <a class="pick" href="data-foundation.html"><b>1 · Data Foundation</b><span>Acquisition, QA/QC, encoding, scaling, missing data, splits, leakage, imbalance, labels, bias, privacy, governance.</span></a>
+      <a class="pick" href="operations.html"><b>2 · Operations</b><span>Thirty operations, one per slide: weighted sums to Fourier neural operators.</span></a>
+      <a class="pick" href="layers.html"><b>3 · Layers</b><span>Layer types, shapes, parameter counts, LSTM and GRU as composite layers.</span></a>
+    </div>
+    <div class="stack">
+      <div class="card" style="opacity:.75"><h4>4 · Blocks</h4><p>Residual and transformer blocks, encoders and decoders. Coming next.</p></div>
+      <div class="card" style="opacity:.75"><h4>5 · Architecture Families</h4><p>MLP, CNN, RNN/LSTM, Transformer, graph networks, U-Net, autoencoders, neural operators. Coming next.</p></div>
+      <p class="note">Every module is interactive: each operation and idea has a control you can move. All data are synthetic examples built for teaching.</p>
+    </div>
+  </div>
+</section>

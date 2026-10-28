@@ -1,0 +1,161 @@
+<section class="slide" id="op-rnn" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">09</span>Recurrence (simple RNN)</p>
+  <h2>A recurrent cell reads one day at a time and carries a memory forward</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">h<sub>t</sub> = tanh(a · h<sub>t−1</sub> + b · x<sub>t</sub>)</div>
+      <p>Worked example: a = 0.5, b = 1, h₀ = 0, rainfall [1, 0, 2]. Day 1: tanh(1) = 0.76. Day 2: tanh(0.38) = 0.36. Day 3: tanh(0.18 + 2) = 0.97.</p>
+      <ul class="pts">
+        <li><b>a</b> is the memory weight: high a keeps the past, low a forgets fast.</li>
+        <li><b>b</b> is the input weight: how strongly today's rain pushes the state.</li>
+        <li>The same a and b are reused at every step.</li>
+      </ul>
+      <div class="ctl"><label for="g3rnA">Memory a</label><input id="g3rnA" type="range" min="0" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="ctl"><label for="g3rnB">Input b</label><input id="g3rnB" type="range" min="0" max="2" step="0.1" value="1"><output></output></div>
+      <div class="callout amber"><b>Vanishing memory.</b> With a = 0.5, a past day's influence roughly halves each step: 0.5¹⁰ ≈ 0.001 after 10 days. LSTMs were built to fix this. <b>Saturation:</b> tanh flattens out, so inputs above about 3 all give nearly 1.</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3rnSet"><button class="chip" data-v="ex" aria-pressed="true">Example [1, 0, 2]</button><button class="chip" data-v="gap">One storm, 10 dry days</button><button class="chip" data-v="big">Big storms</button></div>
+      <h3>Input x (click a day: 0 → 1 → 2 → 3 → 5)</h3>
+      <div class="cells" id="g3rnIn"></div>
+      <div class="chips"><button class="btn" id="g3rnStep" type="button">Step</button><button class="btn" id="g3rnPlay" type="button">Play</button><button class="btn" id="g3rnReset" type="button">Reset</button></div>
+      <div class="fig-wrap"><div id="g3rnFig" style="min-width:420px"></div></div>
+      <div class="readout" id="g3rnRead"></div>
+      <div class="calc" id="g3rnCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-lstm" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">10</span>Gated recurrence (LSTM, GRU)</p>
+  <h2>Gates are valves that decide what the memory keeps, adds and releases</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">c<sub>t</sub> = f · c<sub>t−1</sub> + i · g<sub>t</sub> &nbsp;&nbsp; h<sub>t</sub> = o · tanh(c<sub>t</sub>)</div>
+      <ul class="pts">
+        <li><b>Forget gate f</b> (0 to 1): how much of last month's cell state to keep. f = 0.9 keeps 90%.</li>
+        <li><b>Input gate i</b>: how much of the new candidate g (from this month's rain) to add. A wet month opens it and raises the stored state.</li>
+        <li><b>Output gate o</b>: how much of the memory to release as the output h, here the streamflow signal.</li>
+      </ul>
+      <p>Over the long dry spell, the cell state drains slowly, like a basin's groundwater. A simple RNN with a = 0.5 has forgotten the wet season within a few months.</p>
+      <div class="callout violet">An LSTM is a composite of simpler operations: weighted sums, sigmoid gates, tanh, element-wise multiply and add. It is used as one layer, and Module 3 treats it there. A GRU does the same with two gates.</div>
+      <p class="note">Toy cell with hand-set weights on synthetic data. The forget gate is held at its bias; a trained one also varies with the input.</p>
+    </div>
+    <div class="panel nosw">
+      <div class="ctl"><label for="g3lsF">Forget f</label><input id="g3lsF" type="range" min="0.5" max="0.99" step="0.01" value="0.9"><output></output></div>
+      <div class="ctl"><label for="g3lsA">RNN a</label><input id="g3lsA" type="range" min="0" max="0.95" step="0.05" value="0.5"><output></output></div>
+      <div style="display:flex;gap:10px;align-items:center"><button class="btn" id="g3lsPlay" type="button">Play</button><div class="ctl" style="flex:1"><label for="g3lsM">Month</label><input id="g3lsM" type="range" min="1" max="60" step="1" value="30"><output></output></div></div>
+      <div id="g3lsFig"></div>
+      <div class="legend"><span><i style="background:var(--cool);opacity:.5"></i>Rain (monthly)</span><span><i style="background:var(--data)"></i>Streamflow</span><span><i style="background:var(--arch)"></i>LSTM output</span><span><i style="background:var(--lw)"></i>Simple RNN</span></div>
+      <h3 style="margin-top:12px">The cell this month</h3>
+      <div class="fig-wrap"><div id="g3lsValve" style="min-width:440px"></div></div>
+      <div class="readout" id="g3lsRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-self" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">11</span>Self-attention</p>
+  <h2>Each word scores every word, softmax turns scores into weights, and the output is a weighted average</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Query</b>: what am I looking for? <b>Key</b>: what do I contain? <b>Value</b>: what do I pass on? Each comes from its own learned dense layer.</li>
+        <li>Score = q · k / √d, with d the vector length, so softmax does not become too sharp.</li>
+      </ul>
+      <div class="eq arch">w = softmax(q·k / √d) &nbsp;&nbsp; out = Σ w<sub>j</sub> v<sub>j</sub></div>
+      <p>Example: "it" against [the, cat, sat, tired] has scores [0, 3, 1, 2]. Softmax gives ≈ [0.03, 0.64, 0.09, 0.24], so "it" takes its meaning mostly from "cat".</p>
+      <div class="callout amber"><b>Cost grows with the square of the length.</b> Every element scores every other one.
+        <div class="ctl" style="margin-bottom:0"><label for="g3saN">Length n</label><input id="g3saN" type="range" min="0" max="4" step="1" value="3"><output></output></div>
+        <span id="g3saCost"></span> This is what motivates state space models (operation 26).</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3saMode"><button class="chip" data-v="ex" aria-pressed="true">Example: "it" and 4 keys</button><button class="chip" data-v="all">Whole sentence</button></div>
+      <h3 id="g3saHint">Query on top, keys below · line thickness = weight</h3>
+      <div class="fig-wrap"><div id="g3saFig" style="min-width:420px"></div></div>
+      <h3 style="margin-top:6px">Scores (edit them)</h3>
+      <div class="cells" id="g3saScores"></div>
+      <div class="ctl"><label for="g3saT">Temperature</label><input id="g3saT" type="range" min="0.2" max="4" step="0.1" value="1"><output></output></div>
+      <div class="two even" style="gap:14px;align-items:center">
+        <div><h3>Attention matrix (click a row)</h3><div id="g3saMap" style="max-width:300px"></div></div>
+        <div class="calc" id="g3saCalc" style="margin-top:0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-mha" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">11b</span>Multi-head attention</p>
+  <h2>Several heads attend in parallel, each to a different kind of relation</h2>
+  <div class="two">
+    <div>
+      <p>Each head has its own query, key and value weights. The head outputs are concatenated and mixed by a dense layer.</p>
+      <div id="g3mhSplit"></div>
+      <p class="note">A vector of 512 numbers split into 8 heads of 64. Each head works on its 64-number slice.</p>
+      <ul class="pts">
+        <li><b>Head 1</b>: the last few days (persistence).</li>
+        <li><b>Head 2</b>: the same date last year (seasonality).</li>
+        <li><b>Head 3</b>: days with a similar pressure pattern (analogues).</li>
+      </ul>
+      <div class="callout violet">One head makes one weighted average and can focus on one kind of relation. Several heads look at several relations at once for about the same cost.</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3mhHeads"><button class="chip" type="button" data-h="0" aria-pressed="true">Head 1: recent</button><button class="chip" type="button" data-h="1" aria-pressed="true">Head 2: last year</button><button class="chip" type="button" data-h="2" aria-pressed="true">Head 3: similar pressure</button></div>
+      <div class="ctl"><label for="g3mhT">Today</label><input id="g3mhT" type="range" min="380" max="729" step="1" value="700"><output></output></div>
+      <h3>Weights of each head over the past two years (today = right edge)</h3>
+      <div class="three" id="g3mhMinis" style="gap:8px"><div id="g3mhFig0"></div><div id="g3mhFig1"></div><div id="g3mhFig2"></div></div>
+      <h3 style="margin-top:10px">Active heads together, zoomed to the last 400 days</h3>
+      <div id="g3mhFig"></div>
+      <div class="readout" id="g3mhRead"></div>
+      <div class="calc" id="g3mhMix"></div>
+      <p class="note" style="margin-top:8px">Synthetic two-year daily rainfall series (mm/day) with a synthetic pressure series. Each head forecasts tomorrow as a weighted average of what followed the days it attends to. Error = mean absolute error over the last 350 days.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-causal" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">11c</span>Causal masking</p>
+  <h2>A causal mask stops each day from attending to the future</h2>
+  <div class="two">
+    <div>
+      <p>Before the softmax, scores for future positions are set to minus infinity, so their weights become exactly 0. Each day attends only to itself and the past.</p>
+      <div class="eq arch">score<sub>t,s</sub> = −∞ &nbsp;for s &gt; t</div>
+      <p>Example: day 3 has scores [1, 2, 0.5, 3, 4] for days 1 to 5. Mask days 4 and 5, then softmax over [1, 2, 0.5] ≈ [0.23, 0.63, 0.14], and 0 for days 4 and 5.</p>
+      <div class="callout red"><b>Data leakage, built into the architecture.</b> Module 1 warned against letting future information into the inputs. The mask enforces that rule inside the model. It is also what lets language models and forecasting transformers generate one step at a time.</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3cmMode"><button class="chip" data-v="on" aria-pressed="true">Mask on</button><button class="chip" data-v="off">Mask off</button></div>
+      <h3>Attention weights, 5 days (rows = query day, click a row)</h3>
+      <div id="g3cmMap" style="max-width:360px"></div>
+      <div class="calc" id="g3cmCalc"></div>
+      <h3 style="margin-top:12px">A forecast of tomorrow's rain that uses attention</h3>
+      <div id="g3cmFig"></div>
+      <div class="readout" id="g3cmRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-cross" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">12</span>Cross-attention</p>
+  <h2>A station's forecast attends to the satellite cells upwind of it</h2>
+  <div class="two">
+    <div>
+      <p>In cross-attention the queries come from one sequence and the keys and values from another. Here the query is a station, and the keys and values are the cells of a satellite cloud field over Colombia.</p>
+      <div class="eq arch">w = softmax(q<sub>station</sub> · k<sub>cell</sub>) &nbsp; out = Σ w · v<sub>cell</sub></div>
+      <p>A trained model learns that clouds arriving at the station come from upwind. Here the score is set by hand: it falls with distance and rises for cells in the direction the wind comes from.</p>
+      <div class="chips" id="g3caSt"><button class="chip" data-v="6,4" aria-pressed="true">Medellín</button><button class="chip" data-v="8,5">Bogotá</button><button class="chip" data-v="9,3">Cali</button><button class="chip" data-v="17,9">Leticia</button></div>
+      <div class="ctl"><label for="g3caW">Wind from</label><input id="g3caW" type="range" min="0" max="345" step="15" value="90"><output></output></div>
+      <div class="ctl"><label for="g3caB">Upwind focus</label><input id="g3caB" type="range" min="0" max="4" step="0.25" value="2"><output></output></div>
+      <p class="note">Synthetic cloud field on a coarse grid (one cell ≈ 100 km); station positions are approximate.</p>
+    </div>
+    <div class="panel nosw">
+      <h3>Click or drag on either map to move the station</h3>
+      <div class="two even" style="gap:12px">
+        <div><h3>Keys and values: cloud fraction</h3><div id="g3caMap1" style="touch-action:none;max-width:260px"></div></div>
+        <div><h3>Attention weights</h3><div id="g3caMap2" style="touch-action:none;max-width:260px"></div></div>
+      </div>
+      <div class="readout" id="g3caRead"></div>
+      <div class="calc" id="g3caCalc"></div>
+    </div>
+  </div>
+</section>

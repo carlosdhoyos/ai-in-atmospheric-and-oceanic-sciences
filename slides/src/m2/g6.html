@@ -1,0 +1,124 @@
+<!-- ═════════ Group 6 · Modern extras: mixture of experts, state space models, Fourier neural operators ═════════ -->
+
+<section class="slide" id="op-moe" data-g="a" data-sec="2 · Operations · Modern extras">
+  <p class="kicker k-arch"><span class="opnum">25</span>Mixture of experts</p>
+  <h2>A router sends each day to a few specialist experts, so a huge model stays cheap per prediction</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y = Σ<sub>k ∈ top‑K</sub> g<sub>k</sub>(x) · E<sub>k</sub>(x), &nbsp; g = softmax(W<sub>r</sub> · x)</div>
+      <p>The router is a tiny dense layer. It scores every expert for the current input, keeps the top K, and turns their scores into weights that sum to 1. Only those K experts run. Their outputs are mixed with those weights.</p>
+      <p>Here each day of a synthetic year at a Medellín-like station has two router features: a <b>seasonal</b> signal (high in the two rainy seasons, April–May and October–November) and the <b>recent rain</b> (7-day mean, standardized).</p>
+      <ul class="pts">
+        <li>The router weights are learned like any other weight. Nobody tells it "dry season goes to expert 1". After training it often finds that split by itself.</li>
+        <li>Press <i>Untrained router</i>: random router weights give an arbitrary split, often one expert takes nearly every day. Press <i>Trained router</i>: the experts line up with the seasons.</li>
+        <li>Turn up the recent-rain weight and the split follows wet spells instead of the calendar.</li>
+      </ul>
+      <div class="callout violet"><b>Many parameters, cheap predictions.</b> Total parameters grow with the number of experts; the work per prediction grows only with K.</div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g6moeN"><span class="note" style="align-self:center">Experts</span><button class="chip" data-v="2">2</button><button class="chip" data-v="4" aria-pressed="true">4</button><button class="chip" data-v="8">8</button></div>
+      <div class="chips" id="g6moeK"><span class="note" style="align-self:center">Active per day (top‑K)</span><button class="chip" data-v="1" aria-pressed="true">K = 1</button><button class="chip" data-v="2">K = 2</button></div>
+      <div class="ctl"><label for="g6moeWs">Seasonal weight</label><input id="g6moeWs" type="range" min="0" max="4" step="0.1" value="2.5"><output></output></div>
+      <div class="ctl"><label for="g6moeWr">Recent-rain weight</label><input id="g6moeWr" type="range" min="0" max="4" step="0.1" value="0.6"><output></output></div>
+      <div class="chips"><button class="btn" id="g6moeUn" type="button">Untrained router</button><button class="btn" id="g6moeTr" type="button">Trained router</button></div>
+      <div class="fig-wrap" id="g6moeFig"></div>
+      <div class="legend" id="g6moeLeg"></div>
+      <div class="fig-wrap" id="g6moeNet" style="margin-top:6px"></div>
+      <div class="readout" id="g6moeRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-ssm" data-g="a" data-sec="2 · Operations · Modern extras">
+  <p class="kicker k-arch"><span class="opnum">26</span>State space models (e.g. Mamba)</p>
+  <h2>A state space model is a learned linear filter that carries one small state through a very long sequence</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">h<sub>t</sub> = A · h<sub>t−1</sub> + B · x<sub>t</sub>, &nbsp; y<sub>t</sub> = C · h<sub>t</sub></div>
+      <p>A says how much of yesterday's state survives, B how much of today's input enters, C how the state is read out. Feed a single pulse (an impulse) and watch the response:</p>
+      <ul class="pts">
+        <li><b>0 &lt; A &lt; 1</b>: the pulse decays. A near 1 means long memory.</li>
+        <li><b>A &gt; 1</b>: the response explodes. Training keeps A inside (−1, 1).</li>
+        <li><b>A &lt; 0</b>: the sign flips every step.</li>
+        <li>A smooth oscillation needs <b>two coupled states</b> (a complex A: size and angle).</li>
+      </ul>
+      <p>This is the classic AR(1) or IIR filter from signal processing, with A, B, C learned. <b>Selective</b> SSMs (Mamba) let each input set B and the step size Δ: a heavy-rain day can overwrite the memory, a quiet day leaves it alone.</p>
+      <div class="callout violet"><b>Linear cost.</b> One update per step: cost grows like L. Attention compares every pair of steps: cost grows like L².</div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g6ssmMode"><button class="chip" data-v="real" aria-pressed="true">1 state (real A)</button><button class="chip" data-v="cplx">2 coupled states</button><button class="chip" data-v="sel">Selective (Mamba)</button></div>
+      <div class="chips" id="g6ssmIn"><span class="note" style="align-self:center">Input</span><button class="chip" data-v="imp" aria-pressed="true">Impulse</button><button class="chip" data-v="step">Step</button><button class="chip" data-v="rain">Daily rain</button></div>
+      <div id="g6ssmRealCtl">
+        <div class="ctl"><label for="g6ssmA">A</label><input id="g6ssmA" type="range" min="-1.2" max="1.2" step="0.01" value="0.8"><output></output></div>
+      </div>
+      <div id="g6ssmCplxCtl" hidden>
+        <div class="ctl"><label for="g6ssmR">Size |A|</label><input id="g6ssmR" type="range" min="0" max="1.1" step="0.01" value="0.9"><output></output></div>
+        <div class="ctl"><label for="g6ssmTh">Angle of A</label><input id="g6ssmTh" type="range" min="0" max="180" step="1" value="30"><output></output></div>
+      </div>
+      <div id="g6ssmSelCtl" hidden>
+        <div class="ctl"><label for="g6ssmSel">Selectivity</label><input id="g6ssmSel" type="range" min="0" max="3" step="0.1" value="1.5"><output></output></div>
+      </div>
+      <div class="ctl"><label for="g6ssmB">B</label><input id="g6ssmB" type="range" min="0" max="2" step="0.05" value="1"><output></output></div>
+      <div class="ctl"><label for="g6ssmC">C</label><input id="g6ssmC" type="range" min="-2" max="2" step="0.05" value="1"><output></output></div>
+      <div class="fig-wrap" id="g6ssmNet"></div>
+      <div class="fig-wrap" id="g6ssmFig"></div>
+      <div class="readout" id="g6ssmRead"></div>
+      <div class="calc" id="g6ssmCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-fno" data-g="a" data-sec="2 · Operations · Modern extras">
+  <p class="kicker k-arch"><span class="opnum">27</span>Fourier neural operator</p>
+  <h2>An FNO layer moves a field to frequencies, reweights a few low modes, and moves it back</h2>
+  <div class="two">
+    <div>
+      <p>A temperature anomaly on 8 points around a latitude circle. Wind carries it east one point per day and mixing smooths it. Task: predict tomorrow from today.</p>
+      <div class="eq arch">u(x) = 2 + cos x + 0.5·cos 3x</div>
+      <ol class="pts" style="padding-left:20px">
+        <li><b>FFT</b>: the field is exactly mode 0 = 2, mode 1 = 1, mode 3 = 0.5.</li>
+        <li><b>Keep low modes</b> (0 and 1): a low-pass filter, 2 + cos x.</li>
+        <li><b>Multiply by complex weights</b>: mode 0 × 1; mode 1 × 0.8 at −45° (damp to 80%, shift east one point).</li>
+        <li><b>Inverse FFT</b>: 2 + 0.8·cos(x − 45°). The peak moves from point 0 to point 1.</li>
+        <li><b>Local path and activation</b>: add 0.1·u (fine detail the truncated modes lost), then apply the activation.</li>
+      </ol>
+      <div class="callout violet"><b>Global in one layer.</b> Hover an output point: lines show how much every input point contributes. A convolution would only see its neighbours.</div>
+    </div>
+    <div class="panel">
+      <div class="fig-wrap" id="g6fnoFig"></div>
+      <div class="fig-wrap" id="g6fnoSpec"></div>
+      <div class="ctl"><label for="g6fnoK">Modes kept</label><input id="g6fnoK" type="range" min="1" max="5" step="1" value="2"><output></output></div>
+      <div class="ctl"><label for="g6fnoM">Mode‑1 size</label><input id="g6fnoM" type="range" min="0" max="1.5" step="0.05" value="0.8"><output></output></div>
+      <div class="ctl"><label for="g6fnoP">Mode‑1 angle</label><input id="g6fnoP" type="range" min="-180" max="180" step="5" value="-45"><output></output></div>
+      <div class="ctl"><label for="g6fnoL">Local weight</label><input id="g6fnoL" type="range" min="0" max="0.5" step="0.05" value="0.1"><output></output></div>
+      <div class="chips" id="g6fnoAct"><span class="note" style="align-self:center">Activation</span><button class="chip" data-v="none">None</button><button class="chip" data-v="relu" aria-pressed="true">ReLU</button><button class="chip" data-v="gelu">GELU</button><button class="btn" id="g6fnoReset" type="button">Worked example</button></div>
+      <div class="calc" id="g6fnoCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-fno-train" data-g="a" data-sec="2 · Operations · Modern extras">
+  <p class="kicker k-arch"><span class="opnum">27</span>Fourier neural operator · training</p>
+  <h2>From (today, tomorrow) pairs alone, each mode's weight converges to the true shift and damping</h2>
+  <div class="two">
+    <div>
+      <p>Synthetic pairs from a toy advection–diffusion model on the 8-point circle: shift east one point per day; damp mode 1 to 0.8 (higher modes are damped more, 0.8<sup>k²</sup>); add small noise. Training is a least-squares fit per mode: W<sub>k</sub> = Σ ŷ<sub>k</sub>·û<sub>k</sub>* / Σ |û<sub>k</sub>|².</p>
+      <ul class="pts">
+        <li><b>Physics in disguise.</b> A shift needs a convolution filter as wide as the shift, but only one multiplication per mode here. Damping too. That is why FNOs suit transport and diffusion.</li>
+        <li><b>Resolution.</b> Weights belong to modes, not grid points: the same weights work on 16 or 64 points.</li>
+        <li><b>Global view.</b> Every output point depends on the whole input field in one layer.</li>
+        <li><b>Limit.</b> Only the kept modes are learned. Sharp fronts and extremes need the local path or more modes.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="chips"><button class="btn" id="g6ftStep" type="button">Add one pair</button><button class="btn" id="g6ftPlay" type="button">Train (animate)</button><button class="btn" id="g6ftReset" type="button">Reset</button></div>
+      <div class="ctl"><label for="g6ftNoise">Noise</label><input id="g6ftNoise" type="range" min="0" max="0.6" step="0.05" value="0.2"><output></output></div>
+      <div class="fig-wrap" id="g6ftFig"></div>
+      <div class="readout" id="g6ftRead"></div>
+      <h3 style="margin-top:14px">Same learned weights at another resolution</h3>
+      <div class="chips" id="g6ftRes"><button class="chip" data-v="8" aria-pressed="true">8 points</button><button class="chip" data-v="16">16 points</button><button class="chip" data-v="64">64 points</button><button class="btn" id="g6ftDay" type="button">Next day ▸</button></div>
+      <div class="fig-wrap" id="g6ftResFig"></div>
+      <div class="legend" id="g6ftLeg"></div>
+    </div>
+  </div>
+</section>

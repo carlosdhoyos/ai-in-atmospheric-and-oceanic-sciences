@@ -1,10 +1,4 @@
 /* ═════════ PART 1 · DATA FOUNDATION demos ═════════ */
-const erf = x => { const s = Math.sign(x), a = Math.abs(x), t = 1 / (1 + 0.3275911 * a);
-  return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-a * a)); };
-const Phi = z => 0.5 * (1 + erf(z / Math.SQRT2));
-const corr = (a, b) => { const ma = mean(a), mb = mean(b); let n = 0, da = 0, db = 0;
-  for (let i = 0; i < a.length; i++) { n += (a[i] - ma) * (b[i] - mb); da += (a[i] - ma) ** 2; db += (b[i] - mb) ** 2; } return n / Math.sqrt(da * db); };
-
 /* pipeline overview */
 demo("d-pipeline", () => {
   const S = [
@@ -35,7 +29,7 @@ demo("d-pipeline", () => {
       g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); sel = i; render(); } });
     });
     el("path", { d: `M${10 + 4 * (bw + gx) + bw / 2} ${14 + bh} V${14 + bh + 15} H${10 + bw / 2} V${90 - 2}`, fill: "none", stroke: css("--muted"), "marker-end": "url(#pa)" }, svg);
-    el("text", { x: W - 8, y: H - 6, "text-anchor": "end", class: "mut", "font-size": 12 }, svg, "→ a table of numbers enters the network (Part 2)");
+    el("text", { x: W - 8, y: H - 6, "text-anchor": "end", class: "mut", "font-size": 12 }, svg, "→ a table of numbers enters the network (Modules 2–5)");
     const s = S[sel];
     $("#pipeCard").innerHTML = `<p class="kicker k-data">Stage ${sel + 1} of 10</p><h4 style="font-size:20px;margin-bottom:6px"></h4><p></p><p class="note"><b>Example:</b> <span></span></p><button class="btn" data-go="${s[1]}" type="button">Go to this topic →</button>`;
     const c = $("#pipeCard"); c.querySelector("h4").textContent = s[2]; c.querySelectorAll("p")[1].textContent = s[3]; c.querySelector(".note span").textContent = s[4];

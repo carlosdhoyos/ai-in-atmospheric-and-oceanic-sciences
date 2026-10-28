@@ -1,0 +1,69 @@
+
+<section class="slide" id="cover" data-g="" data-sec="Module 2 · Operations">
+  <div class="cover">
+    <p class="kicker k-arch">Neural networks · Module 2</p>
+    <h1>Operations: <span class="hl">the basic mechanisms</span></h1>
+    <p class="lead">Weighted sums, activations, convolution, recurrence, attention, normalization, residual connections and more: 30 operations, one per slide, each with a worked numeric example you can change. Each one makes an assumption about the data.</p>
+    <div class="toc" id="inCover"></div>
+    <p class="note">Previous: <a href="data-foundation.html">Module 1, Data Foundation</a> · Next: <a href="layers.html">Module 3, Layers</a> · Use ← → or the <button class="btn" data-go="op-list" style="padding:2px 10px;font-size:12.5px">list of operations</button>.</p>
+  </div>
+</section>
+
+<section class="slide" id="toc" data-g="" data-sec="Contents">
+  <p class="kicker">Contents</p>
+  <h2>Module 2 · table of contents</h2>
+  <p class="note">Click any title to jump to it.</p>
+  <div id="tocList" class="toclist"></div>
+</section>
+
+<section class="slide" id="op-list" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">The list</p>
+  <h2>Thirty operations in eight groups</h2>
+  <p class="lead">Click an operation to go to its slide. Numbers follow the detailed guide; 08b, 11b and 11c were added after the first pass.</p>
+  <div class="four" id="inList" style="margin-top:6px;align-items:start"></div>
+</section>
+
+<section class="slide" id="op-data" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Shared datasets</p>
+  <h2>The same few examples run through every operation</h2>
+  <p class="lead">Every demo shows input, operation and output side by side, with connections drawn as lines whose thickness is the weight. All data here are synthetic, built to look like the real thing.</p>
+  <div class="two even" style="margin-top:6px">
+    <div class="stack">
+      <div class="panel"><h3>Temporal: a Medellín-like station, 365 days</h3><div id="inDaily"></div></div>
+      <div class="panel"><h3>Temporal: monthly rainfall and streamflow, 5 years (year 3 is a dry El Niño year)</h3><div id="inMonthly"></div></div>
+    </div>
+    <div class="stack">
+      <div class="panel"><h3>Spatial: fields over a simplified outline of Colombia</h3>
+        <div class="chips" id="inFieldPick"><button class="chip" data-v="temp" aria-pressed="true">Temperature</button><button class="chip" data-v="precip">Precipitation</button><button class="chip" data-v="elev">Elevation</button></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap"><div id="inField" style="width:190px"></div><p class="note" id="inFieldNote" style="flex:1;min-width:12em"></p></div></div>
+      <div class="panel"><h3>Tabular and text</h3><div class="fig-wrap" id="inStudents"></div><p class="note" style="margin:8px 0 0">Sentence for attention: <i>the cat sat because it was tired</i>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-bias" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">Unifying idea · inductive bias</p>
+  <h2>Each operation hard-codes an assumption about who should be connected to whom</h2>
+  <div class="two">
+    <div class="stack" id="inBiasPicks">
+      <button class="pick" data-v="dense" aria-pressed="true"><b>Dense</b><span>Everything connects to everything. No assumption.</span></button>
+      <button class="pick" data-v="conv" aria-pressed="false"><b>Convolution</b><span>Nearby values matter together, and the same pattern can appear anywhere.</span></button>
+      <button class="pick" data-v="rnn" aria-pressed="false"><b>Recurrence</b><span>Data comes in order; carry a memory forward step by step.</span></button>
+      <button class="pick" data-v="attn" aria-pressed="false"><b>Attention</b><span>Anything can connect to anything; the strength is computed from the content.</span></button>
+      <button class="pick" data-v="graph" aria-pressed="false"><b>Graph</b><span>Connections follow a given graph: stations, roads, molecules.</span></button>
+    </div>
+    <div class="panel">
+      <h3>Seven days of input → the output for one day (click a day)</h3>
+      <div id="inBiasFig"></div>
+      <div class="readout" id="inBiasRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-geo" data-g="a" data-sec="2 · Operations">
+  <p class="kicker k-arch">The geometric view</p>
+  <h2>Choose the operation by the shape and symmetry of the data</h2>
+  <p class="lead">Geometric deep learning (Bronstein et al., 2021): a good architecture respects the symmetry the problem already has.</p>
+  <div class="four" id="inGeoCards" style="margin-top:8px"></div>
+  <div class="panel" id="inGeoText" style="margin-top:12px"></div>
+</section>

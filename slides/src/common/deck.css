@@ -46,6 +46,16 @@ header.top{display:flex;align-items:center;gap:14px;padding:10px max(16px,env(sa
 header.top a.back{color:var(--muted);text-decoration:none;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:13.5px;white-space:nowrap}
 header.top a.back:hover{color:var(--accent)}
 header.top .sec{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+nav.series{display:flex;gap:4px;min-width:0;overflow-x:auto;scrollbar-width:none;flex:0 1 auto}
+nav.series::-webkit-scrollbar{display:none}
+nav.series .mod{font-family:var(--f-body);font-size:12.5px;text-transform:none;letter-spacing:0;white-space:nowrap;padding:5px 10px;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted);text-decoration:none;background:var(--card)}
+nav.series .mod span{font-family:var(--f-mono);color:var(--accent);margin-right:2px}
+nav.series a.mod:hover{border-color:var(--accent);color:var(--fg)}
+nav.series .mod.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+nav.series .mod.on span{color:var(--bg)}
+nav.series .mod.later{opacity:.5;border-style:dashed}
+@media (max-width:1180px){header.top .sec{display:none} nav.series{flex:1}}
 header.top .sec b{color:var(--fg);font-weight:500}
 button.theme-tg{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:34px;border-radius:999px;border:1px solid var(--line);background:var(--card);
   display:grid;place-items:center;color:var(--fg);flex:none}
@@ -150,7 +160,7 @@ button.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* SVG & canvas */
 svg{display:block;width:100%;height:auto;overflow:visible}
-svg text{fill:var(--fg);font-family:var(--f-body);font-size:12px}
+svg text{font-family:var(--f-body)} svg text:not([fill]){fill:var(--fg)} svg text:not([font-size]){font-size:12px}
 svg text.mut{fill:var(--muted)} svg text.mono{font-family:var(--f-mono)}
 svg .ax{stroke:var(--line);stroke-width:1;fill:none}
 svg .grid{stroke:var(--line);stroke-width:.7;stroke-dasharray:2 3;fill:none}
@@ -212,3 +222,9 @@ table.tb td.n{font-family:var(--f-mono);text-align:right}
   .slide.on{animation:none}
   *,*::before,*::after{transition:none!important}
 }
+a.pick{text-decoration:none}
+.slide a:not(.pick):not(.mod){color:var(--accent)}
+.opnum{font-family:var(--f-mono);color:var(--muted);margin-right:6px}
+.maprow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:10px}
+.maprow .pick{display:flex;flex-direction:column;gap:4px}
+@media (max-width:900px){.maprow{grid-template-columns:minmax(0,1fr)}}

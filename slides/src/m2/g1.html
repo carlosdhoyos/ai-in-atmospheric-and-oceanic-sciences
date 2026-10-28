@@ -1,0 +1,115 @@
+<section class="slide" id="op-wsum" data-g="a" data-sec="2 · Operations · Foundations">
+  <p class="kicker k-arch"><span class="opnum">01</span>Weighted sum (the neuron)</p>
+  <h2>A neuron multiplies each input by a weight, adds them up and adds a bias</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">z = w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + b &nbsp;→&nbsp; p = σ(z)</div>
+      <p>Will it rain in Medellín tomorrow? Humidity 0.8 and pressure drop 0.5, with weights 2 and 3 and bias −2: z = 1.6 + 1.5 − 2 = <b>1.1</b>, a positive rain signal. The sigmoid turns 1.1 into <b>0.75</b>, a 75% chance of rain.</p>
+      <div class="callout violet"><b>You already know this model.</b> Without an activation, one neuron is linear regression. With a sigmoid, it is logistic regression.</div>
+      <h3>60 synthetic days: the neuron's decision line</h3>
+      <div id="g1wsScat"></div>
+      <div class="legend"><span><i style="background:var(--cool)"></i>Rain day</span><span><i style="background:var(--sw)"></i>Dry day</span><span><i style="background:var(--arch-soft);border:1px solid var(--arch)"></i>z &gt; 0 (predicts rain)</span></div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g1wsAct"><button class="chip" data-v="sig" aria-pressed="true">Sigmoid (logistic regression)</button><button class="chip" data-v="lin">No activation (linear regression)</button></div>
+      <div id="g1wsFig"></div>
+      <div class="ctl"><label for="g1wsX1">Humidity x₁</label><input id="g1wsX1" type="range" min="0" max="1" step="0.05" value="0.8"><output></output></div>
+      <div class="ctl"><label for="g1wsX2">Pressure drop x₂</label><input id="g1wsX2" type="range" min="0" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="ctl"><label for="g1wsW1">Weight w₁</label><input id="g1wsW1" type="range" min="-4" max="4" step="0.1" value="2"><output></output></div>
+      <div class="ctl"><label for="g1wsW2">Weight w₂</label><input id="g1wsW2" type="range" min="-4" max="4" step="0.1" value="3"><output></output></div>
+      <div class="ctl"><label for="g1wsB">Bias b</label><input id="g1wsB" type="range" min="-4" max="4" step="0.1" value="-2"><output></output></div>
+      <div class="calc" id="g1wsCalc"></div>
+      <p class="note" style="margin:8px 0 0">Weights rotate the line. The bias shifts it without turning it. <button class="btn" id="g1wsReset" type="button" style="padding:2px 10px;font-size:12.5px">Reset to the example</button></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-elem" data-g="a" data-sec="2 · Operations · Foundations">
+  <p class="kicker k-arch"><span class="opnum">02</span>Element-wise operations</p>
+  <h2>Element-wise operations apply the same arithmetic to every cell on its own</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">out[i, j] = a[i, j] ∘ b[i, j]</div>
+      <p>Each output cell depends only on the same cell of the inputs. No neighbours, no mixing. The grid is a synthetic 18 × 14 field over Colombia.</p>
+      <ul class="pts">
+        <li><b>Add</b>: temperature + 1 °C everywhere.</li>
+        <li><b>Scale</b>: rainfall × 0.5 halves every cell.</li>
+        <li><b>Mask</b>: field × land mask keeps land cells (× 1) and zeroes the sea (× 0).</li>
+        <li><b>Add a field</b>: two grids of the same shape, cell by cell.</li>
+      </ul>
+      <div class="callout amber"><b>Shapes must match, or broadcast.</b> One number, or one row, is stretched across the whole grid without a warning. That is convenient, and a common source of silent bugs: a row of 14 values added to an 18 × 14 grid works, even if you meant one value per row.</div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g1elOp"><button class="chip" data-v="add" aria-pressed="true">+ constant</button><button class="chip" data-v="scale">× constant</button><button class="chip" data-v="mask">× land mask</button><button class="chip" data-v="field">+ second field</button><button class="chip" data-v="row">+ one row (broadcast)</button><button class="chip" data-v="bad">+ wrong shape</button></div>
+      <div class="ctl" id="g1elCtl"><label for="g1elC">Constant</label><input id="g1elC" type="range" min="-3" max="3" step="0.5" value="1"><output></output></div>
+      <div class="fig-wrap"><div id="g1elFig"></div></div>
+      <div class="calc" id="g1elCalc"></div>
+      <div class="chips"><button class="btn" id="g1elPlay" type="button">Compute cell by cell</button><span class="note" style="align-self:center">Hover or tap a cell to see its sum.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-act" data-g="a" data-sec="2 · Operations · Foundations">
+  <p class="kicker k-arch"><span class="opnum">03</span>Activation functions</p>
+  <h2>An activation bends each value on its own, so stacked layers can learn curves</h2>
+  <div class="two">
+    <div>
+      <p>Without a nonlinearity, any stack of layers equals one linear layer. The activation is applied to every value independently.</p>
+      <table class="tb" id="g1acTable"></table>
+      <div class="callout red" style="margin-top:12px"><b>Dying ReLU.</b> If a neuron's input is always negative, ReLU always outputs 0 and its gradient is 0. The neuron stops learning for good.</div>
+      <div class="callout amber"><b>Saturation.</b> Far from 0, sigmoid and tanh are flat. The gradient almost vanishes, so learning slows. Inputs should be scaled first.</div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="g1acPick"><button class="chip" data-v="relu" aria-pressed="true">ReLU</button><button class="chip" data-v="sigmoid">Sigmoid</button><button class="chip" data-v="tanh">Tanh</button><button class="chip" data-v="gelu">GELU</button></div>
+      <div id="g1acFig" style="touch-action:none;cursor:ew-resize"></div>
+      <div class="ctl"><label for="g1acX">Input x</label><input id="g1acX" type="range" min="-4" max="4" step="0.1" value="-2"><output></output></div>
+      <h3 style="margin-top:10px">Temperature anomaly map: before and after</h3>
+      <div class="fig-wrap"><div id="g1acMap"></div></div>
+      <div class="readout" id="g1acRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-softmax" data-g="a" data-sec="2 · Operations · Foundations">
+  <p class="kicker k-arch"><span class="opnum">03</span>Activation functions: softmax</p>
+  <h2>Softmax turns a list of scores into probabilities, and the scale of the scores matters</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">p<sub>i</sub> = e<sup>z<sub>i</sub></sup> / Σ<sub>j</sub> e<sup>z<sub>j</sub></sup></div>
+      <p>A rain-type classifier gives scores for tomorrow: dry 2, normal 1, wet 0. Softmax gives about <b>[0.67, 0.24, 0.09]</b>. The outputs are positive and sum to 1.</p>
+      <p>Multiply the same scores by 10: <b>[20, 10, 0]</b> gives almost <b>[1, 0, 0]</b>. The order is the same, but the exponential makes the largest score take nearly everything. Dividing by a temperature does the reverse and flattens the probabilities.</p>
+      <div class="callout violet">Softmax depends on scale, not only on order. The same knob controls how sharp attention is and how random text generation is.</div>
+      <div class="chips"><button class="btn" type="button" id="g1smEx1">[2, 1, 0]</button><button class="btn" type="button" id="g1smEx2">[20, 10, 0]</button><button class="btn" type="button" id="g1smEx3">[0.2, 0.1, 0]</button></div>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="g1smA">Dry score</label><input id="g1smA" type="range" min="-3" max="5" step="0.1" value="2"><output></output></div>
+      <div class="ctl"><label for="g1smB">Normal score</label><input id="g1smB" type="range" min="-3" max="5" step="0.1" value="1"><output></output></div>
+      <div class="ctl"><label for="g1smC">Wet score</label><input id="g1smC" type="range" min="-3" max="5" step="0.1" value="0"><output></output></div>
+      <div class="ctl"><label for="g1smS">Scale ×</label><input id="g1smS" type="range" min="-1" max="1" step="0.05" value="0"><output></output></div>
+      <div id="g1smFig"></div>
+      <h3 style="margin-top:8px">Probabilities as the scale grows</h3>
+      <div id="g1smCurve"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-dense" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">04</span>Dense (fully connected)</p>
+  <h2>A dense layer connects every input to every neuron: one matrix multiplication</h2>
+  <div class="two">
+    <div>
+      <div class="eq arch">y = f(W·x + b) &nbsp;·&nbsp; params = in × out + out</div>
+      <p>3 inputs (temperature, humidity, wind) into 2 neurons: 3 × 2 = <b>6 weights + 2 biases</b>.</p>
+      <p>Here: absences, grade and estrato of 20 synthetic students, standardized (z-scores), feed the hidden neurons, which feed one sigmoid output: the attrition probability. Pick a student.</p>
+      <div id="g1dnTable" style="position:relative;max-height:220px;overflow-y:auto;border:1px solid var(--line);border-radius:10px"></div>
+      <div class="callout amber"><b>Parameters grow fast.</b> A 100 × 100 image is 10,000 inputs. Into 100 neurons that is 10,000 × 100 = <b>1,000,000 weights</b>, for one layer. That is why images use convolution instead.</div>
+    </div>
+    <div class="panel">
+      <div class="ctl"><label for="g1dnH">Hidden neurons</label><input id="g1dnH" type="range" min="1" max="8" step="1" value="3"><output></output></div>
+      <div id="g1dnFig"></div>
+      <p class="note" style="margin:2px 0 0">Click a neuron to see its incoming weights and its sum. Weights were fitted to the 20 synthetic students, for illustration only.</p>
+      <div class="calc" id="g1dnCalc"></div>
+      <div class="readout" id="g1dnRead"></div>
+    </div>
+  </div>
+</section>

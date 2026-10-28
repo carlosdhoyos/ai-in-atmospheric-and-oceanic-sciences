@@ -1,0 +1,189 @@
+<section class="slide" id="op-conv1d" data-g="a" data-sec="2 · Operations · Convolution">
+  <p class="kicker k-arch"><span class="opnum">05</span>Convolution in 1D</p>
+  <h2>A three-day filter slides along the rainfall series and reuses the same weights at every step</h2>
+  <div class="two">
+    <div>
+      <p>A convolution takes a short window of the series, multiplies it by a small set of weights (the filter or kernel) and adds the products. Then the window moves one day and the same weights are used again.</p>
+      <div class="eq arch">y<sub>t</sub> = w<sub>1</sub>·x<sub>t−1</sub> + w<sub>2</sub>·x<sub>t</sub> + w<sub>3</sub>·x<sub>t+1</sub></div>
+      <p>Worked example: rainfall [0, 2, 8, 3, 0] mm with the filter [1, 1, 1] gives 0 + 2 + 8 = <b>10</b>, 2 + 8 + 3 = <b>13</b> and 8 + 3 + 0 = <b>11</b>.</p>
+      <ul class="pts">
+        <li><b>[1/3, 1/3, 1/3]</b> is a 3-day moving average. It smooths the series.</li>
+        <li><b>[−1, 0, 1]</b> is a difference: the next day minus the previous day. It is positive when rain is increasing.</li>
+        <li>The filter decides which pattern is detected. In a network the 3 values are learned.</li>
+      </ul>
+      <h3>Series</h3>
+      <div class="chips" id="g2c1Ser"><button class="chip" data-v="ex" aria-pressed="true">Worked example (5 days)</button><button class="chip" data-v="st">20 days at a station (synthetic)</button></div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g2c1Pick"><button class="chip" data-v="sum" aria-pressed="true">[1, 1, 1] sum</button><button class="chip" data-v="avg">[1/3, 1/3, 1/3] average</button><button class="chip" data-v="diff">[−1, 0, 1] difference</button></div>
+      <h3>Rainfall (mm/day) · edit any value</h3>
+      <div class="cells" id="g2c1In"></div>
+      <h3 style="margin-top:10px">Filter weights · edit them too</h3>
+      <div class="cells" id="g2c1W"></div>
+      <div class="fig-wrap" id="g2c1Fig" style="margin-top:6px"></div>
+      <div class="ctl"><label for="g2c1Pos">Window</label><input id="g2c1Pos" type="range" min="0" max="2" step="1" value="0"><output></output></div>
+      <div class="calc" id="g2c1Calc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-conv2d" data-g="a" data-sec="2 · Operations · Convolution">
+  <p class="kicker k-arch"><span class="opnum">05</span>Convolution in 2D</p>
+  <h2>One 3 × 3 filter scans the whole grid, and its 9 values decide what it finds</h2>
+  <div class="two">
+    <div>
+      <p>At each position the filter multiplies the 9 values under it by its 9 weights and adds them up. Change a weight and the whole output changes.</p>
+      <div class="chips" id="g2c2Pick"><button class="chip" data-v="identity">Identity</button><button class="chip" data-v="blur" aria-pressed="true">Blur</button><button class="chip" data-v="sharpen">Sharpen</button><button class="chip" data-v="sobelx">Sobel x</button><button class="chip" data-v="sobely">Sobel y</button><button class="chip" data-v="laplacian">Laplacian</button><button class="chip" data-v="emboss">Emboss</button></div>
+      <h3>Filter · type any value</h3>
+      <div id="g2c2K" class="nosw" style="display:grid;grid-template-columns:repeat(3,5.4em);gap:6px"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px">
+        <div><h3 style="margin:6px 0 0">Padding p</h3><div class="chips" id="g2c2Pad"><button class="chip" data-v="0" aria-pressed="true">0</button><button class="chip" data-v="1">1</button></div></div>
+        <div><h3 style="margin:6px 0 0">Stride s</h3><div class="chips" id="g2c2Str"><button class="chip" data-v="1" aria-pressed="true">1</button><button class="chip" data-v="2">2</button></div></div>
+      </div>
+      <div class="eq arch" style="font-size:18px">output size = ⌊(n + 2p − k) / s⌋ + 1</div>
+      <div class="calc" id="g2c2Size"></div>
+      <div class="callout violet" style="font-size:14px"><b>Technical note.</b> Libraries compute cross-correlation: the filter is not flipped as in the mathematical definition. With learned filters this does not matter. With hand-set filters like Sobel the sign of the output can flip.</div>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g2c2Src"><button class="chip" data-v="scene" aria-pressed="true">Photo-like scene (drawn in code)</button><button class="chip" data-v="temp">Temperature, Colombia</button><button class="chip" data-v="precip">Precipitation, Colombia</button></div>
+      <div class="fig-wrap" id="g2c2Fig"></div>
+      <p class="note" style="margin:4px 0 0">Hover or tap an output cell to see its multiply-and-add. Dashed cells are padding (zeros).</p>
+      <div class="calc" id="g2c2Calc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-conv-learned" data-g="a" data-sec="2 · Operations · Convolution">
+  <p class="kicker k-arch"><span class="opnum">05</span>Learned vs fixed filters</p>
+  <h2>In a CNN the filter values are weights: training finds them, or you can freeze them</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Trainable.</b> Filter values start random and gradient descent tunes them like any other weight. You choose the setup (filter size, number of filters, stride, padding). The network learns the values.</li>
+        <li><b>Rediscovery.</b> First-layer filters of a trained CNN often end up looking like the classic edge and blur presets. The network finds them on its own.</li>
+        <li><b>Frozen filters</b> are set by hand and excluded from training:
+          a Sobel edge layer as fixed preprocessing; physics-informed finite-difference stencils that compute gradients or the Laplacian of a climate field; wavelet scattering networks (Mallat), with fixed wavelet filters; transfer learning, which freezes pretrained filters and trains only the top layers.</li>
+        <li><b>Middle ground.</b> Start from a known filter such as Sobel and let training fine-tune it.</li>
+      </ul>
+      <div class="chips" id="g2lrMode"><button class="chip" data-v="learn" aria-pressed="true">Learned from random</button><button class="chip" data-v="tune">Start at presets, fine-tune</button><button class="chip" data-v="frozen">Frozen stencil on temperature</button></div>
+    </div>
+    <div class="panel nosw">
+      <div id="g2lrCtlA">
+        <div class="ctl"><label for="g2lrT">Training</label><input id="g2lrT" type="range" min="0" max="100" step="1" value="0"><output></output></div>
+        <button class="btn" id="g2lrPlay" type="button">Train ▶</button>
+      </div>
+      <div id="g2lrCtlB" hidden>
+        <div class="chips" id="g2lrSt"><button class="chip" data-v="dx" aria-pressed="true">∂T/∂x (east)</button><button class="chip" data-v="dy">∂T/∂y (north)</button><button class="chip" data-v="lap">Laplacian ∇²T</button></div>
+      </div>
+      <div class="fig-wrap" id="g2lrFig" style="margin-top:8px"></div>
+      <div class="readout" id="g2lrRead"></div>
+      <div class="calc" id="g2lrCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-dilated" data-g="a" data-sec="2 · Operations · Dilated convolution">
+  <p class="kicker k-arch"><span class="opnum">06</span>Dilated convolution</p>
+  <h2>Skipping days lets the same few weights see much farther back</h2>
+  <div class="two">
+    <div>
+      <p>A dilated filter leaves gaps between the inputs it reads. Dilation d means it reads every d-th day. The number of weights stays the same; the span grows.</p>
+      <div class="eq arch">y<sub>t</sub> = w<sub>1</sub>·x<sub>t</sub> + w<sub>2</sub>·x<sub>t−d</sub> + w<sub>3</sub>·x<sub>t−2d</sub></div>
+      <p>Example: a 3-weight filter with dilation 2 on daily rainfall covers days t, t−2 and t−4.</p>
+      <div class="callout violet"><b>Stacking.</b> Filters of size 2 with dilations 1, 2, 4 and 8 see <b>16 days</b> with only <b>8 weights</b>. Without dilation each layer adds one day, so 16 days would need <b>15 layers</b>. WaveNet uses this doubling.</div>
+      <div class="chips" id="g2dlMode"><button class="chip" data-v="one" aria-pressed="true">One layer</button><button class="chip" data-v="stack">Stacked layers (WaveNet)</button></div>
+    </div>
+    <div class="panel nosw">
+      <div id="g2dlCtlA">
+        <h3>Dilation d</h3>
+        <div class="chips" id="g2dlD"><button class="chip" data-v="1">1</button><button class="chip" data-v="2" aria-pressed="true">2</button><button class="chip" data-v="4">4</button><button class="chip" data-v="8">8</button></div>
+        <div class="ctl"><label for="g2dlT">Output day</label><input id="g2dlT" type="range" min="4" max="31" step="1" value="15"><output></output></div>
+      </div>
+      <div id="g2dlCtlB" hidden>
+        <div class="chips" id="g2dlNo"><button class="chip" data-v="dil" aria-pressed="true">Dilations 1, 2, 4, 8</button><button class="chip" data-v="plain">No dilation (all 1)</button></div>
+        <div class="ctl"><label for="g2dlL">Layers</label><input id="g2dlL" type="range" min="1" max="4" step="1" value="4"><output></output></div>
+      </div>
+      <div class="fig-wrap" id="g2dlFig"></div>
+      <div class="readout" id="g2dlRead"></div>
+      <div class="calc" id="g2dlCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-tconv" data-g="a" data-sec="2 · Operations · Transposed convolution">
+  <p class="kicker k-arch"><span class="opnum">07</span>Transposed convolution</p>
+  <h2>Each coarse value is spread through the filter into a larger grid: learned upsampling</h2>
+  <div class="two">
+    <div>
+      <p>A transposed convolution runs the other way. Each input value multiplies the whole filter, and the result is added into a larger output. With a 2 × 2 filter and stride 2, a coarse 2 × 2 precipitation grid becomes 4 × 4.</p>
+      <div class="chips" id="g2tcMode"><button class="chip" data-v="pr" aria-pressed="true">2 × 2 → 4 × 4 precipitation</button><button class="chip" data-v="cb">Checkerboard case</button></div>
+      <ul class="pts">
+        <li><b>It adds no real information.</b> The fine grid only rearranges the 4 coarse numbers. Fine detail has to come from learned patterns or extra inputs such as topography.</li>
+        <li><b>Checkerboard artifacts</b> appear when the filter size is not a multiple of the stride, so footprints overlap unevenly. A common fix: interpolate, then apply a normal convolution.</li>
+        <li><b>Link to statistical downscaling:</b> learning to map coarse climate model output to a fine grid, using high-resolution predictors such as elevation.</li>
+      </ul>
+    </div>
+    <div class="panel nosw">
+      <div id="g2tcCtl">
+        <h3>Filter (2 × 2, stride 2) · edit the weights</h3>
+        <div id="g2tcK" style="display:grid;grid-template-columns:repeat(2,4.4em);gap:6px;margin-bottom:6px"></div>
+      </div>
+      <div class="fig-wrap" id="g2tcFig"></div>
+      <p class="note" style="margin:4px 0 0">Click a coarse cell to see where its value lands.</p>
+      <div class="calc" id="g2tcCalc"></div>
+      <div class="readout" id="g2tcRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-sep" data-g="a" data-sec="2 · Operations · Depthwise separable convolution">
+  <p class="kicker k-arch"><span class="opnum">08</span>Depthwise separable convolution</p>
+  <h2>Filter each channel on its own, then mix channels: the same job with about 6 times fewer weights</h2>
+  <div class="two">
+    <div>
+      <p>A standard convolution looks at space and channels at once: every output channel has its own 3 × 3 filter for every input channel. A depthwise separable convolution splits this in two steps.</p>
+      <ul class="pts">
+        <li><b>Depthwise:</b> one 3 × 3 filter per input channel, applied to that channel only.</li>
+        <li><b>Pointwise:</b> a 1 × 1 convolution mixes the filtered channels into the outputs.</li>
+      </ul>
+      <div class="eq arch" style="font-size:17px">standard: k·k·C<sub>in</sub>·C<sub>out</sub> &nbsp; separable: k·k·C<sub>in</sub> + C<sub>in</sub>·C<sub>out</sub></div>
+      <p>Example: 3 channels in, 16 out, 3 × 3: standard 3 × 3 × 3 × 16 = <b>432</b> weights; separable 3 × 3 × 3 + 3 × 16 = 27 + 48 = <b>75</b> (biases ignored). About 6 times fewer.</p>
+      <div class="ctl"><label for="g2spK">Kernel k</label><input id="g2spK" type="range" min="1" max="7" step="2" value="3"><output></output></div>
+      <div class="ctl"><label for="g2spCi">Channels in</label><input id="g2spCi" type="range" min="1" max="256" step="1" value="3"><output></output></div>
+      <div class="ctl"><label for="g2spCo">Channels out</label><input id="g2spCo" type="range" min="1" max="256" step="1" value="16"><output></output></div>
+    </div>
+    <div class="panel nosw">
+      <h3>3 channels (synthetic 6 × 6 fields) → 16 outputs</h3>
+      <div class="fig-wrap" id="g2spFig"></div>
+      <div class="fig-wrap" id="g2spBar" style="margin-top:8px"></div>
+      <div class="readout" id="g2spRead"></div>
+      <div class="calc" id="g2spCalc"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="op-1x1" data-g="a" data-sec="2 · Operations · 1×1 convolution">
+  <p class="kicker k-arch"><span class="opnum">08b</span>1 × 1 convolution</p>
+  <h2>A 1 × 1 filter ignores the neighbours and mixes the variables at each pixel</h2>
+  <div class="two">
+    <div>
+      <p>At every pixel it takes the channel values and forms a weighted sum with learned weights. It is a dense layer applied at every pixel with the same weights.</p>
+      <div class="eq arch">y = 0.5·T + 0.3·H + 0.2·W</div>
+      <p>Example: a pixel with temperature 25 °C, humidity 0.8 and wind 4 m/s gives 12.5 + 0.24 + 0.8 = <b>13.54</b>. Every pixel gets the same recipe.</p>
+      <ul class="pts">
+        <li><b>Reduce channels</b> (256 → 64) to cut computation.</li>
+        <li><b>Mix channels</b> after a depthwise convolution.</li>
+        <li><b>Match shapes</b> for residual connections.</li>
+      </ul>
+      <div class="callout violet">A spatial filter answers <b>“what pattern is around here?”</b> A 1 × 1 filter answers <b>“how do my variables combine right here?”</b></div>
+    </div>
+    <div class="panel nosw">
+      <div class="ctl"><label for="g2pwT">w temperature</label><input id="g2pwT" type="range" min="-1" max="1" step="0.05" value="0.5"><output></output></div>
+      <div class="ctl"><label for="g2pwH">w humidity</label><input id="g2pwH" type="range" min="-1" max="1" step="0.05" value="0.3"><output></output></div>
+      <div class="ctl"><label for="g2pwW">w wind</label><input id="g2pwW" type="range" min="-1" max="1" step="0.05" value="0.2"><output></output></div>
+      <div class="fig-wrap" id="g2pwFig"></div>
+      <p class="note" style="margin:4px 0 0">Synthetic 6 × 6 fields. Click any pixel to follow it.</p>
+      <div class="calc" id="g2pwCalc"></div>
+    </div>
+  </div>
+</section>
