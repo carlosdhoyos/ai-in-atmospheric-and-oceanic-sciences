@@ -357,6 +357,7 @@ a.pick{text-decoration:none}
       <p>Dense: none. Convolution: nearby things matter. Recurrence: order and memory. Attention: anything can relate to anything. Graph: the connections are given.</p>
       <p><b>Try it:</b> the same 5 rainfall days wired five ways. Lines show who connects to whom; thickness is the weight.</p>
       <div class="chips" id="oBiasPick"><button class="chip" data-v="dense" aria-pressed="true">Dense</button><button class="chip" data-v="conv">Convolution</button><button class="chip" data-v="rnn">Recurrence</button><button class="chip" data-v="attn">Attention</button><button class="chip" data-v="graph">Graph</button></div>
+      <div class="callout teal" id="oBiasLay" style="margin-top:12px"></div>
     </div>
     <div class="panel"><h3>Five days of rain (mm) → output for one day (click a day)</h3><div id="oBiasFig"></div><p class="note" id="oBiasNote"></p></div>
   </div>
@@ -876,8 +877,9 @@ demo("o-bias", () => {
   const vals = [3, 0, 12, 1, 10], days = ["Mon", "Tue", "Wed", "Thu", "Fri"], gE = [[0, 2], [1, 3], [2, 4], [0, 4]];
   let op = "dense", tgt = 2; chips($("#oBiasPick"), v => { op = v; render(); });
   function render() {
-    const W = 480, H = 250, svg = svgIn($("#oBiasFig"), W, H), x = i => 60 + i * 90, yIn = 200, yOut = 40, yH = 122;
+    const W = 480, H = op === "graph" ? 290 : 250, svg = svgIn($("#oBiasFig"), W, H), x = i => 60 + i * 90, yIn = 200, yOut = 40, yH = 122;
     arrowDefs(svg, "obi", css("--arch"));
+    { const mk = svg.querySelector("marker"); mk.setAttribute("markerUnits", "userSpaceOnUse"); mk.setAttribute("markerWidth", 9); mk.setAttribute("markerHeight", 9); } // same arrowhead size on thick lines
     let links = [], note = "";
     if (op === "dense") { links = vals.map((_, i) => [i, 1]); note = "Every day feeds the output with its own weight: 5 weights per output, 25 for the layer."; }
     if (op === "conv") { links = [-1, 0, 1].map(d => [tgt + d, 1, d]).filter(l => l[0] >= 0 && l[0] < 5); note = "Only the neighbouring days, with the same 3 weights reused for every output day."; }
@@ -904,9 +906,23 @@ demo("o-bias", () => {
     } else {
       const wcol = ["--sw", "--arch", "--cool"];
       links.forEach(([i, w, d]) => el("line", { x1: x(i), y1: yIn - 18, x2: x(tgt), y2: yOut + 16, stroke: css(op === "conv" ? wcol[d + 1] : "--arch"), "stroke-width": op === "attn" ? 0.6 + 9 * w : 2, opacity: op === "attn" ? .35 + .65 * w : .85, "marker-end": "url(#obi)" }, svg));
-      if (op === "graph") gE.forEach(([a, b]) => el("path", { d: `M${x(a)} ${yIn + 18} Q${(x(a) + x(b)) / 2} ${yIn + 50} ${x(b)} ${yIn + 18}`, fill: "none", stroke: css("--line"), "stroke-dasharray": "3 3" }, svg));
+      if (op === "attn") links.forEach(([i, w]) => { if (i !== tgt) el("text", { x: x(i) + (x(tgt) - x(i)) * 0.22 + (i < tgt ? -6 : 6), y: yIn - 18 - (yIn - yOut - 34) * 0.22, "text-anchor": i < tgt ? "end" : "start", class: "mono", "font-size": 11.5, fill: css("--arch") }, svg, fmtN(100 * w) + "%"); });
+      if (op === "attn") el("text", { x: x(tgt) + 10, y: (yIn + yOut) / 2 + 30, class: "mono", "font-size": 11.5, fill: css("--arch") }, svg, fmtN(100 * links[tgt][1]) + "%");
+      if (op === "graph") gE.forEach(([a, b]) => el("path", { d: `M${x(a)} ${yIn + 44} Q${(x(a) + x(b)) / 2} ${yIn + 44 + 18 * Math.abs(a - b)} ${x(b)} ${yIn + 44}`, fill: "none", stroke: css(a === tgt || b === tgt ? "--arch" : "--muted"), "stroke-width": a === tgt || b === tgt ? 2 : 1, "stroke-dasharray": a === tgt || b === tgt ? "" : "3 3", opacity: a === tgt || b === tgt ? 1 : .6 }, svg));
     }
     $("#oBiasNote").textContent = note;
+    /* the same wiring in everyday terms: whom does this day listen to? */
+    const D = days[tgt], full = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][tgt];
+    const nbs = gE.filter(e => e.includes(tgt)).map(e => e[0] === tgt ? e[1] : e[0]).map(i => "S" + (i + 1)).join(" and ");
+    const sAttn = softmax(vals.map(v => -Math.abs(v - vals[tgt]) / 2)), top = sAttn.map((w, i) => [w, i]).filter(([, i]) => i !== tgt).sort((a, b) => b[0] - a[0])[0];
+    const T = {
+      dense: ["A committee with fixed seats.", `To describe ${full}, every day of the week gets a vote, and how much each vote counts was fixed during training. ${D} always listens to Monday by the same amount, whatever the weather that week.`, "Nothing about the data: any day may matter, so it needs the most weights and the most examples to learn them."],
+      conv: ["Ask only the next-door neighbours.", `${full} looks only at the day before, itself and the day after, like a 3-day moving average. Every day uses the same three weights, so a pattern learned on one Wednesday works on any day.`, "Nearby days matter most, and the same pattern can happen at any time."],
+      rnn: ["Keep a diary.", `Read the week one day at a time and keep a running summary in your head. When you reach ${full} you only have your notes, not the raw numbers, and you have not read the days after it yet.`, "Order matters and only the past counts; old days fade unless the memory keeps them."],
+      attn: ["In a meeting, listen to those who sound like you.", `${full} (${vals[tgt]} mm) looks around and listens most to the days that resemble it. Itself counts most (${fmtN(100 * sAttn[tgt])}%), then ${days[top[1]]} with ${vals[top[1]]} mm (${fmtN(100 * top[0])}%); the days that look nothing like it get almost nothing. Next week the rain is different, so the weights are recomputed, unlike the fixed votes of dense.`, "Anything can relate to anything; how much is decided by the content, every time."],
+      graph: ["Only talk to the stations you are linked to.", `Think of the five as rain stations along a river. S${tgt + 1} listens only to ${nbs || "no one"}, because the map says they are connected (upstream or downstream), not because they are next in the list.`, "The connections are known in advance and given to the network."],
+    }[op];
+    $("#oBiasLay").innerHTML = `<b>In everyday terms: ${T[0]}</b><br>${T[1]}<span style="display:block;color:var(--muted);font-size:13.5px;margin-top:6px"><b>Assumption built in:</b> ${T[2]}</span>`;
   }
   render(); return render;
 });
