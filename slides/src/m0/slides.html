@@ -1,16 +1,20 @@
 
 <section class="slide" id="o-idea" data-g="" data-sec="Module 0 · Overview">
-  <div class="cover" style="padding-block:2vh 0">
+  <div class="cover" style="padding-block:1vh 0">
     <p class="kicker">Neural networks · Module 0 · Overview</p>
-    <h1>A neural network is mostly <span class="hl">multiply and add</span>, repeated many times, with a few simple bends in between</h1>
-    <p class="lead">Everything else is organization. Try it: one neuron, inputs [2, 3], bias 1. Drag a weight and watch the sum cross zero, so ReLU switches the neuron on and off.</p>
+    <h1 style="font-size:clamp(30px,4.2vw,52px)">A neural network is mostly <span class="hl">multiply and add</span>, repeated many times, with a few simple bends in between</h1>
+    <p class="lead">Everything else is organization. <b>Try it:</b> one neuron. Move the inputs, the weights or the bias and watch the sum z; then pick the bend (the activation) that turns z into the neuron's output.</p>
     <div class="two" style="align-items:center">
       <div class="panel">
+        <div class="ctl"><label for="oX1">Input x₁</label><input id="oX1" type="range" min="-5" max="5" step="0.5" value="2"><output></output></div>
+        <div class="ctl"><label for="oX2">Input x₂</label><input id="oX2" type="range" min="-5" max="5" step="0.5" value="3"><output></output></div>
         <div class="ctl"><label for="oW1">Weight w₁</label><input id="oW1" type="range" min="-2" max="2" step="0.1" value="0.5"><output></output></div>
         <div class="ctl"><label for="oW2">Weight w₂</label><input id="oW2" type="range" min="-2" max="2" step="0.1" value="-1"><output></output></div>
+        <div class="ctl"><label for="oB">Bias b</label><input id="oB" type="range" min="-5" max="5" step="0.5" value="1"><output></output></div>
+        <div class="chips" id="oAct"><button class="chip" data-v="relu" aria-pressed="true">ReLU</button><button class="chip" data-v="sigm">Sigmoid</button><button class="chip" data-v="tanh">tanh</button><button class="chip" data-v="gelu">GELU</button><button class="chip" data-v="none">None</button></div>
         <div class="calc" id="oIdeaCalc"></div>
       </div>
-      <div id="oIdeaFig"></div>
+      <div><div id="oIdeaFig"></div><p class="note" id="oIdeaNote" style="margin:4px 0 0"></p></div>
     </div>
   </div>
 </section>

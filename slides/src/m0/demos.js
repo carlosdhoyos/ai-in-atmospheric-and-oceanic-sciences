@@ -1,37 +1,53 @@
 /* ───────── Module 0 · Overview: one small demo per slide ───────── */
 
-/* 1 · the big idea: one neuron, inputs [2, 3], bias 1, ReLU */
+/* 1 · the big idea: one neuron, adjustable inputs, weights, bias and activation */
 demo("o-idea", () => {
-  const X = [2, 3], B = 1, gw1 = slider("oW1", v => fmt(v, 1), () => render()), gw2 = slider("oW2", v => fmt(v, 1), () => render());
+  const ACT = {
+    relu: { f: relu, name: "ReLU", form: "max(0, z)", lo: 0, hi: 6, note: "ReLU: negative sums become 0 (neuron off), positive sums pass unchanged. The most common bend in hidden layers." },
+    sigm: { f: sigm, name: "sigmoid", form: "1 / (1 + e⁻ᶻ)", lo: 0, hi: 1, note: "Sigmoid squeezes any sum into 0 to 1, like a probability: z = 0 gives 0.5. Used for yes/no outputs; it flattens out for large |z|." },
+    tanh: { f: Math.tanh, name: "tanh", form: "tanh(z)", lo: -1, hi: 1, note: "tanh squeezes the sum into −1 to 1, centred on zero. Used inside recurrent cells such as the LSTM." },
+    gelu: { f: gelu, name: "GELU", form: "z · Φ(z)", lo: -0.5, hi: 6, note: "GELU is a smooth ReLU: small negative sums leak through a little. Used in transformers." },
+    none: { f: z => z, name: "no activation", form: "z", lo: -6, hi: 6, note: "With no bend the neuron is a straight line. Stacking such neurons gives another straight line, which is why networks need activations." },
+  };
+  let act = "relu"; chips($("#oAct"), v => { act = v; render(); });
+  const g = {}; [["oX1", 1], ["oX2", 1], ["oW1", 1], ["oW2", 1], ["oB", 1]].forEach(([id, d]) => g[id] = slider(id, v => fmt(v, d), () => render()));
   function render() {
-    const w = [gw1(), gw2()], z = X[0] * w[0] + X[1] * w[1] + B, a = relu(z), on = z > 0;
-    $("#oIdeaCalc").innerHTML = `z = 2 × <span class="k">${fmt(w[0], 1)}</span> + 3 × <span class="k">${fmt(w[1], 1)}</span> + 1 = <b>${fmt(z, 1)}</b><br>`
-      + `ReLU(z) = max(0, z) = <span class="${on ? "g" : "r"}">${fmt(a, 1)}</span> <span class="m">· neuron ${on ? "on" : "off"}</span>`;
-    const W = 560, H = 230, svg = svgIn($("#oIdeaFig"), W, H), yIn = [70, 160], xs = 300, xo = 470;
+    const X = [g.oX1(), g.oX2()], w = [g.oW1(), g.oW2()], B = g.oB(), A = ACT[act];
+    const z = X[0] * w[0] + X[1] * w[1] + B, a = A.f(z), frac = (clamp(a, A.lo, A.hi) - A.lo) / (A.hi - A.lo);
+    const k = v => `<span class="k">${fmt(v, 1)}</span>`, par = v => v < 0 ? `(${k(v)})` : k(v);
+    $("#oIdeaCalc").innerHTML = `z = ${par(X[0])} × ${par(w[0])} + ${par(X[1])} × ${par(w[1])} + ${par(B)} = <b>${fmt(z, 2)}</b><br>`
+      + `${act === "none" ? "output" : A.name + "(z)"}${act === "tanh" || act === "none" ? "" : " = " + A.form} = <span class="${a > 0 ? "g" : a < 0 ? "r" : "m"}">${fmt(a, 2)}</span>`
+      + (act === "relu" ? ` <span class="m">· neuron ${z > 0 ? "on" : "off"}</span>` : "");
+    $("#oIdeaNote").textContent = A.note;
+    const W = 560, H = 230, svg = svgIn($("#oIdeaFig"), W, H), yIn = [70, 160], xs = 300, xo = 478;
     arrowDefs(svg, "oi", css("--muted"));
     X.forEach((x, i) => {
       const col = css(w[i] >= 0 ? "--pos" : "--neg");
       el("line", { x1: 72, y1: yIn[i], x2: xs - 34, y2: 115, stroke: col, "stroke-width": 1 + 3 * Math.abs(w[i]), opacity: .8 }, svg);
       el("circle", { cx: 50, cy: yIn[i], r: 22, fill: css("--card"), stroke: css("--line") }, svg);
-      el("text", { x: 50, y: yIn[i] + 5, "text-anchor": "middle", class: "mono", "font-size": 15 }, svg, x);
-      el("text", { x: 50, y: yIn[i] + 40, "text-anchor": "middle", class: "mut", "font-size": 11 }, svg, "x" + (i + 1));
+      el("text", { x: 50, y: yIn[i] + 5, "text-anchor": "middle", class: "mono", "font-size": 14 }, svg, fmt(x, 1));
+      el("text", { x: 50, y: yIn[i] + 40, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "x" + (i + 1));
       el("text", { x: 168, y: i ? 160 : 76, "text-anchor": "middle", class: "mono", "font-size": 13, fill: col }, svg, "w" + (i + 1) + " = " + fmt(w[i], 1));
     });
-    el("text", { x: xs, y: 196, "text-anchor": "middle", class: "mut", "font-size": 11 }, svg, "+ bias 1");
+    el("text", { x: xs, y: 196, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "+ bias " + fmt(B, 1));
     el("circle", { cx: xs, cy: 115, r: 34, fill: css("--arch-soft"), stroke: css("--arch"), "stroke-width": 2 }, svg);
     el("text", { x: xs, y: 110, "text-anchor": "middle", "font-size": 18 }, svg, "Σ");
     el("text", { x: xs, y: 130, "text-anchor": "middle", class: "mono", "font-size": 12 }, svg, fmt(z, 1));
-    /* ReLU inset: the bend, with the current z marked */
-    const rx = lin(-6, 6, 362, 432), ry = lin(0, 6, 150, 82);
-    el("rect", { x: 356, y: 76, width: 82, height: 80, rx: 8, fill: css("--well") }, svg);
-    el("path", { d: path([[rx(-6), ry(0)], [rx(0), ry(0)], [rx(6), ry(6)]]), stroke: css("--muted"), fill: "none", "stroke-width": 2 }, svg);
-    el("circle", { cx: rx(clamp(z, -6, 6)), cy: ry(clamp(a, 0, 6)), r: 5, fill: css(on ? "--ok" : "--lw") }, svg);
-    el("text", { x: 397, y: 70, "text-anchor": "middle", class: "mut", "font-size": 11 }, svg, "ReLU");
-    el("line", { x1: xs + 34, y1: 115, x2: 352, y2: 115, stroke: css("--muted"), "marker-end": "url(#oi)" }, svg);
-    el("line", { x1: 442, y1: 115, x2: xo - 26, y2: 115, stroke: css("--muted"), "marker-end": "url(#oi)" }, svg);
-    el("circle", { cx: xo, cy: 115, r: 24, fill: on ? css("--ok") : css("--card"), stroke: css(on ? "--ok" : "--line"), "stroke-width": 2 }, svg);
-    el("text", { x: xo, y: 120, "text-anchor": "middle", class: "mono", "font-size": 14, fill: on ? css("--bg") : css("--muted") }, svg, fmt(a, 1));
-    el("text", { x: xo, y: 160, "text-anchor": "middle", "font-size": 12, fill: css(on ? "--ok" : "--lw") }, svg, on ? "on" : "off");
+    /* activation inset: the curve, with the current z marked */
+    const zr = 6, rx = lin(-zr, zr, 360, 440), ry = lin(A.lo, A.hi, 150, 82), Z = Array.from({ length: 61 }, (_, i) => -zr + i * 2 * zr / 60);
+    el("rect", { x: 354, y: 76, width: 92, height: 80, rx: 8, fill: css("--well") }, svg);
+    if (A.lo < 0) el("line", { x1: 360, x2: 440, y1: ry(0), y2: ry(0), stroke: css("--line") }, svg);
+    el("line", { x1: rx(0), x2: rx(0), y1: 82, y2: 150, stroke: css("--line") }, svg);
+    el("path", { d: path(Z.map(v => [rx(v), ry(clamp(A.f(v), A.lo, A.hi))])), stroke: css("--muted"), fill: "none", "stroke-width": 2 }, svg);
+    const out = a > 1e-9 ? "--ok" : a < -1e-9 ? "--lw" : "--muted";
+    el("circle", { cx: rx(clamp(z, -zr, zr)), cy: ry(clamp(a, A.lo, A.hi)), r: 5, fill: css(out === "--muted" ? "--lw" : out) }, svg);
+    el("text", { x: 400, y: 70, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, A.name);
+    el("line", { x1: xs + 34, y1: 115, x2: 350, y2: 115, stroke: css("--muted"), "marker-end": "url(#oi)" }, svg);
+    el("line", { x1: 448, y1: 115, x2: xo - 26, y2: 115, stroke: css("--muted"), "marker-end": "url(#oi)" }, svg);
+    /* output node: fill shows how strongly it fires, relative to the function's range */
+    el("circle", { cx: xo, cy: 115, r: 24, fill: `color-mix(in srgb, var(${out === "--muted" ? "--line" : out}) ${Math.round(15 + 60 * (out === "--lw" ? 1 - frac : frac))}%, var(--card))`, stroke: css(out === "--muted" ? "--line" : out), "stroke-width": 2 }, svg);
+    el("text", { x: xo, y: 120, "text-anchor": "middle", class: "mono", "font-size": 13 }, svg, fmt(a, 2));
+    el("text", { x: xo, y: 160, "text-anchor": "middle", "font-size": 12, fill: css(act === "relu" && out === "--muted" ? "--lw" : out) }, svg, act === "relu" ? (z > 0 ? "on" : "off") : "output");
   }
   render(); return render;
 });
