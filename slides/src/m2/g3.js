@@ -255,13 +255,18 @@
     const p = [], y = []; let pe = 0, e = 0;
     for (let t = 0; t < N; t++) { pe = 0.85 * pe + 0.5 * gauss(r); p.push(pe); e = 0.6 * e + 0.6 * gauss(r); y.push(Math.max(0, 3 + 6 * season(t) - 1.6 * pe + e)); }
     const names = ["Head 1: recent", "Head 2: last year", "Head 3: similar pressure"], toks = ["--arch", "--data", "--sw"];
-    const scoreFns = [
-      (T, s) => -(T - s) / 3,
-      (T, s) => -((s + 1 - (T + 1 - 365)) ** 2) / (2 * 6 ** 2),
-      (T, s) => -((p[s] - p[T]) ** 2) / (2 * 0.2 ** 2) - (T - s) / 2000];
+    // each head's focus is set by one parameter: memory in days, window around last year's date, pressure tolerance
+    const P = [3, 6, 0.2], scoreFns = [
+      (T, s) => -(T - s) / P[0],
+      (T, s) => -((s + 1 - (T + 1 - 365)) ** 2) / (2 * P[1] ** 2),
+      (T, s) => -((p[s] - p[T]) ** 2) / (2 * P[2] ** 2) - (T - s) / 2000];
     const weights = (h, T) => softmax(Array.from({ length: T }, (_, s) => scoreFns[h](T, s))); // keys: days 0 … T−1, value: the day after
     const fc = w => w.reduce((acc, v, s) => acc + v * y[s + 1], 0);
-    const F = [0, 1, 2].map(h => { const o = {}; for (let T = 380; T < N - 1; T++) o[T] = fc(weights(h, T)); return o; });
+    const headF = h => { const o = {}; for (let T = 380; T < N - 1; T++) o[T] = fc(weights(h, T)); return o; };
+    const F = [0, 1, 2].map(headF);
+    let mixMode = "dense";
+    chips($("#g3mhComb"), v => { mixMode = v; render(); });
+    [0, 1, 2].forEach(h => slider("g3mhP" + h, v => h === 2 ? fmt(v, 2) : (h === 1 ? "± " : "") + v, v => { P[h] = v; F[h] = headF(h); render(); }));
     const on = [true, true, true];
     const btns = $$("#g3mhHeads button");
     btns.forEach(b => b.addEventListener("click", () => { const h = +b.dataset.h; if (on[h] && on.filter(Boolean).length === 1) return; on[h] = !on[h]; b.setAttribute("aria-pressed", on[h]); render(); }));
@@ -303,7 +308,7 @@
       });
       const days = Object.keys(F[0]).map(Number), X1 = t => [1, ...act.map(h => F[h][t])];
       const A = X1(0).map((_, i) => X1(0).map((_, j) => days.reduce((s, t) => s + X1(t)[i] * X1(t)[j], 0))), bv = X1(0).map((_, i) => days.reduce((s, t) => s + X1(t)[i] * y[t + 1], 0));
-      const cf = solve(A, bv), mixf = t => X1(t).reduce((s, v, i) => s + v * cf[i], 0);
+      const cf = solve(A, bv), mixf = mixMode === "dense" ? t => X1(t).reduce((s, v, i) => s + v * cf[i], 0) : t => mean(act.map(h => F[h][t]));
       const truth = y[T + 1], fcomb = mixf(T);
       el("circle", { cx: X(T + 1), cy: Y(truth), r: 4, fill: css("--fg") }, svg);
       el("circle", { cx: X(T + 1), cy: Y(clamp(fcomb, 0, 16)), r: 5, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, svg);
@@ -311,8 +316,12 @@
       const maes = [0, 1, 2].map(h => mae(t => F[h][t])), maeC = mae(mixf);
       $("#g3mhRead").innerHTML = `<div><span>Tomorrow (truth)</span><b style="color:var(--fg)">${fmt(truth, 1)}</b></div><div><span>Active heads' forecast</span><b>${fmt(fcomb, 1)}</b></div>` +
         `<div><span>Mean error: heads 1 · 2 · 3</span><b style="font-size:19px">${maes.map((v, h) => `<span style="color:var(${toks[h]});font:inherit;letter-spacing:0;text-transform:none">${fmt(v, 2)}</span>`).join(" · ")}</b></div>` +
-        `<div><span>Mean error, active heads mixed</span><b class="c-ok">${fmt(maeC, 2)}</b></div>`;
-      $("#g3mhMix").textContent = `Dense mixing layer (fitted): forecast = ${fmt(cf[0], 2)} + ` + act.map((h, i) => `${fmt(cf[i + 1], 2)} × head ${h + 1}`).join(" + ");
+        `<div><span>Mean error, active heads ${mixMode === "dense" ? "mixed" : "averaged"}</span><b class="${maeC < Math.min(...act.map(h => maes[h])) ? "c-ok" : "c-lw"}">${fmt(maeC, 2)}</b></div>`;
+      const best = act.reduce((a, h) => maes[h] < maes[a] ? h : a, act[0]);
+      $("#g3mhMix").textContent = (mixMode === "dense" ? `Dense mixing layer (fitted): forecast = ${fmt(cf[0], 2)} + ` + act.map((h, i) => `${fmt(cf[i + 1], 2)} × head ${h + 1}`).join(" + ")
+        : `Plain average: forecast = (` + act.map(h => `head ${h + 1}`).join(" + ") + `) / ${act.length}`)
+        + `\n` + (act.length < 2 ? "One head only: nothing to combine." : maeC < maes[best] ? `Together they beat the best single head (head ${best + 1}, ${fmt(maes[best], 2)}): each head adds information the others miss.`
+        : `Here the combination does not beat head ${best + 1} alone (${fmt(maes[best], 2)})` + (mixMode === "avg" ? ": averaging lets weak heads drag the forecast down. A learned layer weighs each head by how useful it is." : "."));
     }
     render(); return render;
   });
@@ -528,6 +537,65 @@
         (() => { const o = top.find(([, j]) => j !== q)[1], dist = p => Math.hypot(p[0] - X[o][0], p[1] - X[o][1]);
           return `Output = Σ weight × value = ${v2(out)}. The new "${Wd[q]}" is a blend of the words it attended to` + (dist(out) < dist(X[q]) ? `: it has moved from ${v2(X[q])} towards "${Wd[o]}" and now carries part of its meaning.` : ` (mostly itself and "${Wd[o]}"); with weights this spread out it stays near the middle of them.`) + ` All 7 words do this at the same time.`; })()];
       $("#g3szCalc").textContent = `Step ${k + 1}. ${T[k]}`;
+    }
+    render(); return render;
+  });
+
+  /* ───────── 11b · multi-head attention, step by step: two heads of 2 numbers on the sentence ───────── */
+  demo("op-mha-steps", () => {
+    const Wd = DS.sentence, X = [[0.1, 0.0, 0.0, 0.1], [1.0, 0.2, 0.1, 0.2], [0.1, 1.0, 0.3, 0.0], [0.0, 0.1, 0.1, 0.0], [0.8, 0.3, 0.9, 0.1], [0.1, 0.6, 0.5, 0.1], [0.5, 0.9, 1.0, 0.0]];
+    const mv = (M, v) => [M[0][0] * v[0] + M[0][1] * v[1], M[1][0] * v[0] + M[1][1] * v[1]];
+    const HEADS = [{ name: "Head 1: who is it?", tok: "--arch", sl: [0, 2], Wq: [[4, 0], [0, 1]], Wk: [[2, 0], [0, 0.5]] },
+      { name: "Head 2: in what state?", tok: "--data", sl: [2, 4], Wq: [[4, 0], [0, 0]], Wk: [[2, 0], [0, 0]] }];
+    const STEPS = ["Split the vector", "Each head: its own q, k, v", "Each head: scores and weights", "Each head: weighted average", "Concatenate and mix with Wₒ"];
+    let q = 4, k = 0; const on = [true, true];
+    $("#g3mzQ").innerHTML = `<span class="mut" style="font-size:13px;align-self:center">Query word:</span>` + Wd.map((w, j) => `<button class="chip" data-j="${j}" aria-pressed="${j === q}">${w}</button>`).join("");
+    $$("#g3mzQ button").forEach(b => b.addEventListener("click", () => { q = +b.dataset.j; press($$("#g3mzQ button"), b); render(); }));
+    $$("#g3mzOn button").forEach(b => b.addEventListener("click", () => { const h = +b.dataset.h; if (on[h] && on.filter(Boolean).length === 1) return; on[h] = !on[h]; b.setAttribute("aria-pressed", on[h]); render(); }));
+    $("#g3mzPrev").onclick = () => { k = Math.max(0, k - 1); render(); };
+    $("#g3mzNext").onclick = () => { k = Math.min(STEPS.length - 1, k + 1); render(); };
+    const v2 = v => `(${v.map(x => +x.toFixed(2)).join(", ")})`;
+    function head(H) {
+      const xs = X.map(x => x.slice(H.sl[0], H.sl[1])), Q = mv(H.Wq, xs[q]), K = xs.map(x => mv(H.Wk, x)), V = xs;
+      const sc = K.map(kk => (Q[0] * kk[0] + Q[1] * kk[1]) / Math.SQRT2), w = softmax(sc), out = [0, 1].map(c => w.reduce((a, s, j) => a + s * V[j][c], 0));
+      return { xs, Q, K, V, sc, w, out };
+    }
+    function render() {
+      const R = HEADS.map(head), W = 560, H = 330, svg = svgIn($("#g3mzFig"), W, H);
+      $("#g3mzStep").textContent = `step ${k + 1} of 5: ${STEPS[k]}`;
+      // the query word's vector, split into the two heads' slices
+      const cell = (x, y, v, tok, w = 46) => { el("rect", { x, y, width: w - 3, height: 24, rx: 4, fill: `color-mix(in srgb, ${css(tok)} ${Math.round(18 + 50 * clamp(Math.abs(v), 0, 1))}%, ${css("--card")})`, stroke: css(tok) }, svg);
+        el("text", { x: x + w / 2 - 1.5, y: y + 16, "text-anchor": "middle", class: "mono", "font-size": 11.5 }, svg, fmt(v, 2)); };
+      el("text", { x: 4, y: 16, "font-size": 11.5, fill: css("--fg") }, svg, `"${Wd[q]}" as 4 numbers`);
+      X[q].forEach((v, c) => cell(4 + c * 48, 24, v, HEADS[c < 2 ? 0 : 1].tok));
+      el("text", { x: 4 + 48, y: 64, "text-anchor": "middle", "font-size": 10.5, fill: css(HEADS[0].tok) }, svg, "slice for head 1");
+      el("text", { x: 4 + 3 * 48, y: 64, "text-anchor": "middle", "font-size": 10.5, fill: css(HEADS[1].tok) }, svg, "slice for head 2");
+      // one attention picture per head: the query on top, the 7 words below, line thickness = weight
+      HEADS.forEach((Hd, h) => {
+        const r = R[h], y0 = 84 + h * 106, active = on[h], g = el("g", { opacity: active ? 1 : .25 }, svg), wx = j => 150 + j * 58;
+        el("text", { x: 4, y: y0 + 14, "font-size": 12, "font-weight": 600, fill: css(Hd.tok) }, g, Hd.name);
+        if (k >= 1) el("text", { x: 4, y: y0 + 32, class: "mono", "font-size": 10.5, fill: css("--muted") }, g, `q = ${v2(r.Q)}`);
+        if (k >= 3) el("text", { x: 4, y: y0 + 48, class: "mono", "font-size": 10.5, fill: css(Hd.tok) }, g, `out = ${v2(r.out)}`);
+        if (k >= 2) Wd.forEach((_, j) => el("line", { x1: wx(q), y1: y0 + 18, x2: wx(j), y2: y0 + 70, stroke: css(Hd.tok), "stroke-width": 0.5 + 9 * r.w[j], opacity: .25 + .75 * r.w[j] }, g));
+        el("circle", { cx: wx(q), cy: y0 + 12, r: 7, fill: css(Hd.tok) }, g);
+        Wd.forEach((w, j) => { el("text", { x: wx(j), y: y0 + 86, "text-anchor": "middle", "font-size": 11.5, fill: css("--fg") }, g, w);
+          if (k >= 2) el("text", { x: wx(j), y: y0 + 100, "text-anchor": "middle", class: "mono", "font-size": 10.5, fill: css(Hd.tok) }, g, fmtN(100 * r.w[j]) + "%"); });
+      });
+      // concatenate the head outputs and mix with W_o (identity here)
+      if (k >= 4) {
+        const y0 = 302; el("text", { x: 4, y: y0 + 16, "font-size": 11.5, fill: css("--fg") }, svg, "concatenated, × Wₒ:");
+        [0, 1].forEach(h => R[h].out.forEach((v, c) => on[h] ? cell(150 + (2 * h + c) * 48, y0, v, HEADS[h].tok) : el("rect", { x: 150 + (2 * h + c) * 48, y: y0, width: 45, height: 24, rx: 4, fill: css("--well"), stroke: css("--line"), "stroke-dasharray": "3 3" }, svg)));
+        el("text", { x: 350, y: y0 + 16, "font-size": 11, fill: css("--muted") }, svg, `new "${Wd[q]}", same length as before`);
+      }
+      const top = h => { const o = R[h].w.map((a, j) => [a, j]).filter(([, j]) => j !== q).sort((a, b) => b[0] - a[0])[0]; return [Wd[o[1]], fmtN(100 * o[0])]; };
+      const T = [
+        `"${Wd[q]}" is ${v2(X[q])}. Multi-head attention cuts it into one slice per head: ${v2(X[q].slice(0, 2))} for head 1 and ${v2(X[q].slice(2))} for head 2. (A real model: 512 numbers, 8 slices of 64.)`,
+        `Each head has its own matrices, so it asks its own question. Head 1's query is ${v2(R[0].Q)}; head 2's is ${v2(R[1].Q)}. Same word, two different queries.`,
+        `Each head scores all 7 words with its own keys and softmaxes. Apart from itself, head 1 attends most to "${top(0)[0]}" (${top(0)[1]}%); head 2 to "${top(1)[0]}" (${top(1)[1]}%). One softmax could not do both at once.`,
+        `Each head takes the weighted average of its values: head 1 gives ${v2(R[0].out)}, head 2 gives ${v2(R[1].out)}. Each is a short summary of one relation.`,
+        (on[0] && on[1] ? `The two summaries are glued back into 4 numbers and mixed by Wₒ (learned; identity here). The new "${Wd[q]}" now carries both who it refers to and what state it is in.`
+          : `With head ${on[0] ? 2 : 1} switched off, its slice is empty: the new "${Wd[q]}" ${on[0] ? "no longer knows what state it is in" : "no longer knows what it refers to"}. That is why models use several heads.`)];
+      $("#g3mzCalc").textContent = `Step ${k + 1}. ${T[k]}`;
     }
     render(); return render;
   });

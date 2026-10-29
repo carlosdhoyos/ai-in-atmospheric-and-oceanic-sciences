@@ -141,12 +141,11 @@
     <div>
       <p>Each head has its own query, key and value weights. The head outputs are concatenated and mixed by a dense layer.</p>
       <div id="g3mhSplit"></div>
-      <p class="note">A vector of 512 numbers split into 8 heads of 64. Each head works on its 64-number slice.</p>
-      <ul class="pts">
-        <li><b>Head 1</b>: the last few days (persistence).</li>
-        <li><b>Head 2</b>: the same date last year (seasonality).</li>
-        <li><b>Head 3</b>: days with a similar pressure pattern (analogues).</li>
-      </ul>
+      <p class="note">A vector of 512 numbers split into 8 heads of 64. Each head works on its 64-number slice. The <button class="btn" type="button" data-go="op-mha-steps" style="padding:1px 8px;font-size:12.5px">next slide</button> walks through the arithmetic.</p>
+      <p style="margin-bottom:4px"><b>Each head has learned its own focus.</b> Move a head's focus and watch its weights and its error change:</p>
+      <div class="ctl"><label for="g3mhP0" style="color:var(--arch)">Head 1, recent: memory (days)</label><input id="g3mhP0" type="range" min="1" max="20" step="1" value="3"><output></output></div>
+      <div class="ctl"><label for="g3mhP1" style="color:var(--data)">Head 2, last year: window (± days)</label><input id="g3mhP1" type="range" min="1" max="30" step="1" value="6"><output></output></div>
+      <div class="ctl"><label for="g3mhP2" style="color:var(--sw)">Head 3, similar pressure: tolerance</label><input id="g3mhP2" type="range" min="0.05" max="1.5" step="0.05" value="0.2"><output></output></div>
       <div class="callout violet">One head makes one weighted average and can focus on one kind of relation. Several heads look at several relations at once for about the same cost.</div>
     </div>
     <div class="panel nosw">
@@ -156,12 +155,37 @@
       <div class="three" id="g3mhMinis" style="gap:8px"><div id="g3mhFig0"></div><div id="g3mhFig1"></div><div id="g3mhFig2"></div></div>
       <h3 style="margin-top:10px">Active heads together, zoomed to the last 400 days</h3>
       <div id="g3mhFig"></div>
+      <div class="chips" id="g3mhComb" style="margin-top:6px"><span class="mut" style="font-size:13px;align-self:center">Combine the active heads by:</span><button class="chip" data-v="dense" aria-pressed="true">a learned dense layer</button><button class="chip" data-v="avg">a plain average</button></div>
       <div class="readout" id="g3mhRead"></div>
       <div class="calc" id="g3mhMix"></div>
       <p class="note" style="margin-top:8px">Synthetic two-year daily rainfall series (mm/day) with a synthetic pressure series. Each head forecasts tomorrow as a weighted average of what followed the days it attends to. Error = mean absolute error over the last 350 days.</p>
     </div>
   </div>
 </section>
+
+<section class="slide" id="op-mha-steps" data-g="a" data-sec="2 · Operations · Connecting values">
+  <p class="kicker k-arch"><span class="opnum">11b</span>Multi-head attention, step by step</p>
+  <h2>Two heads, two questions: who is "it", and what state is it in?</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>One head = one weighted average = one focus.</b> Softmax makes a head concentrate on a few words, so a single head cannot follow two different relations at once.</li>
+        <li><b>Split, attend, glue back.</b> The word vector is cut into slices, one per head. Each head has its own W<sub>q</sub>, W<sub>k</sub>, W<sub>v</sub>, attends with its slice, and returns a short vector. The pieces are concatenated and an output matrix W<sub>o</sub> mixes them.</li>
+        <li><b>Same cost as one big head.</b> The four matrices are still d × d in total; heads only split the width (512 = 8 × 64).</li>
+        <li><b>Heads specialize during training</b>, often into recognizable roles (previous word, the noun a pronoun refers to, same position last year), though not always cleanly.</li>
+      </ul>
+      <p class="note">Tiny example: 4 numbers per word, 2 heads of 2. Head 1 reads "thing / action" numbers, head 2 reads "state / other" numbers. All weights hand-set; values are the slices themselves; W<sub>o</sub> = identity.</p>
+    </div>
+    <div class="panel nosw">
+      <div class="chips" id="g3mzQ"></div>
+      <div class="chips"><button class="btn" id="g3mzPrev" type="button">← Step</button><button class="btn" id="g3mzNext" type="button">Step →</button><span id="g3mzStep" class="mut" style="align-self:center;font-size:13px"></span></div>
+      <div class="chips" id="g3mzOn"><span class="mut" style="font-size:13px;align-self:center">Heads:</span><button class="chip" data-h="0" aria-pressed="true">Head 1</button><button class="chip" data-h="1" aria-pressed="true">Head 2</button></div>
+      <div id="g3mzFig"></div>
+      <div class="calc" id="g3mzCalc" style="font-size:12.8px;white-space:pre-line"></div>
+    </div>
+  </div>
+</section>
+
 
 <section class="slide" id="op-causal" data-g="a" data-sec="2 · Operations · Connecting values">
   <p class="kicker k-arch"><span class="opnum">11c</span>Causal masking</p>
