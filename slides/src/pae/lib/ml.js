@@ -226,23 +226,26 @@ const ML = (() => {
     return { decision, predict: x => sig(2 * decision(x)), sv, alpha: a, b, onMargin: sv.filter(i => a[i] < Cw[i] - 1e-6) };
   }
 
-  /* ───────── one-class SVM (ν formulation, RBF): learns a boundary around the positives only ───────── */
-  function oneClassSVM(X, { nu = 0.2, gamma = 0.5, iters = 3000, seed = 1 } = {}) {
-    const n = X.length, rr = rng(seed), Cb = 1 / (nu * n), K = (p, q) => { let s = 0; for (let j = 0; j < p.length; j++) s += (p[j] - q[j]) ** 2; return Math.exp(-gamma * s); };
+  /* ───────── one-class SVM (ν formulation, RBF): learns a boundary around the positives only ─────────
+     dual: minimize ½ αᵀKα subject to 0 ≤ αᵢ ≤ 1/(νn), Σα = 1; solved by SMO on the maximal violating pair */
+  function oneClassSVM(X, { nu = 0.2, gamma = 0.5, tol = 1e-5, maxIter = 20000 } = {}) {
+    const n = X.length, Cb = 1 / (nu * n), K = (p, q) => { let s = 0; for (let j = 0; j < p.length; j++) s += (p[j] - q[j]) ** 2; return Math.exp(-gamma * s); };
     const KM = Array.from({ length: n }, (_, i) => Float64Array.from({ length: n }, (_, j) => K(X[i], X[j])));
-    const a = new Float64Array(n); let left = 1;                                   // feasible start: fill α up to C, summing to 1
-    for (let i = 0; i < n && left > 0; i++) { a[i] = Math.min(Cb, left); left -= a[i]; }
-    const grad = i => { let s = 0; for (let k = 0; k < n; k++) s += a[k] * KM[i][k]; return s; };
-    for (let t = 0; t < iters; t++) {                                            // pairwise updates keep Σα = 1
-      const i = Math.floor(rr() * n), j = Math.floor(rr() * n); if (i === j) continue;
-      const gi = grad(i), gj = grad(j), eta = KM[i][i] + KM[j][j] - 2 * KM[i][j]; if (eta <= 1e-12) continue;
-      const s = a[i] + a[j]; let ni = clamp(a[i] + (gj - gi) / eta, Math.max(0, s - Cb), Math.min(Cb, s));
-      a[j] = s - ni; a[i] = ni;
+    const a = new Float64Array(n); let left = 1;                                   // feasible start: fill α up to the bound, summing to 1
+    for (let i = 0; i < n && left > 1e-15; i++) { a[i] = Math.min(Cb, left); left -= a[i]; }
+    const G = new Float64Array(n); for (let i = 0; i < n; i++) for (let k = 0; k < n; k++) G[i] += a[k] * KM[i][k];   // gradient Kα
+    for (let it = 0; it < maxIter; it++) {
+      let i = -1, j = -1, gi = Infinity, gj = -Infinity;                         // i: can grow, smallest gradient; j: can shrink, largest
+      for (let k = 0; k < n; k++) { if (a[k] < Cb - 1e-12 && G[k] < gi) { gi = G[k]; i = k; } if (a[k] > 1e-12 && G[k] > gj) { gj = G[k]; j = k; } }
+      if (i < 0 || j < 0 || gj - gi < tol) break;
+      const eta = Math.max(KM[i][i] + KM[j][j] - 2 * KM[i][j], 1e-12), d = Math.min((gj - gi) / eta, Cb - a[i], a[j]);
+      a[i] += d; a[j] -= d;
+      for (let k = 0; k < n; k++) G[k] += d * (KM[k][i] - KM[k][j]);
     }
     const svs = [...Array(n).keys()].filter(i => a[i] > 1e-9), mid = svs.filter(i => a[i] < Cb - 1e-9);
     const g = x => svs.reduce((s, i) => s + a[i] * K(X[i], x), 0);
-    const rho = mean((mid.length ? mid : svs).map(i => g(X[i])));
-    return { decision: x => g(x) - rho, predict: x => sig(40 * (g(x) - rho)), sv: svs, rho };
+    const rho = mid.length ? mean(mid.map(i => G[i])) : mean(svs.map(i => G[i]));
+    return { decision: x => g(x) - rho, predict: x => sig(40 * (g(x) - rho)), sv: svs, rho, alpha: a };
   }
 
   /* ───────── MLP: one hidden ReLU layer, sigmoid output, Adam, dropout, weight decay, class weights ───────── */

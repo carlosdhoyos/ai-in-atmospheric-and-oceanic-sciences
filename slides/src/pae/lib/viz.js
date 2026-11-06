@@ -54,9 +54,9 @@ const VIZ = (() => {
      heatmap), thr: draws the bg = thr contour, W, H, onPoint(i), onHover(x,y) */
   function scatter(host, pts, { xr, yr, xl = "", yl = "", bg = null, thr = null, W = 460, H = 300, nx = 46, ny = 30, xt = null, yt = null, xf = v => fmt(v, 1), yf = v => fmt(v, 1), onHover = null } = {}) {
     const svg = svgIn(host, W, H), m = { l: 44, r: 10, t: 10, b: 30 }, X = lin(xr[0], xr[1], m.l, W - m.r), Y = lin(yr[0], yr[1], H - m.b, m.t);
-    if (bg) { const cw = (W - m.l - m.r) / nx, chh = (H - m.t - m.b) / ny, grid = [];
+    if (bg) { const cw = (W - m.l - m.r) / nx, chh = (H - m.t - m.b) / ny, grid = [], gbg = el("g", { opacity: .55 }, svg);   // opacity on the group: no seams between cells
       for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) { const x = xr[0] + (i + .5) * (xr[1] - xr[0]) / nx, y = yr[0] + (j + .5) * (yr[1] - yr[0]) / ny, p = bg(x, y); grid.push([i, j, p]);
-        el("rect", { x: m.l + i * cw, y: H - m.b - (j + 1) * chh, width: cw + .4, height: chh + .4, fill: prob(p), opacity: .55 }, svg); }
+        el("rect", { x: m.l + i * cw, y: H - m.b - (j + 1) * chh, width: cw + .4, height: chh + .4, fill: prob(p) }, gbg); }
       if (thr != null) grid.forEach(([i, j, p]) => { const nb = grid.find(q => q[0] === i + 1 && q[1] === j), up = grid.find(q => q[0] === i && q[1] === j + 1);
         if (nb && (p >= thr) !== (nb[2] >= thr)) el("line", { x1: m.l + (i + 1) * cw, x2: m.l + (i + 1) * cw, y1: H - m.b - j * chh, y2: H - m.b - (j + 1) * chh, stroke: css("--fg"), "stroke-width": 2 }, svg);
         if (up && (p >= thr) !== (up[2] >= thr)) el("line", { x1: m.l + i * cw, x2: m.l + (i + 1) * cw, y1: H - m.b - (j + 1) * chh, y2: H - m.b - (j + 1) * chh, stroke: css("--fg"), "stroke-width": 2 }, svg); }); }

@@ -1,0 +1,117 @@
+<section class="slide" id="s-svm" data-g="a" data-sec="6 · SVM y otros">
+  <style>
+    .sv-tab{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+    .sv-tab th{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:right;padding:3px 6px;border-bottom:1px solid var(--line)}
+    .sv-tab td{padding:3px 6px;text-align:right;border-bottom:1px solid var(--line);font-family:var(--f-mono)}
+    .sv-tab th:first-child,.sv-tab td:first-child{text-align:left;font-family:var(--f-body)}
+    .sv-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    @media (max-width:760px){.sv-cards{grid-template-columns:minmax(0,1fr)}}
+    .sv-cards .pick{display:flex;flex-direction:column;gap:4px}
+    .sv-cards .pick em{font-style:normal;font-size:12.5px;color:var(--fg)}
+    .sv-ctl .ctl{margin:5px 0}
+  </style>
+  <p class="kicker k-arch">6 · SVM y otros · <span class="en">other models</span></p>
+  <h2>Los otros modelos de la tabla: alternativas y líneas base para el mismo mapa</h2>
+  <p>La tabla de modelos del flujo de trabajo tiene, además de la logística, los bosques y el boosting, cuatro familias. No suelen ser el modelo principal, pero cada una responde a una situación concreta de la exploración:</p>
+  <div class="sv-cards" id="svoCards"></div>
+  <p class="tryit">haz clic en una tarjeta para ir a su diapositiva; vuelve aquí con el botón de la sección 6 en la cabecera.</p>
+  <p class="note">Como en todo el curso, los datos son sintéticos. Las SVM, la SVM de una clase, los pesos de evidencia y el MaxEnt de estas diapositivas están escritos desde cero para el navegador (versiones didácticas, no las bibliotecas <code>scikit-learn</code> o el programa MaxEnt).</p>
+</section>
+
+<section class="slide" id="sv-lin" data-g="a" data-sec="6 · SVM y otros · margen">
+  <p class="kicker k-arch">SVM lineal · <span class="en">maximum-margin classifier</span></p>
+  <h2>Una SVM busca la frontera con el margen más ancho entre las dos clases</h2>
+  <div class="two">
+    <div>
+      <p>Con dos variables, la frontera es una recta <i>w</i>·<i>x</i> + <i>b</i> = 0. Entre todas las rectas posibles, la SVM elige la que deja la franja vacía más ancha (ancho 2/‖<i>w</i>‖). Solo los puntos sobre el borde de la franja o dentro de ella definen la recta: son los <b>vectores de soporte</b> <span class="en">(support vectors)</span>.</p>
+      <p>Aquí las clases se solapan (no etiquetado ≠ negativo), así que se usa <b>margen suave</b> <span class="en">(soft margin)</span>: <b>C</b> es el precio de cada punto que invade la franja. C pequeño: franja ancha, muchas invasiones. C grande: franja estrecha, casi sin tolerancia.</p>
+      <div class="ctl"><label for="svlC">C</label><input id="svlC" type="range" min="0" max="7" step="1" value="4"><output></output></div>
+      <p class="tryit">lleva C de 0,01 a 100: ¿cuántos vectores de soporte quedan y cómo cambia el ancho de la franja?</p>
+      <div class="readout" id="svlRead"></div>
+      <p class="note"><b>Estandarizar</b> <span class="en">(standardize)</span> es obligatorio: la SVM mide distancias. Sin estandarizar, la distancia a ultramáficas (0 a 2,8 km) pesaría mucho más que B4/B2 (0,9 a 1,9), solo por sus unidades.</p>
+    </div>
+    <div class="panel"><h3>B4/B2 vs distancia a ultramáficas (estandarizadas)</h3><div id="svlFig"></div>
+      <div class="legend"><span><i style="background:var(--lw)"></i>Positivo conocido</span><span><i style="background:var(--cool)"></i>No etiquetado</span><span><i style="background:transparent;border:2px solid var(--arch)"></i>Vector de soporte en el borde</span><span><i style="background:transparent;border:2px dashed var(--fg)"></i>Invade la franja</span></div>
+      <p class="note" style="margin:6px 0 0" id="svlNote"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="sv-rbf" data-g="a" data-sec="6 · SVM y otros · núcleo RBF">
+  <p class="kicker k-arch">Núcleo RBF · <span class="en">kernel trick</span></p>
+  <h2>Con un núcleo, la frontera se dobla: cada vector de soporte aporta una «colina» de similitud</h2>
+  <div class="two">
+    <div class="sv-ctl">
+      <p>La SVM con núcleo RBF puntúa una celda <i>x</i> por su <b>similitud</b> con cada vector de soporte <i>x<sub>i</sub></i>:</p>
+      <div class="eq arch" style="font-size:17px;margin:6px 0">f(x) = b + Σ α<sub>i</sub> t<sub>i</sub> exp(−γ ‖x − x<sub>i</sub>‖²)</div>
+      <p style="font-size:14.5px"><b>γ</b> fija el radio de cada colina: γ pequeño, colinas anchas y frontera suave; γ grande, colinas estrechas y frontera ondulada (sobreajuste). Nunca se calculan las variables «transformadas»: basta con el núcleo <span class="en">(kernel trick)</span>.</p>
+      <div class="ctl"><label for="svrG">γ</label><input id="svrG" type="range" min="0" max="5" step="1" value="2"><output></output></div>
+      <div class="ctl"><label for="svrC">C</label><input id="svrC" type="range" min="0" max="4" step="1" value="2"><output></output></div>
+      <div class="chips" id="svrW"><button class="chip" data-v="none" aria-pressed="true">Sin pesos de clase</button><button class="chip" data-v="balanced">Pesos balanceados <span class="en">(class_weight)</span></button></div>
+      <p class="tryit">sube γ hasta 30 y mira cómo la frontera rodea puntos sueltos; pasa el cursor por el gráfico para ver qué vectores de soporte deciden esa celda.</p>
+      <div class="calc" id="svrCalc" style="font-size:12.5px"></div>
+    </div>
+    <div class="panel"><h3>Puntaje SVM <span style="text-transform:none">σ(2f)</span> · línea negra: <span style="text-transform:none">f = 0</span></h3><div id="svrFig"></div><div id="svrLeg"></div>
+      <div class="readout" id="svrRead"></div>
+      <p class="note" style="margin:6px 0 0">El color es σ(2 f), un <b>puntaje</b> <span class="en">(score)</span> monótono, no una probabilidad calibrada: la SVM no modela probabilidades. AUC y PR-AUC: mapa completo contra la verdad sintética, solo con estas dos variables.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="sv-one" data-g="a" data-sec="6 · SVM y otros · una clase">
+  <p class="kicker k-arch">SVM de una clase · <span class="en">one-class SVM</span></p>
+  <h2>Sin negativos confiables: aprender solo la forma de los positivos</h2>
+  <div class="two">
+    <div class="sv-ctl">
+      <p style="font-size:14.5px">La <b>SVM de una clase</b> se entrena <b>solo con los 100 positivos</b>: traza una frontera RBF que encierra su nube y declara «anómalo» lo que queda fuera. Sirve en el escenario PU cuando no hay negativos fiables. <b>ν</b> <span class="en">(nu)</span> es la fracción máxima de positivos que pueden quedar fuera (y la mínima de vectores de soporte); <b>γ</b>, como antes, el radio de la similitud.</p>
+      <div class="ctl"><label for="svoNu">ν</label><input id="svoNu" type="range" min="0" max="5" step="1" value="2"><output></output></div>
+      <div class="ctl"><label for="svoG">γ</label><input id="svoG" type="range" min="0" max="4" step="1" value="1"><output></output></div>
+      <p class="tryit">baja ν a 0,02: ¿qué fracción del área queda marcada? Sube γ: ¿cuánta laterita real queda fuera?</p>
+      <h3 style="margin-top:8px">Mapa: rango del puntaje · contorno fino = dentro de la frontera</h3><div id="svoMap"></div><div id="svoLeg"></div>
+    </div>
+    <div class="panel" style="padding:16px 18px"><h3>Frontera alrededor de los positivos (variables estandarizadas)</h3><div id="svoFig"></div>
+      <div class="legend"><span><i style="background:var(--lw)"></i>Positivo (entrenamiento)</span><span><i style="background:var(--cool)"></i>Celdas del área (no se usan)</span><span><i style="background:transparent;border:2px solid var(--arch)"></i>Vector de soporte</span></div>
+      <div class="readout" id="svoRead"></div>
+      <p class="note" id="svoNote" style="margin:6px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="sv-woe" data-g="a" data-sec="6 · SVM y otros · pesos de evidencia">
+  <p class="kicker k-arch">Pesos de evidencia · <span class="en">weights of evidence, naive Bayes</span></p>
+  <h2>La línea base clásica: capas binarias y pesos sumados en log-odds</h2>
+  <div class="two">
+    <div class="sv-ctl">
+      <p style="font-size:14.5px">Cada capa se convierte en <b>evidencia binaria</b> con un umbral (presente B / ausente B̄). Se cuentan los positivos y los no etiquetados a cada lado:</p>
+      <div class="eq arch" style="font-size:15.5px;margin:6px 0;white-space:normal;line-height:1.5">W⁺ = ln P(B | D) ⁄ P(B | D̄) · W⁻ = ln P(B̄ | D) ⁄ P(B̄ | D̄)<br>C = W⁺ − W⁻ · logit P(D | evidencia) = logit P(D) + Σ W<sup>±</sup></div>
+      <div class="ctl"><label for="svwT0">B4/B2 &gt;</label><input id="svwT0" type="range" min="1.2" max="1.8" step="0.02" value="1.5"><output></output></div>
+      <div class="ctl"><label for="svwT1">B11/B12 &gt;</label><input id="svwT1" type="range" min="1.14" max="1.32" step="0.01" value="1.24"><output></output></div>
+      <div class="ctl"><label for="svwT2">Dist. UM ≤</label><input id="svwT2" type="range" min="0" max="1.5" step="0.05" value="0.2"><output></output></div>
+      <div class="ctl"><label for="svwT3">Pendiente ≤</label><input id="svwT3" type="range" min="1" max="10" step="0.5" value="4"><output></output></div>
+      <div class="ctl"><label for="svwT4">NDVI ≤</label><input id="svwT4" type="range" min="0.45" max="0.75" step="0.01" value="0.62"><output></output></div>
+      <div class="chips" id="svwNd"><button class="chip" data-v="0" aria-pressed="true">Sin NDVI</button><button class="chip" data-v="1">Añadir NDVI (correlacionado con B4/B2)</button></div>
+      <p class="tryit">mueve el umbral de B4/B2 buscando el contraste C más alto; luego añade NDVI y mira la probabilidad máxima.</p>
+      <p class="note" id="svwNote" style="margin:6px 0 0"></p>
+    </div>
+    <div class="stack">
+      <div class="panel" style="padding:14px 16px"><div id="svwTable"></div></div>
+      <div class="panel" style="padding:14px 16px"><h3>Probabilidad posterior (escala de 0 al máximo)</h3><div id="svwMap" style="max-width:340px"></div><div id="svwLeg"></div><div class="readout" id="svwRead" style="margin-top:4px"></div><p class="note" id="svwCmp" style="margin:4px 0 0"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="sv-maxent" data-g="a" data-sec="6 · SVM y otros · MaxEnt">
+  <p class="kicker k-arch">MaxEnt · <span class="en">maximum entropy, presence-only</span></p>
+  <h2>MaxEnt: la distribución más «uniforme» que respeta lo que sabemos de las presencias</h2>
+  <div class="two">
+    <div>
+      <p>Viene de la <b>modelación de distribución de especies</b> <span class="en">(species distribution modelling)</span>, donde solo hay <b>presencias</b> y un <b>fondo</b> <span class="en">(background)</span>: el mismo escenario PU de la exploración. MaxEnt busca, sobre las celdas del fondo, la distribución de máxima entropía (la más cercana a uniforme) cuyas <b>medias</b> de las variables coinciden con las medias en las presencias. La solución es una inclinación exponencial del fondo: p(x) ∝ exp(λ · f(x)).</p>
+      <div class="chips" id="svmL"></div>
+      <div class="chips" id="svmF"><button class="chip" data-v="1" aria-pressed="true">Rasgo lineal (media)</button><button class="chip" data-v="2">Lineal + cuadrático (media y varianza)</button></div>
+      <p class="tryit">compara las capas: en cuál se separan más las presencias del fondo, y cuánto se inclina la curva MaxEnt para alcanzar su media.</p>
+      <div class="readout" id="svmRead"></div>
+      <p class="note">Simplificación: aquí MaxEnt usa solo rasgos lineales y cuadráticos, con regularización L2 y método de Newton. El programa MaxEnt real añade rasgos de umbral, bisagra <span class="en">(hinge)</span> y producto, regularización L1 y salida cloglog.</p>
+    </div>
+    <div class="panel"><h3 id="svmH">Distribución de la capa</h3><div id="svmFig"></div>
+      <div class="legend"><span><i style="background:var(--cool)"></i>Fondo (todas las celdas)</span><span><i style="background:var(--lw)"></i>Presencias (100 celdas)</span><span><i style="background:var(--data)"></i>Ajuste MaxEnt de esta capa</span></div>
+      <h3 style="margin-top:10px">MaxEnt con las cinco variables · rango del puntaje</h3>
+      <div class="two even" style="gap:14px;align-items:center"><div id="svmMap"></div><div><div class="readout" id="svmRead2" style="margin-top:0"></div><p class="note" style="margin:6px 0 0">Con rasgos lineales, MaxEnt es casi una regresión logística de presencias contra un fondo grande: otra forma de tratar lo no etiquetado.</p></div></div></div>
+  </div>
+</section>
