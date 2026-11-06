@@ -1,0 +1,135 @@
+<section class="slide" id="s-validacion" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">3 · Validación y mapas · <span class="en">spatial validation</span></p>
+  <h2>Con datos espaciales y pocos depósitos, una partición al azar se engaña a sí misma</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Autocorrelación espacial</b> <span class="en">(spatial autocorrelation)</span>: celdas vecinas son casi idénticas. Con una partición al azar, cada celda de test tiene una «copia» vecina en el entrenamiento.</li>
+        <li><b>La unidad es el depósito, no la celda</b>: 100 celdas positivas, pero solo 7 depósitos conocidos (los tres mayores suman 70 celdas). Las celdas de un depósito van <b>juntas</b> al mismo pliegue <span class="en">(fold)</span>.</li>
+        <li><b>Datos PU</b>: lo no etiquetado no es negativo. Se evalúa con métricas de ranking (<b>PR-AUC</b>, <b>captura</b> en el 5 % o 10 % del área), no con exactitud.</li>
+      </ul>
+      <p>El <b>variograma</b> mide cuánto difieren dos celdas según su distancia; donde se aplana (el <b>alcance</b> <span class="en">(range)</span>) ya son independientes. Los bloques de validación deben ser mayores que el alcance.</p>
+      <div class="chips" id="vaVgLayer"></div>
+      <p class="tryit">cambia de capa: ¿cuál tiene el alcance más largo y qué tamaño de bloque exigiría?</p>
+    </div>
+    <div class="panel">
+      <h3>Variograma empírico (semivarianza / varianza)</h3>
+      <div id="vaVgFig"></div>
+      <div class="readout" id="vaVgRead" style="margin-top:4px"></div>
+      <p class="note" style="margin:4px 0 10px">Área sintética: alcances de 0,5 a 2,5 km. En datos reales suele ser de 2 a 10 km: calcúlalo siempre antes de elegir el bloque.</p>
+      <h3>Celdas positivas por depósito conocido</h3>
+      <div id="vaDepFig"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="va-cv" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">Validación espacial · <span class="en">spatial block CV</span></p>
+  <h2>Si el test está pegado al entrenamiento, la nota sale inflada</h2>
+  <div class="two">
+    <div>
+      <p style="margin-bottom:6px">Validación cruzada de 5 pliegues sobre la tabla de modelado (100 positivos + 1 200 no etiquetadas, 5 variables). Cada color del mapa es un pliegue <span class="en">(fold)</span>.</p>
+      <div class="chips" id="vaCvMode"><button class="chip" data-v="random" aria-pressed="true">Partición aleatoria</button><button class="chip" data-v="block">Bloques espaciales</button><button class="chip" data-v="lodo">Un depósito fuera</button></div>
+      <div class="ctl" id="vaCvSizeRow"><label for="vaCvSize">Tamaño de bloque</label><input id="vaCvSize" type="range" min="1.5" max="4.5" step="0.5" value="3"><output></output></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn" id="vaCvRep" type="button">Otra repetición</button><span class="note" id="vaCvRepLbl" style="margin:0"></span></div>
+      <p class="tryit">pasa de «Aleatoria» a «Bloques»: ¿cuánto cae la PR-AUC del bosque? Luego mueve el tamaño de bloque y repite.</p>
+      <h3 style="margin-top:8px">Puntuación fuera de pliegue · un punto por repetición, raya = media</h3>
+      <div id="vaCvFig"></div>
+      <p class="note" id="vaCvNote" style="margin:2px 0 0"></p>
+    </div>
+    <div class="panel">
+      <div id="vaCvMap"></div>
+      <div class="legend" id="vaCvLeg"></div>
+      <p class="note" id="vaCvMapNote" style="margin:6px 0 0"></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="va-mapa" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">Mapa de prospectividad · <span class="en">prospectivity map</span></p>
+  <h2>El modelo ajustado se aplica a cada celda del área: un mapa de prospectividad</h2>
+  <div class="two">
+    <div>
+      <p>Se ajusta el modelo con toda la tabla y se evalúa en las 5 400 celdas (la mina queda enmascarada). El resultado es un <b>ranking</b>: como las no etiquetadas son una muestra y no negativos verdaderos, la probabilidad no está calibrada; lo que importa es el orden.</p>
+      <div class="chips" id="vaMpModel"><button class="chip" data-v="log" aria-pressed="true">Regresión logística</button><button class="chip" data-v="rf">Random Forest</button></div>
+      <div class="chips" id="vaMpScale"><button class="chip" data-v="p" aria-pressed="true">Probabilidad</button><button class="chip" data-v="rank">Percentil del área</button></div>
+      <div class="chips" id="vaMpTruth"><button class="chip" data-v="known" aria-pressed="true">Solo depósitos conocidos</button><button class="chip" data-v="all">Mostrar los no descubiertos</button></div>
+      <p class="tryit">pasa el cursor sobre un depósito no descubierto (contorno punteado): ¿en qué percentil del área queda con cada modelo?</p>
+      <div class="readout" id="vaMpRead"></div>
+      <p class="note" id="vaMpNote" style="margin-top:8px"></p>
+    </div>
+    <div class="panel">
+      <div class="mapwrap" id="vaMpWrap"><div id="vaMpMap"></div><div class="maptip" id="vaMpTip"></div></div>
+      <div id="vaMpLeg" style="margin-top:6px"></div>
+      <p class="note" style="margin:4px 0 0">Contorno rojo: depósitos conocidos (positivos). Punteado: depósitos que existen en la verdad sintética pero nadie ha descubierto. Datos sintéticos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="va-exito" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">Tasa de éxito y de predicción · <span class="en">success-rate curve</span></p>
+  <h2>¿Qué fracción de la laterita cae en el 10 % del área más prospectiva?</h2>
+  <div class="two even">
+    <div>
+      <div class="chips" id="vaSrModel"><button class="chip" data-v="log" aria-pressed="true">Regresión logística</button><button class="chip" data-v="rf">Random Forest</button></div>
+      <div class="ctl"><label for="vaSrFrac">Área marcada</label><input id="vaSrFrac" type="range" min="1" max="30" step="1" value="10"><output></output></div>
+      <p class="tryit">cambia a Random Forest: la curva roja sube al 100 %, pero ¿y la punteada?</p>
+      <div id="vaSrFig"></div>
+      <div id="vaSrTable"></div>
+    </div>
+    <div class="panel">
+      <h3 id="vaSrMapTitle">Contorno: el 10 % del área con mayor puntuación</h3>
+      <div id="vaSrMap"></div>
+      <div class="callout amber" id="vaSrMsg" style="font-size:14px;margin-bottom:0"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="va-neurona" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">De la regresión logística a una red · <span class="en">neural network</span></p>
+  <h2>La regresión logística es una neurona; con una capa oculta, la frontera se curva</h2>
+  <div class="two">
+    <div>
+      <div class="chips" id="vaNnArch"><button class="chip" data-v="log" aria-pressed="true">Una neurona</button><button class="chip" data-v="mlp">Con capa oculta (12 ReLU)</button></div>
+      <div id="vaNnDiag"></div>
+      <div class="calc" id="vaNnCalc" style="white-space:pre-line;font-size:12.5px"></div>
+      <p class="tryit">pasa el cursor por el diagrama de la derecha y mira los valores fluir por la red; luego pulsa «Entrenar desde cero» con cada arquitectura.</p>
+    </div>
+    <div class="panel">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><button class="btn" id="vaNnTrain" type="button">Entrenar desde cero</button><span class="note" id="vaNnEpoch" style="margin:0"></span></div>
+      <div id="vaNnFig"></div>
+      <div class="legend"><span><i style="background:var(--lw)"></i>Positivo (depósito conocido)</span><span><i style="background:var(--cool)"></i>No etiquetada</span><span><i style="background:var(--fg);height:3px"></i>Frontera p = 0,5</span><span>Franja bajo 0: celdas dentro de la ultramáfica (distancia 0), dispersas para verlas</span></div>
+      <div class="readout" id="vaNnRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="va-red" data-g="a" data-sec="3 · Validación y mapas">
+  <p class="kicker">Red pequeña · <span class="en">MLP, dropout, weight decay</span></p>
+  <h2>Con pocos positivos, la red memoriza; regularizar la frena</h2>
+  <div class="two even" style="gap:14px">
+    <div class="panel" style="padding:12px 14px"><h3 style="color:var(--accent)">Regresión logística</h3><div id="vaRdLog"></div></div>
+    <div class="panel" style="padding:12px 14px"><h3 style="color:var(--cool)" id="vaRdMlpT">Red: 12 ReLU</h3><div id="vaRdMlp"></div></div>
+  </div>
+  <div class="three" style="margin-top:8px;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr)">
+    <div>
+      <div class="chips" id="vaRdData" style="margin-top:0"><button class="chip" data-v="few" aria-pressed="true">16 positivos</button><button class="chip" data-v="all">Todo el oeste (53)</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="vaRdH">Neuronas ocultas</label><input id="vaRdH" type="range" min="0" max="6" step="1" value="3"><output></output></div>
+      <div class="chips" id="vaRdDrop"><button class="chip" data-v="0" aria-pressed="true">Sin dropout</button><button class="chip" data-v="0.3">Dropout 0,3</button></div>
+      <div class="chips" id="vaRdWd"><button class="chip" data-v="0" aria-pressed="true">Sin weight decay</button><button class="chip" data-v="0.01">Weight decay 0,01</button></div>
+      <p class="tryit">con 16 positivos y sin regularizar, sube a 32 neuronas; luego activa weight decay.</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:2px">Log-loss · validación: mitad este</h3>
+      <div id="vaRdLoss"></div>
+      <div class="legend" style="margin-top:2px;font-size:11.5px;gap:10px"><span><i style="background:var(--cool);height:3px"></i>red · entren.</span><span>- - red · valid.</span><span style="color:var(--accent)">··· logística · valid.</span></div><div class="readout" id="vaRdRead" style="margin-top:2px;gap:16px;flex-wrap:nowrap"></div>
+    </div>
+    <div class="card" style="padding:10px 12px">
+      <h4 style="font-size:14px">CNN sobre parches <span class="en">(CNN)</span></h4>
+      <p style="font-size:12.5px;line-height:1.4">Sobre parches de 32 × 32 píxeles de Sentinel-2 (+ DEM), una CNN pequeña ve <b>textura y forma del terreno</b>. Con 7 depósitos necesita <b>aumentación</b> (giros, reflejos) o <b>preentrenamiento</b>.</p>
+      <div id="vaRdCnn" style="margin-top:6px"></div>
+      <p class="tryit" style="font-size:12px;margin:4px 0 0;padding:3px 8px"><button class="btn" id="vaRdCnnNext" type="button" style="padding:0 8px;font-size:11.5px">otro depósito</button> girar no crea un depósito nuevo: sigue siendo 1 de 7.</p>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0;max-width:none;font-size:12.5px">En variables tabulares una MLP rara vez supera al <b>gradient boosting</b>; su valor es mostrar cómo la regresión logística crece hasta el aprendizaje profundo. Módulos de redes neuronales: <a href="../layers.html">capas</a> (ReLU, convoluciones) y <a href="../optimization.html">optimización</a> (sobreajuste, regularización). Entrenamiento: 2 variables, mitad oeste; franja bajo 0 = distancia 0. CNN: ventanas de 16 × 16 celdas de B4/B2 de nuestra malla. Datos sintéticos.</p>
+</section>
