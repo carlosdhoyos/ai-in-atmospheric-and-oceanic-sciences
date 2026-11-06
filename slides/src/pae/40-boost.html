@@ -1,0 +1,150 @@
+<section class="slide" id="s-boosting" data-g="a" data-sec="5 · Boosting · idea">
+  <p class="kicker">5 · Boosting · <span class="en">gradient boosting</span></p>
+  <h2>Un bosque promedia árboles independientes; el boosting suma árboles pequeños, cada uno corrigiendo al anterior</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Bosque aleatorio</b> <span class="en">(random forest)</span>: muchos árboles <b>profundos</b>, cada uno con su propia muestra bootstrap, entrenados <b>en paralelo</b> y sin mirarse entre sí. Se <b>promedian</b>: baja la varianza.</li>
+        <li><b>Boosting</b> <span class="en">(gradient boosting)</span>: árboles <b>pequeños</b> (2 a 8 hojas) entrenados <b>en secuencia</b>. Cada árbol nuevo se ajusta a los <b>errores</b> que dejaron los anteriores, y su salida se <b>suma</b> en log-odds, multiplicada por una tasa de aprendizaje η. Baja el sesgo, paso a paso.</li>
+        <li>XGBoost y LightGBM son dos implementaciones muy usadas de esta idea; difieren en cómo buscan los cortes y en cómo crece cada árbol.</li>
+      </ul>
+      <div class="ctl"><label for="boOpK">Árboles</label><input id="boOpK" type="range" min="1" max="30" step="1" value="3"><output></output></div>
+      <p class="tryit">sube el número de árboles de 1 a 30: la curva del bosque casi no cambia después de unos pocos; la del boosting arranca plana y se va afinando.</p>
+      <p class="note">Una sola variable (anomalía magnética) y 500 celdas del área sintética: 100 positivos (marcas rojas arriba) y 400 no etiquetadas (marcas azules abajo).</p>
+    </div>
+    <div class="panel">
+      <div id="boOpFig"></div>
+      <h3 style="margin-top:8px">Probabilidad según la anomalía magnética</h3>
+      <div id="boOpCurve"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="bo-pasos" data-g="a" data-sec="5 · Boosting · paso a paso">
+  <p class="kicker">Boosting paso a paso · <span class="en">gradient boosting on log-loss</span></p>
+  <h2>Cada ronda: calcular el residuo, ajustarle un árbol pequeño y sumar η veces su salida</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:15px">Con la pérdida logarítmica el gradiente de cada muestra es <b>g = p − y</b>; su negativo, <b>y − p</b>, es el <b>residuo</b> <span class="en">(pseudo-residual)</span>: grande en los positivos que el modelo aún no ve, pequeño y negativo en las no etiquetadas. El árbol siguiente (profundidad 2) se ajusta a esos residuos.</p>
+      <div class="eq" style="font-size:17px">F<sub>m</sub>(x) = F<sub>m−1</sub>(x) + η · árbol<sub>m</sub>(x) &nbsp;·&nbsp; p = σ(F)</div>
+      <div class="chips"><button class="btn" id="boPsStep" type="button">Una ronda</button><button class="btn" id="boPsPlay" type="button">Reproducir</button><button class="btn" id="boPsReset" type="button">Reiniciar</button></div>
+      <div class="ctl"><label for="boPsEta">η <span class="en">(learning rate)</span></label><input id="boPsEta" type="range" min="0.05" max="1" step="0.05" value="0.3"><output></output></div>
+      <div class="chips" id="boPsView"><button class="chip" data-v="res" aria-pressed="true">Residuos y − p</button><button class="chip" data-v="prob">Solo probabilidad</button></div>
+      <p class="tryit">avanza ronda a ronda y haz clic en un punto: mira cómo su log-odds F se arma sumando árboles. Luego prueba η = 1 y η = 0,05.</p>
+      <div class="calc" id="boPsCalc" style="font-size:12.5px"></div>
+    </div>
+    <div class="panel">
+      <h3 id="boPsTitle">Ronda 0</h3>
+      <div id="boPsFig"></div>
+      <h3 style="margin-top:6px" id="boPsTreeT">Siguiente árbol</h3>
+      <div id="boPsTree"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="bo-xgb" data-g="a" data-sec="5 · Boosting · XGBoost">
+  <p class="kicker">XGBoost · <span class="en">second-order boosting, regularized trees</span></p>
+  <h2>XGBoost usa gradiente y curvatura: peso de hoja w = −G/(H + λ) y ganancia regularizada</h2>
+  <div class="two">
+    <div>
+      <style>#bo-xgb .ctl{grid-template-columns:minmax(0,1fr) 3.4em;row-gap:0;margin:3px 0;font-size:13px}#bo-xgb .ctl label{grid-column:1;grid-row:1}#bo-xgb .ctl output{grid-column:2;grid-row:1}#bo-xgb .ctl input{grid-column:1/3;grid-row:2}</style>
+      <div class="eq" style="font-size:15px;line-height:1.6;margin-top:0">g = p − y, h = p(1 − p); en un nodo G = Σg, H = Σh<br>peso de hoja: w* = −G / (H + λ)<br>ganancia = ½ [G<sub>L</sub>²/(H<sub>L</sub>+λ) + G<sub>R</sub>²/(H<sub>R</sub>+λ) − G²/(H+λ)] − γ</div>
+      <div id="boXgCtl" style="display:grid;grid-template-columns:1fr 1fr;column-gap:18px">
+        <div class="ctl"><label for="boXgEta">η</label><input id="boXgEta" type="range" min="0.02" max="0.5" step="0.02" value="0.1"><output></output></div>
+        <div class="ctl"><label for="boXgN">rondas</label><input id="boXgN" type="range" min="10" max="150" step="10" value="120"><output></output></div>
+        <div class="ctl"><label for="boXgD">profundidad</label><input id="boXgD" type="range" min="1" max="6" step="1" value="3"><output></output></div>
+        <div class="ctl"><label for="boXgL">λ (L2)</label><input id="boXgL" type="range" min="0" max="10" step="0.5" value="1"><output></output></div>
+        <div class="ctl"><label for="boXgG">γ</label><input id="boXgG" type="range" min="0" max="5" step="0.25" value="0"><output></output></div>
+        <div class="ctl"><label for="boXgM">min_child_weight</label><input id="boXgM" type="range" min="0" max="10" step="0.5" value="1"><output></output></div>
+        <div class="ctl"><label for="boXgS">subsample</label><input id="boXgS" type="range" min="0.5" max="1" step="0.1" value="1"><output></output></div>
+        <div class="ctl"><label for="boXgC">colsample</label><input id="boXgC" type="range" min="0.4" max="1" step="0.2" value="1"><output></output></div>
+      </div>
+      <p class="tryit">profundidad 6 y η = 0,5: la pérdida de entrenamiento cae a casi cero y la de validación sube. Luego sube λ o γ y mira la raíz.</p>
+      <div class="calc" id="boXgCalc" style="font-size:12px"></div>
+    </div>
+    <div class="panel">
+      <h3>Log-loss · <span style="color:var(--sw)">- - entrenamiento · — validación espacial</span></h3>
+      <div id="boXgFig"></div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:start;margin-top:6px">
+        <div><div id="boXgMap"></div><div id="boXgLeg"></div></div>
+        <div><div class="readout" id="boXgRead" style="margin-top:0;gap:10px"></div></div>
+      </div>
+      <p class="note" style="margin:4px 0 0;font-size:12.5px">No es la librería XGBoost: es un boosting de segundo orden escrito desde cero sobre histogramas de 32 bins (como su método <code>hist</code>). Contorno: bloques de validación de 3 km. Datos sintéticos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="bo-lgbm" data-g="a" data-sec="5 · Boosting · LightGBM">
+  <p class="kicker">LightGBM · <span class="en">histogram bins, leaf-wise growth</span></p>
+  <h2>LightGBM agrupa los valores en bins y hace crecer el árbol por la hoja con mayor ganancia</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:13.5px;margin-bottom:4px">
+        <li><b>Por nivel</b> <span class="en">(level-wise)</span>, XGBoost por defecto: parte todos los nodos de un nivel antes de bajar, aunque algunos aporten poco.</li>
+        <li><b>Por hoja</b> <span class="en">(leaf-wise, best-first)</span>, LightGBM: parte siempre la hoja de <b>mayor ganancia</b>. Con las mismas hojas reduce más la pérdida, pero puede crecer muy profundo.</li>
+        <li><code>num_leaves</code> es el control principal. Con pocos positivos las mayores ganancias están junto a ellos, y el árbol por hoja sigue tallando esa zona en hojas cada vez más pequeñas: memoriza. Limita también <code>max_depth</code> y <code>min_child_samples</code>.</li>
+      </ul>
+      <div class="ctl"><label for="boLgK">Hojas</label><input id="boLgK" type="range" min="2" max="12" step="1" value="4"><output></output></div>
+      <p class="tryit">sube las hojas una a una: por hoja se parte la marcada (mayor ganancia); por nivel, la siguiente del nivel.</p>
+      <h3 style="margin:6px 0 2px">Bins de histograma · hierro férrico B4/B2</h3>
+      <div id="boLgBinFig"></div>
+      <div class="ctl"><label for="boLgB">Bins</label><input id="boLgB" type="range" min="4" max="64" step="4" value="16"><output></output></div>
+      <p class="tryit">cambia los bins: de 1 300 valores a bins − 1 cortes candidatos.</p>
+    </div>
+    <div class="panel">
+      <h3>Por hoja <span class="en">(leaf-wise)</span> · LightGBM</h3>
+      <div id="boLgLeaf"></div>
+      <h3 style="margin-top:6px">Por nivel <span class="en">(level-wise)</span> · XGBoost</h3>
+      <div id="boLgLevel"></div>
+      <div class="readout" id="boLgRead" style="margin-top:2px;gap:18px"></div>
+      <p class="note" style="margin:4px 0 0;font-size:12.5px">Primer árbol, tabla completa. Sobre cada hoja: ganancia de su mejor corte; debajo: positivos/celdas; marco: la que se parte después. Fe = B4/B2, Arc = B11/B12, dUM = dist. a ultramáficas (km). LightGBM además usa GOSS <span class="en">(gradient-based one-side sampling)</span> y EFB <span class="en">(exclusive feature bundling)</span>; aquí no se muestran.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="bo-pocos" data-g="a" data-sec="5 · Boosting · pocos positivos">
+  <p class="kicker">Pocos positivos · <span class="en">scale_pos_weight, early stopping</span></p>
+  <h2>Con 74 positivos de entrenamiento: árboles bajos, η pequeño y parar cuando la validación espacial deja de mejorar</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14.5px">
+        <li><code>scale_pos_weight</code> ≈ n<sub>neg</sub>/n<sub>pos</sub> <span id="boPcSpwTxt"></span> multiplica g y h de los positivos. Sube las probabilidades (ya no calibradas); el ranking cambia poco.</li>
+        <li><b>Parada temprana</b> <span class="en">(early stopping)</span>: la ronda con menor pérdida en un pliegue de <b>validación espacial</b> (línea vertical). Un pliegue aleatorio pararía tarde: sus celdas son vecinas de las de entrenamiento.</li>
+        <li><b style="color:var(--sw)">Conservador</b>: profundidad 2, η = 0,1, λ = 5, min_child_weight = 2, subsample y colsample 0,8. <b style="color:var(--rose)">Codicioso</b>: profundidad 6, η = 0,3, λ = 0, min_child_weight = 0,05.</li>
+      </ul>
+      <div class="chips" id="boPcSpw"><button class="chip" data-v="1" aria-pressed="true">scale_pos_weight = 1</button><button class="chip" data-v="bal">scale_pos_weight = n<sub>neg</sub>/n<sub>pos</sub></button></div>
+      <div class="chips" id="boPcStop"><button class="chip" data-v="all" aria-pressed="true">Mapa con las 150 rondas</button><button class="chip" data-v="best">Mapa con parada temprana</button></div>
+      <p class="tryit">activa la parada temprana: ¿en qué ronda para cada configuración y cómo cambia su mapa?</p>
+      <div id="boPcTable"></div>
+    </div>
+    <div class="panel">
+      <h3>Log-loss · <span style="color:var(--rose)">codicioso</span> · <span style="color:var(--sw)">conservador</span> · - - entrenamiento · — validación espacial</h3>
+      <div id="boPcFig"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px">
+        <div><h3 style="margin:0 0 4px;color:var(--rose)">Codicioso</h3><div id="boPcMapA"></div></div>
+        <div><h3 style="margin:0 0 4px;color:var(--sw)">Conservador</h3><div id="boPcMapB"></div></div>
+      </div>
+      <div id="boPcLeg"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="bo-pdp" data-g="a" data-sec="5 · Boosting · interpretación">
+  <p class="kicker">Qué aprendió el modelo · <span class="en">partial dependence, ICE</span></p>
+  <h2>Mover una variable a la vez: curvas de dependencia para una celda y para el promedio</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14px;margin-bottom:8px">Se barre cada variable dejando las otras en los valores de la celda <span class="en">(ICE)</span>; la discontinua promedia 200 celdas <span class="en">(partial dependence)</span>. Es un sustituto sencillo de SHAP, que hace esto con más rigor; aquí no calculamos SHAP.</p>
+      <div class="mapwrap"><div id="boPdMap"></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap"><div id="boPdLeg" style="flex:0 0 170px"></div><div class="readout" id="boPdRead" style="margin-top:0;gap:14px"></div></div>
+      <p class="tryit">haz clic en un depósito no descubierto (contorno punteado) y luego en suelo rojo sobre sedimentos: ¿qué variable las separa?</p>
+    </div>
+    <div class="panel">
+      <h3 id="boPdTitle">Probabilidad al mover cada variable</h3>
+      <div id="boPdGrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 10px"></div>
+      <h3 style="margin-top:8px">Aporte aproximado en log-odds: F(celda) − F(celda con esa variable en su mediana)</h3>
+      <div id="boPdBars"></div>
+      <p class="note" style="margin:2px 0 0;font-size:12.5px">Modelo: 120 rondas, η = 0,1, profundidad 3, tabla completa. Con variables correlacionadas, mover una sola crea celdas que no existen: guía, no explicación causal.</p>
+    </div>
+  </div>
+</section>
