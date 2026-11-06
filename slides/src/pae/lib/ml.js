@@ -296,18 +296,27 @@ const ML = (() => {
     const precision = tp + fp ? tp / (tp + fp) : 0, recall = tp + fn ? tp / (tp + fn) : 0;
     return { tp, fp, tn, fn, precision, recall, accuracy: (tp + tn) / p.length, f1: precision + recall ? 2 * precision * recall / (precision + recall) : 0, fpr: fp + tn ? fp / (fp + tn) : 0 };
   }
-  const order = p => [...p.keys()].sort((a, b) => p[b] - p[a]);
-  function rocCurve(p, y) { const o = order(p), P = y.reduce((a, b) => a + b, 0), N = y.length - P; let tp = 0, fp = 0; const pts = [[0, 0]]; o.forEach(i => { y[i] ? tp++ : fp++; pts.push([fp / N, tp / P]); }); return pts; }
-  function prCurve(p, y) { const o = order(p), P = y.reduce((a, b) => a + b, 0); let tp = 0, fp = 0; const pts = []; o.forEach(i => { y[i] ? tp++ : fp++; pts.push([tp / P, tp / (tp + fp)]); }); return pts; }
+  // rank by score, highest first, as groups of tied scores: a tie is never broken by row order (which would favour
+  // whichever class comes first in the table); curves step from group to group, the expected result of a random tie-break
+  const tieGroups = (p, idx = [...p.keys()]) => { const o = idx.slice().sort((a, b) => p[b] - p[a]), G = [];
+    for (let i = 0; i < o.length;) { let j = i; while (j < o.length && p[o[j]] === p[o[i]]) j++; G.push(o.slice(i, j)); i = j; } return G; };
+  function rocCurve(p, y) { const P = y.reduce((a, b) => a + b, 0), N = y.length - P; let tp = 0, fp = 0; const pts = [[0, 0]];
+    tieGroups(p).forEach(g => { g.forEach(i => y[i] ? tp++ : fp++); pts.push([fp / N, tp / P]); }); return pts; }
+  function prCurve(p, y) { const P = y.reduce((a, b) => a + b, 0); let tp = 0, fp = 0; const pts = [];
+    tieGroups(p).forEach(g => { g.forEach(i => y[i] ? tp++ : fp++); pts.push([tp / P, tp / (tp + fp)]); }); return pts; }
   const auc = (p, y) => { const c = rocCurve(p, y); let s = 0; for (let i = 1; i < c.length; i++) s += (c[i][0] - c[i - 1][0]) * (c[i][1] + c[i - 1][1]) / 2; return s; };
-  const prAuc = (p, y) => { const o = order(p), P = y.reduce((a, b) => a + b, 0); let tp = 0, s = 0; o.forEach((i, r) => { if (y[i]) { tp++; s += tp / (r + 1); } }); return P ? s / P : 0; };
-  // success-rate curve over the map: cells ranked by score; fraction of target cells captured vs fraction of area flagged
+  // average precision: Σ Δrecall × precision, one step per group of tied scores
+  const prAuc = (p, y) => { const P = y.reduce((a, b) => a + b, 0); if (!P) return 0; let tp = 0, fp = 0, s = 0;
+    tieGroups(p).forEach(g => { const t = g.filter(i => y[i]).length; tp += t; fp += g.length - t; if (t) s += (t / P) * (tp / (tp + fp)); }); return s; };
+  // success-rate curve over the map: cells ranked by score (ties as groups); fraction of target cells captured vs fraction of area flagged
   function successRate(score, target, valid) {
-    const cells = [...score.keys()].filter(k => !valid || valid[k]), o = cells.sort((a, b) => score[b] - score[a]), T = o.reduce((s, k) => s + (target[k] ? 1 : 0), 0);
-    let c = 0; const pts = [[0, 0]]; o.forEach((k, r) => { if (target[k]) c++; if (r % 10 === 0 || r === o.length - 1) pts.push([(r + 1) / o.length, T ? c / T : 0]); });
-    return pts;
+    const cells = [...score.keys()].filter(k => !valid || valid[k]), T = cells.reduce((s, k) => s + (target[k] ? 1 : 0), 0);
+    let c = 0, r = 0; const pts = [[0, 0]];
+    tieGroups(score, cells).forEach(g => { c += g.filter(k => target[k]).length; r += g.length; pts.push([r / cells.length, T ? c / T : 0]); });
+    return pts.length > 600 ? pts.filter((_, i) => i % Math.ceil(pts.length / 600) === 0 || i === pts.length - 1) : pts;
   }
-  const capture = (curve, frac) => { for (const [a, c] of curve) if (a >= frac) return c; return 1; };
+  // capture at a fraction of area, interpolated inside a tied group
+  const capture = (curve, frac) => { for (let i = 1; i < curve.length; i++) if (curve[i][0] >= frac) { const [a0, c0] = curve[i - 1], [a1, c1] = curve[i]; return c0 + (c1 - c0) * (frac - a0) / ((a1 - a0) || 1); } return 1; };
   // how many of the deposits have at least one cell in the top `frac` of the map
   function depositsHit(score, valid, frac) {
     const cells = [...score.keys()].filter(k => !valid || valid[k]).sort((a, b) => score[b] - score[a]), top = new Set(cells.slice(0, Math.round(frac * cells.length)));

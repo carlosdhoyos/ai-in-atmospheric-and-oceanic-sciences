@@ -1,0 +1,203 @@
+<section class="slide" id="s-logistica" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">2 · Regresión logística · <span class="en">logistic regression</span></p>
+  <h2>Un modelo que no dice «sí» o «no», sino <span class="hl">qué tan probable</span> es la laterita en cada celda</h2>
+  <div class="two">
+    <div>
+      <p>Para cada celda queremos <b>p = P(laterita | variables)</b>, un número entre 0 y 1. ¿Por qué una probabilidad y no una etiqueta?</p>
+      <ul class="pts">
+        <li><b>Ordenar</b> el terreno: perforar primero donde p es más alta <span class="en">(ranking)</span>.</li>
+        <li><b>Elegir el umbral</b> según el costo: un pozo seco cuesta distinto que un depósito perdido.</li>
+        <li><b>Combinar</b> evidencias (B4/B2, arcillas, geología, terreno) en una sola cifra que se explica coeficiente por coeficiente.</li>
+      </ul>
+      <div class="callout blue">La regresión logística es la <b>línea base</b> de cualquier mapa de prospectividad: es simple, se interpreta y, en esta área sintética, ya llega a un AUC de 0,98 contra la verdad (el bosque aleatorio, 0,99).</div>
+    </div>
+    <div class="panel"><h3>Ruta de la sección</h3><div id="lrRoadCard" class="stack" style="gap:5px"></div>
+      <p class="tryit">haz clic en una etapa para saltar a esa diapositiva.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-lineal" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">¿Por qué no regresión lineal? · <span class="en">linear probability model</span></p>
+  <h2>Una recta por datos 0/1 predice «probabilidades» menores que 0 y mayores que 1</h2>
+  <div class="two">
+    <div>
+      <p>Codificamos laterita conocida = 1 y no etiquetada = 0 y ajustamos una recta por mínimos cuadrados contra el cociente férrico B4/B2. Son celdas reales del área (sintética).</p>
+      <ul class="pts">
+        <li>La recta no tiene techo ni piso: para B4/B2 alto da <b>p &gt; 1</b>, para bajo, <b>p &lt; 0</b>.</li>
+        <li>Su pendiente depende de cuántos ceros metamos: la masa de no etiquetadas la aplana.</li>
+        <li>Necesitamos una curva que se quede entre 0 y 1: la <b>sigmoide</b>.</li>
+      </ul>
+      <div class="chips" id="lrLinU"><button class="chip" data-v="100" aria-pressed="true">100 no etiquetadas</button><button class="chip" data-v="400">400</button><button class="chip" data-v="1200">1&nbsp;200</button></div>
+      <p class="tryit">cambia el número de no etiquetadas: ¿qué pasa con la pendiente y con las predicciones fuera de [0, 1]?</p>
+      <div class="readout" id="lrLinRead"></div>
+    </div>
+    <div class="panel"><h3>Mínimos cuadrados sobre 0/1 · <span class="en">(OLS on a binary target)</span></h3><div id="lrLinFig"></div>
+      <div class="legend"><span><i style="background:var(--lw)"></i>Laterita conocida (1)</span><span><i style="background:var(--cool)"></i>No etiquetada (0)</span><span><i style="background:var(--rose)"></i>Predicción imposible</span></div>
+      <p class="note" style="margin:4px 0 0">Los puntos se separan un poco en vertical para que se vean; su valor es 0 o 1.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-sigmoide" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">La sigmoide · <span class="en">logistic (sigmoid) function</span></p>
+  <h2>La sigmoide dobla la recta para que quepa entre 0 y 1</h2>
+  <div class="two">
+    <div>
+      <div class="eq">p = σ(z) = 1 / (1 + e<sup>−z</sup>), &nbsp; z = β<sub>0</sub> + β<sub>1</sub>·x</div>
+      <div class="ctl"><label for="lrB0">β₀ <span class="en">(intercept)</span></label><input id="lrB0" type="range" min="-30" max="5" step="0.1" value="-6"><output></output></div>
+      <div class="ctl"><label for="lrB1">β₁ <span class="en">(slope)</span></label><input id="lrB1" type="range" min="0" max="20" step="0.1" value="4"><output></output></div>
+      <div class="chips"><button class="btn" type="button" id="lrSigFit">Ajustar por máxima verosimilitud</button></div>
+      <p class="tryit">mueve β₀ (desplaza la curva) y β₁ (la empina) hasta bajar la log-loss; luego compara con «Ajustar». Pasa el cursor sobre un punto.</p>
+      <div class="readout" id="lrSigRead"></div>
+      <div id="lrSigQuiz" style="margin-top:10px"></div>
+    </div>
+    <div class="panel"><h3>p según B4/B2 · cursor: probabilidad de la celda</h3><div id="lrSigFig"></div>
+      <h3 style="margin-top:4px">La misma curva en función de z</h3><div id="lrSigZFig"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-odds" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Odds y log-odds · <span class="en">odds, log-odds (logit)</span></p>
+  <h2>El modelo es una recta… en la escala de los log-odds</h2>
+  <div class="two">
+    <div>
+      <p><b>Odds</b> = p / (1 − p): cuántas veces más probable es «sí» que «no». <b>Log-odds</b> = ln(odds), el <i>logit</i>. La sigmoide es justo la inversa del logit:</p>
+      <div class="eq">ln( p / (1 − p) ) = z = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + …</div>
+      <div class="ctl"><label for="lrOdP">p</label><input id="lrOdP" type="range" min="0.001" max="0.999" step="0.001" value="0.2"><output></output></div>
+      <div class="ctl"><label for="lrOdO">odds</label><input id="lrOdO" type="range" min="-3" max="3" step="0.01" value="-0.6"><output></output></div>
+      <div class="ctl"><label for="lrOdL">log-odds</label><input id="lrOdL" type="range" min="-7" max="7" step="0.01" value="-1.39"><output></output></div>
+      <div class="chips" id="lrOdPick"><button class="chip" data-v="0.019">tasa base 1,9 %</button><button class="chip" data-v="0.5">p = 0,5</button><button class="chip" data-v="0.9">p = 0,9</button><button class="chip" data-v="0.99">p = 0,99</button></div>
+      <p class="tryit">mueve cualquiera de los tres controles: los otros dos se recalculan. ¿Qué valen odds y log-odds cuando p = 0,5?</p>
+      <div class="callout green"><b>Mensaje clave:</b> cada +1 en x<sub>j</sub> <b>suma</b> β<sub>j</sub> a los log-odds y <b>multiplica</b> las odds por e<sup>β<sub>j</sub></sup>. En p el efecto no es constante: depende de dónde estés en la curva.</div>
+    </div>
+    <div class="panel"><h3>Tres escalas para la misma cantidad</h3><div id="lrOdFig"></div><div class="readout" id="lrOdRead"></div><p class="note" id="lrOdNote" style="margin:6px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-multiple" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">De una a varias variables · <span class="en">multiple logistic regression</span></p>
+  <h2>Cada variable suma o resta a z; σ convierte el total en p</h2>
+  <div class="two">
+    <div>
+      <div class="eq" style="font-size:18px;margin-top:0">z = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + … + β<sub>5</sub>x<sub>5</sub> &nbsp;→&nbsp; p = σ(z)</div>
+      <div id="lrMulCtl"></div>
+      <div class="chips" id="lrMulEx"></div>
+      <p class="tryit">elige un ejemplo o una celda del mapa y mueve la distancia: ¿cuánto hierro hace falta para compensarla?</p>
+      <div id="lrMulQuiz"></div>
+    </div>
+    <div class="stack" style="gap:10px">
+      <div class="panel" style="padding:12px 16px"><h3>z término a término (variables estandarizadas)</h3><div id="lrMulFig"></div><div id="lrMulSigFig"></div></div>
+      <div style="display:grid;grid-template-columns:210px minmax(0,1fr);gap:12px;align-items:start">
+        <div><div class="mapwrap"><div id="lrMulMap"></div></div><p class="note" style="margin:2px 0 0;font-size:12px">p del modelo (L2 suave, λ = 0,01). Clic: elegir celda.</p></div>
+        <div class="callout blue" id="lrMulCalc" style="margin:0;font-size:13.5px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="lr-frontera" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Frontera de decisión · <span class="en">decision boundary</span></p>
+  <h2>Con dos variables, el umbral traza una línea recta en el plano</h2>
+  <div class="two">
+    <div>
+      <p>Modelo con solo dos variables: hierro férrico B4/B2 y distancia a ultramáficas. El fondo es la probabilidad; la línea negra, las celdas donde p = umbral. Todo lo que queda a la derecha y abajo se marca como prospectivo.</p>
+      <div class="ctl"><label for="lrBdThr">Umbral <span class="en">(threshold)</span></label><input id="lrBdThr" type="range" min="0.02" max="0.98" step="0.01" value="0.5"><output></output></div>
+      <p class="tryit">baja el umbral: la línea se desplaza paralela a sí misma. ¿Puede alguna vez curvarse?</p>
+      <div class="readout" id="lrBdRead"></div>
+      <div class="calc" id="lrBdCalc" style="white-space:pre-line"></div>
+      <div class="callout amber">La frontera es <b>lineal</b>: z = logit(umbral) es una recta, y cambiar el umbral solo la traslada. Si la laterita ocupara una «isla» en este plano, una recta no la encerraría: eso lo harán los <b>árboles</b> (sección 4).</div>
+    </div>
+    <div class="panel"><h3>B4/B2 (eje x) vs distancia a ultramáficas (eje y, km)</h3><div id="lrBdFig"></div>
+      <div class="legend"><span><i style="background:var(--lw)"></i>Laterita conocida</span><span><i style="background:var(--cool)"></i>No etiquetada</span><span><i style="background:var(--fg)"></i>p = umbral</span></div><div id="lrBdLeg"></div><p class="note" style="margin:2px 0 0">No se dibujan <span id="lrBdOff"></span> celdas no etiquetadas a más de 1,5 km (todas con p ≈ 0).</p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-ajuste" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Máxima verosimilitud · <span class="en">maximum likelihood</span></p>
+  <h2>El ajuste baja la log-loss paso a paso: la frontera gira y se desplaza</h2>
+  <div class="two">
+    <div>
+      <p>Máxima verosimilitud = minimizar la <b>log-loss</b> <span class="en">(cross-entropy)</span>: castiga mucho dar p ≈ 0 a una laterita, o p ≈ 1 a una celda que no lo es.</p>
+      <div class="eq" style="font-size:17px">L = −(1/n) Σ [ y·ln p + (1 − y)·ln(1 − p) ]</div>
+      <p style="font-size:14.5px">Descenso de gradiente: β ← β − η · ∂L/∂β, con ∂L/∂β<sub>j</sub> = (1/n) Σ (p − y)·x<sub>j</sub>. Variables estandarizadas; se parte de β = 0 (p = 0,5 en todas partes).</p>
+      <div class="chips"><button class="btn" type="button" id="lrGdStep">Paso ×5</button><button class="btn" type="button" id="lrGdPlay">▶ Reproducir</button><button class="btn" type="button" id="lrGdReset">Reiniciar</button></div>
+      <div class="ctl"><label for="lrGdLr">Tasa η <span class="en">(learning rate)</span></label><input id="lrGdLr" type="range" min="-2" max="1.3" step="0.05" value="-0.3"><output></output></div>
+      <p class="tryit">reproduce con η = 0,5; luego reinicia con η = 0,01 y con η = 15: ¿cuál llega primero al mínimo? ¿Funcionaría η = 15 sin estandarizar? (siguiente diapositiva)</p>
+      <div class="readout" id="lrGdRead"></div>
+    </div>
+    <div class="panel"><h3>Frontera p = 0,5 · x: B4/B2, y: distancia (km)</h3><div id="lrGdFig"></div><h3 style="margin-top:4px">Log-loss por iteración</h3><div id="lrGdLoss"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-estandar" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Estandarización · <span class="en">standardization (z-scores)</span></p>
+  <h2>Estandarizar no cambia el modelo, pero hace comparables los coeficientes y acelera el ajuste</h2>
+  <div class="two">
+    <div>
+      <p>Cada variable se convierte en z = (x − media) / desviación estándar. La magnetometría va de −60 a 300 nT y la arcilla de 1,05 a 1,40: en unidades crudas el gradiente lo domina la variable de mayor escala.</p>
+      <div class="chips" id="lrStMode"><button class="chip" data-v="raw" aria-pressed="true">Unidades originales</button><button class="chip" data-v="std">Estandarizadas</button></div>
+      <h3 id="lrStBarsT" style="margin-top:8px"></h3>
+      <div id="lrStBars"></div>
+      <p class="note" id="lrStNote" style="margin:4px 0 0"></p>
+      <p class="tryit">cambia de unidades: ¿qué variable «parece» más importante en cada caso?</p>
+    </div>
+    <div class="panel"><h3>Log-loss en 300 iteraciones, misma tasa para ambas</h3><div id="lrStFig"></div>
+      <div class="ctl"><label for="lrStLr">Tasa η</label><input id="lrStLr" type="range" min="-4" max="0.5" step="0.05" value="-0.3"><output></output></div>
+      <p class="tryit">baja η hasta que la curva cruda deje de saltar: ¿qué le pasa entonces a la estandarizada?</p>
+      <div class="readout" id="lrStRead"></div><p class="note" id="lrStStable" style="margin:6px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-regular" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Regularización L1 vs L2 · <span class="en">lasso, ridge</span></p>
+  <h2>Con pocos positivos, regulariza: L1 apaga variables, L2 las encoge todas</h2>
+  <div class="two">
+    <div>
+      <p>Se suma a la log-loss una penalización sobre los coeficientes (no sobre β<sub>0</sub>): <b>L1</b> = λ Σ |β<sub>j</sub>| <span class="en">(lasso)</span>, <b>L2</b> = ½ λ Σ β<sub>j</sub>² <span class="en">(ridge)</span>. Con 100 celdas positivas de 7 depósitos, el modelo puede memorizar ruido: la penalización lo frena.</p>
+      <div class="chips" id="lrRgPen"><button class="chip" data-v="l1" aria-pressed="true">L1 (lasso)</button><button class="chip" data-v="l2">L2 (ridge)</button></div>
+      <div class="ctl"><label for="lrRgLam">λ</label><input id="lrRgLam" type="range" min="-3" max="0.5" step="0.1" value="-1.7"><output></output></div>
+      <p class="tryit">con L1, sube λ despacio: ¿qué variable llega primero a exactamente 0? Cambia a L2 con el mismo λ.</p>
+      <div id="lrRgBars"></div>
+      <div class="readout" id="lrRgRead"></div>
+    </div>
+    <div class="panel"><h3>Camino de los coeficientes <span class="en">(regularization path)</span></h3><div id="lrRgFig"></div>
+      <p class="note" id="lrRgNote" style="margin:6px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-desbalance" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Desbalance y pocos positivos · <span class="en">class imbalance</span></p>
+  <h2>«Todo es 0» acierta el 98 %: la exactitud no sirve, mira precisión y recall</h2>
+  <div class="two">
+    <div>
+      <p>Toda el área fuera de la mina: 100 celdas positivas entre 5&nbsp;304. El modelo de 5 variables da una p a cada una; el <b>umbral</b> decide cuáles se marcan.</p>
+      <div class="chips" id="lrImW"><button class="chip" data-v="none" aria-pressed="true">Sin pesos</button><button class="chip" data-v="balanced">Pesos balanceados <span class="en">(class weights)</span></button></div>
+      <div class="ctl"><label for="lrImThr">Umbral</label><input id="lrImThr" type="range" min="0.01" max="0.99" step="0.01" value="0.5"><output></output></div>
+      <p class="tryit">baja el umbral hasta recuperar 80 % de los positivos y mira la precisión; luego activa los pesos y vuelve a 0,5.</p>
+      <div id="lrImTable"></div>
+      <div class="readout" id="lrImRead"></div>
+    </div>
+    <div class="panel"><h3>Precisión-recall y ROC del mismo modelo · punto: umbral actual</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div id="lrImPrFig"></div><div id="lrImRocFig"></div></div>
+      <p class="note" id="lrImNote" style="margin:6px 0 0"></p>
+      <div class="callout amber" style="font-size:14px">Con 2 % de positivos la ROC se ve casi perfecta porque los falsos positivos se diluyen entre miles de negativos. La curva PR muestra lo que importa en exploración: de lo que marcas, cuánto es laterita.</div></div>
+  </div>
+</section>
+
+<section class="slide" id="lr-repaso" data-g="a" data-sec="2 · Regresión logística">
+  <p class="kicker">Repaso · <span class="en">summary</span></p>
+  <h2>Regresión logística en cinco ideas, y lo que todavía le falta</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Sigmoide</b>: convierte z en una probabilidad entre 0 y 1; la recta no puede.</li>
+        <li><b>Lineal en log-odds</b>: e<sup>β<sub>j</sub></sup> es el factor que multiplica las odds por cada unidad de x<sub>j</sub>.</li>
+        <li><b>Estandariza</b> antes de ajustar y de comparar coeficientes.</li>
+        <li><b>Regulariza</b> (L1 para seleccionar, L2 para estabilizar) cuando hay pocos positivos.</li>
+        <li><b>Desbalance</b>: evalúa con PR-AUC y elige el umbral por costo; los pesos de clase mueven el umbral más que el orden.</li>
+      </ul>
+      <div class="callout red"><b>No etiquetado ≠ negativo</b> <span class="en">(positive-unlabeled, PU)</span>. Nuestros «0» incluyen laterita sin descubrir: un «falso positivo» puede ser un hallazgo. La precisión medida es una cota inferior; los métodos PU (sección 4) lo tratan explícitamente.</div>
+      <p class="note">Lo que falta: la frontera es una recta. Las interacciones (B4/B2 alto <i>solo</i> cerca de ultramáficas) y los umbrales no lineales piden árboles y boosting. Antes, la sección 3 valida con bloques espaciales y dibuja el mapa.</p>
+    </div>
+    <div><h3>Quiz</h3><div id="lrRepQuiz"></div><p class="tryit">responde las tres; cada respuesta explica por qué.</p></div>
+  </div>
+</section>

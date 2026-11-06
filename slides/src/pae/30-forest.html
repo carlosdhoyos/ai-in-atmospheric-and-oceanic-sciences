@@ -1,0 +1,126 @@
+<section class="slide" id="s-bosques" data-g="a" data-sec="4 · Árboles y bosques · por qué árboles">
+  <p class="kicker">4 · Árboles y bosques · <span class="en">decision trees, Random Forest</span></p>
+  <h2>Un árbol puede aprender que «el hierro solo importa cerca de las ultramáficas»</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:15px">En la regresión logística, subir B4/B2 sube las odds <b>igual en todo el mapa</b>. Pero aquí hay <b>suelos rojos ferruginosos sobre sedimentos</b>: B4/B2 alto, sin níquel, lejos de las ultramáficas. Un árbol primero pregunta «¿estoy sobre ultramáficas?» y solo después mira el hierro: capta <b>interacciones</b> <span class="en">(interactions)</span> y umbrales sin escribirlos a mano, y no necesita estandarizar. Muchos árboles promediados (<b>Random Forest</b>) son el modelo principal del flujo de trabajo.</p>
+      <div class="chips" id="rfOpModel"><button class="chip" data-v="log" aria-pressed="true">Regresión logística</button><button class="chip" data-v="rf">Random Forest</button></div>
+      <p class="tryit">cambia de modelo y mira el contorno del 10 % de área más alta: ¿cuántas celdas caen sobre suelos rojos de los sedimentos?</p>
+      <h3>Probabilidad según B4/B2 (resto de variables en su mediana)</h3>
+      <div id="rfOpFig"></div>
+    </div>
+    <div class="panel"><h3>Probabilidad · contorno: 10 % de área más alta</h3><div id="rfOpMap"></div><div id="rfOpLeg"></div><div class="readout" id="rfOpRead"></div>
+      <p class="note" style="margin:6px 0 0">Mismas 5 variables, mismos datos (100 positivos y 1 200 no etiquetadas). Datos sintéticos: los suelos rojos están puestos a propósito como trampa.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="rf-split" data-g="a" data-sec="4 · Árboles y bosques · un árbol">
+  <p class="kicker">Un árbol de decisión · <span class="en">CART, Gini impurity</span></p>
+  <h2>Cada corte busca el umbral que deja los dos grupos más «puros»</h2>
+  <div class="two">
+    <div>
+      <div class="eq" style="font-size:16px;margin-top:0">Gini = 2<i>p</i>(1 − <i>p</i>) &nbsp;·&nbsp; ganancia = Gini<sub>padre</sub> − Σ (<i>n</i><sub>h</sub>/<i>n</i>) Gini<sub>h</sub></div>
+      <p style="font-size:14.5px">Para cada variable y cada umbral se calcula cuánto baja la impureza <span class="en">(impurity decrease)</span>; gana el mejor y se repite en cada mitad. 100 positivos, 400 no etiquetadas, dos variables.</p>
+      <div class="chips" id="rfSpFeat"><button class="chip" data-v="0" aria-pressed="true">Corte en distancia a ultramáficas</button><button class="chip" data-v="1">Corte en B4/B2</button></div>
+      <div class="ctl"><label for="rfSpThr">Umbral</label><input id="rfSpThr" type="range" min="0" max="2" step="0.005" value="0.6"><output></output></div>
+      <p class="tryit">mueve el umbral hasta el pico de la curva, compara con la otra variable y luego haz crecer el árbol; haz clic en una hoja.</p>
+      <div id="rfSpCurve"></div>
+      <div class="calc" id="rfSpCalc" style="font-size:12.5px;margin-top:4px"></div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="rfSpLevel" style="margin-top:0"><span class="note" style="align-self:center;margin:0">Niveles:</span><button class="chip" data-v="0" aria-pressed="true">0</button><button class="chip" data-v="1">1</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3">3</button><button class="chip" data-v="4">4</button><button class="btn" type="button" id="rfSpBest" style="margin-left:auto">Usar el mejor umbral</button></div>
+      <div id="rfSpScat"></div>
+      <div id="rfSpTree"></div>
+      <p class="note" style="margin:2px 0 0">Eje x: d = distancia a ultramáficas (km); eje y: Fe = B4/B2. Izquierda: sí (≤); derecha: no. Color de la hoja: proporción de positivos. Puntos con d = 0 (dentro del cuerpo) desplazados un poco para que se vean.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="rf-depth" data-g="a" data-sec="4 · Árboles y bosques · un árbol">
+  <p class="kicker">Profundidad y sobreajuste · <span class="en">max depth, min samples per leaf</span></p>
+  <h2>Un árbol profundo memoriza los positivos; los bloques lo delatan</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:15px">Ahora con las 5 variables. Cada nivel duplica las hojas posibles; las hojas profundas tienen 1 o 2 celdas y el mapa se vuelve un mosaico de cajas <span class="en">(blocky)</span>.</p>
+      <div class="ctl"><label for="rfDpDepth">Profundidad máx.</label><input id="rfDpDepth" type="range" min="1" max="10" step="1" value="3"><output></output></div>
+      <div class="ctl"><label for="rfDpLeaf">Mín. por hoja</label><input id="rfDpLeaf" type="range" min="0" max="6" step="1" value="0"><output></output></div>
+      <p class="tryit">sube la profundidad a 10 con mínimo 1 por hoja: la curva de entrenamiento llega a 1 y la de bloques cae; luego sube el mínimo por hoja.</p>
+      <div id="rfDpCurve"></div>
+      <div class="readout" id="rfDpRead" style="margin-top:4px"></div>
+      <p class="note" id="rfDpBest" style="margin:2px 0 0;color:var(--ok)"></p>
+      <div class="callout green" style="font-size:14px;margin-bottom:0"><b>Regla práctica:</b> con pocos positivos, árboles poco profundos y un mínimo de muestras por hoja (p. ej. 5–20).</div>
+    </div>
+    <div class="panel"><h3>Probabilidad del árbol</h3><div id="rfDpMap"></div><div id="rfDpLeg"></div>
+      <p class="note" style="margin:6px 0 0">PR-AUC = precisión promedio <span class="en">(average precision)</span>; bloques espaciales de 3 km en 5 grupos <span class="en">(spatial block CV)</span>. Los no etiquetados cuentan como negativos: valores pesimistas, mira las tendencias. «Verdad»: contra la laterita sintética de todo el mapa (solo posible aquí).</p></div>
+  </div>
+</section>
+
+<section class="slide" id="rf-forest" data-g="a" data-sec="4 · Árboles y bosques · Random Forest">
+  <p class="kicker">Random Forest · <span class="en">bootstrap aggregating + random feature subsets</span></p>
+  <h2>Cien árboles distintos, cada uno algo equivocado: su promedio acierta más</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14.5px">
+        <li>Cada árbol ve una <b>muestra bootstrap</b> de las filas; ~37 % queda fuera de bolsa <span class="en">(out-of-bag, OOB)</span>: validación gratis.</li>
+        <li>Cada corte elige entre <b>mtry</b> variables al azar: árboles menos parecidos, promedio con menos varianza.</li>
+      </ul>
+      <div class="ctl"><label for="rfFoN">Árboles</label><input id="rfFoN" type="range" min="1" max="100" step="1" value="1"><output></output></div>
+      <div class="chips" id="rfFoMtry"><span class="note" style="align-self:center;margin:0">mtry:</span><button class="chip" data-v="1">1</button><button class="chip" data-v="2" aria-pressed="true">2 (≈ √5)</button><button class="chip" data-v="3">3</button><button class="chip" data-v="5">5 (solo bagging)</button></div>
+      <p class="tryit">sube de 1 a 100 árboles y mira cómo se suaviza el mapa; haz clic en una celda para ver los votos.</p>
+      <h3 id="rfFoVotesT">Votos de los árboles en la celda elegida</h3>
+      <div id="rfFoVotes"></div>
+      <h3 style="margin-top:4px" id="rfFoCurveT">PR-AUC al añadir árboles</h3>
+      <div id="rfFoCurve"></div>
+    </div>
+    <div class="panel"><h3>Bosque: promedio de los árboles</h3><div class="mapwrap" id="rfFoWrap" style="max-width:470px;margin:0 auto"><div id="rfFoMap"></div></div><div id="rfFoLeg"></div>
+      <h3 style="margin-top:6px">Cuatro árboles individuales (profundidad 8)</h3>
+      <div class="four" id="rfFoSmall" style="gap:8px"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="rf-imp" data-g="a" data-sec="4 · Árboles y bosques · Random Forest">
+  <p class="kicker">Importancia de variables y fuga · <span class="en">feature importance, leakage</span></p>
+  <h2>Si en la importancia domina el suelo desnudo, sospecha de fuga</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px"><b>Por impureza</b> <span class="en">(impurity / Gini importance)</span>: cuánto baja el Gini cada variable, sumado en todos los árboles; se calcula sobre los datos de entrenamiento. <b>Por permutación</b> <span class="en">(permutation importance)</span>: cuánto cae la PR-AUC en un bloque espacial que el bosque no vio si se barajan los valores de esa variable.</p>
+      <div class="chips" id="rfImSet"><button class="chip" data-v="base" aria-pressed="true">5 variables</button><button class="chip" data-v="ndvi">+ NDVI</button><button class="chip" data-v="leak">+ NDVI y mina sin enmascarar</button></div>
+      <div class="chips" id="rfImCW"><button class="chip" data-v="none" aria-pressed="true">Sin pesos</button><button class="chip" data-v="balanced">Pesos de clase «balanced»</button></div>
+      <p class="tryit">añade la mina sin enmascarar: mira cómo la geología pierde peso y dónde cae el 5 % superior; luego activa los pesos de clase.</p>
+      <div class="readout" id="rfImRead" style="margin-top:4px"></div>
+      <p class="note" id="rfImNote" style="margin:8px 0 0"></p>
+    </div>
+    <div class="panel">
+      <div class="two even" style="gap:14px">
+        <div><h3>Por impureza (entrenamiento)</h3><div id="rfImBars1"></div></div>
+        <div><h3>Por permutación (bloques)</h3><div id="rfImBars2"></div></div>
+      </div>
+      <div class="legend" style="margin:0 0 8px"><span><i style="background:var(--sw)"></i>Superficie / espectro</span><span><i style="background:var(--data)"></i>Geología y terreno</span></div>
+      <h3>Probabilidad · contorno: 5 % de área más alta</h3>
+      <div id="rfImMap" style="max-width:430px;margin:0 auto"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="rf-pu" data-g="a" data-sec="4 · Árboles y bosques · PU bagging">
+  <p class="kicker">PU bagging · <span class="en">positive-unlabeled bagging</span></p>
+  <h2>Muchos bosques: todos los positivos y cada vez otros no etiquetados</h2>
+  <div class="two">
+    <div>
+      <div class="calc" id="rfPuSteps" style="margin-top:0;font-size:12.5px"></div>
+      <div class="ctl"><label for="rfPuK">Bolsas K</label><input id="rfPuK" type="range" min="1" max="30" step="1" value="20"><output></output></div>
+      <div class="ctl"><label for="rfPuR">No etiq. / positivos</label><input id="rfPuR" type="range" min="1" max="10" step="1" value="5"><output></output></div>
+      <p class="tryit">reproduce las bolsas y cambia al mapa de incertidumbre; luego prueba la proporción 1× y 10×.</p>
+      <div class="chips"><button class="btn" type="button" id="rfPuPlay">▶ Añadir bolsas</button><button class="btn" type="button" id="rfPuReset">Reiniciar</button></div>
+      <h3 style="margin-top:6px">Laterita oculta encontrada con los puntajes OOB</h3>
+      <div id="rfPuCurve"></div>
+      <div class="callout amber" style="font-size:13.5px;margin-bottom:0"><b>¿Y SMOTE?</b> Se evita en datos espaciales: inventa píxeles positivos entre vecinos y esas copias caen a ambos lados de los bloques de validación (fuga). Mejor pesos de clase o PU bagging.</div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="rfPuView" style="margin-top:0"><button class="chip" data-v="mean" aria-pressed="true">Media de las bolsas</button><button class="chip" data-v="sd">Incertidumbre (desv. estándar)</button></div>
+      <div id="rfPuMap" style="max-width:480px;margin:0 auto"></div><div id="rfPuLeg"></div>
+      <div class="readout" id="rfPuRead" style="margin-top:4px"></div>
+      <p class="note" style="margin:6px 0 0">Punteado: depósitos no descubiertos (solo los conocemos porque los datos son sintéticos). Cada bolsa: bosque de 15 árboles, profundidad 6. OOB: cada celda se puntúa solo con las bolsas que no la usaron.</p>
+    </div>
+  </div>
+</section>
