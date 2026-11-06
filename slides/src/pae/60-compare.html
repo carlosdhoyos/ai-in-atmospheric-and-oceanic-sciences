@@ -1,0 +1,82 @@
+
+<section class="slide" id="s-comparacion" data-g="a" data-sec="7 · Comparación">
+  <p class="kicker k-arch">7 · Comparación · <span class="en">model comparison</span></p>
+  <h2>Los mismos datos, las mismas particiones espaciales, diez modelos</h2>
+  <div class="two">
+    <div>
+      <p>Cada modelo se entrena y evalúa con <b>validación cruzada por bloques espaciales</b> <span class="en">(spatial block CV)</span>: 5 particiones de bloques de 3 km, y cada depósito entero en una sola partición. Ninguna celda de prueba tiene vecinas en el entrenamiento.</p>
+      <ul class="pts">
+        <li><b>PR-AUC</b>: área bajo la curva precisión-exhaustividad; la métrica honesta con pocos positivos.</li>
+        <li><b>ROC-AUC</b>: parece excelente para casi todos; con desbalance distingue poco.</li>
+        <li><b>Captura</b> de depósitos <b>no descubiertos</b> en el 10 % del área más prospectiva (solo medible porque los datos son sintéticos).</li>
+      </ul>
+      <div class="chips" id="cmSort"><span class="mut" style="font-size:13px;align-self:center">Ordenar por:</span><button class="chip" data-v="pr" aria-pressed="true">PR-AUC</button><button class="chip" data-v="roc">ROC-AUC</button><button class="chip" data-v="cap">Captura</button></div>
+      <p class="tryit">ordena por ROC-AUC y luego por PR-AUC: ¿cuál de las dos separa más a los modelos?</p>
+      <p class="note" id="cmProg"></p>
+    </div>
+    <div class="panel"><div class="fig-wrap" id="cmTable"></div><p class="note" id="cmFind" style="margin:8px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="cm-maps" data-g="a" data-sec="7 · Comparación">
+  <p class="kicker k-arch">Mapas lado a lado · <span class="en">prospectivity maps</span></p>
+  <h2>Mapas parecidos donde hay datos, distintos donde no: compáralos como rankings</h2>
+  <div class="two">
+    <div class="panel"><div id="cmGrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px"></div>
+      <p class="note" style="margin:6px 0 0">Cada mapa como ranking de su propio puntaje (las salidas de SVM o de pesos de evidencia no son probabilidades calibradas); solo se colorea el 20 % superior. Contorno rojo: conocidos; punteado: no descubiertos.</p>
+      <h3 style="margin-top:8px">Consenso: cuántos de los 9 modelos ponen la celda en su 10 % superior</h3>
+      <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:10px;align-items:start"><div id="cmCons"></div><p class="note" id="cmConsNote" style="margin:0"></p></div></div>
+    <div>
+      <div class="chips" id="cmPick"></div>
+      <p class="tryit">activa y desactiva modelos: ¿cuál encuentra antes los depósitos no descubiertos?</p>
+      <div id="cmCurve"></div>
+      <div class="readout" id="cmRead"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="cm-guide" data-g="a" data-sec="7 · Comparación">
+  <p class="kicker k-arch">¿Qué modelo usar? · <span class="en">choosing a model</span></p>
+  <h2>No hay un ganador universal: depende de los datos, de las etiquetas y de para qué es el mapa</h2>
+  <div class="chips" id="cmNeed"><span class="mut" style="font-size:13px;align-self:center">Lo que necesito:</span><button class="chip" data-v="base" aria-pressed="true">Una línea base interpretable</button><button class="chip" data-v="best">El mejor ranking en datos tabulares</button><button class="chip" data-v="pu">Solo tengo presencias</button><button class="chip" data-v="few">Muy pocos depósitos (&lt; 30)</button><button class="chip" data-v="ctx">Contexto espacial (textura)</button></div>
+  <div class="fig-wrap" id="cmGuide" style="margin-top:8px"></div>
+  <p class="note" id="cmGuideNote"></p>
+</section>
+
+<section class="slide" id="cm-flujo" data-g="a" data-sec="7 · Comparación">
+  <p class="kicker k-arch">Flujo de trabajo · <span class="en">student workflow</span></p>
+  <h2>De las imágenes al mapa de objetivos: siete pasos</h2>
+  <div class="two">
+    <div id="cmSteps" class="stack"></div>
+    <div class="panel"><h3 id="cmStepT"></h3><div id="cmStepD"></div><div id="cmStepGo" style="margin-top:8px"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="cm-resumen" data-g="" data-sec="7 · Comparación">
+  <p class="kicker">Resumen y referencias</p>
+  <h2>Cinco ideas para llevarse</h2>
+  <div class="two">
+    <div>
+      <ol class="pts" style="padding-left:20px">
+        <li><b>La regresión logística es la línea base</b>: lineal en log-odds, interpretable (e<sup>β</sup> multiplica las odds), estable con pocos positivos si se regulariza.</li>
+        <li><b>Los árboles capturan interacciones</b> («el hierro solo importa cerca de las ultramáficas»); Random Forest y boosting son el caballo de batalla en datos tabulares.</li>
+        <li><b>Pocos positivos y no etiquetados ≠ negativos</b>: PU bagging, pesos de clase, regularización; evalúa con PR-AUC y curvas de captura, no con exactitud.</li>
+        <li><b>Valida en el espacio</b>: bloques más grandes que la autocorrelación o un depósito fuera por vez; la partición aleatoria infla los resultados.</li>
+        <li><b>Revisa la fuga</b>: enmascara mina, relaves y vías; si el suelo desnudo o el NDVI dominan, sospecha. El mapa es un <b>ranking</b> de dónde mirar primero.</li>
+      </ol>
+      <div class="callout amber" style="font-size:14px"><b>Limitaciones</b> que todo informe debe decir: calidad de las etiquetas, cobertura vegetal y nubes, escala de la celda, y que un modelo nunca reemplaza la verificación en campo.</div>
+    </div>
+    <div>
+      <h3>Preguntas finales</h3>
+      <div id="cmQuiz"></div>
+      <h3 style="margin-top:8px">Referencias</h3>
+      <ul class="pts" style="font-size:13.5px">
+        <li>Gleeson, S. A., et al. Mineralogy and geochemistry of the Cerro Matoso S.A. Ni laterite deposit, Montelíbano, Colombia.</li>
+        <li>Discrimination of Fe-Ni-Laterites from Bauxites Using SVM on Sentinel-2 Data. <i>Remote Sensing</i> 16(13), 2024.</li>
+        <li>Lateritic Ni–Co Prospectivity Modeling in Eastern Australia Using an Enhanced GAN and PU Bagging. <i>Natural Resources Research</i>, 2024.</li>
+        <li>Machine Learning-Based Prospective Modeling for Alluvial Gold Mining in Colombia. <i>Pure and Applied Geophysics</i>, 2025.</li>
+      </ul>
+      <p class="note">Los modelos de esta presentación están escritos desde cero para enseñar (en el navegador); en la práctica se usan scikit-learn, XGBoost y LightGBM. Todos los datos son sintéticos.</p>
+    </div>
+  </div>
+</section>

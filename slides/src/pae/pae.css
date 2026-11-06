@@ -1,0 +1,9 @@
+/* PAE-Minas additions to the series' deck.css */
+header.top .back{cursor:default}
+nav.series button.mod{font:inherit;cursor:pointer;background:transparent}
+.tryit{font-size:14px;margin:6px 0;padding:6px 10px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent);border-radius:0 8px 8px 0}
+.tryit::before{content:"Prueba esto · ";font-weight:600;color:var(--accent)}
+.en{color:var(--muted);font-style:italic;font-weight:400}
+.mapwrap{position:relative}
+.mapwrap canvas{cursor:crosshair}
+.maptip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12px;font-family:var(--f-mono);white-space:pre;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;z-index:3}

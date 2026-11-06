@@ -1,0 +1,89 @@
+
+<section class="slide" id="cover" data-g="" data-sec="PAE Minas">
+  <div class="cover" style="padding-block:1vh 0">
+    <p class="kicker">PAE Minas · Aprendizaje automático para exploración mineral</p>
+    <h1 style="font-size:clamp(28px,3.6vw,46px)">¿Dónde buscar <span class="hl">níquel laterítico</span>? Modelos de prospectividad, de la regresión logística al boosting</h1>
+    <p class="lead">Un área de estudio <b>sintética</b> inspirada en Cerro Matoso (Córdoba, Colombia): geología, terreno, magnetometría y cocientes de Sentinel-2, con muy pocos depósitos conocidos. Cada modelo se entrena aquí mismo, en el navegador, y cada control se puede mover.</p>
+    <div class="two" style="align-items:start">
+      <div class="panel"><div id="pcMap"></div><div class="legend" id="pcLeg"></div></div>
+      <div class="stack" id="pcCards"></div>
+    </div>
+    <p class="note">Todos los datos son sintéticos, generados con una semilla fija, pero geológicamente plausibles. Términos clave en español con el término en inglés <span class="en">(in English)</span>.</p>
+  </div>
+</section>
+
+<section class="slide" id="toc" data-g="" data-sec="Contenido">
+  <p class="kicker">Contenido</p>
+  <h2>Siete secciones, un mismo mapa</h2>
+  <p class="note">Haz clic en un título para ir a esa diapositiva.</p>
+  <div id="tocList" class="toclist"></div>
+</section>
+
+<section class="slide" id="s-problema" data-g="d" data-sec="1 · El problema">
+  <p class="kicker k-data">1 · El problema · <span class="en">motivation</span></p>
+  <h2>¿Cuál es la probabilidad de que este píxel tenga laterita de níquel?</h2>
+  <div class="two">
+    <div>
+      <p>Cada muestra es una <b>celda</b> de 150 m <span class="en">(grid cell, pixel)</span>: 90 × 60 celdas, 13,5 × 9 km. La respuesta es 1 si hay laterita de Ni y 0 si no. La laterita se forma sobre <b>rocas ultramáficas</b> (peridotita serpentinizada) en mesetas suaves, donde la meteorización tropical concentra el níquel.</p>
+      <div class="chips" id="ppLayer"></div>
+      <p class="tryit">cambia de capa y pasa el cursor sobre un depósito conocido (contorno rojo): ¿qué tienen en común sus celdas?</p>
+      <div class="calc" id="ppCell" style="font-size:12.5px;white-space:pre-line"></div>
+    </div>
+    <div class="panel"><div class="mapwrap" id="ppWrap"><div id="ppMap"></div><div class="maptip" id="ppTip"></div></div><div id="ppLeg" style="margin-top:6px"></div>
+      <p class="note" style="margin:4px 0 0">Contorno rojo: depósitos conocidos. Rayado: mina activa, planta y relaves. Línea azul: río.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="p-s2" data-g="d" data-sec="1 · El problema">
+  <p class="kicker k-data">De Sentinel-2 a variables · <span class="en">band ratios</span></p>
+  <h2>Los óxidos de hierro y las arcillas dejan huellas en el espectro: los cocientes de bandas las resaltan</h2>
+  <div class="two">
+    <div>
+      <p>Varios años de Sentinel-2 L2A, sin nubes (s2cloudless o Cloud Score+), se resumen por píxel en una <b>mediana de época seca</b> (dic–mar), cuando el suelo está más expuesto. De esa mediana salen los cocientes:</p>
+      <ul class="pts">
+        <li><b>Hierro férrico</b> B4/B2: rojo sobre azul; alto en hematita y goethita.</li>
+        <li><b>Arcillas/OH</b> B11/B12: absorción de OH cerca de 2,2 µm (B12).</li>
+        <li><b>NDVI</b> (B8 − B4)/(B8 + B4): vegetación, que oculta el suelo.</li>
+      </ul>
+      <div class="chips" id="psSurf"></div>
+      <p class="tryit">compara «Laterita» con «Suelo rojo sobre sedimentos»: ¿puede B4/B2 por sí solo distinguirlas?</p>
+      <p class="note" id="psNote"></p>
+    </div>
+    <div class="panel"><h3>Reflectancia típica por banda (valores ilustrativos)</h3><div id="psFig"></div><div class="readout" id="psRead"></div></div>
+  </div>
+</section>
+
+<section class="slide" id="p-labels" data-g="d" data-sec="1 · El problema">
+  <p class="kicker k-data">Etiquetas · <span class="en">positive-unlabeled (PU) data</span></p>
+  <h2>Pocos positivos, y lo no etiquetado no es negativo</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Positivos</b>: depósitos conocidos (huella previa a la minería, no el pit actual). Cada depósito es un <b>polígono</b>: sus celdas van juntas al validar.</li>
+        <li><b>No etiquetados</b> <span class="en">(unlabeled)</span>: todo lo demás. Algunos son laterita aún no descubierta.</li>
+        <li>Opciones para los negativos: <b>negativos confiables</b> (litologías que no pueden alojar laterita, zonas perforadas estériles) o <b>fondo no etiquetado</b> con métodos PU. Dilo en el informe.</li>
+        <li><b>Zona de exclusión</b> <span class="en">(buffer)</span>: se descartan celdas no etiquetadas muy cerca de un positivo.</li>
+      </ul>
+      <div class="chips" id="plShow"><button class="chip" data-v="known" aria-pressed="true">Lo que sabemos</button><button class="chip" data-v="all">Revelar la verdad (solo con datos sintéticos)</button></div>
+      <div class="ctl"><label for="plBuf">Zona de exclusión</label><input id="plBuf" type="range" min="0" max="2" step="0.25" value="0"><output></output></div>
+      <p class="tryit">revela la verdad: ¿cuántos depósitos quedan entre los «no etiquetados»?</p>
+    </div>
+    <div class="panel"><div id="plMap"></div><div class="readout" id="plRead"></div><p class="note" id="plNote" style="margin:4px 0 0"></p></div>
+  </div>
+</section>
+
+<section class="slide" id="p-leak" data-g="d" data-sec="1 · El problema">
+  <p class="kicker k-data">Fuga de información · <span class="en">leakage</span></p>
+  <h2>Hay que enmascarar la mina: si no, el modelo aprende «suelo desnudo», no «laterita»</h2>
+  <div class="two">
+    <div>
+      <p>El pit, los relaves y la planta tienen NDVI casi cero y B4/B2 altísimo. Si quedan en los datos, y además el pit se etiqueta como positivo, el modelo aprende que <b>suelo removido = laterita</b>: acierta en la mina y se equivoca en todo lo demás.</p>
+      <div class="chips" id="pkMode"><button class="chip" data-v="mask" aria-pressed="true">Mina enmascarada</button><button class="chip" data-v="leak">Mina incluida, pit como positivo</button></div>
+      <p class="tryit">cambia a «Mina incluida» y mira qué variable domina y dónde cae el 5 % de área más prospectiva.</p>
+      <h3>Coeficientes de una regresión logística (variables estandarizadas)</h3>
+      <div id="pkBars"></div>
+      <p class="note">Regla práctica: si el suelo desnudo o el NDVI dominan la importancia, sospecha de fuga.</p>
+    </div>
+    <div class="panel"><h3>Probabilidad · contorno blanco: 5 % de área más alta</h3><div id="pkMap"></div><div id="pkLeg"></div><div class="readout" id="pkRead"></div></div>
+  </div>
+</section>
