@@ -148,7 +148,7 @@
       });
       const L = r ? m.trainLoss[r - 1] : ML.logloss(D2.y.map(() => ML.sig(m.base)), D2.y);
       $("#boPsTitle").innerHTML = `Ronda ${r} de ${R} · fondo: p tras ${r} árbol${r === 1 ? "" : "es"} · log-loss ${fmt(L, 3)}`;
-      $("#boPsTreeT").textContent = next ? `Árbol ${r + 1}, ajustado a esos residuos · hojas: η·w` : "Fin: 30 árboles sumados";
+      $("#boPsTreeT").innerHTML = next ? `Árbol ${r + 1}, ajustado a esos residuos · hojas: <span style="text-transform:none">η·w</span>` : "Fin: 30 árboles sumados";
       if (next) drawTree($("#boPsTree"), next.root, { W: 460, H: 112, nodeLab: n => `${NM[n.f]} ≤ ${fmt(n.t, DIG[n.f])}`, leafTop: l => sgn(l.v, 3), leafBot: l => `G ${fmt(l.G, 1)} · H ${fmt(l.H, 1)}`,
         leafCol: l => div(l.v, 0.8) });
       else $("#boPsTree").innerHTML = `<p class="note" style="margin:6px 0">Pulsa «Reiniciar» para volver a la ronda 0.</p>`;
