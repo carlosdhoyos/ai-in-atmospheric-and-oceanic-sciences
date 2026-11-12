@@ -12,7 +12,7 @@
 .slide[id^="sc-"] .stg{grid-template-columns:6.2em minmax(0,1fr)}
 .slide[id^="sc-"] .stg .chips{margin:2px 0}
 .scsteps{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 4px;align-items:center}
-.scsteps button.chip{font-size:12.5px;padding:4px 10px}
+.scsteps button.chip{font-size:12px;padding:3px 8px}
 .scsteps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .scbar{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
 .sccard{padding:9px 14px}
@@ -27,12 +27,14 @@ pre.code.sccode{min-height:0;font-size:12.5px;line-height:1.5;padding:8px 10px}
 pre.code.sccode .ln{display:block;border-radius:4px;padding:0 4px;margin:0 -4px}
 pre.code.sccode .ln.on{background:color-mix(in srgb,var(--accent) 18%,transparent);box-shadow:inset 3px 0 0 var(--accent)}
 pre.code.sccode .c{color:var(--muted)}
+pre.code.sccode .ln.ctx{background:color-mix(in srgb,var(--accent) 7%,transparent)}
 .scopt{padding:8px 12px;cursor:pointer}
 .scopt h4{font-size:14px;margin:0 0 3px}
-.scopt p{font-size:13px;margin:0;line-height:1.42}
+.scopt p{font-size:12.5px;margin:0;line-height:1.38}
+#sc-region .readout b{font-size:17px}
 .scopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
 .slide[id^="sc-"] .calc{font-size:12px;margin-top:6px;padding:8px 10px;line-height:1.5}
-.scgo{font-size:12.5px;padding:3px 10px}
+button.btn.scgo{font-size:12.5px;padding:3px 10px}
 </style>
 
 <section class="slide" id="sc-arch" data-g="a" data-sec="5b · StormScope">
@@ -40,18 +42,18 @@ pre.code.sccode .c{color:var(--muted)}
   <h2>From a stack of images to a denoised future: the tensor shape at every stage</h2>
   <div class="scbar">
     <div class="chips scsteps" id="scArStep"><button class="chip" data-v="0" aria-pressed="true">① Inputs</button><button class="chip" data-v="1">② c<sub>in</sub> + concat</button><button class="chip" data-v="2">③ Patch embed</button><button class="chip" data-v="3">④ Tokens</button><button class="chip" data-v="4">⑤ σ embedding</button><button class="chip" data-v="5">⑥ 16 DiT blocks</button><button class="chip" data-v="6">⑦ Output head</button><button class="chip" data-v="7">⑧ Unpatchify</button><button class="chip" data-v="8">⑨ Skip + combine</button></div>
-    <div class="chips scsteps" id="scArMode"><button class="chip" data-v="sn" aria-pressed="true">sat. nowcast</button><button class="chip" data-v="sr">sat. nearcast</button><button class="chip" data-v="rn">radar nowcast</button><button class="chip" data-v="rr">radar nearcast</button></div>
   </div>
   <div class="scfig" id="scArFig"></div>
-  <div class="two" style="grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;margin-top:4px">
-    <div class="card sccard" id="scArCard" style="min-height:196px"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;margin-top:4px">
+    <div><div class="card sccard" id="scArCard" style="min-height:150px"></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><span class="note" style="margin:0;align-self:center">More detail:</span><button class="btn scgo" data-go="sb-tokens">patches →</button><button class="btn scgo" data-go="sb-na">neighborhood attention →</button><button class="btn scgo" data-go="sb-block">one DiT block →</button><button class="btn scgo" data-go="sd-why">what is diffusion? →</button></div></div>
     <div>
+      <div class="chips scsteps" id="scArMode" style="gap:4px"><span class="note" style="margin:0 2px 0 0">Model:</span><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div>
       <div class="readout" id="scArRead"></div>
       <p class="tryit">step ①→⑨ (or click a box), then switch the model: which shapes change, and which never do?</p>
-      <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn scgo" data-go="sb-tokens">patches in detail →</button><button class="btn scgo" data-go="sb-na">neighborhood attention →</button><button class="btn scgo" data-go="sb-block">one DiT block →</button><button class="btn scgo" data-go="sd-why">what is diffusion? →</button></div>
     </div>
   </div>
-  <p class="note">Pathak et al. 2026, arXiv:2601.17268, §4.2.2: DiT on 512 × 896 at 6 km; noisy state, previous states, lat/lon, solar zenith angle and NWP fields concatenated as channels; strided-conv 4 × 4 patch embedding → 128 × 224 tokens of 768; 16 blocks with DiT conditional layer norm on the noise level; 2-D neighborhood attention 31 × 31; output projected and reshaped to 512 × 896. §4.2.3: EDM pre-conditioning of inputs and outputs. Channel totals: our count, as in Part B. Tags: <span class="sctag p">paper</span> stated in the paper · <span class="sctag s">DiT/EDM practice</span> what the standard recipe does (assumed) · <span class="sctag u">unstated</span> not in the paper.</p>
+  <p class="note">Pathak et al. 2026, arXiv:2601.17268, §4.2.2 (architecture, 128 × 224 tokens of 768, 16 blocks, NA 31 × 31) and §4.2.3 (EDM pre-conditioning). Channel totals: our count, as in Part B. Images: toy. Tags: <span class="sctag p">paper</span> stated in the paper · <span class="sctag s">DiT/EDM practice</span> what the standard recipe does (assumed) · <span class="sctag u">unstated</span> not in the paper.</p>
 </section>
 
 <section class="slide" id="sc-params" data-g="a" data-sec="5b · StormScope">
@@ -61,7 +63,7 @@ pre.code.sccode .c{color:var(--muted)}
     <div>
       <div class="stg"><span>Model</span><div class="chips" id="scPaMode"><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div></div>
       <div class="stg"><span>Width d</span><div class="chips" id="scPaD"><button class="chip" data-v="384">384</button><button class="chip" data-v="512">512</button><button class="chip" data-v="768" aria-pressed="true">768 (paper)</button><button class="chip" data-v="1024">1024</button></div></div>
-      <div class="ctl"><label for="scPaL">Blocks</label><input type="range" id="scPaL" min="4" max="32" step="1" value="16"><output></output></div>
+      <div class="ctl"><label for="scPaL">Blocks (16)</label><input type="range" id="scPaL" min="4" max="32" step="1" value="16"><output></output></div>
       <div class="stg"><span>MLP width</span><div class="chips" id="scPaR"><button class="chip" data-v="2">2 d</button><button class="chip" data-v="4" aria-pressed="true">4 d (DiT)</button><button class="chip" data-v="8">8 d</button></div></div>
       <div class="stg"><span>Position</span><div class="chips" id="scPaPos"><button class="chip" data-v="0">none / fixed</button><button class="chip" data-v="1" aria-pressed="true">learned table</button></div></div>
       <div class="readout" id="scPaRead"></div>
@@ -75,6 +77,7 @@ pre.code.sccode .c{color:var(--muted)}
       <div id="scPaF"></div>
       <h3 style="margin-top:6px">GPU memory · fp32, 1 sample per GPU (our estimate) vs the paper</h3>
       <div id="scPaM"></div>
+      <div class="callout blue" id="scPaIns" style="font-size:13px;margin:6px 0 0;padding:7px 11px;line-height:1.45"></div>
     </div>
   </div>
   <p class="note">Paper §4.2.2: 195 M parameters in total, ~70 GB GPU memory in training, ~5 GB and 33 s per forecast step (100 sampling steps, fp32, one H100) at inference; d = 768, 16 blocks, 28,672 tokens, NA 31 × 31. Not stated: heads, MLP width, positional embedding, output head, training precision. Our estimate uses the DiT recipe (Peebles &amp; Xie 2023): heads of 64, MLP 4 d, adaLN-Zero (6 d per block from a d-vector), 256-frequency σ embedding + 2-layer MLP, final adaLN + linear; activations: ~(12 + 2·r) d floats per token per block + attention weights. The "learned table" option is our way to reconcile the count, not a paper fact.</p>
@@ -85,23 +88,22 @@ pre.code.sccode .c{color:var(--muted)}
   <h2>One training iteration, step by step: data → noise → prediction → loss → update</h2>
   <div class="scbar">
     <div class="chips scsteps" id="scItStep"><button class="chip" data-v="0" aria-pressed="true">① Pick t</button><button class="chip" data-v="1">② Load frames</button><button class="chip" data-v="2">③ Draw σ</button><button class="chip" data-v="3">④ Add noise</button><button class="chip" data-v="4">⑤ Forward</button><button class="chip" data-v="5">⑥ Loss</button><button class="chip" data-v="6">⑦ Backward</button><button class="chip" data-v="7">⑧ All-reduce</button><button class="chip" data-v="8">⑨ Update</button></div>
-    <div style="display:flex;gap:6px"><button class="btn scgo" type="button" id="scItRun">▶ Run one iteration</button><button class="btn scgo" type="button" id="scItNew">New draw</button></div>
+    <div style="display:flex;gap:6px;margin-bottom:4px"><button class="btn scgo" type="button" id="scItRun">▶ Run</button><button class="btn scgo" type="button" id="scItNew">New draw</button></div>
   </div>
   <div class="scfig" id="scItFig"></div>
-  <div class="two" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:18px;margin-top:4px">
+  <div class="two" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;margin-top:4px">
     <div>
-      <div class="card sccard" id="scItCard" style="min-height:150px"></div>
-      <p class="tryit">press "New draw" a few times: σ jumps over 4 orders of magnitude; which expert trains, and how large is the toy loss?</p>
+      <div class="card sccard" id="scItCard" style="min-height:140px"></div>
+      <p class="tryit">press "New draw" a few times: which expert trains, how big is the toy loss? Then switch how "~6 M" is read (right): which reading fits 32 H100s in 48 h?</p>
     </div>
     <div class="panel" style="padding:8px 12px">
       <div class="ctl" style="margin:0"><label for="scItI">Iteration</label><input type="range" id="scItI" min="0" max="100" step="1" value="25"><output></output></div>
       <div id="scItLr"></div>
       <div class="stg"><span>"~6 M" counts</span><div class="chips" id="scItRead6"><button class="chip" data-v="it" aria-pressed="true">optimizer steps</button><button class="chip" data-v="smp">training samples</button></div></div>
-      <div class="readout" id="scItRead"></div>
-      <p class="tryit" style="margin-bottom:0">switch how "~6 M" is read: which reading fits 32 H100s in 48 hours?</p>
+      <div class="readout" id="scItRead" style="margin-top:2px"></div>
     </div>
   </div>
-  <p class="note">Paper §4.1, §4.2.3: GOES 2018–2023 and MRMS 2020–2023 for training (2024 held out); loss eq. (1) with EDM weight λ(σ) and pre-conditioning; σ uniform in log σ; two experts split at σ<sub>int</sub>; Stable AdamW, lr 5 × 10⁻⁴ → 0 cosine, batch 32 on 32 H100 (data parallel), ~6 M iterations, ~48 h per model. Not stated: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub> (we use EDM defaults 0.002, 80, σ<sub>data</sub> = 0.5 and a toy σ<sub>int</sub> = 1), warm-up, weight decay, precision, whether the two experts are separate networks. Images, dates and loss values: toy. FLOP per iteration: our estimate (backward ≈ 2 × forward).</p>
+  <p class="note">Paper §4.1, §4.2.3: training years; eq. (1) with EDM λ(σ) and pre-conditioning; σ uniform in log σ; two experts split at σ<sub>int</sub>; Stable AdamW, lr 5 × 10⁻⁴ → 0 cosine, batch 32 on 32 H100 (data parallel), ~6 M iterations, ~48 h per model. Not stated: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub> (EDM defaults 0.002, 80, 0.5; toy σ<sub>int</sub> = 1), warm-up, weight decay, precision, whether the experts are separate networks. Toy: images, dates, losses. Our estimate: FLOP (backward ≈ 2 × forward); H100 dense BF16 peak ≈ 1 PFLOP/s (NVIDIA spec).</p>
 </section>
 
 <section class="slide" id="sc-forecast" data-g="a" data-sec="5b · StormScope">
