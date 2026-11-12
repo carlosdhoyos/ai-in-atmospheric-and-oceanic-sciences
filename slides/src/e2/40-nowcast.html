@@ -87,6 +87,34 @@
   <p class="note" style="margin-top:6px;max-width:none">arXiv:2601.17268 (2026); nearcasting GFS channel: Z500 (satellite model) or simulated reflectivity (radar model). Headline: competitive with mesoscale NWP up to 6 h. Earth2Studio: StormScopeGOES, -MRMS, -MeteosatEU, -DxNSRDB.</p>
 </section>
 
+<section class="slide" id="nc-vs" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker k-arch">StormCast vs StormScope · two different models</p>
+  <h2>Same storms, same diffusion idea, different teachers: a physics model vs the observations</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)">
+    <div>
+      <table class="zt ncvs" id="ncVsTab">
+        <thead><tr><th></th><th style="color:var(--lw)">StormCast <span class="mut" style="font-weight:400">(2024)</span></th><th style="color:var(--accent)">StormScope <span class="mut" style="font-weight:400">(2026)</span></th></tr></thead>
+        <tbody>
+          <tr data-r="0"><th>Learns from</th><td>HRRR model output</td><td>GOES satellite + MRMS radar</td></tr>
+          <tr data-r="1"><th>Predicts</th><td>Full atmospheric state (99 variables)</td><td>Satellite images + radar reflectivity</td></tr>
+          <tr data-r="2"><th>Grid</th><td>3 km</td><td>6 km</td></tr>
+          <tr data-r="3"><th>Time step</th><td>1 h</td><td>10 min (nowcast) or 1 h (nearcast)</td></tr>
+          <tr data-r="4"><th>Needs data assimilation to start?</th><td>Yes (HRRR analysis)</td><td>No</td></tr>
+          <tr data-r="5"><th>Network</th><td>UNet + diffusion</td><td>Diffusion transformer</td></tr>
+          <tr data-r="6"><th>Could run outside the US?</th><td>Only where a km-scale model like HRRR exists</td><td>Wherever there is a geostationary satellite, e.g. GOES-East over Colombia</td></tr>
+        </tbody>
+      </table>
+      <p class="tryit">click each row: which differences come from the training data, and which from the network?</p>
+    </div>
+    <div class="stack">
+      <div class="card" id="ncVsCard"></div>
+      <div class="callout green" style="margin:0"><b>Why StormScope matters for Colombia.</b> It learns from images a geostationary satellite already takes over the country (GOES-East), not from a km-scale physics model with its own data assimilation. It would still need local radar data and retraining or fine-tuning.
+        <div class="chips" style="margin:8px 0 0"><button class="chip" type="button" data-go="sb-colombia">StormScope for Colombia →</button><button class="chip" type="button" data-go="ss-intro">StormScope step by step →</button></div></div>
+    </div>
+  </div>
+  <p class="note">StormCast: Pathak et al. 2024, arXiv:2408.10958 (emulates 3 km HRRR, 1-h steps, 99 state variables conditioned on 26 synoptic ones, regression UNet + EDM diffusion). StormScope: Pathak et al. 2026, arXiv:2601.17268 (8 GOES-16 ABI channels + MRMS on a 6 km grid; nowcast 10 min / 0–2 h, nearcast 1 h / 0–12 h; diffusion transformer with neighborhood attention; Table 1, Table 2, §4.2).</p>
+</section>
+
 <section class="slide" id="nc-compare" data-g="a" data-sec="5 · Nowcasting">
   <p class="kicker" style="color:var(--lw)">Three nowcasts of the toy world</p>
   <h2>Knowing that storms die and form beats just moving them</h2>

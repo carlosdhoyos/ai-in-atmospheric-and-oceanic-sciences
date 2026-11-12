@@ -25,3 +25,10 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
 #toc .toclist button{padding:1px 4px}
 #cover .cover{gap:12px}
 #cover .lead{font-size:16.5px}
+table.ncvs{font-size:14px}
+table.ncvs th[scope],table.ncvs tbody th{font-weight:600;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);color:var(--fg);width:24%}
+table.ncvs td{padding:7px 8px}
+table.ncvs tbody tr{cursor:pointer;transition:background .2s}
+table.ncvs tbody tr:hover{background:var(--well)}
+table.ncvs tbody tr.on{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+table.ncvs tbody tr:last-child td:last-child{color:var(--ok);font-weight:500}

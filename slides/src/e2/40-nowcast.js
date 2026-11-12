@@ -380,3 +380,24 @@
     render(); return render;
   });
 }
+
+/* StormCast vs StormScope: comparison table, a row click explains the difference */
+demo("nc-vs", () => {
+  const W = [["Learns from", "data", "StormCast is trained to reproduce HRRR, NOAA's 3 km physics model, so it learns the model's world, including its biases. StormScope is trained on what instruments actually measured: GOES-16 imagery (2018–2023) and MRMS radar (2020–2023)."],
+    ["Predicts", "data", "StormCast outputs a model state on many levels (winds, temperature, humidity, reflectivity…): 99 variables. StormScope outputs observations: 8 satellite channels and radar reflectivity. It never sees winds or temperatures directly; it infers their effect from how clouds and echoes evolve."],
+    ["Grid", "design", "3 km follows HRRR's native grid. StormScope's GOES data are remapped to the HRRR 3 km Lambert grid and averaged to 6 km (512 × 896 cells) to fit one GPU; a 3 km version is shown with domain parallelism (§6.2)."],
+    ["Time step", "design", "StormCast steps one hour, like HRRR's hourly output. StormScope's nowcast uses the 10-minute cadence of the imagery (6 past frames in, 0–2 h); its nearcast steps 1 h with one GFS channel for large-scale context (0–12 h)."],
+    ["Needs data assimilation to start?", "data", "To start, StormCast needs an HRRR analysis, which comes from NOAA's assimilation system, so it inherits that system's limits and latency. StormScope starts from the latest images, so a new forecast can begin every few minutes as data arrive."],
+    ["Network", "network", "StormCast: a regression UNet predicts the mean and an EDM diffusion model adds the residual (18 denoising steps). StormScope: a diffusion transformer (DiT) with 31 × 31 neighborhood attention, 16 blocks, 195 M parameters, sampled in 100 steps with two noise-level experts."],
+    ["Could run outside the US?", "data", "StormCast needs a km-scale physics model with its own data assimilation over the region to train on and to start from. StormScope only needs geostationary imagery (and radar where available), which exists over most of the world; it would still have to be retrained or fine-tuned for a new region."]];
+  const TAG = { data: ["comes from the training data", "--data"], design: ["a design choice", "--sw"], network: ["the network", "--arch"] };
+  let sel = 0;
+  const rows = $$("#ncVsTab tbody tr");
+  rows.forEach(r => r.addEventListener("click", () => { sel = +r.dataset.r; render(); }));
+  function render() {
+    rows.forEach(r => r.classList.toggle("on", +r.dataset.r === sel));
+    const [t, k, d] = W[sel];
+    $("#ncVsCard").innerHTML = `<h4>${t}</h4><p style="margin:0 0 6px"><span class="tag" style="color:var(${TAG[k][1]})">${TAG[k][0]}</span></p><p>${d}</p>`;
+  }
+  render(); return render;
+});

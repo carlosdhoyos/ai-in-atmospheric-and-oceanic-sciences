@@ -274,6 +274,13 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
 #toc .toclist button{padding:1px 4px}
 #cover .cover{gap:12px}
 #cover .lead{font-size:16.5px}
+table.ncvs{font-size:14px}
+table.ncvs th[scope],table.ncvs tbody th{font-weight:600;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);color:var(--fg);width:24%}
+table.ncvs td{padding:7px 8px}
+table.ncvs tbody tr{cursor:pointer;transition:background .2s}
+table.ncvs tbody tr:hover{background:var(--well)}
+table.ncvs tbody tr.on{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+table.ncvs tbody tr:last-child td:last-child{color:var(--ok);font-weight:500}
 
 </style>
 </head>
@@ -877,6 +884,34 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
     </div>
   </div>
   <p class="note" style="margin-top:6px;max-width:none">arXiv:2601.17268 (2026); nearcasting GFS channel: Z500 (satellite model) or simulated reflectivity (radar model). Headline: competitive with mesoscale NWP up to 6 h. Earth2Studio: StormScopeGOES, -MRMS, -MeteosatEU, -DxNSRDB.</p>
+</section>
+
+<section class="slide" id="nc-vs" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker k-arch">StormCast vs StormScope · two different models</p>
+  <h2>Same storms, same diffusion idea, different teachers: a physics model vs the observations</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)">
+    <div>
+      <table class="zt ncvs" id="ncVsTab">
+        <thead><tr><th></th><th style="color:var(--lw)">StormCast <span class="mut" style="font-weight:400">(2024)</span></th><th style="color:var(--accent)">StormScope <span class="mut" style="font-weight:400">(2026)</span></th></tr></thead>
+        <tbody>
+          <tr data-r="0"><th>Learns from</th><td>HRRR model output</td><td>GOES satellite + MRMS radar</td></tr>
+          <tr data-r="1"><th>Predicts</th><td>Full atmospheric state (99 variables)</td><td>Satellite images + radar reflectivity</td></tr>
+          <tr data-r="2"><th>Grid</th><td>3 km</td><td>6 km</td></tr>
+          <tr data-r="3"><th>Time step</th><td>1 h</td><td>10 min (nowcast) or 1 h (nearcast)</td></tr>
+          <tr data-r="4"><th>Needs data assimilation to start?</th><td>Yes (HRRR analysis)</td><td>No</td></tr>
+          <tr data-r="5"><th>Network</th><td>UNet + diffusion</td><td>Diffusion transformer</td></tr>
+          <tr data-r="6"><th>Could run outside the US?</th><td>Only where a km-scale model like HRRR exists</td><td>Wherever there is a geostationary satellite, e.g. GOES-East over Colombia</td></tr>
+        </tbody>
+      </table>
+      <p class="tryit">click each row: which differences come from the training data, and which from the network?</p>
+    </div>
+    <div class="stack">
+      <div class="card" id="ncVsCard"></div>
+      <div class="callout green" style="margin:0"><b>Why StormScope matters for Colombia.</b> It learns from images a geostationary satellite already takes over the country (GOES-East), not from a km-scale physics model with its own data assimilation. It would still need local radar data and retraining or fine-tuning.
+        <div class="chips" style="margin:8px 0 0"><button class="chip" type="button" data-go="sb-colombia">StormScope for Colombia →</button><button class="chip" type="button" data-go="ss-intro">StormScope step by step →</button></div></div>
+    </div>
+  </div>
+  <p class="note">StormCast: Pathak et al. 2024, arXiv:2408.10958 (emulates 3 km HRRR, 1-h steps, 99 state variables conditioned on 26 synoptic ones, regression UNet + EDM diffusion). StormScope: Pathak et al. 2026, arXiv:2601.17268 (8 GOES-16 ABI channels + MRMS on a 6 km grid; nowcast 10 min / 0–2 h, nearcast 1 h / 0–12 h; diffusion transformer with neighborhood attention; Table 1, Table 2, §4.2).</p>
 </section>
 
 <section class="slide" id="nc-compare" data-g="a" data-sec="5 · Nowcasting">
@@ -3575,6 +3610,27 @@ demo("da-quiz", () => {
     render(); return render;
   });
 }
+
+/* StormCast vs StormScope: comparison table, a row click explains the difference */
+demo("nc-vs", () => {
+  const W = [["Learns from", "data", "StormCast is trained to reproduce HRRR, NOAA's 3 km physics model, so it learns the model's world, including its biases. StormScope is trained on what instruments actually measured: GOES-16 imagery (2018–2023) and MRMS radar (2020–2023)."],
+    ["Predicts", "data", "StormCast outputs a model state on many levels (winds, temperature, humidity, reflectivity…): 99 variables. StormScope outputs observations: 8 satellite channels and radar reflectivity. It never sees winds or temperatures directly; it infers their effect from how clouds and echoes evolve."],
+    ["Grid", "design", "3 km follows HRRR's native grid. StormScope's GOES data are remapped to the HRRR 3 km Lambert grid and averaged to 6 km (512 × 896 cells) to fit one GPU; a 3 km version is shown with domain parallelism (§6.2)."],
+    ["Time step", "design", "StormCast steps one hour, like HRRR's hourly output. StormScope's nowcast uses the 10-minute cadence of the imagery (6 past frames in, 0–2 h); its nearcast steps 1 h with one GFS channel for large-scale context (0–12 h)."],
+    ["Needs data assimilation to start?", "data", "To start, StormCast needs an HRRR analysis, which comes from NOAA's assimilation system, so it inherits that system's limits and latency. StormScope starts from the latest images, so a new forecast can begin every few minutes as data arrive."],
+    ["Network", "network", "StormCast: a regression UNet predicts the mean and an EDM diffusion model adds the residual (18 denoising steps). StormScope: a diffusion transformer (DiT) with 31 × 31 neighborhood attention, 16 blocks, 195 M parameters, sampled in 100 steps with two noise-level experts."],
+    ["Could run outside the US?", "data", "StormCast needs a km-scale physics model with its own data assimilation over the region to train on and to start from. StormScope only needs geostationary imagery (and radar where available), which exists over most of the world; it would still have to be retrained or fine-tuned for a new region."]];
+  const TAG = { data: ["comes from the training data", "--data"], design: ["a design choice", "--sw"], network: ["the network", "--arch"] };
+  let sel = 0;
+  const rows = $$("#ncVsTab tbody tr");
+  rows.forEach(r => r.addEventListener("click", () => { sel = +r.dataset.r; render(); }));
+  function render() {
+    rows.forEach(r => r.classList.toggle("on", +r.dataset.r === sel));
+    const [t, k, d] = W[sel];
+    $("#ncVsCard").innerHTML = `<h4>${t}</h4><p style="margin:0 0 6px"><span class="tag" style="color:var(${TAG[k][1]})">${TAG[k][0]}</span></p><p>${d}</p>`;
+  }
+  render(); return render;
+});
 
 </script>
 <script>/* e2/45-ss1.js */
