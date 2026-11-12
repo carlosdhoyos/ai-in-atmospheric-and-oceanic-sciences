@@ -239,8 +239,8 @@
       const t = tS(), sat = satellite(W, t), rad = frame(W, t);
       VIZ.raster($("#ncSsSat"), sat, N, N, { color: IR, lo: 205, hi: 295, overlay: (g, S) => rings(g, S, t) });
       VIZ.raster($("#ncSsRad"), rad, N, N, { ...DBZ, overlay: (g, S) => rings(g, S, t) });
-      VIZ.legend($("#ncSsSatL"), { color: IR, min: 205, max: 295, label: "K (toy)", width: 220 });
-      VIZ.legend($("#ncSsRadL"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 220 });
+      VIZ.legend($("#ncSsSatL"), { color: IR, min: 205, max: 295, label: "K (toy)", width: 200 });
+      VIZ.legend($("#ncSsRadL"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 200 });
       let onSat = 0, onRad = 0; fresh.forEach(c => { const a = t - c.tb; if (a >= -3 && a <= 8) onSat++; if (state(c, t).I >= 15) onRad++; });
       const L = Math.max(0, t), lt = L ? "+" + leadTxt(L) : "issue time";
       $("#ncSsRead").innerHTML = `circled cells now: <span class="g">${onSat} on satellite</span> · <span class="r">${onRad} on radar ≥ 15 dBZ</span><br>` +
@@ -335,10 +335,10 @@
         { pts: C.adv.map((v, i) => [xs(i), v]), col: "--cool", label: "advection", w: 2.4 },
         { pts: C.mem.map((v, i) => [xs(i), v]), col: "--lw", label: "one member (avg of 16)", dash: "5 4", w: 1.8 },
         { pts: C.p30.map((v, i) => [xs(i), v]), col: "--lw", label: "ensemble P ≥ 30 %", w: 2.6 }],
-        { xr: [0, 6], yr: [0, 1], xl: "lead time (h)", yl: `CSI at ${th} dBZ`, W: 460, H: 190, xt: [0, 1, 2, 3, 4, 5, 6], yt: [0, 0.5, 1], xf: v => fmt(v, 0), yf: v => fmt(v, 1), marks: [[xs(k), leadTxt(k), "--fg"]], legendAt: "tr" });
+        { xr: [0, 6], yr: [0, 1], xl: "lead time (h)", yl: `CSI at ${th} dBZ`, W: 460, H: 160, xt: [0, 1, 2, 3, 4, 5, 6], yt: [0, 0.5, 1], xf: v => fmt(v, 0), yf: v => fmt(v, 1), marks: [[xs(k), "", "--fg"]], legendAt: "tr" });
       $("#ncCmRead").innerHTML = `<div><span>Persistence</span><b style="color:var(--muted)">${fmt(C.pers[k], 2)}</b></div><div><span>Advection</span><b style="color:var(--cool)">${fmt(C.adv[k], 2)}</b></div><div><span>Ens. P ≥ 30 %</span><b class="c-lw">${fmt(C.p30[k], 2)}</b></div><div><span>One member</span><b class="c-lw">${fmt(C.mem[k], 2)}</b></div>`;
       const sp = Math.hypot(D.est.u, D.est.v) * KM * 60 / DT, tr = Math.hypot(...D.trueMove) * KM * 60 / DT;
-      $("#ncCmNote").innerHTML = `Outline: truth ≥ ${th} dBZ. Estimated motion ${fmt(sp, 0)} km/h (true mean ${fmt(tr, 0)} km/h). One sharp member pays a <b>double penalty</b> for a storm placed a little wrong (a miss and a false alarm); the ensemble curve scores the map "P ≥ 30 %".`;
+      $("#ncCmNote").innerHTML = `Outline: truth ≥ ${th} dBZ · estimated motion ${fmt(sp, 0)} km/h (true mean ${fmt(tr, 0)}). A sharp member pays a <b>double penalty</b> for a misplaced storm (miss + false alarm).`;
     }
     render(); return render;
   });
@@ -353,14 +353,14 @@
       ["Israel Meteorological Service", "CorrDiff + Nowcasting", [0, 6], "plans", "Already runs CorrDiff in operation; <b>plans Nowcasting up to 8 times daily</b>."]];
     let sel = 2;
     function render() {
-      const W = 500, H = 196, m = { l: 168, r: 12, t: 22, b: 30 }, X = v => m.l + Math.log10(v / (1 / 6)) / Math.log10(48 / (1 / 6)) * (W - m.l - m.r), svg = svgIn($("#ncUsFig"), W, H);
+      const W = 500, H = 168, m = { l: 168, r: 12, t: 20, b: 28 }, X = v => m.l + Math.log10(v / (1 / 6)) / Math.log10(48 / (1 / 6)) * (W - m.l - m.r), svg = svgIn($("#ncUsFig"), W, H);
       el("rect", { x: X(1 / 6), y: m.t - 6, width: X(6) - X(1 / 6), height: H - m.t - m.b + 6, fill: css("--lw"), opacity: .07 }, svg);
       el("text", { x: (X(1 / 6) + X(6)) / 2, y: m.t + 3 - 12, "text-anchor": "middle", "font-size": 10.5, fill: css("--lw") }, svg, "nowcast window 0–6 h");
       [[1 / 6, "10 min"], [1, "1 h"], [6, "6 h"], [24, "1 d"], [48, "2 d"]].forEach(([h, l]) => { el("line", { x1: X(h), x2: X(h), y1: m.t - 6, y2: H - m.b, stroke: css("--line") }, svg);
         el("text", { x: X(h), y: H - m.b + 15, "text-anchor": "middle", "font-size": 10.5, class: "mono", fill: css("--muted") }, svg, l); });
       el("text", { x: W - m.r, y: H - 2, "text-anchor": "end", "font-size": 11, fill: css("--muted") }, svg, "lead time of interest (log) →");
-      U.forEach((u, i) => { const y = m.t + 8 + i * 36, on = i === sel, g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
-        el("rect", { x: 0, y: y - 12, width: W, height: 30, rx: 8, fill: on ? css("--lw") : "transparent", "fill-opacity": on ? .1 : 0 }, g);
+      U.forEach((u, i) => { const y = m.t + 8 + i * 31, on = i === sel, g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
+        el("rect", { x: 0, y: y - 12, width: W, height: 28, rx: 8, fill: on ? css("--lw") : "transparent", "fill-opacity": on ? .1 : 0 }, g);
         el("text", { x: m.l - 8, y: y + 2, "text-anchor": "end", "font-size": 12.5, "font-weight": on ? 600 : 500, fill: css("--fg") }, g, u[0]);
         el("text", { x: m.l - 8, y: y + 14, "text-anchor": "end", "font-size": 10, fill: css("--muted") }, g, u[1] + " · " + u[3]);
         const a = X(Math.max(u[2][0], 1 / 6)), b = X(u[2][1]);
@@ -371,11 +371,11 @@
       $("#ncUsCard").innerHTML = `<h4 style="color:var(--lw)">${u[0]} <span class="note" style="font-weight:400">· ${u[3]}</span></h4><p>${u[4]}</p><p class="note" style="margin:6px 0 0"><span style="color:var(--lw)">■</span> hours ahead (Nowcasting) &nbsp; <span style="color:var(--data)">■</span> day ahead (FourCastNet 3)</p>`;
     }
     VIZ.quiz($("#ncQuiz"), [
-      { q: "Why does radar extrapolation lose skill after an hour or two?", opts: ["The radar data arrive too late", "It moves storms but cannot grow, decay or start them", "It moves storms the wrong way"], right: 1,
+      { q: "Why does radar extrapolation lose skill after an hour or two?", opts: ["Data arrive late", "It cannot grow, decay or start storms", "Wrong direction"], right: 1,
         why: "Extrapolation keeps each echo's intensity and only shifts it; storm cells live tens of minutes to a few hours, so after that the map is full of storms that have died and is missing the new ones." },
-      { q: "What does StormCast take as input at each 1-hour step?", opts: ["Only GOES images", "Previous HRRR-like state + 26 global-model variables", "A global state only"], right: 1,
+      { q: "What does StormCast take as input at each 1-hour step?", opts: ["GOES images", "HRRR-like state + 26 global variables", "Global state only"], right: 1,
         why: "It steps a 99-variable, 3 km HRRR-like state, conditioned on 26 synoptic variables from ERA5 (training) or GFS (real time). StormScope is the one that learns from GOES and MRMS directly." },
-      { q: "A single sharp ensemble member often has a lower CSI than a blurry forecast. Why?", opts: ["Diffusion is inaccurate", "Double penalty: a displaced storm is a miss and a false alarm", "CSI ignores small storms"], right: 1,
+      { q: "A single sharp ensemble member often has a lower CSI than a blurry forecast. Why?", opts: ["Diffusion is inaccurate", "Double penalty: miss + false alarm", "CSI ignores small storms"], right: 1,
         why: "Sharp but displaced storms are punished twice by point-wise scores. That is why ensembles are judged with probabilities (P ≥ threshold), neighbourhood scores such as FSS, or CRPS." }]);
     render(); return render;
   });

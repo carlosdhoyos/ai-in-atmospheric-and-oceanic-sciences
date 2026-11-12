@@ -1,0 +1,257 @@
+<section class="slide" id="sb-tokens" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · inside the network · 1 · from images to tokens</p>
+  <h2>Stack every input as channels, cut 4 × 4 patches: 28,672 tokens of 768 numbers</h2>
+  <div class="chips sbsteps" id="sbTkStep"><button class="chip" data-v="0" aria-pressed="true">① Stack the inputs</button><button class="chip" data-v="1">② Cut 4 × 4 patches</button><button class="chip" data-v="2">③ Embed each patch</button><button class="chip" data-v="3">④ A sequence of tokens</button></div>
+  <div class="fig-wrap" id="sbTkFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;margin-top:2px">
+    <div>
+      <div class="card sbcard" id="sbTkCard"></div>
+      <div class="stg" style="margin-top:6px"><span>Model</span><div class="chips" id="sbTkMode"><button class="chip" data-v="sn" aria-pressed="true">satellite · nowcast</button><button class="chip" data-v="sr">satellite · nearcast</button><button class="chip" data-v="rn">radar · nowcast</button><button class="chip" data-v="rr">radar · nearcast</button></div></div>
+      <p class="tryit">click the steps ①–④, then switch the model: how many channels does each one stack, and how many numbers go into one patch?</p>
+    </div>
+    <div>
+      <div class="calc" id="sbTkCalc" style="margin-top:0;font-size:12.5px"></div>
+      <div class="stg"><span>Patch size</span><div class="chips" id="sbTkP"><button class="chip" data-v="2">2 × 2</button><button class="chip" data-v="4" aria-pressed="true">4 × 4 (paper)</button><button class="chip" data-v="8">8 × 8</button><button class="chip" data-v="16">16 × 16</button></div></div>
+      <div class="readout" id="sbTkRead" style="margin-top:2px;gap:16px"></div>
+      <p class="tryit">halve the patch size to 2 × 2: by how much do the tokens grow, and the cost of global attention?</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Pathak et al. 2026 (arXiv:2601.17268) §4.2.2: 512 × 896 grid at 6 km; dense conditioning by channel concatenation (noisy state + previous states + lat/lon + solar zenith angle + NWP); 4 × 4 strided-convolution patch embedding → 128 × 224 tokens, dimension 768; output projected back to 512 × 896. Inputs: Table 1, Fig. 11. The paper lists the ingredients, not the channel totals: the totals here are our count (lat/lon = 2 channels, cos SZA = 1; GOES frames for the radar model as drawn in Fig. 11). Images are toys.</p>
+</section>
+
+<section class="slide" id="sb-na" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · inside the network · 2 · neighborhood attention</p>
+  <h2>Each token looks only at its 31 × 31 neighbours; depth carries information further</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px">
+    <div class="panel" style="padding:12px 14px">
+      <div id="sbNaMap"></div>
+      <p class="note" style="margin:4px 0 0" id="sbNaCap"></p>
+      <div class="ctl" style="margin:6px 0 2px"><label for="sbNaL">Layers</label><input type="range" id="sbNaL" min="1" max="16" step="1" value="1"><output></output></div>
+      <div class="stg"><span>Window</span><div class="chips" id="sbNaK"><button class="chip" data-v="7">7 × 7</button><button class="chip" data-v="15">15 × 15</button><button class="chip" data-v="31" aria-pressed="true">31 × 31 (paper)</button><button class="chip" data-v="63">63 × 63</button></div></div>
+      <p class="tryit">click a token in the middle, then one in a corner, and raise the layers: how many layers until one token can "see" the whole domain?</p>
+    </div>
+    <div>
+      <ul class="pts" style="font-size:14px;margin-bottom:6px">
+        <li><b>Self-attention</b>: every token makes a query, compares it with the keys of other tokens, and takes a weighted mix of their values.</li>
+        <li><b>Global</b> attention compares all pairs: <span class="mono">N² = 28,672²</span>. <b>Neighborhood attention</b> (NA) compares each token only with a window around it: <span class="mono">N · 31²</span>.</li>
+        <li>At the edges the window <b>shifts inwards</b>, so every token still sees 31 × 31 tokens.</li>
+      </ul>
+      <div class="readout" id="sbNaRead" style="margin-top:4px;gap:14px"></div>
+      <h3 style="margin-top:10px">Attention scores per layer and head</h3>
+      <div id="sbNaCost"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §4.2.2: 2-D Neighborhood Attention with a 31 × 31 window "greatly reducing the compute required for self-attention while allowing long-range dependencies to be captured gradually over multiple layers"; 16 blocks; 128 × 224 tokens; one token = 4 × 4 pixels of 6 km = 24 km. NA and its edge behaviour: Hassani et al. (CVPR 2023, NeurIPS 2024) [paper refs 42–44]. Receptive field = our arithmetic: (31 − 1) × layers + 1 tokens, clipped to the domain. Background: toy IR image.</p>
+</section>
+
+<section class="slide" id="sb-block" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · inside the network · 3 · one transformer block</p>
+  <h2>One DiT block: normalise, modulate by the noise level σ, attend, mix, add back</h2>
+  <div class="chips sbsteps" id="sbBkStep"><button class="chip" data-v="0" aria-pressed="true">① Normalise</button><button class="chip" data-v="1">② Condition on σ</button><button class="chip" data-v="2">③ Neighborhood attention</button><button class="chip" data-v="3">④ Gate + residual</button><button class="chip" data-v="4">⑤ Normalise + modulate</button><button class="chip" data-v="5">⑥ MLP</button><button class="chip" data-v="6">⑦ Gate + residual</button><button class="chip" data-v="7">⑧ × 16 → output</button></div>
+  <div class="fig-wrap" id="sbBkFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:2px">
+    <div>
+      <div class="card sbcard" id="sbBkCard"></div>
+      <div class="calc" id="sbBkCalc" style="font-size:12px;margin-top:8px"></div>
+    </div>
+    <div class="panel" style="padding:12px 14px">
+      <h4 style="margin:0">Same weights, different σ: adaptive layer norm on one token (toy)</h4>
+      <div class="ctl" style="margin:4px 0"><label for="sbBkS">Noise σ</label><input type="range" id="sbBkS" min="-2.7" max="1.9" step="0.05" value="1.2"><output></output></div>
+      <div id="sbBkBars"></div>
+      <p class="tryit">slide σ from high to low noise: the normalised features (grey) stay put, but the scale and shift the block applies (blue) change.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §4.2.2: 16 transformer blocks "conditioned on the diffusion timestep using the standard conditional layer normalization adopted in DiTs", 2-D NA 31 × 31, 195 M parameters in total. The DiT block (adaLN-Zero: scale γ, shift β, gate α regressed from the noise embedding; MLP 4× wider) is from Peebles &amp; Xie 2023 [paper ref 31]; the paper does not list its MLP width, so the per-block count is our estimate. c<sub>noise</sub> = ¼ ln σ is the EDM choice (Karras et al. 2022, ref 45).</p>
+</section>
+
+<section class="slide" id="sb-train" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion · 4 · training</p>
+  <h2>Training: add noise of a random size σ to the true future, learn to remove it</h2>
+  <div class="chips sbsteps" id="sbTrStep"><button class="chip" data-v="0" aria-pressed="true">① A training pair</button><button class="chip" data-v="1">② Draw σ</button><button class="chip" data-v="2">③ Add noise</button><button class="chip" data-v="3">④ Denoise</button><button class="chip" data-v="4">⑤ Weighted loss</button><button class="chip" data-v="5">⑥ Two experts</button></div>
+  <div class="fig-wrap" id="sbTrFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;margin-top:2px">
+    <div>
+      <div class="eq" style="font-size:17px;margin:2px 0 6px">L(θ) = E<sub>x,σ,n</sub> λ(σ) ‖ D<sub>θ</sub>(x<sub>t+</sub> + n<sub>σ</sub> ; x<sub>t−</sub> ; c ; σ) − x<sub>t+</sub> ‖²<sub>2</sub> &nbsp; <span class="note" style="font-family:var(--f-body)">eq. (1)</span></div>
+      <div class="card sbcard" id="sbTrCard"></div>
+      <div class="ctl" style="margin:6px 0 0"><label for="sbTrS">Noise σ</label><input type="range" id="sbTrS" min="-2.7" max="1.9" step="0.05" value="0"><output></output></div>
+      <p class="tryit">slide σ from 80 down to 0.002 and watch the denoiser's guess (④): blurry average at high σ, sharp storms at low σ.</p>
+    </div>
+    <div class="panel" style="padding:12px 14px">
+      <h4 style="margin:0">Which σ does training see? Uniform in log σ</h4>
+      <div id="sbTrHist"></div>
+      <div class="chips" style="margin:2px 0"><button class="btn" type="button" id="sbTrDraw">Draw 500 more σ</button><button class="btn" type="button" id="sbTrReset">Reset</button></div>
+      <div class="calc" id="sbTrCalc" style="font-size:12px;margin-top:4px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §4.2.3: EDM framework (Karras et al. 2022); eq. (1) with n<sub>σ</sub> ~ N(0, σ²I) and the standard EDM weight λ(σ); EDM pre-conditioning of inputs and outputs; σ drawn uniform in log σ; two experts, coarse and fine, split at σ<sub>int</sub>. The paper does not give σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub> or σ<sub>data</sub>: we use EDM's defaults (0.002, 80, σ<sub>data</sub> = 0.5) and a toy σ<sub>int</sub> = 1. Toy denoiser: the exact posterior mean over 24 plausible toy futures (radar, dBZ / 60).</p>
+</section>
+
+<section class="slide" id="sb-sample" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion · 5 · sampling one forecast step</p>
+  <h2>Sampling: start from pure noise, take 100 denoising steps from σ<sub>max</sub> to σ<sub>min</sub></h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px">
+    <div class="panel" style="padding:12px 14px">
+      <div class="two even" style="gap:10px">
+        <div><h3 style="margin:0 0 4px" id="sbSmA"></h3><div id="sbSmX"></div></div>
+        <div><h3 style="margin:0 0 4px">D(x<sub>i</sub>; σ<sub>i</sub>): the denoiser's guess</h3><div id="sbSmD"></div></div>
+      </div>
+      <div id="sbSmLeg" style="max-width:300px;margin:2px auto 0"></div>
+      <div id="sbSmSched"></div>
+      <div style="display:flex;gap:10px;align-items:center"><div class="ctl" style="flex:1;margin:0"><label for="sbSmI">Step i</label><input type="range" id="sbSmI" min="0" max="100" step="1" value="0"><output></output></div><button class="btn" type="button" id="sbSmPlay">▶ Play</button></div>
+      <p class="tryit">press ▶, then pick another seed and play again: same inputs, same network, a different storm.</p>
+    </div>
+    <div>
+      <div class="stg"><span>Seed</span><div class="chips" id="sbSmSeed"><button class="chip" data-v="1" aria-pressed="true">1</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3">3</button><button class="chip" data-v="4">4</button><button class="chip" data-v="5">5</button><button class="chip" data-v="6">6</button></div></div>
+      <div class="stg"><span>Sampler</span><div class="chips" id="sbSmChurn"><button class="chip" data-v="1" aria-pressed="true">ODE + stochastic kicks</button><button class="chip" data-v="0">pure ODE</button></div></div>
+      <h3 style="margin-top:6px">Which of the 24 toy futures is the sample heading for?</h3>
+      <div id="sbSmW"></div>
+      <div class="readout" id="sbSmRead" style="margin-top:2px;gap:14px"></div>
+      <div class="card sbcard" id="sbSmCard" style="margin-top:6px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §4.2.3: "an ODE-based deterministic sampler with stochastic perturbations" (Karras et al. 2022), σ<sub>max</sub> → σ<sub>min</sub> in 100 steps, switching from the coarse to the fine expert at σ<sub>int</sub>; §4.2.2: 33 s per forecast step at 100 sampling steps (fp32, one H100). Toy: EDM's Heun sampler, ρ = 7 schedule, EDM default σ range, toy σ<sub>int</sub> = 1; the "network" is the exact denoiser for 24 fixed toy futures, so every sample ends on one of them. A trained network generalises and produces new storms.</p>
+</section>
+
+<section class="slide" id="sb-ens" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · 6 · ensembles and probability</p>
+  <h2>Run the sampler many times: members differ, their spread is the forecast's uncertainty</h2>
+  <div class="ctl" style="margin:0 0 4px;max-width:640px"><label for="sbEnL">Lead time</label><input type="range" id="sbEnL" min="0" max="36" step="1" value="18"><output></output></div>
+  <div class="four" id="sbEnThumbs" style="gap:10px"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:6px">
+    <div>
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <div style="flex:1;min-width:0"><div id="sbEnP"></div><div id="sbEnPL"></div></div>
+        <div style="width:150px;flex:none">
+          <div class="chips" id="sbEnThr" style="margin:0 0 4px"><button class="chip" data-v="20">≥ 20</button><button class="chip" data-v="30" aria-pressed="true">≥ 30</button><button class="chip" data-v="40">≥ 40 dBZ</button></div>
+          <button class="btn" type="button" id="sbEnNext" style="margin-top:4px">Show 3 other members</button>
+          <p class="note" style="margin:6px 0 0;font-size:12.5px" id="sbEnNote"></p>
+        </div>
+      </div>
+      <p class="tryit">move the lead from 0 to 6 h: when do the members start to disagree, and what happens to the probability map?</p>
+    </div>
+    <div class="panel" style="padding:10px 14px">
+      <div class="stg"><span>Toy ensemble</span><div class="chips" id="sbEnMode"><button class="chip" data-v="cal" aria-pressed="true">calibrated</button><button class="chip" data-v="alike">members too alike</button><button class="chip" data-v="wet">too wet</button></div></div>
+      <div id="sbEnRel"></div>
+      <p class="tryit">switch the toy ensemble: which version puts its curve below the diagonal at high probabilities, like StormScope in Fig. 8?</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper Fig. 4 (15 May 2024 00 UTC): of three members, one aggregates into a mesoscale convective system (MCS) by hour 6, as observed, and two do not, "consistent with the fact that convective aggregation is a highly stochastic process". Fig. 8: reliability of 24-member ensembles over 360 forecasts at 20 and 30 dBZ, 1/3/6 h: curves below the diagonal (over-confident), not far from 1:1 at 1–3 h. Here: a toy storm world (64 × 112 pixels of 6 km), 24 members + truth, reliability pooled over 4 toy days.</p>
+</section>
+
+<section class="slide" id="sb-fss" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · verification · 7 · fractions skill score</p>
+  <h2>FSS: compare rain fractions in windows, so a near miss is not punished twice</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px">
+    <div class="panel" style="padding:12px 14px">
+      <div class="two even" style="gap:10px">
+        <div><h3 style="margin:0 0 4px">Pixels above threshold</h3><div id="sbFsCat"></div></div>
+        <div><h3 style="margin:0 0 4px" id="sbFsFT"></h3><div id="sbFsFr"></div></div>
+      </div>
+      <div id="sbFsKey" style="margin:4px 0 0"></div>
+      <div class="ctl" style="margin:6px 0 0"><label for="sbFsD">Shift forecast</label><input type="range" id="sbFsD" min="0" max="10" step="1" value="3"><output></output></div>
+      <div class="ctl" style="margin:2px 0 0"><label for="sbFsN">Window</label><input type="range" id="sbFsN" min="0" max="15" step="1" value="0"><output></output></div>
+      <div class="stg"><span>Threshold</span><div class="chips" id="sbFsThr"><button class="chip" data-v="20">20 dBZ</button><button class="chip" data-v="30" aria-pressed="true">30 dBZ</button><button class="chip" data-v="40">40 dBZ</button></div></div>
+    </div>
+    <div>
+      <div class="eq" style="font-size:16px;margin:0 0 6px">FSS = 1 − Σ (P<sub>f</sub> − P<sub>o</sub>)² / [ Σ P<sub>f</sub>² + Σ P<sub>o</sub>² ]</div>
+      <p style="font-size:14px;margin-bottom:4px">P<sub>f</sub>, P<sub>o</sub>: fraction of pixels above the threshold in an n × n window around each pixel, in the forecast and the observation. FSS = 1 is perfect; 0 means no overlap at that scale.</p>
+      <div id="sbFsCurve"></div>
+      <div class="readout" id="sbFsRead" style="margin-top:0;gap:16px"></div>
+      <p class="tryit">shift the forecast by 18 km with a 6 km window: pixel scores collapse. Now widen the window: from what size is the forecast "useful"?</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">FSS: Roberts &amp; Lean 2008 (paper ref 32); "useful" when FSS ≥ 0.5 + f<sub>0</sub>/2, f<sub>0</sub> = observed base rate (their criterion). The paper uses FSS with windows of 18 km at 20 dBZ and 42 km at 30 dBZ for nearcasts (§2.2.1, Fig. 6), 6/18/30 km at 40 dBZ for nowcasts (§2.2.2, Fig. 9), and 6 km at 235 K / 225 K for IR (Fig. 7). Toy: the forecast is the observation shifted east; 6 km pixels.</p>
+</section>
+
+<section class="slide" id="sb-objects" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · verification · 8 · storm objects</p>
+  <h2>Object matching: is each observed storm forecast within 40 km?</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px">
+    <div class="panel" style="padding:12px 14px">
+      <div class="stg"><span>Forecast</span><div class="chips" id="sbObF"><button class="chip" data-v="ss" aria-pressed="true">generative member (toy StormScope)</button><button class="chip" data-v="adv">advection only (toy pySTEPS)</button></div></div>
+      <div class="mapwrap"><div id="sbObMap"></div><div class="maptip" id="sbObTip"></div></div>
+      <div id="sbObKey" style="margin-top:4px"></div>
+      <div class="ctl" style="margin:4px 0 0"><label for="sbObL">Lead time</label><input type="range" id="sbObL" min="1" max="12" step="1" value="6"><output></output></div>
+      <div class="ctl" style="margin:0"><label for="sbObM">Match within</label><input type="range" id="sbObM" min="10" max="80" step="5" value="40"><output></output></div>
+      <p class="tryit">compare the two forecasts at 60 and 120 min; hover an object to see its area and distances.</p>
+    </div>
+    <div>
+      <ol class="pts" style="font-size:13.5px;margin-bottom:4px;padding-left:20px">
+        <li><b>Objects</b>: contiguous areas ≥ 40 dBZ larger than 108 km² (at 6 km, a pixel is 36 km², so ≥ 4 pixels).</li>
+        <li><b>Match</b>: a forecast and an observed object whose closest edges <i>and</i> centroids are both within 40 km form a <b style="color:var(--ok)">hit</b>.</li>
+        <li>Leftover forecast objects are <b style="color:var(--lw)">false alarms</b>; leftover observed ones are <b style="color:var(--sw)">misses</b>.</li>
+      </ol>
+      <div class="readout" id="sbObRead" style="margin-top:2px;gap:12px"></div>
+      <div class="stg" style="margin-top:4px"><span>Score vs lead</span><div class="chips" id="sbObSc"><button class="chip" data-v="pod">POD</button><button class="chip" data-v="sr">SR</button><button class="chip" data-v="csi" aria-pressed="true">CSI</button><button class="chip" data-v="fb">FB</button></div></div>
+      <div id="sbObCurve"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §2.2.2, Fig. 10, following WoFSCast (Flora &amp; Potvin 2025): objects ≥ 40 dBZ with area &gt; 108 km²; match if minimum boundary distance and centroid displacement are both ≤ 40 km; POD = H/(H+M), SR = H/(H+F), CSI = H/(H+M+F), FB = (H+F)/(H+M); one member per initialisation. pySTEPS baseline: Lucas–Kanade motion from 4 past radar frames + semi-Lagrangian advection, intensity unchanged. Toy: our advection uses the exact steering wind; curves pooled over 4 toy days.</p>
+</section>
+
+<section class="slide" id="sb-results" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · 9 · results as reported</p>
+  <h2>What the paper claims, lead time by lead time, and against which baseline</h2>
+  <div class="chips" id="sbRsSet" style="margin-top:0"><button class="chip" data-v="near" aria-pressed="true">Nearcast vs HRRR · 1–12 h · 360 initialisations</button><button class="chip" data-v="now">Nowcast vs pySTEPS and HRRR · 10–120 min · 250 initialisations</button></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px">
+    <div><div id="sbRsCard2"></div><div id="sbRsKey"></div>
+      <p class="tryit">click each row: which claims are about a single member, which about an ensemble, and which have a significance test?</p></div>
+    <div class="card sbcard" id="sbRsCard" style="min-height:320px"></div>
+  </div>
+  <p class="note" style="margin-top:4px">A scorecard of the paper's own statements (§1, §2.2, §3, §6.1, §6.3, §6.4; Figs. 6–10, 12, 13, 16, 17), not values read off the figures. Test year 2024 (training: GOES 2018–2023, MRMS 2020–2023, §4.1). Evaluation over CONUS land. "Not stated" means the text makes no claim for that lead; see the figure.</p>
+</section>
+
+<section class="slide" id="sb-cost" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · 10 · cost and scaling</p>
+  <h2>33 s per forecast step on one GPU; a 3 km model needs the domain split across GPUs</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px">
+    <div>
+      <div class="stg"><span>Mode</span><div class="chips" id="sbCoMode"><button class="chip" data-v="now" aria-pressed="true">nowcast 2 h · 12 × 10 min</button><button class="chip" data-v="near">nearcast 12 h · 12 × 1 h</button></div></div>
+      <div class="stg"><span>Models</span><div class="chips" id="sbCoMod"><button class="chip" data-v="1" aria-pressed="true">satellite</button><button class="chip" data-v="2">satellite + radar</button></div></div>
+      <div class="ctl" style="margin:4px 0"><label for="sbCoN">Members</label><input type="range" id="sbCoN" min="1" max="100" step="1" value="1"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="sbCoS">Sampling steps</label><input type="range" id="sbCoS" min="10" max="100" step="5" value="100"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="sbCoG">H100 GPUs</label><input type="range" id="sbCoG" min="1" max="32" step="1" value="1"><output></output></div>
+      <div class="readout" id="sbCoRead" style="gap:14px;margin-top:4px"></div>
+      <div id="sbCoBar"></div>
+      <p class="tryit">set 24 members for a 2-h multimodal nowcast: how many GPUs keep it inside the 10-minute cycle of new images?</p>
+    </div>
+    <div class="panel" style="padding:12px 14px">
+      <h4 style="margin:0 0 2px">The 3 km model: domain parallelism with halo exchange</h4>
+      <div class="chips sbsteps" id="sbCoStep" style="margin:4px 0"><button class="chip" data-v="0" aria-pressed="true">① Too big</button><button class="chip" data-v="1">② Split</button><button class="chip" data-v="2">③ Local work</button><button class="chip" data-v="3">④ Halo</button><button class="chip" data-v="4">⑤ 2 × 4 mesh</button></div>
+      <div id="sbCoFig"></div>
+      <p style="font-size:13.5px;margin:4px 0 0" id="sbCoTxt"></p>
+      <p class="tryit">step through ①–⑤: which operation is the only one that needs data from the other GPU?</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Paper §4.2.2: ~5 GB GPU memory and 33 s per forecast step at 100 sampling steps (fp32, one H100) → ~7 min for a 12-h nearcast or a 2-h nowcast; multimodal runs take longer (models in sequence; we assume 2×); training ~70 GB, 32 H100 × ~48 h. §6.2, Figs. 14–15: 3 km satellite nowcast on 1792 × 1024 (≈ 1.8 M pixels) exceeds ~80 GB even at batch 1; ShardTensor (PhysicsNeMo) splits the domain into upper and lower halves; halo width set by the NA kernel; domain group 2 × data-parallel 4; ~87.5 % scaling efficiency. Our assumptions: time ∝ sampling steps; members spread evenly over GPUs.</p>
+</section>
+
+<section class="slide" id="sb-colombia" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · 11 · limitations, and Colombia</p>
+  <h2>What the authors say is missing, and what a Colombian StormScope would need</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px">
+    <div>
+      <h3>Limitations stated in the paper (§3)</h3>
+      <div class="stack" id="sbCoLim" style="gap:6px"></div>
+    </div>
+    <div class="panel" style="padding:12px 14px">
+      <h4 style="margin:0 0 2px">Parallax: how far a cloud top appears displaced, seen from GOES-East (75.2° W)</h4>
+      <div class="chips" id="sbPxCity" style="margin:4px 0"></div>
+      <div class="ctl" style="margin:2px 0"><label for="sbPxH">Cloud top</label><input type="range" id="sbPxH" min="4" max="18" step="1" value="12"><output></output></div>
+      <div id="sbPxFig"></div>
+      <p class="tryit">compare Bogotá with Seattle for a 12 km storm top: how many 6 km pixels is the shift?</p>
+      <h3 style="margin-top:6px">A Colombian version: checklist</h3>
+      <div class="stack" id="sbCoChk" style="gap:4px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:4px">Limitations: paper §3 and §6.4. Opportunity: §1 and §3 ("a pathway to extend skillful mesoscale forecasting to oceanic regions and countries without strong operational mesoscale modeling programs"; synoptic conditioning "could also be provided by an AI medium-range weather model", §4.2.1). Parallax: our geometry for a geostationary satellite at 75.2° W (shift ≈ h · tan of the viewing zenith angle, ignoring Earth curvature at the cloud). Checklist items marked "ours" are our suggestions, not the paper's.</p>
+</section>
+
+<section class="slide" id="sb-quiz" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · 12 · recap and quiz</p>
+  <h2>StormScope in numbers, and six questions</h2>
+  <div class="fig-wrap" id="sbQzFig"></div>
+  <p class="tryit">click a box in the recap to go back to its slide; then answer the questions.</p>
+  <div class="two even" id="sbQz" style="gap:14px"></div>
+  <p class="note" style="margin-top:4px">All numbers from Pathak et al. 2026, arXiv:2601.17268 (§2, §4, §6). Cost: 24 × 12 steps × 33 s ≈ 2.6 GPU-hours on H100 (§4.2.2; our arithmetic).</p>
+</section>

@@ -1,22 +1,22 @@
 <section class="slide" id="s-nowcast" data-g="a" data-sec="5 · Nowcasting">
   <p class="kicker" style="color:var(--lw)">5 · Nowcasting · the 0–6 hour problem</p>
-  <h2>The next six hours are hard: storms are small, short-lived and already moving</h2>
+  <h2>The next six hours: small, short-lived storms on the move</h2>
   <div class="two">
     <div>
-      <ul class="pts" style="font-size:15px">
-        <li>A thunderstorm cell is a few to tens of kilometres across and lives from tens of minutes to a few hours. A 25 km global grid cannot see it; you need a km-scale, <b>convection-allowing</b> model.</li>
-        <li><b>Nowcasting</b> means forecasting the next 0–6 h. The classic baseline is <b>extrapolation</b>: estimate how the radar echoes move and slide the latest image forward. Very good for the first hour, but it cannot grow, weaken or start a storm.</li>
-        <li>Km-scale <b>NWP</b> (for example NOAA's 3 km <b>HRRR</b> over the US) simulates the storms, but its first hours suffer from <b>spin-up</b>: the model has to build clouds and updrafts that its initial state does not describe well.</li>
+      <ul class="pts" style="font-size:14.5px">
+        <li>A thunderstorm cell is a few to tens of km across and lives tens of minutes to a few hours. A 25 km global grid cannot see it; you need a km-scale, <b>convection-allowing</b> model.</li>
+        <li><b>Nowcasting</b> = forecasting the next 0–6 h. The classic baseline is <b>extrapolation</b>: estimate how radar echoes move and slide the latest image forward. Good for the first hour; it cannot grow, weaken or start a storm.</li>
+        <li>Km-scale <b>NWP</b> (e.g. NOAA's 3 km <b>HRRR</b>) simulates storms, but its first hours suffer from <b>spin-up</b>: it must build clouds and updrafts its initial state describes poorly.</li>
         <li>Earth-2 learns the storm-scale evolution instead: <b style="color:var(--lw)">StormCast</b> from an NWP model's output, <b style="color:var(--lw)">StormScope</b> straight from satellite and radar.</li>
       </ul>
       <div class="chips" id="ncSkType"><button class="chip" data-v="pop" aria-pressed="true">Short-lived cells</button><button class="chip" data-v="org">Organised system (squall line)</button></div>
       <div class="ctl"><label for="ncSkLead">Lead time</label><input type="range" id="ncSkLead" min="0" max="12" step="0.25" value="1"><output></output></div>
-      <p class="tryit">slide the lead time to where the two curves cross, then switch to an organised system: does extrapolation stay useful for longer?</p>
+      <p class="tryit">slide to where the curves cross, then switch to an organised system: does extrapolation stay useful longer?</p>
     </div>
     <div class="panel"><h3>Forecast skill vs lead time · schematic</h3><div id="ncSkFig"></div><div class="readout" id="ncSkRead" style="margin-top:4px"></div>
       <p class="note" style="margin:6px 0 0"><b>Schematic, not data:</b> the shapes follow the usual textbook picture (extrapolation decays fast, NWP starts low because of spin-up). Real crossover times depend on the region, season, storm type and score.</p></div>
   </div>
-  <p class="note">HRRR 3 km and the StormCast / StormScope designs: arXiv:2408.10958 (StormCast), arXiv:2601.17268 (StormScope = Earth-2 Nowcasting, NVIDIA blog 26 Jan 2026). Storm sizes and lifetimes are typical textbook values.</p>
+  <p class="note" style="margin-top:6px;max-width:none">StormCast / HRRR 3 km: arXiv:2408.10958. StormScope = Earth-2 Nowcasting: arXiv:2601.17268, NVIDIA blog 26 Jan 2026. Storm sizes and lifetimes: typical textbook values.</p>
 </section>
 
 <section class="slide" id="nc-storms" data-g="a" data-sec="5 · Nowcasting">
@@ -44,20 +44,20 @@
   <h2>StormCast: an HRRR emulator that steps one hour at a time</h2>
   <div class="fig-wrap" id="ncScFig"></div>
   <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div class="chips" id="ncScMode" style="margin:0"><button class="chip" data-v="train" aria-pressed="true">Training (ERA5)</button><button class="chip" data-v="real">Real time (GFS)</button></div>
-  <p class="tryit" style="flex:1;min-width:300px;margin:0">click each box, then switch to real time: which input changes, and why is it needed at all?</p></div>
+  <p class="tryit" style="flex:1;min-width:300px;margin:0">click each box, then switch to real time: which input changes, and why?</p></div>
   <div class="two" style="margin-top:2px">
     <div>
       <div class="card" id="ncScCard" style="min-height:8em"></div>
       <div class="readout" id="ncScRead" style="gap:14px;margin-top:8px"></div>
     </div>
     <div class="panel" style="padding:14px 16px">
-      <h3>Toy: regression mean + diffusion residual = one sample</h3>
+      <h3 style="margin-bottom:4px">Toy: regression mean + diffusion residual = one sample</h3>
       <div class="three" style="gap:8px" id="ncScMaps"><div><div id="ncScM1"></div><p class="note" style="margin:2px 0 0;text-align:center">regression mean</p></div><div><div id="ncScM2"></div><p class="note" style="margin:2px 0 0;text-align:center" id="ncScM2L">residual</p></div><div><div id="ncScM3"></div><p class="note" style="margin:2px 0 0;text-align:center">sum: one sample</p></div></div>
       <div style="display:flex;gap:10px;align-items:center;margin-top:4px"><div class="ctl" style="flex:1;margin:0"><label for="ncScK">Denoising step</label><input type="range" id="ncScK" min="0" max="18" step="1" value="18"><output></output></div><button class="btn" type="button" id="ncScNew">New sample</button></div>
-      <p class="tryit" style="margin-bottom:0">drag the denoising step from 0 to 18, then draw a new sample: the mean stays, the storms shift a little.</p>
+      <p class="tryit" style="margin-bottom:0">drag the step from 0 to 18, then draw a new sample.</p>
     </div>
   </div>
-  <p class="note" style="margin-top:6px">Pathak et al., arXiv:2408.10958 (2024): HRRR 3 km, central US 1,536 × 1,920 km, 1-h steps, regression UNet + EDM residual (18 steps), 99 state + 26 synoptic variables (ERA5 / 0.25° GFS), 64 H100 × 120 h. StormCastCONUS (2026) covers all of CONUS. The toy panel is not the model.</p>
+  <p class="note" style="margin-top:6px;max-width:none">Pathak et al., arXiv:2408.10958 (2024); domain: central US, 1,536 × 1,920 km. StormCastCONUS (2026) covers all of CONUS. The toy panel is not the model.</p>
 </section>
 
 <section class="slide" id="nc-stormscope" data-g="a" data-sec="5 · Nowcasting">
@@ -71,7 +71,6 @@
       <ul class="pts" style="font-size:14px;margin-bottom:4px">
         <li><b>GOES</b> satellite bands and the <b>MRMS</b> radar mosaic over CONUS at 6 km, no NWP initial state. A <b>transformer diffusion model</b> generates the next state; each run is one sample.</li>
         <li><b>Nowcasting</b>: 0–2 h in 10-min steps from the past hour of observations. <b>Nearcasting</b>: 0–12 h in 1-h steps, steered by one GFS channel.</li>
-        <li>A satellite sees a cloud tower before radar sees rain: a head start on <b>initiation</b>.</li>
       </ul>
       <div style="display:flex;gap:10px;align-items:center"><div class="ctl" style="flex:1;margin:0"><label for="ncSsT">Time</label><input type="range" id="ncSsT" min="-4" max="12" step="1" value="-2"><output></output></div><button class="btn" type="button" id="ncSsPlay">▶ Play</button></div>
       <p class="tryit">switch modes, then step from −40 min to +1 h: on which image do the circled cells show up first?</p>
@@ -79,13 +78,13 @@
     </div>
     <div class="panel" style="padding:14px 16px">
       <div class="two even" style="gap:10px">
-        <div><h3>Toy satellite (IR cloud tops)</h3><div id="ncSsSat"></div><div id="ncSsSatL"></div></div>
-        <div><h3>Toy radar (dBZ)</h3><div id="ncSsRad"></div><div id="ncSsRadL"></div></div>
+        <div style="max-width:200px;margin:0 auto;width:100%"><h3 style="margin-bottom:4px">Toy satellite (IR)</h3><div id="ncSsSat"></div><div id="ncSsSatL"></div></div>
+        <div style="max-width:200px;margin:0 auto;width:100%"><h3 style="margin-bottom:4px">Toy radar</h3><div id="ncSsRad"></div><div id="ncSsRadL"></div></div>
       </div>
-      <p class="note" style="margin:4px 0 0">Toy world. Circles: cells that start raining between −30 min and +1 h. In the toy, the cloud appears 30 min before the radar echo and its anvil outlives the rain.</p>
+      <p class="note" style="margin:2px 0 0">A satellite sees a cloud tower before radar sees rain: a head start on <b>initiation</b>. Toy, not model output; circles: cells that start raining in the next hour.</p>
     </div>
   </div>
-  <p class="note" style="margin-top:6px">Pathak et al., arXiv:2601.17268 (2026): nowcasting from 6 past states; nearcasting with Z500 (satellite model) or GFS simulated reflectivity (radar model). Headline: competitive with mesoscale NWP up to 6 h. Earth2Studio: StormScopeGOES, StormScopeMRMS, StormScopeMeteosatEU, StormScopeDxNSRDB. Toy images are not model output.</p>
+  <p class="note" style="margin-top:6px;max-width:none">arXiv:2601.17268 (2026); nearcasting GFS channel: Z500 (satellite model) or simulated reflectivity (radar model). Headline: competitive with mesoscale NWP up to 6 h. Earth2Studio: StormScopeGOES, -MRMS, -MeteosatEU, -DxNSRDB.</p>
 </section>
 
 <section class="slide" id="nc-compare" data-g="a" data-sec="5 · Nowcasting">
@@ -93,22 +92,21 @@
   <h2>Knowing that storms die and form beats just moving them</h2>
   <div class="two">
     <div>
-      <p style="font-size:14px;margin-bottom:4px"><b>Persistence</b>: the issue-time map, unchanged. <b style="color:var(--cool)">Advection</b>: motion from cross-correlating two radar frames 30 min apart, then the map slides forward. <b style="color:var(--lw)">Generative ensemble</b> (16 members, a toy stand-in for a learned model): each member moves the cells, guesses each cell's remaining life with some noise, and draws new cells at random. <b>CSI</b> = hits / (hits + misses + false alarms) above a threshold.</p>
+      <p style="font-size:13.5px;margin-bottom:4px"><b>Persistence</b>: the issue-time map, unchanged. <b style="color:var(--cool)">Advection</b>: motion from cross-correlating two radar frames 30 min apart, then the map slides forward. <b style="color:var(--lw)">Generative ensemble</b> (16 members, a toy stand-in for a learned model): each member moves the cells, guesses each cell's remaining life with some noise, and draws new cells at random. <b>CSI</b> = hits / (hits + misses + false alarms) above a threshold.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><div class="chips" id="ncCmThr" style="margin:2px 0"><button class="chip" data-v="20">20 dBZ</button><button class="chip" data-v="30" aria-pressed="true">30 dBZ</button><button class="chip" data-v="40">40 dBZ</button></div>
       <div class="chips" id="ncCmDay" style="margin:2px 0"><span class="note" style="align-self:center;margin:0">Day</span><button class="chip" data-v="1" aria-pressed="true">1</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3">3</button><button class="chip" data-v="4">4</button></div></div>
-      <p class="tryit">compare the curves at 30 min and at 3 h, then raise the threshold to 40 dBZ and try other days: which ranking holds?</p>
-      <div id="ncCmFig"></div>
+            <div id="ncCmFig"></div>
       <div class="readout" id="ncCmRead" style="gap:16px;margin-top:2px"></div>
+      <p class="tryit" style="margin-bottom:0">compare the curves at 30 min and 3 h, try 40 dBZ and other days; then switch map views: where does the probability map hedge, where is one member confidently wrong?</p>
     </div>
     <div class="panel" style="padding:14px 16px">
       <div class="chips" id="ncCmView" style="margin-top:0"><button class="chip" data-v="truth">Truth</button><button class="chip" data-v="pers">Persistence</button><button class="chip" data-v="adv">Advection</button><button class="chip" data-v="mem">One member</button><button class="chip" data-v="prob" aria-pressed="true">P(exceed)</button></div>
       <div class="ctl" style="margin:4px 0"><label for="ncCmLead">Lead time</label><input type="range" id="ncCmLead" min="0" max="36" step="1" value="18"><output></output></div>
       <div class="mapwrap" style="max-width:310px;margin:0 auto"><div id="ncCmMap"></div><div class="maptip" id="ncCmTip"></div></div><div id="ncCmLeg" style="max-width:310px;margin:2px auto 0"></div>
-      <p class="tryit" style="margin-bottom:2px">switch views at the same lead: where does the probability map hedge, and where is one member confidently wrong?</p>
       <p class="note" style="margin:2px 0 0" id="ncCmNote"></p>
     </div>
   </div>
-  <p class="note" style="margin-top:6px">All toy: the ensemble knows the toy's rules but not the future, standing in for what StormCast or StormScope learn from data. Real studies score CSI or FSS at thresholds such as 20/30/40 dBZ (arXiv:2408.10958).</p>
+  <p class="note" style="margin-top:6px;max-width:none">All toy: the ensemble knows the toy's rules but not the future, standing in for what StormCast or StormScope learn from data. Real studies score CSI or FSS at thresholds such as 20/30/40 dBZ (arXiv:2408.10958).</p>
 </section>
 
 <section class="slide" id="nc-users" data-g="a" data-sec="5 · Nowcasting">
@@ -117,14 +115,14 @@
   <div class="two even">
     <div>
       <div id="ncUsFig"></div>
-      <p class="tryit">click each user: which one needs more than a few hours ahead, and what does it combine Nowcasting with?</p>
-      <div class="card" id="ncUsCard" style="min-height:6.2em"></div>
-      <div class="callout amber" style="font-size:14px;margin-bottom:0"><b>Claims and their baselines.</b> NVIDIA calls StormScope the "first AI model to outperform physics-based models on short-term precipitation" (vendor claim). The paper (arXiv:2601.17268) is more careful: competitive with mesoscale NWP up to 6 h; single-member radar FSS beats HRRR to 3 h. StormCast's authors: reflectivity FSS comparable to or better than HRRR to 6 h at 20/30/40 dBZ; 5-member ensembles <b>under-dispersive</b> (too little spread).</div>
+      <p class="tryit">click each user: who needs more than a few hours, and with what?</p>
+      <div class="card" id="ncUsCard" style="padding:10px 14px"></div>
+      <div class="callout amber" style="font-size:13px;margin:8px 0 0;padding:8px 12px"><b>Claims and their baselines.</b> NVIDIA calls StormScope the "first AI model to outperform physics-based models on short-term precipitation" (vendor claim). The paper: competitive with mesoscale NWP up to 6 h; single-member radar FSS beats HRRR to 3 h. StormCast paper: reflectivity FSS comparable to or better than HRRR to 6 h at 20/30/40 dBZ; ensembles <b>under-dispersive</b>.</div>
     </div>
     <div>
             <div id="ncQuiz"></div>
       <p class="tryit">answer all three; the explanation appears under each question.</p>
     </div>
   </div>
-  <p class="note" style="margin-top:6px">Users and status: NVIDIA blog "Earth-2 family of open models" (26 Jan 2026). StormCast: arXiv:2408.10958. StormScope: arXiv:2601.17268.</p>
+  <p class="note" style="margin-top:6px;max-width:none">Users and status: NVIDIA blog "Earth-2 family of open models" (26 Jan 2026). StormCast: arXiv:2408.10958. StormScope: arXiv:2601.17268.</p>
 </section>
