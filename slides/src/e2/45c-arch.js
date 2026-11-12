@@ -250,7 +250,7 @@ demo("sc-params", () => {
   let mode = "sn", d = 768, r = 4, pos = 1;
   chips($("#scPaMode"), v => { mode = v; render(); }); chips($("#scPaD"), v => { d = +v; render(); });
   chips($("#scPaR"), v => { r = +v; render(); }); chips($("#scPaPos"), v => { pos = +v; render(); });
-  const Ls = slider("scPaL", v => v + (v === 16 ? " (paper)" : ""), render);
+  const Ls = slider("scPaL", v => v, render);
   // stacked bar with a legend underneath; returns the y below it
   function sbar(svg, y, segs, max, W, { mark = null, unit = v => SC.big(v), h = 20, title = "" } = {}) {
     const x0 = 4, span = W - 8, X = v => x0 + span * v / max;
@@ -411,8 +411,9 @@ demo("sc-iter", slide => {
     // learning-rate schedule
     const pts = Array.from({ length: 61 }, (_, i) => [i / 10, 5e-4 * .5 * (1 + Math.cos(Math.PI * i / 60))]);
     VIZ.curves($("#scItLr"), [{ pts, col: "--accent", label: "lr, cosine 5·10⁻⁴ → 0 (paper)" }], { xr: [0, 6], yr: [0, 5.5e-4], W: 470, H: 94, xl: "iterations (M)", yl: "learning rate", xt: [0, 2, 4, 6], yt: [0, 2.5e-4, 5e-4], xf: v => fmt(v, 0), yf: v => v ? v.toExponential(1) : "0", marks: [[it / 1e6, "now", "--lw"]], legendAt: "tr" });
+    $("#scItWhy").innerHTML = read6 === "it" ? `As optimizer steps: 6 M × 32 = 192 M samples (~600 epochs) at ~35 steps/s, i.e. ~0.8 PFLOP/s per GPU by our estimate: near the H100's peak, implausible.` : `As samples: ~190 k optimizer steps (~19 epochs) at ~1.1 steps/s, ~26 TFLOP/s per GPU: plausible. The paper does not say which; this is our reading.`;
     const steps = read6 === "it" ? 6e6 : 6e6 / 32, ips = steps / (48 * 3600), smp = it / 6e6 * steps * 32, tfg = ips * 3 * 7.9;
-    $("#scItRead").innerHTML = `<div><span>lr now</span><b>${lr.toExponential(1)}</b></div><div><span>Samples seen</span><b class="c-data">${SC.big(smp, 0)}</b></div><div><span>Epochs</span><b class="c-data">${fmt(smp / 315576, smp / 315576 < 10 ? 1 : 0)}</b></div><div><span>Steps / s</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmt(ips, 1)}</b></div><div><span>TFLOP/s per GPU</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmtN(tfg)}</b></div>`;
+    $("#scItRead").innerHTML = `<div><span>Samples seen</span><b class="c-data">${SC.big(smp, 0)}</b></div><div><span>Epochs</span><b class="c-data">${fmt(smp / 315576, smp / 315576 < 10 ? 1 : 0)}</b></div><div><span>Steps / s</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmt(ips, 1)}</b></div><div><span>TFLOP/s per GPU</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmtN(tfg)}</b></div>`;
   }
   $("#scItFig").addEventListener("click", e => { const t = e.target.closest("[data-st]"); if (!t) return; stop(); step = +t.dataset.st; press(btns, btns[step]); render(); });
   render(); return render;
@@ -421,7 +422,7 @@ demo("sc-iter", slide => {
 /* ───────── 4 · one forecast as nested loops ───────── */
 demo("sc-forecast", slide => {
   const { NX, NY, txt, img } = SC;
-  let mode = "now", models = 2, k = 0, m = 0, i = 0, done = false, timer = null, speed = 4, flash = 0;
+  let mode = "now", models = 2, k = 0, m = 0, i = 0, done = false, timer = null, speed = 8, flash = 0;
   chips($("#scFcMode"), v => { mode = v; reset(); }); chips($("#scFcMod"), v => { models = +v; reset(); }); chips($("#scFcSp"), v => { speed = +v; });
   const Ss = slider("scFcS", v => v, () => reset()), Ms = slider("scFcM", v => v, render), Gs = slider("scFcG", v => v, render);
   const seed = 5, r = rng(99), nz = Float32Array.from({ length: NX * NY }, () => gauss(r));
@@ -436,7 +437,7 @@ demo("sc-forecast", slide => {
   $("#scFcPlay").onclick = () => { if (timer) { stop(); return; } if (done) { k = 0; m = 0; i = 0; done = false; }
     $("#scFcPlay").textContent = "❚❚ Pause";
     timer = setInterval(() => { if (!slide.classList.contains("on")) { stop(); return; } for (let q = 0; q < speed; q++) tick(); if (flash > 0) flash--; render(); if (done) stop(); }, 50); };
-  $("#scFcI").onclick = () => { stop(); tick(); render(); };
+  $("#scFcI").onclick = () => { stop(); flash = 0; tick(); render(); };
   $("#scFcK").onclick = () => { stop(); if (done) return; const k0 = k; while (!done && k === k0) tick(); flash = 6; render(); };
   $("#scFcR").onclick = reset;
   function code() {
@@ -571,13 +572,13 @@ demo("sc-region", () => {
   const Ws = slider("scRgW", v => fmtN(v) + " km", render), Hs = slider("scRgH", v => fmtN(v) + " km", render);
   // rough hand-drawn outline of Colombia (lon, lat)
   const COL = [[-77.9, 7.2], [-77.3, 8.6], [-76.8, 8.6], [-76.0, 9.4], [-75.6, 10.4], [-74.8, 11.0], [-74.2, 11.3], [-73.0, 11.6], [-72.2, 12.3], [-71.7, 12.4], [-71.3, 11.8], [-72.3, 11.1], [-72.9, 9.5], [-72.4, 8.0], [-72.3, 7.4], [-70.1, 7.0], [-69.4, 6.1], [-67.8, 6.2], [-67.5, 5.5], [-67.8, 4.5], [-67.3, 3.4], [-67.8, 2.0], [-66.9, 1.2], [-67.1, 1.1], [-69.8, 1.7], [-69.5, 0.7], [-70.0, -0.2], [-69.4, -1.1], [-69.9, -4.2], [-70.7, -3.8], [-72.9, -2.4], [-74.0, -1.0], [-75.3, -0.1], [-77.4, 0.8], [-78.9, 1.4], [-78.0, 2.6], [-77.2, 3.9], [-77.5, 5.6], [-77.4, 6.6]];
-  const L0 = -95, L1 = -41, B0 = -9, B1 = 16, Vw = 540, Vh = 250, X = lo => (lo - L0) / (L1 - L0) * Vw, Y = la => (B1 - la) / (B1 - B0) * Vh, C = [-73.5, 4.5];
+  const L0 = -100, L1 = -40, B0 = -13, B1 = 20.33, Vw = 540, Vh = 300, X = lo => (lo - L0) / (L1 - L0) * Vw, Y = la => (B1 - la) / (B1 - B0) * Vh, C = [-73.5, 4.5];
   function render() {
     const Wk = Ws(), Hk = Hs(), cols = Math.max(4, Math.round(Wk / 6 / 4) * 4), rows = Math.max(4, Math.round(Hk / 6 / 4) * 4), tc = cols / 4, tr = rows / 4, N = tc * tr, ratio = N / 28672;
-    const svg = svgIn($("#scRgMap"), Vw, Vh); arrowDefs(svg, "scRgA", css("--muted"));
+    const svg = svgIn($("#scRgMap"), Vw, Vh); svg.style.overflow = "hidden"; arrowDefs(svg, "scRgA", css("--muted"));
     el("rect", { x: 0, y: 0, width: Vw, height: Vh, rx: 8, fill: css("--well") }, svg);
-    for (let lo = -90; lo <= -45; lo += 5) el("line", { x1: X(lo), x2: X(lo), y1: 0, y2: Vh, stroke: css("--line"), "stroke-width": .7 }, svg);
-    for (let la = -5; la <= 15; la += 5) el("line", { x1: 0, x2: Vw, y1: Y(la), y2: Y(la), stroke: css(la === 0 ? "--muted" : "--line"), "stroke-width": la === 0 ? 1 : .7, "stroke-dasharray": la === 0 ? "4 3" : "" }, svg);
+    for (let lo = -95; lo <= -45; lo += 5) el("line", { x1: X(lo), x2: X(lo), y1: 0, y2: Vh, stroke: css("--line"), "stroke-width": .7 }, svg);
+    for (let la = -10; la <= 20; la += 5) el("line", { x1: 0, x2: Vw, y1: Y(la), y2: Y(la), stroke: css(la === 0 ? "--muted" : "--line"), "stroke-width": la === 0 ? 1 : .7, "stroke-dasharray": la === 0 ? "4 3" : "" }, svg);
     SC.txt(svg, 4, Y(0) - 4, "equator", { "font-size": 10, fill: css("--muted") });
     el("path", { d: path(COL.map(([lo, la]) => [X(lo), Y(la)])) + "Z", fill: css("--fg"), "fill-opacity": .1, stroke: css("--fg"), "stroke-width": 1.4 }, svg);
     SC.txt(svg, X(-72.6), Y(3.2), "COLOMBIA", { "font-size": 11, "font-weight": 700, "text-anchor": "middle", fill: css("--fg"), "letter-spacing": "1" });
@@ -591,8 +592,8 @@ demo("sc-region", () => {
     SC.txt(svg, X(C[0] + dW / 2) - 4, Y(C[1] - dH / 2) - 5, `${rows} × ${cols} cells`, { "font-size": 11, "font-weight": 700, "text-anchor": "end", fill: css("--accent"), stroke: css("--card"), "stroke-width": 3, "paint-order": "stroke" });
     const memT = 3 + 67 * ratio, gpus = Math.ceil(memT / 80);
     if (sel === "b" && gpus > 1) for (let q = 1; q < gpus; q++) { const yq = Y(C[1] + dH / 2) + q * dH / (B1 - B0) * Vh / gpus; el("line", { x1: X(C[0] - dW / 2), x2: X(C[0] + dW / 2), y1: yq, y2: yq, stroke: css("--accent"), "stroke-width": 1.5, "stroke-dasharray": "3 3" }, svg); }
-    if (sel === "c") { el("line", { x1: X(-98 + 3) + 120, x2: X(-98 + 3) + 120, y1: 40, y2: 6, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#scRgA)" }, svg);
-      SC.txt(svg, X(-98 + 3) + 128, 20, "the released model learned CONUS, ≈ 21–53° N, far north of this map", { "font-size": 10.5, fill: css("--lw"), "font-weight": 600 }); }
+    if (sel === "c") { el("line", { x1: X(-98 + 3) + 120, x2: X(-98 + 3) + 120, y1: 34, y2: 4, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#scRgA)" }, svg);
+      SC.txt(svg, X(-98 + 3) + 128, 18, "the released model learned CONUS, ≈ 21–53° N, far north of this map", { "font-size": 10.5, fill: css("--lw"), "font-weight": 600 }); }
     if (sel === "a" || sel === "d") SC.txt(svg, Vw - 6, 14, "box centred on 4.5° N, 73.5° W", { "font-size": 10, fill: css("--muted"), "text-anchor": "end" });
     const naOK = Math.min(tc, tr) >= 31;
     $("#scRgRead").innerHTML = `<div><span>Tokens</span><b>${tr} × ${tc}</b></div><div><span>vs CONUS</span><b class="c-data">${fmt(100 * ratio, 0)} %</b></div><div><span>Step time*</span><b class="c-data">${fmt(33 * ratio, ratio < .3 ? 1 : 0)} s</b></div><div><span>Train mem.*</span><b class="${gpus > 1 ? "c-lw" : "c-ok"}">${fmt(memT, 0)} GB${gpus > 1 ? " → " + gpus + " GPUs" : ""}</b></div><div><span>NA window fits</span><b class="${naOK ? "c-ok" : "c-lw"}">${naOK ? "yes" : "no: < 31"}</b></div>`;

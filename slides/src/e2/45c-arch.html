@@ -14,6 +14,7 @@
 .scsteps{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 4px;align-items:center}
 .scsteps button.chip{font-size:12px;padding:3px 8px}
 .scsteps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+#scPaMode button.chip,#scFcSp button.chip{font-size:12.5px;padding:4px 9px}
 .scbar{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
 .sccard{padding:9px 14px}
 .sccard h4{margin:0 0 4px;font-size:15px;color:var(--accent)}
@@ -46,7 +47,7 @@ button.btn.scgo{font-size:12.5px;padding:3px 10px}
   <div class="scfig" id="scArFig"></div>
   <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;margin-top:4px">
     <div><div class="card sccard" id="scArCard" style="min-height:150px"></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><span class="note" style="margin:0;align-self:center">More detail:</span><button class="btn scgo" data-go="sb-tokens">patches →</button><button class="btn scgo" data-go="sb-na">neighborhood attention →</button><button class="btn scgo" data-go="sb-block">one DiT block →</button><button class="btn scgo" data-go="sd-why">what is diffusion? →</button></div></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><span class="note" style="margin:0;align-self:center">More detail:</span><button class="btn scgo" data-go="sb-tokens">patches →</button><button class="btn scgo" data-go="sb-na">attention →</button><button class="btn scgo" data-go="sb-block">DiT block →</button><button class="btn scgo" data-go="sd-why">diffusion from scratch →</button></div></div>
     <div>
       <div class="chips scsteps" id="scArMode" style="gap:4px"><span class="note" style="margin:0 2px 0 0">Model:</span><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div>
       <div class="readout" id="scArRead"></div>
@@ -101,6 +102,7 @@ button.btn.scgo{font-size:12.5px;padding:3px 10px}
       <div id="scItLr"></div>
       <div class="stg"><span>"~6 M" counts</span><div class="chips" id="scItRead6"><button class="chip" data-v="it" aria-pressed="true">optimizer steps</button><button class="chip" data-v="smp">training samples</button></div></div>
       <div class="readout" id="scItRead" style="margin-top:2px"></div>
+      <p class="note" id="scItWhy" style="margin:3px 0 0;font-size:12px;line-height:1.35"></p>
     </div>
   </div>
   <p class="note">Paper §4.1, §4.2.3: training years; eq. (1) with EDM λ(σ) and pre-conditioning; σ uniform in log σ; two experts split at σ<sub>int</sub>; Stable AdamW, lr 5 × 10⁻⁴ → 0 cosine, batch 32 on 32 H100 (data parallel), ~6 M iterations, ~48 h per model. Not stated: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub> (EDM defaults 0.002, 80, 0.5; toy σ<sub>int</sub> = 1), warm-up, weight decay, precision, whether the experts are separate networks. Toy: images, dates, losses. Our estimate: FLOP (backward ≈ 2 × forward); H100 dense BF16 peak ≈ 1 PFLOP/s (NVIDIA spec).</p>
@@ -119,7 +121,7 @@ button.btn.scgo{font-size:12.5px;padding:3px 10px}
       <div class="ctl"><label for="scFcG">H100 GPUs</label><input type="range" id="scFcG" min="1" max="32" step="1" value="1"><output></output></div>
     </div>
     <div class="panel" style="padding:10px 12px">
-      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:4px"><button class="btn scgo" type="button" id="scFcPlay">▶ Play</button><button class="btn scgo" type="button" id="scFcI">+1 σ step</button><button class="btn scgo" type="button" id="scFcK">+1 lead step</button><button class="btn scgo" type="button" id="scFcR">Reset</button><div class="chips" id="scFcSp" style="margin:0 0 0 auto;gap:4px"><button class="chip" data-v="1">slow</button><button class="chip" data-v="4" aria-pressed="true">fast</button><button class="chip" data-v="20">faster</button></div></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:4px"><button class="btn scgo" type="button" id="scFcPlay">▶ Play</button><button class="btn scgo" type="button" id="scFcI">+1 σ step</button><button class="btn scgo" type="button" id="scFcK">+1 lead step</button><button class="btn scgo" type="button" id="scFcR">Reset</button><div class="chips" id="scFcSp" style="margin:0 0 0 auto;gap:4px"><button class="chip" data-v="2">slow</button><button class="chip" data-v="8" aria-pressed="true">fast</button><button class="chip" data-v="40">faster</button></div></div>
       <div class="scfig" id="scFcFig"></div>
       <div class="readout" id="scFcRead"></div>
       <p class="tryit" style="margin-bottom:0">press ▶ and watch the line that runs in the code; then drop σ steps to 20 or add members and GPUs: what changes the wall-clock time, and what only the GPU-hours?</p>
@@ -171,5 +173,5 @@ button.btn.scgo{font-size:12.5px;padding:3px 10px}
       <p class="tryit" style="margin-bottom:0">shrink the box below ~750 km: what breaks? Grow it past CONUS size: what does training need then?</p>
     </div>
   </div>
-  <p class="note">Paper: satellite-first design deployable "even where radar data is unavailable" (§4.2.1); "a pathway to extend skillful mesoscale forecasting to … countries without strong operational mesoscale modeling programs" (Abstract, §3); domain parallelism "to directly scale both training and inference to larger domains including full disk forecasts", 3 km CONUS demo 1792 × 1024, ~87.5 % scaling efficiency (§6.2). Earth2Studio lists a StormScopeMeteosatEU variant (MTG FCI imagery over Europe). Our estimates: time and memory ∝ number of tokens (true for patch embedding, MLP and neighborhood attention; ignores fixed costs); 70 GB × token ratio for training memory. Colombian outline: rough, hand-drawn.</p>
+  <p class="note">Paper: satellite-only deployment possible (§4.2.1); "a pathway to extend skillful mesoscale forecasting to … countries without strong operational mesoscale modeling programs" (Abstract, §3); domain parallelism up to "full disk forecasts", 3 km demo 1792 × 1024, ~87.5 % efficiency (§6.2). Earth2Studio: StormScopeMeteosatEU (MTG over Europe). *Our estimates: time and memory ∝ tokens (patch embedding, MLP and NA all scale so; fixed costs ignored), training memory 3 GB + 67 GB × token ratio. Outline of Colombia: rough, hand-drawn.</p>
 </section>

@@ -1102,6 +1102,392 @@ table.ncvs tbody tr:last-child td:last-child{color:var(--ok);font-weight:500}
   <p class="note">Fig. 11 and §4.2.1 of arXiv:2601.17268: x̃(t), ỹ(t) are recycled as inputs (autoregressive sliding window); satellite models are trained and sampled independently of the radar models, which are conditioned on satellite inputs in training and on the satellite forecast at inference (§4.1.2); the two models run in sequence each step (§4.2.2). Thumbnails: a <b>toy</b> world cropped to the central US (clean IR shown for GOES, 1 of 8 channels); "forecast" frames are the toy truth with errors that grow with lead.</p>
 </section>
 <style>
+.slide.sd-s{padding-top:16px;padding-bottom:10px}
+.sd-s h2{font-size:clamp(21px,2.4vw,26px);margin-bottom:8px}
+.sd-s .kicker{max-width:none}
+.sd-s p,.sd-s .note,.sd-s .tryit{max-width:none}
+.sd-s>.note{font-size:12.5px;line-height:1.4;margin:6px 0 0}
+.sd-s .tryit{font-size:13.5px;margin:5px 0;padding:5px 10px}
+.sd-s h3{text-transform:none;letter-spacing:.01em;font-size:12.5px;font-family:var(--f-body);font-weight:600;margin:0 0 3px}
+.sd-s .ctl{margin:4px 0;font-size:13.5px;grid-template-columns:minmax(5.5em,auto) minmax(0,1fr) 5.4em}
+.sd-s .readout{gap:6px 20px;margin-top:6px}
+.sd-s .readout b{font-size:20px}
+.sd-s .readout span{font-size:11px;text-transform:none;letter-spacing:.02em}
+.sd-s .stg{grid-template-columns:minmax(4.2em,auto) minmax(0,1fr)}
+.sd-s .stg .chips{margin:2px 0}
+.sd-card{padding:9px 14px}
+.sd-card h4{margin:0 0 3px;font-size:15px}
+.sd-card p{font-size:14px;margin:0 0 4px}
+.sd-card p:last-child{margin-bottom:0}
+.sd-steps{margin:0 0 4px;gap:6px}
+.sd-steps button.chip{font-size:13px;padding:4px 11px}
+.sd-steps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.sd-row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.sd-row .btn,.sd-go{padding:4px 12px;font-size:13px}
+.sd-g{display:grid;gap:16px;align-items:start}
+.sd-pn{padding:10px 12px}
+.sd-s .eq{font-size:16px;padding:7px 12px;margin:4px 0 6px;white-space:normal}
+.sd-s ul.pts{font-size:14px;margin:0 0 6px}
+.sd-s ul.pts li{margin:2px 0}
+.sd-s .callout{font-size:13.5px;padding:8px 12px;margin:6px 0}
+.sd-cv canvas{cursor:crosshair;touch-action:none}
+.sd-lab{font-size:12px;color:var(--muted);margin:2px 0 0;text-align:center}
+.sd-kc{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+@media (max-width:900px){.sd-g{grid-template-columns:minmax(0,1fr)!important}}
+</style>
+
+<section class="slide sd-s" id="sd-why" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 1 · why a generative model</p>
+  <h2>When the future is uncertain, a model trained on squared error forecasts the average: two half-storms</h2>
+  <div class="fig-wrap" id="sdWhFig"></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);margin-top:4px">
+    <div>
+      <div class="ctl"><label for="sdWhS">Track uncertainty</label><input type="range" id="sdWhS" min="0" max="1" step="0.02" value="0.6"><output></output></div>
+      <div class="stg"><span>Possible futures</span><div class="chips" id="sdWhK"><button class="chip" data-v="1">1 (certain)</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3" aria-pressed="true">3</button><button class="chip" data-v="5">5</button></div></div>
+      <div class="stg"><span>May decay?</span><div class="chips" id="sdWhNone"><button class="chip" data-v="0" aria-pressed="true">no</button><button class="chip" data-v="1">yes: add "no storm"</button></div></div>
+      <div class="sd-row" style="margin:4px 0"><button class="btn" type="button" id="sdWhDraw">🎲 Draw a sample</button><span class="note" id="sdWhCnt" style="margin:0"></span></div>
+      <p class="tryit">raise the uncertainty with 3 futures: the MSE forecast's peak drops below 30 dBZ and the storm "disappears"; each drawn sample keeps a full 50 dBZ storm.</p>
+    </div>
+    <div>
+      <div class="panel sd-pn"><h3>South–north cut through the storms (toy, dBZ)</h3><div id="sdWhCut"></div></div>
+    </div>
+  </div>
+  <p class="note">A model trained to minimise the mean squared error (MSE) predicts the <b>conditional mean</b> of the possible futures: it is the best single guess on average, but no single future looks like it. A <b>generative model</b> learns the whole distribution p(future | past) and draws one plausible future per sample; StormScope does this with a diffusion model (paper §4.2.3: it "learns the conditional distribution p(x<sub>t+</sub> | x<sub>t−</sub>; c)"). Toy: one storm on a 40 × 70 grid of 6 km cells, peak 50 dBZ; averages taken in dBZ.</p>
+</section>
+
+<section class="slide sd-s" id="sd-forward" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 2 · the forward process: adding noise</p>
+  <h2>Adding noise x<sub>σ</sub> = x + σ·n destroys the small scales first; the large ones survive longest</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.86fr) minmax(0,1.07fr) minmax(0,1.07fr)">
+    <div>
+      <h3 id="sdFwA"></h3>
+      <div id="sdFwImg"></div>
+      <div class="sd-row" style="margin-top:4px;gap:5px"><div class="chips" id="sdFwView" style="margin:0;gap:5px"><button class="chip" data-v="1" aria-pressed="true" style="padding:3px 9px;font-size:12px">rescaled</button><button class="chip" data-v="0" style="padding:3px 9px;font-size:12px">raw</button></div><button class="btn" type="button" id="sdFwNew" style="padding:3px 10px;font-size:12px">new noise</button></div>
+    </div>
+    <div class="panel sd-pn"><h3>Power spectrum: how much variance at each scale</h3><div id="sdFwSpec"></div></div>
+    <div class="panel sd-pn"><h3>Histogram of pixel values</h3><div id="sdFwHist"></div></div>
+  </div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);margin-top:6px">
+    <div>
+      <div class="ctl"><label for="sdFwS">Noise level σ</label><input type="range" id="sdFwS" min="-2.7" max="1.9" step="0.02" value="-0.6"><output></output></div>
+      <div class="chips sd-steps" id="sdFwPre"><button class="chip" data-v="-2.7">σ = 0.002</button><button class="chip" data-v="-1.3">0.05</button><button class="chip" data-v="-0.6" aria-pressed="true">0.25</button><button class="chip" data-v="0">1</button><button class="chip" data-v="0.7">5</button><button class="chip" data-v="1.9">80</button></div>
+      <p class="tryit">step σ through 0.002 → 80 with the chips: watch where the noisy spectrum (blue) leaves the clean one (black). Everything to the right of that point is drowned.</p>
+    </div>
+    <div>
+      <div class="readout" id="sdFwRead" style="margin-top:0"></div>
+      <div class="callout blue" style="margin-top:6px">Noise is <b>white</b>: the same variance σ² at every scale. Weather fields have most variance at large scales, so the small scales sink below the noise first. Denoising therefore rebuilds the <b>large scales at high σ</b> and the <b>details at low σ</b>.</div>
+    </div>
+  </div>
+  <p class="note">Forward process as in EDM (Karras et al. 2022): x<sub>σ</sub> = x + σ·n with n ~ N(0, I), the same as eq. (1) of the paper (n<sub>σ</sub> ~ N(0, σ²I), §4.2.3). σ range 0.002–80 and σ<sub>data</sub> = 0.5 are EDM defaults (the paper does not state its values). Toy: a 128 × 128 storm field (6 km cells, 768 km across), scaled to standard deviation 0.5; "rescaled" divides by √(σ² + σ<sub>data</sub>²), which is what EDM's input scaling c<sub>in</sub> does before the network sees the image.</p>
+</section>
+
+<section class="slide sd-s" id="sd-denoiser" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 3 · the denoiser</p>
+  <h2>The best possible denoiser returns a weighted average of all clean images that could explain the noisy one</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
+    <div class="panel sd-pn"><div id="sdDnFig"></div></div>
+    <div>
+      <div class="eq">D(x<sub>σ</sub>; σ) = Σ<sub>i</sub> w<sub>i</sub> x<sub>i</sub>, &nbsp; w<sub>i</sub> ∝ exp(−‖x<sub>σ</sub> − x<sub>i</sub>‖² / 2σ²)</div>
+      <ul class="pts">
+        <li>The <b>denoiser</b> D gets a noisy image and σ, and must guess the clean image. Trained with squared error, its best answer is the <b>average of the candidates</b>, weighted by how well each one explains the noisy image.</li>
+        <li><b>High σ</b>: every candidate fits equally badly → equal weights → the dataset mean (blurry).</li>
+        <li><b>Low σ</b>: one candidate fits far better → weight ≈ 1 → a sharp image.</li>
+      </ul>
+      <div class="ctl"><label for="sdDnS">Noise level σ</label><input type="range" id="sdDnS" min="-2" max="1.3" step="0.02" value="0.3"><output></output></div>
+      <div class="stg"><span>Noise image #</span><div class="chips" id="sdDnK"><button class="chip" data-v="0" aria-pressed="true">1</button><button class="chip" data-v="1">2</button><button class="chip" data-v="2">3</button><button class="chip" data-v="3">4</button><button class="chip" data-v="4">5</button><button class="chip" data-v="5">6</button><button class="chip" data-v="6">7</button><button class="chip" data-v="7">8</button></div></div>
+      <div class="sd-row"><button class="btn" type="button" id="sdDnNew">new noise</button><span class="sd-kc" id="sdDnInfo"></span></div>
+      <p class="tryit">slide σ slowly from 20 down to 0.01: at what σ does the denoiser "decide" which of the 8 storms it is looking at?</p>
+    </div>
+  </div>
+  <p class="note">Toy: 8 "training" futures of the same scene (32 × 56 cells, dBZ/60), exact optimal denoiser for this finite set (the posterior mean under equal prior weights). With 1,792 pixels pooling evidence, the noisy image still identifies its source at σ ≈ 1. A real network never sees the whole training set at once: it learns a smooth approximation of this average and can also produce futures that are not in the training set. StormScope trains this denoiser with eq. (1) of the paper (§4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-field" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 4 · a picture with two pixels</p>
+  <h2>With two pixels, every image is a point; the denoiser becomes a field of arrows towards the data</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)">
+    <div class="panel sd-pn sd-cv"><div id="sdFdMap"></div></div>
+    <div>
+      <ul class="pts">
+        <li>Image = (rain at pixel A, rain at pixel B). Training data: 3 kinds of future, <b style="color:var(--lw)">storm over A</b>, <b style="color:var(--cool)">storm over B</b>, <b style="color:var(--ok)">no storm</b> (6, 6 and 12 examples).</li>
+        <li>Shading: the density of <b>noisy</b> images p<sub>σ</sub>. Arrows: D(x; σ) − x, the step to the denoiser's guess. Divided by σ², it is the <b>score</b> ∇ log p<sub>σ</sub>: the uphill direction of that density.</li>
+        <li>Diffusion sampling = start at high σ, then follow the arrows while lowering σ.</li>
+      </ul>
+      <div class="ctl"><label for="sdFdS">Noise level σ</label><input type="range" id="sdFdS" min="-2" max="0.5" step="0.01" value="-0.3"><output></output></div>
+      <div class="sd-row"><button class="btn" type="button" id="sdFdDrop">Drop 20 points at σ = 1</button><button class="btn" type="button" id="sdFdClr">Clear</button><button class="btn" type="button" id="sdFdStop">❚❚ Stop</button></div>
+      <div class="readout" id="sdFdRead"></div>
+      <p class="tryit">set σ to 1 and click anywhere on the map: the point follows the arrows as σ shrinks and lands on one kind of future. Hover to see the denoiser's guess and its weights.</p>
+    </div>
+  </div>
+  <p class="note">Toy: 24 data points in 2-D, exact denoiser of this set; σ range 0.01–3 (toy). Points move with the probability-flow ODE of EDM (Karras et al. 2022, eq. 1 with σ(t) = t): dx/dσ = (x − D(x; σ)) / σ. In StormScope a point x is a whole future frame: 512 × 896 = 458,752 numbers per channel (§4.2.2), so 8 GOES channels (Table 1) make a point in a space of ~3.7 million dimensions; the arrows are the same idea.</p>
+</section>
+
+<section class="slide sd-s" id="sd-live" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 5 · training one, live</p>
+  <h2>Train a diffusion model in your browser: a small neural network learns the arrows from noisy examples</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:14px">
+    <div>
+      <div class="sd-row" style="margin-bottom:4px"><button class="btn" type="button" id="sdLvPlay">▶ Train</button><button class="btn" type="button" id="sdLvReset">↺ Reset</button><button class="btn" type="button" id="sdLvSamp">🎲 Sample now</button></div>
+      <div class="stg"><span>Data</span><div class="chips" id="sdLvData"><button class="chip" data-v="storms" aria-pressed="true">3 storms</button><button class="chip" data-v="ring">ring</button><button class="chip" data-v="moons">moons</button></div></div>
+      <div class="stg"><span>Rate</span><div class="chips" id="sdLvLr"><button class="chip" data-v="0.0003">3e-4</button><button class="chip" data-v="0.002" aria-pressed="true">2e-3</button><button class="chip" data-v="0.01">1e-2</button><button class="chip" data-v="0.2">2e-1</button></div></div>
+      <div class="stg"><span>Width</span><div class="chips" id="sdLvW"><button class="chip" data-v="8">8</button><button class="chip" data-v="32" aria-pressed="true">32</button><button class="chip" data-v="64">64</button></div></div>
+      <div class="readout" id="sdLvRead"></div>
+      <div id="sdLvLoss" style="margin-top:4px"></div>
+    </div>
+    <div>
+      <div class="sd-g" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+        <div><h3 style="color:var(--accent)">Network: D<sub>θ</sub>(x; σ) − x</h3><div id="sdLvNet"></div></div>
+        <div><h3>Exact: D(x; σ) − x</h3><div id="sdLvEx"></div></div>
+        <div><h3 id="sdLvSmH">Samples from the network</h3><div id="sdLvSm"></div></div>
+      </div>
+      <div class="ctl" style="margin-top:6px"><label for="sdLvS">Arrows at σ</label><input type="range" id="sdLvS" min="-2" max="0.6" step="0.02" value="-0.7"><output></output></div>
+      <div class="card sd-card" id="sdLvCard"></div>
+      <p class="tryit">press ▶ Train and watch the left arrows come to match the middle ones; press 🎲 Sample now early (at ~200 iterations) and again later. Then compare learning rate 2e-1 (too big: the loss stays high and jumpy) and, on the moons, width 8 (too small).</p>
+    </div>
+  </div>
+  <p class="note">Everything runs in this page: a 2-hidden-layer network with SiLU activations, written by hand (forward pass, backpropagation, Adam), inputs (c<sub>in</sub>·x, c<sub>noise</sub>), EDM pre-conditioning D = c<sub>skip</sub>·x + c<sub>out</sub>·F and EDM loss weight λ(σ) (Karras et al. 2022; σ<sub>data</sub> = 0.5). σ is drawn uniform in log σ as in the paper (§4.2.3), here between 0.01 and 4 (toy). Batch 128, fresh data each step. Sampler: EDM Heun, 20 steps, ρ = 7, 200 samples. StormScope does exactly this, with a 195 M-parameter transformer on 512 × 896 images, batch 32 on 32 H100 GPUs for ~6 M iterations (~48 h; §4.2.2–4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-sample" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 6 · sampling</p>
+  <h2>Sampling: start from pure noise at σ<sub>max</sub> and step σ down to 0, following the denoiser</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr) minmax(0,.95fr);gap:14px">
+    <div class="panel sd-pn"><h3>80 samples in the two-pixel world</h3><div id="sdSmMap"></div></div>
+    <div class="panel sd-pn"><h3>Pixel A of each sample, step by step</h3><div id="sdSmPath"></div>
+      <div class="sd-row"><div class="ctl" style="flex:1;margin:0"><label for="sdSmI">Show step</label><input type="range" id="sdSmI" min="0" max="12" step="1" value="12"><output></output></div><button class="btn" type="button" id="sdSmPlay">▶ Play</button></div></div>
+    <div>
+      <div class="ctl"><label for="sdSmN">Steps N</label><input type="range" id="sdSmN" min="1" max="64" step="1" value="12"><output></output></div>
+      <div class="stg"><span>Sampler</span><div class="chips" id="sdSmAlg"><button class="chip" data-v="euler">Euler</button><button class="chip" data-v="heun" aria-pressed="true">Heun</button><button class="chip" data-v="churn">Heun + churn</button></div></div>
+      <div class="readout" id="sdSmRead"></div>
+      <div class="card sd-card" id="sdSmCard" style="margin-top:6px"></div>
+      <p class="tryit">set N = 1, then 2, 4, 12: with too few steps the samples land between the clusters (grey).</p>
+      <div class="sd-row"><button class="chip sd-go" type="button" data-go="sb-sample">Same on a toy storm image →</button></div>
+    </div>
+  </div>
+  <p class="note">EDM samplers (Karras et al. 2022, Alg. 1–2): Euler takes the slope (x − D)/σ at the start of a step; Heun averages it with the slope at the end (2 network calls per step, 1 on the last); "churn" adds a little fresh noise before each step. Schedule σ<sub>i</sub> = (σ<sub>max</sub><sup>1/ρ</sup> + i/(N−1)·(σ<sub>min</sub><sup>1/ρ</sup> − σ<sub>max</sub><sup>1/ρ</sup>))<sup>ρ</sup>, ρ = 7 (EDM default), then σ = 0. Toy: σ<sub>max</sub> = 4, σ<sub>min</sub> = 0.01, exact denoiser of a 3-cluster distribution (no storm 50 %, A 25 %, B 25 %). StormScope: "ODE-based deterministic sampler with stochastic perturbations", 100 steps from σ<sub>max</sub> to σ<sub>min</sub> (paper §4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-cond" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 7 · conditioning on the past</p>
+  <h2>Give the denoiser the past as extra input channels, and it learns p(future | past)</h2>
+  <div class="chips sd-steps" id="sdCdStep"><button class="chip" data-v="0" aria-pressed="true">① Noisy future</button><button class="chip" data-v="1">② Past states</button><button class="chip" data-v="2">③ Lat / lon</button><button class="chip" data-v="3">④ Sun angle</button><button class="chip" data-v="4">⑤ GFS (nearcast)</button><button class="chip" data-v="5">⑥ σ</button><button class="chip" data-v="6">⑦ Concatenate → D<sub>θ</sub></button></div>
+  <div class="fig-wrap" id="sdCdFig"></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);margin-top:4px">
+    <div>
+      <div class="card sd-card" id="sdCdCard"></div>
+      <div class="stg" style="margin-top:4px"><span>Mode</span><div class="chips" id="sdCdMode"><button class="chip" data-v="now" aria-pressed="true">nowcast: 6 past frames</button><button class="chip" data-v="near">nearcast: 1 frame + GFS</button></div></div>
+      <p class="tryit">click ①–⑦ to walk through the inputs; switch the mode: what changes in the stack?</p>
+      <p class="tryit">in the toy on the right, move the past storm: the same 150 noise seeds now land on other futures.</p>
+    </div>
+    <div class="panel sd-pn">
+      <div class="sd-g" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+        <div><div id="sdCdMap"></div></div>
+        <div>
+          <h3>Toy: the past is the condition c</h3>
+          <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdP">Past storm: west ↔ east</label><input type="range" id="sdCdP" min="0" max="1" step="0.01" value="0.3"><output style="text-align:left"></output></div>
+          <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdQ">Past storm: weak ↔ strong</label><input type="range" id="sdCdQ" min="0" max="1" step="0.01" value="0.7"><output style="text-align:left"></output></div>
+          <div class="readout" id="sdCdRead" style="margin-top:2px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: "a dense input conditioning scheme where exogenous variables, namely the latitude/longitude and the solar zenith angle, are concatenated with the noisy latent state along with the previous state (satellite or radar) inputs and NWP conditioning inputs, if used"; σ enters through the DiT's conditional layer norm. §4.2.3: nowcast models use 6 states 10 min apart, nearcast models 1 state an hour earlier; Table 2 and §4.2.1: the satellite nearcast model gets GFS 500 hPa height, the radar model GFS simulated reflectivity, and the radar model is also conditioned on satellite. Channel totals are not stated (see sb-tokens). Toy: exact conditional denoiser, deterministic Heun sampler, 24 steps.</p>
+</section>
+
+<section class="slide sd-s" id="sd-edm" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 8 · the EDM recipe</p>
+  <h2>StormScope's recipe (EDM): scale inputs and outputs, weight the loss, choose σ, two experts, 100 steps</h2>
+  <div class="chips sd-steps" id="sdEdStep"><button class="chip" data-v="0" aria-pressed="true">① Pre-conditioning</button><button class="chip" data-v="1">② Loss weight λ(σ)</button><button class="chip" data-v="2">③ Which σ to train on</button><button class="chip" data-v="3">④ Two experts</button><button class="chip" data-v="4">⑤ The sampler</button></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px">
+    <div>
+      <div class="card sd-card" id="sdEdCard"></div>
+      <div class="ctl" style="margin-top:6px"><label for="sdEdS">Noise level σ</label><input type="range" id="sdEdS" min="-2.7" max="1.9" step="0.02" value="0"><output></output></div>
+      <div class="readout" id="sdEdRead"></div>
+      <p class="tryit">pick a step, then slide σ: read the coefficients, and in ① see what the network F actually has to output.</p>
+      <div class="sd-row"><span class="sd-kc">More:</span><button class="chip sd-go" type="button" data-go="sb-train">training on a toy storm →</button><button class="chip sd-go" type="button" data-go="sb-block">how σ enters a DiT block →</button></div>
+    </div>
+    <div class="panel sd-pn"><h3 id="sdEdH"></h3><div id="sdEdFig"></div><div id="sdEdImgs"></div></div>
+  </div>
+  <p class="note">Paper §4.2.3: EDM framework (Karras et al. 2022), loss eq. (1) with "the standard EDM loss weighting" λ(σ) and EDM pre-conditioning "to ensure unit variance across the range of noise levels"; σ "uniform in log(σ)" within [σ<sub>min</sub>, σ<sub>max</sub>]; coarse and fine experts split at σ<sub>int</sub> (refs. 46–47: eDiff-I, cBottle); sampler: EDM ODE with stochastic perturbations, 100 steps, expert switch at σ<sub>int</sub>. Not stated in the paper: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub>, ρ, churn settings. Shown: EDM defaults σ<sub>min</sub> = 0.002, σ<sub>max</sub> = 80, σ<sub>data</sub> = 0.5, ρ = 7, log-normal P<sub>mean</sub> = −1.2, P<sub>std</sub> = 1.2 (Karras et al. 2022, Table 1); σ<sub>int</sub> = 1 is a toy value.</p>
+</section>
+<style>
+.slide[id^="sc-"]{padding-top:16px;padding-bottom:14px}
+.slide[id^="sc-"] h2{font-size:clamp(21px,2.4vw,25px);margin-bottom:6px}
+.slide[id^="sc-"] .kicker{max-width:none;margin-bottom:4px}
+.slide[id^="sc-"]>p.note{max-width:none;font-size:12.5px;line-height:1.4;margin:6px 0 0}
+.slide[id^="sc-"] .tryit{font-size:13.5px;margin:5px 0;padding:5px 10px}
+.slide[id^="sc-"] h3{text-transform:none;letter-spacing:.01em;font-size:13px;font-family:var(--f-body);font-weight:600;margin:0 0 4px}
+.slide[id^="sc-"] .readout{gap:6px 18px;margin-top:4px}
+.slide[id^="sc-"] .readout b{font-size:20px}
+.slide[id^="sc-"] .readout span{font-size:10.5px}
+.slide[id^="sc-"] .ctl{margin:3px 0;font-size:13.5px}
+.slide[id^="sc-"] .stg{grid-template-columns:6.2em minmax(0,1fr)}
+.slide[id^="sc-"] .stg .chips{margin:2px 0}
+.scsteps{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 4px;align-items:center}
+.scsteps button.chip{font-size:12px;padding:3px 8px}
+.scsteps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+#scPaMode button.chip,#scFcSp button.chip{font-size:12.5px;padding:4px 9px}
+.scbar{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
+.sccard{padding:9px 14px}
+.sccard h4{margin:0 0 4px;font-size:15px;color:var(--accent)}
+.sccard p{font-size:13.5px;margin:0 0 5px;line-height:1.45}
+.sccard p:last-child{margin-bottom:0}
+.sctag{display:inline-block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:6px;margin-right:6px;vertical-align:1px;border:1px solid currentColor}
+.sctag.p{color:var(--ok)} .sctag.s{color:var(--sw)} .sctag.u{color:var(--lw)} .sctag.e{color:var(--cool)} .sctag.o{color:var(--arch)} .sctag.t{color:var(--muted)}
+.scfig svg{display:block;width:100%;height:auto}
+.scfig [data-st]{cursor:pointer}
+pre.code.sccode{min-height:0;font-size:12.5px;line-height:1.5;padding:8px 10px}
+pre.code.sccode .ln{display:block;border-radius:4px;padding:0 4px;margin:0 -4px}
+pre.code.sccode .ln.on{background:color-mix(in srgb,var(--accent) 18%,transparent);box-shadow:inset 3px 0 0 var(--accent)}
+pre.code.sccode .c{color:var(--muted)}
+pre.code.sccode .ln.ctx{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.scopt{padding:8px 12px;cursor:pointer}
+.scopt h4{font-size:14px;margin:0 0 3px}
+.scopt p{font-size:12.5px;margin:0;line-height:1.38}
+#sc-region .readout b{font-size:17px}
+.scopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.slide[id^="sc-"] .calc{font-size:12px;margin-top:6px;padding:8px 10px;line-height:1.5}
+button.btn.scgo{font-size:12.5px;padding:3px 10px}
+</style>
+
+<section class="slide" id="sc-arch" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 1 · one denoiser call, end to end</p>
+  <h2>From a stack of images to a denoised future: the tensor shape at every stage</h2>
+  <div class="scbar">
+    <div class="chips scsteps" id="scArStep"><button class="chip" data-v="0" aria-pressed="true">① Inputs</button><button class="chip" data-v="1">② c<sub>in</sub> + concat</button><button class="chip" data-v="2">③ Patch embed</button><button class="chip" data-v="3">④ Tokens</button><button class="chip" data-v="4">⑤ σ embedding</button><button class="chip" data-v="5">⑥ 16 DiT blocks</button><button class="chip" data-v="6">⑦ Output head</button><button class="chip" data-v="7">⑧ Unpatchify</button><button class="chip" data-v="8">⑨ Skip + combine</button></div>
+  </div>
+  <div class="scfig" id="scArFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;margin-top:4px">
+    <div><div class="card sccard" id="scArCard" style="min-height:150px"></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><span class="note" style="margin:0;align-self:center">More detail:</span><button class="btn scgo" data-go="sb-tokens">patches →</button><button class="btn scgo" data-go="sb-na">attention →</button><button class="btn scgo" data-go="sb-block">DiT block →</button><button class="btn scgo" data-go="sd-why">diffusion from scratch →</button></div></div>
+    <div>
+      <div class="chips scsteps" id="scArMode" style="gap:4px"><span class="note" style="margin:0 2px 0 0">Model:</span><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div>
+      <div class="readout" id="scArRead"></div>
+      <p class="tryit">step ①→⑨ (or click a box), then switch the model: which shapes change, and which never do?</p>
+    </div>
+  </div>
+  <p class="note">Pathak et al. 2026, arXiv:2601.17268, §4.2.2 (architecture, 128 × 224 tokens of 768, 16 blocks, NA 31 × 31) and §4.2.3 (EDM pre-conditioning). Channel totals: our count, as in Part B. Images: toy. Tags: <span class="sctag p">paper</span> stated in the paper · <span class="sctag s">DiT/EDM practice</span> what the standard recipe does (assumed) · <span class="sctag u">unstated</span> not in the paper.</p>
+</section>
+
+<section class="slide" id="sc-params" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 2 · where the parameters and the compute go</p>
+  <h2>195 M parameters, ~8 trillion operations per call: which parts cost what?</h2>
+  <div class="two" style="grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px">
+    <div>
+      <div class="stg"><span>Model</span><div class="chips" id="scPaMode"><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div></div>
+      <div class="stg"><span>Width d</span><div class="chips" id="scPaD"><button class="chip" data-v="384">384</button><button class="chip" data-v="512">512</button><button class="chip" data-v="768" aria-pressed="true">768 (paper)</button><button class="chip" data-v="1024">1024</button></div></div>
+      <div class="ctl"><label for="scPaL">Blocks (16)</label><input type="range" id="scPaL" min="4" max="32" step="1" value="16"><output></output></div>
+      <div class="stg"><span>MLP width</span><div class="chips" id="scPaR"><button class="chip" data-v="2">2 d</button><button class="chip" data-v="4" aria-pressed="true">4 d (DiT)</button><button class="chip" data-v="8">8 d</button></div></div>
+      <div class="stg"><span>Position</span><div class="chips" id="scPaPos"><button class="chip" data-v="0">none / fixed</button><button class="chip" data-v="1" aria-pressed="true">learned table</button></div></div>
+      <div class="readout" id="scPaRead"></div>
+      <p class="tryit">turn the learned position table off and on: which setting lands on the paper's 195 M? Then double the width d: parameters ×4, but what about the attention scores?</p>
+      <div class="calc" id="scPaCalc"></div>
+    </div>
+    <div class="panel" style="padding:10px 14px">
+      <h3>Parameters by part (our estimate) · dashed line: the paper's 195 M</h3>
+      <div id="scPaP"></div>
+      <h3 style="margin-top:6px">Operations per network call, 28,672 tokens (our estimate)</h3>
+      <div id="scPaF"></div>
+      <h3 style="margin-top:6px">GPU memory · fp32, 1 sample per GPU (our estimate) vs the paper</h3>
+      <div id="scPaM"></div>
+      <div class="callout blue" id="scPaIns" style="font-size:13px;margin:6px 0 0;padding:7px 11px;line-height:1.45"></div>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: 195 M parameters in total, ~70 GB GPU memory in training, ~5 GB and 33 s per forecast step (100 sampling steps, fp32, one H100) at inference; d = 768, 16 blocks, 28,672 tokens, NA 31 × 31. Not stated: heads, MLP width, positional embedding, output head, training precision. Our estimate uses the DiT recipe (Peebles &amp; Xie 2023): heads of 64, MLP 4 d, adaLN-Zero (6 d per block from a d-vector), 256-frequency σ embedding + 2-layer MLP, final adaLN + linear; activations: ~(12 + 2·r) d floats per token per block + attention weights. The "learned table" option is our way to reconcile the count, not a paper fact.</p>
+</section>
+
+<section class="slide" id="sc-iter" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 3 · one training iteration</p>
+  <h2>One training iteration, step by step: data → noise → prediction → loss → update</h2>
+  <div class="scbar">
+    <div class="chips scsteps" id="scItStep"><button class="chip" data-v="0" aria-pressed="true">① Pick t</button><button class="chip" data-v="1">② Load frames</button><button class="chip" data-v="2">③ Draw σ</button><button class="chip" data-v="3">④ Add noise</button><button class="chip" data-v="4">⑤ Forward</button><button class="chip" data-v="5">⑥ Loss</button><button class="chip" data-v="6">⑦ Backward</button><button class="chip" data-v="7">⑧ All-reduce</button><button class="chip" data-v="8">⑨ Update</button></div>
+    <div style="display:flex;gap:6px;margin-bottom:4px"><button class="btn scgo" type="button" id="scItRun">▶ Run</button><button class="btn scgo" type="button" id="scItNew">New draw</button></div>
+  </div>
+  <div class="scfig" id="scItFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;margin-top:4px">
+    <div>
+      <div class="card sccard" id="scItCard" style="min-height:140px"></div>
+      <p class="tryit">press "New draw" a few times: which expert trains, how big is the toy loss? Then switch how "~6 M" is read (right): which reading fits 32 H100s in 48 h?</p>
+    </div>
+    <div class="panel" style="padding:8px 12px">
+      <div class="ctl" style="margin:0"><label for="scItI">Iteration</label><input type="range" id="scItI" min="0" max="100" step="1" value="25"><output></output></div>
+      <div id="scItLr"></div>
+      <div class="stg"><span>"~6 M" counts</span><div class="chips" id="scItRead6"><button class="chip" data-v="it" aria-pressed="true">optimizer steps</button><button class="chip" data-v="smp">training samples</button></div></div>
+      <div class="readout" id="scItRead" style="margin-top:2px"></div>
+      <p class="note" id="scItWhy" style="margin:3px 0 0;font-size:12px;line-height:1.35"></p>
+    </div>
+  </div>
+  <p class="note">Paper §4.1, §4.2.3: training years; eq. (1) with EDM λ(σ) and pre-conditioning; σ uniform in log σ; two experts split at σ<sub>int</sub>; Stable AdamW, lr 5 × 10⁻⁴ → 0 cosine, batch 32 on 32 H100 (data parallel), ~6 M iterations, ~48 h per model. Not stated: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub> (EDM defaults 0.002, 80, 0.5; toy σ<sub>int</sub> = 1), warm-up, weight decay, precision, whether the experts are separate networks. Toy: images, dates, losses. Our estimate: FLOP (backward ≈ 2 × forward); H100 dense BF16 peak ≈ 1 PFLOP/s (NVIDIA spec).</p>
+</section>
+
+<section class="slide" id="sc-forecast" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 4 · one full forecast</p>
+  <h2>One forecast = three nested loops: lead steps × σ steps × models</h2>
+  <div class="two" style="grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px">
+    <div>
+      <pre class="code sccode" id="scFcCode"></pre>
+      <div class="stg" style="margin-top:4px"><span>Mode</span><div class="chips" id="scFcMode"><button class="chip" data-v="now" aria-pressed="true">nowcast 12 × 10 min</button><button class="chip" data-v="near">nearcast 12 × 1 h</button></div></div>
+      <div class="stg"><span>Models</span><div class="chips" id="scFcMod"><button class="chip" data-v="1">satellite</button><button class="chip" data-v="2" aria-pressed="true">satellite + radar</button></div></div>
+      <div class="ctl"><label for="scFcS">σ steps</label><input type="range" id="scFcS" min="10" max="100" step="10" value="100"><output></output></div>
+      <div class="ctl"><label for="scFcM">Members</label><input type="range" id="scFcM" min="1" max="48" step="1" value="1"><output></output></div>
+      <div class="ctl"><label for="scFcG">H100 GPUs</label><input type="range" id="scFcG" min="1" max="32" step="1" value="1"><output></output></div>
+    </div>
+    <div class="panel" style="padding:10px 12px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:4px"><button class="btn scgo" type="button" id="scFcPlay">▶ Play</button><button class="btn scgo" type="button" id="scFcI">+1 σ step</button><button class="btn scgo" type="button" id="scFcK">+1 lead step</button><button class="btn scgo" type="button" id="scFcR">Reset</button><div class="chips" id="scFcSp" style="margin:0 0 0 auto;gap:4px"><button class="chip" data-v="2">slow</button><button class="chip" data-v="8" aria-pressed="true">fast</button><button class="chip" data-v="40">faster</button></div></div>
+      <div class="scfig" id="scFcFig"></div>
+      <div class="readout" id="scFcRead"></div>
+      <p class="tryit" style="margin-bottom:0">press ▶ and watch the line that runs in the code; then drop σ steps to 20 or add members and GPUs: what changes the wall-clock time, and what only the GPU-hours?</p>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: 33 s per forecast step at 100 sampling steps (fp32, one H100) → ~7 min for a 12-h nearcast or a 2-h nowcast (12 steps); multimodal forecasts run the satellite and radar models in sequence and "take longer" (we assume 2×). §4.2.3: σ<sub>max</sub> → σ<sub>min</sub> in 100 steps, coarse expert then fine expert at σ<sub>int</sub>. §4.2.1, Fig. 11: sliding window, predictions recycled as inputs. Network evaluations: we count one per σ step; EDM's Heun sampler makes a second (correction) call on most steps, which the paper does not mention. Time ∝ σ steps, members spread evenly over GPUs: our assumptions. Images: toy.</p>
+</section>
+
+<section class="slide" id="sc-domain" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 5 · global or limited area?</p>
+  <h2>Limited area: one fixed CONUS box, and storms keep entering from outside it</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px">
+    <div class="panel" style="padding:10px 12px">
+      <div class="stg"><span>Domain</span><div class="chips" id="scDoDom"><button class="chip" data-v="conus" aria-pressed="true">CONUS 512 × 896</button><button class="chip" data-v="col">Colombia toy 300 × 400</button><button class="chip" data-v="small">small 128 × 128</button></div></div>
+      <div id="scDoMap"></div>
+      <div class="ctl"><label for="scDoU">Steering wind</label><input type="range" id="scDoU" min="0" max="30" step="1" value="12"><output></output></div>
+      <div class="ctl"><label for="scDoA">From</label><input type="range" id="scDoA" min="0" max="345" step="15" value="270"><output></output></div>
+      <div style="display:flex;gap:10px;align-items:center"><div class="ctl" style="flex:1"><label for="scDoT">Lead time</label><input type="range" id="scDoT" min="0" max="12" step="0.5" value="3"><output></output></div><button class="btn scgo" type="button" id="scDoPlay">▶ Play</button></div>
+    </div>
+    <div>
+      <div class="readout" id="scDoRead" style="margin-top:0"></div>
+      <p class="tryit">play 0 → 12 h on CONUS, then on the Colombia box: how much of the domain is still "fed" only by what the model saw at t = 0?</p>
+      <div class="card sccard" style="margin-top:4px">
+        <h4>What the paper says</h4>
+        <p><span class="sctag p">paper</span>One fixed domain over the continental US on the HRRR Lambert grid: 512 × 896 cells of 6 km ≈ 3,072 × 5,376 km (§4.1, §4.2.2). The paper itself calls it "the limited-area domain" (§4.2.1). Scores are computed inside the CONUS land boundary (§2.2.1).</p>
+        <p><span class="sctag p">paper</span>For 0–12 h nearcasts, large-scale context comes from one GFS field (Z500 or simulated reflectivity), "given the limited-area domain and the relatively long forecast lead time" (§4.2.1). Nowcasts (0–2 h) have none.</p>
+        <p><span class="sctag o">our reasoning</span>Nothing outside the box enters the network. A storm upstream of the boundary is invisible at t = 0, so near the inflow edge the forecast must invent what comes in. The band of affected cells grows as wind × lead time (green: cells whose upstream source was inside the box).</p>
+      </div>
+      <button class="btn scgo" data-go="sc-region" style="margin-top:6px">options for another region, and Colombia →</button>
+    </div>
+  </div>
+  <p class="note">Toy: storms as dots moved by one uniform steering wind; no growth, decay or new storms. It shows only the geometry of an open boundary, not a model result. A real model also sees clues near the edge (anvils, moisture, the GFS field in nearcast mode), so the "trustworthy interior" is our simplification, not something the paper measures.</p>
+</section>
+
+<section class="slide" id="sc-region" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 6 · another region</p>
+  <h2>Running StormScope elsewhere: retrain on a new box, grow the box, or crop (untested)</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:18px">
+    <div>
+      <div class="stack" id="scRgOpt" style="gap:6px"></div>
+      <p class="tryit">click an option to see what it would mean for a Colombian domain on the map and in the numbers.</p>
+    </div>
+    <div class="panel" style="padding:10px 12px">
+      <h3>A Colombian box at 6 km (our example)</h3>
+      <div id="scRgMap"></div>
+      <div class="ctl"><label for="scRgW">West–east</label><input type="range" id="scRgW" min="600" max="4800" step="60" value="2400"><output></output></div>
+      <div class="ctl"><label for="scRgH">South–north</label><input type="range" id="scRgH" min="600" max="3600" step="60" value="1800"><output></output></div>
+      <div class="readout" id="scRgRead"></div>
+      <p class="tryit" style="margin-bottom:0">shrink the box below ~750 km: what breaks? Grow it past CONUS size: what does training need then?</p>
+    </div>
+  </div>
+  <p class="note">Paper: satellite-only deployment possible (§4.2.1); "a pathway to extend skillful mesoscale forecasting to … countries without strong operational mesoscale modeling programs" (Abstract, §3); domain parallelism up to "full disk forecasts", 3 km demo 1792 × 1024, ~87.5 % efficiency (§6.2). Earth2Studio: StormScopeMeteosatEU (MTG over Europe). *Our estimates: time and memory ∝ tokens (patch embedding, MLP and NA all scale so; fixed costs ignored), training memory 3 GB + 67 GB × token ratio. Outline of Colombia: rough, hand-drawn.</p>
+</section>
+<style>
 .slide[id^="sb-"] h2{font-size:clamp(21px,2.4vw,26px);margin-bottom:8px}
 .sbcard{padding:9px 14px}
 .sbcard h4{margin:0 0 3px;font-size:15px}
@@ -4319,6 +4705,1260 @@ demo("nc-vs", () => {
     render(); return render;
   });
 }
+
+</script>
+<script>/* e2/45b-diff.js */
+/* ═════════ Earth-2 · 5b StormScope · part D · diffusion models from scratch ═════════
+   Why a generative model, the forward (noising) process, the optimal denoiser, the arrow (score) field in a two-pixel
+   world, a tiny diffusion model trained live in the browser (hand-written MLP, backprop and Adam), sampling,
+   conditioning on the past, and the EDM recipe. Every field is a toy. StormScope numbers: Pathak et al. 2026
+   (arXiv:2601.17268); EDM settings: Karras et al. 2022, labelled as EDM defaults where the paper does not state them. */
+
+const SDF = (() => {
+  const SDATA = 0.5, SMIN = 0.002, SMAX = 80; // EDM defaults (Karras et al. 2022, Table 1)
+  const fs = s => s < .01 ? fmt(s, 4) : s < .1 ? fmt(s, 3) : s < 10 ? fmt(s, 2) : fmt(s, 1);
+  const LUT = new Map();
+  const lut = f => { if (!LUT.has(f)) { const L = new Uint8ClampedArray(768); for (let i = 0; i < 256; i++) L.set(CM.rgb(f, i / 255), i * 3); LUT.set(f, L); } return LUT.get(f); };
+  const rgbOf = tok => { const d = document.createElement("canvas").getContext("2d"); d.fillStyle = css(tok) || "#888"; d.fillRect(0, 0, 1, 1); return [...d.getImageData(0, 0, 1, 1).data].slice(0, 3); };
+  // a canvas with one pixel per cell; mask(v) → true paints --well
+  function paint(vals, nx, ny, { color = CM.precip, lo = 0, hi = 60, mask = null } = {}) {
+    const c = document.createElement("canvas"); c.width = nx; c.height = ny;
+    const g = c.getContext("2d"), im = g.createImageData(nx, ny), L = lut(color), w = rgbOf("--well");
+    for (let k = 0; k < nx * ny; k++) { const v = vals[k], o = k * 4;
+      if (mask && mask(v)) { im.data[o] = w[0]; im.data[o + 1] = w[1]; im.data[o + 2] = w[2]; }
+      else { const t = Math.round(clamp((v - lo) / (hi - lo || 1), 0, 1) * 255) * 3; im.data[o] = L[t]; im.data[o + 1] = L[t + 1]; im.data[o + 2] = L[t + 2]; }
+      im.data[o + 3] = 255; }
+    g.putImageData(im, 0, 0); return c;
+  }
+  const url = c => c.toDataURL();
+  const dbz = (f, nx, ny) => paint(f, nx, ny, { color: CM.precip, lo: 0, hi: 60, mask: v => v < 5 });
+  // SVG text; "_{…}" (or _θ, _σ, _i) becomes a subscript
+  function txt(p, x, y, s, a = {}) {
+    const t = el("text", { x, y, ...a }, p), str = String(s), re = /_\{([^}]*)\}|_([θσi])(?![A-Za-z])/g; let last = 0, m;
+    while ((m = re.exec(str))) { if (m.index > last) el("tspan", {}, t, str.slice(last, m.index)); el("tspan", { "baseline-shift": "sub", "font-size": "72%" }, t, m[1] ?? m[2]); last = re.lastIndex; }
+    if (last < str.length) el("tspan", {}, t, str.slice(last));
+    return t;
+  }
+  function img(p, href, x, y, w, h) { const i = el("image", { x, y, width: w, height: h, preserveAspectRatio: "none" }, p); i.setAttribute("href", href); return i; }
+  // hi-dpi canvas filling its host's width with a W × H aspect; reused between renders
+  function canvas(host, W, H) {
+    let c = host.querySelector("canvas"); const r = Math.min(2, window.devicePixelRatio || 1);
+    if (!c || c._W !== W || c._H !== H) { c = document.createElement("canvas"); c._W = W; c._H = H; c.width = W * r; c.height = H * r;
+      Object.assign(c.style, { width: "100%", height: "auto", display: "block", borderRadius: "8px" }); host.innerHTML = ""; host.appendChild(c); }
+    const g = c.getContext("2d"); g.setTransform(r, 0, 0, r, 0, 0); g.clearRect(0, 0, W, H); return { c, g };
+  }
+  const at = (c, e) => { const b = c.getBoundingClientRect(); return [(e.clientX - b.left) / b.width * c._W, (e.clientY - b.top) / b.height * c._H]; };
+  // toy storm cells {x, y (cell units), I (dBZ), R (cells)}: a flat-topped core plus a wider area of light rain; max-combined
+  function storm(nx, ny, cells) {
+    const f = new Float32Array(nx * ny);
+    for (const c of cells) { if (!c) continue; const r3 = 5 * c.R, i0 = Math.max(0, Math.floor(c.x - r3)), i1 = Math.min(nx - 1, Math.ceil(c.x + r3)), j0 = Math.max(0, Math.floor(c.y - r3)), j1 = Math.min(ny - 1, Math.ceil(c.y + r3));
+      for (let j = j0; j <= j1; j++) for (let i = i0; i <= i1; i++) { const dx = (i + .5 - c.x) / c.R, dy = (j + .5 - c.y) / c.R, r2 = dx * dx + dy * dy;
+        const v = Math.max(c.I * Math.exp(-.5 * Math.pow(r2, 1.5)), .5 * c.I * Math.exp(-r2 / 8)); if (v > f[j * nx + i]) f[j * nx + i] = v; } }
+    return f;
+  }
+  // a square toy radar scene (n × n, 6 km cells) normalised to mean 0 and standard deviation σ_data
+  const BIG = new Map();
+  function bigStorm(n) {
+    if (BIG.has(n)) return BIG.get(n);
+    const r = rng(4242), cells = [], q = n / 128;
+    for (let k = 0; k < 16; k++) cells.push({ x: n * (.08 + .84 * r()), y: n * (.08 + .84 * r()), I: 36 + 20 * r(), R: q * (1.6 + 6 * r() * r()) });
+    const f = storm(n, n, cells), b = FFT.noise2(n, { beta: 4, seed: 7 });
+    for (let k = 0; k < f.length; k++) { const s = 13 + 8 * b[k]; if (s > 12 && s > f[k]) f[k] = s; }
+    const m = mean(f), s = sd(Array.from(f)), x = Float32Array.from(f, v => (v - m) / s * SDATA), dry = (0 - m) / s * SDATA;
+    const out = { x, dry, lo: Math.min(...x), hi: Math.max(...x) }; BIG.set(n, out); return out;
+  }
+  // noise fields with a seed
+  const noise = (n, seed) => { const r = rng(seed); return Float32Array.from({ length: n }, () => gauss(r)); };
+  // canvas arrow
+  function arrow(g, x0, y0, x1, y1, col, w = 1.5, head = 5) {
+    const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy); g.strokeStyle = col; g.fillStyle = col;
+    if (L < 1.2) { g.beginPath(); g.arc(x0, y0, 1.3, 0, 7); g.fill(); return; }
+    const ux = dx / L, uy = dy / L, h = Math.min(head, L * .55);
+    g.lineWidth = w; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1 - ux * h * .6, y1 - uy * h * .6); g.stroke();
+    g.beginPath(); g.moveTo(x1, y1); g.lineTo(x1 - h * ux + h * .5 * uy, y1 - h * uy - h * .5 * ux); g.lineTo(x1 - h * ux - h * .5 * uy, y1 - h * uy + h * .5 * ux); g.closePath(); g.fill();
+  }
+  /* Gaussian mixtures in 2-D: { mu: [[x, y]…], w: [weights], s: component std, cls: [class per component] }.
+     Exact denoiser: E[x | x_σ] with x_σ = x + σ n. Returns [d1, d2]; resp (optional array) gets the posterior weights. */
+  function gmmD(G, y1, y2, sig, resp) {
+    const v = G.s * G.s + sig * sig, a = G.s * G.s / v, K = G.mu.length, e = gmmD.e && gmmD.e.length >= K ? gmmD.e : (gmmD.e = new Float64Array(Math.max(K, 64)));
+    let mx = -Infinity;
+    for (let k = 0; k < K; k++) { const d1 = y1 - G.mu[k][0], d2 = y2 - G.mu[k][1]; e[k] = G.lw[k] - (d1 * d1 + d2 * d2) / (2 * v); if (e[k] > mx) mx = e[k]; }
+    let Z = 0, o1 = 0, o2 = 0;
+    for (let k = 0; k < K; k++) { const p = Math.exp(e[k] - mx); Z += p; o1 += p * (G.mu[k][0] + a * (y1 - G.mu[k][0])); o2 += p * (G.mu[k][1] + a * (y2 - G.mu[k][1])); if (resp) resp[k] = p; }
+    if (resp) for (let k = 0; k < K; k++) resp[k] /= Z;
+    return [o1 / Z, o2 / Z];
+  }
+  // density of noisy data p_σ (up to a constant)
+  function gmmP(G, y1, y2, sig) { const v = G.s * G.s + sig * sig; let p = 0;
+    for (let k = 0; k < G.mu.length; k++) { const d1 = y1 - G.mu[k][0], d2 = y2 - G.mu[k][1]; p += G.w[k] * Math.exp(-(d1 * d1 + d2 * d2) / (2 * v)); } return p / v; }
+  function gmm(mu, w, s, cls) { const W = w.reduce((a, b) => a + b, 0), ww = w.map(v => v / W); return { mu, w: ww, lw: ww.map(Math.log), s, cls: cls || mu.map(() => 0) }; }
+  function gmmDraw(G, r) { let u = r(), k = 0; while (k < G.w.length - 1 && u > G.w[k]) { u -= G.w[k]; k++; } return [G.mu[k][0] + G.s * gauss(r), G.mu[k][1] + G.s * gauss(r), k]; }
+  // the toy distributions (two-pixel storms: class 0 = storm over A, 1 = over B, 2 = no storm)
+  const DIST = {
+    storms: () => gmm([[1, 0], [0, 1], [0, 0]], [1, 1, 2], .08, [0, 1, 2]),
+    ring: () => gmm(Array.from({ length: 40 }, (_, k) => [.5 + .75 * Math.cos(k * Math.PI / 20), .5 + .75 * Math.sin(k * Math.PI / 20)]), new Array(40).fill(1), .045),
+    moons: () => { const mu = []; for (let k = 0; k < 20; k++) { const t = Math.PI * k / 19; mu.push([.5 + .55 * (Math.cos(t) - .5), .5 + .55 * (Math.sin(t) - .25)]); mu.push([.5 + .55 * (1 - Math.cos(t) - .5), .5 + .55 * (.5 - Math.sin(t) - .25)]); }
+      return gmm(mu, new Array(40).fill(1), .045); },
+  };
+  const CLS = ["--lw", "--cool", "--ok"], CLSN = ["storm over A", "storm over B", "no storm"];
+  // the plane [-0.7, 1.7]² on a W × W canvas (y up)
+  const LO = -.7, HI = 1.7;
+  const plane = (W, pad = 0) => ({ X: v => pad + (v - LO) / (HI - LO) * (W - 2 * pad), Y: v => W - pad - (v - LO) / (HI - LO) * (W - 2 * pad), iX: p => LO + (p - pad) / (W - 2 * pad) * (HI - LO), iY: p => LO + (W - pad - p) / (W - 2 * pad) * (HI - LO) });
+  // shade a density on the plane (dens(x, y) → value ≥ 0), from --well to the token colour
+  const SHADE = new Map();
+  function shade(g, W, dens, tok = "--cool", res = 80, gamma = .5, key = null) {
+    const P = plane(W), k0 = key && key + "|" + tok + "|" + res + "|" + gamma + "|" + css("--well");
+    if (k0 && SHADE.has(k0)) { g.imageSmoothingEnabled = true; g.drawImage(SHADE.get(k0), 0, 0, W, W); grid0(g, W, P); return P; }
+    const c = document.createElement("canvas"); c.width = res; c.height = res;
+    const cg = c.getContext("2d"), im = cg.createImageData(res, res), a = rgbOf("--well"), b = rgbOf(tok), V = new Float64Array(res * res); let mx = 0;
+    for (let j = 0; j < res; j++) for (let i = 0; i < res; i++) { const v = dens(LO + (i + .5) / res * (HI - LO), HI - (j + .5) / res * (HI - LO)); V[j * res + i] = v; if (v > mx) mx = v; }
+    for (let k = 0; k < res * res; k++) { const t = Math.pow(V[k] / (mx || 1), gamma) * .85, o = k * 4; for (let q = 0; q < 3; q++) im.data[o + q] = a[q] + (b[q] - a[q]) * t; im.data[o + 3] = 255; }
+    cg.putImageData(im, 0, 0); g.imageSmoothingEnabled = true; g.drawImage(c, 0, 0, W, W);
+    if (k0) { if (SHADE.size > 300) SHADE.clear(); SHADE.set(k0, c); }
+    grid0(g, W, P); return P;
+  }
+  // dashed lines at pixel values 0 and 1
+  function grid0(g, W, P) {
+    g.strokeStyle = css("--line"); g.lineWidth = 1; g.setLineDash([3, 4]); g.beginPath();
+    [0, 1].forEach(v => { g.moveTo(P.X(v), 0); g.lineTo(P.X(v), W); g.moveTo(0, P.Y(v)); g.lineTo(W, P.Y(v)); }); g.stroke(); g.setLineDash([]);
+  }
+  function axisLabels(g, W, P, a = "pixel A", b = "pixel B") {
+    g.fillStyle = css("--muted"); g.font = "11px " + css("--f-mono"); g.textAlign = "center";
+    [0, 1].forEach(v => { g.fillText(v, P.X(v), W - 5); }); g.textAlign = "left"; [0, 1].forEach(v => g.fillText(v, 4, P.Y(v) - 4));
+    g.font = "12px " + css("--f-body"); g.textAlign = "right"; g.fillText(a + " →", W - 6, W - 5); g.textAlign = "left"; g.fillText("↑ " + b, 4, 14);
+  }
+  // EDM pre-conditioning (Karras et al. 2022, Table 1)
+  const pre = (s, sd0 = SDATA) => { const q = s * s + sd0 * sd0; return { skip: sd0 * sd0 / q, out: s * sd0 / Math.sqrt(q), cin: 1 / Math.sqrt(q), cn: Math.log(s) / 4, lam: q / (s * sd0) ** 2 }; };
+  // EDM time steps: N values from smax to smin (ρ schedule), then 0
+  function sched(N, smax, smin, rho = 7) { const a = smax ** (1 / rho), b = smin ** (1 / rho), out = [];
+    for (let i = 0; i < N; i++) out.push(N === 1 ? smax : (a + i / (N - 1) * (b - a)) ** rho); out.push(0); return out; }
+  return { SDATA, SMIN, SMAX, fs, paint, url, dbz, txt, img, canvas, at, storm, bigStorm, noise, arrow, gmmD, gmmP, gmm, gmmDraw, DIST, CLS, CLSN, plane, shade, axisLabels, pre, sched, rgbOf, lut, LO, HI };
+})();
+
+/* ───────── 1 · why a generative model ───────── */
+demo("sd-why", () => {
+  const NX = 70, NY = 40, X1 = 47, r = rng(11);
+  let K = 3, none = false, pick = null, nDraw = 0;
+  const pastU = SDF.url(SDF.dbz(SDF.storm(NX, NY, [{ x: 18, y: 20, I: 48, R: 4 }]), NX, NY));
+  const sS = slider("sdWhS", v => fmt(100 * v, 0) + " %", () => { pick = null; render(); });
+  chips($("#sdWhK"), v => { K = +v; pick = null; render(); });
+  chips($("#sdWhNone"), v => { none = v === "1"; pick = null; render(); });
+  $("#sdWhDraw").onclick = () => { pick = Math.floor(r() * (K + (none ? 1 : 0))); nDraw++; render(); };
+  function futs() {
+    const s = sS(), out = [];
+    for (let k = 0; k < K; k++) { const o = K === 1 ? 0 : 2 * k / (K - 1) - 1; out.push({ c: { x: X1 - 3 * Math.abs(o) * s, y: 20 + 15 * o * s, I: 50, R: 4 }, lab: K === 1 ? "the future" : `#${k + 1}` }); }
+    if (none) out.push({ c: null, lab: "no storm" });
+    return out.map(o => ({ ...o, f: SDF.storm(NX, NY, [o.c]) }));
+  }
+  const area = f => f.reduce((a, v) => a + (v >= 30 ? 36 : 0), 0), peak = f => f.reduce((a, v) => Math.max(a, v), 0);
+  function render() {
+    const F = futs(), n = F.length, M = new Float32Array(NX * NY); F.forEach(o => o.f.forEach((v, k) => { M[k] += v / n; }));
+    const W = 1000, H = 252, svg = svgIn($("#sdWhFig"), W, H); arrowDefs(svg, "sdWhAr", css("--muted"));
+    const T = (x, y, s, a) => SDF.txt(svg, x, y, s, a), box = (x, y, w, h, tok, sw = 2) => el("rect", { x, y, width: w, height: h, rx: 4, fill: "none", stroke: css(tok), "stroke-width": sw }, svg);
+    T(10, 40, "Past (now)", { "font-size": 14, "font-weight": 600 });
+    SDF.img(svg, pastU, 10, 52, 175, 100); box(10, 52, 175, 100, "--fg");
+    T(10, 172, "one storm, moving east", { "font-size": 12, fill: css("--muted") });
+    el("line", { x1: 192, y1: 102, x2: 226, y2: 102, stroke: css("--muted"), "stroke-width": 2, "marker-end": "url(#sdWhAr)" }, svg);
+    T(234, 18, "Possible futures (equally likely)", { "font-size": 14, "font-weight": 600 });
+    const cols = n <= 3 ? 1 : 2, rows = Math.ceil(n / cols), h = Math.min(64, (214 - (rows - 1) * 8) / rows), w = h * 1.75, y0 = 30 + (214 - rows * h - (rows - 1) * 8) / 2;
+    F.forEach((o, k) => { const c = k % cols, rr = Math.floor(k / cols), x = 234 + c * (w + 12), y = y0 + rr * (h + 8);
+      SDF.img(svg, SDF.url(SDF.dbz(o.f, NX, NY)), x, y, w, h); box(x, y, w, h, k === pick ? "--accent" : "--line", k === pick ? 3 : 1.2);
+      T(x + 5, y + 14, o.lab, { "font-size": 12, "font-weight": 600, stroke: css("--bg"), "stroke-width": 3, "paint-order": "stroke" }); });
+    const xr = 234 + cols * (w + 12) + 6;
+    el("path", { d: `M${xr} 102 C ${xr + 30} 102, 560 72, 592 72`, fill: "none", stroke: css("--lw"), "stroke-width": 2, "marker-end": "url(#sdWhAr)" }, svg);
+    el("path", { d: `M${xr} 112 C ${xr + 30} 112, 560 194, 592 194`, fill: "none", stroke: css("--accent"), "stroke-width": 2, "marker-end": "url(#sdWhAr)" }, svg);
+    T(600, 16, "Trained with MSE: the average", { "font-size": 14, "font-weight": 600, fill: css("--lw") });
+    SDF.img(svg, SDF.url(SDF.dbz(M, NX, NY)), 600, 24, 175, 100); box(600, 24, 175, 100, "--lw", 2.5);
+    T(600, 142, "Generative model: one sample", { "font-size": 14, "font-weight": 600, fill: css("--accent") });
+    if (pick != null && pick < n) { SDF.img(svg, SDF.url(SDF.dbz(F[pick].f, NX, NY)), 600, 150, 175, 100); box(600, 150, 175, 100, "--accent", 2.5); }
+    else { el("rect", { x: 600, y: 150, width: 175, height: 100, rx: 4, fill: css("--well"), stroke: css("--line") }, svg); T(687, 205, "press 🎲 Draw a sample", { "font-size": 12, "text-anchor": "middle", fill: css("--muted") }); }
+    const one = F.find(o => o.c), pk1 = one ? peak(one.f) : 0, a1 = one ? area(one.f) : 0, pkM = peak(M), aM = area(M);
+    const R = (y, lab, val, tok) => { T(792, y, lab, { "font-size": 12, fill: css("--muted") }); T(992, y, val, { "font-size": 15, "text-anchor": "end", class: "mono", fill: css(tok), "font-weight": 600 }); };
+    R(46, "peak", fmt(pkM, 0) + " dBZ", "--lw"); R(68, "area ≥ 30 dBZ", fmtN(aM) + " km²", "--lw");
+    T(792, 96, pkM < 30 ? "below 30 dBZ: the storm is gone" : pkM < pk1 - 3 ? "weaker and wider than any future" : "same as each future", { "font-size": 12, fill: css(pkM < pk1 - 3 ? "--lw" : "--muted"), "font-weight": 600 });
+    T(792, 114, "(each future: " + fmt(pk1, 0) + " dBZ, " + fmtN(a1) + " km²)", { "font-size": 11.5, fill: css("--muted") });
+    if (pick != null && pick < n) { const f = F[pick].f; R(176, "peak", fmt(peak(f), 0) + " dBZ", "--accent"); R(198, "area ≥ 30 dBZ", fmtN(area(f)) + " km²", "--accent");
+      T(792, 224, F[pick].c ? "a full-strength storm: plausible" : "no storm: also plausible", { "font-size": 12, fill: css("--accent"), "font-weight": 600 }); }
+    $("#sdWhCnt").textContent = nDraw ? `${nDraw} drawn · each sample is one of the ${n} futures` : "";
+    // south–north cut at the futures' longitude
+    const Wc = 560, Hc = 170, cs = svgIn($("#sdWhCut"), Wc, Hc), A = axes(cs, { W: Wc, H: Hc, m: { l: 40, r: 110, t: 18, b: 26 }, x0: 0, x1: NY * 6, y0: 0, y1: 60, xt: [0, 60, 120, 180, 240], yt: [0, 30, 60], xl: "south → north (km)", yl: "" });
+    el("line", { x1: A.x(0), x2: A.x(NY * 6), y1: A.y(30), y2: A.y(30), stroke: css("--muted"), "stroke-dasharray": "4 3" }, cs);
+    const cut = f => Array.from({ length: NY }, (_, j) => [A.x((NY - 1 - j + .5) * 6), A.y(f[j * NX + X1])]);
+    F.forEach(o => el("path", { d: path(cut(o.f)), fill: "none", stroke: css("--muted"), "stroke-width": 1.2, opacity: .7 }, cs));
+    if (pick != null && pick < n) el("path", { d: path(cut(F[pick].f)), fill: "none", stroke: css("--accent"), "stroke-width": 3 }, cs);
+    el("path", { d: path(cut(M)), fill: "none", stroke: css("--lw"), "stroke-width": 3 }, cs);
+    [["— each future", "--muted", 22], ["— MSE average", "--lw", 40], ["— a sample", "--accent", 58], ["- - 30 dBZ", "--muted", 76]].forEach(([s, t, y]) => SDF.txt(cs, Wc - 104, y, s, { "font-size": 12, fill: css(t), "font-weight": 600 }));
+    SDF.txt(cs, 44, 10, "dBZ", { "font-size": 11, fill: css("--muted") });
+  }
+  render(); return render;
+});
+
+/* ───────── 2 · the forward process ───────── */
+demo("sd-forward", slide => {
+  const n = 128, B = SDF.bigStorm(n), x = B.x, sd0 = SDF.SDATA; let seed = 1, Z = SDF.noise(n * n, seed), scaled = true;
+  const spec0 = FFT.spectrum2(Array.from(x), n);
+  const sS = slider("sdFwS", v => SDF.fs(10 ** v), () => { syncPre(); render(); });
+  const pre = $$("#sdFwPre button");
+  pre.forEach(b => b.addEventListener("click", () => { $("#sdFwS").value = b.dataset.v; $("#sdFwS").dispatchEvent(new Event("input")); }));
+  const syncPre = () => { const v = sS(); pre.forEach(b => b.setAttribute("aria-pressed", Math.abs(+b.dataset.v - v) < .03 ? "true" : "false")); };
+  chips($("#sdFwView"), v => { scaled = v === "1"; render(); });
+  $("#sdFwNew").onclick = () => { seed++; Z = SDF.noise(n * n, seed); render(); };
+  function render() {
+    const s = 10 ** sS(), q = Math.sqrt(s * s + sd0 * sd0), fac = scaled ? sd0 / q : 1, y = Float32Array.from(x, (v, k) => (v + s * Z[k]) * fac);
+    $("#sdFwA").innerHTML = `x<sub>σ</sub> = x + σ·n at σ = ${SDF.fs(s)}${scaled ? " (rescaled)" : ""}`;
+    const lo = (B.dry + .05) * fac, cv = SDF.paint(y, n, n, { color: CM.precip, lo, hi: B.hi * fac, mask: v => v < lo });
+    const host = $("#sdFwImg"), { g } = SDF.canvas(host, 280, 280); g.imageSmoothingEnabled = false; g.drawImage(cv, 0, 0, 280, 280);
+    // spectrum
+    const sp = FFT.spectrum2(Array.from(x, (v, k) => v + s * Z[k]), n), W = 340, H = 218, svg = svgIn($("#sdFwSpec"), W, H);
+    const lx = lin(0, Math.log10(64), 46, W - 10), ly = lin(-6, 4, H - 30, 8), P = (k, p) => [lx(Math.log10(k)), ly(clamp(Math.log10(Math.max(p, 1e-9)), -6, 4))];
+    [-6, -4, -2, 0, 2, 4].forEach(e => { el("line", { x1: 46, x2: W - 10, y1: ly(e), y2: ly(e), class: "grid" }, svg); SDF.txt(svg, 42, ly(e) + 4, "1e" + e, { "font-size": 10.5, "text-anchor": "end", class: "mono", fill: css("--muted") }); });
+    [[1, "768"], [4, "192"], [16, "48"], [64, "12 km"]].forEach(([k, l]) => SDF.txt(svg, lx(Math.log10(k)), H - 14, l, { "font-size": 10.5, "text-anchor": k === 64 ? "end" : "middle", class: "mono", fill: css("--muted") }));
+    SDF.txt(svg, W - 10, H - 1, "wavelength: large → small scales", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+    let kx = spec0.findIndex(([, p]) => p < s * s); const kStar = kx < 0 ? null : spec0[kx][0];
+    if (kStar != null) el("rect", { x: lx(Math.log10(Math.max(1, kStar - .5))), y: 8, width: W - 10 - lx(Math.log10(Math.max(1, kStar - .5))), height: H - 38, fill: css("--lw"), opacity: .08 }, svg);
+    el("line", { x1: 46, x2: W - 10, y1: ly(Math.log10(s * s)), y2: ly(Math.log10(s * s)), stroke: css("--muted"), "stroke-width": 1.6, "stroke-dasharray": "5 4" }, svg);
+    SDF.txt(svg, W - 12, ly(Math.log10(s * s)) - 5, "noise σ²", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+    el("path", { d: path(sp.map(([k, p]) => P(k, p))), fill: "none", stroke: css("--accent"), "stroke-width": 2.6 }, svg);
+    el("path", { d: path(spec0.map(([k, p]) => P(k, p))), fill: "none", stroke: css("--fg"), "stroke-width": 1.8 }, svg);
+    SDF.txt(svg, 52, 22, "— clean x", { "font-size": 12, fill: css("--fg"), "font-weight": 600 }); SDF.txt(svg, 52, 38, "— noisy x + σn", { "font-size": 12, fill: css("--accent"), "font-weight": 600 });
+    if (kStar != null) SDF.txt(svg, W - 14, 22, "drowned", { "font-size": 12, "text-anchor": "end", fill: css("--lw"), "font-weight": 600 });
+    // histogram
+    const Wh = 330, Hh = 218, hs = svgIn($("#sdFwHist"), Wh, Hh), Rr = 3.2 * q * fac, nb = 48, bw = 2 * Rr / nb, c0 = new Float64Array(nb), c1 = new Float64Array(nb);
+    for (let k = 0; k < x.length; k++) { const a = Math.floor((x[k] * fac + Rr) / bw), b = Math.floor((y[k] + Rr) / bw); if (a >= 0 && a < nb) c0[a]++; if (b >= 0 && b < nb) c1[b]++; }
+    const hx = lin(-Rr, Rr, 10, Wh - 10), mx = Math.max(...c1, ...c0) * 1.05, hy = lin(0, mx, Hh - 30, 44);
+    c1.forEach((c, b) => el("rect", { x: hx(-Rr + b * bw) + .5, y: hy(c), width: Math.max(.5, hx(bw) - hx(0) - 1), height: hy(0) - hy(c), fill: css("--accent"), opacity: .55 }, hs));
+    el("path", { d: path(Array.from(c0, (c, b) => [[hx(-Rr + b * bw), hy(c)], [hx(-Rr + (b + 1) * bw), hy(c)]]).flat()), fill: "none", stroke: css("--fg"), "stroke-width": 1.6 }, hs);
+    const sg = s * fac, gp = []; for (let v = -Rr; v <= Rr; v += Rr / 60) gp.push([hx(v), hy(x.length * bw * Math.exp(-.5 * (v / sg) ** 2) / (sg * Math.sqrt(2 * Math.PI)))]);
+    el("path", { d: path(gp.map(([a, b]) => [a, Math.max(b, 2)])), fill: "none", stroke: css("--muted"), "stroke-width": 1.4, "stroke-dasharray": "4 3" }, hs);
+    el("line", { x1: 10, x2: Wh - 10, y1: Hh - 30, y2: Hh - 30, stroke: css("--line") }, hs);
+    [-Rr, 0, Rr].forEach((v, i) => SDF.txt(hs, hx(v), Hh - 14, fmt(v, Rr < 3 ? 2 : 0), { "font-size": 10.5, "text-anchor": ["start", "middle", "end"][i], class: "mono", fill: css("--muted") }));
+    SDF.txt(hs, Wh - 10, Hh - 1, scaled ? "pixel value ÷ √(σ² + σ_{data}²)" : "pixel value", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+    SDF.txt(hs, 12, 14, "— clean x: many dry pixels, a tail of storms", { "font-size": 11.5, fill: css("--fg"), "font-weight": 600 });
+    SDF.txt(hs, 12, 29, "■ noisy x + σn", { "font-size": 11.5, fill: css("--accent"), "font-weight": 600 });
+    SDF.txt(hs, 120, 29, "- - the noise alone, N(0, σ²)", { "font-size": 11.5, fill: css("--muted") });
+    const lam = kStar ? 768 / kStar : null;
+    $("#sdFwRead").innerHTML = `<div><span>Noise σ</span><b>${SDF.fs(s)}</b></div><div><span>Signal / noise σ<sub>data</sub>/σ</span><b>${sd0 / s >= 10 ? fmtN(sd0 / s) : fmt(sd0 / s, 2)}</b></div><div><span>Smallest scale above the noise</span><b class="${kStar == null ? "c-ok" : kStar <= 1 ? "c-lw" : ""}">${kStar == null ? "all (≥ 12 km)" : kStar <= 1 ? "none" : "≈ " + fmtN(lam) + " km"}</b></div>`;
+  }
+  syncPre(); render(); return render;
+});
+
+/* ───────── 3 · the optimal denoiser ───────── */
+demo("sd-denoiser", () => {
+  const NX = 56, NY = 32, n = NX * NY;
+  const CELLS = [[{ x: 38, y: 10, I: 52, R: 3.4 }], [{ x: 38, y: 22, I: 52, R: 3.4 }], [{ x: 36, y: 9, I: 46, R: 2.6 }, { x: 37, y: 23, I: 46, R: 2.6 }], [{ x: 38, y: 16, I: 32, R: 2.8 }],
+    [{ x: 37, y: 16, I: 56, R: 5.6 }], [{ x: 39, y: 15, I: 50, R: 3.3 }, { x: 13, y: 24, I: 46, R: 2.5 }], [{ x: 24, y: 16, I: 52, R: 3.5 }], []];
+  const LAB = ["north track", "south track", "split", "weakened", "grew", "new cell", "slow", "dissipated"];
+  const X = CELLS.map(c => Float32Array.from(SDF.storm(NX, NY, c), v => v / 60)), U = X.map(f => SDF.url(SDF.paint(f, NX, NY, { lo: 0, hi: 1, mask: v => v < 5 / 60 })));
+  let k = 0, seed = 3, Z = SDF.noise(n, seed);
+  const sS = slider("sdDnS", v => SDF.fs(10 ** v), render);
+  chips($("#sdDnK"), v => { k = +v; render(); });
+  $("#sdDnNew").onclick = () => { seed++; Z = SDF.noise(n, seed); render(); };
+  function weights(y, s) { const e = X.map(x => { let d = 0; for (let i = 0; i < n; i++) d += (y[i] - x[i]) ** 2; return -d / (2 * s * s); }), m = Math.max(...e), p = e.map(v => Math.exp(v - m)), Zs = p.reduce((a, b) => a + b, 0); return p.map(v => v / Zs); }
+  function render() {
+    const s = 10 ** sS(), y = Float32Array.from(X[k], (v, i) => v + s * Z[i]), w = weights(y, s), D = new Float32Array(n);
+    X.forEach((x, j) => { for (let i = 0; i < n; i++) D[i] += w[j] * x[i]; });
+    const mb = .12, s0 = .25, fac = s0 / Math.sqrt(s * s + s0 * s0), yd = Float32Array.from(y, v => mb + (v - mb) * fac);
+    const W = 600, H = 350, svg = svgIn($("#sdDnFig"), W, H); arrowDefs(svg, "sdDnAr", css("--muted"));
+    const T = (x, yy, t, a) => SDF.txt(svg, x, yy, t, a);
+    T(8, 16, `Noisy input: image #${k + 1} + σ·n`, { "font-size": 13, "font-weight": 600 });
+    SDF.img(svg, SDF.url(SDF.paint(yd, NX, NY, { lo: 0, hi: 1, mask: v => v < 5 / 60 })), 8, 24, 240, 137); el("rect", { x: 8, y: 24, width: 240, height: 137, rx: 4, fill: "none", stroke: css("--fg"), "stroke-width": 1.5 }, svg);
+    el("line", { x1: 128, x2: 128, y1: 166, y2: 190, stroke: css("--muted"), "stroke-width": 2, "marker-end": "url(#sdDnAr)" }, svg);
+    T(136, 183, "D: weighted average", { "font-size": 12, fill: css("--muted") });
+    T(8, 210, "Denoiser output D(x_σ; σ)", { "font-size": 13, "font-weight": 600, fill: css("--accent") });
+    SDF.img(svg, SDF.url(SDF.paint(D, NX, NY, { lo: 0, hi: 1, mask: v => v < 5 / 60 })), 8, 218, 240, 137 - 6); el("rect", { x: 8, y: 218, width: 240, height: 131, rx: 4, fill: "none", stroke: css("--accent"), "stroke-width": 2.5 }, svg);
+    T(272, 16, "The 8 training images and their weights w_i", { "font-size": 13, "font-weight": 600 });
+    let top = 0; w.forEach((v, j) => { if (v > w[top]) top = j; });
+    w.forEach((v, j) => { const c = j % 4, r = Math.floor(j / 4), x0 = 272 + c * 82, y0 = 26 + r * 86, tw = 74, th = 42;
+      SDF.img(svg, U[j], x0, y0, tw, th); el("rect", { x: x0, y: y0, width: tw, height: th, rx: 3, fill: "none", stroke: css(j === k ? "--fg" : "--line"), "stroke-width": j === k ? 2.2 : 1 }, svg);
+      T(x0 + 3, y0 + 11, j + 1, { "font-size": 10.5, "font-weight": 600, stroke: css("--bg"), "stroke-width": 3, "paint-order": "stroke" });
+      el("rect", { x: x0, y: y0 + th + 5, width: tw, height: 9, rx: 2, fill: css("--well") }, svg);
+      el("rect", { x: x0, y: y0 + th + 5, width: Math.max(.8, tw * v), height: 9, rx: 2, fill: css(j === top ? "--accent" : "--muted") }, svg);
+      T(x0, y0 + th + 26, (v >= .995 ? "100" : v < .005 ? "0" : fmt(100 * v, 0)) + " %", { "font-size": 11.5, class: "mono", fill: css(j === top ? "--accent" : "--muted"), "font-weight": j === top ? 600 : 400 });
+      T(x0 + tw - 3, y0 + th - 4, LAB[j], { "font-size": 10, "text-anchor": "end", fill: css("--fg"), stroke: css("--bg"), "stroke-width": 3, "paint-order": "stroke" }); });
+    // effective number of images vs σ
+    const x0 = 300, x1 = 590, yA = 230, yB = 322, gx = lin(-2, 1.3, x0, x1), gy = lin(1, 8, yB, yA), pts = [];
+    for (let l = -2; l <= 1.3001; l += .066) { const ww = weights(Float32Array.from(X[k], (v, i) => v + 10 ** l * Z[i]), 10 ** l); pts.push([gx(l), gy(1 / ww.reduce((a, b) => a + b * b, 0))]); }
+    T(272, 210, "How many images does D mix? (effective number 1/Σw²)", { "font-size": 12.5, "font-weight": 600 });
+    [1, 4, 8].forEach(v => { el("line", { x1: x0, x2: x1, y1: gy(v), y2: gy(v), class: "grid" }, svg); T(x0 - 6, gy(v) + 4, v, { "font-size": 10.5, "text-anchor": "end", class: "mono", fill: css("--muted") }); });
+    [[-2, "0.01"], [-1, "0.1"], [0, "1"], [1, "10"]].forEach(([l, t]) => T(gx(l), yB + 15, t, { "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") }));
+    T(x1, H - 2, "σ (log)", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+    el("path", { d: path(pts), fill: "none", stroke: css("--accent"), "stroke-width": 2.4 }, svg);
+    const ne = 1 / w.reduce((a, b) => a + b * b, 0);
+    el("circle", { cx: gx(Math.log10(s)), cy: gy(ne), r: 6, fill: css("--accent"), stroke: css("--bg"), "stroke-width": 2 }, svg);
+    T(x0 + 6, yA + 2, "← sharp: one image", { "font-size": 11, fill: css("--muted") }); T(x1, yA + 2, "mean of all →", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+    $("#sdDnInfo").innerHTML = `top: #${top + 1} (${fmt(100 * w[top], 0)} %) · mixing ≈ ${fmt(ne, 1)} images`;
+  }
+  render(); return render;
+});
+
+/* ───────── 4 · the arrow field in a two-pixel world ───────── */
+demo("sd-field", slide => {
+  const r = rng(808), pts = [], cls = [];
+  [[1, 0, 0, 6], [0, 1, 1, 6], [0, 0, 2, 12]].forEach(([a, b, c, m]) => { for (let i = 0; i < m; i++) { pts.push([a + .07 * gauss(r), b + .07 * gauss(r)]); cls.push(c); } });
+  const G = SDF.gmm(pts, pts.map(() => 1), 0, cls), resp = new Float64Array(pts.length);
+  const W = 440, host = $("#sdFdMap"); host.style.maxWidth = "440px"; host.style.margin = "0 auto";
+  let parts = [], raf = 0, hov = null;
+  const sS = slider("sdFdS", v => SDF.fs(10 ** v), () => render());
+  const setS = l => { const R = $("#sdFdS"); R.value = l; R.parentElement.querySelector("output").textContent = SDF.fs(10 ** l); };
+  function stepAll() {
+    const l = sS(), s = 10 ** l, l1 = Math.max(-2, l - .022), s1 = 10 ** l1;
+    parts.forEach(p => { const d = SDF.gmmD(G, p.x, p.y, s); p.x += (s1 - s) * (p.x - d[0]) / s; p.y += (s1 - s) * (p.y - d[1]) / s; p.tr.push([p.x, p.y]); });
+    setS(l1); return l1 > -2;
+  }
+  function loop() { if (!slide.classList.contains("on")) { raf = 0; return; } const more = stepAll(); render(); raf = more ? requestAnimationFrame(loop) : 0; }
+  const play = () => { if (!raf) raf = requestAnimationFrame(loop); };
+  $("#sdFdDrop").onclick = () => { setS(0); const rr = rng(Date.now() % 1e6); for (let i = 0; i < 20; i++) { const x = .33 + gauss(rr), y = .33 + gauss(rr); parts.push({ x, y, tr: [[x, y]] }); } play(); };
+  $("#sdFdClr").onclick = () => { parts = []; render(); };
+  $("#sdFdStop").onclick = () => { cancelAnimationFrame(raf); raf = 0; };
+  let wired = false;
+  function render() {
+    const s = 10 ** sS(), { c, g } = SDF.canvas(host, W, W);
+    if (!wired) { wired = true;
+      c.addEventListener("click", e => { const [a, b] = SDF.at(c, e), P = SDF.plane(W), x = P.iX(a), y = P.iY(b); parts.push({ x, y, tr: [[x, y]] }); if (parts.length > 60) parts.shift(); play(); });
+      c.addEventListener("mousemove", e => { const [a, b] = SDF.at(c, e), P = SDF.plane(W); hov = [P.iX(a), P.iY(b)]; if (!raf) render(); });
+      c.addEventListener("mouseleave", () => { hov = null; if (!raf) render(); }); }
+    const P = SDF.shade(g, W, (x, y) => SDF.gmmP(G, x, y, s), "--muted", 72, .7, "fld" + s);
+    // arrows
+    const nA = 15, cell = W / nA, ac = css("--fg");
+    for (let j = 0; j < nA; j++) for (let i = 0; i < nA; i++) { const px = (i + .5) * cell, py = (j + .5) * cell, x = P.iX(px), y = P.iY(py), d = SDF.gmmD(G, x, y, s);
+      const vx = P.X(d[0]) - px, vy = P.Y(d[1]) - py, L = Math.hypot(vx, vy), m = Math.min(L, cell * .92) / (L || 1);
+      g.globalAlpha = .75; SDF.arrow(g, px, py, px + vx * m, py + vy * m, ac, 1.3, 5); }
+    g.globalAlpha = 1;
+    pts.forEach((p, k) => { g.fillStyle = css(SDF.CLS[cls[k]]); g.strokeStyle = css("--bg"); g.lineWidth = 1.2; g.beginPath(); g.arc(P.X(p[0]), P.Y(p[1]), 4, 0, 7); g.fill(); g.stroke(); });
+    SDF.axisLabels(g, W, P);
+    // particles
+    parts.forEach(p => { g.strokeStyle = css("--sw"); g.lineWidth = 2; g.beginPath(); p.tr.forEach(([x, y], i) => i ? g.lineTo(P.X(x), P.Y(y)) : g.moveTo(P.X(x), P.Y(y))); g.stroke();
+      g.fillStyle = css("--sw"); g.strokeStyle = css("--bg"); g.beginPath(); g.arc(P.X(p.x), P.Y(p.y), 5.5, 0, 7); g.fill(); g.stroke(); });
+    let rd = ["—", "—", "—"];
+    if (hov) { const d = SDF.gmmD(G, hov[0], hov[1], s, resp), cw = [0, 0, 0]; resp.forEach((v, k) => { cw[cls[k]] += v; }); rd = cw.map(v => fmt(100 * v, 0) + " %");
+      g.setLineDash([4, 3]); g.strokeStyle = css("--accent"); g.lineWidth = 2; g.beginPath(); g.moveTo(P.X(hov[0]), P.Y(hov[1])); g.lineTo(P.X(d[0]), P.Y(d[1])); g.stroke(); g.setLineDash([]);
+      g.fillStyle = css("--accent"); g.beginPath(); g.arc(P.X(d[0]), P.Y(d[1]), 6, 0, 7); g.fill();
+      g.font = "600 13px " + css("--f-body"); g.textAlign = "left"; g.strokeStyle = css("--bg"); g.lineWidth = 3.5; g.strokeText("D(x; σ)", P.X(d[0]) + 8, P.Y(d[1]) - 6); g.fillText("D(x; σ)", P.X(d[0]) + 8, P.Y(d[1]) - 6); }
+    $("#sdFdRead").innerHTML = `<div><span>σ</span><b>${SDF.fs(s)}</b></div>` + rd.map((v, k) => `<div><span>p(${SDF.CLSN[k]})</span><b style="color:var(${SDF.CLS[k]})">${v}</b></div>`).join("");
+  }
+  render(); return render;
+});
+
+/* ───────── 5 · live training: a tiny diffusion model in the browser ───────── */
+const SDNET = (() => {
+  // 3 inputs (c_in·x1, c_in·x2, c_noise) → H → H (SiLU) → 2 outputs F
+  function make(H, seed) {
+    const r = rng(seed), o = { W1: 0, b1: 3 * H, W2: 4 * H, b2: 4 * H + H * H, W3: 5 * H + H * H, b3: 7 * H + H * H }, N = 7 * H + H * H + 2;
+    const P = new Float64Array(N), Gr = new Float64Array(N), M = new Float64Array(N), V = new Float64Array(N);
+    for (let i = 0; i < 3 * H; i++) P[o.W1 + i] = gauss(r) * Math.sqrt(2 / 3);
+    for (let i = 0; i < H * H; i++) P[o.W2 + i] = gauss(r) * Math.sqrt(2 / H);
+    for (let i = 0; i < 2 * H; i++) P[o.W3 + i] = gauss(r) * .1 / Math.sqrt(H);
+    const z1 = new Float64Array(H), a1 = new Float64Array(H), z2 = new Float64Array(H), a2 = new Float64Array(H), g1 = new Float64Array(H), g2 = new Float64Array(H), out = [0, 0];
+    let t = 0;
+    function fwd(x0, x1, x2) {
+      for (let h = 0; h < H; h++) { const z = P[o.W1 + 3 * h] * x0 + P[o.W1 + 3 * h + 1] * x1 + P[o.W1 + 3 * h + 2] * x2 + P[o.b1 + h]; z1[h] = z; a1[h] = z / (1 + Math.exp(-z)); }
+      for (let h = 0; h < H; h++) { let z = P[o.b2 + h]; const b = o.W2 + h * H; for (let k = 0; k < H; k++) z += P[b + k] * a1[k]; z2[h] = z; a2[h] = z / (1 + Math.exp(-z)); }
+      let u = P[o.b3], v = P[o.b3 + 1]; for (let k = 0; k < H; k++) { u += P[o.W3 + k] * a2[k]; v += P[o.W3 + H + k] * a2[k]; } out[0] = u; out[1] = v; return out;
+    }
+    // accumulate gradients for dL/dout = (d0, d1), after fwd on the same inputs
+    function back(d0, d1, x0, x1, x2) {
+      Gr[o.b3] += d0; Gr[o.b3 + 1] += d1;
+      for (let k = 0; k < H; k++) { Gr[o.W3 + k] += d0 * a2[k]; Gr[o.W3 + H + k] += d1 * a2[k]; const sg = 1 / (1 + Math.exp(-z2[k])); g2[k] = (d0 * P[o.W3 + k] + d1 * P[o.W3 + H + k]) * sg * (1 + z2[k] * (1 - sg)); }
+      g1.fill(0);
+      for (let h = 0; h < H; h++) { const gh = g2[h]; if (gh === 0) continue; Gr[o.b2 + h] += gh; const b = o.W2 + h * H; for (let k = 0; k < H; k++) { Gr[b + k] += gh * a1[k]; g1[k] += gh * P[b + k]; } }
+      for (let h = 0; h < H; h++) { const sg = 1 / (1 + Math.exp(-z1[h])), gh = g1[h] * sg * (1 + z1[h] * (1 - sg)); Gr[o.b1 + h] += gh; Gr[o.W1 + 3 * h] += gh * x0; Gr[o.W1 + 3 * h + 1] += gh * x1; Gr[o.W1 + 3 * h + 2] += gh * x2; }
+    }
+    // Adam (Kingma & Ba 2015): β1 = 0.9, β2 = 0.999, ε = 1e-8
+    function adam(lr) { t++; const b1 = .9, b2 = .999, c1 = 1 - b1 ** t, c2 = 1 - b2 ** t;
+      for (let i = 0; i < N; i++) { const gi = Gr[i]; M[i] = b1 * M[i] + (1 - b1) * gi; V[i] = b2 * V[i] + (1 - b2) * gi * gi; P[i] -= lr * (M[i] / c1) / (Math.sqrt(V[i] / c2) + 1e-8); Gr[i] = 0; } }
+    // the denoiser with EDM pre-conditioning
+    function D(y1, y2, s) { const c = SDF.pre(s), F = fwd(c.cin * y1, c.cin * y2, c.cn); return [c.skip * y1 + c.out * F[0], c.skip * y2 + c.out * F[1]]; }
+    return { N, H, fwd, back, adam, D, P };
+  }
+  return { make };
+})();
+
+demo("sd-live", slide => {
+  const SMN = .01, SMX = 4, BATCH = 128;
+  let dist = "storms", G = SDF.DIST.storms(), lr = .002, H = 32, net, it, hist, ema, run = false, raf = 0, frameMs = 0, samples = null, sampIt = 0, diverged = false, ex = null, VAL, best;
+  const r = rng(2026);
+  const sS = slider("sdLvS", v => SDF.fs(10 ** v), () => { if (!run) draw(); });
+  function makeVal() { const rv = rng(99), V = []; for (let i = 0; i < 400; i++) { const [x1, x2] = SDF.gmmDraw(G, rv), s = Math.exp(Math.log(SMN) + rv() * Math.log(SMX / SMN)), n1 = gauss(rv), n2 = gauss(rv); V.push([x1, x2, s, x1 + s * n1, x2 + s * n2]); }
+    VAL = V; let L = 0; V.forEach(([x1, x2, s, y1, y2]) => { const c = SDF.pre(s), d = SDF.gmmD(G, y1, y2, s); L += (((d[0] - x1) / c.out) ** 2 + ((d[1] - x2) / c.out) ** 2) / 2; }); best = L / V.length; }
+  function reset() { net = SDNET.make(H, 7 + H); it = 0; hist = []; ema = null; samples = null; diverged = false; ex = null; makeVal(); }
+  function valLoss() { let L = 0; VAL.forEach(([x1, x2, s, y1, y2]) => { const c = SDF.pre(s), d = net.D(y1, y2, s); L += (((d[0] - x1) / c.out) ** 2 + ((d[1] - x2) / c.out) ** 2) / 2; }); return L / VAL.length; }
+  // one training iteration: batch of clean points, σ log-uniform, add noise, predict, EDM-weighted squared error, backprop, Adam
+  function trainStep() {
+    let L = 0;
+    for (let b = 0; b < BATCH; b++) {
+      const [x1, x2] = SDF.gmmDraw(G, r), s = Math.exp(Math.log(SMN) + r() * Math.log(SMX / SMN)), y1 = x1 + s * gauss(r), y2 = x2 + s * gauss(r), c = SDF.pre(s);
+      const t1 = (x1 - c.skip * y1) / c.out, t2 = (x2 - c.skip * y2) / c.out, F = net.fwd(c.cin * y1, c.cin * y2, c.cn), e1 = F[0] - t1, e2 = F[1] - t2;
+      L += (e1 * e1 + e2 * e2) / 2;
+      if (b === 0) ex = { x1, x2, s, y1, y2, d1: c.skip * y1 + c.out * F[0], d2: c.skip * y2 + c.out * F[1], l: (e1 * e1 + e2 * e2) / 2 };
+      net.back(e1 / BATCH, e2 / BATCH, c.cin * y1, c.cin * y2, c.cn);
+    }
+    net.adam(lr); it++; L /= BATCH;
+    if (!isFinite(L) || L > 1e6) diverged = true;
+    ema = ema == null ? L : .97 * ema + .03 * L;
+  }
+  function sampleNow() {
+    const rs = rng(5 + it), N = 20, T = SDF.sched(N, SMX, SMN), out = [];
+    for (let k = 0; k < 200; k++) { let x = SMX * gauss(rs), y = SMX * gauss(rs);
+      for (let i = 0; i < N; i++) { const t = T[i], t1 = T[i + 1], d = net.D(x, y, t), dx = (x - d[0]) / t, dy = (y - d[1]) / t; let nx = x + (t1 - t) * dx, ny = y + (t1 - t) * dy;
+        if (t1 > 0) { const d2 = net.D(nx, ny, t1); nx = x + (t1 - t) * (dx + (nx - d2[0]) / t1) / 2; ny = y + (t1 - t) * (dy + (ny - d2[1]) / t1) / 2; }
+        x = nx; y = ny; }
+      out.push([x, y]); }
+    samples = out; sampIt = it;
+  }
+  function stop() { run = false; cancelAnimationFrame(raf); raf = 0; $("#sdLvPlay").textContent = "▶ Train"; }
+  function loop() {
+    if (!run || !slide.classList.contains("on")) { stop(); return; }
+    const t0 = performance.now(); let k = 0;
+    if (!diverged) do { trainStep(); k++; } while (performance.now() - t0 < 11 && k < 40 && !diverged);
+    if (it % 4 === 0 || k > 1) hist.push([it, ema, valLoss()]);
+    if (hist.length > 400) hist = hist.filter((_, i) => i % 2 === 0 || i === hist.length - 1);
+    draw(); frameMs = performance.now() - t0;
+    if (diverged) { stop(); draw(); return; }
+    raf = requestAnimationFrame(loop);
+  }
+  $("#sdLvPlay").onclick = () => { if (run) { stop(); return; } if (diverged) reset(); run = true; $("#sdLvPlay").textContent = "❚❚ Pause"; raf = requestAnimationFrame(loop); };
+  $("#sdLvReset").onclick = () => { stop(); reset(); draw(); };
+  $("#sdLvSamp").onclick = () => { if (diverged) return; sampleNow(); draw(); };
+  chips($("#sdLvData"), v => { dist = v; G = SDF.DIST[v](); stop(); reset(); draw(); });
+  chips($("#sdLvLr"), v => { lr = +v; draw(); });
+  chips($("#sdLvW"), v => { H = +v; stop(); reset(); draw(); });
+  // a field panel: background density (truth, faint), arrows D(x; σ) − x
+  function field(host, Dfn, tok, s) {
+    const W = 300, { g } = SDF.canvas(host, W, W), P = SDF.shade(g, W, (x, y) => SDF.gmmP(G, x, y, s), "--muted", 60, .5, dist + s), nA = 13, cell = W / nA, col = css(tok);
+    for (let j = 0; j < nA; j++) for (let i = 0; i < nA; i++) { const px = (i + .5) * cell, py = (j + .5) * cell, d = Dfn(P.iX(px), P.iY(py), s);
+      if (!isFinite(d[0]) || !isFinite(d[1])) continue;
+      const vx = P.X(d[0]) - px, vy = P.Y(d[1]) - py, L = Math.hypot(vx, vy), m = Math.min(L, cell * .95) / (L || 1); SDF.arrow(g, px, py, px + vx * m, py + vy * m, col, 1.5, 5); }
+    SDF.axisLabels(g, W, P, "x₁", "x₂");
+  }
+  function draw() {
+    const s = 10 ** sS();
+    field($("#sdLvNet"), (x, y, t) => net.D(x, y, t), "--accent", s);
+    field($("#sdLvEx"), (x, y, t) => SDF.gmmD(G, x, y, t), "--fg", s);
+    // samples
+    const W = 300, { g } = SDF.canvas($("#sdLvSm"), W, W), P = SDF.shade(g, W, (x, y) => SDF.gmmP(G, x, y, .01), "--muted", 60, .5, dist + "clean");
+    if (samples) { g.fillStyle = css("--accent"); samples.forEach(([x, y]) => { g.beginPath(); g.arc(clamp(P.X(x), 2, W - 2), clamp(P.Y(y), 2, W - 2), 2.6, 0, 7); g.fill(); }); }
+    else { g.fillStyle = css("--muted"); g.font = "13px " + css("--f-body"); g.textAlign = "center"; g.fillText("press 🎲 Sample now", W / 2, W / 2); }
+    SDF.axisLabels(g, W, P, "x₁", "x₂");
+    $("#sdLvSmH").textContent = samples ? `200 samples · iteration ${fmtN(sampIt)}` : "Samples from the network";
+    // loss curve
+    const last = hist.length ? hist[hist.length - 1] : null, xmax = Math.max(200, it), lo = best * .95, hi = best * 1.8;
+    const ser = [{ pts: hist.map(([i, , v]) => [i, clamp(v, lo, hi)]), col: "--accent", label: "validation loss", w: 2.4 }, { pts: hist.map(([i, e]) => [i, clamp(e, lo, hi)]), col: "--muted", label: "training (avg)", w: 1.2 },
+      { pts: [[0, best], [xmax, best]], col: "--ok", label: "best possible", dash: "5 4", w: 1.6 }];
+    VIZ.curves($("#sdLvLoss"), ser, { xr: [0, xmax], yr: [lo, hi], W: 300, H: 170, xl: "iterations", yl: "loss", xf: v => fmtN(v), yf: v => fmt(v, 2), legendAt: "tr" });
+    $("#sdLvRead").innerHTML = `<div><span>Iterations</span><b>${fmtN(it)}</b></div><div><span>Val. loss</span><b class="${diverged ? "c-lw" : ""}">${diverged ? "diverged" : last ? fmt(last[2], 3) : "—"}</b></div><div><span>Above best</span><b>${last && !diverged ? "+" + fmt(100 * (last[2] / best - 1), 0) + " %" : "—"}</b></div><div><span>Parameters</span><b>${fmtN(net.N)}</b></div><div><span>ms / frame</span><b>${fmt(frameMs, 0)}</b></div>`;
+    $("#sdLvCard").innerHTML = diverged ? `<p><b style="color:var(--lw)">Training diverged.</b> The learning rate is too large: Adam's steps overshoot and the loss explodes. Choose a smaller rate and press ▶ (it resets).</p>`
+      : ex ? `<p><b>One example from the last batch</b> (iteration ${fmtN(it)}): clean x = (${fmt(ex.x1, 2)}, ${fmt(ex.x2, 2)}) · σ = ${SDF.fs(ex.s)} · noisy x<sub>σ</sub> = (${fmt(ex.y1, 2)}, ${fmt(ex.y2, 2)}) · network's guess D = (${fmt(ex.d1, 2)}, ${fmt(ex.d2, 2)}) · weighted error λ(σ)‖D − x‖²/2 = ${fmt(ex.l, 3)}. Repeat ${BATCH}× per batch, average, backpropagate, one Adam step.</p>`
+      : `<p><b>Before training</b> the network's output F is near zero, so D ≈ c<sub>skip</sub>·x: arrows only shrink towards the origin. The loss can never reach 0: the green line is the error of the exact denoiser, which still cannot know the noise.</p>`;
+  }
+  reset(); draw(); return draw;
+});
+
+/* ───────── 6 · sampling ───────── */
+demo("sd-sample", slide => {
+  const G = SDF.DIST.storms(), SMX = 4, SMN = .01, NS = 80, r0 = rng(31);
+  const Z0 = Array.from({ length: NS }, () => [gauss(r0), gauss(r0)]), CH = Array.from({ length: NS }, (_, k) => rng(500 + k));
+  let alg = "heun", timer = null, TR = null;
+  const nS = slider("sdSmN", v => String(v), () => { stop(); compute(); const R = $("#sdSmI"); R.max = nS(); R.value = nS(); R.parentElement.querySelector("output").textContent = nS(); render(); });
+  const iS = slider("sdSmI", v => String(v), () => render());
+  chips($("#sdSmAlg"), v => { alg = v; compute(); render(); });
+  function compute() {
+    const N = nS(), T = SDF.sched(N, SMX, SMN), paths = [], ends = [];
+    let evals = 0;
+    for (let k = 0; k < NS; k++) { const rr = rng(900 + k); let x = SMX * Z0[k][0], y = SMX * Z0[k][1]; const tr = [[x, y]];
+      for (let i = 0; i < N; i++) { const t = T[i], t1 = T[i + 1], gm = alg === "churn" ? Math.min(20 / N, Math.SQRT2 - 1) : 0, th = t * (1 + gm);
+        if (gm) { const e = Math.sqrt(th * th - t * t) * 1.003; x += e * gauss(rr); y += e * gauss(rr); }
+        const d = SDF.gmmD(G, x, y, th), dx = (x - d[0]) / th, dy = (y - d[1]) / th; let nx = x + (t1 - th) * dx, ny = y + (t1 - th) * dy; if (k === 0) evals++;
+        if (alg !== "euler" && t1 > 0) { const d2 = SDF.gmmD(G, nx, ny, t1); nx = x + (t1 - th) * (dx + (nx - d2[0]) / t1) / 2; ny = y + (t1 - th) * (dy + (ny - d2[1]) / t1) / 2; if (k === 0) evals++; }
+        x = nx; y = ny; tr.push([x, y]); }
+      let c = 3, bd = Infinity; G.mu.forEach((m, j) => { const dd = Math.hypot(x - m[0], y - m[1]); if (dd < bd) { bd = dd; c = j; } }); if (bd > .25) c = 3;
+      paths.push(tr); ends.push(c); }
+    TR = { paths, ends, T, evals, N };
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } $("#sdSmPlay").textContent = "▶ Play"; }
+  $("#sdSmPlay").onclick = () => { if (timer) { stop(); return; } const R = $("#sdSmI"); if (+R.value >= +R.max) R.value = 0; $("#sdSmPlay").textContent = "❚❚ Pause";
+    const dt = Math.max(60, Math.min(400, 2400 / +R.max));
+    timer = setInterval(() => { if (!slide.classList.contains("on") || +R.value >= +R.max) { stop(); return; } R.value = +R.value + 1; R.dispatchEvent(new Event("input")); }, dt); };
+  const COL = [...SDF.CLS, "--muted"];
+  function render() {
+    const { paths, ends, T, evals, N } = TR, i = Math.min(iS(), N), W = 320, { g } = SDF.canvas($("#sdSmMap"), W, W);
+    const P = SDF.shade(g, W, (x, y) => SDF.gmmP(G, x, y, .01), "--muted", 60, .5, "smp");
+    paths.forEach((tr, k) => { g.strokeStyle = css(COL[ends[k]]); g.globalAlpha = .35; g.lineWidth = 1.2; g.beginPath(); tr.slice(0, i + 1).forEach(([x, y], j) => j ? g.lineTo(P.X(x), P.Y(y)) : g.moveTo(P.X(x), P.Y(y))); g.stroke(); });
+    g.globalAlpha = 1; paths.forEach((tr, k) => { const [x, y] = tr[i]; g.fillStyle = css(COL[ends[k]]); g.strokeStyle = css("--bg"); g.lineWidth = 1; g.beginPath(); g.arc(clamp(P.X(x), 3, W - 3), clamp(P.Y(y), 3, W - 3), 3.6, 0, 7); g.fill(); g.stroke(); });
+    SDF.axisLabels(g, W, P);
+    g.fillStyle = css("--fg"); g.font = "600 12px " + css("--f-body"); g.textAlign = "right"; g.fillText(i < N ? `step ${i}: σ = ${SDF.fs(T[i])}` : `done (step ${N}, σ = 0)`, W - 8, 16);
+    // pixel A vs step
+    const Wp = 380, Hp = 250, svg = svgIn($("#sdSmPath"), Wp, Hp), x = lin(0, N, 42, Wp - 10), y = lin(-2.5, 3, Hp - 26, 8), cy = v => y(clamp(v, -2.5, 3));
+    [0, 1].forEach(v => el("rect", { x: 42, y: y(v + .2), width: Wp - 52, height: y(v - .2) - y(v + .2), fill: css(v ? "--lw" : "--ok"), opacity: .1 }, svg));
+    [-2, 0, 1, 2].forEach(v => SDF.txt(svg, 38, y(v) + 4, v, { "font-size": 10.5, "text-anchor": "end", class: "mono", fill: css("--muted") }));
+    paths.forEach((tr, k) => el("path", { d: path(tr.map(([a], j) => [x(j), cy(a)])), fill: "none", stroke: css(COL[ends[k]]), "stroke-width": 1.1, opacity: .45 }, svg));
+    el("line", { x1: x(i), x2: x(i), y1: 8, y2: Hp - 26, stroke: css("--accent"), "stroke-width": 2 }, svg);
+    [[0, "no storm or over B", "--ok"], [1, "storm over A", "--lw"]].forEach(([v, l, t]) => SDF.txt(svg, x(N) - 6, y(v) - 7, l, { "font-size": 11.5, "text-anchor": "end", fill: css(t), "font-weight": 600, stroke: css("--card"), "stroke-width": 4, "paint-order": "stroke" }));
+    const tks = N <= 12 ? Array.from({ length: N + 1 }, (_, j) => j) : [0, Math.round(N / 4), Math.round(N / 2), Math.round(3 * N / 4), N];
+    tks.forEach(j => SDF.txt(svg, x(j), Hp - 10, j, { "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") }));
+    SDF.txt(svg, 44, Hp - 1, "step (σ: 4 → 0)", { "font-size": 11, fill: css("--muted") }); SDF.txt(svg, 4, 8, "pixel A", { "font-size": 11, fill: css("--muted") });
+    const cnt = [0, 0, 0, 0]; ends.forEach(c => cnt[c]++);
+    $("#sdSmRead").innerHTML = `<div><span>Network calls</span><b>${evals}</b></div><div><span>Between clusters</span><b class="${cnt[3] > 4 ? "c-lw" : "c-ok"}">${fmt(100 * cnt[3] / NS, 0)} %</b></div><div><span>A · B · none</span><b style="font-size:16px">${[0, 1, 2].map(c => fmt(100 * cnt[c] / NS, 0)).join(" · ")} %</b></div>`;
+    $("#sdSmCard").innerHTML = N === 1 && alg !== "churn" ? `<p><b>One step</b> (Euler and Heun are the same here) jumps straight to D(x; σ<sub>max</sub>): the average of everything. All samples land in the middle: blurry, like an MSE forecast.</p>`
+      : cnt[3] > 8 ? `<p><b>Too few steps.</b> Each step trusts the slope at one point; with big jumps the samples overshoot or stop between the kinds of future. Target shares: 25 · 25 · 50 %.</p>`
+      : alg === "churn" ? `<p><b>Churn</b> adds a little fresh noise before each step and removes it again; this corrects errors made in earlier steps. StormScope uses "stochastic perturbations" too (§4.2.3).</p>`
+      : `<p><b>Enough steps.</b> Samples end on the data and in the right proportions (target 25 · 25 · 50 %). The same start noise always gives the same sample: the ODE is deterministic.</p>`;
+  }
+  compute(); render(); return render;
+});
+
+/* ───────── 7 · conditioning ───────── */
+demo("sd-cond", slide => {
+  let step = 0, mode = "now";
+  const NX = 56, NY = 32, rz = SDF.noise(NX * NY, 12);
+  const fut = SDF.storm(NX, NY, [{ x: 36, y: 15, I: 50, R: 3.4 }]);
+  const noisy = SDF.url(SDF.paint(Float32Array.from(fut, (v, k) => .55 * v / 60 + .45 * (.3 + .35 * rz[k])), NX, NY, { lo: 0, hi: 1, mask: v => v < 5 / 60 }));
+  const past = Array.from({ length: 6 }, (_, k) => SDF.url(SDF.dbz(SDF.storm(NX, NY, [{ x: 12 + 4 * k, y: 18 - .5 * k, I: 40 + 2 * k, R: 2.6 + .15 * k }]), NX, NY)));
+  const outU = SDF.url(SDF.dbz(fut, NX, NY));
+  const grad = (f, cm, lo, hi) => { const a = new Float32Array(NX * NY); for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) a[j * NX + i] = f(i / NX, j / NY); return SDF.url(SDF.paint(a, NX, NY, { color: cm, lo, hi })); };
+  const latU = grad((u, v) => 1 - v, CM.vir, 0, 1), lonU = grad(u => u, CM.vir, 0, 1), szaU = grad((u, v) => Math.cos(1.4 * (u - .7)) * (1 - .25 * v), CM.temp, .2, 1.05);
+  const z5 = FFT.noise2(64, { beta: 5, seed: 9 }), gfsU = grad((u, v) => z5[Math.floor(v * 32) * 64 + Math.floor(u * 64)] - 1.6 * v, CM.vir, -3, 2);
+  chips($("#sdCdStep"), v => { step = +v; diagram(); });
+  chips($("#sdCdMode"), v => { mode = v; diagram(); });
+  const CARD = [
+    ["① The noisy future", "The thing being denoised: the future frame x<sub>t+</sub> plus noise of size σ. At sampling time it starts as pure noise. Satellite model: 8 GOES channels; radar model: 1 MRMS channel (Table 1)."],
+    ["② The past states", m => m === "now" ? "Nowcast: the <b>6 previous states, 10 min apart</b> (the past hour) are stacked as extra channels (§4.2.3). They are clean: only the future is noised." : "Nearcast: <b>one state, 1 h earlier</b> (§4.2.3), plus GFS in ⑤. The radar model also gets the satellite frames (§4.2.1, Fig. 11)."],
+    ["③ Latitude and longitude", "Two fixed maps that tell the network <b>where</b> each pixel is: storms behave differently over the Rockies than over the Gulf coast (§4.2.2)."],
+    ["④ Solar zenith angle", "Computed from the date and time (§4.2.3, 'static or dynamic conditioning c'): visible channels are dark at night, and convection has a daily cycle."],
+    ["⑤ GFS, nearcast only", m => m === "near" ? "One GFS channel for large-scale context: <b>500 hPa height</b> for the satellite model, <b>simulated composite reflectivity</b> for the radar model (Table 2, §4.2.1). Kept to a single channel on purpose." : "<b>Not used in nowcast mode</b>: nowcasts need only observations (Table 2). Switch the mode to see it."],
+    ["⑥ The noise level σ", "σ is not a picture: it enters every transformer block through the <b>conditional (adaptive) layer norm</b> (§4.2.2), after EDM's c<sub>noise</sub> = ¼ ln σ."],
+    ["⑦ Concatenate → D<sub>θ</sub>", "All maps are stacked along the channel axis into one input tensor on the 512 × 896 grid (§4.2.2), then cut into 4 × 4 patches. The network learns D(x<sub>σ</sub>; past, c, σ) and so p(future | past, c)."]];
+  function diagram() {
+    const W = 1000, H = 200, svg = svgIn($("#sdCdFig"), W, H); arrowDefs(svg, "sdCdAr", css("--muted"));
+    const op = (...k) => step === 6 || k.includes(step) ? 1 : .28, T = (p, x, y, s, a) => SDF.txt(p, x, y, s, a);
+    const rowY = [6, 45, 84, 123, 162], th = 32, tw = 56;
+    const R = (k, tok, label, sub, draw) => { const g = el("g", { opacity: op(k) }, svg), y = rowY[k];
+      draw(g, y); T(g, 290, y + 14, label, { "font-size": 13.5, "font-weight": 600, fill: css(tok) }); T(g, 290, y + 29, sub, { "font-size": 11.5, fill: css("--muted") });
+      if (step === k) el("rect", { x: 4, y: y - 3, width: 552, height: th + 7, rx: 8, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, svg);
+      el("line", { x1: 556, x2: 600, y1: y + th / 2, y2: 100, stroke: css(tok), "stroke-width": 1.6, opacity: op(k) }, svg); };
+    const pic = (g, u, x, y, tok, w = tw) => { SDF.img(g, u, x, y, w, th); el("rect", { x, y, width: w, height: th, rx: 3, fill: "none", stroke: css(tok), "stroke-width": 1.6 }, g); };
+    R(0, "--accent", "noisy future x_{t+} + σ·n", "8 GOES ch. (satellite model) or 1 MRMS ch. (radar)", (g, y) => pic(g, noisy, 12, y, "--accent"));
+    R(1, "--cool", mode === "now" ? "past states x_{t−}: 6 frames, 10 min apart" : "past state x_{t−}: 1 frame, 1 h earlier", mode === "now" ? "the last hour of observations" : "+ satellite frames for the radar model", (g, y) => {
+      if (mode === "now") past.forEach((u, k) => pic(g, u, 12 + k * 38, y, "--cool", tw)); else pic(g, past[5], 12, y, "--cool"); });
+    R(2, "--muted", "latitude, longitude", "static maps: where each pixel is", (g, y) => { pic(g, latU, 12, y, "--muted"); pic(g, lonU, 74, y, "--muted"); });
+    R(3, "--sw", "cos(solar zenith angle)", "from date and time: day / night", (g, y) => pic(g, szaU, 12, y, "--sw"));
+    R(4, "--muted", mode === "near" ? "GFS: one coarse NWP channel" : "GFS: not used (nowcast)", mode === "near" ? "z500 (satellite) · sim. reflectivity (radar)" : "observations only", (g, y) => {
+      if (mode === "near") pic(g, gfsU, 12, y, "--muted"); else { el("rect", { x: 12, y, width: tw, height: th, rx: 3, fill: "none", stroke: css("--muted"), "stroke-dasharray": "4 3" }, g); T(g, 40, y + 21, "—", { "text-anchor": "middle", fill: css("--muted") }); } });
+    // concatenated tensor
+    const gC = el("g", { opacity: op(6) }, svg), toks = ["--accent", "--cool", "--muted", "--sw", "--muted"], hs = mode === "near" ? [4, 1, 2, 1, 1] : [4, 6, 2, 1, 0], tot = hs.reduce((a, b) => a + b, 0);
+    let yy = 28; hs.forEach((h, k) => { if (!h) return; const hh = 144 * h / tot; el("rect", { x: 604, y: yy, width: 46, height: hh - 1.5, fill: css(toks[k]), opacity: .75 }, gC); yy += hh; });
+    el("rect", { x: 604, y: 28, width: 46, height: 144, fill: "none", stroke: css("--fg"), "stroke-width": 1.4 }, gC);
+    T(gC, 627, 22, "stack", { "font-size": 12, "text-anchor": "middle", "font-weight": 600 }); T(gC, 627, 188, "channels × 512 × 896", { "font-size": 11, "text-anchor": "middle", fill: css("--muted") });
+    el("line", { x1: 654, x2: 716, y1: 100, y2: 100, stroke: css("--muted"), "stroke-width": 2, "marker-end": "url(#sdCdAr)", opacity: op(6) }, svg);
+    const gD = el("g", { opacity: op(5, 6) }, svg);
+    el("rect", { x: 722, y: 56, width: 130, height: 90, rx: 12, fill: css("--accent"), "fill-opacity": .12, stroke: css("--accent"), "stroke-width": 2.2 }, gD);
+    T(gD, 787, 88, "D_θ", { "font-size": 20, "text-anchor": "middle", "font-weight": 700, fill: css("--accent") }); T(gD, 787, 110, "DiT, 16 blocks", { "font-size": 12, "text-anchor": "middle" }); T(gD, 787, 126, "195 M parameters", { "font-size": 11.5, "text-anchor": "middle", fill: css("--muted") });
+    const gS = el("g", { opacity: op(5) }, svg);
+    el("rect", { x: 752, y: 6, width: 70, height: 26, rx: 13, fill: css("--card"), stroke: css("--arch"), "stroke-width": 1.8 }, gS); T(gS, 787, 24, "σ", { "font-size": 15, "text-anchor": "middle", "font-style": "italic", fill: css("--arch"), "font-weight": 600 });
+    el("line", { x1: 787, x2: 787, y1: 33, y2: 52, stroke: css("--arch"), "stroke-width": 2, "marker-end": "url(#sdCdAr)" }, gS); T(gS, 794, 49, "adaLN", { "font-size": 11, fill: css("--arch") });
+    if (step === 5) el("rect", { x: 746, y: 2, width: 82, height: 34, rx: 16, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, svg);
+    if (step === 6) el("rect", { x: 598, y: 2, width: 260, height: 196, rx: 10, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, svg);
+    el("line", { x1: 856, x2: 880, y1: 100, y2: 100, stroke: css("--muted"), "stroke-width": 2, "marker-end": "url(#sdCdAr)" }, svg);
+    SDF.img(svg, outU, 884, 70, 108, 62); el("rect", { x: 884, y: 70, width: 108, height: 62, rx: 4, fill: "none", stroke: css("--fg"), "stroke-width": 1.6 }, svg);
+    T(svg, 938, 62, "denoised future", { "font-size": 12, "text-anchor": "middle", "font-weight": 600 }); T(svg, 938, 150, "≈ x_{t+}", { "font-size": 12, "text-anchor": "middle", fill: css("--muted") });
+    const c = CARD[step], body = typeof c[1] === "function" ? c[1](mode) : c[1];
+    $("#sdCdCard").innerHTML = `<h4 style="color:var(--accent)">${c[0]}</h4><p>${body}</p>`;
+  }
+  // toy: the condition moves and reshapes the target distribution
+  const pS = slider("sdCdP", v => v < .35 ? "west (over A)" : v > .65 ? "east (over B)" : "in between", toy), qS = slider("sdCdQ", v => v < .35 ? "weak: may die" : v > .65 ? "strong" : "moderate", toy);
+  const NSm = 150, rz2 = rng(77), Z = Array.from({ length: NSm }, () => [gauss(rz2), gauss(rz2)]), TS = SDF.sched(24, 4, .01);
+  function cg() { const p = pS(), q = qS(), a = .45 + .7 * q; return SDF.gmm([[a, .03], [.03, a], [0, 0]], [q * (1 - p) + .02, q * p + .02, 1 - q + .02], .08, [0, 1, 2]); }
+  function toy() {
+    const G = cg(), W = 260, { g } = SDF.canvas($("#sdCdMap"), W, W), P = SDF.shade(g, W, (x, y) => SDF.gmmP(G, x, y, .01), "--accent", 60, .5), cnt = [0, 0, 0];
+    Z.forEach(([u, v]) => { let x = 4 * u, y = 4 * v;
+      for (let i = 0; i < 24; i++) { const t = TS[i], t1 = TS[i + 1], d = SDF.gmmD(G, x, y, t), dx = (x - d[0]) / t, dy = (y - d[1]) / t; let nx = x + (t1 - t) * dx, ny = y + (t1 - t) * dy;
+        if (t1 > 0) { const d2 = SDF.gmmD(G, nx, ny, t1); nx = x + (t1 - t) * (dx + (nx - d2[0]) / t1) / 2; ny = y + (t1 - t) * (dy + (ny - d2[1]) / t1) / 2; } x = nx; y = ny; }
+      let c = 0, bd = Infinity; G.mu.forEach((m, j) => { const dd = Math.hypot(x - m[0], y - m[1]); if (dd < bd) { bd = dd; c = j; } }); cnt[c]++;
+      g.fillStyle = css(SDF.CLS[c]); g.strokeStyle = css("--bg"); g.lineWidth = 1; g.beginPath(); g.arc(P.X(x), P.Y(y), 3.3, 0, 7); g.fill(); g.stroke(); });
+    SDF.axisLabels(g, W, P);
+    $("#sdCdRead").innerHTML = [0, 1, 2].map(k => `<div><span>${["over A", "over B", "no storm"][k]}</span><b style="color:var(${SDF.CLS[k]});font-size:17px">${fmt(100 * cnt[k] / NSm, 0)} %</b></div>`).join("");
+  }
+  function render() { diagram(); toy(); }
+  render(); return render;
+});
+
+/* ───────── 8 · the EDM recipe ───────── */
+demo("sd-edm", () => {
+  let step = 0; const SD0 = SDF.SDATA, L0 = Math.log10(SDF.SMIN), L1 = Math.log10(SDF.SMAX), SINT = 1, n = 64, B = SDF.bigStorm(n), Z = SDF.noise(n * n, 21);
+  chips($("#sdEdStep"), v => { step = +v; render(); });
+  const sS = slider("sdEdS", v => SDF.fs(10 ** v), render);
+  const CARD = [
+    ["① Pre-conditioning", `D(x<sub>σ</sub>; σ) = <b style="color:var(--data)">c<sub>skip</sub></b>·x<sub>σ</sub> + <b style="color:var(--arch)">c<sub>out</sub></b>·F<sub>θ</sub>(<b style="color:var(--sw)">c<sub>in</sub></b>·x<sub>σ</sub>; c<sub>noise</sub>)<br>c<sub>skip</sub> = σ<sub>d</sub>²/(σ²+σ<sub>d</sub>²), c<sub>out</sub> = σσ<sub>d</sub>/√(σ²+σ<sub>d</sub>²), c<sub>in</sub> = 1/√(σ²+σ<sub>d</sub>²), c<sub>noise</sub> = ¼ ln σ.<br>The network F always sees inputs of size ~1 and outputs of size ~1. At small σ, D mostly <b>keeps the input</b> and F predicts the noise; at large σ, F predicts the clean image itself.`],
+    ["② Loss weight λ(σ)", `Eq. (1) multiplies the error by λ(σ) = (σ²+σ<sub>d</sub>²)/(σσ<sub>d</sub>)² = 1/c<sub>out</sub>². Since D − x = c<sub>out</sub>·(F − target), the weighted loss is just ‖F − target‖²: <b>every σ contributes errors of the same size</b>, and no noise level dominates training.`],
+    ["③ Which σ to train on", `Each training example draws its own σ. StormScope: <b>uniform in log σ</b> between σ<sub>min</sub> and σ<sub>max</sub> (§4.2.3): each decade equally often. EDM's default instead is log-normal (ln σ ~ N(−1.2, 1.2²)), which focuses on middle σ. The paper does not state σ<sub>min</sub>, σ<sub>max</sub>.`],
+    ["④ Two experts", `The σ range is split at σ<sub>int</sub> (§4.2.3; not stated, toy 1 here). A <b style="color:var(--arch)">coarse expert</b> trains only on σ > σ<sub>int</sub> and learns the large-scale layout; a <b style="color:var(--ok)">fine expert</b> trains on σ < σ<sub>int</sub> and learns convective detail. Same architecture, two sets of weights (the idea of eDiff-I, ref. 46).`],
+    ["⑤ The sampler", `EDM's ODE sampler with stochastic perturbations (churn), <b>100 steps from σ<sub>max</sub> to σ<sub>min</sub></b>, using the coarse expert first and the fine expert after σ<sub>int</sub> (§4.2.3). Steps are packed towards small σ (ρ = 7, EDM default) where details form. One forecast step takes 33 s on one H100 (§4.2.2).`]];
+  const H = ["EDM's scaling coefficients vs σ (σ<sub>data</sub> = 0.5)", "Loss weight λ(σ) and what is left after it", "Density of training σ (per decade of σ)", "Two experts split the σ range at σ<sub>int</sub>", "100-step sampling schedule (ρ = 7)"];
+  function render() {
+    const l = sS(), s = 10 ** l, c = SDF.pre(s), coarse = s > SINT;
+    $("#sdEdCard").innerHTML = `<h4 style="color:var(--accent)">${CARD[step][0]}</h4><p>${CARD[step][1]}</p>`;
+    $("#sdEdH").innerHTML = H[step];
+    const W = 560, Hh = step === 0 ? 196 : 262, svg = svgIn($("#sdEdFig"), W, Hh), m = { l: 50, r: 14, t: 12, b: 30 }, x = lin(L0, L1, m.l, W - m.r);
+    const xt = () => { [[-2, "0.01"], [-1, "0.1"], [0, "1"], [1, "10"], [Math.log10(80), "80"]].forEach(([v, t]) => SDF.txt(svg, x(v), Hh - m.b + 15, t, { "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") }));
+      SDF.txt(svg, W - m.r, Hh - 2, "σ (log scale)", { "font-size": 11, "text-anchor": "end", fill: css("--muted") }); el("line", { x1: m.l, x2: W - m.r, y1: Hh - m.b, y2: Hh - m.b, class: "ax" }, svg); };
+    const mark = () => { el("line", { x1: x(l), x2: x(l), y1: m.t, y2: Hh - m.b, stroke: css("--accent"), "stroke-width": 2.2 }, svg); };
+    const grid = (y, vals, f) => vals.forEach(v => { el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: "grid" }, svg); SDF.txt(svg, m.l - 6, y(v) + 4, f(v), { "font-size": 10.5, "text-anchor": "end", class: "mono", fill: css("--muted") }); });
+    const curve = (fn, y, tok, w = 2.4, dash = "") => { const p = []; for (let v = L0; v <= L1 + 1e-9; v += .04) p.push([x(v), y(fn(10 ** v))]); el("path", { d: path(p), fill: "none", stroke: css(tok), "stroke-width": w, "stroke-dasharray": dash }, svg); };
+    const lab = (xx, yy, t, tok, a = "start") => SDF.txt(svg, xx, yy, t, { "font-size": 12, fill: css(tok), "font-weight": 600, "text-anchor": a });
+    if (step === 0) {
+      const y = lin(0, 2.1, Hh - m.b, m.t); grid(y, [0, .5, 1, 1.5, 2], v => fmt(v, 1)); xt();
+      el("line", { x1: x(Math.log10(SD0)), x2: x(Math.log10(SD0)), y1: m.t, y2: Hh - m.b, stroke: css("--muted"), "stroke-dasharray": "4 3" }, svg); SDF.txt(svg, x(Math.log10(SD0)) - 4, m.t + 10, "σ = σ_{data}", { "font-size": 10.5, "text-anchor": "end", fill: css("--muted") });
+      curve(v => SDF.pre(v).skip, y, "--data"); curve(v => SDF.pre(v).out, y, "--arch"); curve(v => SDF.pre(v).cin, y, "--sw");
+      lab(m.l + 6, y(1) - 6, "c_{skip}", "--data"); lab(W - m.r - 4, y(.5) - 6, "c_{out}", "--arch", "end"); lab(m.l + 6, y(2) + 14, "c_{in}", "--sw"); mark();
+    } else if (step === 1) {
+      const y = lin(-1, 6, Hh - m.b, m.t); grid(y, [0, 2, 4, 6], v => "1e" + v); xt();
+      curve(v => Math.log10(SDF.pre(v).lam), y, "--lw"); curve(() => 0, y, "--ok", 2.4, "6 4");
+      lab(x(-2.2), y(4.6), "λ(σ) ≈ 1/σ² at small σ", "--lw"); lab(x(.4), y(1.1), "→ 1/σ_{data}² = 4", "--lw"); lab(x(-2.4), y(0) - 8, "λ(σ)·c_{out}² = 1: equal weight on F's error", "--ok"); mark();
+    } else {
+      const pLU = 1 / (L1 - L0), mu = -1.2 / Math.LN10, sg = 1.2 / Math.LN10, pLN = v => Math.exp(-.5 * ((v - mu) / sg) ** 2) / (sg * Math.sqrt(2 * Math.PI));
+      if (step === 2 || step === 3) {
+        const y = lin(0, .85, Hh - m.b, m.t); grid(y, [0, .4, .8], v => fmt(v, 1)); xt();
+        if (step === 3) { el("rect", { x: x(L0), y: m.t, width: x(0) - x(L0), height: Hh - m.b - m.t, fill: css("--ok"), opacity: .1 }, svg); el("rect", { x: x(0), y: m.t, width: x(L1) - x(0), height: Hh - m.b - m.t, fill: css("--arch"), opacity: .1 }, svg);
+          el("line", { x1: x(0), x2: x(0), y1: m.t, y2: Hh - m.b, stroke: css("--fg"), "stroke-width": 1.6, "stroke-dasharray": "5 3" }, svg);
+          lab(x(0) - 8, m.t + 16, "← fine expert", "--ok", "end"); lab(x(0) + 8, m.t + 16, "coarse expert →", "--arch"); SDF.txt(svg, x(0) + 8, m.t + 32, "σ_{int} (toy)", { "font-size": 11, fill: css("--muted") });
+          el("rect", { x: x(L0), y: y(pLU), width: x(0) - x(L0), height: y(0) - y(pLU), fill: css("--ok"), opacity: .35 }, svg); el("rect", { x: x(0), y: y(pLU), width: x(L1) - x(0), height: y(0) - y(pLU), fill: css("--arch"), opacity: .35 }, svg);
+          SDF.txt(svg, x((L0) / 2), y(pLU) - 8, fmt(100 * (0 - L0) / (L1 - L0), 0) + " % of draws", { "font-size": 12, "text-anchor": "middle", fill: css("--ok"), "font-weight": 600 });
+          SDF.txt(svg, x(L1 / 2), y(pLU) - 8, fmt(100 * L1 / (L1 - L0), 0) + " % of draws", { "font-size": 12, "text-anchor": "middle", fill: css("--arch"), "font-weight": 600 }); }
+        else { const p = [[x(L0), y(0)], [x(L0), y(pLU)], [x(L1), y(pLU)], [x(L1), y(0)]]; el("path", { d: path(p) + "Z", fill: css("--accent"), opacity: .18, stroke: css("--accent"), "stroke-width": 2.4 }, svg);
+          curve(v => pLN(Math.log10(v)), y, "--muted", 2, "5 4"); lab(x(1.85), y(pLU) - 8, "log-uniform (paper)", "--accent", "end"); lab(x(mu) + 30, y(pLN(mu)) + 4, "log-normal (EDM default)", "--muted"); }
+        mark();
+      } else {
+        const N = 100, T = SDF.sched(N, SDF.SMAX, SDF.SMIN), xs = lin(0, N, m.l, W - m.r), y = lin(L0, L1, Hh - m.b, m.t), kI = T.findIndex(v => v <= SINT);
+        el("rect", { x: xs(0), y: m.t, width: xs(kI) - xs(0), height: Hh - m.b - m.t, fill: css("--arch"), opacity: .08 }, svg); el("rect", { x: xs(kI), y: m.t, width: xs(N) - xs(kI), height: Hh - m.b - m.t, fill: css("--ok"), opacity: .08 }, svg);
+        [[80, "80"], [1, "1"], [.01, "0.01"], [.002, ""]].forEach(([v, t]) => { el("line", { x1: m.l, x2: W - m.r, y1: y(Math.log10(v)), y2: y(Math.log10(v)), class: "grid" }, svg); if (t) SDF.txt(svg, m.l - 6, y(Math.log10(v)) + 4, t, { "font-size": 10.5, "text-anchor": "end", class: "mono", fill: css("--muted") }); });
+        [0, 25, 50, 75, 100].forEach(v => SDF.txt(svg, xs(v), Hh - m.b + 15, v, { "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") })); SDF.txt(svg, W - m.r, Hh - 2, "sampling step i", { "font-size": 11, "text-anchor": "end", fill: css("--muted") });
+        el("path", { d: path(T.slice(0, N).map((v, k) => [xs(k), y(Math.log10(v))])), fill: "none", stroke: css("--accent"), "stroke-width": 2.4 }, svg);
+        T.slice(0, N).forEach((v, k) => { if (k % 5 === 0) el("circle", { cx: xs(k), cy: y(Math.log10(v)), r: 2, fill: css("--accent") }, svg); });
+        lab(xs(kI / 2), m.t + 16, "coarse expert", "--arch", "middle"); lab(xs((kI + N) / 2), m.t + 16, "fine expert", "--ok", "middle");
+        el("line", { x1: xs(kI), x2: xs(kI), y1: m.t, y2: Hh - m.b, stroke: css("--fg"), "stroke-dasharray": "4 3" }, svg); SDF.txt(svg, xs(kI) + 4, Hh - m.b - 8, `switch at step ${kI}`, { "font-size": 11, fill: css("--muted") });
+        let ki = 0, bd = Infinity; T.slice(0, N).forEach((v, k) => { const d = Math.abs(Math.log10(v) - l); if (d < bd) { bd = d; ki = k; } });
+        el("circle", { cx: xs(ki), cy: y(Math.log10(T[ki])), r: 6.5, fill: css("--accent"), stroke: css("--bg"), "stroke-width": 2 }, svg);
+        SDF.txt(svg, xs(ki) + 10, y(Math.log10(T[ki])) - 8, `step ${ki}`, { "font-size": 12, "font-weight": 600, fill: css("--accent") });
+      }
+    }
+    // ① what F sees and has to output (toy storm)
+    const host = $("#sdEdImgs");
+    if (step === 0) {
+      const xv = B.x, inp = Float32Array.from(xv, (v, k) => c.cin * (v + s * Z[k])), tgt = Float32Array.from(xv, (v, k) => (v - c.skip * (v + s * Z[k])) / c.out);
+      const cx = (() => { let ax = 0, an = 0, tt = 0, xx = 0, zz = 0; for (let k = 0; k < xv.length; k++) { ax += tgt[k] * xv[k]; an += -tgt[k] * Z[k]; tt += tgt[k] ** 2; xx += xv[k] ** 2; zz += Z[k] ** 2; } return [ax / Math.sqrt(tt * xx), an / Math.sqrt(tt * zz)]; })();
+      host.innerHTML = `<div class="sd-g" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px"><div><div></div><p class="sd-lab">F's input c<sub>in</sub>·x<sub>σ</sub></p></div><div><div></div><p class="sd-lab">F's target: corr. with clean x <b>${fmt(cx[0], 2)}</b>, with −noise <b>${fmt(cx[1], 2)}</b></p></div><div><div></div><p class="sd-lab">c<sub>skip</sub>·x<sub>σ</sub> + c<sub>out</sub>·F = clean x</p></div></div>`;
+      const pans = $$(".sd-g > div > div:first-child", host);
+      [[inp, CM.precip, c.cin * (B.dry + .05), c.cin * B.hi, true], [tgt, CM.div, -2.5, 2.5, false], [xv, CM.precip, B.dry + .03, B.hi, true]].forEach(([f, cm, a, b, mk], j) => {
+        const { g } = SDF.canvas(pans[j], 160, 160); g.imageSmoothingEnabled = false; g.drawImage(SDF.paint(f, n, n, { color: cm, lo: a, hi: b, mask: mk ? (v => v < a) : null }), 0, 0, 160, 160); });
+    } else host.innerHTML = "";
+    $("#sdEdRead").innerHTML = `<div><span>c<sub>skip</sub></span><b class="c-data">${fmt(c.skip, 3)}</b></div><div><span>c<sub>out</sub></span><b class="c-arch">${fmt(c.out, 3)}</b></div><div><span>c<sub>in</sub></span><b class="c-sw">${fmt(c.cin, 3)}</b></div><div><span>c<sub>noise</sub></span><b>${fmt(c.cn, 2)}</b></div><div><span>λ(σ)</span><b class="c-lw">${c.lam < 1e4 ? fmt(c.lam, c.lam < 10 ? 2 : 0) : c.lam.toExponential(1)}</b></div><div><span>Expert</span><b class="${coarse ? "c-arch" : "c-ok"}">${coarse ? "coarse" : "fine"}</b></div>`;
+  }
+  render(); return render;
+});
+
+</script>
+<script>/* e2/45c-arch.js */
+/* ═════════ Earth-2 · 5b StormScope · part C · the whole network, end to end ═════════
+   1 sc-arch      one denoiser call with the tensor shape at every stage (four models)
+   2 sc-params    where the parameters, the operations and the memory go (our estimate, standard DiT sizes)
+   3 sc-iter      one training iteration step by step (toy fields), the learning-rate schedule
+   4 sc-forecast  one forecast as nested loops: lead steps × σ steps × models (animated)
+   5 sc-domain    limited area: an open-boundary toy (storms entering from outside)
+   6 sc-region    options for another region, a Colombian box calculator
+   Numbers: Pathak et al. 2026, arXiv:2601.17268, or labelled "our estimate" / "toy". */
+
+const SC = (() => {
+  const NX = 112, NY = 64;
+  const LUT = new Map();
+  const lut = f => { if (!LUT.has(f)) { const L = new Uint8ClampedArray(768); for (let i = 0; i < 256; i++) L.set(CM.rgb(f, i / 255), i * 3); LUT.set(f, L); } return LUT.get(f); };
+  const rgbOf = tok => { const d = document.createElement("canvas").getContext("2d"); d.fillStyle = css(tok) || "#888"; d.fillRect(0, 0, 1, 1); return [...d.getImageData(0, 0, 1, 1).data].slice(0, 3); };
+  const GRAY = CM.ramp(["#05070c", "#2a2f38", "#8a8f99", "#ffffff"]);
+  function paint(vals, nx = NX, ny = NY, { color = CM.vir, lo = 0, hi = 1, mask = null } = {}) {
+    const c = document.createElement("canvas"); c.width = nx; c.height = ny;
+    const g = c.getContext("2d"), img = g.createImageData(nx, ny), L = lut(color), w = mask ? rgbOf("--well") : null;
+    for (let k = 0; k < nx * ny; k++) { const v = vals[k], o = k * 4;
+      if (mask && mask(v)) { img.data[o] = w[0]; img.data[o + 1] = w[1]; img.data[o + 2] = w[2]; }
+      else { const t = Math.round(clamp((v - lo) / (hi - lo || 1), 0, 1) * 255) * 3; img.data[o] = L[t]; img.data[o + 1] = L[t + 1]; img.data[o + 2] = L[t + 2]; }
+      img.data[o + 3] = 255; }
+    g.putImageData(img, 0, 0); return c;
+  }
+  const url = c => c.toDataURL();
+
+  /* toy storm world: 64 × 112 cells; b(t) in [0, 1] = "cloudiness"; t in toy minutes; cells drift east */
+  const CELLS = new Map();
+  function cells(seed) {
+    if (CELLS.has(seed)) return CELLS.get(seed);
+    const r = rng(seed), C = [];
+    for (let k = 0; k < 26; k++) C.push({ x: -30 + 150 * r(), y: 5 + 54 * r(), R: 3 + 4.6 * r(), pk: .55 + .45 * r(), b: -260 + 560 * r(), life: 150 + 230 * r(), u: .11 + .05 * (r() - .5), v: -.015 + .03 * (r() - .5) });
+    CELLS.set(seed, C); return C;
+  }
+  function put(f, cx, cy, I, R) {
+    const i0 = Math.max(0, Math.floor(cx - 3 * R)), i1 = Math.min(NX - 1, Math.ceil(cx + 3 * R)), j0 = Math.max(0, Math.floor(cy - 3 * R)), j1 = Math.min(NY - 1, Math.ceil(cy + 3 * R));
+    for (let j = j0; j <= j1; j++) for (let i = i0; i <= i1; i++) { const dx = i + .5 - cx, dy = j + .5 - cy, v = I * Math.exp(-.5 * (dx * dx + dy * dy) / (R * R)); if (v > f[j * NX + i]) f[j * NX + i] = v; }
+  }
+  function storm(t, seed = 1) {
+    const f = new Float32Array(NX * NY);
+    for (const c of cells(seed)) { const ph = (t - c.b) / c.life; if (ph <= 0 || ph >= 1) continue;
+      const e = Math.pow(Math.sin(Math.PI * ph), .6), cx = c.x + c.u * t, cy = c.y + c.v * t;
+      put(f, cx - .5 * c.R, cy, .38 * c.pk * e, 2.3 * c.R); put(f, cx, cy, c.pk * e, c.R * (.75 + .25 * e)); }
+    return f;
+  }
+  const irPaint = b => paint(Float32Array.from(b, v => 292 - 88 * v), NX, NY, { color: GRAY, lo: 300, hi: 200 });
+  const dbz = b => Float32Array.from(b, v => clamp(78 * (v - .18), 0, 62));
+  const radPaint = b => paint(dbz(b), NX, NY, { color: CM.precip, lo: 0, hi: 60, mask: v => v < 5 });
+  // separable box blur with clamped edges
+  function blur(f, r, nx = NX, ny = NY) {
+    if (r <= 0) return Float32Array.from(f);
+    const a = new Float32Array(nx * ny), o = new Float32Array(nx * ny);
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { let s = 0, n = 0; for (let d = -r; d <= r; d++) { const q = i + d; if (q < 0 || q >= nx) continue; s += f[j * nx + q]; n++; } a[j * nx + i] = s / n; }
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { let s = 0, n = 0; for (let d = -r; d <= r; d++) { const q = j + d; if (q < 0 || q >= ny) continue; s += a[q * nx + i]; n++; } o[j * nx + i] = s / n; }
+    return o;
+  }
+
+  /* svg helpers */
+  // text with subscripts written as x_{σ}
+  const txt = (svg, x, y, s, o = {}) => { const t = el("text", Object.assign({ x, y, "font-size": 12, fill: css("--fg") }, o), svg), parts = String(s).split(/(_\{[^}]*\})/);
+    if (parts.length === 1) { t.textContent = s; return t; }
+    let sh = 0; parts.forEach(q => { if (!q) return; const sub = q.startsWith("_{"); el("tspan", { dy: sub ? 4 - sh : -sh, "font-size": sub ? "76%" : "100%" }, t, sub ? q.slice(2, -1) : q); sh = sub ? 4 : 0; }); return t; };
+  const img = (svg, href, x, y, w, h, o = {}) => el("image", Object.assign({ href, x, y, width: w, height: h, preserveAspectRatio: "none", style: "image-rendering:pixelated" }, o), svg);
+  const line = (svg, x1, y1, x2, y2, mk, o = {}) => el("line", Object.assign({ x1, y1, x2, y2, stroke: css("--muted"), "stroke-width": 1.7, "marker-end": mk ? `url(#${mk})` : "" }, o), svg);
+  const box = (svg, x, y, w, h, tok, o = {}) => el("rect", Object.assign({ x, y, width: w, height: h, rx: 9, fill: css("--card"), stroke: css(tok), "stroke-width": 1.6 }, o), svg);
+  // stage frame; on = highlighted
+  const frame = (svg, x, y, w, h, on, k) => el("rect", { x, y, width: w, height: h, rx: 11, fill: on ? css("--accent") : "transparent", "fill-opacity": on ? .07 : 1, stroke: css(on ? "--accent" : "--line"), "stroke-width": on ? 2.2 : 1, "stroke-dasharray": on ? "" : "4 4", "data-st": k }, svg);
+  // a 3-D slab (stack of faces): front face at x, y
+  function slab(svg, x, y, w, h, tok, { depth = 3, dx = 5, fill = .14 } = {}) {
+    for (let d = depth; d >= 1; d--) el("rect", { x: x + d * dx, y: y - d * dx, width: w, height: h, rx: 3, fill: css("--card"), stroke: css(tok), "stroke-width": 1.1, opacity: .9 }, svg);
+    return el("rect", { x, y, width: w, height: h, rx: 3, fill: css(tok), "fill-opacity": fill, stroke: css(tok), "stroke-width": 1.8 }, svg);
+  }
+  const tag = (k, s) => `<span class="sctag ${k}">${s}</span>`;
+  const sci = (v, d = 1) => { if (!v) return "0"; const e = Math.floor(Math.log10(Math.abs(v))), m = v / 10 ** e; return `${fmt(m, d)}·10<sup>${e}</sup>`; };
+  const big = (v, d = 1) => v >= 1e12 ? fmt(v / 1e12, d) + " T" : v >= 1e9 ? fmt(v / 1e9, d) + " G" : v >= 1e6 ? fmt(v / 1e6, d) + " M" : v >= 1e3 ? fmt(v / 1e3, d) + " k" : fmt(v, 0);
+
+  /* the four models (same channel counts as Part B's sb-tokens: our count from §4.2.2, Table 1, Fig. 11) */
+  const MODELS = {
+    sn: { t: "satellite nowcast", out: 8, outT: "8 GOES channels", g: [["noisy", 8, "noisy future x_{σ}", "--accent"], ["sat", 48, "6 past GOES × 8 ch", "--cool"], ["ll", 2, "lat, lon", "--arch"], ["sz", 1, "cos solar zenith", "--arch"]] },
+    sr: { t: "satellite nearcast", out: 8, outT: "8 GOES channels", g: [["noisy", 8, "noisy future x_{σ}", "--accent"], ["sat", 8, "GOES 1 h before", "--cool"], ["z5", 1, "Z500 (ERA5 / GFS)", "--muted"], ["ll", 2, "lat, lon", "--arch"], ["sz", 1, "cos solar zenith", "--arch"]] },
+    rn: { t: "radar nowcast", out: 1, outT: "1 MRMS channel", g: [["nr", 1, "noisy future y_{σ}", "--accent"], ["rad", 6, "6 past MRMS", "--lw"], ["sat", 48, "6 GOES × 8 ch", "--cool"], ["ll", 2, "lat, lon", "--arch"], ["sz", 1, "cos solar zenith", "--arch"]] },
+    rr: { t: "radar nearcast", out: 1, outT: "1 MRMS channel", g: [["nr", 1, "noisy future y_{σ}", "--accent"], ["rad", 1, "MRMS 1 h before", "--lw"], ["sat", 8, "GOES 1 h before", "--cool"], ["gr", 1, "GFS sim. reflectivity", "--muted"], ["ll", 2, "lat, lon", "--arch"], ["sz", 1, "cos solar zenith", "--arch"]] } };
+  const cin = m => MODELS[m].g.reduce((s, g) => s + g[1], 0);
+
+  /* EDM constants: σ_data and the σ range are not given in the paper; EDM defaults, toy σ_int */
+  const SD = .5, SMIN = .002, SMAX = 80, SINT = 1;
+  const cIn = s => 1 / Math.sqrt(s * s + SD * SD), cSkip = s => SD * SD / (s * s + SD * SD), cOut = s => s * SD / Math.sqrt(s * s + SD * SD), lam = s => (s * s + SD * SD) / (s * SD) ** 2;
+  const sched = S => Array.from({ length: S }, (_, i) => Math.pow(Math.pow(SMAX, 1 / 7) + i / Math.max(1, S - 1) * (Math.pow(SMIN, 1 / 7) - Math.pow(SMAX, 1 / 7)), 7));
+
+  /* parameter / operation / memory estimate with the DiT recipe (heads of 64, adaLN-Zero, 256-frequency σ embedding) */
+  function est({ ci, co, d = 768, L = 16, r = 4, pos = 1 }) {
+    const N = 28672, h = d / 64, k2 = 961;
+    const P = { attn: L * (4 * d * d + 4 * d), mlp: L * (2 * r * d * d + r * d + d), ada: L * (6 * d * d + 6 * d), patch: 16 * ci * d + d, temb: 256 * d + d + d * d + d, head: 2 * d * d + 2 * d + 16 * co * d + 16 * co, pos: pos ? N * d : 0 };
+    P.total = P.attn + P.mlp + P.ada + P.patch + P.temb + P.head + P.pos;
+    const F = { proj: N * L * 8 * d * d, na: N * L * 4 * k2 * d, mlp: N * L * 4 * r * d * d, io: N * (32 * ci * d + 32 * co * d) };
+    F.total = F.proj + F.na + F.mlp + F.io;
+    const Mt = { state: 16 * P.total, act: ((12 + 2 * r) * d + h * k2) * 4 * N * L };
+    const Mi = { w: 4 * P.total, act: ((4 + r) * d + h * k2) * 4 * N };
+    return { P, F, Mt, Mi, N, h };
+  }
+  const dark = () => { const c = rgbOf("--bg"); return .3 * c[0] + .6 * c[1] + .1 * c[2] < 100; };
+  return { NX, NY, GRAY, paint, url, storm, irPaint, dbz, radPaint, blur, txt, img, line, box, frame, slab, tag, sci, big, MODELS, cin, SD, SMIN, SMAX, SINT, cIn, cSkip, cOut, lam, sched, est, rgbOf, dark };
+})();
+
+/* ───────── 1 · the whole denoiser, end to end ───────── */
+demo("sc-arch", () => {
+  const { NX, NY, txt, img, line, box, frame, slab, tag } = SC;
+  let step = 0, mode = "sn";
+  chips($("#scArStep"), v => { step = +v; render(); });
+  chips($("#scArMode"), v => { mode = v; render(); });
+  const b = SC.storm(80, 3), r = rng(11), nz = Float32Array.from({ length: NX * NY }, () => gauss(r));
+  const lat = new Float32Array(NX * NY), sza = new Float32Array(NX * NY), z5 = new Float32Array(NX * NY);
+  for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { const k = j * NX + i; lat[k] = 50 - 25 * j / NY; sza[k] = clamp(Math.cos((i / NX - .3) * 2.1 + .3 * (j / NY - .5)), 0, 1); z5[k] = 5550 + 280 * j / NY + 60 * Math.sin(i / NX * 9 + 1) * Math.cos(j / NY * 3); }
+  const thumbs = () => ({ noisy: SC.url(SC.paint(Float32Array.from(b, (v, k) => 292 - 88 * v + 34 * nz[k]), NX, NY, { color: SC.GRAY, lo: 300, hi: 200 })), sat: SC.url(SC.irPaint(b)), rad: SC.url(SC.radPaint(b)),
+    nr: SC.url(SC.paint(Float32Array.from(SC.dbz(b), (v, k) => v + 26 * nz[k]), NX, NY, { color: CM.precip, lo: 0, hi: 60 })), ll: SC.url(SC.paint(lat, NX, NY, { color: CM.vir, lo: 25, hi: 50 })),
+    sz: SC.url(SC.paint(sza, NX, NY, { color: CM.temp, lo: 0, hi: 1 })), z5: SC.url(SC.paint(z5, NX, NY, { color: CM.temp, lo: 5450, hi: 5900 })), gr: SC.url(SC.radPaint(Float32Array.from(SC.blur(b, 5), v => 1.25 * v))) });
+  let IM = null, IMkey = "";
+  // token-grid preview: 8 × 14 block means of the toy IR
+  const tok = []; for (let a = 0; a < 8; a++) for (let c = 0; c < 14; c++) { let s = 0; for (let j = 0; j < 8; j++) for (let i = 0; i < 8; i++) s += b[(a * 8 + j) * NX + c * 8 + i]; tok.push(s / 64); }
+  const cv = (f, s) => { const v = f(s); return v < 1e-3 ? v.toExponential(0) : fmt(v, v < .1 ? 3 : 2); };
+  const coef = (nm, f) => `c<sub>${nm}</sub> = ${[80, 1, .01].map(s => cv(f, s)).join(" · ")}`;
+  const coefRow = which => `<p class="mono" style="font-size:11.5px;color:var(--muted)">at σ = 80 · 1 · 0.01 (σ<sub>data</sub> = 0.5): ${which.map(([n, f]) => coef(n, f)).join("; ")}</p>`;
+  const CARDS = [
+    ["① The inputs, all on the 512 × 896 grid", M => `<p><b>${M.t}</b>: ${M.g.map(g => `<b style="color:var(${g[3]})">${g[1]}</b> ${g[2].replace(/_\{(.*?)\}/g, "<sub>$1</sub>")}`).join(" + ")}. The first block is the <b>noisy future</b>: in training the true future plus noise σ·n, in sampling the sampler's current state.</p>
+      <p>${tag("p", "paper")}the list of inputs (§4.2.2, Table 1). ${tag("u", "unstated")}per-channel normalisation, lat/lon encoding (we count 2 channels), frame order.</p>`],
+    ["② Scale the noisy part, then stack as channels", M => `<p><b>c<sub>in</sub>(σ) = 1/√(σ² + σ<sub>data</sub>²)</b> shrinks the noisy channels to about unit size whatever σ is; then everything is <b>concatenated</b>: <b>${SC.cin(mode)} × 512 × 896</b>.</p>${coefRow([["in", SC.cIn]])}
+      <p>${tag("p", "paper")}concatenation (§4.2.2), EDM input pre-conditioning (§4.2.3). ${tag("s", "EDM practice")}c<sub>in</sub> on the noisy channels only. ${tag("u", "unstated")}σ<sub>data</sub>.</p>`],
+    ["③ Patch embedding: one strided convolution", M => `<p>Kernel 4 × 4, stride 4: each 24 × 24 km patch's <b>${16 * SC.cin(mode)}</b> numbers (16 pixels × ${SC.cin(mode)} channels) are mapped to <b>768</b> by one shared matrix: <b>${fmtN(16 * SC.cin(mode) * 768 + 768)}</b> weights. Output 768 × 128 × 224.</p>
+      <p>${tag("p", "paper")}"strided convolution-based patch embedding, with a patch size of 4 × 4", 768 (§4.2.2).</p>`],
+    ["④ A sequence of 28,672 tokens", () => `<p>Flatten 128 × 224: <b>28,672 tokens</b> of 768 numbers, one per 24 × 24 km patch. A transformer does not know where a token sits unless told; here the lat/lon channels label every patch and neighborhood attention uses the 2-D layout.</p>
+      <p>${tag("s", "DiT practice")}a fixed 2-D sine-cosine position embedding. ${tag("u", "unstated")}whether StormScope adds one (slide 2: a learned one would fit 195 M).</p>`],
+    ["⑤ The noise level σ becomes a vector c", () => `<p>c<sub>noise</sub> = ¼ ln σ → 256 sines and cosines → two-layer MLP → <b>c</b>, 768 numbers per sample. c sets scale, shift and gate in every block and in the head: the same weights act differently at σ = 50 and at σ = 0.01.</p>
+      <p>${tag("p", "paper")}"conditioned on the diffusion timestep using the standard conditional layer normalization adopted in DiTs" (§4.2.2). ${tag("u", "unstated")}the embedding itself.</p>`],
+    ["⑥ 16 DiT blocks: the shape never changes", () => `<p><b style="color:var(--mag)">adaLN</b> (LayerNorm · (1 + γ) + β, from c) → <b style="color:var(--cool)">neighborhood attention</b> 31 × 31 → gate, add → adaLN → <b style="color:var(--data)">MLP</b> per token → gate, add. 28,672 × 768 in and out. Only attention moves information sideways: ±15 tokens (360 km) per block.</p>
+      <p>${tag("p", "paper")}16 blocks, adaLN on σ, NA 31 × 31 (§4.2.2). ${tag("s", "DiT practice")}MLP 3,072 wide, 12 heads of 64, adaLN-Zero. ${tag("u", "unstated")}heads, MLP width.</p>`],
+    ["⑦ Output head: each token back to 4 × 4 pixels", M => `<p>A final adaLN and one linear layer per token: 768 → 4 · 4 · ${M.out} = <b>${16 * M.out}</b> numbers, the ${M.outT} for each of the token's 16 pixels.</p>
+      <p>${tag("p", "paper")}"projecting and reshaping back to the 512 × 896 grid" (§4.2.2). ${tag("s", "DiT practice")}adaLN + linear, zero-initialised. ${tag("u", "unstated")}the head's details.</p>`],
+    ["⑧ Unpatchify: reshape, nothing learned", M => `<p>28,672 × ${16 * M.out} → 128 × 224 × 4 × 4 × ${M.out} → <b>${M.out} × 512 × 896</b>. This raw network output is <b>F<sub>θ</sub></b>.</p>
+      <p>${tag("p", "paper")}reshaped back to 512 × 896 (§4.2.2).</p>`],
+    ["⑨ Skip and combine: D = c<sub>skip</sub> · x<sub>σ</sub> + c<sub>out</sub> · F<sub>θ</sub>", M => `<p>Large σ: c<sub>skip</sub> ≈ 0, the network draws the clean image itself. Small σ: c<sub>skip</sub> ≈ 1, F<sub>θ</sub> only corrects. <b>D<sub>θ</sub></b> (${M.out} × 512 × 896) feeds the loss (slide 3) or the sampler (slide 4).</p>${coefRow([["skip", SC.cSkip], ["out", SC.cOut]])}
+      <p>${tag("p", "paper")}EDM output pre-conditioning (§4.2.3). ${tag("u", "unstated")}σ<sub>data</sub>.</p>`]];
+  $("#scArFig").addEventListener("click", e => { const t = e.target.closest("[data-st]"); if (!t) return; step = +t.dataset.st; press($$("#scArStep button.chip"), $$("#scArStep button.chip")[step]); render(); });
+  function render() {
+    const M = MODELS(), CI = SC.cin(mode), CO = M.out, key = css("--well");
+    if (key !== IMkey) { IM = thumbs(); IMkey = key; }
+    const svg = svgIn($("#scArFig"), 1000, 300); svg.style.cursor = "default";
+    arrowDefs(svg, "scArA", css("--muted")); arrowDefs(svg, "scArM", css("--mag")); arrowDefs(svg, "scArF", css("--fg"));
+    const on = k => step === k, G = k => el("g", { opacity: on(k) ? 1 : .42, "data-st": k, style: "cursor:pointer" }, svg);
+    [[0, 22, 162, 214], [164, 22, 80, 214], [248, 22, 88, 214], [340, 22, 96, 214], [152, 240, 312, 58], [440, 22, 194, 214], [638, 22, 88, 214], [730, 22, 80, 214], [814, 22, 184, 214]]
+      .forEach(([x, y, w, h], k) => frame(svg, x, y, w, h, on(k), k));
+    const n = M.g.length, rowY = k => 32 + 32 * k;
+    // ① inputs
+    const g0 = G(0);
+    M.g.forEach(([k, cnt, lab, col], i) => { const y = rowY(i);
+      img(g0, IM[k], 8, y, 40, 23); el("rect", { x: 8, y, width: 40, height: 23, fill: "none", stroke: css(col), "stroke-width": 2.2, rx: 2 }, g0);
+      txt(g0, 54, y + 10, lab, { "font-size": 11.5, fill: css(col), "font-weight": 600 });
+      txt(g0, 54, y + 23, `${cnt} × 512 × 896`, { "font-size": 10.5, class: "mono", fill: css("--muted") }); });
+    // ② c_in + concat
+    const g1 = G(1), y0 = rowY(0) + 11.5, sx = 190, sy = 40, sw = 44, sh = 168;
+    M.g.forEach((g, i) => { const y = rowY(i) + 11.5;
+      if (i === 0) { line(g1, 160, y, 162, y); el("circle", { cx: 172, cy: y, r: 9, fill: css("--card"), stroke: css("--mag"), "stroke-width": 1.8 }, g1); txt(g1, 172, y + 4, "×", { "text-anchor": "middle", "font-size": 13, fill: css("--mag"), "font-weight": 700 }); line(g1, 181, y, sx - 2, y, "scArA"); }
+      else line(g1, 160, y, sx - 2, clamp(y, sy + 4, sy + sh - 4), "scArA"); });
+    slab(g1, sx, sy, sw, sh, "--fg", { depth: 2, dx: 4, fill: 0 });
+    let yy = sy; M.g.forEach(([, cnt, , col]) => { const h = sh * cnt / CI; el("rect", { x: sx + 1, y: yy, width: sw - 2, height: Math.max(h, 1.5), fill: css(col), "fill-opacity": .45 }, g1); yy += h; });
+    el("rect", { x: sx, y: sy, width: sw, height: sh, rx: 3, fill: "none", stroke: css("--fg"), "stroke-width": 1.8 }, g1);
+    txt(g1, sx + sw / 2, sy + sh / 2 + 7, String(CI), { "text-anchor": "middle", "font-size": 20, "font-weight": 700, class: "mono", stroke: css("--card"), "stroke-width": 4, "paint-order": "stroke" });
+    txt(g1, 205, 224, `${CI} × 512 × 896`, { "text-anchor": "middle", "font-size": 10.5, class: "mono", "font-weight": 600 });
+    txt(g1, 172, y0 + 22, "c_{in}", { "text-anchor": "middle", "font-size": 10.5, fill: css("--mag"), "font-weight": 700, stroke: css("--bg"), "stroke-width": 3, "paint-order": "stroke" });
+    // ③ patch embedding
+    const g2 = G(2); line(g2, 238, 126, 252, 126, "scArA");
+    SC.box(g2, 256, 84, 74, 84, "--accent", { "stroke-width": 2 });
+    [["Patch", 12.5, 600, "--fg"], ["embed", 12.5, 600, "--fg"], ["conv 4 × 4", 10.5, 400, "--muted"], ["stride 4", 10.5, 400, "--muted"]].forEach(([s, f, w, c], i) => txt(g2, 293, 103 + 16 * i, s, { "text-anchor": "middle", "font-size": f, "font-weight": w, fill: css(c) }));
+    txt(g2, 292, 188, `${16 * CI} → 768`, { "text-anchor": "middle", "font-size": 11, class: "mono", "font-weight": 600 });
+    txt(g2, 292, 202, "per 4 × 4 patch", { "text-anchor": "middle", "font-size": 10, fill: css("--muted") });
+    // ④ tokens
+    const g3 = G(3); line(g3, 332, 126, 346, 126, "scArA");
+    const tx = 350, ty = 104, tw = 74, th = 42;
+    for (let d = 3; d >= 1; d--) el("rect", { x: tx + 4 * d, y: ty - 4 * d, width: tw, height: th, fill: css("--card"), stroke: css("--accent"), "stroke-width": 1, rx: 2 }, g3);
+    tok.forEach((v, q) => { const a = Math.floor(q / 14), c = q % 14; el("rect", { x: tx + c * tw / 14 + .4, y: ty + a * th / 8 + .4, width: tw / 14 - .8, height: th / 8 - .8, fill: SC.GRAY(clamp(v * 1.4, 0, 1)) }, g3); });
+    el("rect", { x: tx, y: ty, width: tw, height: th, fill: "none", stroke: css("--accent"), "stroke-width": 1.8, rx: 2 }, g3);
+    txt(g3, 388, 70, "768 deep", { "text-anchor": "middle", "font-size": 10, fill: css("--muted") });
+    txt(g3, 388, 168, "768 × 128 × 224", { "text-anchor": "middle", "font-size": 10.5, class: "mono" });
+    txt(g3, 388, 186, "= 28,672 tokens", { "text-anchor": "middle", "font-size": 11.5, "font-weight": 700 });
+    txt(g3, 388, 200, "× 768 numbers", { "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") });
+    // ⑤ σ embedding
+    const g4 = G(4);
+    el("circle", { cx: 172, cy: 269, r: 14, fill: css("--card"), stroke: css("--mag"), "stroke-width": 2 }, g4);
+    txt(g4, 172, 275, "σ", { "text-anchor": "middle", "font-size": 17, "font-style": "italic", fill: css("--mag"), "font-weight": 600 });
+    line(g4, 186, 269, 214, 269, "scArM", { stroke: css("--mag") });
+    SC.box(g4, 216, 250, 214, 38, "--mag");
+    txt(g4, 323, 266, "c_{noise} = ¼ ln σ → 256 sin/cos → MLP", { "text-anchor": "middle", "font-size": 11.5, fill: css("--mag"), "font-weight": 600 });
+    txt(g4, 323, 281, "→ c: one vector of 768 per sample", { "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") });
+    el("path", { d: "M172 255 V" + (y0 + 10), fill: "none", stroke: css("--mag"), "stroke-width": 1.5, "stroke-dasharray": "4 3", "marker-end": "url(#scArM)" }, g4);
+    el("path", { d: "M430 269 H838 V142", fill: "none", stroke: css("--mag"), "stroke-width": 1.6, "stroke-dasharray": "5 3", "marker-end": "url(#scArM)" }, g4);
+    [[537, 224], [682, 170]].forEach(([x, yt]) => el("path", { d: `M${x} 269 V${yt + 2}`, fill: "none", stroke: css("--mag"), "stroke-width": 1.8, "marker-end": "url(#scArM)" }, g4));
+    txt(g4, 548, 262, "c → every block (γ, β, α)", { "font-size": 10.5, fill: css("--mag") });
+    txt(g4, 692, 262, "c → head", { "font-size": 10.5, fill: css("--mag") });
+    txt(g4, 760, 290, "σ also sets c_{in}, c_{skip}, c_{out} (EDM)", { "text-anchor": "middle", "font-size": 10.5, fill: css("--mag") });
+    // ⑥ DiT blocks
+    const g5 = G(5); line(g5, 428, 126, 446, 126, "scArA");
+    for (let d = 2; d >= 1; d--) el("rect", { x: 448 + 4 * d, y: 34 - 4 * d, width: 178, height: 188, rx: 11, fill: css("--card"), stroke: css("--accent"), "stroke-width": 1 }, g5);
+    SC.box(g5, 448, 34, 178, 188, "--accent", { "stroke-width": 2, rx: 11 });
+    txt(g5, 537, 53, "16 × DiT block", { "text-anchor": "middle", "font-size": 13.5, "font-weight": 700, fill: css("--accent") });
+    const sub = (y, h, tokc, l1, l2) => { SC.box(g5, 462, y, 150, h, tokc, { rx: 7 }); txt(g5, 537, y + (l2 ? 13 : h / 2 + 4), l1, { "text-anchor": "middle", "font-size": 11.5, fill: css(tokc), "font-weight": 600 }); if (l2) txt(g5, 537, y + 26, l2, { "text-anchor": "middle", "font-size": 10, class: "mono", fill: css("--muted") }); };
+    sub(62, 24, "--mag", "adaLN: LN · (1 + γ) + β");
+    sub(94, 32, "--cool", "neighborhood attention", "31 × 31 tokens");
+    txt(g5, 537, 139, "× α₁, + residual", { "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") });
+    sub(146, 32, "--data", "adaLN → MLP", "768→3,072→768 (assumed)");
+    txt(g5, 537, 192, "× α₂, + residual", { "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") });
+    txt(g5, 537, 211, "28,672 × 768 in = out", { "text-anchor": "middle", "font-size": 10.5, class: "mono", "font-weight": 600 });
+    // ⑦ head
+    const g6 = G(6); line(g6, 628, 126, 642, 126, "scArA");
+    SC.box(g6, 644, 84, 76, 84, "--accent", { "stroke-width": 2 });
+    [["Output", 12.5, 600, "--fg"], ["head", 12.5, 600, "--fg"], ["adaLN +", 10.5, 400, "--muted"], ["linear", 10.5, 400, "--muted"]].forEach(([s, f, w, c], i) => txt(g6, 682, 103 + 16 * i, s, { "text-anchor": "middle", "font-size": f, "font-weight": w, fill: css(c) }));
+    txt(g6, 682, 188, `768 → ${16 * CO}`, { "text-anchor": "middle", "font-size": 11, class: "mono", "font-weight": 600 });
+    txt(g6, 682, 202, "per token", { "text-anchor": "middle", "font-size": 10, fill: css("--muted") });
+    // ⑧ unpatchify
+    const g7 = G(7); line(g7, 722, 126, 738, 126, "scArA");
+    slab(g7, 742, 62, 46, 128, "--accent", { depth: CO > 1 ? 3 : 0, dx: 4, fill: .12 });
+    txt(g7, 765, 131, "F_{θ}", { "text-anchor": "middle", "font-size": 17, "font-style": "italic", "font-weight": 700, fill: css("--accent") });
+    txt(g7, 770, 44, "reshape", { "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") });
+    txt(g7, 770, 208, `${CO} × 512 × 896`, { "text-anchor": "middle", "font-size": 10.5, class: "mono", "font-weight": 600 });
+    // ⑨ skip + combine
+    const g8 = G(8);
+    el("path", { d: `M161 ${y0} V13 H838 V108`, fill: "none", stroke: css("--fg"), "stroke-width": 1.6, "marker-end": "url(#scArF)" }, g8);
+    txt(g8, 500, 10, "skip connection: the noisy input x_{σ} itself goes straight to the end, weighted by c_{skip}(σ)", { "text-anchor": "middle", "font-size": 11, fill: css("--fg") });
+    line(g8, 794, 126, 822, 126, "scArA");
+    el("circle", { cx: 838, cy: 126, r: 15, fill: css("--card"), stroke: css("--fg"), "stroke-width": 1.8 }, g8);
+    txt(g8, 838, 132, "+", { "text-anchor": "middle", "font-size": 19, "font-weight": 700 });
+    txt(g8, 846, 72, "× c_{skip}", { "font-size": 10.5, fill: css("--mag"), "font-weight": 600 });
+    txt(g8, 818, 150, "× c_{out}", { "text-anchor": "end", "font-size": 10.5, fill: css("--mag"), "font-weight": 600 });
+    line(g8, 853, 126, 868, 126, "scArA");
+    slab(g8, 872, 62, 46, 128, "--accent", { depth: CO > 1 ? 3 : 0, dx: 4, fill: .3 });
+    txt(g8, 895, 131, "D_{θ}", { "text-anchor": "middle", "font-size": 17, "font-style": "italic", "font-weight": 700, fill: css("--accent") });
+    txt(g8, 900, 208, `${CO} × 512 × 896`, { "text-anchor": "middle", "font-size": 10.5, class: "mono", "font-weight": 600 });
+    [["denoised", "--fg"], ["future", "--fg"], ["→ loss", "--muted"], ["→ sampler", "--muted"]].forEach(([s, c], i) => txt(g8, 934, 96 + 16 * i + (i > 1 ? 14 : 0), s, { "font-size": 10.5, fill: css(c) }));
+    // card and readout
+    const C = CARDS[step];
+    $("#scArCard").innerHTML = `<h4>${C[0]}</h4>${C[1](M)}`;
+    const SH = [[M.g.map(g => g[1]).join(" + ") + " ch", CI * 458752], [`${CI} × 512 × 896`, CI * 458752], ["768 × 128 × 224", 768 * 28672], ["28,672 × 768", 768 * 28672], ["768 (one vector)", 768], ["28,672 × 768", 768 * 28672],
+      [`28,672 × ${16 * CO}`, 28672 * 16 * CO], [`${CO} × 512 × 896`, CO * 458752], [`${CO} × 512 × 896`, CO * 458752]][step];
+    $("#scArRead").innerHTML = `<div style="flex-basis:100%"><span>Tensor at this stage</span><b>${SH[0]}</b></div><div><span>Numbers</span><b class="c-data">${SC.big(SH[1], SH[1] < 1e6 ? 0 : 1)}</b></div><div><span>fp32 size</span><b class="c-data">${SH[1] * 4 >= 1e6 ? fmt(SH[1] * 4 / 1e6, 0) + " MB" : fmt(SH[1] * 4 / 1e3, 1) + " kB"}</b></div><div><span>Channels in / out</span><b class="c-arch">${CI} / ${CO}</b></div>`;
+  }
+  const MODELS = () => SC.MODELS[mode];
+  render(); return render;
+});
+
+/* ───────── 2 · parameters, operations, memory ───────── */
+demo("sc-params", () => {
+  let mode = "sn", d = 768, r = 4, pos = 1;
+  chips($("#scPaMode"), v => { mode = v; render(); }); chips($("#scPaD"), v => { d = +v; render(); });
+  chips($("#scPaR"), v => { r = +v; render(); }); chips($("#scPaPos"), v => { pos = +v; render(); });
+  const Ls = slider("scPaL", v => v, render);
+  // stacked bar with a legend underneath; returns the y below it
+  function sbar(svg, y, segs, max, W, { mark = null, unit = v => SC.big(v), h = 20, title = "" } = {}) {
+    const x0 = 4, span = W - 8, X = v => x0 + span * v / max;
+    if (title) { SC.txt(svg, x0, y + 11, title, { "font-size": 11.5, "font-weight": 600 }); y += 16; } else if (mark) y += 12;
+    el("rect", { x: x0, y, width: span, height: h, rx: 4, fill: css("--well") }, svg);
+    let acc = 0; segs.forEach(s => { if (s.v <= 0) return; el("rect", { x: X(acc), y, width: Math.max(1, X(acc + s.v) - X(acc)), height: h, fill: css(s.col), opacity: .85 }, svg); acc += s.v; });
+    if (mark) { el("line", { x1: X(mark.v), x2: X(mark.v), y1: y - 5, y2: y + h + 5, stroke: css("--fg"), "stroke-width": 2, "stroke-dasharray": "4 3" }, svg);
+      const right = X(mark.v) > W - 120; SC.txt(svg, X(mark.v) + (right ? -5 : 5), y - 3, mark.lab, { "font-size": 11, "font-weight": 700, "text-anchor": right ? "end" : "start" }); }
+    let lx = x0, ly = y + h + 15;
+    segs.forEach(s => { if (s.v <= 0 && !s.keep) return; const t = `${s.lab} ${unit(s.v)}`, w = 14 + t.length * 6.1;
+      if (lx + w > W) { lx = x0; ly += 15; }
+      el("rect", { x: lx, y: ly - 9, width: 9, height: 9, rx: 2, fill: css(s.col) }, svg);
+      SC.txt(svg, lx + 12, ly, t, { "font-size": 11, fill: css("--fg") }); lx += w + 8; });
+    return ly + 6;
+  }
+  function render() {
+    const L = Ls(), ci = SC.cin(mode), co = SC.MODELS[mode].out, E = SC.est({ ci, co, d, L, r, pos }), P = E.P, F = E.F, W = 600;
+    const pseg = [{ v: P.attn, col: "--cool", lab: "attention Q K V O" }, { v: P.mlp, col: "--data", lab: "MLP" }, { v: P.ada, col: "--mag", lab: "adaLN (from σ)" }, { v: P.pos, col: "--muted", lab: "position table", keep: true },
+      { v: P.patch, col: "--arch", lab: "patch embed" }, { v: P.temb, col: "--sw", lab: "σ embedding" }, { v: P.head, col: "--accent", lab: "head" }];
+    const s1 = svgIn($("#scPaP"), W, 76), m1 = Math.max(P.total, 195e6) * 1.06;
+    const h1 = sbar(s1, 4, pseg, m1, W, { mark: { v: 195e6, lab: "paper: 195 M" } }); s1.setAttribute("viewBox", `0 0 ${W} ${h1}`);
+    const fseg = [{ v: F.proj, col: "--cool", lab: "Q K V O projections" }, { v: F.na, col: "--accent", lab: "attention scores (31 × 31)" }, { v: F.mlp, col: "--data", lab: "MLP" }, { v: F.io, col: "--arch", lab: "patch + head" }];
+    const s2 = svgIn($("#scPaF"), W, 60), h2 = sbar(s2, 4, fseg, F.total * 1.02, W, { unit: v => SC.big(v) + "FLOP" }); s2.setAttribute("viewBox", `0 0 ${W} ${h2}`);
+    const s3 = svgIn($("#scPaM"), W, 120), gb = v => fmt(v / 1e9, 1) + " GB";
+    let y = sbar(s3, 2, [{ v: E.Mt.state, col: "--arch", lab: "weights + grads + Adam" }, { v: E.Mt.act, col: "--data", lab: "stored activations" }], Math.max(E.Mt.state + E.Mt.act, 70e9) * 1.08, W, { mark: { v: 70e9, lab: "paper: ~70 GB" }, unit: gb, title: "Training (one sample per GPU)", h: 16 });
+    y = sbar(s3, y + 2, [{ v: E.Mi.w, col: "--arch", lab: "weights" }, { v: E.Mi.act, col: "--data", lab: "working activations, one block" }], Math.max(E.Mi.w + E.Mi.act, 5e9) * 1.08, W, { mark: { v: 5e9, lab: "paper: ~5 GB" }, unit: gb, title: "Inference", h: 16 });
+    s3.setAttribute("viewBox", `0 0 ${W} ${y}`);
+    const ok = Math.abs(P.total / 195e6 - 1) < .03, tf = F.total / 1e12, pc = v => fmt(100 * v, 0) + " %";
+    $("#scPaIns").innerHTML = `<b>Parameters ≠ compute.</b> adaLN holds ${pc(P.ada / P.total)} of the weights but costs almost nothing (it runs once per sample, not per token); a learned position table would be ${pc(P.pos / P.total)} of the weights and 0 FLOP. The MLP does ${pc(F.mlp / F.total)} of the work; thanks to the 31 × 31 window the attention scores are only ${pc(F.na / F.total)} (global attention would need ~${fmt(28672 / 961, 0)}× more, see <button class="btn scgo" data-go="sb-na" style="padding:0 8px;font-size:12px">sb-na</button>).`;
+    $("#scPaRead").innerHTML = `<div><span>Parameters</span><b class="${ok ? "c-ok" : "c-lw"}">${fmt(P.total / 1e6, 1)} M</b></div><div><span>vs paper</span><b class="${ok ? "c-ok" : "c-lw"}">${fmt(100 * P.total / 195e6, 0)} %</b></div><div><span>per call</span><b class="c-data">${fmt(tf, 1)} TFLOP</b></div><div><span>Heads</span><b class="c-arch">${E.h}</b></div>`;
+    const per = (4 * d * d + 4 * d) + (2 * r * d * d + r * d + d) + (6 * d * d + 6 * d), M = v => fmt(v / 1e6, 2).padStart(6) + " M";
+    $("#scPaCalc").innerHTML = `<span class="m">per block, d = ${d}, MLP ${r} d</span>
+attention Q K V O  4 d²     = <span class="k">${M(P.attn / L)}</span>
+MLP                2·${r} d²   = <span class="k">${M(P.mlp / L)}</span>
+adaLN-Zero         d · 6 d  = <span class="k">${M(P.ada / L)}</span>
+× ${L} blocks                 = <span class="k">${M(per * L)}</span>
++ patch, σ-MLP, head        = <span class="k">${M(P.patch + P.temb + P.head)}</span>
++ position table 28,672 · d = <span class="k">${M(P.pos)}</span>
+<b>total ≈ ${fmt(P.total / 1e6, 1)} M</b> <span class="m">(paper: 195 M)</span>
+<span class="m">100 calls in 33 s ⇒ ≈ ${fmt(tf * 100 / 33, 0)} TFLOP/s achieved (1 call per σ step)</span>`;
+  }
+  render(); return render;
+});
+
+/* ───────── 3 · one training iteration ───────── */
+demo("sc-iter", slide => {
+  const { NX, NY, txt, img, line, frame } = SC;
+  let step = 0, read6 = "it", timer = null, D = null, seed = 7;
+  const btns = $$("#scItStep button.chip");
+  chips($("#scItStep"), v => { stop(); step = +v; render(); });
+  chips($("#scItRead6"), v => { read6 = v; render(); });
+  const Is = slider("scItI", v => fmt(v / 100 * 6, 2) + " M", render);
+  const T0 = Date.UTC(2018, 0, 1), T1 = Date.UTC(2024, 0, 1), YR = 365.25 * 864e5;
+  // the drawn sample: valid time, σ, noise, toy fields
+  function draw() {
+    const r = rng(seed * 7919 + 13), t = T0 + Math.floor(r() * (T1 - T0) / 6e5) * 6e5, ls = Math.log(SC.SMIN) + r() * (Math.log(SC.SMAX) - Math.log(SC.SMIN)), s = Math.exp(ls);
+    const ws = 1 + (seed % 9), past = [0, 10, 20, 30, 40, 50].map(m => SC.storm(30 + m, ws)), tgt = SC.storm(90, ws), X = Float32Array.from(tgt, v => 2 * v - .3);
+    const n = Float32Array.from({ length: NX * NY }, () => gauss(r)), xs = Float32Array.from(X, (v, k) => v + s * n[k]);
+    // toy denoiser: a blur whose radius grows with σ, shrunk towards the mean (Wiener-like); not the real network
+    const rad = clamp(Math.round(1.6 * s), 0, 7), m = mean(Array.from(X)), se = s / (2 * rad + 1), k = SC.SD * SC.SD / (SC.SD * SC.SD + se * se), bl = SC.blur(xs, rad);
+    const xh = Float32Array.from(bl, v => m + k * (v - m));
+    let mse = 0; for (let q = 0; q < X.length; q++) mse += (xh[q] - X[q]) ** 2; mse /= X.length;
+    D = { t: new Date(t), s, past, tgt, X, n, xs, xh, mse };
+  }
+  draw(); while (D.s < .4 || D.s > 6) { seed++; draw(); }
+  $("#scItNew").onclick = () => { seed++; draw(); render(); };
+  function stop() { if (timer) clearInterval(timer); timer = null; $("#scItRun").textContent = "▶ Run"; }
+  $("#scItRun").onclick = () => { if (timer) { stop(); return; } step = 0; press(btns, btns[0]); render(); $("#scItRun").textContent = "❚❚ Pause";
+    timer = setInterval(() => { if (!slide.classList.contains("on") || step >= 8) { stop(); return; } step++; press(btns, btns[step]); render(); }, 900); };
+  const gray = (f, lo = -1, hi = 2) => SC.url(SC.paint(f, NX, NY, { color: SC.GRAY, lo, hi }));
+  const ds = d => d.toISOString().slice(0, 16).replace("T", " ") + " UTC";
+  const fs = s => fmt(s, s < .1 ? 3 : s < 10 ? 2 : 1);
+  function render() {
+    const svg = svgIn($("#scItFig"), 1000, 254); arrowDefs(svg, "scItA", css("--muted")); arrowDefs(svg, "scItL", css("--lw"));
+    const on = k => step === k, G = k => el("g", Object.assign({ opacity: on(k) ? 1 : .45, "data-st": k, style: "cursor:pointer" }, k >= 4 ? { transform: "translate(0 -12)" } : {}), svg);
+    const NB = [[24, 6, 212, 108], [256, 6, 230, 108], [506, 6, 230, 108], [756, 6, 240, 108], [806, 138, 190, 112], [606, 138, 182, 112], [406, 138, 182, 112], [206, 138, 182, 112], [24, 138, 164, 112]];
+    NB.forEach(([x, y, w, h], k) => frame(svg, x, y, w, h, on(k), k));
+    const T = (k, s) => txt(svg, NB[k][0] + 9, NB[k][1] + 18, s, { "font-size": 12.5, "font-weight": 700, fill: css(on(k) ? "--accent" : "--muted") });
+    ["① pick a time t", "② load the frames", "③ draw σ, log-uniform", "④ add noise", "⑤ forward pass", "⑥ weighted loss", "⑦ backward pass", "⑧ all-reduce 32 GPUs", "⑨ Stable AdamW"].forEach((s, k) => T(k, s));
+    // flow arrows and the loop
+    [[236, 254], [486, 504], [736, 754]].forEach(([a, b]) => line(svg, a, 62, b, 62, "scItA"));
+    line(svg, 976, 114, 976, 136, "scItA"); [[806, 788], [606, 588], [406, 388], [206, 190]].forEach(([a, b]) => line(svg, a, 194, b, 194, "scItA"));
+    el("path", { d: "M24 224 H10 V40 H22", fill: "none", stroke: css("--muted"), "stroke-width": 1.7, "marker-end": "url(#scItA)" }, svg);
+    txt(svg, 7, 132, "next iteration", { "font-size": 10.5, fill: css("--muted"), transform: "rotate(-90 7 132)", "text-anchor": "middle" });
+    // ① timeline
+    const g0 = G(0), X0 = 36, X1 = 226, yr = v => X0 + (X1 - X0) * (v - 2018) / 7;
+    [["GOES", 2018, 2024, "--cool", 34], ["MRMS", 2020, 2024, "--lw", 54]].forEach(([s, a, b2, c, y]) => { el("rect", { x: yr(a), y, width: yr(b2) - yr(a), height: 12, rx: 3, fill: css(c), opacity: .75 }, g0);
+      el("rect", { x: yr(2024), y, width: yr(2025) - yr(2024), height: 12, rx: 3, fill: css("--muted"), opacity: .3 }, g0); txt(g0, yr(a) + 4, y + 10, s, { "font-size": 10, fill: "#fff", "font-weight": 700 }); });
+    txt(g0, yr(2024.5), 80, "test", { "font-size": 10, "text-anchor": "middle", fill: css("--muted") });
+    for (let v = 2018; v <= 2025; v++) txt(g0, yr(v), 91, "’" + String(v).slice(2), { "font-size": 9.5, "text-anchor": "middle", class: "mono", fill: css("--muted") });
+    const tv = 2018 + (D.t - T0) / YR; el("line", { x1: yr(tv), x2: yr(tv), y1: 28, y2: 70, stroke: css("--accent"), "stroke-width": 2.5 }, g0);
+    txt(g0, 130, 106, "t = " + ds(D.t), { "font-size": 10.5, "text-anchor": "middle", class: "mono", "font-weight": 600, fill: css("--accent") });
+    // ② frames
+    const g1 = G(1);
+    D.past.forEach((f, i) => { const x = 266 + 5 * i, y = 52 - 5 * i; img(g1, SC.url(SC.irPaint(f)), x, y, 56, 32); el("rect", { x, y, width: 56, height: 32, fill: "none", stroke: css("--cool"), "stroke-width": 1.2 }, g1); });
+    line(g1, 350, 54, 386, 54, "scItA"); txt(g1, 368, 47, "+10 min", { "font-size": 9.5, "text-anchor": "middle", fill: css("--muted") });
+    img(g1, SC.url(SC.irPaint(D.tgt)), 392, 34, 64, 37); el("rect", { x: 392, y: 34, width: 64, height: 37, fill: "none", stroke: css("--fg"), "stroke-width": 2 }, g1);
+    txt(g1, 266, 93, "x_{t−}: 6 × 8 × 512 × 896", { "font-size": 10.5, class: "mono", fill: css("--cool") });
+    txt(g1, 266, 106, "x_{t+}: 8 × 512 × 896 (target)", { "font-size": 10.5, class: "mono" });
+    // ③ σ
+    const g2 = G(2), a0 = 520, a1 = 722, lx = v => a0 + (a1 - a0) * (Math.log10(v) - Math.log10(SC.SMIN)) / (Math.log10(SC.SMAX) - Math.log10(SC.SMIN)), ay = 74;
+    el("rect", { x: a0, y: ay - 5, width: lx(SC.SINT) - a0, height: 10, fill: css("--data"), opacity: .35 }, g2); el("rect", { x: lx(SC.SINT), y: ay - 5, width: a1 - lx(SC.SINT), height: 10, fill: css("--sw"), opacity: .35 }, g2);
+    [0.01, 0.1, 1, 10].forEach(v => { el("line", { x1: lx(v), x2: lx(v), y1: ay - 7, y2: ay + 7, stroke: css("--muted") }, g2); txt(g2, lx(v), ay + 19, String(v), { "font-size": 9.5, class: "mono", "text-anchor": "middle", fill: css("--muted") }); });
+    txt(g2, a0 + 2, 104, "fine expert", { "font-size": 10.5, fill: css("--data"), "font-weight": 600 }); txt(g2, a1, 104, "coarse expert", { "font-size": 10.5, fill: css("--sw"), "font-weight": 600, "text-anchor": "end" });
+    el("line", { x1: lx(SC.SINT), x2: lx(SC.SINT), y1: ay - 12, y2: ay + 12, stroke: css("--fg"), "stroke-dasharray": "3 2" }, g2);
+    el("circle", { cx: lx(D.s), cy: ay, r: 6.5, fill: css("--accent"), stroke: css("--card"), "stroke-width": 2 }, g2);
+    txt(g2, clamp(lx(D.s), a0 + 30, a1 - 30), 52, "σ = " + fs(D.s), { "font-size": 12, class: "mono", "font-weight": 700, "text-anchor": "middle", fill: css("--accent") });
+    // ④ noise
+    const g3 = G(3);
+    img(g3, gray(D.X), 766, 36, 56, 32); txt(g3, 828, 57, "+", { "font-size": 16, "font-weight": 700 });
+    img(g3, gray(D.n, -3, 3), 842, 36, 56, 32); txt(g3, 904, 57, "=", { "font-size": 16, "font-weight": 700 });
+    img(g3, gray(D.xs), 918, 30, 70, 40); el("rect", { x: 918, y: 30, width: 70, height: 40, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, g3);
+    txt(g3, 794, 82, "x_{t+}", { "font-size": 11, "text-anchor": "middle" }); txt(g3, 870, 82, "σ · n", { "font-size": 11, "text-anchor": "middle" }); txt(g3, 953, 84, "x_{σ}", { "font-size": 11, "text-anchor": "middle", fill: css("--accent"), "font-weight": 700 });
+    txt(g3, 766, 102, "n ~ N(0, 1): 8 × 512 × 896 draws", { "font-size": 10.5, fill: css("--muted") });
+    // ⑤ forward
+    const g4 = G(4);
+    SC.box(g4, 816, 178, 84, 48, "--accent", { "stroke-width": 2 }); txt(g4, 858, 198, "D_{θ}", { "font-size": 15, "font-style": "italic", "font-weight": 700, "text-anchor": "middle", fill: css("--accent") }); txt(g4, 858, 216, "slide 1", { "font-size": 10, "text-anchor": "middle", fill: css("--muted") });
+    line(g4, 902, 202, 914, 202, "scItA");
+    img(g4, gray(D.xh), 918, 182, 70, 40); el("rect", { x: 918, y: 182, width: 70, height: 40, fill: "none", stroke: css("--accent"), "stroke-width": 2 }, g4);
+    txt(g4, 953, 236, "x̂ (toy)", { "font-size": 11, "text-anchor": "middle" });
+    txt(g4, 816, 252, "≈ 7.9 TFLOP (our estimate)", { "font-size": 10.5, fill: css("--muted") });
+    // ⑥ loss
+    const g5 = G(5), lam = SC.lam(D.s);
+    txt(g5, 616, 190, "λ(σ) · mean (x̂ − x_{t+})²", { "font-size": 12, "font-weight": 600 });
+    txt(g5, 616, 210, `MSE   = ${D.mse < .001 ? D.mse.toExponential(2) : fmt(D.mse, 4)}`, { "font-size": 11, class: "mono" });
+    txt(g5, 616, 226, `λ(σ)  = ${lam < 100 ? fmt(lam, 2) : fmtN(lam)}`, { "font-size": 11, class: "mono" });
+    txt(g5, 616, 245, `loss  = ${fmt(lam * D.mse, 3)}`, { "font-size": 12, class: "mono", "font-weight": 700, fill: css("--accent") });
+    // ⑦ backward
+    const g6 = G(6);
+    el("path", { d: "M576 214 H420", fill: "none", stroke: css("--lw"), "stroke-width": 2.2, "stroke-dasharray": "6 4", "marker-end": "url(#scItL)" }, g6);
+    txt(g6, 498, 194, "∂L/∂θ for all 195 M weights", { "font-size": 11.5, "text-anchor": "middle", "font-weight": 600 });
+    txt(g6, 498, 234, "≈ 2 × forward ≈ 16 TFLOP", { "font-size": 10.5, "text-anchor": "middle", fill: css("--muted") });
+    txt(g6, 498, 250, "uses the stored activations", { "font-size": 10.5, "text-anchor": "middle", fill: css("--muted") });
+    // ⑧ all-reduce
+    const g7 = G(7);
+    for (let q = 0; q < 32; q++) { const x = 218 + (q % 8) * 15, y = 178 + Math.floor(q / 8) * 15, rr = rng(seed * 31 + q)(); el("rect", { x, y, width: 12, height: 12, rx: 2, fill: css("--card"), stroke: css("--arch") }, g7); el("rect", { x: x + 2, y: y + 10 - 8 * rr, width: 8, height: 8 * rr, fill: css("--lw"), opacity: .8 }, g7); }
+    line(g7, 340, 206, 350, 206, "scItA"); txt(g7, 368, 210, "mean", { "font-size": 11, "text-anchor": "middle", "font-weight": 600 });
+    txt(g7, 216, 254, "32 GPUs × 1 sample each (our arithmetic)", { "font-size": 10, fill: css("--muted") });
+    // ⑨ update
+    const g8 = G(8), it = Is() / 100 * 6e6, lr = 5e-4 * .5 * (1 + Math.cos(Math.PI * it / 6e6));
+    txt(g8, 34, 192, "θ ← θ − lr · step(m, v)", { "font-size": 11.5, class: "mono" });
+    txt(g8, 34, 212, `lr = ${lr.toExponential(1)}`, { "font-size": 12, class: "mono", "font-weight": 700, fill: css("--accent") });
+    txt(g8, 34, 230, "cosine 5·10⁻⁴ → 0", { "font-size": 10.5, fill: css("--muted") });
+    txt(g8, 34, 246, "then back to ① (~6 M ×)", { "font-size": 10.5, fill: css("--muted") });
+    // card
+    const ex = D.s > SC.SINT ? "coarse" : "fine", CI = SC.cin("sn");
+    const CARD = [
+      ["① Pick a random valid time t", `Any 10-minute time in the training years: GOES 2018–2023 for the satellite models, MRMS 2020–2023 for the radar models; 2024 is never seen (test). This draw: <b class="mono">${ds(D.t)}</b> (toy). Each of the 32 GPUs picks its own t, so one iteration sees 32 different times. ${SC.tag("o", "our arithmetic")}6 years × 52,596 ten-minute times ≈ 316 k possible starts.`],
+      ["② Load the window around t", `Satellite nowcast: the 6 frames of the hour before (x<sub>t−</sub>, 6 × 8 × 512 × 896) and the true next frame (x<sub>t+</sub>, 8 × 512 × 896), plus lat/lon and cos SZA: ${CI} channels in (slide 1). A nearcast model would load 1 frame an hour earlier and ERA5 Z500 (§4.1.2).`],
+      ["③ Draw a noise level σ", `σ uniform in log σ between σ<sub>min</sub> and σ<sub>max</sub> (§4.2.3): every decade of noise gets the same share of training. This draw: <b class="mono">σ = ${fs(D.s)}</b> → the <b style="color:var(--${ex === "coarse" ? "sw" : "data"})">${ex} expert</b> is trained (toy σ<sub>int</sub> = 1). EDM's own default is log-normal around σ ≈ 1.2.`],
+      ["④ Add noise to the target", `x<sub>σ</sub> = x<sub>t+</sub> + σ · n with n ~ N(0, I): 8 × 512 × 896 ≈ 3.7 M random numbers. At σ = ${fs(D.s)} the noise is ${D.s > 2 ? "far larger than" : D.s > .3 ? "about as large as" : "much smaller than"} the signal (toy data scaled to σ<sub>data</sub> ≈ 0.5).`],
+      ["⑤ Forward pass", `The whole of slide 1: c<sub>in</sub> and concat → patches → 16 blocks → head → c<sub>skip</sub>, c<sub>out</sub>. Output x̂ = D<sub>θ</sub>(x<sub>σ</sub>; x<sub>t−</sub>, c; σ), 8 × 512 × 896. ${SC.tag("t", "toy")}a σ-dependent blur stands in for the network here.`],
+      ["⑥ Weighted loss, eq. (1)", `λ(σ) · ‖x̂ − x<sub>t+</sub>‖², averaged over pixels and channels. With EDM's λ(σ) = (σ² + σ<sub>d</sub>²)/(σ σ<sub>d</sub>)², large-σ errors (naturally big) and small-σ errors (naturally tiny) count about equally. Toy numbers: MSE ${D.mse < .001 ? D.mse.toExponential(2) : fmt(D.mse, 4)} × λ ${lam < 100 ? fmt(lam, 2) : fmtN(lam)} = <b>${fmt(lam * D.mse, 3)}</b>.`],
+      ["⑦ Backward pass", `Back-propagation computes ∂L/∂θ for every one of the 195 M parameters, re-using the activations stored during the forward pass: these, not the weights, fill most of the ~70 GB of GPU memory (§4.2.2; slide 2). Cost ≈ 2 × the forward pass (standard rule of thumb).`],
+      ["⑧ Average the gradients over 32 GPUs", `Data parallelism (§4.2.2): every GPU holds a full copy of the model and processed its own sample; an all-reduce averages the 32 gradients so all copies stay identical. Batch 32 on 32 H100s ⇒ one sample per GPU per iteration (our arithmetic).`],
+      ["⑨ Update the weights", `Stable AdamW (Wortsman et al. 2023, paper ref. 48) moves each weight using running averages of its gradient (m) and squared gradient (v); the learning rate follows a cosine from 5 × 10⁻⁴ to 0 (right). Then back to ①, ~6 M times, ~48 h per model (§4.2.3).`]];
+    $("#scItCard").innerHTML = `<h4>${CARD[step][0]}</h4><p>${CARD[step][1]}</p>`;
+    // learning-rate schedule
+    const pts = Array.from({ length: 61 }, (_, i) => [i / 10, 5e-4 * .5 * (1 + Math.cos(Math.PI * i / 60))]);
+    VIZ.curves($("#scItLr"), [{ pts, col: "--accent", label: "lr, cosine 5·10⁻⁴ → 0 (paper)" }], { xr: [0, 6], yr: [0, 5.5e-4], W: 470, H: 94, xl: "iterations (M)", yl: "learning rate", xt: [0, 2, 4, 6], yt: [0, 2.5e-4, 5e-4], xf: v => fmt(v, 0), yf: v => v ? v.toExponential(1) : "0", marks: [[it / 1e6, "now", "--lw"]], legendAt: "tr" });
+    $("#scItWhy").innerHTML = read6 === "it" ? `As optimizer steps: 6 M × 32 = 192 M samples (~600 epochs) at ~35 steps/s, i.e. ~0.8 PFLOP/s per GPU by our estimate: near the H100's peak, implausible.` : `As samples: ~190 k optimizer steps (~19 epochs) at ~1.1 steps/s, ~26 TFLOP/s per GPU: plausible. The paper does not say which; this is our reading.`;
+    const steps = read6 === "it" ? 6e6 : 6e6 / 32, ips = steps / (48 * 3600), smp = it / 6e6 * steps * 32, tfg = ips * 3 * 7.9;
+    $("#scItRead").innerHTML = `<div><span>Samples seen</span><b class="c-data">${SC.big(smp, 0)}</b></div><div><span>Epochs</span><b class="c-data">${fmt(smp / 315576, smp / 315576 < 10 ? 1 : 0)}</b></div><div><span>Steps / s</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmt(ips, 1)}</b></div><div><span>TFLOP/s per GPU</span><b class="${ips > 5 ? "c-lw" : "c-ok"}">${fmtN(tfg)}</b></div>`;
+  }
+  $("#scItFig").addEventListener("click", e => { const t = e.target.closest("[data-st]"); if (!t) return; stop(); step = +t.dataset.st; press(btns, btns[step]); render(); });
+  render(); return render;
+});
+
+/* ───────── 4 · one forecast as nested loops ───────── */
+demo("sc-forecast", slide => {
+  const { NX, NY, txt, img } = SC;
+  let mode = "now", models = 2, k = 0, m = 0, i = 0, done = false, timer = null, speed = 8, flash = 0;
+  chips($("#scFcMode"), v => { mode = v; reset(); }); chips($("#scFcMod"), v => { models = +v; reset(); }); chips($("#scFcSp"), v => { speed = +v; });
+  const Ss = slider("scFcS", v => v, () => reset()), Ms = slider("scFcM", v => v, render), Gs = slider("scFcG", v => v, render);
+  const seed = 5, r = rng(99), nz = Float32Array.from({ length: NX * NY }, () => gauss(r));
+  const dtToy = () => mode === "now" ? 10 : 22;
+  const FC = new Map();
+  const fld = lead => { const key = mode + lead; if (!FC.has(key)) FC.set(key, SC.storm(120 + lead * dtToy(), seed)); return FC.get(key); };
+  let UR = new Map(), URkey = "";
+  const thumb = (lead, kind) => { const key = mode + kind + lead; if (!UR.has(key)) { const f = fld(lead); UR.set(key, SC.url(kind === "s" ? SC.irPaint(f) : SC.radPaint(f))); } return UR.get(key); };
+  function reset() { stop(); k = 0; m = 0; i = 0; done = false; render(); }
+  function tick() { if (done) return; const S = Ss(); i++; if (i >= S) { if (m === 0 && models === 2) { m = 1; i = 0; } else { k++; m = 0; i = 0; flash = 6; if (k >= 12) done = true; } } }
+  function stop() { if (timer) clearInterval(timer); timer = null; $("#scFcPlay").textContent = "▶ Play"; }
+  $("#scFcPlay").onclick = () => { if (timer) { stop(); return; } if (done) { k = 0; m = 0; i = 0; done = false; }
+    $("#scFcPlay").textContent = "❚❚ Pause";
+    timer = setInterval(() => { if (!slide.classList.contains("on")) { stop(); return; } for (let q = 0; q < speed; q++) tick(); if (flash > 0) flash--; render(); if (done) stop(); }, 50); };
+  $("#scFcI").onclick = () => { stop(); flash = 0; tick(); render(); };
+  $("#scFcK").onclick = () => { stop(); if (done) return; const k0 = k; while (!done && k === k0) tick(); flash = 6; render(); };
+  $("#scFcR").onclick = reset;
+  function code() {
+    const now = mode === "now", two = models === 2;
+    const L = [["mem", `<span class="k">for</span> member <span class="k">in</span> range(${Ms()}):          <span class="c"># spread over ${Gs()} GPU${Gs() > 1 ? "s" : ""}</span>`],
+      ["win", now ? `  window = 6 observed frames        <span class="c"># t0−50 … t0</span>` : `  window = obs. at t0 + GFS field   <span class="c"># 1 frame</span>`],
+      ["k", `  <span class="k">for</span> k <span class="k">in</span> range(12):                <span class="c"># lead: ${now ? "10 min" : "1 h"} each</span>`],
+      ["x0", `    x = σ_max · noise()             <span class="c"># satellite DiT</span>`],
+      ["is", `    <span class="k">for</span> i <span class="k">in</span> range(${Ss()}):             <span class="c"># σ_max → σ_min</span>`],
+      ["net", `      net = coarse <span class="k">if</span> σ_i > σ_int <span class="k">else</span> fine`],
+      ["sx", `      x = step(net, x, σ_i → σ_i+1 | window)`],
+      ...(two ? [["y0", `    y = σ_max · noise()             <span class="c"># radar DiT, sees x</span>`],
+        ["ir", `    <span class="k">for</span> i <span class="k">in</span> range(${Ss()}):`],
+        ["sy", `      y = step(net_r, y, σ_i → σ_i+1 | window, x)`]] : []),
+      ["out", `    save(k, x${two ? ", y" : ""})`],
+      ["sl", now ? `    window = window[1:] + [x${two ? ", y" : ""}]   <span class="c"># slide</span>` : `    window = x${two ? ", y" : ""} + next GFS field`]];
+    const onK = done ? [] : flash > 0 ? ["out", "sl"] : m === 0 ? (i === 0 ? ["x0", "net", "sx"] : ["net", "sx"]) : (i === 0 ? ["y0", "sy"] : ["sy"]);
+    const ctx = done ? [] : ["mem", "k", m === 0 ? "is" : "ir"];
+    $("#scFcCode").innerHTML = L.map(([key, s]) => `<span class="ln${onK.includes(key) ? " on" : ctx.includes(key) ? " ctx" : ""}">${s}</span>`).join("");
+  }
+  function render() {
+    if (css("--well") !== URkey) { UR = new Map(); URkey = css("--well"); }
+    const S = Ss(), sg = SC.sched(S), now = mode === "now", W = 600, svg = svgIn($("#scFcFig"), W, 252);
+    const x0 = 40, cw = (W - x0 - 4) / 12, tw = cw - 5, th = tw * 4 / 7;
+    txt(svg, 0, 11, "outer loop: lead steps (toy fields)", { "font-size": 11, fill: css("--muted"), "font-weight": 600 });
+    txt(svg, x0 - 6, 18 + th / 2 + 4, "sat", { "font-size": 10.5, "text-anchor": "end", fill: css("--cool"), "font-weight": 600 });
+    txt(svg, x0 - 6, 22 + th * 1.5 + 4, "radar", { "font-size": 10.5, "text-anchor": "end", fill: css("--lw"), "font-weight": 600 });
+    const cur = (mi) => { const f = fld(k + 1), s = sg[Math.min(i, S - 1)], noisy = Float32Array.from(f, (v, q) => (mi === 0 ? 292 - 88 * v : clamp(78 * (v - .18), 0, 62)) + (mi === 0 ? 45 : 30) * Math.min(s, 3) * nz[q]);
+      return SC.url(mi === 0 ? SC.paint(noisy, NX, NY, { color: SC.GRAY, lo: 300, hi: 200 }) : SC.paint(noisy, NX, NY, { color: CM.precip, lo: 0, hi: 60, mask: v => v < 5 })); };
+    for (let q = 0; q < 12; q++) { const x = x0 + q * cw;
+      [0, 1].forEach(mi => { const y = 18 + mi * (th + 4);
+        if (mi === 1 && models === 1) { el("rect", { x, y, width: tw, height: th, rx: 2, fill: "none", stroke: css("--line"), "stroke-dasharray": "2 3" }, svg); return; }
+        const fin = q < k || done, act = !done && q === k;
+        if (fin) img(svg, thumb(q + 1, mi ? "r" : "s"), x, y, tw, th);
+        else if (act && (mi < m || (mi === m && i > 0))) img(svg, mi < m ? thumb(q + 1, mi ? "r" : "s") : cur(mi), x, y, tw, th);
+        el("rect", { x, y, width: tw, height: th, rx: 2, fill: "none", stroke: css(act && mi === m ? "--accent" : fin ? (mi ? "--lw" : "--cool") : "--line"), "stroke-width": act && mi === m ? 2.4 : 1, "stroke-dasharray": fin || act ? "" : "2 3" }, svg); });
+      txt(svg, x + tw / 2, 18 + 2 * th + 18, now ? "+" + (q + 1) * 10 : "+" + (q + 1) + "h", { "font-size": 9.5, "text-anchor": "middle", class: "mono", fill: css(!done && q === k ? "--accent" : "--muted"), "font-weight": !done && q === k ? 700 : 400 }); }
+    txt(svg, W - 2, 11, now ? "minutes after t0" : "hours after t0", { "font-size": 10, "text-anchor": "end", fill: css("--muted") });
+    // inner loop
+    const iy = 106, bw = (W - x0 - 4) / S, ki = sg.findIndex(s => s <= SC.SINT);
+    txt(svg, 0, iy - 6, `inner loop: σ step ${done ? S : i + 1} of ${S} · ${done ? "done" : m === 0 ? "satellite DiT" : "radar DiT"}`, { "font-size": 11, fill: css("--muted"), "font-weight": 600 });
+    for (let q = 0; q < S; q++) { const fine = sg[q] <= SC.SINT, past = done || q < i, isCur = !done && q === i;
+      el("rect", { x: x0 + q * bw + .3, y: iy + (isCur ? 0 : 4), width: Math.max(.8, bw - .6), height: isCur ? 26 : 18, fill: css(isCur ? "--accent" : fine ? "--data" : "--sw"), opacity: isCur ? 1 : past ? .9 : .22 }, svg); }
+    el("line", { x1: x0 + ki * bw, x2: x0 + ki * bw, y1: iy - 2, y2: iy + 30, stroke: css("--fg"), "stroke-dasharray": "3 2" }, svg);
+    txt(svg, x0, iy + 40, "σ_{max} = 80", { "font-size": 10, class: "mono", fill: css("--muted") });
+    txt(svg, x0 + ki * bw, iy + 40, "σ_{int}: coarse → fine", { "font-size": 10, "text-anchor": "middle", fill: css("--fg") });
+    txt(svg, W - 4, iy + 40, "σ_{min} = 0.002", { "font-size": 10, class: "mono", "text-anchor": "end", fill: css("--muted") });
+    txt(svg, x0 - 6, iy + 16, "σ", { "font-size": 12, "font-style": "italic", "text-anchor": "end", fill: css("--muted") });
+    // window
+    const wy = 176; txt(svg, 0, wy - 6, "the window: inputs of the next lead step", { "font-size": 11, fill: css("--muted"), "font-weight": 600 });
+    const ww = 66, wh = ww * 4 / 7;
+    if (now) for (let j = 0; j < 6; j++) { const lead = k - 5 + j, x = x0 + j * (ww + 10), obs = lead <= 0;
+      img(svg, obs ? SC.url(SC.irPaint(fld(lead))) : thumb(lead, "s"), x, wy, ww, wh);
+      el("rect", { x, y: wy, width: ww, height: wh, rx: 2, fill: "none", stroke: css(obs ? "--fg" : "--accent"), "stroke-width": 2 }, svg);
+      txt(svg, x + ww / 2, wy + wh + 13, (obs ? "obs " : "fcst ") + (lead === 0 ? "t0" : (lead > 0 ? "+" : "−") + Math.abs(lead) * 10), { "font-size": 10, "text-anchor": "middle", fill: css(obs ? "--fg" : "--accent"), "font-weight": 600 }); }
+    else { const x = x0; img(svg, k === 0 ? SC.url(SC.irPaint(fld(0))) : thumb(k, "s"), x, wy, ww, wh); el("rect", { x, y: wy, width: ww, height: wh, rx: 2, fill: "none", stroke: css(k === 0 ? "--fg" : "--accent"), "stroke-width": 2 }, svg);
+      txt(svg, x + ww / 2, wy + wh + 13, k === 0 ? "obs t0" : "fcst +" + k + "h", { "font-size": 10, "text-anchor": "middle", "font-weight": 600, fill: css(k === 0 ? "--fg" : "--accent") });
+      el("rect", { x: x + ww + 10, y: wy, width: ww, height: wh, rx: 2, fill: css("--muted"), "fill-opacity": .18, stroke: css("--muted"), "stroke-width": 2 }, svg);
+      txt(svg, x + ww * 1.5 + 10, wy + wh / 2 + 4, "GFS", { "font-size": 12, "text-anchor": "middle", "font-weight": 700, fill: css("--muted") });
+      txt(svg, x + ww * 1.5 + 10, wy + wh + 13, "Z500 / sim. refl.", { "font-size": 10, "text-anchor": "middle", fill: css("--muted") });
+      txt(svg, x + 2 * ww + 30, wy + 16, "nearcast: one frame 1 h back", { "font-size": 10.5, fill: css("--muted") }); txt(svg, x + 2 * ww + 30, wy + 31, "+ one GFS channel (§4.2.1)", { "font-size": 10.5, fill: css("--muted") }); }
+    code();
+    // counters
+    const per = 12 * models * S, nfe = done ? per : (k * models + m) * S + i, tcall = .33, M = Ms(), G = Gs(), mem = per * tcall, wall = Math.ceil(M / G) * mem;
+    const mm = s => s < 60 ? fmt(s, 0) + " s" : s < 7200 ? fmt(s / 60, 1) + " min" : fmt(s / 3600, 1) + " h";
+    $("#scFcRead").innerHTML = `<div><span>Lead step</span><b>${Math.min(k + (done ? 0 : 1), 12)}/12</b></div><div><span>Calls · member</span><b class="c-data">${fmtN(nfe)}/${fmtN(per)}</b></div><div><span>GPU time · member</span><b class="c-data">${mm(nfe * tcall)}/${mm(mem)}</b></div><div><span>${M} member${M > 1 ? "s" : ""}, ${G} GPU${G > 1 ? "s" : ""}</span><b class="${wall <= 600 ? "c-ok" : "c-lw"}">${mm(wall)}</b></div><div><span>GPU-hours</span><b class="c-arch">${fmt(M * mem / 3600, M * mem / 3600 < 10 ? 2 : 0)}</b></div>`;
+  }
+  render(); return render;
+});
+
+/* ───────── 5 · global or limited area: an open-boundary toy ───────── */
+demo("sc-domain", slide => {
+  const DOM = { conus: [5376, 3072, "CONUS 512 × 896 · 3,072 × 5,376 km"], col: [2400, 1800, "Colombia toy 300 × 400 · 1,800 × 2,400 km"], small: [768, 768, "small 128 × 128 · 768 × 768 km"] };
+  let dom = "conus", timer = null;
+  chips($("#scDoDom"), v => { dom = v; render(); });
+  const Us = slider("scDoU", v => v + " m/s", render), As = slider("scDoA", v => ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"][Math.round(v / 22.5) % 16] + " (" + v + "°)", render);
+  const Ts = slider("scDoT", v => fmt(v, 1) + " h", render);
+  const PTS = new Map();
+  const pts = () => { if (PTS.has(dom)) return PTS.get(dom); const [W, H] = DOM[dom], r = rng(dom.length * 97 + 3), X = W / 2 + 4200, Y = H / 2 + 3000, a = [];
+    for (let q = 0; q < 900; q++) a.push([(2 * r() - 1) * X, (2 * r() - 1) * Y]); PTS.set(dom, a); return a; };
+  function stop() { if (timer) clearInterval(timer); timer = null; $("#scDoPlay").textContent = "▶ Play"; }
+  $("#scDoPlay").onclick = () => { if (timer) { stop(); return; } const R = $("#scDoT"); if (+R.value >= 12) R.value = 0; $("#scDoPlay").textContent = "❚❚ Pause";
+    timer = setInterval(() => { if (!slide.classList.contains("on") || +R.value >= 12) { stop(); return; } R.value = Math.min(12, +R.value + .1); R.dispatchEvent(new Event("input")); }, 40); };
+  function render() {
+    const [W, H] = DOM[dom], Vw = 600, Vh = 300, s = Math.min(370 / W, 196 / H), cx = Vw / 2, cy = Vh / 2 + 6;
+    const U = Us() * 3.6, th = (As() + 180) * Math.PI / 180, u = U * Math.sin(th), v = U * Math.cos(th), T = Ts(), Dx = u * T, Dy = v * T;
+    const svg = svgIn($("#scDoMap"), Vw, Vh); arrowDefs(svg, "scDoMk", css("--fg"));
+    const X = x => cx + x * s, Y = y => cy - y * s;
+    el("rect", { x: 0, y: 0, width: Vw, height: Vh, rx: 8, fill: css("--well") }, svg);
+    // domain and trustworthy interior
+    el("rect", { x: X(-W / 2), y: Y(H / 2), width: W * s, height: H * s, fill: css("--lw"), "fill-opacity": .3 }, svg);
+    const tx0 = Math.max(-W / 2, -W / 2 + Dx), tx1 = Math.min(W / 2, W / 2 + Dx), ty0 = Math.max(-H / 2, -H / 2 + Dy), ty1 = Math.min(H / 2, H / 2 + Dy);
+    const frac = Math.max(0, tx1 - tx0) * Math.max(0, ty1 - ty0) / (W * H);
+    if (frac > 0) { el("rect", { x: X(tx0), y: Y(ty1), width: (tx1 - tx0) * s, height: (ty1 - ty0) * s, fill: css("--bg") }, svg); el("rect", { x: X(tx0), y: Y(ty1), width: (tx1 - tx0) * s, height: (ty1 - ty0) * s, fill: css("--ok"), "fill-opacity": .16, stroke: css("--ok"), "stroke-width": 1.5, "stroke-dasharray": "5 3" }, svg); }
+    el("rect", { x: X(-W / 2), y: Y(H / 2), width: W * s, height: H * s, fill: "none", stroke: css("--fg"), "stroke-width": 2.4 }, svg);
+    // storms
+    let inSeen = 0, inNew = 0;
+    pts().forEach(([px, py]) => { const qx = px + Dx, qy = py + Dy, inside = Math.abs(qx) <= W / 2 && Math.abs(qy) <= H / 2, started = Math.abs(px) <= W / 2 && Math.abs(py) <= H / 2;
+      if (X(qx) < -4 || X(qx) > Vw + 4 || Y(qy) < -4 || Y(qy) > Vh + 4) return;
+      if (inside && started) inSeen++; if (inside && !started) inNew++;
+      if (inside && T > 0) el("line", { x1: X(px), y1: Y(py), x2: X(qx), y2: Y(qy), stroke: css(started ? "--cool" : "--lw"), "stroke-width": 1, opacity: .35 }, svg);
+      el("circle", { cx: X(qx), cy: Y(qy), r: inside ? (started ? 3.2 : 4) : 2.4, fill: css(inside ? (started ? "--cool" : "--lw") : "--muted"), opacity: inside ? .95 : .4, stroke: inside && !started ? css("--card") : "none", "stroke-width": 1 }, svg); });
+    // labels: wind arrow, scale bar, domain name
+    const ax = 52, ay = 46, al = 30;
+    el("circle", { cx: ax, cy: ay, r: 34, fill: css("--card"), stroke: css("--line") }, svg);
+    if (U > 0) el("line", { x1: ax - al * Math.sin(th) * .8, y1: ay + al * Math.cos(th) * .8, x2: ax + al * Math.sin(th) * .8, y2: ay - al * Math.cos(th) * .8, stroke: css("--fg"), "stroke-width": 2.5, "marker-end": "url(#scDoMk)" }, svg);
+    SC.txt(svg, ax, ay + 48, "storm motion", { "font-size": 10.5, "text-anchor": "middle", fill: css("--muted") });
+    const sb = 1000 * s; el("line", { x1: Vw - 20 - sb, x2: Vw - 20, y1: Vh - 14, y2: Vh - 14, stroke: css("--fg"), "stroke-width": 3 }, svg);
+    SC.txt(svg, Vw - 20 - sb / 2, Vh - 20, "1,000 km", { "font-size": 10.5, "text-anchor": "middle" });
+    SC.txt(svg, X(-W / 2) + 4, Y(H / 2) - 6, DOM[dom][2], { "font-size": 11, "font-weight": 600 });
+    if (U > 0 && T > 0) { const ex = Math.abs(u) >= Math.abs(v), side = ex ? (u > 0 ? "west" : "east") : (v > 0 ? "south" : "north"), lx = ex ? (u > 0 ? X(-W / 2) + 6 : X(W / 2) - 6) : cx, ly = ex ? cy : (v > 0 ? Y(-H / 2) - 6 : Y(H / 2) + 14);
+      SC.txt(svg, lx, ly, "inflow (" + side + ")", { "font-size": 11, "font-weight": 700, fill: css("--lw"), "text-anchor": ex ? (u > 0 ? "start" : "end") : "middle", stroke: css("--card"), "stroke-width": 3, "paint-order": "stroke" }); }
+    el("rect", { x: 4, y: Vh - 24, width: 300, height: 19, rx: 6, fill: css("--card"), stroke: css("--line") }, svg);
+    SC.txt(svg, 12, Vh - 10, "● seen at t = 0   ● entered later   ● outside the box", { "font-size": 10.5, fill: css("--muted") });
+    const lg = svg.lastChild; lg.innerHTML = `<tspan fill="${css("--cool")}">●</tspan> seen at t = 0  <tspan fill="${css("--lw")}">●</tspan> entered later  <tspan fill="${css("--muted")}">●</tspan> outside the box`;
+    $("#scDoRead").innerHTML = `<div><span>Moved by</span><b>${fmtN(U * T)} km</b></div><div><span>Trustworthy area</span><b class="${frac > .7 ? "c-ok" : "c-lw"}">${fmt(100 * frac, 0)} %</b></div><div><span>Storms in box: entered</span><b class="c-lw">${inNew} / ${inNew + inSeen}</b></div>`;
+  }
+  render(); return render;
+});
+
+/* ───────── 6 · another region, and Colombia ───────── */
+demo("sc-region", () => {
+  const OPT = [
+    { k: "a", t: "(a) Retrain on a new box", tags: [["p", "paper"], ["e", "Earth2Studio"]], p: "Same network, new data: geostationary imagery over the new box (+ radar where it exists, + Z500 for nearcasts), retrain each model. The backbone needs only the satellite (§4.2.1). Earth2Studio already has a Europe variant on Meteosat Third Generation imagery (StormScopeMeteosatEU)." },
+    { k: "b", t: "(b) Grow the box, up to a full disk", tags: [["p", "paper §6.2"]], p: "Domain parallelism splits the grid over GPUs; only neighborhood attention exchanges a halo. Shown for 3 km CONUS (1792 × 1024, ~87.5 % efficiency); it scales \"to larger domains including full disk forecasts\". Adding the upwind Amazon and Caribbean costs GPUs, not a new method." },
+    { k: "c", t: "(c) Crop the released CONUS model", tags: [["o", "our reasoning"], ["u", "untested"]], p: "The layers would run on any grid with sides that are multiples of 4 and ≥ 31 tokens (124 cells). But the weights learned CONUS lat/lon, terrain, climate and viewing angles; Colombian inputs (−4 to 13° N) lie outside all it saw. Fine-tune or retrain instead." },
+    { k: "d", t: "(d) What a Colombian model would need", tags: [["o", "our checklist"]], p: "GOES-East ABI archive (Colombia is near its 75.2° W sub-point); IDEAM radar where it covers, else satellite only (§4.2.1); ERA5 Z500 to train, GFS or an AI global model to run (§4.2.1); a verification set (stations, radar, satellite rain); ~32 H100 × 48 h per model at CONUS size (§4.2.2), less for a smaller box." }];
+  let sel = "a";
+  const host = $("#scRgOpt");
+  host.innerHTML = OPT.map(o => `<div class="card scopt" data-k="${o.k}" role="button" tabindex="0" aria-pressed="${o.k === sel}"><h4>${o.tags.map(([c, s]) => SC.tag(c, s)).join("")}${o.t}</h4><p>${o.p}</p></div>`).join("");
+  $$(".scopt", host).forEach(c => { const f = () => { sel = c.dataset.k; $$(".scopt", host).forEach(x => x.setAttribute("aria-pressed", x === c)); render(); }; c.addEventListener("click", f); c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); f(); } }); });
+  const Ws = slider("scRgW", v => fmtN(v) + " km", render), Hs = slider("scRgH", v => fmtN(v) + " km", render);
+  // rough hand-drawn outline of Colombia (lon, lat)
+  const COL = [[-77.9, 7.2], [-77.3, 8.6], [-76.8, 8.6], [-76.0, 9.4], [-75.6, 10.4], [-74.8, 11.0], [-74.2, 11.3], [-73.0, 11.6], [-72.2, 12.3], [-71.7, 12.4], [-71.3, 11.8], [-72.3, 11.1], [-72.9, 9.5], [-72.4, 8.0], [-72.3, 7.4], [-70.1, 7.0], [-69.4, 6.1], [-67.8, 6.2], [-67.5, 5.5], [-67.8, 4.5], [-67.3, 3.4], [-67.8, 2.0], [-66.9, 1.2], [-67.1, 1.1], [-69.8, 1.7], [-69.5, 0.7], [-70.0, -0.2], [-69.4, -1.1], [-69.9, -4.2], [-70.7, -3.8], [-72.9, -2.4], [-74.0, -1.0], [-75.3, -0.1], [-77.4, 0.8], [-78.9, 1.4], [-78.0, 2.6], [-77.2, 3.9], [-77.5, 5.6], [-77.4, 6.6]];
+  const L0 = -100, L1 = -40, B0 = -13, B1 = 20.33, Vw = 540, Vh = 300, X = lo => (lo - L0) / (L1 - L0) * Vw, Y = la => (B1 - la) / (B1 - B0) * Vh, C = [-73.5, 4.5];
+  function render() {
+    const Wk = Ws(), Hk = Hs(), cols = Math.max(4, Math.round(Wk / 6 / 4) * 4), rows = Math.max(4, Math.round(Hk / 6 / 4) * 4), tc = cols / 4, tr = rows / 4, N = tc * tr, ratio = N / 28672;
+    const svg = svgIn($("#scRgMap"), Vw, Vh); svg.style.overflow = "hidden"; arrowDefs(svg, "scRgA", css("--muted"));
+    el("rect", { x: 0, y: 0, width: Vw, height: Vh, rx: 8, fill: css("--well") }, svg);
+    for (let lo = -95; lo <= -45; lo += 5) el("line", { x1: X(lo), x2: X(lo), y1: 0, y2: Vh, stroke: css("--line"), "stroke-width": .7 }, svg);
+    for (let la = -10; la <= 20; la += 5) el("line", { x1: 0, x2: Vw, y1: Y(la), y2: Y(la), stroke: css(la === 0 ? "--muted" : "--line"), "stroke-width": la === 0 ? 1 : .7, "stroke-dasharray": la === 0 ? "4 3" : "" }, svg);
+    SC.txt(svg, 4, Y(0) - 4, "equator", { "font-size": 10, fill: css("--muted") });
+    el("path", { d: path(COL.map(([lo, la]) => [X(lo), Y(la)])) + "Z", fill: css("--fg"), "fill-opacity": .1, stroke: css("--fg"), "stroke-width": 1.4 }, svg);
+    SC.txt(svg, X(-72.6), Y(3.2), "COLOMBIA", { "font-size": 11, "font-weight": 700, "text-anchor": "middle", fill: css("--fg"), "letter-spacing": "1" });
+    [["Caribbean", -79, 14.2], ["Pacific", -86, 4], ["Amazon", -58, -6], ["Andes", -76.5, 2.2]].forEach(([s, lo, la]) => SC.txt(svg, X(lo), Y(la), s, { "font-size": 10.5, "font-style": "italic", "text-anchor": "middle", fill: css("--muted") }));
+    el("circle", { cx: X(-74.07), cy: Y(4.71), r: 3.5, fill: css("--lw") }, svg); SC.txt(svg, X(-74.07) + 6, Y(4.71) + 4, "Bogotá", { "font-size": 10.5, fill: css("--lw") });
+    el("path", { d: `M${X(-75.2)} ${Y(0) - 7} l6 10 h-12 z`, fill: css("--cool") }, svg); SC.txt(svg, X(-75.2) - 9, Y(0) + 14, "GOES-East sub-point 75.2° W", { "font-size": 10, fill: css("--cool"), "text-anchor": "end" });
+    const dW = cols * 6 / 111.2, dH = rows * 6 / 111.2;
+    if (sel === "b") { const cw = 5376 / 111.2, ch = 3072 / 111.2; el("rect", { x: X(C[0] - cw / 2), y: Y(C[1] + ch / 2), width: cw / (L1 - L0) * Vw, height: ch / (B1 - B0) * Vh, fill: "none", stroke: css("--muted"), "stroke-width": 1.5, "stroke-dasharray": "6 4" }, svg);
+      SC.txt(svg, X(C[0] - cw / 2) + 4, Y(C[1] + ch / 2) + 13, "a CONUS-sized box (5,376 × 3,072 km), same 6 km", { "font-size": 10, fill: css("--muted") }); }
+    el("rect", { x: X(C[0] - dW / 2), y: Y(C[1] + dH / 2), width: dW / (L1 - L0) * Vw, height: dH / (B1 - B0) * Vh, fill: css("--accent"), "fill-opacity": .08, stroke: css("--accent"), "stroke-width": 2.2 }, svg);
+    SC.txt(svg, X(C[0] + dW / 2) - 4, Y(C[1] - dH / 2) - 5, `${rows} × ${cols} cells`, { "font-size": 11, "font-weight": 700, "text-anchor": "end", fill: css("--accent"), stroke: css("--card"), "stroke-width": 3, "paint-order": "stroke" });
+    const memT = 3 + 67 * ratio, gpus = Math.ceil(memT / 80);
+    if (sel === "b" && gpus > 1) for (let q = 1; q < gpus; q++) { const yq = Y(C[1] + dH / 2) + q * dH / (B1 - B0) * Vh / gpus; el("line", { x1: X(C[0] - dW / 2), x2: X(C[0] + dW / 2), y1: yq, y2: yq, stroke: css("--accent"), "stroke-width": 1.5, "stroke-dasharray": "3 3" }, svg); }
+    if (sel === "c") { el("line", { x1: X(-98 + 3) + 120, x2: X(-98 + 3) + 120, y1: 34, y2: 4, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#scRgA)" }, svg);
+      SC.txt(svg, X(-98 + 3) + 128, 18, "the released model learned CONUS, ≈ 21–53° N, far north of this map", { "font-size": 10.5, fill: css("--lw"), "font-weight": 600 }); }
+    if (sel === "a" || sel === "d") SC.txt(svg, Vw - 6, 14, "box centred on 4.5° N, 73.5° W", { "font-size": 10, fill: css("--muted"), "text-anchor": "end" });
+    const naOK = Math.min(tc, tr) >= 31;
+    $("#scRgRead").innerHTML = `<div><span>Tokens</span><b>${tr} × ${tc}</b></div><div><span>vs CONUS</span><b class="c-data">${fmt(100 * ratio, 0)} %</b></div><div><span>Step time*</span><b class="c-data">${fmt(33 * ratio, ratio < .3 ? 1 : 0)} s</b></div><div><span>Train mem.*</span><b class="${gpus > 1 ? "c-lw" : "c-ok"}">${fmt(memT, 0)} GB${gpus > 1 ? " → " + gpus + " GPUs" : ""}</b></div><div><span>NA window fits</span><b class="${naOK ? "c-ok" : "c-lw"}">${naOK ? "yes" : "no: < 31"}</b></div>`;
+  }
+  render(); return render;
+});
 
 </script>
 <script>/* e2/46-ss2.js */
