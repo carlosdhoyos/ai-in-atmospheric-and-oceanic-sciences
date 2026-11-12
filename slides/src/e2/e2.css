@@ -1,5 +1,4 @@
 /* Earth-2 additions to the series' deck.css */
-header.top .back{cursor:default}
 nav.series button.mod{font:inherit;cursor:pointer;background:transparent}
 .tryit{font-size:14px;margin:6px 0;padding:6px 10px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent);border-radius:0 8px 8px 0}
 .tryit::before{content:"Try this · ";font-weight:600;color:var(--accent)}
