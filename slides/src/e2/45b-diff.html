@@ -9,8 +9,8 @@
 .sd-s .ctl{margin:4px 0;font-size:13.5px;grid-template-columns:minmax(5.5em,auto) minmax(0,1fr) 5.4em}
 .sd-s .readout{gap:6px 20px;margin-top:6px}
 .sd-s .readout b{font-size:20px}
-.sd-s .readout span{font-size:10.5px}
-.sd-s .stg{grid-template-columns:6.4em minmax(0,1fr)}
+.sd-s .readout span{font-size:11px;text-transform:none;letter-spacing:.02em}
+.sd-s .stg{grid-template-columns:minmax(4.2em,auto) minmax(0,1fr)}
 .sd-s .stg .chips{margin:2px 0}
 .sd-card{padding:9px 14px}
 .sd-card h4{margin:0 0 3px;font-size:15px}
@@ -59,7 +59,7 @@
     <div>
       <h3 id="sdFwA"></h3>
       <div id="sdFwImg"></div>
-      <div class="sd-row" style="margin-top:4px"><div class="chips" id="sdFwView" style="margin:0;gap:5px"><button class="chip" data-v="1" aria-pressed="true" style="padding:3px 9px;font-size:12px">rescaled to unit size</button><button class="chip" data-v="0" style="padding:3px 9px;font-size:12px">raw values</button></div><button class="btn" type="button" id="sdFwNew" style="padding:3px 10px;font-size:12px">new noise</button></div>
+      <div class="sd-row" style="margin-top:4px;gap:5px"><div class="chips" id="sdFwView" style="margin:0;gap:5px"><button class="chip" data-v="1" aria-pressed="true" style="padding:3px 9px;font-size:12px">rescaled</button><button class="chip" data-v="0" style="padding:3px 9px;font-size:12px">raw</button></div><button class="btn" type="button" id="sdFwNew" style="padding:3px 10px;font-size:12px">new noise</button></div>
     </div>
     <div class="panel sd-pn"><h3>Power spectrum: how much variance at each scale</h3><div id="sdFwSpec"></div></div>
     <div class="panel sd-pn"><h3>Histogram of pixel values</h3><div id="sdFwHist"></div></div>
@@ -106,7 +106,7 @@
     <div class="panel sd-pn sd-cv"><div id="sdFdMap"></div></div>
     <div>
       <ul class="pts">
-        <li>Image = (rain at pixel A, rain at pixel B). Training data: 3 kinds of future, <b style="color:var(--lw)">storm over A</b>, <b style="color:var(--cool)">storm over B</b>, <b style="color:var(--muted)">no storm</b> (9 examples each).</li>
+        <li>Image = (rain at pixel A, rain at pixel B). Training data: 3 kinds of future, <b style="color:var(--lw)">storm over A</b>, <b style="color:var(--cool)">storm over B</b>, <b style="color:var(--ok)">no storm</b> (6, 6 and 12 examples).</li>
         <li>Shading: the density of <b>noisy</b> images p<sub>σ</sub>. Arrows: D(x; σ) − x, the step to the denoiser's guess. Divided by σ², it is the <b>score</b> ∇ log p<sub>σ</sub>: the uphill direction of that density.</li>
         <li>Diffusion sampling = start at high σ, then follow the arrows while lowering σ.</li>
       </ul>
@@ -116,7 +116,7 @@
       <p class="tryit">set σ to 1 and click anywhere on the map: the point follows the arrows as σ shrinks and lands on one kind of future. Hover to see the denoiser's guess and its weights.</p>
     </div>
   </div>
-  <p class="note">Toy: 27 data points in 2-D, exact denoiser of this set; σ range 0.01–3 (toy). Points move with the probability-flow ODE of EDM (Karras et al. 2022, eq. 1 with σ(t) = t): dx/dσ = (x − D(x; σ)) / σ. In StormScope a point x is a whole future frame: 512 × 896 = 458,752 numbers per channel (§4.2.2), so 8 GOES channels (Table 1) make a point in a space of ~3.7 million dimensions; the arrows are the same idea.</p>
+  <p class="note">Toy: 24 data points in 2-D, exact denoiser of this set; σ range 0.01–3 (toy). Points move with the probability-flow ODE of EDM (Karras et al. 2022, eq. 1 with σ(t) = t): dx/dσ = (x − D(x; σ)) / σ. In StormScope a point x is a whole future frame: 512 × 896 = 458,752 numbers per channel (§4.2.2), so 8 GOES channels (Table 1) make a point in a space of ~3.7 million dimensions; the arrows are the same idea.</p>
 </section>
 
 <section class="slide sd-s" id="sd-live" data-g="a" data-sec="5b · StormScope">
@@ -125,8 +125,8 @@
   <div class="sd-g" style="grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:14px">
     <div>
       <div class="sd-row" style="margin-bottom:4px"><button class="btn" type="button" id="sdLvPlay">▶ Train</button><button class="btn" type="button" id="sdLvReset">↺ Reset</button><button class="btn" type="button" id="sdLvSamp">🎲 Sample now</button></div>
-      <div class="stg"><span>Data</span><div class="chips" id="sdLvData"><button class="chip" data-v="storms" aria-pressed="true">3 storms</button><button class="chip" data-v="ring">ring</button><button class="chip" data-v="moons">two moons</button></div></div>
-      <div class="stg"><span>Learning rate</span><div class="chips" id="sdLvLr"><button class="chip" data-v="0.0003">3e-4</button><button class="chip" data-v="0.002" aria-pressed="true">2e-3</button><button class="chip" data-v="0.01">1e-2</button><button class="chip" data-v="0.05">5e-2</button></div></div>
+      <div class="stg"><span>Data</span><div class="chips" id="sdLvData"><button class="chip" data-v="storms" aria-pressed="true">3 storms</button><button class="chip" data-v="ring">ring</button><button class="chip" data-v="moons">moons</button></div></div>
+      <div class="stg"><span>Rate</span><div class="chips" id="sdLvLr"><button class="chip" data-v="0.0003">3e-4</button><button class="chip" data-v="0.002" aria-pressed="true">2e-3</button><button class="chip" data-v="0.01">1e-2</button><button class="chip" data-v="0.2">2e-1</button></div></div>
       <div class="stg"><span>Width</span><div class="chips" id="sdLvW"><button class="chip" data-v="8">8</button><button class="chip" data-v="32" aria-pressed="true">32</button><button class="chip" data-v="64">64</button></div></div>
       <div class="readout" id="sdLvRead"></div>
       <div id="sdLvLoss" style="margin-top:4px"></div>
@@ -139,10 +139,10 @@
       </div>
       <div class="ctl" style="margin-top:6px"><label for="sdLvS">Arrows at σ</label><input type="range" id="sdLvS" min="-2" max="0.6" step="0.02" value="-0.7"><output></output></div>
       <div class="card sd-card" id="sdLvCard"></div>
-      <p class="tryit">press ▶ Train and watch the left arrows come to match the middle ones; press 🎲 Sample now early (at ~200 iterations) and again later. Then try learning rate 5e-2 or width 8.</p>
+      <p class="tryit">press ▶ Train and watch the left arrows come to match the middle ones; press 🎲 Sample now early (at ~200 iterations) and again later. Then compare learning rate 2e-1 (too big: the loss stays high and jumpy) and, on the moons, width 8 (too small).</p>
     </div>
   </div>
-  <p class="note">Everything runs in this page: a 2-hidden-layer network with SiLU activations, written by hand (forward pass, backpropagation, Adam), inputs (c<sub>in</sub>·x, c<sub>noise</sub>), EDM pre-conditioning D = c<sub>skip</sub>·x + c<sub>out</sub>·F and EDM loss weight λ(σ) (Karras et al. 2022; σ<sub>data</sub> = 0.5). σ is drawn uniform in log σ as in the paper (§4.2.3), here between 0.01 and 4 (toy). Batch 128, fresh data each step. Sampler: EDM Heun, 24 steps, ρ = 7. StormScope does exactly this, with a 195 M-parameter transformer on 512 × 896 images, batch 32 on 32 H100 GPUs for ~6 M iterations (~48 h; §4.2.2–4.2.3).</p>
+  <p class="note">Everything runs in this page: a 2-hidden-layer network with SiLU activations, written by hand (forward pass, backpropagation, Adam), inputs (c<sub>in</sub>·x, c<sub>noise</sub>), EDM pre-conditioning D = c<sub>skip</sub>·x + c<sub>out</sub>·F and EDM loss weight λ(σ) (Karras et al. 2022; σ<sub>data</sub> = 0.5). σ is drawn uniform in log σ as in the paper (§4.2.3), here between 0.01 and 4 (toy). Batch 128, fresh data each step. Sampler: EDM Heun, 20 steps, ρ = 7, 200 samples. StormScope does exactly this, with a 195 M-parameter transformer on 512 × 896 images, batch 32 on 32 H100 GPUs for ~6 M iterations (~48 h; §4.2.2–4.2.3).</p>
 </section>
 
 <section class="slide sd-s" id="sd-sample" data-g="a" data-sec="5b · StormScope">
@@ -174,6 +174,7 @@
       <div class="card sd-card" id="sdCdCard"></div>
       <div class="stg" style="margin-top:4px"><span>Mode</span><div class="chips" id="sdCdMode"><button class="chip" data-v="now" aria-pressed="true">nowcast: 6 past frames</button><button class="chip" data-v="near">nearcast: 1 frame + GFS</button></div></div>
       <p class="tryit">click ①–⑦ to walk through the inputs; switch the mode: what changes in the stack?</p>
+      <p class="tryit">in the toy on the right, move the past storm: the same 150 noise seeds now land on other futures.</p>
     </div>
     <div class="panel sd-pn">
       <div class="sd-g" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
@@ -183,7 +184,6 @@
           <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdP">Past storm: west ↔ east</label><input type="range" id="sdCdP" min="0" max="1" step="0.01" value="0.3"><output style="text-align:left"></output></div>
           <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdQ">Past storm: weak ↔ strong</label><input type="range" id="sdCdQ" min="0" max="1" step="0.01" value="0.7"><output style="text-align:left"></output></div>
           <div class="readout" id="sdCdRead" style="margin-top:2px"></div>
-          <p class="tryit" style="font-size:12.5px">move the past: the same 150 noise seeds now land on other futures.</p>
         </div>
       </div>
     </div>
