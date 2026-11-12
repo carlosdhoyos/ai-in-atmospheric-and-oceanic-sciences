@@ -53,9 +53,9 @@ demo("s-global", slide => {
     const T = { fc: "Toy forecast", tr: "Truth", err: "Error: forecast − truth (m)" }[v];
     $("#gfRoTitle").textContent = `${T} · day ${fmt(d, 2)} (${n} steps of 6 h)`;
     if (v === "err") { const e = fc[n].map((x, i) => x - truth[n][i]);
-      GF.map($("#gfRoMap"), e, NX, NY, { color: CM.div, lo: -300, hi: 300, smooth: true, maxWidth: 440 });
+      GF.map($("#gfRoMap"), e, NX, NY, { color: CM.div, lo: -300, hi: 300, smooth: true, maxWidth: 400 });
       VIZ.legend($("#gfRoLeg"), { color: CM.div, min: -300, max: 300, label: "forecast − truth (m)" }); }
-    else { GF.map($("#gfRoMap"), v === "tr" ? truth[n] : fc[n], NX, NY, { color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], smooth: true, maxWidth: 440 });
+    else { GF.map($("#gfRoMap"), v === "tr" ? truth[n] : fc[n], NX, NY, { color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], smooth: true, maxWidth: 400 });
       VIZ.legend($("#gfRoLeg"), { color: CM.temp, min: ATM.RANGE[0], max: ATM.RANGE[1], label: "500 hPa height (m)" }); }
     const ymax = Math.ceil(1.5 * Math.max(...sc.map(s => Math.max(s.rf, s.rp, s.rc))) / 50) * 50, mk = [[d, "", "--accent"]];
     VIZ.curves($("#gfRoRmse"), [{ pts: sc.map(s => [s.d, s.rc]), col: "--fg", dash: "2 3", label: "climatology" }, { pts: sc.map(s => [s.d, s.rp]), col: "--muted", dash: "6 4", label: "persistence" },
@@ -212,12 +212,12 @@ demo("gf-blur", () => {
   function render() {
     const v = show(), c = compute(), f = v === "tr" ? c.truth : v === "mem" ? c.one : c.mn;
     $("#gfBlTitle").textContent = { tr: "Truth (one possible future)", mem: "One member (another possible future)", mean: `Mean of ${sN()} members` }[v] + ` · day ${fmt(sLead(), 1)}`;
-    GF.map($("#gfBlMap"), f, NX, NY, { color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], smooth: true, maxWidth: 420 });
+    GF.map($("#gfBlMap"), f, NX, NY, { color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], smooth: true, maxWidth: 380 });
     const all = [...c.sp.tr, ...c.sp.mem, ...c.sp.mean].map(p => p[1]), hi = 10 ** Math.ceil(Math.log10(Math.max(...all))), lo = 10 ** Math.floor(Math.log10(Math.max(Math.min(...all), hi / 1e5)));
     const sel = k => v === k ? 3 : 1.6;
     VIZ.curves($("#gfBlSpec"), [{ pts: c.sp.tr, col: "--fg", w: sel("tr"), label: "truth" }, { pts: c.sp.mem, col: "--data", w: sel("mem"), dash: "5 3", label: "one member" },
       { pts: c.sp.mean.map(([k, p]) => [k, Math.max(p, lo)]), col: "--accent", w: sel("mean"), label: "mean of members (≈ MSE model)" }],
-      { xr: [3, 23], yr: [lo, hi], logx: true, logy: true, W: 460, H: 175, xl: "zonal wavenumber", yl: "power (m²)", xt: [3, 6, 12, 23], yt: Array.from({ length: Math.round(Math.log10(hi / lo)) + 1 }, (_, i) => lo * 10 ** i), xf: v => fmt(v, 0), yf: v => "10" + String(Math.round(Math.log10(v))).replace(/-/g, "⁻").replace(/\d/g, c => "⁰¹²³⁴⁵⁶⁷⁸⁹"[c]), legendAt: "bl" });
+      { xr: [3, 23], yr: [lo, hi], logx: true, logy: true, W: 460, H: 165, xl: "zonal wavenumber", yl: "power (m²)", xt: [3, 6, 12, 23], yt: Array.from({ length: Math.round(Math.log10(hi / lo)) + 1 }, (_, i) => lo * 10 ** i), xf: v => fmt(v, 0), yf: v => "10" + String(Math.round(Math.log10(v))).replace(/-/g, "⁻").replace(/\d/g, c => "⁰¹²³⁴⁵⁶⁷⁸⁹"[c]), legendAt: "bl" });
     const small = s => s.filter(([k]) => k >= 11).reduce((a, p) => a + p[1], 0), st = small(c.sp.tr);
     $("#gfBlRead").innerHTML = `<div><span>RMSE one member</span><b class="c-data">${fmtN(MET.rmse(c.one, c.truth, Wt))} m</b></div><div><span>RMSE mean</span><b>${fmtN(MET.rmse(c.mn, c.truth, Wt))} m</b></div>` +
       `<div><span>Power k ≥ 11, mean / truth</span><b class="c-lw">${fmtN(100 * small(c.sp.mean) / st)} %</b></div>`;
@@ -326,9 +326,9 @@ demo("gf-atlas", slide => {
     samples.forEach(P => { const n = Math.max(1, Math.round(frame * (P.length - 1))), Q = P.slice(0, n + 1);
       el("path", { d: path(Q.map(p => [X(p[0]), Y(p[1])])), fill: "none", stroke: css("--arch"), "stroke-width": 1.4, opacity: .7 }, svg);
       const e = Q[Q.length - 1]; el("circle", { cx: X(e[0]), cy: Y(e[1]), r: 4.5, fill: css("--arch"), stroke: css("--card"), "stroke-width": 1.2 }, svg); });
-    const miss = samples.length && frame >= 1 ? mean(samples.map(P => { const e = P[P.length - 1]; return Math.min(...PTS.map(p => Math.hypot(p[0] - e[0], p[1] - e[1]))); })) : null;
+    const off = samples.length && frame >= 1 ? samples.filter(P => { const e = P[P.length - 1]; return Math.min(...PTS.map(p => Math.hypot(p[0] - e[0], p[1] - e[1]))) > .1; }).length : null;
     $("#gfAtRead").innerHTML = `<div><span>Passes / sample</span><b class="c-arch">${k === "crps" ? 1 : S}</b></div><div><span>Starts from</span><b>${k === "diff" ? "noise" : "zₜ"}</b></div>` +
-      `<div><span>Miss (to nearest possible zₜ₊₁)</span><b class="${miss != null && miss > .1 ? "c-lw" : "c-ok"}">${miss == null ? "–" : fmt(miss, 2)}</b></div>`;
+      `<div><span>Landed off both regimes</span><b class="${off ? "c-lw" : "c-ok"}">${off == null ? "–" : off + " of " + samples.length}</b></div>`;
   }
   $("#gfAtGo").onclick = () => {
     const k = obj(), S = sSt(); samples = Array.from({ length: 8 }, () => sample(k, S)); frame = 0; clearInterval(timer);
@@ -339,21 +339,21 @@ demo("gf-atlas", slide => {
 
 /* 7 · summary cards + quiz */
 demo("gf-quiz", () => {
-  const C = [["gf-afno", "--accent", "FourCastNet · 2022", "AFNO: FFT token mixing on patches; 0.25°, 6 h, 20 variables; week in < 2 s."],
-    ["gf-sfno", "--accent", "SFNO · 2023", "Spherical harmonic transform instead of the flat FFT; 73 channels; stable 1-year rollouts."],
-    ["gf-crps", "--data", "FourCastNet 3 · 2025", "Probabilistic, CRPS + spectral CRPS; 72 variables; 15 days ≈ 60 s on one H100."],
-    ["gf-atlas", "--arch", "Atlas · 2026", "Earth-2 Medium Range: latent transformer; diffusion, interpolant or CRPS; 15 days, 70+ variables."]];
-  $("#gfQzCards").innerHTML = C.map(([id, col, t, d]) => `<button class="pick" type="button" data-go="${id}" style="border-left-color:var(${col});padding:8px 12px"><b style="color:var(${col})">${t}</b><span>${d}</span></button>`).join("");
+  const C = [["gf-afno", "--accent", "FourCastNet · 2022", "AFNO: FFT token mixing; 0.25°, 6 h, 20 variables."],
+    ["gf-sfno", "--accent", "SFNO · 2023", "Spherical harmonics; 73 channels; stable 1-year rollouts."],
+    ["gf-crps", "--data", "FourCastNet 3 · 2025", "Ensembles trained with CRPS + spectral CRPS; 72 variables."],
+    ["gf-atlas", "--arch", "Atlas · 2026", "Latent transformer; diffusion, interpolant or CRPS; 15 days."]];
+  $("#gfQzCards").innerHTML = C.map(([id, col, t, d]) => `<button class="pick" type="button" data-go="${id}" style="border-left-color:var(${col});padding:6px 12px"><b style="color:var(${col});font-size:14px">${t}</b><span style="font-size:12.5px">${d}</span></button>`).join("");
   VIZ.quiz($("#gfQzBox"), [
-    { q: "Why does a deterministic model trained on MSE look smooth at day 10?", opts: ["Its network is too small", "It predicts the mean of the possible futures", "Its grid is too coarse"], right: 1,
+    { q: "A deterministic model trained on MSE looks smooth at day 10 because it predicts…", opts: ["a too-coarse grid", "the mean of the possible futures", "too few variables"], right: 1,
       why: "Averaging many sharp but shifted futures cancels the small waves; MSE rewards exactly that average." },
-    { q: "What does the FFT across tokens give AFNO that a small convolution does not?", opts: ["Mass conservation", "A global receptive field in one layer", "A longer time step"], right: 1,
+    { q: "What does the FFT across tokens give AFNO that a small convolution does not?", opts: ["Mass conservation", "A global receptive field", "A longer time step"], right: 1,
       why: "Each Fourier mode spans the whole circle, so one per-mode multiplication mixes all longitudes at once." },
-    { q: "Why did SFNO replace the 2-D FFT on the lat-lon grid?", opts: ["The FFT treats the map as a flat periodic rectangle", "The FFT is slow on GPUs", "To use more channels"], right: 0,
+    { q: "SFNO replaced the 2-D FFT on the lat-lon grid because that FFT…", opts: ["assumes a flat periodic map", "is slow on GPUs", "limits the channels"], right: 0,
       why: "Poles become edges and the top row wraps to the bottom; the spherical harmonic transform respects the geometry, which helps keep 1-year rollouts stable." },
-    { q: "All 16 members of an ensemble are identical. Its CRPS equals…", opts: ["Zero", "The absolute error of that value", "Half its spread"], right: 1,
-      why: "With no spread, the ½ E|X − X′| term is zero and CRPS reduces to |x − y|: CRPS generalises the absolute error." },
-    { q: "Atlas trained with CRPS versus with diffusion: what changes at sampling time?", opts: ["One network pass per sample instead of many denoising passes", "No latent space is needed", "It only gives the ensemble mean"], right: 0,
+    { q: "All 16 members of an ensemble are identical. Its CRPS equals…", opts: ["zero", "|x − y|, the absolute error", "half its spread"], right: 1,
+      why: "With no spread the ½ E|X − X′| term is zero: CRPS generalises the absolute error." },
+    { q: "Atlas trained with CRPS instead of diffusion needs, per sample…", opts: ["one network pass", "many denoising passes", "no latent space"], right: 0,
       why: "A CRPS generator maps noise to a sample in one pass; diffusion needs many passes, which is why FCN3 reports large speed-ups over GenCast." }]);
   return () => {};
 });

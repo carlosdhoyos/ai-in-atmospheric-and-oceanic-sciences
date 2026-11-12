@@ -199,7 +199,7 @@
     // HEALPix: each pixel takes the toy field at its centre
     const VALS = new Map(), D2R = Math.PI / 180;
     // toy field: the analytic waves (m ≤ 23) plus two short ripples so that fine pixels have something to resolve
-    const fz = (la, lo) => ATM.z500(lo, la, 0) - ATM.base(la) + 30 * Math.cos((37 * lo + 40) * D2R) * Math.cos(31 * la * D2R) + 22 * Math.sin((53 * lo) * D2R) * Math.sin(47 * la * D2R) * Math.cos(la * D2R);
+    const fz = (la, lo) => ATM.z500(lo, la, 0) - ATM.base(la) + 18 * Math.cos((37 * lo + 40) * D2R) * Math.cos(31 * la * D2R) + 12 * Math.sin((53 * lo) * D2R) * Math.sin(47 * la * D2R) * Math.cos(la * D2R);
     function vals(ns) { if (!VALS.has(ns)) VALS.set(ns, Float32Array.from(HPX.centers(ns), c => fz(90 - c.theta / D2R, c.phi / D2R))); return VALS.get(ns); }
     function drawGlobe() {
       const V = vals(ns), pix = (la, lo) => HPX.ang2pix(ns, (90 - la) * D2R, lo * D2R), e = 0.8;
@@ -254,7 +254,7 @@
       // bin width follows the spread so that narrow and wide distributions both show their shape
       const w = clamp(Math.max(q95 - truth, truth - q05) / 10, 0.25, 5), nb = 28, lo = truth - 14 * w, h = new Array(nb).fill(0); est.forEach(x => h[clamp(Math.floor((x - lo) / w), 0, nb - 1)]++);
       VIZ.curves($("#clExHist"), [{ pts: stepPts(h, lo, w), col: "--accent", w: 2, label: N < T ? "estimates (record maximum)" : "estimates" }], { xr: [lo, lo + nb * w], yr: [0, Math.max(...h) * 1.15], xl: "estimated level (mm)",
-        W: 520, H: 110, xt: [lo + w, truth, lo + (nb - 1) * w], yt: [0], xf: v => fmt(v, w < 1 ? 1 : 0), yf: () => "", legendAt: "tl", marks: [[truth, "true " + fmt(truth, 0) + " mm", "--fg"]] });
+        W: 520, H: 110, xt: [lo + w, truth, lo + (nb - 1) * w], yt: [0], xf: v => fmt(v, w < 1 ? 1 : 0), yf: () => "", legendAt: "tr", marks: [[truth, "true " + fmt(truth, 0) + " mm", "--fg"]] });
       const p = 1 - Math.pow(1 - 1 / T, N);
       $("#clExRead").innerHTML = `<div><span>Years N</span><b>${fmtN(N)}</b></div><div><span>Expected events</span><b>${fmt(N / T, N / T < 10 ? 1 : 0)}</b></div>` +
         `<div><span>P(≥ 1 event)</span><b class="c-ok">${fmt(100 * p, p > 0.995 ? 1 : 0)} %</b></div><div><span>Monte Carlo</span><b class="c-data">${fmt(100 * hit / TRIALS, 0)} %</b></div>` +

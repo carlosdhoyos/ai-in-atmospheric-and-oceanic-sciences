@@ -13,7 +13,7 @@
         <li>A single trajectory is unpredictable after about two weeks, but its <b>statistics</b> (mean, variance, extremes) are stable. A climate model must get those right, not the path.</li>
         <li>An AI climate run is an <b>autoregressive rollout</b> of thousands to millions of steps. A tiny per-step <b>amplification</b> or <b>bias</b> compounds into <b>drift</b>: the model slides into its own wrong climate, or blows up.</li>
       </ul>
-      <p style="font-size:14px;margin-bottom:2px">Toy: <i>x</i> is a temperature anomaly (in standard deviations) with ~2 weeks of memory, stepped every 6 h. The emulator learned the step with a small error:</p>
+      <p style="font-size:14px;margin-bottom:2px">Toy: <i>x</i> is a temperature anomaly (sd units) with ~2 weeks of memory, stepped every 6 h; the emulator learned the step with a small error:</p>
       <div class="eq" style="font-size:17px;margin:4px 0"><i>x</i><sub>n+1</sub> = 0.98 (1 + <i>ε</i>) <i>x</i><sub>n</sub> + <i>b</i> + noise</div>
       <div class="chips" id="clDrPre" style="margin:6px 0"><button class="chip" data-v="0,0" aria-pressed="true">Stable</button><button class="chip" data-v="1.2,0">Tiny amplification</button><button class="chip" data-v="0,0.006">Tiny bias</button><button class="chip" data-v="2.2,0">Unstable</button></div>
       <div class="ctl" style="margin:4px 0"><label for="clDrAmp">Amplification ε</label><input type="range" id="clDrAmp" min="0" max="2.5" step="0.05" value="0"><output></output></div>

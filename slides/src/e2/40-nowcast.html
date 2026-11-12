@@ -28,7 +28,7 @@
       <div class="chips"><button class="btn" type="button" id="ncStPlay">▶ Play 6 h</button><button class="btn" type="button" id="ncStNew">New day</button><span class="chips" id="ncStTrk" style="margin:0"><button class="chip" data-v="on" aria-pressed="true">Tracks</button><button class="chip" data-v="off">No tracks</button></span></div>
       <div class="ctl"><label for="ncStT">Time</label><input type="range" id="ncStT" min="0" max="36" step="1" value="0"><output></output></div>
       <div class="ctl"><label for="ncStW">Steering wind</label><input type="range" id="ncStW" min="0" max="60" step="5" value="40"><output></output></div>
-      <div class="chips" id="ncStRate"><span class="note" style="align-self:center;margin:0">New cells:</span><button class="chip" data-v="0.5">Few</button><button class="chip" data-v="1" aria-pressed="true">Some</button><button class="chip" data-v="2">Many</button></div>
+      <div class="chips" id="ncStRate"><span class="note" style="align-self:center;margin:0">New cells:</span><button class="chip" data-v="0.9">Few</button><button class="chip" data-v="1.8" aria-pressed="true">Some</button><button class="chip" data-v="3">Many</button></div>
       <p class="tryit">play the six hours, then click a storm on the map to see its life cycle; set the wind to 0: what is left for extrapolation to predict?</p>
       <h3 id="ncStLifeT" style="margin-top:6px">Life cycle of the selected cell</h3>
       <div id="ncStLife"></div>
@@ -113,7 +113,7 @@
 
 <section class="slide" id="nc-users" data-g="a" data-sec="5 · Nowcasting">
   <p class="kicker" style="color:var(--lw)">Who uses it, what is claimed, and a quiz</p>
-  <h2>Nowcasting is evaluated by weather companies, energy firms and a national weather service</h2>
+  <h2>Who is testing Earth-2 Nowcasting, and what is claimed</h2>
   <div class="two even">
     <div>
       <div id="ncUsFig"></div>
@@ -127,5 +127,5 @@
       <p class="tryit">answer all three; the explanation appears under each question.</p>
     </div>
   </div>
-  <p class="note">Users and status as named in NVIDIA's blog "Earth-2 family of open models" (26 Jan 2026): The Weather Company and TotalEnergies evaluating Nowcasting; Southwest Power Pool with Hitachi (Nowcasting + FourCastNet 3 for intraday and day-ahead wind); Israel Meteorological Service plans Nowcasting up to 8 times daily (and runs CorrDiff in operation). StormCast: arXiv:2408.10958.</p>
+  <p class="note" style="margin-top:6px">Users and status from NVIDIA's blog "Earth-2 family of open models" (26 Jan 2026). StormCast: arXiv:2408.10958. StormScope: arXiv:2601.17268.</p>
 </section>

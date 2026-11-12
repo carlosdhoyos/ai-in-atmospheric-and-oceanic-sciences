@@ -131,15 +131,15 @@
 <section class="slide" id="da-quiz" data-g="d" data-sec="3 · Data assimilation">
   <p class="kicker k-data">Check yourself · data assimilation</p>
   <h2>Four questions on initial conditions, analyses and grids</h2>
-  <div id="daQuiz" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 12px"></div>
-  <div class="card" style="padding:10px 16px"><h4>Key ideas</h4>
+  <div id="daQuiz" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:0 12px"></div>
+  <div class="card" style="padding:8px 16px"><h4>Key ideas</h4>
     <ul class="pts" style="font-size:14px;margin:0;max-width:none;columns:2 340px;column-gap:28px">
-      <li>Chaos makes initial errors grow exponentially: better analyses buy forecast time.</li>
-      <li>A classical analysis blends a background forecast and observations, weighted by their error variances and correlations (B, R, H).</li>
-      <li>Observations are irregular and indirect; coverage depends on the time window.</li>
-      <li>HEALPix: equal-area pixels on latitude rings (HealDA, DLESyM, cBottle).</li>
-      <li>HealDA learns observations → analysis without a background; reported cost &lt; 1 day of lead time vs ERA5 starts.</li>
+      <li>Initial errors grow exponentially: better analyses buy forecast time.</li>
+      <li>Analysis = background + observations, weighted by B and R (through H).</li>
+      <li>Coverage depends on the instrument and the time window.</li>
+      <li>HEALPix: equal-area pixels on rings of latitude.</li>
+      <li>HealDA: observations → analysis with no background; &lt; 1 day lead-time cost.</li>
     </ul></div>
   <p class="tryit">answer all four, then check the gain question on the OI slide with the sliders.</p>
-  <p class="note" style="margin:2px 0 0">Sources: HealDA arXiv:2601.17636; DLESyM arXiv:2409.16247; cBottle arXiv:2505.06474; Lorenz (1963), J. Atmos. Sci. 20, 130–141.</p>
+  <p class="note" style="margin:2px 0 0">Sources: HealDA arXiv:2601.17636 · DLESyM arXiv:2409.16247 · cBottle arXiv:2505.06474 · Lorenz (1963), J. Atmos. Sci. 20.</p>
 </section>

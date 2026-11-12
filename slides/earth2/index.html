@@ -347,154 +347,136 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
     <div class="panel"><div id="ppBub"></div></div>
   </div>
 </section>
-<section class="slide" id="s-climate" data-g="a" data-sec="6 · Climate">
-  <style>
-    #clDrRead b,#clDlRead b,#clCbRead b,#clInRead b,#clSrRead b,#clExRead b{font-size:18px}
-    #clDrRead span,#clDlRead span,#clCbRead span,#clInRead span,#clSrRead span,#clExRead span{font-size:10.5px}
-    #s-climate>p.note,[id^="cl-"]>p.note{max-width:none}
-    [id^="clQuiz"] .card{margin-bottom:0!important;height:100%}
-  </style>
-  <p class="kicker">6 · Climate · weather vs climate</p>
-  <h2>Weather is one path; climate is the statistics of all paths</h2>
+<section class="slide" id="s-nowcast" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">5 · Nowcasting · the 0–6 hour problem</p>
+  <h2>The next six hours are hard: storms are small, short-lived and already moving</h2>
   <div class="two">
     <div>
-      <ul class="pts" style="font-size:14.5px">
-        <li>A single trajectory is unpredictable after about two weeks, but its <b>statistics</b> (mean, variance, extremes) are stable. A climate model must get those right, not the path.</li>
-        <li>An AI climate run is an <b>autoregressive rollout</b> of thousands to millions of steps. A tiny per-step <b>amplification</b> or <b>bias</b> compounds into <b>drift</b>: the model slides into its own wrong climate, or blows up.</li>
+      <ul class="pts" style="font-size:15px">
+        <li>A thunderstorm cell is a few to tens of kilometres across and lives from tens of minutes to a few hours. A 25 km global grid cannot see it; you need a km-scale, <b>convection-allowing</b> model.</li>
+        <li><b>Nowcasting</b> means forecasting the next 0–6 h. The classic baseline is <b>extrapolation</b>: estimate how the radar echoes move and slide the latest image forward. Very good for the first hour, but it cannot grow, weaken or start a storm.</li>
+        <li>Km-scale <b>NWP</b> (for example NOAA's 3 km <b>HRRR</b> over the US) simulates the storms, but its first hours suffer from <b>spin-up</b>: the model has to build clouds and updrafts that its initial state does not describe well.</li>
+        <li>Earth-2 learns the storm-scale evolution instead: <b style="color:var(--lw)">StormCast</b> from an NWP model's output, <b style="color:var(--lw)">StormScope</b> straight from satellite and radar.</li>
       </ul>
-      <p style="font-size:14px;margin-bottom:2px">Toy: <i>x</i> is a temperature anomaly (in standard deviations) with ~2 weeks of memory, stepped every 6 h. The emulator learned the step with a small error:</p>
-      <div class="eq" style="font-size:17px;margin:4px 0"><i>x</i><sub>n+1</sub> = 0.98 (1 + <i>ε</i>) <i>x</i><sub>n</sub> + <i>b</i> + noise</div>
-      <div class="chips" id="clDrPre" style="margin:6px 0"><button class="chip" data-v="0,0" aria-pressed="true">Stable</button><button class="chip" data-v="1.2,0">Tiny amplification</button><button class="chip" data-v="0,0.006">Tiny bias</button><button class="chip" data-v="2.2,0">Unstable</button></div>
-      <div class="ctl" style="margin:4px 0"><label for="clDrAmp">Amplification ε</label><input type="range" id="clDrAmp" min="0" max="2.5" step="0.05" value="0"><output></output></div>
-      <div class="ctl" style="margin:4px 0"><label for="clDrBias">Bias b / step</label><input type="range" id="clDrBias" min="0" max="0.02" step="0.001" value="0"><output></output></div>
-      <p class="tryit">start from "Stable": the paths differ after a few weeks but the histograms match. Then raise ε to 1 % or b to 0.005: when does the running mean leave the truth?</p>
-      <div class="readout" id="clDrRead" style="gap:16px;margin-top:4px"></div>
+      <div class="chips" id="ncSkType"><button class="chip" data-v="pop" aria-pressed="true">Short-lived cells</button><button class="chip" data-v="org">Organised system (squall line)</button></div>
+      <div class="ctl"><label for="ncSkLead">Lead time</label><input type="range" id="ncSkLead" min="0" max="12" step="0.25" value="1"><output></output></div>
+      <p class="tryit">slide the lead time to where the two curves cross, then switch to an organised system: does extrapolation stay useful for longer?</p>
     </div>
-    <div class="panel" style="padding:12px 16px">
-      <div class="chips" id="clDrView" style="margin-top:0"><button class="chip" data-v="30" aria-pressed="true">First 30 days</button><button class="chip" data-v="all">All 20,000 steps (13.7 years)</button><button class="btn" type="button" id="clDrNew" style="margin-left:auto">New weather</button></div>
-      <div id="clDrFig"></div>
-      <h3 style="margin:4px 0 0">Histogram of steps 4,000–20,000</h3>
-      <div id="clDrHist"></div>
-    </div>
+    <div class="panel"><h3>Forecast skill vs lead time · schematic</h3><div id="ncSkFig"></div><div class="readout" id="ncSkRead" style="margin-top:4px"></div>
+      <p class="note" style="margin:6px 0 0"><b>Schematic, not data:</b> the shapes follow the usual textbook picture (extrapolation decays fast, NWP starts low because of spin-up). Real crossover times depend on the region, season, storm type and score.</p></div>
   </div>
-  <p class="note" style="margin:8px 0 0">Toy model (AR(1) process), not a real emulator. Real numbers: SFNO ran stable autoregressive rollouts for 1 year (1,460 six-hour steps; Bonev et al., arXiv:2306.03838); DLESyM ran 1,000 years without drift (Cresswell-Clay et al., arXiv:2409.16247). At 6-h steps, 1,000 years is about 1.46 million steps, so an error that compounds per step must be essentially zero.</p>
+  <p class="note">HRRR 3 km and the StormCast / StormScope designs: arXiv:2408.10958 (StormCast), arXiv:2601.17268 (StormScope = Earth-2 Nowcasting, NVIDIA blog 26 Jan 2026). Storm sizes and lifetimes are typical textbook values.</p>
 </section>
 
-<section class="slide" id="cl-dlesym" data-g="a" data-sec="6 · Climate">
-  <p class="kicker">DLESyM · <span class="en">Deep Learning Earth System Model</span></p>
-  <h2>DLESyM: a fast atmosphere and a slow ocean that talk every 4 days</h2>
+<section class="slide" id="nc-storms" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">A toy storm world · move, grow, decay, initiate</p>
+  <h2>Storms move, grow, decay and form; extrapolation only knows the first</h2>
   <div class="two">
     <div>
-      <ul class="pts" style="font-size:14px">
-        <li><b>Atmosphere network</b>: 9 variables (geopotential at 5 levels, T2m, T850, column water vapour, outgoing long-wave radiation), 6-hourly states.</li>
-        <li><b>Ocean network</b>: sea-surface temperature (SST) in 48-h steps. They are <b>coupled</b> every 4 days. Both on HEALPix: 12 × 64 × 64 = 49,152 cells, ~110 km.</li>
+      <p style="font-size:14.5px">A toy radar map, 96 × 96 pixels of 4 km, one frame every 10 min. Each storm cell <b>moves</b> with the steering wind (plus a little drift of its own), <b>grows</b> to a peak and <b>decays</b> over its own lifetime (2–5 h), and new cells <b>initiate</b>, more often where a hidden "favourable environment" field is high. The colour is a reflectivity-like value in dBZ.</p>
+      <div class="chips"><button class="btn" type="button" id="ncStPlay">▶ Play 6 h</button><button class="btn" type="button" id="ncStNew">New day</button><span class="chips" id="ncStTrk" style="margin:0"><button class="chip" data-v="on" aria-pressed="true">Tracks</button><button class="chip" data-v="off">No tracks</button></span></div>
+      <div class="ctl"><label for="ncStT">Time</label><input type="range" id="ncStT" min="0" max="36" step="1" value="0"><output></output></div>
+      <div class="ctl"><label for="ncStW">Steering wind</label><input type="range" id="ncStW" min="0" max="60" step="5" value="40"><output></output></div>
+      <div class="chips" id="ncStRate"><span class="note" style="align-self:center;margin:0">New cells:</span><button class="chip" data-v="0.9">Few</button><button class="chip" data-v="1.8" aria-pressed="true">Some</button><button class="chip" data-v="3">Many</button></div>
+      <p class="tryit">play the six hours, then click a storm on the map to see its life cycle; set the wind to 0: what is left for extrapolation to predict?</p>
+      <h3 id="ncStLifeT" style="margin-top:6px">Life cycle of the selected cell</h3>
+      <div id="ncStLife"></div>
+    </div>
+    <div class="panel" style="padding:14px 16px"><div class="mapwrap" style="max-width:370px;margin:0 auto"><div id="ncStMap"></div><div class="maptip" id="ncStTip"></div></div><div id="ncStLeg" style="max-width:370px;margin:2px auto 0"></div>
+      <div class="readout" id="ncStRead" style="margin-top:0;gap:14px;justify-content:center"></div>
+      <p class="note" style="margin:4px 0 0">Toy model with made-up rules, deterministic for a given day (seed). Lines: the last 3 h of each track; dashed ring: the selected cell.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="nc-stormcast" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">StormCast · <span class="en">emulating a km-scale NWP model</span></p>
+  <h2>StormCast: an HRRR emulator that steps one hour at a time</h2>
+  <div class="fig-wrap" id="ncScFig"></div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div class="chips" id="ncScMode" style="margin:0"><button class="chip" data-v="train" aria-pressed="true">Training (ERA5)</button><button class="chip" data-v="real">Real time (GFS)</button></div>
+  <p class="tryit" style="flex:1;min-width:300px;margin:0">click each box, then switch to real time: which input changes, and why is it needed at all?</p></div>
+  <div class="two" style="margin-top:2px">
+    <div>
+      <div class="card" id="ncScCard" style="min-height:9.5em"></div>
+      <div class="readout" id="ncScRead" style="gap:14px;margin-top:8px"></div>
+    </div>
+    <div class="panel" style="padding:14px 16px">
+      <h3>Toy: regression mean + diffusion residual = one sample</h3>
+      <div class="three" style="gap:8px" id="ncScMaps"><div><div id="ncScM1"></div><p class="note" style="margin:2px 0 0;text-align:center">regression mean</p></div><div><div id="ncScM2"></div><p class="note" style="margin:2px 0 0;text-align:center" id="ncScM2L">residual</p></div><div><div id="ncScM3"></div><p class="note" style="margin:2px 0 0;text-align:center">sum: one sample</p></div></div>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:4px"><div class="ctl" style="flex:1;margin:0"><label for="ncScK">Denoising step</label><input type="range" id="ncScK" min="0" max="18" step="1" value="18"><output></output></div><button class="btn" type="button" id="ncScNew">New sample</button></div>
+      <p class="tryit" style="margin-bottom:0">drag the denoising step from 0 to 18, then draw a new sample: the mean stays, the storms shift a little.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:6px">Pathak et al., arXiv:2408.10958 (2024): HRRR 3 km, central US 1,536 × 1,920 km, 1-h steps, regression UNet + EDM residual (18 steps), 99 state + 26 synoptic variables (ERA5 / 0.25° GFS), 64 H100 × 120 h. StormCastCONUS (2026) covers all of CONUS. The toy panel is not the model.</p>
+</section>
+
+<section class="slide" id="nc-stormscope" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">StormScope = Earth-2 Nowcasting · <span class="en">learning from observations</span></p>
+  <h2>StormScope learns storms from satellite and radar, not from an NWP state</h2>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div class="chips" id="ncSsMode" style="margin:0"><button class="chip" data-v="now" aria-pressed="true">Nowcasting · 0–2 h</button><button class="chip" data-v="near">Nearcasting · 0–12 h</button></div>
+    <button class="chip" type="button" data-go="ss-intro">StormScope step by step →</button></div>
+  <div class="fig-wrap" id="ncSsFig" style="margin-top:4px"></div>
+  <div class="two" style="margin-top:4px">
+    <div>
+      <ul class="pts" style="font-size:14px;margin-bottom:4px">
+        <li>Inputs are <b>GOES</b> geostationary satellite images (several bands) and the <b>MRMS</b> radar mosaic over CONUS, at 6 km. A <b>transformer diffusion model</b> generates the next state; each run is one sample.</li>
+        <li>Two model classes: <b>nowcasting</b> (0–2 h, 10-min steps, the past hour of observations only) and <b>nearcasting</b> (0–12 h, 1-h steps, one GFS channel to steer the large scale).</li>
+        <li>A satellite sees a cloud tower growing before radar sees rain: useful for the hardest part, <b>initiation</b>.</li>
       </ul>
-      <div id="clDlTime"></div>
-      <p style="font-size:14px;margin:4px 0 2px">Toy: a noisy wind <i>u</i> (memory 2 days) drives a slow SST with a recharge term. Two-way: warm SST changes the winds, which warm the SST further (a Bjerknes-like feedback).</p>
-      <div class="chips" id="clDlMode" style="margin:6px 0"><button class="chip" data-v="0">SST fixed</button><button class="chip" data-v="1">One-way</button><button class="chip" data-v="2" aria-pressed="true">Two-way coupled</button></div>
-      <div class="ctl" style="margin:4px 0"><label for="clDlFb">Feedback</label><input type="range" id="clDlFb" min="0" max="1.3" step="0.05" value="1"><output></output></div>
-      <p class="tryit">switch between one-way and two-way: does the SST spectrum grow a peak at a few years, like ENSO? At 1.3× the oscillation becomes too regular.</p>
+      <div style="display:flex;gap:10px;align-items:center"><div class="ctl" style="flex:1;margin:0"><label for="ncSsT">Time</label><input type="range" id="ncSsT" min="-4" max="12" step="1" value="-2"><output style="min-width:6.5em"></output></div><button class="btn" type="button" id="ncSsPlay">▶ Play</button></div>
+      <p class="tryit">switch between the two modes in the diagram, then step from −40 min to +1 h and watch the circled cells: on which image do they show up first?</p>
+      <div class="calc" id="ncSsRead" style="margin-top:4px;font-size:12.5px"></div>
     </div>
-    <div class="panel" style="padding:12px 16px">
-      <h3 style="margin:0">Toy SST anomaly, monthly means (K)</h3>
-      <div id="clDlFig"></div>
-      <h3 style="margin:4px 0 0">Power spectrum of SST</h3>
-      <div id="clDlSpec"></div>
-      <div class="readout" id="clDlRead" style="gap:16px;margin-top:2px"></div>
-      <h3 style="margin:8px 0 2px">1,000-year run, as reported</h3>
-      <div id="clDlCost"></div>
+    <div class="panel" style="padding:14px 16px">
+      <div class="two even" style="gap:10px">
+        <div><h3>Toy satellite (IR cloud tops)</h3><div id="ncSsSat"></div><div id="ncSsSatL"></div></div>
+        <div><h3>Toy radar (dBZ)</h3><div id="ncSsRad"></div><div id="ncSsRadL"></div></div>
+      </div>
+      <p class="note" style="margin:4px 0 0">Toy world. Circles: cells that start raining between −30 min and +1 h. In the toy, the cloud appears 30 min before the radar echo and its anvil outlives the rain.</p>
     </div>
   </div>
-  <p class="note" style="margin:8px 0 0">DLESyM: Cresswell-Clay, Liu, Durran et al., arXiv:2409.16247. The authors report 1,000-year runs with no drift in ~12 h on one A100 GPU vs ~90 days for CESM2 (different hardware; the ratio is derived from these two numbers), and variability comparable to CMIP6 models (tropical cyclogenesis, Indian monsoon, blocking). Its predecessor DLWP (2021) used a cubed sphere. The toy is a recharge-oscillator caricature, not DLESyM.</p>
+  <p class="note" style="margin-top:6px">Pathak et al., arXiv:2601.17268 (2026): nowcasting 0–2 h, 10-min steps, 6 past states; nearcasting 0–12 h, 1-h steps, one GFS channel (Z500 for the satellite model, GFS simulated composite reflectivity for the radar model). Paper's headline: competitive with mesoscale NWP up to 6 h. Earth2Studio variants: StormScopeGOES, StormScopeMRMS, StormScopeMeteosatEU, StormScopeDxNSRDB. Toy images are not model output.</p>
 </section>
 
-<section class="slide" id="cl-cbottle" data-g="a" data-sec="6 · Climate">
-  <p class="kicker">cBottle · <span class="en">Climate in a Bottle</span></p>
-  <h2>cBottle does not step forward: it draws a state for given conditions</h2>
+<section class="slide" id="nc-compare" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">Three nowcasts of the toy world · <span class="en">CSI, probability of exceedance</span></p>
+  <h2>Moving the echoes beats doing nothing; knowing that storms die and form beats both</h2>
   <div class="two">
     <div>
-      <div class="eq data" style="font-size:16px;margin:0 0 6px">stepping model: <i>x</i>(<i>t</i> + Δ<i>t</i>) = <i>f</i>(<i>x</i>(<i>t</i>))<br>cBottle: <i>x</i> ~ <i>p</i>(<i>x</i> | SST, time of year, time of day)</div>
-      <p style="font-size:14px;margin-bottom:6px">A <b>diffusion model</b> (as in CorrDiff) samples a global state on HEALPix HPX64 (~100 km, 49,152 pixels) given the <b>monthly SST</b> and the <b>solar position</b>. No previous state, so nothing to drift. One sample is one possible weather; many samples give the climate.</p>
-      <div class="chips" id="clCbVar" style="margin:4px 0"><button class="chip" data-v="T" aria-pressed="true">Temperature (2 m)</button><button class="chip" data-v="P">Rain</button></div>
-      <div class="chips" id="clCbMon" style="margin:4px 0"><button class="chip" data-v="0" aria-pressed="true">January</button><button class="chip" data-v="3">April</button><button class="chip" data-v="6">July</button><button class="chip" data-v="9">October</button></div>
-      <div class="chips" id="clCbSst" style="margin:4px 0"><button class="chip" data-v="-1.5">La Niña SST (−1.5 K)</button><button class="chip" data-v="0" aria-pressed="true">Neutral</button><button class="chip" data-v="1.5">El Niño SST (+1.5 K)</button></div>
-      <div class="ctl" style="margin:4px 0"><label for="clCbHr">Time of day</label><input type="range" id="clCbHr" min="0" max="21" step="3" value="12"><output></output></div>
-      <div class="chips" id="clCbShow" style="margin:4px 0"><button class="chip" data-v="1" aria-pressed="true">One sample</button><button class="chip" data-v="16">Mean of 16 samples</button><button class="btn" type="button" id="clCbNew">New sample</button></div>
-      <p class="tryit">switch from January to July and watch the warm belt and rain band move; set El Niño and look inside the box; press "New sample" a few times.</p>
+      <p style="font-size:14px;margin-bottom:4px"><b>Persistence</b>: the issue-time map, unchanged. <b style="color:var(--cool)">Advection</b>: motion from cross-correlating two radar frames 30 min apart, then the map slides forward. <b style="color:var(--lw)">Generative ensemble</b> (16 members, a toy stand-in for a learned model): each member moves the cells, guesses each cell's remaining life with some noise, and draws new cells at random. <b>CSI</b> = hits / (hits + misses + false alarms) above a threshold.</p>
+      <div class="chips" id="ncCmThr" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Threshold:</span><button class="chip" data-v="20">20 dBZ</button><button class="chip" data-v="30" aria-pressed="true">30 dBZ</button><button class="chip" data-v="40">40 dBZ</button></div>
+      <div class="chips" id="ncCmDay" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Toy day:</span><button class="chip" data-v="1" aria-pressed="true">1</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3">3</button><button class="chip" data-v="4">4</button></div>
+      <p class="tryit">compare the curves at 30 min and at 3 h, then raise the threshold to 40 dBZ and try other days: which ranking holds?</p>
+      <div id="ncCmFig"></div>
+      <div class="readout" id="ncCmRead" style="gap:16px;margin-top:2px"></div>
     </div>
-    <div class="panel" style="padding:12px 16px">
-      <h3 style="margin:0 0 4px" id="clCbTitle"></h3>
-      <div id="clCbMap"></div>
-      <div id="clCbLeg"></div>
-      <div class="readout" id="clCbRead" style="gap:16px;margin-top:0"></div>
-      <div class="callout green" style="font-size:13.5px;margin:8px 0 0"><b>Compression.</b> Trained on a km-scale ICON simulation (2020–2024) and ERA5 (1980–2017), cBottle squeezes petabytes of model output into a few GB of weights: ask it for any month, SST and hour.</div>
+    <div class="panel" style="padding:14px 16px">
+      <div class="chips" id="ncCmView" style="margin-top:0"><button class="chip" data-v="truth">Truth</button><button class="chip" data-v="pers">Persistence</button><button class="chip" data-v="adv">Advection</button><button class="chip" data-v="mem">One member</button><button class="chip" data-v="prob" aria-pressed="true">P(exceed)</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="ncCmLead">Lead time</label><input type="range" id="ncCmLead" min="0" max="36" step="1" value="18"><output></output></div>
+      <div class="mapwrap" style="max-width:400px;margin:0 auto"><div id="ncCmMap"></div><div class="maptip" id="ncCmTip"></div></div><div id="ncCmLeg" style="max-width:400px;margin:2px auto 0"></div>
+      <p class="tryit">switch views at the same lead: where does the probability map hedge, and where is one member confidently wrong?</p>
+      <p class="note" style="margin:2px 0 0" id="ncCmNote"></p>
     </div>
   </div>
-  <p class="note" style="margin:8px 0 0">cBottle: Brenowitz, Ge et al., arXiv:2505.06474 (generative diffusion; coarse generator on HPX64 conditioned on monthly SST and solar position; trained on ICON 2020–2024 and ERA5 1980–2017). The map is a <b>toy planet</b> (made-up continents, analytic seasonal and daily cycle, ENSO-like pattern, random weather), not cBottle output. Box: an ENSO region in the east-central tropical Pacific.</p>
+  <p class="note" style="margin-top:6px">All toy: the ensemble knows the toy's rules (motion, life cycles, where storms tend to form) but not the future; it stands in for what StormCast or StormScope learn from data. Real verification uses CSI or the fractions skill score (FSS) at thresholds such as 20/30/40 dBZ (arXiv:2408.10958).</p>
 </section>
 
-<section class="slide" id="cl-infill" data-g="a" data-sec="6 · Climate">
-  <p class="kicker">cBottle · <span class="en">channel infilling, super-resolution</span></p>
-  <h2>One generator, several jobs: fill a missing variable, add 5 km detail</h2>
+<section class="slide" id="nc-users" data-g="a" data-sec="5 · Nowcasting">
+  <p class="kicker" style="color:var(--lw)">Who uses it, what is claimed, and a quiz</p>
+  <h2>Who is testing Earth-2 Nowcasting, and what is claimed</h2>
   <div class="two even">
     <div>
-      <h3 style="margin:0 0 2px">Infilling a missing channel</h3>
-      <p style="font-size:14px;margin-bottom:4px">A dataset has channel A (say, cloud-top brightness) but not B (say, rain). cBottle learned their <b>joint</b> distribution, so it can generate a B consistent with A. Toy: two correlated random fields; B is hidden and rebuilt from A.</p>
-      <div class="ctl" style="margin:4px 0"><label for="clInRho">Correlation A–B</label><input type="range" id="clInRho" min="0" max="0.95" step="0.05" value="0.7"><output></output></div>
-      <div class="chips" id="clInMode" style="margin:4px 0"><button class="chip" data-v="mean">Conditional mean</button><button class="chip" data-v="samp" aria-pressed="true">Generated sample</button><button class="btn" type="button" id="clInNew">New sample</button></div>
-      <p class="tryit">compare the two infill modes: which one matches the truth point by point, and which one looks like real B?</p>
-      <div class="three" style="gap:8px">
-        <div><div id="clInA"></div><p class="note" style="margin:2px 0 0;text-align:center">A (given)</p></div>
-        <div><div id="clInB"></div><p class="note" style="margin:2px 0 0;text-align:center">B, infilled</p></div>
-        <div><div id="clInT"></div><p class="note" style="margin:2px 0 0;text-align:center">B, truth (hidden)</p></div>
-      </div>
-      <div class="readout" id="clInRead" style="gap:16px;margin-top:4px"></div>
+      <div id="ncUsFig"></div>
+      <p class="tryit">click each user: which one needs more than a few hours ahead, and what does it combine Nowcasting with?</p>
+      <div class="card" id="ncUsCard" style="min-height:6.2em"></div>
+      <div class="callout amber" style="font-size:14px;margin-bottom:0"><b>Claims and their baselines.</b> NVIDIA calls StormScope the "first AI model to outperform physics-based models on short-term precipitation" (vendor claim). The paper (arXiv:2601.17268) says it more carefully: competitive with mesoscale NWP up to 6 h; single-member radar FSS beats HRRR to 3 h and is competitive to 5 h. StormCast's authors report composite-reflectivity FSS comparable to or better than HRRR out to 6 h at 20, 30 and 40 dBZ, with 5-member ensembles that are <b>under-dispersive</b> (too little spread).</div>
     </div>
-    <div class="panel" style="padding:12px 16px">
-      <h3 style="margin:0 0 2px">Super-resolution on HEALPix</h3>
-      <div class="chips" id="clSrNs" style="margin:2px 0 4px"><button class="chip" data-v="4">nside 4</button><button class="chip" data-v="8">8</button><button class="chip" data-v="16" aria-pressed="true">16</button><button class="chip" data-v="32">32</button><button class="chip" data-v="64">64</button></div>
-      <p class="tryit">step nside up: each doubling splits every pixel into 4 equal-area pixels and resolves smaller waves. Drag the globe.</p>
-      <div id="clSrGlobe"></div>
-      <div class="readout" id="clSrRead" style="gap:16px;margin-top:2px"></div>
-      <div id="clSrDiag"></div>
-    </div>
-  </div>
-  <p class="note" style="margin:8px 0 0">cBottle (arXiv:2505.06474): channel infilling, zero-shot bias correction and downscaling, guided tropical-cyclone sampling, and a patch-based 16× super-resolution stage from HPX64 (~100 km, 49k pixels) to HPX1024 (~5 km, 12.5M pixels). Earth2Studio wraps these as CBottle3D, CBottleInfill, CBottleSR, CBottleTCGuidance, CBottleVideo. Left: Gaussian toy where the "model" knows the joint distribution exactly. Globe: toy height field; each pixel shows the value at its centre.</p>
-</section>
-
-<section class="slide" id="cl-extremes" data-g="a" data-sec="6 · Climate">
-  <p class="kicker">Huge ensembles · <span class="en">return periods, rare extremes</span></p>
-  <h2>To see a 1-in-100-year event, you need hundreds of years of weather</h2>
-  <div class="two">
     <div>
-      <p style="font-size:14px;margin-bottom:6px">A <b>return period</b> of <i>T</i> years means a chance of 1/<i>T</i> in any year. In <i>N</i> independent years the chance to see it at least once is 1 − (1 − 1/<i>T</i>)<sup><i>N</i></sup>. Observed records cover a few decades; a cheap emulator can run <i>members × years</i> of plausible weather.</p>
-      <div class="chips" id="clExT" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Return period:</span><button class="chip" data-v="10">10 yr</button><button class="chip" data-v="100" aria-pressed="true">100 yr</button><button class="chip" data-v="1000">1,000 yr</button></div>
-      <div class="ctl" style="margin:4px 0"><label for="clExM">Members</label><input type="range" id="clExM" min="0" max="10" step="1" value="0"><output></output></div>
-      <div class="ctl" style="margin:4px 0"><label for="clExY">Years each</label><input type="range" id="clExY" min="1" max="50" step="1" value="30"><output></output></div>
-      <p class="tryit">start with one 30-year record (like an observed one) and a 100-year event, then add members: when does the spread of the estimate collapse onto the true value?</p>
-      <ul class="pts" style="font-size:13.5px;margin:6px 0 0">
-        <li><b>AXA</b> uses FourCastNet to generate thousands of hypothetical hurricanes (NVIDIA, Jan 2026).</li>
-        <li>SFNO <b>"Huge Ensembles"</b> start many members from <b>bred-vector</b> perturbations (Earth2Studio: HemisphericCentredBredVector).</li>
-        <li>Caveat: synthetic years only help if the model's tails are realistic and members are not too alike.</li>
-      </ul>
-    </div>
-    <div class="panel" style="padding:12px 16px">
-      <h3 style="margin:0">One ensemble: annual maxima vs return period</h3>
-      <div id="clExFig"></div>
-      <h3 style="margin:4px 0 0">Estimated 1-in-<span id="clExTT">100</span>-year level over 300 repeated ensembles</h3>
-      <div id="clExHist"></div>
-      <div class="readout" id="clExRead" style="gap:14px;margin-top:2px"></div>
+      <h3>Quiz</h3>
+      <div id="ncQuiz"></div>
+      <p class="tryit">answer all three; the explanation appears under each question.</p>
     </div>
   </div>
-  <p class="note" style="margin:8px 0 0">Toy: annual-maximum daily rain from a Gumbel distribution (location 60 mm, scale 15 mm), independent years; the estimate is the empirical quantile (no fitted tail, so with <i>N</i> &lt; <i>T</i> it is just the record maximum), Monte Carlo over 300 ensembles. Sources: AXA in NVIDIA's "Earth-2 family of open models" blog (26 Jan 2026); SFNO and Huge Ensembles (Bonev et al., arXiv:2306.03838); Earth2Studio perturbations (github.com/NVIDIA/earth2studio).</p>
-</section>
-
-<section class="slide" id="cl-quiz" data-g="a" data-sec="6 · Climate">
-  <p class="kicker">Check · climate</p>
-  <h2>Four questions on AI climate models</h2>
-  <p class="tryit">answer each question; the feedback explains the reasoning.</p>
-  <div class="two even" style="gap:12px"><div id="clQuiz1"></div><div id="clQuiz2"></div><div id="clQuiz3"></div><div id="clQuiz4"></div></div>
-  <p class="note" style="margin:8px 0 0">Sources: arXiv:2306.03838 (SFNO), 2409.16247 (DLESyM), 2505.06474 (cBottle); NVIDIA blog, 26 Jan 2026 (AXA).</p>
+  <p class="note" style="margin-top:6px">Users and status from NVIDIA's blog "Earth-2 family of open models" (26 Jan 2026). StormCast: arXiv:2408.10958. StormScope: arXiv:2601.17268.</p>
 </section>
 
 </main>
@@ -1095,285 +1077,387 @@ demo("p-map", () => {
 });
 
 </script>
-<script>/* e2/50-climate.js */
-/* ═════════ Earth-2 · section 6: climate (drift, DLESyM, cBottle, huge ensembles) ═════════
-   Everything sits in a block so helper names do not collide with other sections. */
+<script>/* e2/40-nowcast.js */
+/* ═════════ Earth-2 · section 5: nowcasting and km-scale (StormCast, StormScope) ═════════
+   Everything sits in a block so that helper names do not collide with other sections. */
 {
-  const DAY = 30.4375;                                   // days per month (toy calendar)
-  const dots = (svg, pts, X, Y, col, r = 2.4, op = 0.85) => pts.forEach(([x, y]) => el("circle", { cx: X(x), cy: Y(y), r, fill: css(col), opacity: op }, svg));
-  // step outline of a histogram for VIZ.curves: counts c over bins starting at x0 with width w
-  const stepPts = (c, x0, w) => { const p = []; c.forEach((v, i) => { p.push([x0 + i * w, v]); p.push([x0 + (i + 1) * w, v]); }); return p; };
+  /* ───────── the toy storm world ─────────
+     96 × 96 px of 4 km, one frame every 10 min. Cells move with a steering wind (+ own drift), grow and decay with
+     a sin-shaped life cycle, and initiate at random (Poisson in time), more often where a smooth "environment" field
+     is high. Frame t is a reflectivity-like field in dBZ (linear Z of the cells summed, then 10 log10). */
+  const N = 96, KM = 4, DT = 10, PAD = 50, LEAD = 36;
+  const ENVS = {}, TEX = {};
+  // FFT.noise2 needs a power-of-two size: make 128 × 128 and keep the top-left 96 × 96
+  const crop = f => { const o = new Float64Array(N * N); for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) o[j * N + i] = f[j * 128 + i]; return o; };
+  const envOf = seed => ENVS[seed] || (ENVS[seed] = crop(FFT.noise2(128, { beta: 4, seed: 500 + seed })));
+  const texOf = seed => TEX[seed] || (TEX[seed] = crop(FFT.noise2(128, { beta: 1.6, seed: 900 + seed, kmin: 5 })));
+  const wrap = v => ((Math.round(v) % N) + N) % N;
+  const envAt = (env, x, y) => env[wrap(y) * N + wrap(x)];
+  const lifeDraw = R => 12 + Math.round(18 * Math.pow(R(), 1.2));          // 2–5 h, more short-lived cells
+  const pois = (R, lam) => { let k = 0, p = Math.exp(-lam), s = p; const x = R(); while (x > s && k < 50) { k++; p *= lam / k; s += p; } return k; };
+  const clock = k => { const m = k * DT, a = Math.abs(m); return (m < 0 ? "−" : "+") + Math.floor(a / 60) + ":" + String(a % 60).padStart(2, "0") + " h"; };
+  const leadTxt = k => { const m = k * DT; return m < 60 ? m + " min" : Math.floor(m / 60) + " h" + (m % 60 ? " " + (m % 60) + " min" : ""); };
 
-  /* ───────── opener: trajectory vs statistics, drift in a long rollout ───────── */
-  demo("s-climate", slide => {
-    const A = 0.98, SIG = Math.sqrt(1 - A * A), N = 20000, H0 = 4000;
-    let seed = 20, view = "30", T = null, M = null, blow = -1;
-    const amp = slider("clDrAmp", v => fmt(v, 2) + " %", () => { run(); render(); });
-    const bias = slider("clDrBias", v => fmt(v, 3), () => { run(); render(); });
-    chips($("#clDrPre"), v => { const [a, b] = v.split(",").map(Number); $("#clDrAmp").value = a; $("#clDrBias").value = b;
-      ["clDrAmp", "clDrBias"].forEach(id => { const r = document.getElementById(id); r.parentElement.querySelector("output").textContent = id === "clDrAmp" ? fmt(a, 2) + " %" : fmt(b, 3); });
-      run(); render(); });
-    chips($("#clDrView"), v => { view = v; render(); });
-    $("#clDrNew").onclick = () => { seed += 1; run(); render(); };
-    function run() {
-      const rt = rng(seed), rm = rng(seed + 1000), a2 = A * (1 + amp() / 100), b = bias();
-      T = new Float64Array(N); M = new Float64Array(N); T[0] = M[0] = 1.2; blow = -1;
-      for (let n = 1; n < N; n++) { T[n] = A * T[n - 1] + SIG * gauss(rt);
-        M[n] = blow >= 0 ? NaN : a2 * M[n - 1] + b + SIG * gauss(rm);
-        if (blow < 0 && Math.abs(M[n]) > 1e4) { blow = n; M[n] = NaN; } }
-    }
-    const runMean = (x, every) => { const p = []; let s = 0; for (let n = 0; n < N; n++) { if (!isFinite(x[n])) break; s += x[n]; if (n % every === 0 && n > 40) p.push([n / 4, s / (n + 1)]); } return p; };
-    function render() {
-      const days = n => n / 4, fin = (x, n0, n1, k) => { const p = []; for (let n = n0; n < n1; n += k) { if (!isFinite(x[n])) break; p.push([days(n), x[n]]); } return p; };
-      if (view === "30") {
-        VIZ.curves($("#clDrFig"), [{ pts: fin(T, 0, 121, 1), col: "--fg", label: "truth", w: 1.8 }, { pts: fin(M, 0, 121, 1), col: "--accent", label: "emulator", w: 1.8 }],
-          { xr: [0, 30], yr: [-4, 4], xl: "days", yl: "x (sd units)", W: 520, H: 170, xt: [0, 7, 14, 21, 28], yt: [-4, -2, 0, 2, 4], xf: v => fmt(v, 0), yf: v => fmt(v, 0), legendAt: "tr" });
-      } else {
-        const C = VIZ.curves($("#clDrFig"), [{ pts: fin(T, 0, N, 12), col: "--fg", w: .7, op: .25 }, { pts: fin(M, 0, N, 12), col: "--accent", w: .7, op: .28 },
-          { pts: runMean(T, 40), col: "--fg", label: "truth, running mean", w: 2.4 }, { pts: runMean(M, 40), col: "--accent", label: "emulator, running mean", w: 2.4 }],
-          { xr: [0, N / 4], yr: [-4, 4], xl: "years", yl: "x (sd units)", W: 520, H: 170, xt: [0, 2, 4, 6, 8, 10, 12].map(y => y * 365.25), yt: [-4, -2, 0, 2, 4], xf: v => fmt(v / 365.25, 0), yf: v => fmt(v, 0), legendAt: "bl",
-            marks: blow >= 0 ? [[blow / 4, "blew up", "--lw"]] : [] });
-      }
-      // histograms of the second half
-      const lo = -5, w = 0.25, nb = 40, ht = new Array(nb).fill(0), hm = new Array(nb).fill(0); let out = 0, nm = 0;
-      for (let n = H0; n < N; n++) { ht[clamp(Math.floor((T[n] - lo) / w), 0, nb - 1)]++;
-        if (isFinite(M[n])) { const k = Math.floor((M[n] - lo) / w); if (k < 0 || k >= nb) out++; else hm[k]++; nm++; } }
-      const mx = Math.max(...ht, ...hm) * 1.12;
-      VIZ.curves($("#clDrHist"), [{ pts: stepPts(ht, lo, w), col: "--fg", label: "truth", w: 2 }, { pts: stepPts(hm, lo, w), col: "--accent", label: blow >= 0 ? "emulator (blew up)" : "emulator", w: 2 }],
-        { xr: [lo, -lo], yr: [0, mx], xl: "x", W: 520, H: 105, xt: [-4, -2, 0, 2, 4], yt: [0], xf: v => fmt(v, 0), yf: () => "", legendAt: "tr" });
-      const half = x => Array.from(x.slice(H0)).filter(isFinite), mT = half(T), mM = half(M), a2 = A * (1 + amp() / 100);
-      const relax = a2 < 1 ? 1 / (1 - a2) / 4 : Infinity;
-      const mm = mM.length ? mean(mM) : NaN, sm = mM.length ? sd(mM) : NaN, off = blow >= 0 || Math.abs(mm) > 0.3 || sm > 1.25;
-      $("#clDrRead").innerHTML = `<div><span>Truth mean · sd</span><b style="color:var(--fg)">${fmt(mean(mT), 2)} · ${fmt(sd(mT), 2)}</b></div>` +
-        `<div><span>Emulator mean · sd</span><b class="${off ? "c-lw" : "c-ok"}">${blow >= 0 ? "blew up" : fmt(mm, 2) + " · " + fmt(sm, 2)}</b></div>` +
-        `<div><span>Memory 1/(1 − a′)</span><b>${isFinite(relax) ? fmtN(relax) + " d" : "∞"}</b></div>`;
-    }
-    run(); render(); return render;
-  });
+  // a random initiation point in the padded box, accepted more often where the environment is favourable
+  function spot(R, env) { let x, y;
+    for (let k = 0; k < 60; k++) { x = -PAD + R() * (N + 2 * PAD); y = -PAD + R() * (N + 2 * PAD); if (R() < sigm(3.5 * envAt(env, x, y) - 2)) break; }
+    return [x, y]; }
+  function newCell(R, env, t, u, v, id) { const [x, y] = spot(R, env);
+    return { id, x0: x, y0: y, tb: t, L: lifeDraw(R), A: 38 + 22 * R(), r: 3 + 3.2 * R(), u: u + 0.22 * gauss(R), v: v + 0.22 * gauss(R) }; }
 
-  /* ───────── DLESyM: a fast atmosphere and a slow ocean with different clocks ───────── */
-  demo("cl-dlesym", slide => {
-    const MON = 1024, cache = new Map();
-    let mode = 2, ms = 0;
-    chips($("#clDlMode"), v => { mode = +v; render(); });
-    const fb = slider("clDlFb", v => fmt(v, 2) + "×", render);
-    // atmosphere: 6-h steps, memory 2 days; ocean: 48-h steps; exchange every 4 days (16 + 2 steps per window)
-    function sim(mode, fb, seed = 3) {
-      const key = mode + ":" + fb; if (cache.has(key)) return cache.get(key);
-      const t0 = performance.now(), r = rng(seed), phi = Math.exp(-0.25 / 2), s = Math.sqrt(1 - phi * phi);
-      const R0 = -1 / 60, F = 2 * Math.PI / (4 * 365), eps = 0.0005, mu = 0.03, g = 0.62 * fb, kap = 0.002;
-      let u = 0, T = 0, h = 0; const out = new Float64Array(MON), cnt = new Float64Array(MON);
-      for (let d = 0; d < MON * DAY; d += 4) {
-        let ub = 0; const gT = mode === 2 ? g * T : 0;                       // the atmosphere sees the SST of the last exchange
-        for (let k = 0; k < 16; k++) { u = phi * u + (1 - phi) * gT + s * gauss(r); ub += u / 16; }
-        if (mode > 0) for (let k = 0; k < 2; k++) { const dT = R0 * T + mu * ub + F * h - kap * T * T * T, dh = -eps * h - F * T; T += 2 * dT; h += 2 * dh; }
-        const m = Math.min(MON - 1, Math.floor(d / DAY)); out[m] += T; cnt[m]++;
-      }
-      for (let m = 0; m < MON; m++) out[m] /= cnt[m] || 1;
-      const res = { x: out, ms: performance.now() - t0 }; cache.set(key, res); return res;
-    }
-    function spectrum(x) {
-      const n = x.length, m = mean(x), re = Float64Array.from(x, v => v - m), im = new Float64Array(n); FFT.fft(re, im);
-      const P = []; for (let k = 1; k < n / 2; k++) P.push(2 * (re[k] ** 2 + im[k] ** 2) / (n * n));
-      const S = P.map((_, i) => { let s = 0, c = 0; for (let j = i - 2; j <= i + 2; j++) if (j >= 0 && j < P.length) { s += P[j]; c++; } return s / c; });
-      return S.map((p, i) => [n / (i + 1) / 12, p]);                     // [period in years, variance per bin]
-    }
-    function timeline() {
-      const W = 470, H = 92, x = lin(0, 8, 92, W - 10), svg = svgIn($("#clDlTime"), W, H);
-      el("text", { x: 0, y: 26, "font-size": 12, "font-weight": 600, fill: css("--ok") }, svg, "Atmosphere");
-      el("text", { x: 0, y: 58, "font-size": 12, "font-weight": 600, fill: css("--cool") }, svg, "Ocean (SST)");
-      for (let i = 0; i <= 32; i++) el("line", { x1: x(i / 4), x2: x(i / 4), y1: 14, y2: 30, stroke: css("--ok"), "stroke-width": 1.4 }, svg);
-      for (let i = 0; i <= 4; i++) el("rect", { x: x(i * 2) - 4, y: 46, width: 8, height: 16, rx: 2, fill: css("--cool") }, svg);
-      [4, 8].forEach(d => { el("line", { x1: x(d), x2: x(d), y1: 32, y2: 44, stroke: css("--mag"), "stroke-width": 2.4 }, svg);
-        el("text", { x: x(d) - 4, y: 41, "font-size": 10.5, "text-anchor": "end", fill: css("--mag") }, svg, "exchange"); });
-      for (let d = 0; d <= 8; d += 2) el("text", { x: x(d), y: 80, "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") }, svg, d + " d");
-      el("text", { x: W - 10, y: 91, "font-size": 10.5, "text-anchor": "end", fill: css("--muted") }, svg, "ticks: 6-h atmosphere states · 48-h ocean steps");
-    }
+  // a world: cell list from frame −48 to +40; wind towards the east-north-east, direction set by the seed
+  function world(seed, kmh = 40, rate = 1.8) {
+    const R = rng(seed * 7919 + 13), env = envOf(seed), dir = (8 + 40 * R()) * Math.PI / 180, sp = kmh / 60 * DT / KM;
+    const u = sp * Math.cos(dir), v = -sp * Math.sin(dir), cells = [];
+    for (let t = -48; t <= LEAD + 4; t++) { const n = pois(R, rate); for (let c = 0; c < n; c++) cells.push(newCell(R, env, t, u, v, cells.length)); }
+    return { seed, kmh, rate, u, v, cells, env, tex: texOf(seed), cache: {} };
+  }
+  // state of a cell at frame t: position, intensity (dBZ), radius (px); I = 0 outside its life
+  function state(c, t) { const a = t - c.tb, x = c.x0 + c.u * a, y = c.y0 + c.v * a;
+    if (a < 0 || a > c.L) return { x, y, I: 0, r: c.r, a };
+    const s = Math.max(0, Math.sin(Math.PI * a / c.L)); return { x, y, I: c.A * Math.pow(s, 0.35), r: c.r * (0.75 + 0.25 * s), a, s }; }
+  // paint states [{x, y, I, r}] into a dBZ field; tex (optional) adds a few dBZ of texture that moves with the wind
+  function paint(list, tex = null, sh = [0, 0]) {
+    const Z = new Float32Array(N * N), out = new Float32Array(N * N);
+    for (const c of list) { if (c.I < 3) continue; const R3 = 3 * c.r, z0 = Math.pow(10, c.I / 10), inv = 1 / (c.r * c.r);
+      const i0 = Math.max(0, Math.floor(c.x - R3)), i1 = Math.min(N - 1, Math.ceil(c.x + R3)), j0 = Math.max(0, Math.floor(c.y - R3)), j1 = Math.min(N - 1, Math.ceil(c.y + R3));
+      for (let j = j0; j <= j1; j++) { const dy = j + .5 - c.y; for (let i = i0; i <= i1; i++) { const dx = i + .5 - c.x; Z[j * N + i] += z0 * Math.exp(-(dx * dx + dy * dy) * inv); } } }
+    for (let k = 0; k < N * N; k++) { let d = Z[k] > 1 ? 10 * Math.log10(Z[k]) : 0;
+      if (tex && d > 12) { const i = k % N, j = (k - i) / N; d = Math.max(0, d + 1.5 * tex[wrap(j - sh[1]) * N + wrap(i - sh[0])]); }
+      out[k] = d; }
+    return out; }
+  const truthStates = (W, t) => W.cells.map(c => state(c, t)).filter(s => s.I > 0);
+  const frame = (W, t) => W.cache[t] || (W.cache[t] = paint(truthStates(W, t), W.tex, [W.u * t, W.v * t]));
+  const inView = (s, m = 0) => s.x > -m && s.x < N + m && s.y > -m && s.y < N + m;
+
+  /* toy "satellite": cloud fraction from each cell, wider than its echo, starting 3 frames (30 min) before the rain
+     and keeping an anvil 4 frames after; shown as an IR brightness temperature (K) */
+  function satellite(W, t) {
+    const C = new Float32Array(N * N).fill(1);
+    for (const c of W.cells) { const a = t - c.tb; if (a < -3 || a > c.L + 4) continue;
+      const g = a < 0 ? 0.25 + 0.55 * (a + 3) / 3 : a <= c.L ? 0.8 + 0.18 * Math.sin(Math.PI * a / c.L) : 0.9 * (1 - (a - c.L) / 5);
+      const rr = c.r * (a < 0 ? 1.1 + 0.3 * (a + 3) / 3 : a <= c.L ? 1.6 + 0.9 * a / c.L : 2.5), x = c.x0 + c.u * a, y = c.y0 + c.v * a, R3 = 2.6 * rr, inv = 1 / (rr * rr);
+      const i0 = Math.max(0, Math.floor(x - R3)), i1 = Math.min(N - 1, Math.ceil(x + R3)), j0 = Math.max(0, Math.floor(y - R3)), j1 = Math.min(N - 1, Math.ceil(y + R3));
+      for (let j = j0; j <= j1; j++) for (let i = i0; i <= i1; i++) { const d2 = (i + .5 - x) ** 2 + (j + .5 - y) ** 2; C[j * N + i] *= 1 - g * Math.exp(-d2 * inv * 0.8); } }
+    const bt = new Float32Array(N * N); for (let k = 0; k < N * N; k++) bt[k] = 295 - 90 * (1 - C[k]); return bt; }
+
+  /* ───────── shared drawing bits ───────── */
+  const DBZ = { color: CM.precip, lo: 10, hi: 60, mask: v => v < 10 };
+  const IR0 = CM.ramp(["#3a3a3a", "#6b6b6b", "#a3a3a3", "#d8d8d8", "#ffffff", "#9fd6f5", "#3b82c4"]), IR = v => IR0(1 - v);   // warm = dark, cold tops = white/blue
+  const lum = c => { const d = document.createElement("canvas").getContext("2d"); d.fillStyle = c; d.fillRect(0, 0, 1, 1); const p = d.getImageData(0, 0, 1, 1).data; return 0.3 * p[0] + 0.59 * p[1] + 0.11 * p[2]; };
+  // outline the set of pixels where test(k) is true, on a VIZ.raster canvas with scale S
+  function outline(g, S, test, col, w = 1.6) {
+    const has = (i, j) => i >= 0 && j >= 0 && i < N && j < N && test(j * N + i);
+    g.save(); g.strokeStyle = col; g.lineWidth = w; g.beginPath();
+    for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) { if (!has(i, j)) continue;
+      if (!has(i, j - 1)) { g.moveTo(i * S, j * S); g.lineTo(i * S + S, j * S); } if (!has(i, j + 1)) { g.moveTo(i * S, j * S + S); g.lineTo(i * S + S, j * S + S); }
+      if (!has(i - 1, j)) { g.moveTo(i * S, j * S); g.lineTo(i * S, j * S + S); } if (!has(i + 1, j)) { g.moveTo(i * S + S, j * S); g.lineTo(i * S + S, j * S + S); } }
+    g.stroke(); g.restore(); }
+  // steering-wind arrow in the top-left corner of a raster
+  function windArrow(g, S, u, v, kmh) {
+    const x = 14 * S / 2, y = 14 * S / 2, sp = Math.hypot(u, v), L = 7 * S;
+    g.save(); g.fillStyle = "rgba(255,255,255,.82)"; g.strokeStyle = "#222"; g.lineWidth = 2;
+    g.beginPath(); g.arc(x, y, L * 0.95, 0, 2 * Math.PI); g.fill();
+    if (sp > 1e-6) { const ex = x + u / sp * L * 0.7, ey = y + v / sp * L * 0.7, bx = x - u / sp * L * 0.55, by = y - v / sp * L * 0.55, a = Math.atan2(ey - by, ex - bx);
+      g.beginPath(); g.moveTo(bx, by); g.lineTo(ex, ey); g.stroke();
+      g.beginPath(); g.moveTo(ex, ey); g.lineTo(ex - 9 * Math.cos(a - .45), ey - 9 * Math.sin(a - .45)); g.lineTo(ex - 9 * Math.cos(a + .45), ey - 9 * Math.sin(a + .45)); g.closePath(); g.fillStyle = "#222"; g.fill(); }
+    g.fillStyle = "#222"; g.font = "600 13px system-ui, sans-serif"; g.textAlign = "center"; g.fillText(kmh + " km/h", x, y + L * 0.95 + 15); g.restore(); }
+  // hover tooltip on a mapwrap
+  function tip(host, tipEl, text) { return (i, j) => { if (i < 0) { tipEl.style.display = "none"; return; }
+    const r = host.querySelector("canvas").getBoundingClientRect(), w = host.getBoundingClientRect();
+    tipEl.textContent = text(i, j); tipEl.style.display = "block";
+    const x = (i + .5) / N * r.width + r.left - w.left, y = (j + .5) / N * r.height + r.top - w.top;
+    tipEl.style.left = Math.min(x + 12, r.width - 130) + "px"; tipEl.style.top = (y + 12) + "px"; }; }
+
+    /* ───────── 1 · opener: schematic skill vs lead time ───────── */
+  demo("s-nowcast", () => {
+    const lead = slider("ncSkLead", v => v < 1 ? Math.round(v * 60) + " min" : fmt(v, v % 1 ? 2 : 0) + " h", render);
+    let type = "pop"; chips($("#ncSkType"), v => { type = v; render(); });
+    // schematic curves (shapes only): extrapolation decays with a storm-lifetime e-folding; NWP spins up then decays slowly
+    const tau = () => type === "pop" ? 1.4 : 3.2;
+    const ext = t => 0.95 * Math.exp(-t / tau());
+    const nwp = t => (type === "pop" ? 0.48 : 0.6) * (1 - Math.exp(-(t + 0.15) / 1.3)) * Math.exp(-t / 40);
+    const goal = t => Math.min(0.97, Math.max(ext(t), nwp(t)) + 0.08 * Math.exp(-((t - 2.5) ** 2) / 8));
+    const cross = () => { for (let t = 0; t <= 12; t += 0.01) if (nwp(t) > ext(t)) return t; return null; };
     function render() {
-      timeline();
-      const R = sim(mode, mode === 2 ? fb() : 0), x = R.x, show = 720;
-      const pts = Array.from(x.slice(0, show), (v, i) => [i / 12, v]);
-      VIZ.curves($("#clDlFig"), [{ pts, col: "--cool", w: 1.4 }], { xr: [0, 60], yr: [-3, 3], xl: "years", W: 520, H: 105, xt: [0, 10, 20, 30, 40, 50, 60], yt: [-3, 0, 3], xf: v => fmt(v, 0), yf: v => fmt(v, 0) });
-      const Sx = mode ? spectrum(x).filter(p => p[0] >= 0.4 && p[0] <= 40).reverse() : [];
-      const ref = spectrum(sim(1, 0).x).filter(p => p[0] >= 0.4 && p[0] <= 40).reverse();
-      const series = [{ pts: ref, col: "--muted", w: 1.4, dash: "4 3", label: "one-way (red noise)" }];
-      if (mode === 2) series.push({ pts: Sx, col: "--cool", w: 2.2, label: "two-way coupled" });
-      VIZ.curves($("#clDlSpec"), series, { xr: [0.4, 40], yr: [1e-5, 1], logx: true, logy: true, xl: "period (years, log)", yl: "power (log)", W: 520, H: 120,
-        xt: [0.5, 1, 2, 5, 10, 20, 40], yt: [1e-5, 1e-3, 0.1], xf: v => fmt(v, v < 1 ? 1 : 0), yf: v => v >= 0.1 ? "0.1" : v >= 1e-3 ? "0.001" : "1e-5", legendAt: "tr" });
-      let pk = null; if (mode === 2) { const inb = Sx.filter(p => p[0] >= 1.5 && p[0] <= 15); pk = inb.reduce((a, b) => b[1] > a[1] ? b : a); }
-      $("#clDlRead").innerHTML = `<div><span>SST sd (toy)</span><b>${mode ? fmt(sd(x), 2) + " K" : "0 (fixed)"}</b></div>` +
-        `<div><span>Spectral peak</span><b class="c-ok">${pk ? "≈ " + fmt(pk[0], 1) + " yr" : "none"}</b></div>` +
-        `<div><span>85 toy years took</span><b class="c-data">${fmt(R.ms, 0)} ms</b></div>`;
-      // reported cost of a 1,000-year run (log-free: hours)
-      const W = 520, Hh = 62, svg = svgIn($("#clDlCost"), W, Hh), L = 150, sc = (W - L - 90) / (90 * 24);
-      [["DLESyM, one A100", 12, "~12 h", "--ok"], ["CESM2", 90 * 24, "~90 days", "--muted"]].forEach(([lab, h, txt, col], i) => { const y = 4 + i * 28;
-        el("text", { x: L - 8, y: y + 15, "text-anchor": "end", "font-size": 12, fill: css("--fg") }, svg, lab);
-        el("rect", { x: L, y: y + 3, width: Math.max(3, h * sc), height: 18, rx: 3, fill: css(col), opacity: .85 }, svg);
-        el("text", { x: L + Math.max(3, h * sc) + 6, y: y + 16, "font-size": 12, class: "mono", fill: css("--muted") }, svg, txt); });
-      el("text", { x: W - 2, y: 18, "text-anchor": "end", "font-size": 11, fill: css("--ok") }, svg, "≈ 180× less wall time");
+      const L = lead(), xs = Array.from({ length: 121 }, (_, i) => i / 10), c = cross();
+      const marks = [[L, "lead " + (L < 1 ? Math.round(L * 60) + " min" : fmt(L, L % 1 ? 2 : 0) + " h"), "--fg"]];
+      const C = VIZ.curves($("#ncSkFig"), [
+        { pts: xs.map(t => [t, ext(t)]), col: "--cool", label: "extrapolation of radar", w: 2.6 },
+        { pts: xs.map(t => [t, nwp(t)]), col: "--muted", label: "km-scale NWP (spin-up)", w: 2.6 },
+        { pts: xs.map(t => [t, goal(t)]), col: "--lw", label: "goal of a learned nowcast", dash: "6 4", w: 2 }],
+        { xr: [0, 12], yr: [0, 1], xl: "lead time (h)", yl: "skill", W: 520, H: 280, xt: [0, 2, 4, 6, 8, 10, 12], yt: [0, 0.5, 1], xf: v => fmt(v, 0), yf: v => v === 0 ? "low" : v === 1 ? "high" : "", marks, legendAt: "tr" });
+      // shade the 0–6 h nowcasting window
+      const g = el("rect", { x: C.X(0), y: 12, width: C.X(6) - C.X(0), height: 280 - 40, fill: css("--lw"), opacity: .06 }, C.svg); C.svg.insertBefore(g, C.svg.firstChild);
+      el("text", { x: C.X(6) - 6, y: C.Y(0.22), "text-anchor": "end", "font-size": 11, fill: css("--lw") }, C.svg, "nowcasting window 0–6 h");
+      if (c != null) { el("circle", { cx: C.X(c), cy: C.Y(ext(c)), r: 5, fill: "none", stroke: css("--fg"), "stroke-width": 1.6 }, C.svg);
+        el("text", { x: C.X(c) + 8, y: C.Y(ext(c)) + 16, "font-size": 11, fill: css("--fg") }, C.svg, "crossover"); }
+      const e = ext(L), n = nwp(L), win = e > n ? ["Extrapolation", "c-data"] : ["NWP", "c-sw"];
+      $("#ncSkRead").innerHTML = `<div><span>Better at this lead</span><b style="color:var(${e > n ? "--cool" : "--muted"})">${win[0]}</b></div><div><span>Crossover (schematic)</span><b class="c-lw">${c == null ? "—" : "≈ " + fmt(c, 1) + " h"}</b></div>`;
     }
     render(); return render;
   });
 
-  /* ───────── cBottle: sample a state for given SST, month and hour (toy planet) ───────── */
-  demo("cl-cbottle", slide => {
-    const NX = 128, NY = 64, D2R = Math.PI / 180, MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const lat = j => 90 - (j + .5) * 180 / NY, lon = i => (i + .5) * 360 / NX;      // lon 0…360 east
-    // toy continents: the top 30 % of a smooth random field between 60° S and 75° N, plus an Antarctic cap
-    const L0 = FFT.noise2(128, { beta: 3.5, seed: 11, kmin: 2 }), LAND = new Uint8Array(NX * NY);
-    const cut = Array.from(L0.slice(0, NX * NY)).sort((a, b) => a - b)[Math.floor(0.7 * NX * NY)];
-    for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) LAND[j * NX + i] = (L0[j * NX + i] > cut && lat(j) < 75 && lat(j) > -60) || lat(j) < -68 ? 1 : 0;
-    // keep the ENSO region open ocean
-    for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) if (Math.abs(lat(j)) < 22 && lon(i) > 165 && lon(i) < 265) LAND[j * NX + i] = 0;
-    const NOISE = new Map(), noise = s => { if (!NOISE.has(s)) NOISE.set(s, FFT.noise2(128, { beta: 3, seed: 500 + s }).slice(0, NX * NY)); return NOISE.get(s); };
-    let v = "T", mon = 0, sst = 0, nAvg = 1, seed = 1;
-    chips($("#clCbVar"), x => { v = x; render(); });
-    chips($("#clCbMon"), x => { mon = +x; render(); });
-    chips($("#clCbSst"), x => { sst = +x; render(); });
-    chips($("#clCbShow"), x => { nAvg = +x; render(); });
-    const hr = slider("clCbHr", x => String(x).padStart(2, "0") + " UTC", render);
-    $("#clCbNew").onclick = () => { seed += 16; render(); };
-    const gs = (x, c, w) => Math.exp(-(((x - c) / w) ** 2));
-    function field(var_, s) {
-      const doy = mon * DAY + 15, dec = -23.44 * Math.cos(2 * Math.PI * (doy + 10) / 365), z = noise(s), out = new Float64Array(NX * NY);
-      for (let j = 0; j < NY; j++) { const p = lat(j), sp = Math.sin(p * D2R);
-        for (let i = 0; i < NX; i++) { const k = j * NX + i, ln = lon(i), land = LAND[k], enso = sst * gs(p, 0, 10) * gs(ln, 235, 40);
-          if (var_ === "T") {
-            const base = 28 - 52 * sp * sp, seas = 18 * (dec / 23.44) * sp * (land ? 1 : 0.35);
-            const ha = (ln + 15 * hr() - 180 - 30) * D2R, diur = (land ? 6 : 0.4) * Math.cos(ha) * Math.cos(p * D2R);
-            out[k] = base + seas + diur + (land ? 0 : enso) + z[k] * (1.5 + 7 * sp * sp) * (land ? 1.3 : 0.7) - (p < -68 ? 15 : 0);
-          } else {
-            const c = (land ? 0.6 : 0.35) * dec + 4, base = 9 * gs(p, c, 7) + 3.2 * gs(Math.abs(p), 45, 9) + 0.4;
-            const shift = sst * (5 * gs(p, 0, 8) * gs(ln, 205, 35) - 4 * gs(p, 0, 10) * gs(ln, 130, 25));
-            out[k] = Math.max(0, base + shift) * Math.exp(1.0 * z[k] - 0.5);
-          } } }
-      return out;
-    }
-    function sample() { if (nAvg === 1) return field(v, seed); const acc = new Float64Array(NX * NY);
-      for (let n = 0; n < nAvg; n++) { const f = field(v, seed + n); for (let k = 0; k < acc.length; k++) acc[k] += f[k] / nAvg; } return acc; }
-    const inBox = (i, j) => Math.abs(lat(j)) <= 5 && lon(i) >= 190 && lon(i) <= 240;
+  /* ───────── 2 · the toy storm world ───────── */
+  demo("nc-storms", slide => {
+    let seed = 1, W = null, sel = null, timer = null, showTrk = true;
+    const tS = slider("ncStT", clock, () => render()), wS = slider("ncStW", v => v + " km/h", () => { rebuild(); render(); });
+    const rateG = chips($("#ncStRate"), () => { rebuild(); render(); });
+    chips($("#ncStTrk"), v => { showTrk = v === "on"; render(); });
+    const rebuild = () => { W = world(seed, wS(), +rateG()); sel = null; };
+    $("#ncStNew").onclick = () => { seed = seed % 9 + 1; rebuild(); render(); };
+    const stop = () => { clearInterval(timer); timer = null; $("#ncStPlay").textContent = "▶ Play 6 h"; };
+    $("#ncStPlay").onclick = () => {
+      if (timer) { stop(); return; }
+      const r = $("#ncStT"); if (+r.value >= LEAD) r.value = 0;
+      $("#ncStPlay").textContent = "❚❚ Pause";
+      timer = setInterval(() => { if (!slide.classList.contains("on")) { stop(); return; }
+        r.value = +r.value + 1; r.dispatchEvent(new Event("input")); if (+r.value >= LEAD) stop(); }, 260);
+    };
+    const hover = tip($("#ncStMap"), $("#ncStTip"), (i, j) => { const f = frame(W, tS()), v = f[j * N + i]; return v < 10 ? "clear" : fmt(v, 0) + " dBZ"; });
+    rebuild();
+    function pick(i, j) { const t = tS(); let best = null, bd = 1e9;
+      W.cells.forEach(c => { const s = state(c, t); if (s.I < 10) return; const d = Math.hypot(s.x - i - .5, s.y - j - .5) / s.r; if (d < bd) { bd = d; best = c; } });
+      sel = bd < 4 ? best : null; render(); }
     function render() {
-      const f = sample(), isT = v === "T", lo = isT ? -30 : 0, hi = isT ? 35 : 20, col = isT ? CM.temp : CM.precip;
-      const fg = css("--fg");
-      VIZ.raster($("#clCbMap"), f, NX, NY, { color: col, lo, hi, smooth: true, mask: isT ? null : val => val < 0.6,
-        overlay: (g, sx, sy) => {
-          g.save(); g.strokeStyle = fg; g.globalAlpha = .55; g.lineWidth = 1.2; g.beginPath();
-          const L = (i, j) => i >= 0 && j >= 0 && i < NX && j < NY && LAND[j * NX + i];
-          for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { if (!L(i, j)) continue;
-            if (!L(i, j - 1)) { g.moveTo(i * sx, j * sy); g.lineTo((i + 1) * sx, j * sy); } if (!L(i, j + 1)) { g.moveTo(i * sx, (j + 1) * sy); g.lineTo((i + 1) * sx, (j + 1) * sy); }
-            if (!L(i - 1, j)) { g.moveTo(i * sx, j * sy); g.lineTo(i * sx, (j + 1) * sy); } if (!L(i + 1, j)) { g.moveTo((i + 1) * sx, j * sy); g.lineTo((i + 1) * sx, (j + 1) * sy); } }
-          g.stroke(); g.globalAlpha = 1;
-          const x0 = 190 / 360 * NX * sx, x1 = 240 / 360 * NX * sx, y0 = (90 - 5) / 180 * NY * sy, y1 = (90 + 5) / 180 * NY * sy;
-          g.strokeStyle = "#fff"; g.lineWidth = 4; g.strokeRect(x0, y0 - 6, x1 - x0, y1 - y0 + 12);
-          g.strokeStyle = "#111"; g.lineWidth = 2; g.setLineDash([6, 4]); g.strokeRect(x0, y0 - 6, x1 - x0, y1 - y0 + 12); g.restore(); } });
-      VIZ.legend($("#clCbLeg"), { color: col, min: lo, max: hi, label: isT ? "2 m temperature (°C)" : "rain (mm/day)", width: 300 });
-      $("#clCbTitle").textContent = `Toy ${nAvg > 1 ? "mean of 16 samples" : "sample"} · ${MONTHS[mon]} · ${sst > 0 ? "El Niño" : sst < 0 ? "La Niña" : "neutral"} SST · ${String(hr()).padStart(2, "0")} UTC`;
-      let bx = 0, nb = 0, gm = 0, gw = 0;
-      for (let j = 0; j < NY; j++) { const w = Math.cos(lat(j) * D2R); for (let i = 0; i < NX; i++) { const k = j * NX + i; gm += w * f[k]; gw += w; if (inBox(i, j)) { bx += f[k]; nb++; } } }
-      const u = isT ? " °C" : " mm/d";
-      $("#clCbRead").innerHTML = `<div><span>Box mean</span><b class="c-ok">${fmt(bx / nb, 1)}${u}</b></div><div><span>Global mean</span><b>${fmt(gm / gw, 1)}${u}</b></div><div><span>Samples</span><b>${nAvg}</b></div>`;
+      const t = tS(), f = frame(W, t), act = W.cells.map(c => [c, state(c, t)]).filter(([, s]) => s.I >= 10 && inView(s, 2));
+      if (!sel || state(sel, t).I < 1) { sel = act.length ? act.reduce((a, b) => b[1].I > a[1].I ? b : a)[0] : null; }
+      const ink = lum(css("--bg")) > 128 ? "#1d1d1f" : "#f2f2f2";
+      VIZ.raster($("#ncStMap"), f, N, N, { ...DBZ, onCell: pick, onHover: hover, overlay: (g, S) => {
+        if (showTrk) { g.save(); g.lineWidth = 1.6; g.strokeStyle = ink; g.globalAlpha = .7;
+          act.forEach(([c, s]) => { const b = state(c, Math.max(c.tb, t - 18)); g.beginPath(); g.moveTo(b.x * S, b.y * S); g.lineTo(s.x * S, s.y * S); g.stroke();
+            g.beginPath(); g.arc(s.x * S, s.y * S, 2.5, 0, 2 * Math.PI); g.fillStyle = ink; g.fill(); }); g.restore(); }
+        if (sel) { const s = state(sel, t); g.save(); g.strokeStyle = ink; g.lineWidth = 2.5; g.setLineDash([5, 4]); g.beginPath(); g.arc(s.x * S, s.y * S, Math.max(3.2 * s.r, 3) * S, 0, 2 * Math.PI); g.stroke(); g.restore(); }
+        windArrow(g, S, W.u, W.v, W.kmh); } });
+      VIZ.legend($("#ncStLeg"), { color: CM.precip, min: 10, max: 60, label: "reflectivity-like value, dBZ (toy)", width: 370 });
+      let a35 = 0, mx = 0; for (let k = 0; k < N * N; k++) { if (f[k] >= 35) a35++; if (f[k] > mx) mx = f[k]; }
+      const born = W.cells.filter(c => c.tb > t - 6 && c.tb <= t && inView(state(c, t), 0)).length;
+      const b = (cls, v) => `<b class="${cls}" style="font-size:20px">${v}</b>`;
+      $("#ncStRead").innerHTML = `<div><span>Cells</span>${b("", act.length)}</div><div><span>New, last h</span>${b("c-ok", born)}</div><div><span>Area ≥ 35 dBZ</span>${b("c-sw", fmtN(a35 * KM * KM) + " km²")}</div><div><span>Max</span>${b("c-lw", fmt(mx, 0) + " dBZ")}</div>`;
+      if (sel) { const pts = []; for (let k = 0; k <= sel.L; k++) pts.push([(sel.tb + k) * DT / 60, state(sel, sel.tb + k).I]);
+        const age = t - sel.tb, ph = age < sel.L * 0.4 ? "growing" : age < sel.L * 0.6 ? "mature" : "decaying";
+        $("#ncStLifeT").textContent = `Life cycle of the selected cell · ${ph}, age ${leadTxt(age)} of ${leadTxt(sel.L)}`;
+        VIZ.curves($("#ncStLife"), [{ pts, col: "--lw", w: 2.4 }, { pts: [[pts[0][0], 35], [pts[pts.length - 1][0], 35]], col: "--muted", dash: "3 3", w: 1, label: "35 dBZ" }],
+          { xr: [pts[0][0], pts[pts.length - 1][0]], yr: [0, 65], xl: "time (h)", yl: "peak dBZ", W: 440, H: 130, xf: v => fmt(v, 1), yt: [0, 30, 60], yf: v => fmt(v, 0), marks: [[t * DT / 60, "now", "--fg"]], legendAt: "br" });
+      } else { $("#ncStLifeT").textContent = "Life cycle of the selected cell"; $("#ncStLife").innerHTML = `<p class="note">No active cell; move the time slider.</p>`; }
     }
     render(); return render;
   });
 
-  /* ───────── cBottle: channel infilling (toy Gaussian fields) and HEALPix super-resolution ───────── */
-  demo("cl-infill", slide => {
-    const n = 64, A = FFT.noise2(n, { beta: 3, seed: 21 }), E = FFT.noise2(n, { beta: 1.4, seed: 22 }), SAMP = new Map();
-    const samp = s => { if (!SAMP.has(s)) SAMP.set(s, FFT.noise2(n, { beta: 1.4, seed: 300 + s })); return SAMP.get(s); };
-    let mode = "samp", s = 1, ns = 16, view = [-40, 40];
-    const rho = slider("clInRho", x => fmt(x, 2), render);
-    chips($("#clInMode"), x => { mode = x; render(); });
-    $("#clInNew").onclick = () => { s++; render(); };
-    chips($("#clSrNs"), x => { ns = +x; drawGlobe(); });
+  /* ───────── 3 · StormCast: diagram + toy regression/diffusion ───────── */
+  demo("nc-stormcast", () => {
+    const B = {
+      hrrr: { t: "HRRR state at t", s: ["99 variables, 3 km", "(winds, T, humidity, reflectivity…)"], col: "--fg",
+        d: "The full km-scale state from NOAA's HRRR at hour <i>t</i>: 99 variables on the 3 km grid. During training, the target is HRRR one hour later. At run time the model feeds back its own output, so after the first hour it steps on its own forecast." },
+      syn: { t: "Synoptic conditioning", s: ["26 variables, 0.25°", "ERA5 (training)"], s2: ["26 variables, 0.25°", "GFS forecast (real time)"], col: "--muted",
+        d: "The regional model cannot see weather systems outside its box, so each step is told the large-scale state: 26 synoptic variables from a coarse global model. ERA5 during training; in real time the 0.25° GFS forecast (and Earth2Studio could use an AI global model instead). This keeps the regional rollout on track with the large-scale flow." },
+      reg: { t: "Regression UNet", s: ["predicts the mean", "of the next hour"], col: "--accent",
+        d: "A UNet trained with mean-squared error predicts the expected state one hour ahead. Alone it is blurry: MSE rewards the average of all possible storm positions." },
+      dif: { t: "EDM diffusion", s: ["generates the residual", "18 denoising steps"], col: "--lw",
+        d: "A diffusion model (the EDM formulation) starts from noise and, in 18 denoising steps, generates the residual: target minus the regression mean. That restores sharp storm cores and makes every run a different, plausible sample. Several runs give an ensemble (the paper uses 5 members, which turn out under-dispersive)." },
+      out: { t: "State at t + 1 h", s: ["mean + residual", "fed back as input"], col: "--lw",
+        d: "Mean plus residual is one sample of the next hour. It becomes the input for the next step: hour after hour (autoregressive rollout), with fresh synoptic conditioning at each hour." } };
+    let sel = "dif", mode = "train";
+    chips($("#ncScMode"), v => { mode = v; render(); });
+    const kS = slider("ncScK", v => v + " / 18", () => drawToy());
+    // toy target: a frame of the storm world; samples jitter the cells (position, intensity); the "mean" is their blurred average
+    const W = world(3, 40, 1.4), T = 6, base = truthStates(W, T).filter(s => inView(s, 8));
+    let sid = 0, sample = null, noise = null, mean = null;
+    const jitter = (R) => paint(base.map(s => ({ x: s.x + 1.8 * gauss(R), y: s.y + 1.8 * gauss(R), I: s.I + 3 * gauss(R), r: s.r * (0.85 + 0.3 * R()) })));
+    function makeMean() { const acc = new Float32Array(N * N); for (let m = 0; m < 12; m++) { const f = jitter(rng(4000 + m)); for (let k = 0; k < N * N; k++) acc[k] += f[k] / 12; } mean = FFT.blur(acc, N, 1); }
+    function newSample() { const R = rng(77 + 31 * sid++); sample = jitter(R); noise = Float32Array.from({ length: N * N }, () => 14 * gauss(R)); }
+    function drawToy() {
+      if (!mean) makeMean(); if (!sample) newSample();
+      const k = kS(), a = Math.pow(k / 18, 1.5), res = new Float32Array(N * N), sum = new Float32Array(N * N);
+      for (let i = 0; i < N * N; i++) { res[i] = a * (sample[i] - mean[i]) + Math.sqrt(1 - a * a) * noise[i]; sum[i] = Math.max(0, mean[i] + res[i]); }
+      VIZ.raster($("#ncScM1"), mean, N, N, DBZ);
+      VIZ.raster($("#ncScM2"), res, N, N, { color: CM.div, lo: -30, hi: 30 });
+      VIZ.raster($("#ncScM3"), sum, N, N, DBZ);
+      $("#ncScM2L").textContent = k === 18 ? "residual (done)" : k === 0 ? "residual: pure noise" : `residual, step ${k} of 18`;
+    }
+    $("#ncScNew").onclick = () => { newSample(); drawToy(); };
     function render() {
-      const r = rho(), q = Math.sqrt(1 - r * r), B = A.map((a, k) => r * a + q * E[k]), Z = samp(s);
-      const I = mode === "mean" ? A.map(a => r * a) : A.map((a, k) => r * a + q * Z[k]);
-      const o = { color: CM.vir, lo: -3, hi: 3, round: 6 };
-      VIZ.raster($("#clInA"), A, n, n, o); VIZ.raster($("#clInB"), I, n, n, o); VIZ.raster($("#clInT"), B, n, n, o);
-      const c = corr(I, B), sr = sd(I) / sd(B);
-      $("#clInRead").innerHTML = `<div><span>Correlation with truth</span><b class="c-ok">${fmt(c, 2)}</b></div><div><span>sd infill / sd truth</span><b class="${sr < 0.85 ? "c-lw" : "c-ok"}">${fmt(sr, 2)}</b></div><div><span>RMSE</span><b>${fmt(MET.rmse(I, B), 2)}</b></div>`;
-      drawGlobe(); diagram();
-    }
-    // HEALPix: each pixel takes the toy field at its centre
-    const VALS = new Map(), D2R = Math.PI / 180;
-    // toy field: the analytic waves (m ≤ 23) plus two short ripples so that fine pixels have something to resolve
-    const fz = (la, lo) => ATM.z500(lo, la, 0) - ATM.base(la) + 30 * Math.cos((37 * lo + 40) * D2R) * Math.cos(31 * la * D2R) + 22 * Math.sin((53 * lo) * D2R) * Math.sin(47 * la * D2R) * Math.cos(la * D2R);
-    function vals(ns) { if (!VALS.has(ns)) VALS.set(ns, Float32Array.from(HPX.centers(ns), c => fz(90 - c.theta / D2R, c.phi / D2R))); return VALS.get(ns); }
-    function drawGlobe() {
-      const V = vals(ns), pix = (la, lo) => HPX.ang2pix(ns, (90 - la) * D2R, lo * D2R), e = 0.8;
-      VIZ.globe($("#clSrGlobe"), (la, lo) => V[pix(la, lo)], { size: 215, lon0: view[0], lat0: view[1], color: CM.div, lo: -130, hi: 130, graticule: 0,
-        onRotate: (a, b) => view = [a, b],
-        edges: ns <= 8 ? (la, lo) => { const p = pix(la, lo); return p !== pix(Math.min(89.9, la + e), lo) || p !== pix(la, lo + e / Math.max(.15, Math.cos(la * D2R))); } : null });
-      const np = HPX.npix(ns), km = Math.sqrt(4 * Math.PI * 6371 ** 2 / np);
-      $("#clSrRead").innerHTML = `<div><span>Pixels 12·nside²</span><b>${fmtN(np)}</b></div><div><span>√(pixel area)</span><b class="c-ok">≈ ${fmtN(km)} km</b></div>`;
-    }
-    function diagram() {
-      const W = 470, H = 92, svg = svgIn($("#clSrDiag"), W, H); arrowDefs(svg, "clSrAr", css("--muted"));
-      const box = (x, w, t1, t2, col) => { el("rect", { x, y: 8, width: w, height: 58, rx: 10, fill: css("--card"), stroke: css(col), "stroke-width": 1.6 }, svg);
-        el("text", { x: x + w / 2, y: 30, "text-anchor": "middle", "font-size": 12.5, "font-weight": 600, fill: css(col) }, svg, t1);
-        el("text", { x: x + w / 2, y: 50, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, t2); };
-      box(2, 150, "Stage 1: HPX64", "~100 km · 49k px", "--ok");
-      box(W - 152, 150, "Stage 2: HPX1024", "~5 km · 12.5M px", "--ok");
-      el("line", { x1: 158, x2: W - 158, y1: 37, y2: 37, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#clSrAr)" }, svg);
-      el("text", { x: W / 2, y: 30, "text-anchor": "middle", "font-size": 11.5, fill: css("--fg") }, svg, "16× per side");
-      el("text", { x: W / 2, y: 52, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "patch by patch");
-      el("text", { x: W / 2, y: 86, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "cBottle's super-resolution: 4 more doublings of nside, 256× more pixels");
+      const Wd = 1000, H = 150, svg = svgIn($("#ncScFig"), Wd, H); arrowDefs(svg, "ncScAr", css("--muted"));
+      const P = { syn: [0, 2, 200, 60], hrrr: [0, 76, 200, 60], reg: [300, 2, 200, 60], dif: [300, 76, 200, 60], out: [640, 39, 200, 60] };
+      const line = (x1, y1, x2, y2) => el("path", { d: `M${x1} ${y1} L${x2} ${y2}`, stroke: css("--muted"), "stroke-width": 1.6, fill: "none", "marker-end": "url(#ncScAr)" }, svg);
+      line(200, 32, 296, 32); line(200, 106, 296, 106); line(200, 40, 296, 98); line(200, 98, 296, 40);
+      line(500, 32, 601, 62); line(500, 106, 601, 76);
+      el("circle", { cx: 616, cy: 69, r: 13, fill: css("--card"), stroke: css("--muted"), "stroke-width": 1.6 }, svg); el("text", { x: 616, y: 75, "text-anchor": "middle", "font-size": 18, fill: css("--fg") }, svg, "+");
+      el("path", { d: "M740 99 L740 146 L100 146 L100 141", stroke: css("--lw"), "stroke-width": 1.6, fill: "none", "stroke-dasharray": "5 4", "marker-end": "url(#ncScAr)" }, svg);
+      el("text", { x: 732, y: 140, "text-anchor": "end", "font-size": 11.5, fill: css("--lw") }, svg, "fed back every hour: autoregressive rollout");
+      el("text", { x: 860, y: 62, "font-size": 11.5, fill: css("--muted") }, svg, "a sample, not");
+      el("text", { x: 860, y: 77, "font-size": 11.5, fill: css("--muted") }, svg, "the mean");
+      Object.entries(P).forEach(([k, [x, y, w, h]]) => { const b = B[k], on = k === sel, g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
+        const sub = mode === "real" && b.s2 ? b.s2 : b.s, hot = mode === "real" && k === "syn";
+        el("rect", { x: x + 1, y, width: w - 2, height: h, rx: 12, fill: on ? css(b.col) : css("--card"), "fill-opacity": on ? .16 : 1, stroke: css(hot ? "--sw" : on ? b.col : "--line"), "stroke-width": on || hot ? 2.4 : 1.2 }, g);
+        el("text", { x: x + w / 2, y: y + 22, "text-anchor": "middle", "font-size": 14, "font-weight": 600, fill: css(b.col) }, g, b.t);
+        sub.forEach((q, i) => el("text", { x: x + w / 2, y: y + 39 + 13 * i, "text-anchor": "middle", "font-size": 11, fill: css(hot && i === 1 ? "--sw" : "--muted") }, g, q));
+        const go = () => { sel = k; render(); }; g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key === "Enter") go(); }); });
+      const b = B[sel];
+      $("#ncScCard").innerHTML = `<h4 style="color:var(${b.col})">${b.t}</h4><p>${b.d}</p>`;
+      const r = (k, v, c = "") => `<div><span>${k}</span><b class="${c}" style="font-size:19px">${v}</b></div>`;
+      $("#ncScRead").innerHTML = r("Grid", "3 km", "c-lw") + r("Step", "1 h", "c-lw") + r("State", "99 vars") + r("Conditioning", "26 vars") + r("Training", "64 H100 × 120 h", "c-sw");
+      drawToy();
     }
     render(); return render;
   });
 
-  /* ───────── huge ensembles: return periods and the uncertainty of a return level ───────── */
-  demo("cl-extremes", slide => {
-    const MEM = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000], MU = 60, BETA = 15, TRIALS = 300;
-    const level = T => MU - BETA * Math.log(-Math.log(1 - 1 / T));
-    let T = 100;
-    chips($("#clExT"), x => { T = +x; render(); });
-    const mem = slider("clExM", i => fmtN(MEM[i]), render), yrs = slider("clExY", x => x + (x > 1 ? " yr" : " yr"), render);
-    // the k largest of N annual maxima, drawn directly as uniform order statistics (log scale), then mapped to Gumbel
-    function topK(N, k, r) { const out = new Float64Array(k); let L = 0;
-      for (let j = 0; j < k; j++) { L += Math.log(1 - r()) / (N - j); out[j] = MU - BETA * Math.log(-L); } return out; }
+  /* ───────── 4 · StormScope: two modes (diagram) + satellite vs radar toy ───────── */
+  demo("nc-stormscope", slide => {
+    const W = world(5, 35, 1.4); let timer = null, mode = "now";
+    chips($("#ncSsMode"), v => { mode = v; render(); });
+    const tS = slider("ncSsT", v => v < 0 ? -v * DT + " min before" : v === 0 ? "issue time" : "+" + leadTxt(v), () => draw());
+    const stop = () => { clearInterval(timer); timer = null; $("#ncSsPlay").textContent = "▶ Play"; };
+    $("#ncSsPlay").onclick = () => { if (timer) { stop(); return; } const r = $("#ncSsT"); if (+r.value >= 12) r.value = -4;
+      $("#ncSsPlay").textContent = "❚❚ Pause";
+      timer = setInterval(() => { if (!slide.classList.contains("on")) { stop(); return; } r.value = +r.value + 1; r.dispatchEvent(new Event("input")); if (+r.value >= 12) stop(); }, 450); };
+    // cells that start raining between −30 min and +1 h, in view
+    const fresh = W.cells.filter(c => c.tb >= -3 && c.tb <= 6 && inView(state(c, c.tb + 2), -4));
+    function rings(g, S, t) { const ink = "#e0218a"; g.save(); g.strokeStyle = ink; g.lineWidth = 2.2;
+      fresh.forEach(c => { const a = t - c.tb; if (a < -5 || a > 8) return; const x = c.x0 + c.u * a, y = c.y0 + c.v * a; g.beginPath(); g.arc(x * S, y * S, 7 * S, 0, 2 * Math.PI); g.stroke(); }); g.restore(); }
+    function draw() {
+      const t = tS(), sat = satellite(W, t), rad = frame(W, t);
+      VIZ.raster($("#ncSsSat"), sat, N, N, { color: IR, lo: 205, hi: 295, overlay: (g, S) => rings(g, S, t) });
+      VIZ.raster($("#ncSsRad"), rad, N, N, { ...DBZ, overlay: (g, S) => rings(g, S, t) });
+      VIZ.legend($("#ncSsSatL"), { color: IR, min: 205, max: 295, label: "K (toy)", width: 220 });
+      VIZ.legend($("#ncSsRadL"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 220 });
+      let onSat = 0, onRad = 0; fresh.forEach(c => { const a = t - c.tb; if (a >= -3 && a <= 8) onSat++; if (state(c, t).I >= 15) onRad++; });
+      const L = Math.max(0, t), lt = L ? "+" + leadTxt(L) : "issue time";
+      $("#ncSsRead").innerHTML = `circled cells now: <span class="g">${onSat} on satellite</span> · <span class="r">${onRad} on radar ≥ 15 dBZ</span><br>` +
+        `steps to reach ${lt}: <span class="k">nowcasting ${L} × 10 min</span> · nearcasting ${Math.ceil(L / 6)} × 1 h · StormCast ${Math.ceil(L / 6)} × 1 h`;
+    }
     function render() {
-      const N = MEM[mem()] * yrs(), k = Math.max(1, Math.round(N / T)), truth = level(T), r = rng(4242);
-      $("#clExTT").textContent = fmtN(T);
-      const est = new Float64Array(TRIALS); let hit = 0;
-      for (let t = 0; t < TRIALS; t++) { const top = topK(N, k, r); est[t] = top[k - 1]; if (top[0] >= truth) hit++; }
-      // one ensemble for the return-level plot
-      const one = topK(N, Math.min(N, 400), rng(99)), pts = Array.from(one, (x, i) => [(N + 1) / (i + 1), x]);
-      const curve = []; for (let e = 0; e <= 5.001; e += 0.05) { const TT = 10 ** e; if (TT > 1.01) curve.push([TT, level(TT)]); }
-      const C = VIZ.curves($("#clExFig"), [{ pts: curve, col: "--fg", w: 2, label: "true return level" }], { xr: [1, 1e5], yr: [40, 260], logx: true, xl: "return period (years, log)", yl: "rain (mm)",
-        W: 520, H: 180, xt: [1, 10, 100, 1000, 1e4, 1e5], yt: [50, 100, 150, 200, 250], xf: v => fmtN(v), yf: v => fmt(v, 0), legendAt: "tl" });
-      [[T, "1-in-" + fmtN(T), "--lw", 26], [N, "N = " + fmtN(N) + " yr", "--accent", 42]].forEach(([x, lab, tok, y]) => {
-        el("line", { x1: C.X(x), x2: C.X(x), y1: 12, y2: 152, stroke: css(tok), "stroke-dasharray": "3 3" }, C.svg);
-        const right = C.X(x) > 420; el("text", { x: C.X(x) + (right ? -4 : 4), y, "font-size": 10.5, "text-anchor": right ? "end" : "start", fill: css(tok) }, C.svg, lab); });
-      dots(C.svg, pts, C.X, C.Y, "--accent", 2.2, .7);
-      el("text", { x: 504, y: 140, "font-size": 11, "text-anchor": "end", fill: css("--accent") }, C.svg, "● largest annual maxima of one ensemble");
-      // histogram of the estimates
-      const sorted = Array.from(est).sort((a, b) => a - b), q05 = sorted[Math.floor(.05 * TRIALS)], q95 = sorted[Math.floor(.95 * TRIALS)];
-      // bin width follows the spread so that narrow and wide distributions both show their shape
-      const w = clamp(Math.max(q95 - truth, truth - q05) / 10, 0.25, 5), nb = 28, lo = truth - 14 * w, h = new Array(nb).fill(0); est.forEach(x => h[clamp(Math.floor((x - lo) / w), 0, nb - 1)]++);
-      VIZ.curves($("#clExHist"), [{ pts: stepPts(h, lo, w), col: "--accent", w: 2, label: N < T ? "estimates (record maximum)" : "estimates" }], { xr: [lo, lo + nb * w], yr: [0, Math.max(...h) * 1.15], xl: "estimated level (mm)",
-        W: 520, H: 110, xt: [lo + w, truth, lo + (nb - 1) * w], yt: [0], xf: v => fmt(v, w < 1 ? 1 : 0), yf: () => "", legendAt: "tl", marks: [[truth, "true " + fmt(truth, 0) + " mm", "--fg"]] });
-      const p = 1 - Math.pow(1 - 1 / T, N);
-      $("#clExRead").innerHTML = `<div><span>Years N</span><b>${fmtN(N)}</b></div><div><span>Expected events</span><b>${fmt(N / T, N / T < 10 ? 1 : 0)}</b></div>` +
-        `<div><span>P(≥ 1 event)</span><b class="c-ok">${fmt(100 * p, p > 0.995 ? 1 : 0)} %</b></div><div><span>Monte Carlo</span><b class="c-data">${fmt(100 * hit / TRIALS, 0)} %</b></div>` +
-        `<div><span>90 % range</span><b class="${q95 - q05 > 30 ? "c-lw" : "c-ok"}">${fmt(q05, 0)}–${fmt(q95, 0)}</b></div>`;
+      const near = mode === "near", Wd = 1000, H = 132, svg = svgIn($("#ncSsFig"), Wd, H); arrowDefs(svg, "ncSsAr", css("--muted"));
+      const box = (x, y, w, h, t, s, col, strong) => { el("rect", { x, y, width: w, height: h, rx: 12, fill: strong ? css(col) : css("--card"), "fill-opacity": strong ? .14 : 1, stroke: css(strong ? col : "--line"), "stroke-width": strong ? 2.2 : 1.2 }, svg);
+        el("text", { x: x + w / 2, y: y + 22, "text-anchor": "middle", "font-size": 14, "font-weight": 600, fill: css(col) }, svg, t);
+        s.forEach((q, i) => el("text", { x: x + w / 2, y: y + 40 + 13 * i, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, q)); };
+      const ar = (x1, y1, x2, y2) => el("line", { x1, y1, x2, y2, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#ncSsAr)" }, svg);
+      box(0, 2, 210, 56, near ? "Observed state at t" : "Past hour of observations", [near ? "GOES or MRMS, one state 1 h earlier" : "6 states, 10 min apart (GOES or MRMS)"], "--data", false);
+      box(0, 64, 210, 56, "GFS guidance", near ? ["one channel: Z500 (satellite model)", "or simulated reflectivity (radar)"] : ["not used: observations only"], near ? "--muted" : "--line", false);
+      box(310, 22, 230, 78, "Transformer diffusion", ["generates the next state", "(noise → sample), 6 km"], "--lw", true);
+      box(640, 30, 170, 62, near ? "State t + 1 h" : "State t + 10 min", ["fed back as input"], "--lw", false);
+      ar(210, 30, 306, 52); if (near) ar(210, 92, 306, 72); ar(540, 61, 636, 61);
+      el("path", { d: "M810 61 L870 61 L870 126 L105 126 L105 122", stroke: css("--lw"), "stroke-width": 1.6, fill: "none", "stroke-dasharray": "5 4" }, svg);
+      el("text", { x: 880, y: 54, "font-size": 12, fill: css("--lw"), "font-weight": 600 }, svg, near ? "× 12 steps" : "× 12 steps");
+      el("text", { x: 880, y: 70, "font-size": 11.5, fill: css("--muted") }, svg, near ? "= 0–12 h" : "= 0–2 h");
+      el("text", { x: 880, y: 86, "font-size": 11.5, fill: css("--muted") }, svg, near ? "1-h steps" : "10-min steps");
+      draw();
     }
     render(); return render;
   });
 
-  /* ───────── quiz ───────── */
-  demo("cl-quiz", () => {
-    const Q = [
-      { q: "An emulator has no skill beyond about two weeks. Why can a 100-year run of it still be useful?", opts: ["Its errors average out over 100 years", "A stable model can reproduce the statistics without following the true path", "Long runs are restarted from observations"], right: 1,
-        why: "Weather paths diverge (chaos), but if the model keeps the right mean, variance and extremes, its long run samples the right climate." },
-      { q: "Why does DLESyM step the ocean every 48 h but the atmosphere every few hours?", opts: ["The ocean network is too big", "SST changes slowly, so a long step is enough and cheaper", "HEALPix requires it"], right: 1,
-        why: "Different components have different time scales; they exchange information every 4 days." },
-      { q: "What does cBottle need to generate a global atmospheric state?", opts: ["The state 6 hours earlier", "Monthly SST and the solar position", "48 h of satellite observations"], right: 1,
-        why: "It samples p(state | SST, time) with a diffusion model; it does not time-step, so there is nothing to drift." },
-      { q: "You run 100 members for 10 years each. How many 1-in-100-year events do you expect?", opts: ["About 0.1", "About 1", "About 10"], right: 2,
-        why: "1,000 simulated years × 1/100 = 10 expected events (if the members are independent and the model's tails are right)." }];
-    Q.forEach((q, i) => VIZ.quiz($("#clQuiz" + (i + 1)), [q]));
-    return () => {};
+  /* ───────── 5 · persistence vs advection vs a generative ensemble ───────── */
+  demo("nc-compare", () => {
+    const THR = [20, 30, 40], M = 16, CACHE = {};
+    // motion from two frames dt apart: maximise the normalised cross-correlation over integer shifts, refine by a parabola
+    function motion(a, b, dt) {
+      const S = 9, sc = {}; let best = -1, bx = 0, by = 0;
+      for (let dy = -S; dy <= S; dy++) for (let dx = -S; dx <= S; dx++) { let s = 0, p = 0, q = 0;
+        for (let j = S; j < N - S; j += 1) for (let i = S; i < N - S; i += 1) { const x = a[(j - dy) * N + i - dx], y = b[j * N + i]; s += x * y; p += x * x; q += y * y; }
+        const c = s / Math.sqrt(p * q || 1); sc[dx + "," + dy] = c; if (c > best) { best = c; bx = dx; by = dy; } }
+      const par = (m, z, p) => { const d = m - 2 * z + p; return d < 0 ? 0.5 * (m - p) / d : 0; };
+      const g = (x, y) => sc[x + "," + y] ?? best;
+      return { u: (bx + clamp(par(g(bx - 1, by), best, g(bx + 1, by)), -.5, .5)) / dt, v: (by + clamp(par(g(bx, by - 1), best, g(bx, by + 1)), -.5, .5)) / dt, c: best };
+    }
+    function shift(f, dx, dy) { const o = new Float32Array(N * N);
+      for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) { const x = i - dx, y = j - dy, x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0;
+        const g = (a, b) => a >= 0 && b >= 0 && a < N && b < N ? f[b * N + a] : 0;
+        o[j * N + i] = (1 - fx) * (1 - fy) * g(x0, y0) + fx * (1 - fy) * g(x0 + 1, y0) + (1 - fx) * fy * g(x0, y0 + 1) + fx * fy * g(x0 + 1, y0 + 1); }
+      return o; }
+    // one ensemble member: the cells seen at issue time (age known ± 10 min, remaining life and peak drawn at random),
+    // cells already outside the radar box, and new cells drawn from the same initiation rule
+    function member(Wd, est, m) {
+      const R = rng(Wd.seed * 1000 + m * 17 + 5), cells = [];
+      Wd.cells.forEach(c => { const s = state(c, 0); if (!(s.I >= 12 && inView(s, 0))) return;
+        const a = Math.max(1, s.a + Math.round(gauss(R))), L = Math.max(a + 1, Math.round(c.L * Math.exp(0.2 * gauss(R))));
+        const sn = Math.pow(Math.max(0, Math.sin(Math.PI * a / L)), 0.35), A = clamp(s.I / Math.max(sn, .25), s.I, 64), u = est.u + 0.22 * gauss(R), v = est.v + 0.22 * gauss(R);
+        cells.push({ x0: s.x - u * a, y0: s.y - v * a, tb: -a, L, A, r: c.r, u, v }); });
+      for (let t = -24; t <= LEAD; t++) { const n = pois(R, Wd.rate);
+        for (let k = 0; k < n; k++) { const c = newCell(R, Wd.env, t, est.u, est.v, 0); if (t <= 0 && inView(state(c, 0), 2)) continue; cells.push(c); } }
+      return cells; }
+    function compute(seed) {
+      if (CACHE[seed]) return CACHE[seed];
+      const Wd = world(seed, 40, 1.8), truth = [], adv = [], mem0 = [], cnt = THR.map(() => []), est = motion(frame(Wd, -3), frame(Wd, 0), 3);
+      for (let k = 0; k <= LEAD; k++) { truth.push(frame(Wd, k)); adv.push(shift(truth[0], est.u * k, est.v * k)); THR.forEach((_, q) => cnt[q].push(new Uint8Array(N * N))); }
+      const csiM = THR.map(() => new Float64Array(LEAD + 1));
+      for (let m = 0; m < M; m++) { const cells = member(Wd, est, m);
+        for (let k = 0; k <= LEAD; k++) { const f = paint(cells.map(c => state(c, k)).filter(s => s.I > 0));
+          if (m === 0) mem0.push(f);
+          THR.forEach((th, q) => { const C = cnt[q][k]; for (let i = 0; i < N * N; i++) if (f[i] >= th) C[i]++; csiM[q][k] += MET.csi(f, truth[k], th) / M; }); } }
+      const prob = (q, k) => Float32Array.from(cnt[q][k], c => c / M);
+      const curves = THR.map((th, q) => ({
+        pers: truth.map((f, k) => MET.csi(truth[0], f, th)), adv: truth.map((f, k) => MET.csi(adv[k], f, th)),
+        mem: Array.from(csiM[q]), p30: truth.map((f, k) => MET.csi(prob(q, k), f.map(v => v >= th ? 1 : 0), 0.3)) }));
+      const trueMove = mean(Wd.cells.map(c => c.u)), trueMoveV = mean(Wd.cells.map(c => c.v));
+      return CACHE[seed] = { Wd, truth, adv, mem0, prob, curves, est, trueMove: [trueMove, trueMoveV] };
+    }
+    let q = 1, seed = 1, view = "prob";
+    const thrG = chips($("#ncCmThr"), v => { q = THR.indexOf(+v); render(); });
+    chips($("#ncCmDay"), v => { seed = +v; $("#ncCmNote").textContent = "computing 16 members…"; setTimeout(render, 20); });
+    chips($("#ncCmView"), v => { view = v; render(); });
+    const lS = slider("ncCmLead", leadTxt, () => render());
+    let D = null;
+    const hover = tip($("#ncCmMap"), $("#ncCmTip"), (i, j) => { const k = lS(), p = j * N + i, th = THR[q];
+      return `truth ${fmt(D.truth[k][p], 0)} dBZ\nadvection ${fmt(D.adv[k][p], 0)} dBZ\nP(≥ ${th} dBZ) ${fmt(100 * D.prob(q, k)[p], 0)} %`; });
+    function render() {
+      D = compute(seed); const k = lS(), th = THR[q], C = D.curves[q], T = D.truth[k];
+      const ink = lum(css("--bg")) > 128 ? "#111" : "#fff";
+      const halo = ink === "#111" ? "rgba(255,255,255,.85)" : "rgba(0,0,0,.75)";
+      const ov = (g, S) => { if (view !== "truth") { outline(g, S, i => T[i] >= th, halo, 4); outline(g, S, i => T[i] >= th, ink, 1.6); } };
+      if (view === "prob") VIZ.raster($("#ncCmMap"), D.prob(q, k), N, N, { color: CM.vir, lo: 0, hi: 1, mask: v => v <= 0, overlay: ov, onHover: hover });
+      else { const f = view === "truth" ? T : view === "pers" ? D.truth[0] : view === "adv" ? D.adv[k] : D.mem0[k];
+        VIZ.raster($("#ncCmMap"), f, N, N, { ...DBZ, overlay: (g, S) => { ov(g, S); if (view === "truth") outline(g, S, i => T[i] >= th, ink, 1.2); }, onHover: hover }); }
+      if (view === "prob") VIZ.legend($("#ncCmLeg"), { color: CM.vir, min: 0, max: 100, label: `% of members ≥ ${th} dBZ`, width: 400 });
+      else VIZ.legend($("#ncCmLeg"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 400 });
+      const xs = i => i * DT / 60;
+      VIZ.curves($("#ncCmFig"), [
+        { pts: C.pers.map((v, i) => [xs(i), v]), col: "--muted", label: "persistence", w: 2 },
+        { pts: C.adv.map((v, i) => [xs(i), v]), col: "--cool", label: "advection", w: 2.4 },
+        { pts: C.mem.map((v, i) => [xs(i), v]), col: "--lw", label: "one member (avg of 16)", dash: "5 4", w: 1.8 },
+        { pts: C.p30.map((v, i) => [xs(i), v]), col: "--lw", label: "ensemble P ≥ 30 %", w: 2.6 }],
+        { xr: [0, 6], yr: [0, 1], xl: "lead time (h)", yl: `CSI at ${th} dBZ`, W: 460, H: 190, xt: [0, 1, 2, 3, 4, 5, 6], yt: [0, 0.5, 1], xf: v => fmt(v, 0), yf: v => fmt(v, 1), marks: [[xs(k), leadTxt(k), "--fg"]], legendAt: "tr" });
+      $("#ncCmRead").innerHTML = `<div><span>Persistence</span><b style="color:var(--muted)">${fmt(C.pers[k], 2)}</b></div><div><span>Advection</span><b style="color:var(--cool)">${fmt(C.adv[k], 2)}</b></div><div><span>Ens. P ≥ 30 %</span><b class="c-lw">${fmt(C.p30[k], 2)}</b></div><div><span>One member</span><b class="c-lw">${fmt(C.mem[k], 2)}</b></div>`;
+      const sp = Math.hypot(D.est.u, D.est.v) * KM * 60 / DT, tr = Math.hypot(...D.trueMove) * KM * 60 / DT;
+      $("#ncCmNote").innerHTML = `Outline: where the truth is ≥ ${th} dBZ. Estimated motion ${fmt(sp, 0)} km/h (true mean cell motion ${fmt(tr, 0)} km/h). A single member is sharp, so a storm placed a little wrong counts twice (a miss and a false alarm): the <b>double penalty</b>. The ensemble curve uses the map "P ≥ 30 %", which keeps what enough members agree on.`;
+    }
+    render(); return render;
+  });
+
+  /* ───────── 6 · users, claims, quiz ───────── */
+  demo("nc-users", () => {
+    // [name, model(s), lead range in hours [a, b], status, text]
+    const U = [
+      ["The Weather Company", "Nowcasting", [0, 6], "evaluating", "Evaluating Earth-2 Nowcasting (StormScope) for <b>severe weather</b>: the first hours, where warnings are issued."],
+      ["TotalEnergies", "Nowcasting", [0, 6], "evaluating", "Evaluating Earth-2 Nowcasting. Short-range weather matters for energy operations and trading."],
+      ["Southwest Power Pool + Hitachi", "Nowcasting + FCN3", [0, 48], "named user", "Combines Nowcasting with <b>FourCastNet 3</b> for <b>intraday and day-ahead wind</b> power: the nowcast covers the first hours, the global ensemble the rest of the day ahead."],
+      ["Israel Meteorological Service", "CorrDiff + Nowcasting", [0, 6], "plans", "Already runs CorrDiff in operation; <b>plans Nowcasting up to 8 times daily</b>."]];
+    let sel = 2;
+    function render() {
+      const W = 500, H = 196, m = { l: 168, r: 12, t: 22, b: 30 }, X = v => m.l + Math.log10(v / (1 / 6)) / Math.log10(48 / (1 / 6)) * (W - m.l - m.r), svg = svgIn($("#ncUsFig"), W, H);
+      el("rect", { x: X(1 / 6), y: m.t - 6, width: X(6) - X(1 / 6), height: H - m.t - m.b + 6, fill: css("--lw"), opacity: .07 }, svg);
+      el("text", { x: (X(1 / 6) + X(6)) / 2, y: m.t + 3 - 12, "text-anchor": "middle", "font-size": 10.5, fill: css("--lw") }, svg, "nowcast window 0–6 h");
+      [[1 / 6, "10 min"], [1, "1 h"], [6, "6 h"], [24, "1 d"], [48, "2 d"]].forEach(([h, l]) => { el("line", { x1: X(h), x2: X(h), y1: m.t - 6, y2: H - m.b, stroke: css("--line") }, svg);
+        el("text", { x: X(h), y: H - m.b + 15, "text-anchor": "middle", "font-size": 10.5, class: "mono", fill: css("--muted") }, svg, l); });
+      el("text", { x: W - m.r, y: H - 2, "text-anchor": "end", "font-size": 11, fill: css("--muted") }, svg, "lead time of interest (log) →");
+      U.forEach((u, i) => { const y = m.t + 8 + i * 36, on = i === sel, g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
+        el("rect", { x: 0, y: y - 12, width: W, height: 30, rx: 8, fill: on ? css("--lw") : "transparent", "fill-opacity": on ? .1 : 0 }, g);
+        el("text", { x: m.l - 8, y: y + 2, "text-anchor": "end", "font-size": 12.5, "font-weight": on ? 600 : 500, fill: css("--fg") }, g, u[0]);
+        el("text", { x: m.l - 8, y: y + 14, "text-anchor": "end", "font-size": 10, fill: css("--muted") }, g, u[1] + " · " + u[3]);
+        const a = X(Math.max(u[2][0], 1 / 6)), b = X(u[2][1]);
+        if (u[2][1] > 6) el("rect", { x: X(6), y: y - 5, width: b - X(6), height: 12, rx: 6, fill: css("--data"), opacity: on ? .75 : .45 }, g);
+        el("rect", { x: a, y: y - 5, width: X(Math.min(u[2][1], 6)) - a, height: 12, rx: 6, fill: css("--lw"), opacity: on ? .9 : .5 }, g);
+        const go = () => { sel = i; render(); }; g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key === "Enter") go(); }); });
+      const u = U[sel];
+      $("#ncUsCard").innerHTML = `<h4 style="color:var(--lw)">${u[0]} <span class="note" style="font-weight:400">· ${u[3]}</span></h4><p>${u[4]}</p><p class="note" style="margin:6px 0 0"><span style="color:var(--lw)">■</span> hours ahead (Nowcasting) &nbsp; <span style="color:var(--data)">■</span> day ahead (FourCastNet 3)</p>`;
+    }
+    VIZ.quiz($("#ncQuiz"), [
+      { q: "Why does radar extrapolation lose skill after an hour or two?", opts: ["The radar data arrive too late", "It moves storms but cannot grow, decay or start them", "It moves storms the wrong way"], right: 1,
+        why: "Extrapolation keeps each echo's intensity and only shifts it; storm cells live tens of minutes to a few hours, so after that the map is full of storms that have died and is missing the new ones." },
+      { q: "What does StormCast take as input at each 1-hour step?", opts: ["Only GOES images", "Previous HRRR-like state + 26 global-model variables", "A global state only"], right: 1,
+        why: "It steps a 99-variable, 3 km HRRR-like state, conditioned on 26 synoptic variables from ERA5 (training) or GFS (real time). StormScope is the one that learns from GOES and MRMS directly." },
+      { q: "A single sharp ensemble member often has a lower CSI than a blurry forecast. Why?", opts: ["Diffusion is inaccurate", "Double penalty: a displaced storm is a miss and a false alarm", "CSI ignores small storms"], right: 1,
+        why: "Sharp but displaced storms are punished twice by point-wise scores. That is why ensembles are judged with probabilities (P ≥ threshold), neighbourhood scores such as FSS, or CRPS." }]);
+    render(); return render;
   });
 }
 

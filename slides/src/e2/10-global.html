@@ -79,7 +79,7 @@
       <div id="gfBlMap"></div>
       <h3 style="margin-top:8px">Zonal power spectrum (log–log)</h3>
       <div id="gfBlSpec"></div>
-      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber. Truth and members have the same spectrum (their curves overlap); the mean of the members, which is what an MSE-trained deterministic model converges to, loses power. This is why FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
+      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber; truth and member spectra overlap. FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
     </div>
   </div>
 </section>
@@ -115,22 +115,21 @@
   <div class="fig-wrap" id="gfAtFlow"></div>
   <div class="two" style="margin-top:2px">
     <div>
-      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button></div>
+      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button><button class="btn" type="button" id="gfAtGo" style="margin-left:auto">▶ Draw 8</button></div>
       <div class="ctl" style="margin:4px 0"><label for="gfAtSteps">Sampler steps</label><input type="range" id="gfAtSteps" min="2" max="40" step="1" value="20"><output></output></div>
-      <div class="chips" style="margin:4px 0"><button class="btn" type="button" id="gfAtGo">▶ Draw 8 samples</button></div>
       <p class="tryit">draw samples with each recipe, then with diffusion at 2 steps: where does a sample start, how many network passes does it need, and does it land on a possible state?</p>
       <div class="card" id="gfAtCard" style="padding:10px 14px"></div>
     </div>
     <div class="panel" style="padding:12px 16px"><h3>Toy 2-D latent space: drawing one z<sub>t+1</sub></h3><div id="gfAtFig"></div><div class="readout" id="gfAtRead" style="margin-top:4px"></div></div>
   </div>
-  <p class="note" style="margin:4px 0 0">The 2-D latent and the step counts are a toy. Atlas (Atmospheric Transformer in Latent Space) can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
+  <p class="note" style="margin:4px 0 0">2-D latent, two regimes and step counts are a toy. Atlas (Atmospheric Transformer in Latent Space) can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
 </section>
 
 <section class="slide" id="gf-quiz" data-g="a" data-sec="2 · Global forecasting">
   <p class="kicker">Global forecasting · check yourself</p>
   <h2>Four models, four ideas</h2>
-  <div class="four" id="gfQzCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px"></div>
-  <p class="tryit">answer all five; the feedback explains each answer. Click a model card to go back to its slide.</p>
-  <div id="gfQzBox" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 10px"></div>
-  <p class="note" style="margin:2px 0 0">Sources: FourCastNet arXiv:2202.11214 · SFNO arXiv:2306.03838 · FourCastNet 3 arXiv:2507.12144 · Atlas arXiv:2601.18111.</p>
+  <div id="gfQzCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px"></div>
+  <p class="tryit">answer all five; the feedback explains each answer. Click a model to go back to its slide.</p>
+  <div id="gfQzBox" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:0 10px"></div>
+  <p class="note" style="margin:0">Sources: FourCastNet arXiv:2202.11214 · SFNO arXiv:2306.03838 · FourCastNet 3 arXiv:2507.12144 · Atlas arXiv:2601.18111.</p>
 </section>

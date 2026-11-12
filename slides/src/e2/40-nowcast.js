@@ -35,7 +35,7 @@
   // state of a cell at frame t: position, intensity (dBZ), radius (px); I = 0 outside its life
   function state(c, t) { const a = t - c.tb, x = c.x0 + c.u * a, y = c.y0 + c.v * a;
     if (a < 0 || a > c.L) return { x, y, I: 0, r: c.r, a };
-    const s = Math.sin(Math.PI * a / c.L); return { x, y, I: c.A * Math.pow(s, 0.35), r: c.r * (0.75 + 0.25 * s), a, s }; }
+    const s = Math.max(0, Math.sin(Math.PI * a / c.L)); return { x, y, I: c.A * Math.pow(s, 0.35), r: c.r * (0.75 + 0.25 * s), a, s }; }
   // paint states [{x, y, I, r}] into a dBZ field; tex (optional) adds a few dBZ of texture that moves with the wind
   function paint(list, tex = null, sh = [0, 0]) {
     const Z = new Float32Array(N * N), out = new Float32Array(N * N);
@@ -149,15 +149,16 @@
             g.beginPath(); g.arc(s.x * S, s.y * S, 2.5, 0, 2 * Math.PI); g.fillStyle = ink; g.fill(); }); g.restore(); }
         if (sel) { const s = state(sel, t); g.save(); g.strokeStyle = ink; g.lineWidth = 2.5; g.setLineDash([5, 4]); g.beginPath(); g.arc(s.x * S, s.y * S, Math.max(3.2 * s.r, 3) * S, 0, 2 * Math.PI); g.stroke(); g.restore(); }
         windArrow(g, S, W.u, W.v, W.kmh); } });
-      VIZ.legend($("#ncStLeg"), { color: CM.precip, min: 10, max: 60, label: "reflectivity-like value, dBZ (toy)", width: 430 });
+      VIZ.legend($("#ncStLeg"), { color: CM.precip, min: 10, max: 60, label: "reflectivity-like value, dBZ (toy)", width: 370 });
       let a35 = 0, mx = 0; for (let k = 0; k < N * N; k++) { if (f[k] >= 35) a35++; if (f[k] > mx) mx = f[k]; }
       const born = W.cells.filter(c => c.tb > t - 6 && c.tb <= t && inView(state(c, t), 0)).length;
-      $("#ncStRead").innerHTML = `<div><span>Cells in view</span><b>${act.length}</b></div><div><span>New in last hour</span><b class="c-ok">${born}</b></div><div><span>Area ≥ 35 dBZ</span><b class="c-sw">${fmtN(a35 * KM * KM)} km²</b></div><div><span>Max</span><b class="c-lw">${fmt(mx, 0)} dBZ</b></div>`;
+      const b = (cls, v) => `<b class="${cls}" style="font-size:20px">${v}</b>`;
+      $("#ncStRead").innerHTML = `<div><span>Cells</span>${b("", act.length)}</div><div><span>New, last h</span>${b("c-ok", born)}</div><div><span>Area ≥ 35 dBZ</span>${b("c-sw", fmtN(a35 * KM * KM) + " km²")}</div><div><span>Max</span>${b("c-lw", fmt(mx, 0) + " dBZ")}</div>`;
       if (sel) { const pts = []; for (let k = 0; k <= sel.L; k++) pts.push([(sel.tb + k) * DT / 60, state(sel, sel.tb + k).I]);
         const age = t - sel.tb, ph = age < sel.L * 0.4 ? "growing" : age < sel.L * 0.6 ? "mature" : "decaying";
         $("#ncStLifeT").textContent = `Life cycle of the selected cell · ${ph}, age ${leadTxt(age)} of ${leadTxt(sel.L)}`;
         VIZ.curves($("#ncStLife"), [{ pts, col: "--lw", w: 2.4 }, { pts: [[pts[0][0], 35], [pts[pts.length - 1][0], 35]], col: "--muted", dash: "3 3", w: 1, label: "35 dBZ" }],
-          { xr: [pts[0][0], pts[pts.length - 1][0]], yr: [0, 65], xl: "time (h)", yl: "peak dBZ", W: 440, H: 150, xf: v => fmt(v, 1), yt: [0, 30, 60], yf: v => fmt(v, 0), marks: [[t * DT / 60, "now", "--fg"]], legendAt: "br" });
+          { xr: [pts[0][0], pts[pts.length - 1][0]], yr: [0, 65], xl: "time (h)", yl: "peak dBZ", W: 440, H: 130, xf: v => fmt(v, 1), yt: [0, 30, 60], yf: v => fmt(v, 0), marks: [[t * DT / 60, "now", "--fg"]], legendAt: "br" });
       } else { $("#ncStLifeT").textContent = "Life cycle of the selected cell"; $("#ncStLife").innerHTML = `<p class="note">No active cell; move the time slider.</p>`; }
     }
     render(); return render;
@@ -196,26 +197,26 @@
     }
     $("#ncScNew").onclick = () => { newSample(); drawToy(); };
     function render() {
-      const Wd = 1000, H = 178, svg = svgIn($("#ncScFig"), Wd, H); arrowDefs(svg, "ncScAr", css("--muted"));
-      const P = { hrrr: [0, 6, 190, 66], syn: [0, 104, 190, 66], reg: [300, 6, 200, 66], dif: [300, 104, 200, 66], out: [640, 55, 200, 66] };
+      const Wd = 1000, H = 150, svg = svgIn($("#ncScFig"), Wd, H); arrowDefs(svg, "ncScAr", css("--muted"));
+      const P = { syn: [0, 2, 200, 60], hrrr: [0, 76, 200, 60], reg: [300, 2, 200, 60], dif: [300, 76, 200, 60], out: [640, 39, 200, 60] };
       const line = (x1, y1, x2, y2) => el("path", { d: `M${x1} ${y1} L${x2} ${y2}`, stroke: css("--muted"), "stroke-width": 1.6, fill: "none", "marker-end": "url(#ncScAr)" }, svg);
-      line(190, 39, 296, 39); line(190, 137, 296, 137); line(190, 45, 296, 128); line(190, 131, 296, 48);
-      line(500, 39, 600, 80); line(500, 137, 600, 96);
-      el("circle", { cx: 616, cy: 88, r: 13, fill: css("--card"), stroke: css("--muted"), "stroke-width": 1.6 }, svg); el("text", { x: 616, y: 94, "text-anchor": "middle", "font-size": 18, fill: css("--fg") }, svg, "+");
-      el("path", { d: "M840 88 L960 88 L960 172 L95 172 L95 174", stroke: css("--lw"), "stroke-width": 1.6, fill: "none", "stroke-dasharray": "5 4" }, svg);
-      el("text", { x: 955, y: 164, "text-anchor": "end", "font-size": 11.5, fill: css("--lw") }, svg, "repeat every hour: autoregressive rollout");
-      el("text", { x: 248, y: 98, "text-anchor": "middle", "font-size": 10.5, fill: css("--muted") }, svg, "both inputs feed both networks");
+      line(200, 32, 296, 32); line(200, 106, 296, 106); line(200, 40, 296, 98); line(200, 98, 296, 40);
+      line(500, 32, 601, 62); line(500, 106, 601, 76);
+      el("circle", { cx: 616, cy: 69, r: 13, fill: css("--card"), stroke: css("--muted"), "stroke-width": 1.6 }, svg); el("text", { x: 616, y: 75, "text-anchor": "middle", "font-size": 18, fill: css("--fg") }, svg, "+");
+      el("path", { d: "M740 99 L740 146 L100 146 L100 141", stroke: css("--lw"), "stroke-width": 1.6, fill: "none", "stroke-dasharray": "5 4", "marker-end": "url(#ncScAr)" }, svg);
+      el("text", { x: 732, y: 140, "text-anchor": "end", "font-size": 11.5, fill: css("--lw") }, svg, "fed back every hour: autoregressive rollout");
+      el("text", { x: 860, y: 62, "font-size": 11.5, fill: css("--muted") }, svg, "a sample, not");
+      el("text", { x: 860, y: 77, "font-size": 11.5, fill: css("--muted") }, svg, "the mean");
       Object.entries(P).forEach(([k, [x, y, w, h]]) => { const b = B[k], on = k === sel, g = el("g", { style: "cursor:pointer", tabindex: 0, role: "button" }, svg);
         const sub = mode === "real" && b.s2 ? b.s2 : b.s, hot = mode === "real" && k === "syn";
-        el("rect", { x: x + 1, y, width: w - 2, height: h, rx: 12, fill: on ? css(b.col) : css("--card"), "fill-opacity": on ? .16 : 1, stroke: css(on || hot ? b.col === "--muted" && hot ? "--sw" : b.col : "--line"), "stroke-width": on || hot ? 2.4 : 1.2 }, g);
-        el("text", { x: x + w / 2, y: y + 24, "text-anchor": "middle", "font-size": 14, "font-weight": 600, fill: css(b.col) }, g, b.t);
-        sub.forEach((s, i) => el("text", { x: x + w / 2, y: y + 42 + 14 * i, "text-anchor": "middle", "font-size": 11, fill: css(hot && i === 1 ? "--sw" : "--muted") }, g, s));
+        el("rect", { x: x + 1, y, width: w - 2, height: h, rx: 12, fill: on ? css(b.col) : css("--card"), "fill-opacity": on ? .16 : 1, stroke: css(hot ? "--sw" : on ? b.col : "--line"), "stroke-width": on || hot ? 2.4 : 1.2 }, g);
+        el("text", { x: x + w / 2, y: y + 22, "text-anchor": "middle", "font-size": 14, "font-weight": 600, fill: css(b.col) }, g, b.t);
+        sub.forEach((q, i) => el("text", { x: x + w / 2, y: y + 39 + 13 * i, "text-anchor": "middle", "font-size": 11, fill: css(hot && i === 1 ? "--sw" : "--muted") }, g, q));
         const go = () => { sel = k; render(); }; g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key === "Enter") go(); }); });
-      el("text", { x: 975, y: 72, "font-size": 11.5, "text-anchor": "end", fill: css("--muted") }, svg, "domain: central US");
-      el("text", { x: 975, y: 88, "font-size": 11.5, "text-anchor": "end", fill: css("--muted") }, svg, "1,536 × 1,920 km");
       const b = B[sel];
       $("#ncScCard").innerHTML = `<h4 style="color:var(${b.col})">${b.t}</h4><p>${b.d}</p>`;
-      $("#ncScRead").innerHTML = `<div><span>Grid</span><b class="c-lw">3 km</b></div><div><span>Step</span><b class="c-lw">1 h</b></div><div><span>State</span><b>99 vars</b></div><div><span>Conditioning</span><b>26 vars</b></div><div><span>Training</span><b class="c-sw" style="font-size:19px">64 H100 × 120 h</b></div>`;
+      const r = (k, v, c = "") => `<div><span>${k}</span><b class="${c}" style="font-size:19px">${v}</b></div>`;
+      $("#ncScRead").innerHTML = r("Grid", "3 km", "c-lw") + r("Step", "1 h", "c-lw") + r("State", "99 vars") + r("Conditioning", "26 vars") + r("Training", "64 H100 × 120 h", "c-sw");
       drawToy();
     }
     render(); return render;
@@ -289,7 +290,7 @@
       const R = rng(Wd.seed * 1000 + m * 17 + 5), cells = [];
       Wd.cells.forEach(c => { const s = state(c, 0); if (!(s.I >= 12 && inView(s, 0))) return;
         const a = Math.max(1, s.a + Math.round(gauss(R))), L = Math.max(a + 1, Math.round(c.L * Math.exp(0.2 * gauss(R))));
-        const sn = Math.pow(Math.sin(Math.PI * a / L), 0.35), A = clamp(s.I / Math.max(sn, .25), s.I, 64), u = est.u + 0.22 * gauss(R), v = est.v + 0.22 * gauss(R);
+        const sn = Math.pow(Math.max(0, Math.sin(Math.PI * a / L)), 0.35), A = clamp(s.I / Math.max(sn, .25), s.I, 64), u = est.u + 0.22 * gauss(R), v = est.v + 0.22 * gauss(R);
         cells.push({ x0: s.x - u * a, y0: s.y - v * a, tb: -a, L, A, r: c.r, u, v }); });
       for (let t = -24; t <= LEAD; t++) { const n = pois(R, Wd.rate);
         for (let k = 0; k < n; k++) { const c = newCell(R, Wd.env, t, est.u, est.v, 0); if (t <= 0 && inView(state(c, 0), 2)) continue; cells.push(c); } }
@@ -321,7 +322,8 @@
     function render() {
       D = compute(seed); const k = lS(), th = THR[q], C = D.curves[q], T = D.truth[k];
       const ink = lum(css("--bg")) > 128 ? "#111" : "#fff";
-      const ov = (g, S) => { if (view !== "truth") outline(g, S, i => T[i] >= th, ink, 1.8); };
+      const halo = ink === "#111" ? "rgba(255,255,255,.85)" : "rgba(0,0,0,.75)";
+      const ov = (g, S) => { if (view !== "truth") { outline(g, S, i => T[i] >= th, halo, 4); outline(g, S, i => T[i] >= th, ink, 1.6); } };
       if (view === "prob") VIZ.raster($("#ncCmMap"), D.prob(q, k), N, N, { color: CM.vir, lo: 0, hi: 1, mask: v => v <= 0, overlay: ov, onHover: hover });
       else { const f = view === "truth" ? T : view === "pers" ? D.truth[0] : view === "adv" ? D.adv[k] : D.mem0[k];
         VIZ.raster($("#ncCmMap"), f, N, N, { ...DBZ, overlay: (g, S) => { ov(g, S); if (view === "truth") outline(g, S, i => T[i] >= th, ink, 1.2); }, onHover: hover }); }
@@ -369,11 +371,11 @@
       $("#ncUsCard").innerHTML = `<h4 style="color:var(--lw)">${u[0]} <span class="note" style="font-weight:400">· ${u[3]}</span></h4><p>${u[4]}</p><p class="note" style="margin:6px 0 0"><span style="color:var(--lw)">■</span> hours ahead (Nowcasting) &nbsp; <span style="color:var(--data)">■</span> day ahead (FourCastNet 3)</p>`;
     }
     VIZ.quiz($("#ncQuiz"), [
-      { q: "Why does radar extrapolation lose skill after an hour or two?", opts: ["The radar data get too old to download", "It moves storms but cannot grow, decay or initiate them", "It moves storms in the wrong direction"], right: 1,
+      { q: "Why does radar extrapolation lose skill after an hour or two?", opts: ["The radar data arrive too late", "It moves storms but cannot grow, decay or start them", "It moves storms the wrong way"], right: 1,
         why: "Extrapolation keeps each echo's intensity and only shifts it; storm cells live tens of minutes to a few hours, so after that the map is full of storms that have died and is missing the new ones." },
-      { q: "What does StormCast take as input at each 1-hour step?", opts: ["Only GOES satellite images", "The previous HRRR-like state plus 26 synoptic variables from a global model", "A 0.25° global state and nothing regional"], right: 1,
+      { q: "What does StormCast take as input at each 1-hour step?", opts: ["Only GOES images", "Previous HRRR-like state + 26 global-model variables", "A global state only"], right: 1,
         why: "It steps a 99-variable, 3 km HRRR-like state, conditioned on 26 synoptic variables from ERA5 (training) or GFS (real time). StormScope is the one that learns from GOES and MRMS directly." },
-      { q: "A single sharp ensemble member often has a lower CSI than a blurry forecast. Why?", opts: ["Diffusion models are less accurate", "Double penalty: a slightly displaced storm counts as both a miss and a false alarm", "CSI ignores small storms"], right: 1,
+      { q: "A single sharp ensemble member often has a lower CSI than a blurry forecast. Why?", opts: ["Diffusion is inaccurate", "Double penalty: a displaced storm is a miss and a false alarm", "CSI ignores small storms"], right: 1,
         why: "Sharp but displaced storms are punished twice by point-wise scores. That is why ensembles are judged with probabilities (P ≥ threshold), neighbourhood scores such as FSS, or CRPS." }]);
     render(); return render;
   });

@@ -184,9 +184,9 @@
       const sg = traj.slice(0, nSt).map((t, k) => [k, t.s / sR]);
       VIZ.curves($("#dsDfSched"), [{ pts: sg, col: "--sw", label: "σ / std(r)", w: 2.2 }, { pts: [[0, 1], [nSt, 1]], col: "--muted", dash: "4 4", label: "σ = signal std", w: 1.2 }],
         { xr: [0, nSt], yr: [SMIN, 400], logy: true, yt: [0.01, 0.1, 1, 10, 100], yf: v => v >= 1 ? fmt(v, 0) : v >= 0.1 ? fmt(v, 1) : fmt(v, 2), xt: [0, Math.round(nSt / 2), nSt], xf: v => fmt(v, 0),
-          xl: "step i", W: 460, H: 128, marks: [[i, i < nSt ? "now: σ = " + fmt(S.s / sR, S.s / sR < 1 ? 2 : 1) : "done: σ = 0", "--lw"]], legendAt: "tr" });
+          xl: "step i", W: 460, H: 128, marks: [[i, i < nSt ? "now: σ = " + fmt(S.s / sR, S.s / sR < 1 ? 2 : 1) : "done: σ = 0", "--lw"]], legendAt: "bl" });
       const g = A2r.map((a, k) => [k + 1, S.s ? a / (a + S.s * S.s) : 1]);
-      VIZ.curves($("#dsDfGain"), [{ pts: g, col: "--sw", label: "share of D kept from x", w: 2.4 }],
+      VIZ.curves($("#dsDfGain"), [{ pts: g, col: "--sw", label: "share of x that D keeps", w: 2.4 }],
         { xr: [1, N / 2], yr: [0, 1], logx: true, xt: lamTicks, xf: lam, yt: [0, .5, 1], yf: v => fmt(v, 1), xl: "wavelength", W: 540, H: 108, legendAt: "tr", marks: [[N / (2 * f), "coarse-grid limit", "--muted"]] });
       $("#dsDfRead").innerHTML = `<div><span>Step</span><b>${i} / ${nSt}</b></div><div><span style="text-transform:none">σ / std(r)</span><b class="c-sw">${S.s ? fmt(S.s / sR, S.s / sR < 1 ? 2 : 1) : "0"}</b></div><div><span>Corr. guess vs final</span><b class="c-ok">${fmt(corr(S.D, fin), 2)}</b></div>`;
     }
@@ -283,7 +283,7 @@
         el("text", { x: lw - 10, y: y + 32, "text-anchor": "end", "font-size": 10.5, fill: css("--muted") }, g, c.kind);
         if (v) { const w = Math.max(X(v) - x0, 1.5);
           el("rect", { x: x0, y: y + 8, width: w, height: 22, rx: 4, fill: css(c.col), opacity: .85 }, g);
-          el("text", { x: x0 + w + 6, y: y + 24, "font-size": 12, class: "mono", fill: css("--fg") }, g, (c.pre && c.pre !== "90% less time =" ? c.pre + " " : "") + fmtN(v) + "×"); }
+          el("text", { x: x0 + w + 6, y: y + 24, "font-size": 12, class: "mono", fill: css("--fg") }, g, (m === "speed" && c.pre ? c.pre + " " : "") + fmtN(v) + "×"); }
         else el("text", { x: x0 + 6, y: y + 24, "font-size": 11.5, fill: css("--muted") }, g, "no " + (m === "speed" ? "speed" : "energy") + " figure given");
         g.addEventListener("click", () => { sel = k; render(); }); });
       const c = C[sel];

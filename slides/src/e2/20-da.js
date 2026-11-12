@@ -102,7 +102,7 @@ demo("da-oi", slide => {
     const w = obs.map((a, k) => obs.reduce((s, b, j) => s + s2b * rho(kmBetween(a.lon, b.lon)) * Ai[j][k], 0));
     return { xb, xa, sa, w, inn };
   }
-  const W = 560, H = 196, m = { l: 46, r: 10, t: 8, b: 22 };
+  const W = 560, H = 196, m = { l: 46, r: 22, t: 8, b: 22 };
   let X = null, Y = null;
   function render() {
     const { xb, xa, sa, w, inn } = analyse(), lons = Array.from({ length: N + 1 }, (_, i) => i * 360 / N), at = (a, i) => a[i % N];
@@ -118,7 +118,7 @@ demo("da-oi", slide => {
       el("circle", { cx: x, cy: y, r: k === sel ? 6.5 : 4.5, fill: css(k === sel ? "--sw" : "--fg"), stroke: css("--card"), "stroke-width": 1.5, style: "cursor:grab" }, svg); });
     // error panel
     const E = 3 * TRUE.sb, W2 = W, H2 = 84, s2 = svgIn($("#daOiErr"), W2, H2);
-    const B = axes(s2, { W: W2, H: H2, m: { l: 46, r: 10, t: 4, b: 6 }, x0: 0, x1: 360, y0: -E, y1: E, xt: [], yt: [-E / 1.5, 0, E / 1.5], yf: v => fmt(v, 0) });
+    const B = axes(s2, { W: W2, H: H2, m: { l: 46, r: 22, t: 4, b: 6 }, x0: 0, x1: 360, y0: -E, y1: E, xt: [], yt: [-E / 1.5, 0, E / 1.5], yf: v => fmt(v, 0) });
     el("path", { d: path(lons.map((l, i) => [B.x(l), B.y(clamp(at(sa, i), 0, E))])).concat(" " + path(lons.slice().reverse().map((l, k) => [B.x(l), B.y(-clamp(at(sa, N - k), 0, E))])).replace(/^M/, "L")) + "Z", fill: css("--data"), opacity: .14 }, s2);
     el("path", { d: path(lons.map((l, i) => [B.x(l), B.y(clamp(at(xb, i) - at(truth, i), -E, E))])), fill: "none", stroke: css("--muted"), "stroke-width": 1.4, "stroke-dasharray": "5 3" }, s2);
     el("path", { d: path(lons.map((l, i) => [B.x(l), B.y(clamp(at(xa, i) - at(truth, i), -E, E))])), fill: "none", stroke: css("--data"), "stroke-width": 2 }, s2);
@@ -307,12 +307,12 @@ demo("da-healda", slide => {
 demo("da-quiz", () => {
   VIZ.quiz($("#daQuiz"), [
     { q: "In a chaotic model, the initial error is made 10× smaller. The forecast stays useful…", opts: ["10× longer", "a fixed amount longer", "no longer at all"], right: 1,
-      why: "Errors grow roughly exponentially, so dividing the start error by 10 adds about ln(10)/λ of time, the same amount each time you divide by 10." },
-    { q: "One observation sits on a grid point and σ_b = σ_o. What is the gain K there?", opts: ["0", "0.5", "1"], right: 1,
-      why: "K = σ_b²/(σ_b² + σ_o²) = 1/2: the analysis lands halfway between background and observation, and its error variance halves." },
-    { q: "Why do HealDA, DLESyM and cBottle use HEALPix rather than a lat-lon grid?", opts: ["Fewer pixels at the equator", "Equal-area pixels on latitude rings", "ERA5 is stored on it"], right: 1,
-      why: "Every HEALPix pixel has the same area and centres lie on rings of constant latitude; lat-lon cells shrink towards the poles. ERA5 is distributed on a regular 0.25° lat-lon grid." },
+      why: "Errors grow roughly exponentially, so each 10× smaller start error adds about ln(10)/λ of time." },
+    { q: "One observation sits on a grid point and σ<sub>b</sub> = σ<sub>o</sub>. What is the gain K there?", opts: ["0", "0.5", "1"], right: 1,
+      why: "K = σ<sub>b</sub>²/(σ<sub>b</sub>² + σ<sub>o</sub>²) = 1/2: the analysis lands halfway, and its error variance halves." },
+    { q: "Why do HealDA, DLESyM and cBottle use HEALPix?", opts: ["Fewer pixels at the equator", "Equal-area pixels on latitude rings", "ERA5 is stored on it"], right: 1,
+      why: "Every pixel has the same area and centres lie on latitude rings; lat-lon cells shrink towards the poles." },
     { q: "What does HealDA not need that 4D-Var does?", opts: ["Observations", "A background forecast", "A GPU"], right: 1,
-      why: "HealDA maps 48 h of observations directly to an analysis; there is no background and no cycle (arXiv:2601.17636)." }]);
+      why: "HealDA maps 48 h of observations directly to an analysis: no background, no cycle." }]);
   return () => {};
 });
