@@ -343,7 +343,7 @@ demo("gf-quiz", () => {
     ["gf-sfno", "--accent", "SFNO · 2023", "Spherical harmonics; 73 channels; stable 1-year rollouts."],
     ["gf-crps", "--data", "FourCastNet 3 · 2025", "Ensembles trained with CRPS + spectral CRPS; 72 variables."],
     ["gf-atlas", "--arch", "Atlas · 2026", "Latent transformer; diffusion, interpolant or CRPS; 15 days."]];
-  $("#gfQzCards").innerHTML = C.map(([id, col, t, d]) => `<button class="pick" type="button" data-go="${id}" style="border-left-color:var(${col});padding:6px 12px"><b style="color:var(${col});font-size:14px">${t}</b><span style="font-size:12.5px">${d}</span></button>`).join("");
+  $("#gfQzCards").innerHTML = C.map(([id, col, t, d]) => `<button class="btn" type="button" data-go="${id}" title="${d}" style="border-color:var(${col});color:var(${col})">← ${t}</button>`).join("");
   VIZ.quiz($("#gfQzBox"), [
     { q: "A deterministic model trained on MSE looks smooth at day 10 because it predicts…", opts: ["a too-coarse grid", "the mean of the possible futures", "too few variables"], right: 1,
       why: "Averaging many sharp but shifted futures cancels the small waves; MSE rewards exactly that average." },
