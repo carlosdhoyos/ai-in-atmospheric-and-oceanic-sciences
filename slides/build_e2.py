@@ -17,7 +17,7 @@ E2 = os.path.join(SRC, "e2")
 TITLE = "NVIDIA Earth-2: AI weather and climate models"
 # section links in the header: (label, slide id of the section's first slide)
 SECTIONS = [("1 Platform", "s-platform"), ("2 Global forecast", "s-global"), ("3 Data assimilation", "s-da"),
-            ("4 Downscaling", "s-downscale"), ("5 Nowcasting", "s-nowcast"), ("6 Climate", "s-climate"), ("7 Earth2Studio", "s-studio")]
+            ("4 Downscaling", "s-downscale"), ("5 Nowcasting", "s-nowcast"), ("5b StormScope", "ss-intro"),("6 Climate", "s-climate"), ("7 Earth2Studio", "s-studio")]
 LIB = ["e2/lib/e2.js"]
 
 

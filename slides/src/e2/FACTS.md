@@ -77,7 +77,13 @@ claims ("NVIDIA reports …"), with their baseline. Where sources disagree, say 
 
 ## StormScope = Earth-2 Nowcasting (2026) — arXiv:2601.17268 "Learning accurate storm-scale evolution from observations"
 - Transformer diffusion models trained directly on GOES multi-band satellite imagery and radar (MRMS) over CONUS;
-  6 km, 10-min steps, 0–6 h. NVIDIA: first AI model to outperform physics-based models on short-term precipitation.
+  6 km. NVIDIA: first AI model to outperform physics-based models on short-term precipitation.
+- From the paper (Pathak et al., NVIDIA, 23 Jan 2026; full text read): TWO model classes. **Nowcasting** 0–2 h, 10-min
+  steps, observations only, input = 6 past states 10 min apart (the preceding hour). **Nearcasting** 0–12 h, 1-h steps,
+  input = one state 1 h earlier + one GFS channel (satellite model: Z500, ERA5 in training / GFS at inference; radar
+  model: GFS simulated composite reflectivity). Paper's headline: competitive with mesoscale NWP up to 6 h; single-member
+  radar FSS beats HRRR to 3 h, competitive to 5 h (significant except 4 h at 30 dBZ/42 km). Full details for the deep
+  dive (section 5b) are in the paper text; see BRIEF_SS.md.
   Variants: StormScopeGOES, StormScopeMRMS, StormScopeMeteosatEU (MTG FCI imagery over Europe), StormScopeDxNSRDB
   (solar irradiance GHI from GOES).
 
