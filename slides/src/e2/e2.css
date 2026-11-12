@@ -7,3 +7,17 @@ nav.series button.mod{font:inherit;cursor:pointer;background:transparent}
 .mapwrap{position:relative}
 .mapwrap canvas{cursor:crosshair}
 .maptip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12px;font-family:var(--f-mono);white-space:pre;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;z-index:3}
+.stg{display:grid;grid-template-columns:5.5em minmax(0,1fr);align-items:center;gap:8px}
+.stg>span{font-size:13px;color:var(--muted)}
+.stg .chips{margin:4px 0}
+.stg .chip{padding:3px 9px;font-size:12px}
+pre.code{font-family:var(--f-mono);font-size:12.5px;line-height:1.55;background:var(--well);border-radius:10px;padding:12px 14px;margin:0;white-space:pre-wrap;word-break:break-word;min-height:15em}
+pre.code .k{color:var(--arch)} pre.code .g{color:var(--ok)} pre.code .m{color:var(--muted)}
+table.zt{width:100%;border-collapse:collapse;font-size:13px}
+table.zt th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);padding:5px 8px;position:sticky;top:0;background:var(--bg)}
+table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:top}
+.mut{color:var(--muted)}
+.card.cmp{padding:8px 12px}
+.card.cmp h4{font-size:14px;margin:0 0 2px}
+.card.cmp p{font-size:13px}
+.stack:has(>.card.cmp){gap:7px}

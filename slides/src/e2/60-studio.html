@@ -1,0 +1,99 @@
+
+<section class="slide" id="s-studio" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">7 · Earth2Studio · build a pipeline</p>
+  <h2>Earth2Studio chains a data source, a model and an output in a few lines of Python</h2>
+  <div class="two">
+    <div>
+      <p><b>Earth2Studio</b> is NVIDIA's open-source (Apache-2.0) Python package for running the models. A forecast is always the same recipe: a <b>data source</b> gives the initial state, a <b>prognostic</b> model (<code>px</code>) steps it forward, an optional <b>diagnostic</b> model (<code>dx</code>) derives other variables, and an <b>IO backend</b> stores the result.</p>
+      <div class="stg"><span class="mut">Data</span><div class="chips" id="stData"></div></div>
+      <div class="stg"><span class="mut">Model</span><div class="chips" id="stPx"></div></div>
+      <div class="stg"><span class="mut">Workflow</span><div class="chips" id="stRun"><button class="chip" data-v="det" aria-pressed="true">deterministic</button><button class="chip" data-v="ens">ensemble</button><button class="chip" data-v="dx">+ diagnostic</button></div></div>
+      <div class="stg" id="stDxRow"><span class="mut">Diagnostic</span><div class="chips" id="stDx"></div></div>
+      <div class="ctl"><label for="stN">Steps</label><input type="range" id="stN" min="1" max="60" step="1" value="20"><output id="stNO"></output></div>
+      <p class="tryit">pick StormCast with GFS as the data source, then switch the data to HRRR: what does the check say, and why?</p>
+    </div>
+    <div class="panel"><pre class="code" id="stCode"></pre><div class="readout" id="stRead"></div><p class="note" id="stWarn" style="margin:6px 0 0"></p></div>
+  </div>
+  <p class="note">Pattern from the Earth2Studio README (github.com/NVIDIA/earth2studio). The README warns that the release after 0.20.0 will be 1.0.0 and not backward compatible: pin the version you test with. Each model's licence belongs to its provider.</p>
+</section>
+
+<section class="slide" id="st-zoo" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">The model zoo · not only NVIDIA</p>
+  <h2>One interface for NVIDIA, ECMWF, Google, Microsoft, Huawei and academic models</h2>
+  <div class="chips" id="stTask"><span class="mut" style="font-size:13px;align-self:center">Task:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="px">Prognostic (steps in time)</button><button class="chip" data-v="dx">Diagnostic</button><button class="chip" data-v="da">Assimilation</button></div>
+  <div class="chips" id="stDev"><span class="mut" style="font-size:13px;align-self:center">Developer:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="NVIDIA">NVIDIA</button><button class="chip" data-v="other">Others</button></div>
+  <p class="tryit">filter to assimilation, then to diagnostics: which models are tied to one region?</p>
+  <div class="fig-wrap" id="stTable" style="max-height:370px;overflow-y:auto"></div>
+  <p class="note">A selection of the classes listed in the Earth2Studio docs (models_px, models_dx, models_da pages), with the region and recommended GPU memory they state. Developers and architectures from the papers: GraphCast arXiv:2212.12794; Pangu-Weather arXiv:2211.02556; FuXi arXiv:2306.12873; AIFS arXiv:2406.01465; Aurora arXiv:2405.13063.</p>
+</section>
+
+<section class="slide" id="st-users" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">Who uses it · as reported by NVIDIA</p>
+  <h2>Weather services, energy companies and insurers are the first users</h2>
+  <div class="two">
+    <div>
+      <div class="chips" id="stSector"><button class="chip" data-v="wx" aria-pressed="true">Weather services</button><button class="chip" data-v="en">Energy</button><button class="chip" data-v="fin">Insurance and risk</button></div>
+      <p class="tryit">switch sectors: which Earth-2 model appears most often, and for what lead time?</p>
+      <div class="stack" id="stUsers"></div>
+    </div>
+    <div class="panel"><h4>Which models, by sector</h4><div id="stUseBars"></div>
+      <p class="note" style="margin:6px 0 0">Count of named organisations using or evaluating each model, from the 26 Jan 2026 announcement (blogs.nvidia.com/blog/nvidia-earth-2-open-models). These are vendor statements, not independent evaluations; "evaluating" is not "operational".</p></div>
+  </div>
+</section>
+
+<section class="slide" id="st-choose" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">Choosing a model · and its limits</p>
+  <h2>Pick the model by the question: lead time, region, resolution, and whether you need an ensemble</h2>
+  <div class="two">
+    <div>
+      <div class="stack" id="stCases"></div>
+      <p class="tryit">answer each case, then read why. Which case has no single right model?</p>
+    </div>
+    <div>
+      <div class="callout amber" style="margin-top:0"><b>Limits every report should state</b>
+        <ul class="pts" style="font-size:14px;margin:6px 0 0">
+          <li><b>Trained on reanalysis.</b> ERA5 has its own biases and smooths extremes; a model learns them too.</li>
+          <li><b>Out of distribution.</b> Record heat or a warmer climate lies outside the training years; check before trusting extremes.</li>
+          <li><b>Blur and calibration.</b> Deterministic models get smoother with lead time; ensembles must be checked for spread (section 2).</li>
+          <li><b>Physics is learned, not imposed.</b> Conservation and balance hold only approximately.</li>
+          <li><b>Verification first.</b> Compare against observations and a physics baseline for your region before operational use.</li>
+        </ul></div>
+      <p class="note">Vendor speed-ups use different baselines (section 4 shows CorrDiff's four versions). Quote the baseline with the number.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="st-summary" data-g="" data-sec="7 · Earth2Studio">
+  <p class="kicker">Summary and references</p>
+  <h2>Six ideas to take away</h2>
+  <div class="two">
+    <div>
+      <ol class="pts" style="padding-left:20px">
+        <li><b>Emulators learn one big step</b> from decades of reanalysis and roll it out on a GPU, thousands of times cheaper than integrating the equations.</li>
+        <li><b>Geometry matters.</b> SFNO uses spherical harmonics and HEALPix gives equal-area pixels, so the poles are not edges.</li>
+        <li><b>Mean vs samples.</b> Training on MSE gives the blurry mean of possible futures; CRPS (FCN3) and diffusion (CorrDiff, StormCast, cBottle) give sharp, varied samples.</li>
+        <li><b>Every link is learnable:</b> assimilation (HealDA), global forecast (FCN3, Atlas), downscaling (CorrDiff), nowcasting (StormScope), climate (DLESyM, cBottle).</li>
+        <li><b>Cheap ensembles change risk analysis:</b> thousands of members make rare events countable.</li>
+        <li><b>Verify locally.</b> Open weights and Earth2Studio make it possible to test these models on your own region and data.</li>
+      </ol>
+      <div id="stQuiz"></div>
+    </div>
+    <div>
+      <h3>References</h3>
+      <ul class="pts" style="font-size:13px">
+        <li>Pathak et al. (2022). FourCastNet. arXiv:2202.11214.</li>
+        <li>Bonev et al. (2023). Spherical Fourier Neural Operators. ICML, arXiv:2306.03838.</li>
+        <li>Bonev, Kurth et al. (2025). FourCastNet 3. arXiv:2507.12144.</li>
+        <li>NVIDIA (2026). Demystifying data-driven probabilistic medium-range weather forecasting (Atlas). arXiv:2601.18111.</li>
+        <li>NVIDIA (2026). HealDA. arXiv:2601.17636.</li>
+        <li>Mardani et al. (2025). Residual corrective diffusion modeling for km-scale atmospheric downscaling (CorrDiff). Commun. Earth Environ., arXiv:2309.15214.</li>
+        <li>Pathak et al. (2024). StormCast. arXiv:2408.10958.</li>
+        <li>NVIDIA (2026). Learning accurate storm-scale evolution from observations (StormScope). arXiv:2601.17268.</li>
+        <li>Brenowitz, Ge et al. (2025). Climate in a Bottle (cBottle). arXiv:2505.06474.</li>
+        <li>Cresswell-Clay et al. (2024). DLESyM. arXiv:2409.16247.</li>
+        <li>NVIDIA Earth-2: nvidia.com/en-us/high-performance-computing/earth-2 · Earth2Studio: github.com/NVIDIA/earth2studio · weights: huggingface.co/collections/nvidia/earth-2.</li>
+      </ul>
+      <p class="note">Demos in this deck are toys written for teaching; they show mechanisms, not the real models' skill. Numbers next to them come from the papers and NVIDIA announcements cited on each slide. Related: the <a href="https://claude.ai/artifact/1jrTDUz6ck9e8KiU1JimmX" target="_blank" rel="noopener">neural-network series</a> (operations, layers, attention, optimisation).</p>
+    </div>
+  </div>
+</section>
