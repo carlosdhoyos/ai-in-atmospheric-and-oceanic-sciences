@@ -414,12 +414,12 @@ demo("sb-train", () => {
   const sS = slider("sbTrS", v => fmt(10 ** v, 10 ** v < .1 ? 3 : 10 ** v < 10 ? 2 : 1), render);
   $("#sbTrDraw").onclick = () => { draw(500); render(); }; $("#sbTrReset").onclick = () => { samples = []; draw(500); render(); };
   const N = SB.NX, M = SB.NY, past = F.past.map(f => SB.url(SB.dbz(f))), tgt = SB.url(SB.paint(x, N, M, { color: CM.precip, lo: 0, hi: 1, mask: v => v < 5 / 60 }));
-  const CARD = [["① A training pair", "From the archive (GOES 2018–2023, MRMS 2020–2023), take the past states x<sub>t−</sub> (6 frames for nowcasts, 1 for nearcasts) and the true next state x<sub>t+</sub>. Millions of such pairs: about 6 M iterations of batch 32."],
-    ["② Draw a noise level σ", "σ is drawn <b>uniformly in log σ</b> between σ<sub>min</sub> and σ<sub>max</sub> (right): every decade of noise is trained equally often. (EDM's own default is a log-normal, dashed.)"],
-    ["③ Add noise", "Add Gaussian noise of standard deviation σ to the <b>future</b> frame only; the past frames and c stay clean. At σ = 80 the frame is gone; at σ = 0.01 it is untouched."],
-    ["④ Denoise", "D<sub>θ</sub> sees the noisy future, the past frames, c and σ, and guesses the clean future. When σ is large the honest best guess is the <b>average of all futures compatible with the past</b>: blurry. As σ falls, the noisy frame itself pins down the details."],
-    ["⑤ Weighted squared error", "Loss = λ(σ) ‖D<sub>θ</sub> − x<sub>t+</sub>‖². λ(σ) and the c-factors keep every noise level equally important to the optimiser (Stable AdamW, lr 5·10⁻⁴ → 0 cosine, 32 H100 × ~48 h)."],
-    ["⑥ Two experts", "The σ range is split at σ<sub>int</sub>. A <b>coarse expert</b> learns the high-noise regime (where only the large-scale layout can be decided), a <b>fine expert</b> the low-noise regime (convective detail). Each is trained only on its own σ."]];
+  const CARD = [["① A training pair", "From the archive (GOES 2018–2023, MRMS 2020–2023): the past states x<sub>t−</sub> (6 frames for nowcasts, 1 for nearcasts) and the true next state x<sub>t+</sub>. About 6 M iterations of batch 32."],
+    ["② Draw a noise level σ", "σ is drawn <b>uniformly in log σ</b> between σ<sub>min</sub> and σ<sub>max</sub>: every decade of noise is trained equally often (histogram)."],
+    ["③ Add noise", "Gaussian noise of size σ is added to the <b>future</b> frame only; past frames and c stay clean. At σ = 80 the frame is gone; at 0.01 it is untouched."],
+    ["④ Denoise", "D<sub>θ</sub> guesses the clean future. At large σ the best honest guess is the <b>average of all futures</b> the past allows: blurry. At small σ the noisy frame pins down the detail."],
+    ["⑤ Weighted squared error", "Loss = λ(σ) ‖D<sub>θ</sub> − x<sub>t+</sub>‖². λ(σ) and the c-factors make every σ matter equally. Stable AdamW, lr 5·10⁻⁴ → 0 (cosine), 32 H100 × ~48 h."],
+    ["⑥ Two experts", "The σ range is split at σ<sub>int</sub>: a <b>coarse expert</b> learns high noise (the large-scale layout), a <b>fine expert</b> low noise (convective detail). Each trains only on its own σ."]];
   function render() {
     const lsig = sS(), s = 10 ** lsig, y = Float32Array.from(x, (v, i) => v + s * NZ[i]), { d, w: wts } = SB.denoise(y, s, X), err = Float32Array.from(d, (v, i) => v - x[i]);
     const coarse = s > SB.SINT, svg = svgIn($("#sbTrFig"), 1000, 200); arrowDefs(svg, "sbTrAr", css("--muted"));
