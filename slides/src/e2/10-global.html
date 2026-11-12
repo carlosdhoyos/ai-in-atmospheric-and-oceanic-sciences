@@ -6,9 +6,9 @@
       <p style="font-size:15px">An AI global model learns a single map: the state at <i>t</i> → the state at <i>t</i> + 6 h. To reach day 10 it applies that map 40 times to its own output (<b>autoregressive rollout</b>). Here the "truth" is a toy 500 hPa field of drifting Rossby-like waves; the toy model gets each wave's speed slightly wrong, more so for the small waves, so the error compounds with every step.</p>
       <div class="ctl"><label for="gfRoErr">Step error</label><input type="range" id="gfRoErr" min="0" max="3" step="0.25" value="1"><output></output></div>
       <div class="ctl"><label for="gfRoLead">Lead time</label><input type="range" id="gfRoLead" min="0" max="60" step="1" value="20"><output></output></div>
-      <div class="chips" id="gfRoShow"><button class="chip" type="button" data-v="fc" aria-pressed="true">Forecast</button><button class="chip" type="button" data-v="err">Error (forecast − truth)</button><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" id="gfRoPlay" style="margin-left:auto">▶ Play 15 days</button></div>
+      <div class="chips" id="gfRoShow"><button class="chip" type="button" data-v="fc" aria-pressed="true">Forecast</button><button class="chip" type="button" data-v="err">Error (forecast − truth)</button><button class="chip" type="button" data-v="tr">Truth</button><button class="btn" type="button" id="gfRoPlay" style="margin-left:auto">▶ Play 15 days</button></div>
       <p class="tryit">play the rollout, then set the step error to 0.5 and to 3: on which day does the ACC fall below 0.6, and when does the forecast's RMSE pass the climatology line?</p>
-      <div class="readout" id="gfRoRead" style="margin-top:2px"></div>
+      <div class="readout" id="gfRoRead" style="margin-top:2px;gap:18px"></div>
     </div>
     <div class="panel">
       <h3 id="gfRoTitle">Forecast</h3>
@@ -30,7 +30,7 @@
       <div class="ctl"><label for="gfAfK">Modes kept <i>K</i></label><input type="range" id="gfAfK" min="0" max="40" step="1" value="12"><output></output></div>
       <div class="chips" id="gfAfMode"><button class="chip" type="button" data-v="id" aria-pressed="true">W = 1 (just truncate)</button><button class="chip" type="button" data-v="learn">W learned for +24 h</button></div>
       <p class="tryit">with W = 1, lower <i>K</i> from 40 to 3 and watch the curve lose its small waves; then switch to the learned W: one complex number per mode moves every wave one day east.</p>
-      <div class="readout" id="gfAfRead" style="margin-top:2px"></div>
+      <div class="readout" id="gfAfRead" style="margin-top:2px;gap:18px"></div>
     </div>
     <div class="panel">
       <h3>Signal along the latitude circle (m)</h3>
@@ -44,7 +44,7 @@
 
 <section class="slide" id="gf-sfno" data-g="a" data-sec="2 · Global forecasting">
   <p class="kicker">SFNO (2023) · spherical Fourier neural operator</p>
-  <h2>The Earth is not a flat periodic rectangle: SFNO mixes in spherical harmonics</h2>
+  <h2>The Earth is not a flat rectangle: SFNO mixes in spherical harmonics</h2>
   <div class="two">
     <div>
       <p style="font-size:14.5px">A 2-D FFT on the lat-lon grid treats the map as a flat sheet that wraps around top to bottom. But the top row is a single point (the pole), a grid cell at 80° is 6 times narrower than at the equator, and the north edge does not touch the south edge. <b>SFNO</b> replaces the FFT by the <b>spherical harmonic transform</b>: basis patterns <i>Y<sub>ℓ</sub><sup>m</sup></i> that live on the sphere, with no edges and no special poles.</p>
@@ -63,15 +63,15 @@
 </section>
 
 <section class="slide" id="gf-blur" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">Deterministic models at long lead · the mean of possible futures</p>
+  <p class="kicker">Deterministic models at long lead · MSE and blur</p>
   <h2>Trained on mean-squared error, a model learns to blur</h2>
   <div class="two">
     <div>
       <p style="font-size:14.5px">At long lead the future is uncertain: many states are possible. A network trained to minimise the <b>mean-squared error</b> (MSE) is rewarded for predicting their <b>average</b>, and the average of many sharp, shifted waves is a smooth, weak wave. The small scales go first, because their position is lost first. Each member below is as sharp as the truth.</p>
       <div class="ctl"><label for="gfBlLead">Lead time</label><input type="range" id="gfBlLead" min="0" max="15" step="0.5" value="6"><output></output></div>
       <div class="ctl"><label for="gfBlN">Members</label><input type="range" id="gfBlN" min="1" max="50" step="1" value="30"><output></output></div>
-      <div class="chips" id="gfBlShow"><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" data-v="mem">One member</button><button class="chip" type="button" data-v="mean" aria-pressed="true">Mean of the members</button><button class="chip" type="button" id="gfBlNew" style="margin-left:auto">↻ New members</button></div>
-      <p class="tryit">at day 6, switch between one member and the mean: which has the lower RMSE, and which one looks like weather? Then read the spectrum on the right at wavenumbers above 10.</p>
+      <div class="chips" id="gfBlShow"><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" data-v="mem">One member</button><button class="chip" type="button" data-v="mean" aria-pressed="true">Mean of the members</button><button class="btn" type="button" id="gfBlNew" style="margin-left:auto">↻ New members</button></div>
+      <p class="tryit">at day 6, switch between one member and the mean: which has the lower RMSE, and which one looks like weather? Then go to day 12 and read the spectrum above wavenumber 10.</p>
       <div class="readout" id="gfBlRead" style="margin-top:2px"></div>
     </div>
     <div class="panel">
@@ -79,56 +79,58 @@
       <div id="gfBlMap"></div>
       <h3 style="margin-top:8px">Zonal power spectrum (log–log)</h3>
       <div id="gfBlSpec"></div>
-      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber. The mean of the members is what an MSE-trained deterministic model converges to. This is why FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
+      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber. Truth and members have the same spectrum (their curves overlap); the mean of the members, which is what an MSE-trained deterministic model converges to, loses power. This is why FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="gf-crps" data-g="a" data-sec="2 · Global forecasting">
   <p class="kicker k-data">FourCastNet 3 (2025) · ensembles scored by CRPS</p>
-  <h2>CRPS rewards an ensemble that is both sharp and honest about its spread</h2>
+  <h2>CRPS rewards an ensemble that is sharp and honest about its spread</h2>
   <div class="two">
     <div>
-      <div class="eq data" style="font-size:16px;margin:0 0 6px">CRPS = E|<i>X</i> − <i>y</i>| − ½ E|<i>X</i> − <i>X</i>′| = ∫ (<i>F</i>(<i>x</i>) − 1[<i>x</i> ≥ <i>y</i>])² d<i>x</i></div>
-      <p style="font-size:14.5px;margin:4px 0">The <b>continuous ranked probability score</b> compares the ensemble's CDF <i>F</i> with the observation <i>y</i>. The first term pulls members towards <i>y</i>; the second rewards spread. Blurring every member does not help: CRPS is minimised, on average, only when members are drawn from the true distribution.</p>
-      <div class="chips" id="gfCrPre"><button class="chip" type="button" data-v="good" aria-pressed="true">Sharp, calibrated</button><button class="chip" type="button" data-v="wide">Over-dispersed</button><button class="chip" type="button" data-v="narrow">Under-dispersed</button><button class="chip" type="button" data-v="det">Deterministic</button><button class="chip" type="button" data-v="bias">Biased</button></div>
-      <div class="ctl"><label for="gfCrY">Observation <i>y</i></label><input type="range" id="gfCrY" min="-3" max="3" step="0.05" value="0.6"><output></output></div>
-      <div class="ctl"><label for="gfCrS">Spread</label><input type="range" id="gfCrS" min="0" max="2.5" step="0.05" value="1"><output></output></div>
-      <div class="ctl"><label for="gfCrB">Bias</label><input type="range" id="gfCrB" min="-2" max="2" step="0.05" value="0"><output></output></div>
-      <p class="tryit">drag the observation: an under-dispersed ensemble wins when <i>y</i> is near its centre and loses badly in the tails. On the right, find the spread that gives the lowest average CRPS.</p>
+      <div class="eq data" style="font-size:15px;margin:0 0 6px">CRPS = E|<i>X</i> − <i>y</i>| − ½ E|<i>X</i> − <i>X</i>′| = ∫ (<i>F</i>(<i>x</i>) − 1[<i>x</i> ≥ <i>y</i>])² d<i>x</i></div>
+      <p style="font-size:14.5px;margin:4px 0">The <b>continuous ranked probability score</b> compares the ensemble's CDF <i>F</i> with the observation <i>y</i>. The first term pulls members towards <i>y</i>; the second rewards spread. On average, CRPS is lowest only when the members are drawn from the true distribution, so blurring or shrinking the ensemble does not pay.</p>
+      <div class="chips" id="gfCrPre" style="margin:6px 0"><button class="chip" type="button" data-v="good" aria-pressed="true">Sharp, calibrated</button><button class="chip" type="button" data-v="wide">Over-dispersed</button><button class="chip" type="button" data-v="narrow">Under-dispersed</button><button class="chip" type="button" data-v="det">Deterministic</button><button class="chip" type="button" data-v="bias">Biased</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="gfCrY">Observation <i>y</i></label><input type="range" id="gfCrY" min="-3" max="3" step="0.05" value="0.6"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="gfCrS">Spread</label><input type="range" id="gfCrS" min="0" max="2.5" step="0.05" value="1"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="gfCrB">Bias</label><input type="range" id="gfCrB" min="-2" max="2" step="0.05" value="0"><output></output></div>
+      <p class="tryit">drag the observation: an under-dispersed ensemble wins when <i>y</i> is near its centre and loses badly in the tails. Below right, find the spread with the lowest average CRPS.</p>
+      <div class="callout teal" style="font-size:13.5px;margin:6px 0 0"><b>FourCastNet 3</b> trains on point-wise CRPS plus a <b>spectral CRPS</b> (CRPS of the spherical-harmonic coefficients), so each member also keeps the right power at every scale. 16 members in training, 50 in evaluation.</div>
     </div>
-    <div class="panel">
-      <h3>One case: ensemble CDF vs the observation (shaded area = CRPS)</h3>
+    <div class="panel" style="padding:14px 18px">
+      <h3>One case: ensemble CDF <i>F</i> vs the observation step</h3>
       <div id="gfCrFig"></div>
       <div class="readout" id="gfCrRead" style="margin-top:0"></div>
-      <h3 style="margin-top:8px">Average over many cases (truth ~ N(0, 1))</h3>
+      <h3 style="margin-top:8px">Average over many cases (truth ~ N(0, 1)) · <span id="gfCrAvgT" style="text-transform:none;letter-spacing:0"></span></h3>
       <div id="gfCrAvg"></div>
-      <p class="note" style="margin:4px 0 0">Toy: 16 members placed at Gaussian quantiles (16 is FCN3's training ensemble size). FourCastNet 3: probabilistic, convolutional on the sphere (spherical-harmonic filters + local DISCO convolutions), ~711M parameters, 72 variables, 0.25°, 6 h; trained with point-wise CRPS plus a <b>spectral CRPS</b> (CRPS on the spherical-harmonic coefficients, so members keep the right power at each scale); 50 members in evaluation; 15-day forecast ≈ 60 s on one H100; ~8× faster than GenCast, ~60× than IFS-ENS; beats IFS-ENS, close to GenCast (Bonev, Kurth et al., arXiv:2507.12144).</p>
+      <p class="note" style="margin:4px 0 0">Toy: 16 members at Gaussian quantiles; shading = gap between the two curves, CRPS integrates its square. FourCastNet 3: probabilistic, convolutional on the sphere (spherical-harmonic filters + local DISCO convolutions), ~711M parameters, 72 variables, 0.25°, 6 h; 15-day forecast ≈ 60 s on one H100; ~8× faster than GenCast, ~60× than IFS-ENS; beats IFS-ENS, close to GenCast (Bonev, Kurth et al., arXiv:2507.12144).</p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="gf-atlas" data-g="a" data-sec="2 · Global forecasting">
   <p class="kicker k-arch">Atlas = Earth-2 Medium Range (2026) · latent transformer</p>
-  <h2>Atlas forecasts in a compressed latent space, and one backbone fits three training recipes</h2>
+  <h2>Atlas forecasts in a latent space, and can be trained three ways</h2>
   <div class="fig-wrap" id="gfAtFlow"></div>
-  <div class="two" style="margin-top:4px">
+  <div class="two" style="margin-top:2px">
     <div>
-      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button><button class="chip" type="button" id="gfAtGo" style="margin-left:auto">▶ Draw 8 samples</button></div>
-      <div class="ctl"><label for="gfAtSteps">Sampler steps</label><input type="range" id="gfAtSteps" min="2" max="40" step="1" value="20"><output></output></div>
-      <p class="tryit">draw samples with each recipe and compare where a sample starts (pure noise or today's state) and how many network passes it needs.</p>
-      <div class="card" id="gfAtCard"></div>
+      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="gfAtSteps">Sampler steps</label><input type="range" id="gfAtSteps" min="2" max="40" step="1" value="20"><output></output></div>
+      <div class="chips" style="margin:4px 0"><button class="btn" type="button" id="gfAtGo">▶ Draw 8 samples</button></div>
+      <p class="tryit">draw samples with each recipe, then with diffusion at 2 steps: where does a sample start, how many network passes does it need, and does it land on a possible state?</p>
+      <div class="card" id="gfAtCard" style="padding:10px 14px"></div>
     </div>
-    <div class="panel" style="padding:12px 16px"><h3>Toy 2-D latent space: how one sample of z<sub>t+1</sub> is drawn</h3><div id="gfAtFig"></div><div class="readout" id="gfAtRead" style="margin-top:0"></div></div>
+    <div class="panel" style="padding:12px 16px"><h3>Toy 2-D latent space: drawing one z<sub>t+1</sub></h3><div id="gfAtFig"></div><div class="readout" id="gfAtRead" style="margin-top:4px"></div></div>
   </div>
-  <p class="note" style="margin:4px 0 0">The 2-D latent and the step counts are a toy. Atlas (Atmospheric Transformer in Latent Space): a latent transformer that can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111 "Demystifying Data-Driven Probabilistic Medium-Range Weather Forecasting"). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
+  <p class="note" style="margin:4px 0 0">The 2-D latent and the step counts are a toy. Atlas (Atmospheric Transformer in Latent Space) can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
 </section>
 
 <section class="slide" id="gf-quiz" data-g="a" data-sec="2 · Global forecasting">
   <p class="kicker">Global forecasting · check yourself</p>
   <h2>Four models, four ideas</h2>
-  <div class="two">
-    <div class="stack" id="gfQzCards"></div>
-    <div><div id="gfQzBox"></div><p class="tryit">answer all four; the feedback explains each answer.</p></div>
-  </div>
+  <div class="four" id="gfQzCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px"></div>
+  <p class="tryit">answer all five; the feedback explains each answer. Click a model card to go back to its slide.</p>
+  <div id="gfQzBox" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 10px"></div>
+  <p class="note" style="margin:2px 0 0">Sources: FourCastNet arXiv:2202.11214 · SFNO arXiv:2306.03838 · FourCastNet 3 arXiv:2507.12144 · Atlas arXiv:2601.18111.</p>
 </section>

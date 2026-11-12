@@ -1,0 +1,149 @@
+<section class="slide" id="s-climate" data-g="a" data-sec="6 · Climate">
+  <style>
+    #clDrRead b,#clDlRead b,#clCbRead b,#clInRead b,#clSrRead b,#clExRead b{font-size:18px}
+    #clDrRead span,#clDlRead span,#clCbRead span,#clInRead span,#clSrRead span,#clExRead span{font-size:10.5px}
+    #s-climate>p.note,[id^="cl-"]>p.note{max-width:none}
+    [id^="clQuiz"] .card{margin-bottom:0!important;height:100%}
+  </style>
+  <p class="kicker">6 · Climate · weather vs climate</p>
+  <h2>Weather is one path; climate is the statistics of all paths</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14.5px">
+        <li>A single trajectory is unpredictable after about two weeks, but its <b>statistics</b> (mean, variance, extremes) are stable. A climate model must get those right, not the path.</li>
+        <li>An AI climate run is an <b>autoregressive rollout</b> of thousands to millions of steps. A tiny per-step <b>amplification</b> or <b>bias</b> compounds into <b>drift</b>: the model slides into its own wrong climate, or blows up.</li>
+      </ul>
+      <p style="font-size:14px;margin-bottom:2px">Toy: <i>x</i> is a temperature anomaly (in standard deviations) with ~2 weeks of memory, stepped every 6 h. The emulator learned the step with a small error:</p>
+      <div class="eq" style="font-size:17px;margin:4px 0"><i>x</i><sub>n+1</sub> = 0.98 (1 + <i>ε</i>) <i>x</i><sub>n</sub> + <i>b</i> + noise</div>
+      <div class="chips" id="clDrPre" style="margin:6px 0"><button class="chip" data-v="0,0" aria-pressed="true">Stable</button><button class="chip" data-v="1.2,0">Tiny amplification</button><button class="chip" data-v="0,0.006">Tiny bias</button><button class="chip" data-v="2.2,0">Unstable</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDrAmp">Amplification ε</label><input type="range" id="clDrAmp" min="0" max="2.5" step="0.05" value="0"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDrBias">Bias b / step</label><input type="range" id="clDrBias" min="0" max="0.02" step="0.001" value="0"><output></output></div>
+      <p class="tryit">start from "Stable": the paths differ after a few weeks but the histograms match. Then raise ε to 1 % or b to 0.005: when does the running mean leave the truth?</p>
+      <div class="readout" id="clDrRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <div class="chips" id="clDrView" style="margin-top:0"><button class="chip" data-v="30" aria-pressed="true">First 30 days</button><button class="chip" data-v="all">All 20,000 steps (13.7 years)</button><button class="btn" type="button" id="clDrNew" style="margin-left:auto">New weather</button></div>
+      <div id="clDrFig"></div>
+      <h3 style="margin:4px 0 0">Histogram of steps 4,000–20,000</h3>
+      <div id="clDrHist"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">Toy model (AR(1) process), not a real emulator. Real numbers: SFNO ran stable autoregressive rollouts for 1 year (1,460 six-hour steps; Bonev et al., arXiv:2306.03838); DLESyM ran 1,000 years without drift (Cresswell-Clay et al., arXiv:2409.16247). At 6-h steps, 1,000 years is about 1.46 million steps, so an error that compounds per step must be essentially zero.</p>
+</section>
+
+<section class="slide" id="cl-dlesym" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">DLESyM · <span class="en">Deep Learning Earth System Model</span></p>
+  <h2>DLESyM: a fast atmosphere and a slow ocean that talk every 4 days</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14px">
+        <li><b>Atmosphere network</b>: 9 variables (geopotential at 5 levels, T2m, T850, column water vapour, outgoing long-wave radiation), 6-hourly states.</li>
+        <li><b>Ocean network</b>: sea-surface temperature (SST) in 48-h steps. They are <b>coupled</b> every 4 days. Both on HEALPix: 12 × 64 × 64 = 49,152 cells, ~110 km.</li>
+      </ul>
+      <div id="clDlTime"></div>
+      <p style="font-size:14px;margin:4px 0 2px">Toy: a noisy wind <i>u</i> (memory 2 days) drives a slow SST with a recharge term. Two-way: warm SST changes the winds, which warm the SST further (a Bjerknes-like feedback).</p>
+      <div class="chips" id="clDlMode" style="margin:6px 0"><button class="chip" data-v="0">SST fixed</button><button class="chip" data-v="1">One-way</button><button class="chip" data-v="2" aria-pressed="true">Two-way coupled</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDlFb">Feedback</label><input type="range" id="clDlFb" min="0" max="1.3" step="0.05" value="1"><output></output></div>
+      <p class="tryit">switch between one-way and two-way: does the SST spectrum grow a peak at a few years, like ENSO? At 1.3× the oscillation becomes too regular.</p>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0">Toy SST anomaly, monthly means (K)</h3>
+      <div id="clDlFig"></div>
+      <h3 style="margin:4px 0 0">Power spectrum of SST</h3>
+      <div id="clDlSpec"></div>
+      <div class="readout" id="clDlRead" style="gap:16px;margin-top:2px"></div>
+      <h3 style="margin:8px 0 2px">1,000-year run, as reported</h3>
+      <div id="clDlCost"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">DLESyM: Cresswell-Clay, Liu, Durran et al., arXiv:2409.16247. The authors report 1,000-year runs with no drift in ~12 h on one A100 GPU vs ~90 days for CESM2 (different hardware; the ratio is derived from these two numbers), and variability comparable to CMIP6 models (tropical cyclogenesis, Indian monsoon, blocking). Its predecessor DLWP (2021) used a cubed sphere. The toy is a recharge-oscillator caricature, not DLESyM.</p>
+</section>
+
+<section class="slide" id="cl-cbottle" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">cBottle · <span class="en">Climate in a Bottle</span></p>
+  <h2>cBottle does not step forward: it draws a state for given conditions</h2>
+  <div class="two">
+    <div>
+      <div class="eq data" style="font-size:16px;margin:0 0 6px">stepping model: <i>x</i>(<i>t</i> + Δ<i>t</i>) = <i>f</i>(<i>x</i>(<i>t</i>))<br>cBottle: <i>x</i> ~ <i>p</i>(<i>x</i> | SST, time of year, time of day)</div>
+      <p style="font-size:14px;margin-bottom:6px">A <b>diffusion model</b> (as in CorrDiff) samples a global state on HEALPix HPX64 (~100 km, 49,152 pixels) given the <b>monthly SST</b> and the <b>solar position</b>. No previous state, so nothing to drift. One sample is one possible weather; many samples give the climate.</p>
+      <div class="chips" id="clCbVar" style="margin:4px 0"><button class="chip" data-v="T" aria-pressed="true">Temperature (2 m)</button><button class="chip" data-v="P">Rain</button></div>
+      <div class="chips" id="clCbMon" style="margin:4px 0"><button class="chip" data-v="0" aria-pressed="true">January</button><button class="chip" data-v="3">April</button><button class="chip" data-v="6">July</button><button class="chip" data-v="9">October</button></div>
+      <div class="chips" id="clCbSst" style="margin:4px 0"><button class="chip" data-v="-1.5">La Niña SST (−1.5 K)</button><button class="chip" data-v="0" aria-pressed="true">Neutral</button><button class="chip" data-v="1.5">El Niño SST (+1.5 K)</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clCbHr">Time of day</label><input type="range" id="clCbHr" min="0" max="21" step="3" value="12"><output></output></div>
+      <div class="chips" id="clCbShow" style="margin:4px 0"><button class="chip" data-v="1" aria-pressed="true">One sample</button><button class="chip" data-v="16">Mean of 16 samples</button><button class="btn" type="button" id="clCbNew">New sample</button></div>
+      <p class="tryit">switch from January to July and watch the warm belt and rain band move; set El Niño and look inside the box; press "New sample" a few times.</p>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0 0 4px" id="clCbTitle"></h3>
+      <div id="clCbMap"></div>
+      <div id="clCbLeg"></div>
+      <div class="readout" id="clCbRead" style="gap:16px;margin-top:0"></div>
+      <div class="callout green" style="font-size:13.5px;margin:8px 0 0"><b>Compression.</b> Trained on a km-scale ICON simulation (2020–2024) and ERA5 (1980–2017), cBottle squeezes petabytes of model output into a few GB of weights: ask it for any month, SST and hour.</div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">cBottle: Brenowitz, Ge et al., arXiv:2505.06474 (generative diffusion; coarse generator on HPX64 conditioned on monthly SST and solar position; trained on ICON 2020–2024 and ERA5 1980–2017). The map is a <b>toy planet</b> (made-up continents, analytic seasonal and daily cycle, ENSO-like pattern, random weather), not cBottle output. Box: an ENSO region in the east-central tropical Pacific.</p>
+</section>
+
+<section class="slide" id="cl-infill" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">cBottle · <span class="en">channel infilling, super-resolution</span></p>
+  <h2>One generator, several jobs: fill a missing variable, add 5 km detail</h2>
+  <div class="two even">
+    <div>
+      <h3 style="margin:0 0 2px">Infilling a missing channel</h3>
+      <p style="font-size:14px;margin-bottom:4px">A dataset has channel A (say, cloud-top brightness) but not B (say, rain). cBottle learned their <b>joint</b> distribution, so it can generate a B consistent with A. Toy: two correlated random fields; B is hidden and rebuilt from A.</p>
+      <div class="ctl" style="margin:4px 0"><label for="clInRho">Correlation A–B</label><input type="range" id="clInRho" min="0" max="0.95" step="0.05" value="0.7"><output></output></div>
+      <div class="chips" id="clInMode" style="margin:4px 0"><button class="chip" data-v="mean">Conditional mean</button><button class="chip" data-v="samp" aria-pressed="true">Generated sample</button><button class="btn" type="button" id="clInNew">New sample</button></div>
+      <p class="tryit">compare the two infill modes: which one matches the truth point by point, and which one looks like real B?</p>
+      <div class="three" style="gap:8px">
+        <div><div id="clInA"></div><p class="note" style="margin:2px 0 0;text-align:center">A (given)</p></div>
+        <div><div id="clInB"></div><p class="note" style="margin:2px 0 0;text-align:center">B, infilled</p></div>
+        <div><div id="clInT"></div><p class="note" style="margin:2px 0 0;text-align:center">B, truth (hidden)</p></div>
+      </div>
+      <div class="readout" id="clInRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0 0 2px">Super-resolution on HEALPix</h3>
+      <div class="chips" id="clSrNs" style="margin:2px 0 4px"><button class="chip" data-v="4">nside 4</button><button class="chip" data-v="8">8</button><button class="chip" data-v="16" aria-pressed="true">16</button><button class="chip" data-v="32">32</button><button class="chip" data-v="64">64</button></div>
+      <p class="tryit">step nside up: each doubling splits every pixel into 4 equal-area pixels and resolves smaller waves. Drag the globe.</p>
+      <div id="clSrGlobe"></div>
+      <div class="readout" id="clSrRead" style="gap:16px;margin-top:2px"></div>
+      <div id="clSrDiag"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">cBottle (arXiv:2505.06474): channel infilling, zero-shot bias correction and downscaling, guided tropical-cyclone sampling, and a patch-based 16× super-resolution stage from HPX64 (~100 km, 49k pixels) to HPX1024 (~5 km, 12.5M pixels). Earth2Studio wraps these as CBottle3D, CBottleInfill, CBottleSR, CBottleTCGuidance, CBottleVideo. Left: Gaussian toy where the "model" knows the joint distribution exactly. Globe: toy height field; each pixel shows the value at its centre.</p>
+</section>
+
+<section class="slide" id="cl-extremes" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">Huge ensembles · <span class="en">return periods, rare extremes</span></p>
+  <h2>To see a 1-in-100-year event, you need hundreds of years of weather</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14px;margin-bottom:6px">A <b>return period</b> of <i>T</i> years means a chance of 1/<i>T</i> in any year. In <i>N</i> independent years the chance to see it at least once is 1 − (1 − 1/<i>T</i>)<sup><i>N</i></sup>. Observed records cover a few decades; a cheap emulator can run <i>members × years</i> of plausible weather.</p>
+      <div class="chips" id="clExT" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Return period:</span><button class="chip" data-v="10">10 yr</button><button class="chip" data-v="100" aria-pressed="true">100 yr</button><button class="chip" data-v="1000">1,000 yr</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clExM">Members</label><input type="range" id="clExM" min="0" max="10" step="1" value="0"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="clExY">Years each</label><input type="range" id="clExY" min="1" max="50" step="1" value="30"><output></output></div>
+      <p class="tryit">start with one 30-year record (like an observed one) and a 100-year event, then add members: when does the spread of the estimate collapse onto the true value?</p>
+      <ul class="pts" style="font-size:13.5px;margin:6px 0 0">
+        <li><b>AXA</b> uses FourCastNet to generate thousands of hypothetical hurricanes (NVIDIA, Jan 2026).</li>
+        <li>SFNO <b>"Huge Ensembles"</b> start many members from <b>bred-vector</b> perturbations (Earth2Studio: HemisphericCentredBredVector).</li>
+        <li>Caveat: synthetic years only help if the model's tails are realistic and members are not too alike.</li>
+      </ul>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0">One ensemble: annual maxima vs return period</h3>
+      <div id="clExFig"></div>
+      <h3 style="margin:4px 0 0">Estimated 1-in-<span id="clExTT">100</span>-year level over 300 repeated ensembles</h3>
+      <div id="clExHist"></div>
+      <div class="readout" id="clExRead" style="gap:14px;margin-top:2px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">Toy: annual-maximum daily rain from a Gumbel distribution (location 60 mm, scale 15 mm), independent years; the estimate is the empirical quantile (no fitted tail, so with <i>N</i> &lt; <i>T</i> it is just the record maximum), Monte Carlo over 300 ensembles. Sources: AXA in NVIDIA's "Earth-2 family of open models" blog (26 Jan 2026); SFNO and Huge Ensembles (Bonev et al., arXiv:2306.03838); Earth2Studio perturbations (github.com/NVIDIA/earth2studio).</p>
+</section>
+
+<section class="slide" id="cl-quiz" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">Check · climate</p>
+  <h2>Four questions on AI climate models</h2>
+  <p class="tryit">answer each question; the feedback explains the reasoning.</p>
+  <div class="two even" style="gap:12px"><div id="clQuiz1"></div><div id="clQuiz2"></div><div id="clQuiz3"></div><div id="clQuiz4"></div></div>
+  <p class="note" style="margin:8px 0 0">Sources: arXiv:2306.03838 (SFNO), 2409.16247 (DLESyM), 2505.06474 (cBottle); NVIDIA blog, 26 Jan 2026 (AXA).</p>
+</section>

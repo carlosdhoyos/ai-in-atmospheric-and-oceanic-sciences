@@ -277,7 +277,7 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
 <div class="deck">
 <header class="top">
   <span class="back">Earth-2</span>
-  <nav class="series" aria-label="Sections"><button type="button" class="mod" data-go="s-platform"><span>1</span> Platform</button><button type="button" class="mod" data-go="s-global"><span>2</span> Global forecast</button><button type="button" class="mod" data-go="s-da"><span>3</span> Data assimilation</button><button type="button" class="mod" data-go="s-downscale"><span>4</span> Downscaling</button><button type="button" class="mod" data-go="s-nowcast"><span>5</span> Nowcasting</button><button type="button" class="mod" data-go="s-climate"><span>6</span> Climate</button><button type="button" class="mod" data-go="s-studio"><span>7</span> Earth2Studio</button></nav>
+  <nav class="series" aria-label="Sections"><button type="button" class="mod" data-go="s-platform"><span>1</span> Platform</button><button type="button" class="mod" data-go="s-global"><span>2</span> Global forecast</button><button type="button" class="mod" data-go="s-da"><span>3</span> Data assimilation</button><button type="button" class="mod" data-go="s-downscale"><span>4</span> Downscaling</button><button type="button" class="mod" data-go="s-nowcast"><span>5</span> Nowcasting</button><button type="button" class="mod" data-go="ss-intro"><span>5b</span> StormScope</button><button type="button" class="mod" data-go="s-climate"><span>6</span> Climate</button><button type="button" class="mod" data-go="s-studio"><span>7</span> Earth2Studio</button></nav>
   <div class="sec" id="secLabel"><b></b></div>
   <button class="theme-tg" id="themeTg" type="button" aria-label="Switch between light and dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
@@ -313,7 +313,7 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
     <div class="card" id="ppCard"></div>
     <div class="card" id="ppIO"></div>
   </div>
-  <p class="note">Names: Earth-2 Medium Range = Atlas, Earth-2 Nowcasting = StormScope, Earth-2 Global Data Assimilation = HealDA (NVIDIA, AMS Annual Meeting, 26 Jan 2026). Sources in FACTS: arXiv:2601.18111, 2601.17268, 2601.17636, 2309.15214, 2507.12144, 2408.10958, 2505.06474, 2409.16247.</p>
+  <p class="note">Names: Earth-2 Medium Range = Atlas, Earth-2 Nowcasting = StormScope, Earth-2 Global Data Assimilation = HealDA (NVIDIA, AMS Annual Meeting, 26 Jan 2026). Papers: arXiv:2601.18111, 2601.17268, 2601.17636, 2309.15214, 2507.12144, 2408.10958, 2505.06474, 2409.16247.</p>
 </section>
 
 <section class="slide" id="p-why" data-g="d" data-sec="1 · Platform">
@@ -347,238 +347,154 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
     <div class="panel"><div id="ppBub"></div></div>
   </div>
 </section>
-<section class="slide" id="s-global" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">2 · Global forecasting · autoregressive rollout</p>
-  <h2>A forecast is one 6-hour step fed back into itself: small errors grow</h2>
+<section class="slide" id="s-climate" data-g="a" data-sec="6 · Climate">
+  <style>
+    #clDrRead b,#clDlRead b,#clCbRead b,#clInRead b,#clSrRead b,#clExRead b{font-size:18px}
+    #clDrRead span,#clDlRead span,#clCbRead span,#clInRead span,#clSrRead span,#clExRead span{font-size:10.5px}
+    #s-climate>p.note,[id^="cl-"]>p.note{max-width:none}
+    [id^="clQuiz"] .card{margin-bottom:0!important;height:100%}
+  </style>
+  <p class="kicker">6 · Climate · weather vs climate</p>
+  <h2>Weather is one path; climate is the statistics of all paths</h2>
   <div class="two">
     <div>
-      <p style="font-size:15px">An AI global model learns a single map: the state at <i>t</i> → the state at <i>t</i> + 6 h. To reach day 10 it applies that map 40 times to its own output (<b>autoregressive rollout</b>). Here the "truth" is a toy 500 hPa field of drifting Rossby-like waves; the toy model gets each wave's speed slightly wrong, more so for the small waves, so the error compounds with every step.</p>
-      <div class="ctl"><label for="gfRoErr">Step error</label><input type="range" id="gfRoErr" min="0" max="3" step="0.25" value="1"><output></output></div>
-      <div class="ctl"><label for="gfRoLead">Lead time</label><input type="range" id="gfRoLead" min="0" max="60" step="1" value="20"><output></output></div>
-      <div class="chips" id="gfRoShow"><button class="chip" type="button" data-v="fc" aria-pressed="true">Forecast</button><button class="chip" type="button" data-v="err">Error (forecast − truth)</button><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" id="gfRoPlay" style="margin-left:auto">▶ Play 15 days</button></div>
-      <p class="tryit">play the rollout, then set the step error to 0.5 and to 3: on which day does the ACC fall below 0.6, and when does the forecast's RMSE pass the climatology line?</p>
-      <div class="readout" id="gfRoRead" style="margin-top:2px"></div>
-    </div>
-    <div class="panel">
-      <h3 id="gfRoTitle">Forecast</h3>
-      <div id="gfRoMap"></div><div id="gfRoLeg" style="display:flex;justify-content:center"></div>
-      <div class="two even" style="gap:12px;margin-top:4px"><div id="gfRoRmse"></div><div id="gfRoAcc"></div></div>
-      <p class="note" style="margin:4px 0 0">Toy model. RMSE and ACC (anomaly correlation, against the zonal-mean climatology) are area-weighted by cos(latitude). <b>Persistence</b> = the start state kept fixed; <b>climatology</b> = always forecast the zonal mean. ACC = 0.6 is the usual "useful skill" line. Real models: FourCastNet steps 6 h at 0.25° (arXiv:2202.11214); SFNO stays stable for 1,460 six-hour steps = 1 year (arXiv:2306.03838).</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="gf-afno" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">FourCastNet (2022) · Adaptive Fourier Neural Operator</p>
-  <h2>Mixing in Fourier space: every longitude talks to every other in one step</h2>
-  <div class="two">
-    <div>
-      <p style="font-size:14.5px">A vision transformer mixes its patches ("tokens") with attention, whose cost grows with the square of the number of tokens. <b>AFNO</b> instead takes an <b>FFT</b> across the tokens, multiplies each wavenumber by learned weights (a small MLP per mode), drops the high modes, and transforms back. Here: one latitude circle of the toy field, 128 longitudes.</p>
-      <div class="eq" style="font-size:16px;margin:6px 0">x → FFT → <i>X<sub>k</sub></i> → <i>W<sub>k</sub></i>·<i>X<sub>k</sub></i> (keep <i>k</i> ≤ <i>K</i>) → iFFT → x′</div>
-      <div class="ctl"><label for="gfAfLat">Latitude</label><input type="range" id="gfAfLat" min="25" max="70" step="1" value="48"><output></output></div>
-      <div class="ctl"><label for="gfAfK">Modes kept <i>K</i></label><input type="range" id="gfAfK" min="0" max="40" step="1" value="12"><output></output></div>
-      <div class="chips" id="gfAfMode"><button class="chip" type="button" data-v="id" aria-pressed="true">W = 1 (just truncate)</button><button class="chip" type="button" data-v="learn">W learned for +24 h</button></div>
-      <p class="tryit">with W = 1, lower <i>K</i> from 40 to 3 and watch the curve lose its small waves; then switch to the learned W: one complex number per mode moves every wave one day east.</p>
-      <div class="readout" id="gfAfRead" style="margin-top:2px"></div>
-    </div>
-    <div class="panel">
-      <h3>Signal along the latitude circle (m)</h3>
-      <div id="gfAfSig"></div>
-      <h3 style="margin-top:6px">Amplitude per zonal wavenumber <i>k</i> · learned phase shift</h3>
-      <div id="gfAfSpec"></div>
-      <p class="note" style="margin:4px 0 0">Toy: W<sub>k</sub> is fitted by least squares on pairs (day <i>d</i>, day <i>d</i> + 1) for 20 days at this latitude. FourCastNet: AFNO token mixing (FFT → per-mode MLP → iFFT) on a ViT patch backbone, 0.25° global grid (721 × 1440), 6-h step, 20 variables, ERA5 1979–2015; a week-long forecast in &lt; 2 s; the authors estimate ~45,000× faster per node-hour than IFS (vs an extrapolated 18 km IFS) (Pathak et al., arXiv:2202.11214).</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="gf-sfno" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">SFNO (2023) · spherical Fourier neural operator</p>
-  <h2>The Earth is not a flat periodic rectangle: SFNO mixes in spherical harmonics</h2>
-  <div class="two">
-    <div>
-      <p style="font-size:14.5px">A 2-D FFT on the lat-lon grid treats the map as a flat sheet that wraps around top to bottom. But the top row is a single point (the pole), a grid cell at 80° is 6 times narrower than at the equator, and the north edge does not touch the south edge. <b>SFNO</b> replaces the FFT by the <b>spherical harmonic transform</b>: basis patterns <i>Y<sub>ℓ</sub><sup>m</sup></i> that live on the sphere, with no edges and no special poles.</p>
-      <div class="chips" id="gfShWhat"><button class="chip" type="button" data-v="ylm" aria-pressed="true">Spherical harmonic</button><button class="chip" type="button" data-v="blob">A round storm</button><button class="chip" type="button" data-v="fft">Flat-FFT mode</button></div>
-      <div id="gfShCtlY"><div class="ctl"><label for="gfShL">Degree ℓ</label><input type="range" id="gfShL" min="0" max="12" step="1" value="5"><output></output></div>
-      <div class="ctl"><label for="gfShM">Order m</label><input type="range" id="gfShM" min="0" max="12" step="1" value="3"><output></output></div></div>
-      <div id="gfShCtlB" hidden><div class="ctl"><label for="gfShLat">Latitude</label><input type="range" id="gfShLat" min="0" max="85" step="1" value="70"><output></output></div></div>
-      <p class="tryit">compare a harmonic with a flat-FFT mode near the pole (drag the globe to look down on it); then move the round storm from 0° to 85° and read how many grid columns it covers.</p>
-      <div class="readout" id="gfShRead" style="margin-top:2px"></div>
-    </div>
-    <div class="panel">
-      <div class="two even" style="gap:12px;align-items:center"><div><h3>On the sphere (drag)</h3><div id="gfShGlobe"></div></div><div><h3>On the lat-lon grid</h3><div id="gfShMap"></div><div id="gfShArea"></div></div></div>
-      <p class="note" style="margin:6px 0 0">Spherical harmonics are drawn as real parts <i>P<sub>ℓ</sub><sup>m</sup></i>(sin φ) cos(<i>m</i>λ); a flat-FFT mode is cos(<i>m</i>λ)·cos(2π<i>n</i>·row/rows), periodic top to bottom. SFNO / FourCastNet v2: the lat-lon FFT "incorrectly assumes a flat geometry" (artefacts, dissipation); 73 channels, ERA5 0.25°, 6 h; stable rollouts for 1 year (1,460 steps), a year-long rollout in 12.8 min on one A6000; skill comparable to IFS to ~2 weeks (Bonev et al., ICML 2023, arXiv:2306.03838).</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="gf-blur" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">Deterministic models at long lead · the mean of possible futures</p>
-  <h2>Trained on mean-squared error, a model learns to blur</h2>
-  <div class="two">
-    <div>
-      <p style="font-size:14.5px">At long lead the future is uncertain: many states are possible. A network trained to minimise the <b>mean-squared error</b> (MSE) is rewarded for predicting their <b>average</b>, and the average of many sharp, shifted waves is a smooth, weak wave. The small scales go first, because their position is lost first. Each member below is as sharp as the truth.</p>
-      <div class="ctl"><label for="gfBlLead">Lead time</label><input type="range" id="gfBlLead" min="0" max="15" step="0.5" value="6"><output></output></div>
-      <div class="ctl"><label for="gfBlN">Members</label><input type="range" id="gfBlN" min="1" max="50" step="1" value="30"><output></output></div>
-      <div class="chips" id="gfBlShow"><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" data-v="mem">One member</button><button class="chip" type="button" data-v="mean" aria-pressed="true">Mean of the members</button><button class="chip" type="button" id="gfBlNew" style="margin-left:auto">↻ New members</button></div>
-      <p class="tryit">at day 6, switch between one member and the mean: which has the lower RMSE, and which one looks like weather? Then read the spectrum on the right at wavenumbers above 10.</p>
-      <div class="readout" id="gfBlRead" style="margin-top:2px"></div>
-    </div>
-    <div class="panel">
-      <h3 id="gfBlTitle">Mean of the members</h3>
-      <div id="gfBlMap"></div>
-      <h3 style="margin-top:8px">Zonal power spectrum (log–log)</h3>
-      <div id="gfBlSpec"></div>
-      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber. The mean of the members is what an MSE-trained deterministic model converges to. This is why FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="gf-crps" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker k-data">FourCastNet 3 (2025) · ensembles scored by CRPS</p>
-  <h2>CRPS rewards an ensemble that is both sharp and honest about its spread</h2>
-  <div class="two">
-    <div>
-      <div class="eq data" style="font-size:16px;margin:0 0 6px">CRPS = E|<i>X</i> − <i>y</i>| − ½ E|<i>X</i> − <i>X</i>′| = ∫ (<i>F</i>(<i>x</i>) − 1[<i>x</i> ≥ <i>y</i>])² d<i>x</i></div>
-      <p style="font-size:14.5px;margin:4px 0">The <b>continuous ranked probability score</b> compares the ensemble's CDF <i>F</i> with the observation <i>y</i>. The first term pulls members towards <i>y</i>; the second rewards spread. Blurring every member does not help: CRPS is minimised, on average, only when members are drawn from the true distribution.</p>
-      <div class="chips" id="gfCrPre"><button class="chip" type="button" data-v="good" aria-pressed="true">Sharp, calibrated</button><button class="chip" type="button" data-v="wide">Over-dispersed</button><button class="chip" type="button" data-v="narrow">Under-dispersed</button><button class="chip" type="button" data-v="det">Deterministic</button><button class="chip" type="button" data-v="bias">Biased</button></div>
-      <div class="ctl"><label for="gfCrY">Observation <i>y</i></label><input type="range" id="gfCrY" min="-3" max="3" step="0.05" value="0.6"><output></output></div>
-      <div class="ctl"><label for="gfCrS">Spread</label><input type="range" id="gfCrS" min="0" max="2.5" step="0.05" value="1"><output></output></div>
-      <div class="ctl"><label for="gfCrB">Bias</label><input type="range" id="gfCrB" min="-2" max="2" step="0.05" value="0"><output></output></div>
-      <p class="tryit">drag the observation: an under-dispersed ensemble wins when <i>y</i> is near its centre and loses badly in the tails. On the right, find the spread that gives the lowest average CRPS.</p>
-    </div>
-    <div class="panel">
-      <h3>One case: ensemble CDF vs the observation (shaded area = CRPS)</h3>
-      <div id="gfCrFig"></div>
-      <div class="readout" id="gfCrRead" style="margin-top:0"></div>
-      <h3 style="margin-top:8px">Average over many cases (truth ~ N(0, 1))</h3>
-      <div id="gfCrAvg"></div>
-      <p class="note" style="margin:4px 0 0">Toy: 16 members placed at Gaussian quantiles (16 is FCN3's training ensemble size). FourCastNet 3: probabilistic, convolutional on the sphere (spherical-harmonic filters + local DISCO convolutions), ~711M parameters, 72 variables, 0.25°, 6 h; trained with point-wise CRPS plus a <b>spectral CRPS</b> (CRPS on the spherical-harmonic coefficients, so members keep the right power at each scale); 50 members in evaluation; 15-day forecast ≈ 60 s on one H100; ~8× faster than GenCast, ~60× than IFS-ENS; beats IFS-ENS, close to GenCast (Bonev, Kurth et al., arXiv:2507.12144).</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="gf-atlas" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker k-arch">Atlas = Earth-2 Medium Range (2026) · latent transformer</p>
-  <h2>Atlas forecasts in a compressed latent space, and one backbone fits three training recipes</h2>
-  <div class="fig-wrap" id="gfAtFlow"></div>
-  <div class="two" style="margin-top:4px">
-    <div>
-      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button><button class="chip" type="button" id="gfAtGo" style="margin-left:auto">▶ Draw 8 samples</button></div>
-      <div class="ctl"><label for="gfAtSteps">Sampler steps</label><input type="range" id="gfAtSteps" min="2" max="40" step="1" value="20"><output></output></div>
-      <p class="tryit">draw samples with each recipe and compare where a sample starts (pure noise or today's state) and how many network passes it needs.</p>
-      <div class="card" id="gfAtCard"></div>
-    </div>
-    <div class="panel" style="padding:12px 16px"><h3>Toy 2-D latent space: how one sample of z<sub>t+1</sub> is drawn</h3><div id="gfAtFig"></div><div class="readout" id="gfAtRead" style="margin-top:0"></div></div>
-  </div>
-  <p class="note" style="margin:4px 0 0">The 2-D latent and the step counts are a toy. Atlas (Atmospheric Transformer in Latent Space): a latent transformer that can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111 "Demystifying Data-Driven Probabilistic Medium-Range Weather Forecasting"). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
-</section>
-
-<section class="slide" id="gf-quiz" data-g="a" data-sec="2 · Global forecasting">
-  <p class="kicker">Global forecasting · check yourself</p>
-  <h2>Four models, four ideas</h2>
-  <div class="two">
-    <div class="stack" id="gfQzCards"></div>
-    <div><div id="gfQzBox"></div><p class="tryit">answer all four; the feedback explains each answer.</p></div>
-  </div>
-</section>
-
-<section class="slide" id="s-studio" data-g="a" data-sec="7 · Earth2Studio">
-  <p class="kicker k-arch">7 · Earth2Studio · build a pipeline</p>
-  <h2>Earth2Studio chains a data source, a model and an output in a few lines of Python</h2>
-  <div class="two">
-    <div>
-      <p><b>Earth2Studio</b> is NVIDIA's open-source (Apache-2.0) Python package for running the models. A forecast is always the same recipe: a <b>data source</b> gives the initial state, a <b>prognostic</b> model (<code>px</code>) steps it forward, an optional <b>diagnostic</b> model (<code>dx</code>) derives other variables, and an <b>IO backend</b> stores the result.</p>
-      <div class="stg"><span class="mut">Data</span><div class="chips" id="stData"></div></div>
-      <div class="stg"><span class="mut">Model</span><div class="chips" id="stPx"></div></div>
-      <div class="stg"><span class="mut">Workflow</span><div class="chips" id="stRun"><button class="chip" data-v="det" aria-pressed="true">deterministic</button><button class="chip" data-v="ens">ensemble</button><button class="chip" data-v="dx">+ diagnostic</button></div></div>
-      <div class="stg" id="stDxRow"><span class="mut">Diagnostic</span><div class="chips" id="stDx"></div></div>
-      <div class="ctl"><label for="stN">Steps</label><input type="range" id="stN" min="1" max="60" step="1" value="20"><output id="stNO"></output></div>
-      <p class="tryit">pick StormCast with GFS as the data source, then switch the data to HRRR: what does the check say, and why?</p>
-    </div>
-    <div class="panel"><pre class="code" id="stCode"></pre><div class="readout" id="stRead"></div><p class="note" id="stWarn" style="margin:6px 0 0"></p></div>
-  </div>
-  <p class="note">Pattern from the Earth2Studio README (github.com/NVIDIA/earth2studio). The README warns that the release after 0.20.0 will be 1.0.0 and not backward compatible: pin the version you test with. Each model's licence belongs to its provider.</p>
-</section>
-
-<section class="slide" id="st-zoo" data-g="a" data-sec="7 · Earth2Studio">
-  <p class="kicker k-arch">The model zoo · not only NVIDIA</p>
-  <h2>One interface for NVIDIA, ECMWF, Google, Microsoft, Huawei and academic models</h2>
-  <div class="chips" id="stTask"><span class="mut" style="font-size:13px;align-self:center">Task:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="px">Prognostic (steps in time)</button><button class="chip" data-v="dx">Diagnostic</button><button class="chip" data-v="da">Assimilation</button></div>
-  <div class="chips" id="stDev"><span class="mut" style="font-size:13px;align-self:center">Developer:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="NVIDIA">NVIDIA</button><button class="chip" data-v="other">Others</button></div>
-  <p class="tryit">filter to assimilation, then to diagnostics: which models are tied to one region?</p>
-  <div class="fig-wrap" id="stTable" style="max-height:370px;overflow-y:auto"></div>
-  <p class="note">A selection of the classes listed in the Earth2Studio docs (models_px, models_dx, models_da pages), with the region and recommended GPU memory they state. Developers and architectures: FACTS (GraphCast arXiv:2212.12794; Pangu-Weather arXiv:2211.02556; FuXi arXiv:2306.12873; AIFS arXiv:2406.01465; Aurora arXiv:2405.13063).</p>
-</section>
-
-<section class="slide" id="st-users" data-g="a" data-sec="7 · Earth2Studio">
-  <p class="kicker k-arch">Who uses it · as reported by NVIDIA</p>
-  <h2>Weather services, energy companies and insurers are the first users</h2>
-  <div class="two">
-    <div>
-      <div class="chips" id="stSector"><button class="chip" data-v="wx" aria-pressed="true">Weather services</button><button class="chip" data-v="en">Energy</button><button class="chip" data-v="fin">Insurance and risk</button></div>
-      <p class="tryit">switch sectors: which Earth-2 model appears most often, and for what lead time?</p>
-      <div class="stack" id="stUsers"></div>
-    </div>
-    <div class="panel"><h4>Which models, by sector</h4><div id="stUseBars"></div>
-      <p class="note" style="margin:6px 0 0">Count of named organisations using or evaluating each model, from the 26 Jan 2026 announcement (blogs.nvidia.com/blog/nvidia-earth-2-open-models). These are vendor statements, not independent evaluations; "evaluating" is not "operational".</p></div>
-  </div>
-</section>
-
-<section class="slide" id="st-choose" data-g="a" data-sec="7 · Earth2Studio">
-  <p class="kicker k-arch">Choosing a model · and its limits</p>
-  <h2>Pick the model by the question: lead time, region, resolution, and whether you need an ensemble</h2>
-  <div class="two">
-    <div>
-      <div class="stack" id="stCases"></div>
-      <p class="tryit">answer each case, then read why. Which case has no single right model?</p>
-    </div>
-    <div>
-      <div class="callout amber" style="margin-top:0"><b>Limits every report should state</b>
-        <ul class="pts" style="font-size:14px;margin:6px 0 0">
-          <li><b>Trained on reanalysis.</b> ERA5 has its own biases and smooths extremes; a model learns them too.</li>
-          <li><b>Out of distribution.</b> Record heat or a warmer climate lies outside the training years; check before trusting extremes.</li>
-          <li><b>Blur and calibration.</b> Deterministic models get smoother with lead time; ensembles must be checked for spread (section 2).</li>
-          <li><b>Physics is learned, not imposed.</b> Conservation and balance hold only approximately.</li>
-          <li><b>Verification first.</b> Compare against observations and a physics baseline for your region before operational use.</li>
-        </ul></div>
-      <p class="note">Vendor speed-ups use different baselines (section 4 shows CorrDiff's four versions). Quote the baseline with the number.</p>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="st-summary" data-g="" data-sec="7 · Earth2Studio">
-  <p class="kicker">Summary and references</p>
-  <h2>Six ideas to take away</h2>
-  <div class="two">
-    <div>
-      <ol class="pts" style="padding-left:20px">
-        <li><b>Emulators learn one big step</b> from decades of reanalysis and roll it out on a GPU, thousands of times cheaper than integrating the equations.</li>
-        <li><b>Geometry matters.</b> SFNO uses spherical harmonics and HEALPix gives equal-area pixels, so the poles are not edges.</li>
-        <li><b>Mean vs samples.</b> Training on MSE gives the blurry mean of possible futures; CRPS (FCN3) and diffusion (CorrDiff, StormCast, cBottle) give sharp, varied samples.</li>
-        <li><b>Every link is learnable:</b> assimilation (HealDA), global forecast (FCN3, Atlas), downscaling (CorrDiff), nowcasting (StormScope), climate (DLESyM, cBottle).</li>
-        <li><b>Cheap ensembles change risk analysis:</b> thousands of members make rare events countable.</li>
-        <li><b>Verify locally.</b> Open weights and Earth2Studio make it possible to test these models on your own region and data.</li>
-      </ol>
-      <div id="stQuiz"></div>
-    </div>
-    <div>
-      <h3>References</h3>
-      <ul class="pts" style="font-size:13px">
-        <li>Pathak et al. (2022). FourCastNet. arXiv:2202.11214.</li>
-        <li>Bonev et al. (2023). Spherical Fourier Neural Operators. ICML, arXiv:2306.03838.</li>
-        <li>Bonev, Kurth et al. (2025). FourCastNet 3. arXiv:2507.12144.</li>
-        <li>NVIDIA (2026). Demystifying data-driven probabilistic medium-range weather forecasting (Atlas). arXiv:2601.18111.</li>
-        <li>NVIDIA (2026). HealDA. arXiv:2601.17636.</li>
-        <li>Mardani et al. (2025). Residual corrective diffusion modeling for km-scale atmospheric downscaling (CorrDiff). Commun. Earth Environ., arXiv:2309.15214.</li>
-        <li>Pathak et al. (2024). StormCast. arXiv:2408.10958.</li>
-        <li>NVIDIA (2026). Learning accurate storm-scale evolution from observations (StormScope). arXiv:2601.17268.</li>
-        <li>Brenowitz, Ge et al. (2025). Climate in a Bottle (cBottle). arXiv:2505.06474.</li>
-        <li>Cresswell-Clay et al. (2024). DLESyM. arXiv:2409.16247.</li>
-        <li>NVIDIA Earth-2: nvidia.com/en-us/high-performance-computing/earth-2 · Earth2Studio: github.com/NVIDIA/earth2studio · weights: huggingface.co/collections/nvidia/earth-2.</li>
+      <ul class="pts" style="font-size:14.5px">
+        <li>A single trajectory is unpredictable after about two weeks, but its <b>statistics</b> (mean, variance, extremes) are stable. A climate model must get those right, not the path.</li>
+        <li>An AI climate run is an <b>autoregressive rollout</b> of thousands to millions of steps. A tiny per-step <b>amplification</b> or <b>bias</b> compounds into <b>drift</b>: the model slides into its own wrong climate, or blows up.</li>
       </ul>
-      <p class="note">Demos in this deck are toys written for teaching; they show mechanisms, not the real models' skill. Numbers next to them come from the papers and NVIDIA announcements cited on each slide. Related: the <a href="https://claude.ai/artifact/1jrTDUz6ck9e8KiU1JimmX" target="_blank" rel="noopener">neural-network series</a> (operations, layers, attention, optimisation).</p>
+      <p style="font-size:14px;margin-bottom:2px">Toy: <i>x</i> is a temperature anomaly (in standard deviations) with ~2 weeks of memory, stepped every 6 h. The emulator learned the step with a small error:</p>
+      <div class="eq" style="font-size:17px;margin:4px 0"><i>x</i><sub>n+1</sub> = 0.98 (1 + <i>ε</i>) <i>x</i><sub>n</sub> + <i>b</i> + noise</div>
+      <div class="chips" id="clDrPre" style="margin:6px 0"><button class="chip" data-v="0,0" aria-pressed="true">Stable</button><button class="chip" data-v="1.2,0">Tiny amplification</button><button class="chip" data-v="0,0.006">Tiny bias</button><button class="chip" data-v="2.2,0">Unstable</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDrAmp">Amplification ε</label><input type="range" id="clDrAmp" min="0" max="2.5" step="0.05" value="0"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDrBias">Bias b / step</label><input type="range" id="clDrBias" min="0" max="0.02" step="0.001" value="0"><output></output></div>
+      <p class="tryit">start from "Stable": the paths differ after a few weeks but the histograms match. Then raise ε to 1 % or b to 0.005: when does the running mean leave the truth?</p>
+      <div class="readout" id="clDrRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <div class="chips" id="clDrView" style="margin-top:0"><button class="chip" data-v="30" aria-pressed="true">First 30 days</button><button class="chip" data-v="all">All 20,000 steps (13.7 years)</button><button class="btn" type="button" id="clDrNew" style="margin-left:auto">New weather</button></div>
+      <div id="clDrFig"></div>
+      <h3 style="margin:4px 0 0">Histogram of steps 4,000–20,000</h3>
+      <div id="clDrHist"></div>
     </div>
   </div>
+  <p class="note" style="margin:8px 0 0">Toy model (AR(1) process), not a real emulator. Real numbers: SFNO ran stable autoregressive rollouts for 1 year (1,460 six-hour steps; Bonev et al., arXiv:2306.03838); DLESyM ran 1,000 years without drift (Cresswell-Clay et al., arXiv:2409.16247). At 6-h steps, 1,000 years is about 1.46 million steps, so an error that compounds per step must be essentially zero.</p>
+</section>
+
+<section class="slide" id="cl-dlesym" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">DLESyM · <span class="en">Deep Learning Earth System Model</span></p>
+  <h2>DLESyM: a fast atmosphere and a slow ocean that talk every 4 days</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14px">
+        <li><b>Atmosphere network</b>: 9 variables (geopotential at 5 levels, T2m, T850, column water vapour, outgoing long-wave radiation), 6-hourly states.</li>
+        <li><b>Ocean network</b>: sea-surface temperature (SST) in 48-h steps. They are <b>coupled</b> every 4 days. Both on HEALPix: 12 × 64 × 64 = 49,152 cells, ~110 km.</li>
+      </ul>
+      <div id="clDlTime"></div>
+      <p style="font-size:14px;margin:4px 0 2px">Toy: a noisy wind <i>u</i> (memory 2 days) drives a slow SST with a recharge term. Two-way: warm SST changes the winds, which warm the SST further (a Bjerknes-like feedback).</p>
+      <div class="chips" id="clDlMode" style="margin:6px 0"><button class="chip" data-v="0">SST fixed</button><button class="chip" data-v="1">One-way</button><button class="chip" data-v="2" aria-pressed="true">Two-way coupled</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clDlFb">Feedback</label><input type="range" id="clDlFb" min="0" max="1.3" step="0.05" value="1"><output></output></div>
+      <p class="tryit">switch between one-way and two-way: does the SST spectrum grow a peak at a few years, like ENSO? At 1.3× the oscillation becomes too regular.</p>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0">Toy SST anomaly, monthly means (K)</h3>
+      <div id="clDlFig"></div>
+      <h3 style="margin:4px 0 0">Power spectrum of SST</h3>
+      <div id="clDlSpec"></div>
+      <div class="readout" id="clDlRead" style="gap:16px;margin-top:2px"></div>
+      <h3 style="margin:8px 0 2px">1,000-year run, as reported</h3>
+      <div id="clDlCost"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">DLESyM: Cresswell-Clay, Liu, Durran et al., arXiv:2409.16247. The authors report 1,000-year runs with no drift in ~12 h on one A100 GPU vs ~90 days for CESM2 (different hardware; the ratio is derived from these two numbers), and variability comparable to CMIP6 models (tropical cyclogenesis, Indian monsoon, blocking). Its predecessor DLWP (2021) used a cubed sphere. The toy is a recharge-oscillator caricature, not DLESyM.</p>
+</section>
+
+<section class="slide" id="cl-cbottle" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">cBottle · <span class="en">Climate in a Bottle</span></p>
+  <h2>cBottle does not step forward: it draws a state for given conditions</h2>
+  <div class="two">
+    <div>
+      <div class="eq data" style="font-size:16px;margin:0 0 6px">stepping model: <i>x</i>(<i>t</i> + Δ<i>t</i>) = <i>f</i>(<i>x</i>(<i>t</i>))<br>cBottle: <i>x</i> ~ <i>p</i>(<i>x</i> | SST, time of year, time of day)</div>
+      <p style="font-size:14px;margin-bottom:6px">A <b>diffusion model</b> (as in CorrDiff) samples a global state on HEALPix HPX64 (~100 km, 49,152 pixels) given the <b>monthly SST</b> and the <b>solar position</b>. No previous state, so nothing to drift. One sample is one possible weather; many samples give the climate.</p>
+      <div class="chips" id="clCbVar" style="margin:4px 0"><button class="chip" data-v="T" aria-pressed="true">Temperature (2 m)</button><button class="chip" data-v="P">Rain</button></div>
+      <div class="chips" id="clCbMon" style="margin:4px 0"><button class="chip" data-v="0" aria-pressed="true">January</button><button class="chip" data-v="3">April</button><button class="chip" data-v="6">July</button><button class="chip" data-v="9">October</button></div>
+      <div class="chips" id="clCbSst" style="margin:4px 0"><button class="chip" data-v="-1.5">La Niña SST (−1.5 K)</button><button class="chip" data-v="0" aria-pressed="true">Neutral</button><button class="chip" data-v="1.5">El Niño SST (+1.5 K)</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clCbHr">Time of day</label><input type="range" id="clCbHr" min="0" max="21" step="3" value="12"><output></output></div>
+      <div class="chips" id="clCbShow" style="margin:4px 0"><button class="chip" data-v="1" aria-pressed="true">One sample</button><button class="chip" data-v="16">Mean of 16 samples</button><button class="btn" type="button" id="clCbNew">New sample</button></div>
+      <p class="tryit">switch from January to July and watch the warm belt and rain band move; set El Niño and look inside the box; press "New sample" a few times.</p>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0 0 4px" id="clCbTitle"></h3>
+      <div id="clCbMap"></div>
+      <div id="clCbLeg"></div>
+      <div class="readout" id="clCbRead" style="gap:16px;margin-top:0"></div>
+      <div class="callout green" style="font-size:13.5px;margin:8px 0 0"><b>Compression.</b> Trained on a km-scale ICON simulation (2020–2024) and ERA5 (1980–2017), cBottle squeezes petabytes of model output into a few GB of weights: ask it for any month, SST and hour.</div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">cBottle: Brenowitz, Ge et al., arXiv:2505.06474 (generative diffusion; coarse generator on HPX64 conditioned on monthly SST and solar position; trained on ICON 2020–2024 and ERA5 1980–2017). The map is a <b>toy planet</b> (made-up continents, analytic seasonal and daily cycle, ENSO-like pattern, random weather), not cBottle output. Box: an ENSO region in the east-central tropical Pacific.</p>
+</section>
+
+<section class="slide" id="cl-infill" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">cBottle · <span class="en">channel infilling, super-resolution</span></p>
+  <h2>One generator, several jobs: fill a missing variable, add 5 km detail</h2>
+  <div class="two even">
+    <div>
+      <h3 style="margin:0 0 2px">Infilling a missing channel</h3>
+      <p style="font-size:14px;margin-bottom:4px">A dataset has channel A (say, cloud-top brightness) but not B (say, rain). cBottle learned their <b>joint</b> distribution, so it can generate a B consistent with A. Toy: two correlated random fields; B is hidden and rebuilt from A.</p>
+      <div class="ctl" style="margin:4px 0"><label for="clInRho">Correlation A–B</label><input type="range" id="clInRho" min="0" max="0.95" step="0.05" value="0.7"><output></output></div>
+      <div class="chips" id="clInMode" style="margin:4px 0"><button class="chip" data-v="mean">Conditional mean</button><button class="chip" data-v="samp" aria-pressed="true">Generated sample</button><button class="btn" type="button" id="clInNew">New sample</button></div>
+      <p class="tryit">compare the two infill modes: which one matches the truth point by point, and which one looks like real B?</p>
+      <div class="three" style="gap:8px">
+        <div><div id="clInA"></div><p class="note" style="margin:2px 0 0;text-align:center">A (given)</p></div>
+        <div><div id="clInB"></div><p class="note" style="margin:2px 0 0;text-align:center">B, infilled</p></div>
+        <div><div id="clInT"></div><p class="note" style="margin:2px 0 0;text-align:center">B, truth (hidden)</p></div>
+      </div>
+      <div class="readout" id="clInRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0 0 2px">Super-resolution on HEALPix</h3>
+      <div class="chips" id="clSrNs" style="margin:2px 0 4px"><button class="chip" data-v="4">nside 4</button><button class="chip" data-v="8">8</button><button class="chip" data-v="16" aria-pressed="true">16</button><button class="chip" data-v="32">32</button><button class="chip" data-v="64">64</button></div>
+      <p class="tryit">step nside up: each doubling splits every pixel into 4 equal-area pixels and resolves smaller waves. Drag the globe.</p>
+      <div id="clSrGlobe"></div>
+      <div class="readout" id="clSrRead" style="gap:16px;margin-top:2px"></div>
+      <div id="clSrDiag"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">cBottle (arXiv:2505.06474): channel infilling, zero-shot bias correction and downscaling, guided tropical-cyclone sampling, and a patch-based 16× super-resolution stage from HPX64 (~100 km, 49k pixels) to HPX1024 (~5 km, 12.5M pixels). Earth2Studio wraps these as CBottle3D, CBottleInfill, CBottleSR, CBottleTCGuidance, CBottleVideo. Left: Gaussian toy where the "model" knows the joint distribution exactly. Globe: toy height field; each pixel shows the value at its centre.</p>
+</section>
+
+<section class="slide" id="cl-extremes" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">Huge ensembles · <span class="en">return periods, rare extremes</span></p>
+  <h2>To see a 1-in-100-year event, you need hundreds of years of weather</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14px;margin-bottom:6px">A <b>return period</b> of <i>T</i> years means a chance of 1/<i>T</i> in any year. In <i>N</i> independent years the chance to see it at least once is 1 − (1 − 1/<i>T</i>)<sup><i>N</i></sup>. Observed records cover a few decades; a cheap emulator can run <i>members × years</i> of plausible weather.</p>
+      <div class="chips" id="clExT" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Return period:</span><button class="chip" data-v="10">10 yr</button><button class="chip" data-v="100" aria-pressed="true">100 yr</button><button class="chip" data-v="1000">1,000 yr</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="clExM">Members</label><input type="range" id="clExM" min="0" max="10" step="1" value="0"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="clExY">Years each</label><input type="range" id="clExY" min="1" max="50" step="1" value="30"><output></output></div>
+      <p class="tryit">start with one 30-year record (like an observed one) and a 100-year event, then add members: when does the spread of the estimate collapse onto the true value?</p>
+      <ul class="pts" style="font-size:13.5px;margin:6px 0 0">
+        <li><b>AXA</b> uses FourCastNet to generate thousands of hypothetical hurricanes (NVIDIA, Jan 2026).</li>
+        <li>SFNO <b>"Huge Ensembles"</b> start many members from <b>bred-vector</b> perturbations (Earth2Studio: HemisphericCentredBredVector).</li>
+        <li>Caveat: synthetic years only help if the model's tails are realistic and members are not too alike.</li>
+      </ul>
+    </div>
+    <div class="panel" style="padding:12px 16px">
+      <h3 style="margin:0">One ensemble: annual maxima vs return period</h3>
+      <div id="clExFig"></div>
+      <h3 style="margin:4px 0 0">Estimated 1-in-<span id="clExTT">100</span>-year level over 300 repeated ensembles</h3>
+      <div id="clExHist"></div>
+      <div class="readout" id="clExRead" style="gap:14px;margin-top:2px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:8px 0 0">Toy: annual-maximum daily rain from a Gumbel distribution (location 60 mm, scale 15 mm), independent years; the estimate is the empirical quantile (no fitted tail, so with <i>N</i> &lt; <i>T</i> it is just the record maximum), Monte Carlo over 300 ensembles. Sources: AXA in NVIDIA's "Earth-2 family of open models" blog (26 Jan 2026); SFNO and Huge Ensembles (Bonev et al., arXiv:2306.03838); Earth2Studio perturbations (github.com/NVIDIA/earth2studio).</p>
+</section>
+
+<section class="slide" id="cl-quiz" data-g="a" data-sec="6 · Climate">
+  <p class="kicker">Check · climate</p>
+  <h2>Four questions on AI climate models</h2>
+  <p class="tryit">answer each question; the feedback explains the reasoning.</p>
+  <div class="two even" style="gap:12px"><div id="clQuiz1"></div><div id="clQuiz2"></div><div id="clQuiz3"></div><div id="clQuiz4"></div></div>
+  <p class="note" style="margin:8px 0 0">Sources: arXiv:2306.03838 (SFNO), 2409.16247 (DLESyM), 2505.06474 (cBottle); NVIDIA blog, 26 Jan 2026 (AXA).</p>
 </section>
 
 </main>
@@ -1179,149 +1095,287 @@ demo("p-map", () => {
 });
 
 </script>
-<script>/* e2/60-studio.js */
-/* ═════════ Earth-2 · section 7: Earth2Studio ═════════ */
+<script>/* e2/50-climate.js */
+/* ═════════ Earth-2 · section 6: climate (drift, DLESyM, cBottle, huge ensembles) ═════════
+   Everything sits in a block so helper names do not collide with other sections. */
+{
+  const DAY = 30.4375;                                   // days per month (toy calendar)
+  const dots = (svg, pts, X, Y, col, r = 2.4, op = 0.85) => pts.forEach(([x, y]) => el("circle", { cx: X(x), cy: Y(y), r, fill: css(col), opacity: op }, svg));
+  // step outline of a histogram for VIZ.curves: counts c over bins starting at x0 with width w
+  const stepPts = (c, x0, w) => { const p = []; c.forEach((v, i) => { p.push([x0 + i * w, v]); p.push([x0 + (i + 1) * w, v]); }); return p; };
 
-/* pipeline builder → Python code */
-demo("s-studio", () => {
-  const DATA = { GFS: { reg: "global", d: "NOAA GFS analysis, 0.25°, global" }, IFS: { reg: "global", d: "ECMWF IFS HRES initial state, 0.25°" },
-    ARCO_ERA5: { reg: "global", d: "ERA5 reanalysis (analysis-ready, cloud-optimised), for past dates" }, HRRR: { reg: "na", d: "NOAA HRRR, 3 km, hourly, CONUS" },
-    GOES: { reg: "obs", d: "GOES satellite imagery (North America)" } };
-  const PX = { FCN3: { reg: "global", dt: 6, vram: 80, dev: "NVIDIA", ens: true, d: "FourCastNet 3: probabilistic, 0.25°, 72 variables" },
-    Atlas: { reg: "global", dt: 6, vram: 80, dev: "NVIDIA", ens: true, d: "Earth-2 Medium Range, 0.25°, 70+ variables" },
-    SFNO: { reg: "global", dt: 6, vram: 40, dev: "NVIDIA", d: "Spherical Fourier neural operator, 73 channels" },
-    GraphCastOperational: { reg: "global", dt: 6, vram: 40, dev: "Google DeepMind", d: "Graph network on an icosahedral mesh, 0.25°" },
-    AIFS: { reg: "global", dt: 6, vram: 40, dev: "ECMWF", d: "ECMWF's AI Forecasting System" },
-    Pangu6: { reg: "global", dt: 6, vram: 40, dev: "Huawei", d: "Pangu-Weather, 6-hour model" },
-    StormCast: { reg: "na", dt: 1, vram: 40, dev: "NVIDIA", d: "Emulates 3 km HRRR, 1-h steps, central US" },
-    StormScopeGOES: { reg: "obs", dt: 1 / 6, vram: 80, dev: "NVIDIA", d: "Earth-2 Nowcasting: GOES imagery on the HRRR grid, 10-min steps" } };
-  const DX = { PrecipitationAFNOv2: "total precipitation from the atmospheric state", SolarRadiationAFNO6H: "surface solar radiation, 6-hourly",
-    WindgustAFNO: "10 m wind gust", CorrDiffTaiwan: "2 km downscaling over Taiwan (CorrDiff)", TCTrackerWuDuan: "tropical-cyclone tracks" };
-  const mk = (host, keys, on) => { $(host).innerHTML = keys.map(k => `<button class="chip" data-v="${k}" aria-pressed="${k === on}">${k}</button>`).join(""); };
-  mk("#stData", Object.keys(DATA), "GFS"); mk("#stPx", Object.keys(PX), "FCN3"); mk("#stDx", Object.keys(DX), "PrecipitationAFNOv2");
-  let data = "GFS", px = "FCN3", wf = "det", dx = "PrecipitationAFNOv2";
-  chips($("#stData"), v => { data = v; render(); }); chips($("#stPx"), v => { px = v; render(); });
-  chips($("#stRun"), v => { wf = v; render(); }); chips($("#stDx"), v => { dx = v; render(); });
-  const nS = slider("stN", v => v, render);
-  const span = (c, t) => `<span class="${c}">${t}</span>`, kw = t => span("k", t), str = t => span("g", `"${t}"`), cm = t => span("m", "# " + t);
-  function render() {
-    const n = nS(), P = PX[px], D = DATA[data];
-    $("#stDxRow").style.display = wf === "dx" ? "" : "none";
-    const L = [];
-    L.push(`${kw("from")} earth2studio.models.px ${kw("import")} ${px}`);
-    L.push(`${kw("from")} earth2studio.data ${kw("import")} ${data}`);
-    L.push(`${kw("from")} earth2studio.io ${kw("import")} ZarrBackend`);
-    if (wf === "ens") L.push(`${kw("from")} earth2studio.perturbation ${kw("import")} SphericalGaussian`);
-    if (wf === "dx") L.push(`${kw("from")} earth2studio.models.dx ${kw("import")} ${dx}`);
-    L.push(`${kw("from")} earth2studio.run ${kw("import")} ${{ det: "deterministic", ens: "ensemble", dx: "diagnostic" }[wf]} ${kw("as")} run`, "");
-    L.push(`model = ${px}.load_model(${px}.load_default_package())`);
-    if (wf === "dx") L.push(`diagnostic = ${dx}.load_model(${dx}.load_default_package())`);
-    L.push(`data = ${data}()`);
-    L.push(`io = ZarrBackend(${str(`outputs/${px.toLowerCase()}_${wf}.zarr`)})`);
-    if (wf === "ens") L.push(`perturbation = SphericalGaussian(noise_amplitude=0.15)  ${cm("noise on the initial state")}`);
-    L.push("");
-    const t0 = str("2025-01-01T00:00:00");
-    if (wf === "det") L.push(`run([${t0}], ${n}, model, data, io)`);
-    if (wf === "ens") L.push(`run([${t0}], ${n}, 16, model, data, io, perturbation)  ${cm("16 members")}`);
-    if (wf === "dx") L.push(`run([${t0}], ${n}, model, diagnostic, data, io)`);
-    $("#stCode").innerHTML = L.join("\n");
-    const lead = n * P.dt, leadTxt = lead < 1 ? `${fmtN(lead * 60)} min` : lead < 48 ? `${fmt(lead, 0)} h` : `${fmt(lead / 24, 1)} days`;
-    $("#stRead").innerHTML = `<div><span>Lead time</span><b>${leadTxt}</b></div><div><span>Step</span><b>${P.dt < 1 ? "10 min" : P.dt + " h"}</b></div><div><span>GPU memory (rec.)</span><b>${P.vram} GB</b></div>`;
-    const W = [];
-    if (P.reg === "global" && D.reg !== "global") W.push(`<b style="color:var(--lw)">Mismatch:</b> ${px} is global and needs a global initial state; ${data} is ${D.reg === "na" ? "a regional (CONUS) model analysis" : "satellite imagery"}.`);
-    if (P.reg === "na" && data !== "HRRR") W.push(`<b style="color:var(--lw)">Mismatch:</b> StormCast starts from a 3 km HRRR state, so use HRRR; it also takes a coarse global model for its conditioning variables (see its docs).`);
-    if (P.reg === "obs" && data !== "GOES") W.push(`<b style="color:var(--lw)">Mismatch:</b> StormScope learns from observations (GOES imagery, and radar for the MRMS variant), not from model analyses.`);
-    if (wf === "ens" && !P.ens) W.push(`<b style="color:var(--sw)">Note:</b> ${px} is deterministic: the ensemble comes only from perturbing the initial state, and its spread may be too small.`);
-    if (wf === "ens" && P.ens) W.push(`<b style="color:var(--ok)">Good:</b> ${px} is trained to produce ensembles; members differ even from the same start.`);
-    if (wf === "dx" && dx === "CorrDiffTaiwan" && P.reg !== "global") W.push(`<b style="color:var(--lw)">Mismatch:</b> CorrDiffTaiwan needs coarse fields over Taiwan; a CONUS model does not cover it.`);
-    if (!W.length) W.push(`<b style="color:var(--ok)">Check passed.</b> ${px}: ${P.d}. Data: ${D.d}.`);
-    $("#stWarn").innerHTML = W.join(" ");
-  }
-  render(); return render;
-});
+  /* ───────── opener: trajectory vs statistics, drift in a long rollout ───────── */
+  demo("s-climate", slide => {
+    const A = 0.98, SIG = Math.sqrt(1 - A * A), N = 20000, H0 = 4000;
+    let seed = 20, view = "30", T = null, M = null, blow = -1;
+    const amp = slider("clDrAmp", v => fmt(v, 2) + " %", () => { run(); render(); });
+    const bias = slider("clDrBias", v => fmt(v, 3), () => { run(); render(); });
+    chips($("#clDrPre"), v => { const [a, b] = v.split(",").map(Number); $("#clDrAmp").value = a; $("#clDrBias").value = b;
+      ["clDrAmp", "clDrBias"].forEach(id => { const r = document.getElementById(id); r.parentElement.querySelector("output").textContent = id === "clDrAmp" ? fmt(a, 2) + " %" : fmt(b, 3); });
+      run(); render(); });
+    chips($("#clDrView"), v => { view = v; render(); });
+    $("#clDrNew").onclick = () => { seed += 1; run(); render(); };
+    function run() {
+      const rt = rng(seed), rm = rng(seed + 1000), a2 = A * (1 + amp() / 100), b = bias();
+      T = new Float64Array(N); M = new Float64Array(N); T[0] = M[0] = 1.2; blow = -1;
+      for (let n = 1; n < N; n++) { T[n] = A * T[n - 1] + SIG * gauss(rt);
+        M[n] = blow >= 0 ? NaN : a2 * M[n - 1] + b + SIG * gauss(rm);
+        if (blow < 0 && Math.abs(M[n]) > 1e4) { blow = n; M[n] = NaN; } }
+    }
+    const runMean = (x, every) => { const p = []; let s = 0; for (let n = 0; n < N; n++) { if (!isFinite(x[n])) break; s += x[n]; if (n % every === 0 && n > 40) p.push([n / 4, s / (n + 1)]); } return p; };
+    function render() {
+      const days = n => n / 4, fin = (x, n0, n1, k) => { const p = []; for (let n = n0; n < n1; n += k) { if (!isFinite(x[n])) break; p.push([days(n), x[n]]); } return p; };
+      if (view === "30") {
+        VIZ.curves($("#clDrFig"), [{ pts: fin(T, 0, 121, 1), col: "--fg", label: "truth", w: 1.8 }, { pts: fin(M, 0, 121, 1), col: "--accent", label: "emulator", w: 1.8 }],
+          { xr: [0, 30], yr: [-4, 4], xl: "days", yl: "x (sd units)", W: 520, H: 170, xt: [0, 7, 14, 21, 28], yt: [-4, -2, 0, 2, 4], xf: v => fmt(v, 0), yf: v => fmt(v, 0), legendAt: "tr" });
+      } else {
+        const C = VIZ.curves($("#clDrFig"), [{ pts: fin(T, 0, N, 12), col: "--fg", w: .7, op: .25 }, { pts: fin(M, 0, N, 12), col: "--accent", w: .7, op: .28 },
+          { pts: runMean(T, 40), col: "--fg", label: "truth, running mean", w: 2.4 }, { pts: runMean(M, 40), col: "--accent", label: "emulator, running mean", w: 2.4 }],
+          { xr: [0, N / 4], yr: [-4, 4], xl: "years", yl: "x (sd units)", W: 520, H: 170, xt: [0, 2, 4, 6, 8, 10, 12].map(y => y * 365.25), yt: [-4, -2, 0, 2, 4], xf: v => fmt(v / 365.25, 0), yf: v => fmt(v, 0), legendAt: "bl",
+            marks: blow >= 0 ? [[blow / 4, "blew up", "--lw"]] : [] });
+      }
+      // histograms of the second half
+      const lo = -5, w = 0.25, nb = 40, ht = new Array(nb).fill(0), hm = new Array(nb).fill(0); let out = 0, nm = 0;
+      for (let n = H0; n < N; n++) { ht[clamp(Math.floor((T[n] - lo) / w), 0, nb - 1)]++;
+        if (isFinite(M[n])) { const k = Math.floor((M[n] - lo) / w); if (k < 0 || k >= nb) out++; else hm[k]++; nm++; } }
+      const mx = Math.max(...ht, ...hm) * 1.12;
+      VIZ.curves($("#clDrHist"), [{ pts: stepPts(ht, lo, w), col: "--fg", label: "truth", w: 2 }, { pts: stepPts(hm, lo, w), col: "--accent", label: blow >= 0 ? "emulator (blew up)" : "emulator", w: 2 }],
+        { xr: [lo, -lo], yr: [0, mx], xl: "x", W: 520, H: 105, xt: [-4, -2, 0, 2, 4], yt: [0], xf: v => fmt(v, 0), yf: () => "", legendAt: "tr" });
+      const half = x => Array.from(x.slice(H0)).filter(isFinite), mT = half(T), mM = half(M), a2 = A * (1 + amp() / 100);
+      const relax = a2 < 1 ? 1 / (1 - a2) / 4 : Infinity;
+      const mm = mM.length ? mean(mM) : NaN, sm = mM.length ? sd(mM) : NaN, off = blow >= 0 || Math.abs(mm) > 0.3 || sm > 1.25;
+      $("#clDrRead").innerHTML = `<div><span>Truth mean · sd</span><b style="color:var(--fg)">${fmt(mean(mT), 2)} · ${fmt(sd(mT), 2)}</b></div>` +
+        `<div><span>Emulator mean · sd</span><b class="${off ? "c-lw" : "c-ok"}">${blow >= 0 ? "blew up" : fmt(mm, 2) + " · " + fmt(sm, 2)}</b></div>` +
+        `<div><span>Memory 1/(1 − a′)</span><b>${isFinite(relax) ? fmtN(relax) + " d" : "∞"}</b></div>`;
+    }
+    run(); render(); return render;
+  });
 
-/* model table */
-demo("st-zoo", () => {
-  // name, kind, developer, region, year, vram, description
-  const Z = [["FCN", "px", "NVIDIA", "Global", 2022, 40, "FourCastNet (AFNO), 0.25°, 6 h"], ["SFNO", "px", "NVIDIA", "Global", 2023, 40, "Spherical Fourier neural operator"],
-    ["FCN3", "px", "NVIDIA", "Global", 2025, 80, "FourCastNet 3, probabilistic ensembles"], ["Atlas / AtlasCRPS", "px", "NVIDIA", "Global", 2026, 80, "Earth-2 Medium Range, 0.25°"],
-    ["DLESyM", "px", "NVIDIA / U. Washington", "Global", 2025, 40, "Coupled atmosphere–ocean, S2S to climate"], ["StormCast / StormCastCONUS", "px", "NVIDIA", "N. America", 2024, 40, "HRRR emulator, 1-h steps"],
-    ["StormScopeGOES / MRMS", "px", "NVIDIA", "N. America", 2026, 80, "Nowcasting from GOES / radar on the HRRR grid"], ["StormScopeMeteosatEU", "px", "NVIDIA", "Europe", 2026, 80, "Nowcasting from MTG FCI imagery"],
-    ["CBottleVideo", "px", "NVIDIA", "Global", 2025, 40, "cBottle video model on HEALPix"], ["GraphCastOperational", "px", "Google DeepMind", "Global", 2022, 40, "GNN on icosahedral multimesh, 0.25°"],
-    ["GenCastMini", "px", "Google DeepMind", "Global", 2024, 40, "Diffusion ensemble (mini variant)"], ["AIFS / AIFSENS", "px", "ECMWF", "Global", 2025, 40, "ECMWF AI Forecasting System"],
-    ["Aurora", "px", "Microsoft", "Global", 2024, 48, "3-D Swin foundation model, 0.25°"], ["Pangu24 / 6 / 3", "px", "Huawei", "Global", 2023, 40, "3-D Earth-Specific Transformer"],
-    ["FuXi", "px", "Fudan University", "Global", 2023, 40, "Cascaded U-Transformers, 6 h"], ["FengWu", "px", "Shanghai AI Lab", "Global", 2023, 40, "Autoregressive, 6 h"],
-    ["ACE2ERA5", "px", "Ai2", "Global", 2024, 40, "Climate emulator"], ["CAMulator", "px", "NSF NCAR", "Global", 2025, 24, "Emulator of the CAM6 atmosphere"],
-    ["CorrDiffTaiwan", "dx", "NVIDIA", "Asia (Taiwan)", 2023, 40, "25 km → 2 km downscaling"], ["CorrDiffEra5Hrrr", "dx", "NVIDIA", "N. America", 2026, 80, "ERA5 0.25° → 3 km HRRR"],
-    ["CorrDiffCosmoEra5", "dx", "NVIDIA", "Europe", 2026, 80, "ERA5 → COSMO-REA"], ["CorrDiffCMIP6", "dx", "NVIDIA", "Global", 2026, 80, "CMIP6 → ERA5 downscaling"],
-    ["CBottleInfill / SR / TCGuidance", "dx", "NVIDIA", "Global", 2025, 80, "Channel infilling, super-resolution, cyclone guidance"],
-    ["PrecipitationAFNOv2", "dx", "NVIDIA", "Global", 2024, 40, "Precipitation from the state"], ["SolarRadiationAFNO", "dx", "NVIDIA", "Global", 2024, 40, "Surface solar radiation, 1 h / 6 h"],
-    ["StormScopeDxNSRDB", "dx", "NVIDIA", "N. America", 2026, 48, "Solar irradiance (GHI) from GOES"], ["TCTrackerWuDuan / Vitart", "dx", "(classic algorithms)", "Global", 2023, 0, "Tropical-cyclone trackers"],
-    ["HealDA / HealDAv2", "da", "NVIDIA", "Global", 2026, 40, "Observations → analysis (v2: 104 channels, 0.25°)"], ["StormCastSDA", "da", "NVIDIA", "N. America", 2024, 40, "StormCast with score-based assimilation"],
-    ["CorrDiffCosmoEra5SDA", "da", "NVIDIA", "Europe", 2026, 80, "CorrDiff-COSMO with diffusion posterior sampling"]];
-  let task = "all", dev = "all";
-  chips($("#stTask"), v => { task = v; render(); }); chips($("#stDev"), v => { dev = v; render(); });
-  const KIND = { px: ["prognostic", "--accent"], dx: ["diagnostic", "--sw"], da: ["assimilation", "--data"] };
-  function render() {
-    const rows = Z.filter(z => (task === "all" || z[1] === task) && (dev === "all" || (dev === "NVIDIA" ? z[2].startsWith("NVIDIA") : !z[2].startsWith("NVIDIA"))));
-    $("#stTable").innerHTML = `<table class="zt"><thead><tr><th>Class</th><th>Kind</th><th>Developer</th><th>Region</th><th>Year</th><th>GPU mem.</th><th>What it does</th></tr></thead><tbody>${rows.map(z =>
-      `<tr><td class="mono">${z[0]}</td><td><span class="tag" style="color:var(${KIND[z[1]][1]})">${KIND[z[1]][0]}</span></td><td>${z[2]}</td><td>${z[3]}</td><td class="mono">${z[4]}</td><td class="mono">${z[5] ? z[5] + " GB" : "–"}</td><td>${z[6]}</td></tr>`).join("")}</tbody></table>
-      <p class="note" style="margin:6px 0 0">${rows.length} of ${Z.length} shown.</p>`;
-  }
-  render(); return render;
-});
+  /* ───────── DLESyM: a fast atmosphere and a slow ocean with different clocks ───────── */
+  demo("cl-dlesym", slide => {
+    const MON = 1024, cache = new Map();
+    let mode = 2, ms = 0;
+    chips($("#clDlMode"), v => { mode = +v; render(); });
+    const fb = slider("clDlFb", v => fmt(v, 2) + "×", render);
+    // atmosphere: 6-h steps, memory 2 days; ocean: 48-h steps; exchange every 4 days (16 + 2 steps per window)
+    function sim(mode, fb, seed = 3) {
+      const key = mode + ":" + fb; if (cache.has(key)) return cache.get(key);
+      const t0 = performance.now(), r = rng(seed), phi = Math.exp(-0.25 / 2), s = Math.sqrt(1 - phi * phi);
+      const R0 = -1 / 60, F = 2 * Math.PI / (4 * 365), eps = 0.0005, mu = 0.03, g = 0.62 * fb, kap = 0.002;
+      let u = 0, T = 0, h = 0; const out = new Float64Array(MON), cnt = new Float64Array(MON);
+      for (let d = 0; d < MON * DAY; d += 4) {
+        let ub = 0; const gT = mode === 2 ? g * T : 0;                       // the atmosphere sees the SST of the last exchange
+        for (let k = 0; k < 16; k++) { u = phi * u + (1 - phi) * gT + s * gauss(r); ub += u / 16; }
+        if (mode > 0) for (let k = 0; k < 2; k++) { const dT = R0 * T + mu * ub + F * h - kap * T * T * T, dh = -eps * h - F * T; T += 2 * dT; h += 2 * dh; }
+        const m = Math.min(MON - 1, Math.floor(d / DAY)); out[m] += T; cnt[m]++;
+      }
+      for (let m = 0; m < MON; m++) out[m] /= cnt[m] || 1;
+      const res = { x: out, ms: performance.now() - t0 }; cache.set(key, res); return res;
+    }
+    function spectrum(x) {
+      const n = x.length, m = mean(x), re = Float64Array.from(x, v => v - m), im = new Float64Array(n); FFT.fft(re, im);
+      const P = []; for (let k = 1; k < n / 2; k++) P.push(2 * (re[k] ** 2 + im[k] ** 2) / (n * n));
+      const S = P.map((_, i) => { let s = 0, c = 0; for (let j = i - 2; j <= i + 2; j++) if (j >= 0 && j < P.length) { s += P[j]; c++; } return s / c; });
+      return S.map((p, i) => [n / (i + 1) / 12, p]);                     // [period in years, variance per bin]
+    }
+    function timeline() {
+      const W = 470, H = 92, x = lin(0, 8, 92, W - 10), svg = svgIn($("#clDlTime"), W, H);
+      el("text", { x: 0, y: 26, "font-size": 12, "font-weight": 600, fill: css("--ok") }, svg, "Atmosphere");
+      el("text", { x: 0, y: 58, "font-size": 12, "font-weight": 600, fill: css("--cool") }, svg, "Ocean (SST)");
+      for (let i = 0; i <= 32; i++) el("line", { x1: x(i / 4), x2: x(i / 4), y1: 14, y2: 30, stroke: css("--ok"), "stroke-width": 1.4 }, svg);
+      for (let i = 0; i <= 4; i++) el("rect", { x: x(i * 2) - 4, y: 46, width: 8, height: 16, rx: 2, fill: css("--cool") }, svg);
+      [4, 8].forEach(d => { el("line", { x1: x(d), x2: x(d), y1: 32, y2: 44, stroke: css("--mag"), "stroke-width": 2.4 }, svg);
+        el("text", { x: x(d) - 4, y: 41, "font-size": 10.5, "text-anchor": "end", fill: css("--mag") }, svg, "exchange"); });
+      for (let d = 0; d <= 8; d += 2) el("text", { x: x(d), y: 80, "font-size": 10.5, "text-anchor": "middle", class: "mono", fill: css("--muted") }, svg, d + " d");
+      el("text", { x: W - 10, y: 91, "font-size": 10.5, "text-anchor": "end", fill: css("--muted") }, svg, "ticks: 6-h atmosphere states · 48-h ocean steps");
+    }
+    function render() {
+      timeline();
+      const R = sim(mode, mode === 2 ? fb() : 0), x = R.x, show = 720;
+      const pts = Array.from(x.slice(0, show), (v, i) => [i / 12, v]);
+      VIZ.curves($("#clDlFig"), [{ pts, col: "--cool", w: 1.4 }], { xr: [0, 60], yr: [-3, 3], xl: "years", W: 520, H: 105, xt: [0, 10, 20, 30, 40, 50, 60], yt: [-3, 0, 3], xf: v => fmt(v, 0), yf: v => fmt(v, 0) });
+      const Sx = mode ? spectrum(x).filter(p => p[0] >= 0.4 && p[0] <= 40).reverse() : [];
+      const ref = spectrum(sim(1, 0).x).filter(p => p[0] >= 0.4 && p[0] <= 40).reverse();
+      const series = [{ pts: ref, col: "--muted", w: 1.4, dash: "4 3", label: "one-way (red noise)" }];
+      if (mode === 2) series.push({ pts: Sx, col: "--cool", w: 2.2, label: "two-way coupled" });
+      VIZ.curves($("#clDlSpec"), series, { xr: [0.4, 40], yr: [1e-5, 1], logx: true, logy: true, xl: "period (years, log)", yl: "power (log)", W: 520, H: 120,
+        xt: [0.5, 1, 2, 5, 10, 20, 40], yt: [1e-5, 1e-3, 0.1], xf: v => fmt(v, v < 1 ? 1 : 0), yf: v => v >= 0.1 ? "0.1" : v >= 1e-3 ? "0.001" : "1e-5", legendAt: "tr" });
+      let pk = null; if (mode === 2) { const inb = Sx.filter(p => p[0] >= 1.5 && p[0] <= 15); pk = inb.reduce((a, b) => b[1] > a[1] ? b : a); }
+      $("#clDlRead").innerHTML = `<div><span>SST sd (toy)</span><b>${mode ? fmt(sd(x), 2) + " K" : "0 (fixed)"}</b></div>` +
+        `<div><span>Spectral peak</span><b class="c-ok">${pk ? "≈ " + fmt(pk[0], 1) + " yr" : "none"}</b></div>` +
+        `<div><span>85 toy years took</span><b class="c-data">${fmt(R.ms, 0)} ms</b></div>`;
+      // reported cost of a 1,000-year run (log-free: hours)
+      const W = 520, Hh = 62, svg = svgIn($("#clDlCost"), W, Hh), L = 150, sc = (W - L - 90) / (90 * 24);
+      [["DLESyM, one A100", 12, "~12 h", "--ok"], ["CESM2", 90 * 24, "~90 days", "--muted"]].forEach(([lab, h, txt, col], i) => { const y = 4 + i * 28;
+        el("text", { x: L - 8, y: y + 15, "text-anchor": "end", "font-size": 12, fill: css("--fg") }, svg, lab);
+        el("rect", { x: L, y: y + 3, width: Math.max(3, h * sc), height: 18, rx: 3, fill: css(col), opacity: .85 }, svg);
+        el("text", { x: L + Math.max(3, h * sc) + 6, y: y + 16, "font-size": 12, class: "mono", fill: css("--muted") }, svg, txt); });
+      el("text", { x: W - 2, y: 18, "text-anchor": "end", "font-size": 11, fill: css("--ok") }, svg, "≈ 180× less wall time");
+    }
+    render(); return render;
+  });
 
-/* adopters */
-demo("st-users", () => {
-  const U = { wx: [["Brightband", "Runs Earth-2 Medium Range (Atlas) to issue global forecasts daily; “among the first to run Earth-2 Medium Range operationally”.", ["Atlas"]],
-      ["Israel Meteorological Service", "CorrDiff in operation: “a 90% reduction in compute time at 2.5-kilometer resolution” vs classic NWP on a CPU cluster; plans Nowcasting up to 8 times a day.", ["CorrDiff", "StormScope"]],
-      ["Taiwan Central Weather Administration", "Named as a forecaster using Earth-2 (CorrDiff was first trained on its WRF data over Taiwan).", ["CorrDiff"]],
-      ["The Weather Company", "Evaluating Earth-2 Nowcasting for localised severe-weather applications.", ["StormScope"]],
-      ["US National Weather Service", "Evaluating the new models for its operational workflows.", ["Atlas", "StormScope"]]],
-    en: [["Southwest Power Pool + Hitachi", "Nowcasting and FourCastNet 3 for intraday and day-ahead wind forecasting.", ["StormScope", "FCN3"]],
-      ["TotalEnergies", "Evaluating Nowcasting for short-term risk awareness.", ["StormScope"]],
-      ["Eni", "Testing FourCastNet and CorrDiff for semi-operational downscaling and gas demand weeks ahead.", ["FCN3", "CorrDiff"]],
-      ["GCL", "Earth-2 models in operation in its photovoltaic prediction system.", ["FCN3"]]],
-    fin: [["AXA", "FourCastNet to generate thousands of hypothetical hurricane scenarios.", ["FCN3"]],
-      ["S&P Global Energy", "CorrDiff to turn climate data into local insights for risk assessment.", ["CorrDiff"]],
-      ["JBA Risk Management · Jua · Metdesk", "Named for flood risk and energy trading (no detail given).", []]] };
-  const COL = { Atlas: "--arch", CorrDiff: "--sw", StormScope: "--lw", FCN3: "--data" };
-  let sec = "wx";
-  chips($("#stSector"), v => { sec = v; render(); });
-  function render() {
-    $("#stUsers").innerHTML = U[sec].map(([n, d, m]) => `<div class="card cmp"><h4>${n}</h4><p>${d}</p>${m.length ? `<p style="margin-top:4px">${m.map(x => `<span class="tag" style="color:var(${COL[x]})">${x === "FCN3" ? "FourCastNet" : x}</span>`).join(" ")}</p>` : ""}</div>`).join("");
-    const cnt = {}; U[sec].forEach(u => u[2].forEach(m => cnt[m] = (cnt[m] || 0) + 1));
-    VIZ.bars($("#stUseBars"), Object.keys(COL).map(k => ({ label: k === "FCN3" ? "FourCastNet / FCN3" : k, v: cnt[k] || 0, col: COL[k] })), { digits: 0, max: 4, W: 420, labelW: 140 });
-  }
-  render(); return render;
-});
+  /* ───────── cBottle: sample a state for given SST, month and hour (toy planet) ───────── */
+  demo("cl-cbottle", slide => {
+    const NX = 128, NY = 64, D2R = Math.PI / 180, MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const lat = j => 90 - (j + .5) * 180 / NY, lon = i => (i + .5) * 360 / NX;      // lon 0…360 east
+    // toy continents: the top 30 % of a smooth random field between 60° S and 75° N, plus an Antarctic cap
+    const L0 = FFT.noise2(128, { beta: 3.5, seed: 11, kmin: 2 }), LAND = new Uint8Array(NX * NY);
+    const cut = Array.from(L0.slice(0, NX * NY)).sort((a, b) => a - b)[Math.floor(0.7 * NX * NY)];
+    for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) LAND[j * NX + i] = (L0[j * NX + i] > cut && lat(j) < 75 && lat(j) > -60) || lat(j) < -68 ? 1 : 0;
+    // keep the ENSO region open ocean
+    for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) if (Math.abs(lat(j)) < 22 && lon(i) > 165 && lon(i) < 265) LAND[j * NX + i] = 0;
+    const NOISE = new Map(), noise = s => { if (!NOISE.has(s)) NOISE.set(s, FFT.noise2(128, { beta: 3, seed: 500 + s }).slice(0, NX * NY)); return NOISE.get(s); };
+    let v = "T", mon = 0, sst = 0, nAvg = 1, seed = 1;
+    chips($("#clCbVar"), x => { v = x; render(); });
+    chips($("#clCbMon"), x => { mon = +x; render(); });
+    chips($("#clCbSst"), x => { sst = +x; render(); });
+    chips($("#clCbShow"), x => { nAvg = +x; render(); });
+    const hr = slider("clCbHr", x => String(x).padStart(2, "0") + " UTC", render);
+    $("#clCbNew").onclick = () => { seed += 16; render(); };
+    const gs = (x, c, w) => Math.exp(-(((x - c) / w) ** 2));
+    function field(var_, s) {
+      const doy = mon * DAY + 15, dec = -23.44 * Math.cos(2 * Math.PI * (doy + 10) / 365), z = noise(s), out = new Float64Array(NX * NY);
+      for (let j = 0; j < NY; j++) { const p = lat(j), sp = Math.sin(p * D2R);
+        for (let i = 0; i < NX; i++) { const k = j * NX + i, ln = lon(i), land = LAND[k], enso = sst * gs(p, 0, 10) * gs(ln, 235, 40);
+          if (var_ === "T") {
+            const base = 28 - 52 * sp * sp, seas = 18 * (dec / 23.44) * sp * (land ? 1 : 0.35);
+            const ha = (ln + 15 * hr() - 180 - 30) * D2R, diur = (land ? 6 : 0.4) * Math.cos(ha) * Math.cos(p * D2R);
+            out[k] = base + seas + diur + (land ? 0 : enso) + z[k] * (1.5 + 7 * sp * sp) * (land ? 1.3 : 0.7) - (p < -68 ? 15 : 0);
+          } else {
+            const c = (land ? 0.6 : 0.35) * dec + 4, base = 9 * gs(p, c, 7) + 3.2 * gs(Math.abs(p), 45, 9) + 0.4;
+            const shift = sst * (5 * gs(p, 0, 8) * gs(ln, 205, 35) - 4 * gs(p, 0, 10) * gs(ln, 130, 25));
+            out[k] = Math.max(0, base + shift) * Math.exp(1.0 * z[k] - 0.5);
+          } } }
+      return out;
+    }
+    function sample() { if (nAvg === 1) return field(v, seed); const acc = new Float64Array(NX * NY);
+      for (let n = 0; n < nAvg; n++) { const f = field(v, seed + n); for (let k = 0; k < acc.length; k++) acc[k] += f[k] / nAvg; } return acc; }
+    const inBox = (i, j) => Math.abs(lat(j)) <= 5 && lon(i) >= 190 && lon(i) <= 240;
+    function render() {
+      const f = sample(), isT = v === "T", lo = isT ? -30 : 0, hi = isT ? 35 : 20, col = isT ? CM.temp : CM.precip;
+      const fg = css("--fg");
+      VIZ.raster($("#clCbMap"), f, NX, NY, { color: col, lo, hi, smooth: true, mask: isT ? null : val => val < 0.6,
+        overlay: (g, sx, sy) => {
+          g.save(); g.strokeStyle = fg; g.globalAlpha = .55; g.lineWidth = 1.2; g.beginPath();
+          const L = (i, j) => i >= 0 && j >= 0 && i < NX && j < NY && LAND[j * NX + i];
+          for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { if (!L(i, j)) continue;
+            if (!L(i, j - 1)) { g.moveTo(i * sx, j * sy); g.lineTo((i + 1) * sx, j * sy); } if (!L(i, j + 1)) { g.moveTo(i * sx, (j + 1) * sy); g.lineTo((i + 1) * sx, (j + 1) * sy); }
+            if (!L(i - 1, j)) { g.moveTo(i * sx, j * sy); g.lineTo(i * sx, (j + 1) * sy); } if (!L(i + 1, j)) { g.moveTo((i + 1) * sx, j * sy); g.lineTo((i + 1) * sx, (j + 1) * sy); } }
+          g.stroke(); g.globalAlpha = 1;
+          const x0 = 190 / 360 * NX * sx, x1 = 240 / 360 * NX * sx, y0 = (90 - 5) / 180 * NY * sy, y1 = (90 + 5) / 180 * NY * sy;
+          g.strokeStyle = "#fff"; g.lineWidth = 4; g.strokeRect(x0, y0 - 6, x1 - x0, y1 - y0 + 12);
+          g.strokeStyle = "#111"; g.lineWidth = 2; g.setLineDash([6, 4]); g.strokeRect(x0, y0 - 6, x1 - x0, y1 - y0 + 12); g.restore(); } });
+      VIZ.legend($("#clCbLeg"), { color: col, min: lo, max: hi, label: isT ? "2 m temperature (°C)" : "rain (mm/day)", width: 300 });
+      $("#clCbTitle").textContent = `Toy ${nAvg > 1 ? "mean of 16 samples" : "sample"} · ${MONTHS[mon]} · ${sst > 0 ? "El Niño" : sst < 0 ? "La Niña" : "neutral"} SST · ${String(hr()).padStart(2, "0")} UTC`;
+      let bx = 0, nb = 0, gm = 0, gw = 0;
+      for (let j = 0; j < NY; j++) { const w = Math.cos(lat(j) * D2R); for (let i = 0; i < NX; i++) { const k = j * NX + i; gm += w * f[k]; gw += w; if (inBox(i, j)) { bx += f[k]; nb++; } } }
+      const u = isT ? " °C" : " mm/d";
+      $("#clCbRead").innerHTML = `<div><span>Box mean</span><b class="c-ok">${fmt(bx / nb, 1)}${u}</b></div><div><span>Global mean</span><b>${fmt(gm / gw, 1)}${u}</b></div><div><span>Samples</span><b>${nAvg}</b></div>`;
+    }
+    render(); return render;
+  });
 
-/* which model for which question */
-demo("st-choose", () => {
-  const C = [{ q: "A wind-farm operator in Oklahoma wants hourly 3 km wind for tomorrow.", o: ["FourCastNet 3", "StormCast", "cBottle"], r: [1],
-      w: "StormCast steps a 3 km HRRR state hour by hour over the US. A 0.25° global model is too coarse for one wind farm; cBottle samples climate, not tomorrow's weather. (SPP + Hitachi combine Nowcasting and FCN3.)" },
-    { q: "A ministry needs the probability of a heatwave 10 days ahead, worldwide.", o: ["CorrDiff", "FCN3 or Atlas ensemble", "StormScope"], r: [1],
-      w: "Ten days ahead is medium range and needs an ensemble: FCN3 and Atlas are trained to give calibrated ensembles. CorrDiff only adds local detail; StormScope stops at 6 h." },
-    { q: "A city has a 25 km forecast and wants 2 km rain and wind detail.", o: ["CorrDiff", "HealDA", "DLESyM"], r: [0],
-      w: "Downscaling is CorrDiff's job, but a new region needs training data: the released versions cover Taiwan, CONUS (HRRR), Europe (COSMO) and CMIP6 → ERA5." },
-    { q: "An insurer wants 10,000 plausible hurricane seasons.", o: ["Huge ensemble of FourCastNet/SFNO", "cBottle with cyclone guidance", "Either, with care"], r: [2],
-      w: "No single answer: AXA uses FourCastNet to generate thousands of scenarios; cBottle can be guided to sample cyclones. Both need checking against observed statistics (section 6)." },
-    { q: "IDEAM wants thunderstorm warnings for the next 2 h over Colombia.", o: ["StormScope as released", "StormScope after fine-tuning on local data", "FourCastNet 3"], r: [1],
-      w: "StormScope was trained over the US (GOES + MRMS radar) and Europe (MTG). GOES-East sees Colombia, but storms, radar and terrain differ: verify, and fine-tune with local data (PhysicsNeMo) before relying on it." }];
-  $("#stCases").innerHTML = C.map((c, n) => `<div class="card cmp"><p style="margin:0 0 6px"><b>${n + 1}. ${c.q}</b></p><div class="chips" style="margin:0">${c.o.map((o, i) => `<button class="chip" type="button" data-c="${n}" data-i="${i}" style="padding:4px 10px;font-size:12.5px">${o}</button>`).join("")}</div><p class="note" data-cf="${n}" style="margin:6px 0 0"></p></div>`).join("");
-  $$("#stCases button[data-c]").forEach(b => b.addEventListener("click", () => {
-    const c = C[+b.dataset.c], ok = c.r.includes(+b.dataset.i);
-    $$(`#stCases button[data-c="${b.dataset.c}"]`).forEach(x => x.setAttribute("aria-pressed", x === b));
-    $(`#stCases [data-cf="${b.dataset.c}"]`).innerHTML = `<b style="color:var(${ok ? "--ok" : "--lw"})">${ok ? "Yes." : "Better: " + c.r.map(i => c.o[i]).join(" / ") + "."}</b> ${c.w}`;
-  }));
-  return () => {};
-});
+  /* ───────── cBottle: channel infilling (toy Gaussian fields) and HEALPix super-resolution ───────── */
+  demo("cl-infill", slide => {
+    const n = 64, A = FFT.noise2(n, { beta: 3, seed: 21 }), E = FFT.noise2(n, { beta: 1.4, seed: 22 }), SAMP = new Map();
+    const samp = s => { if (!SAMP.has(s)) SAMP.set(s, FFT.noise2(n, { beta: 1.4, seed: 300 + s })); return SAMP.get(s); };
+    let mode = "samp", s = 1, ns = 16, view = [-40, 40];
+    const rho = slider("clInRho", x => fmt(x, 2), render);
+    chips($("#clInMode"), x => { mode = x; render(); });
+    $("#clInNew").onclick = () => { s++; render(); };
+    chips($("#clSrNs"), x => { ns = +x; drawGlobe(); });
+    function render() {
+      const r = rho(), q = Math.sqrt(1 - r * r), B = A.map((a, k) => r * a + q * E[k]), Z = samp(s);
+      const I = mode === "mean" ? A.map(a => r * a) : A.map((a, k) => r * a + q * Z[k]);
+      const o = { color: CM.vir, lo: -3, hi: 3, round: 6 };
+      VIZ.raster($("#clInA"), A, n, n, o); VIZ.raster($("#clInB"), I, n, n, o); VIZ.raster($("#clInT"), B, n, n, o);
+      const c = corr(I, B), sr = sd(I) / sd(B);
+      $("#clInRead").innerHTML = `<div><span>Correlation with truth</span><b class="c-ok">${fmt(c, 2)}</b></div><div><span>sd infill / sd truth</span><b class="${sr < 0.85 ? "c-lw" : "c-ok"}">${fmt(sr, 2)}</b></div><div><span>RMSE</span><b>${fmt(MET.rmse(I, B), 2)}</b></div>`;
+      drawGlobe(); diagram();
+    }
+    // HEALPix: each pixel takes the toy field at its centre
+    const VALS = new Map(), D2R = Math.PI / 180;
+    // toy field: the analytic waves (m ≤ 23) plus two short ripples so that fine pixels have something to resolve
+    const fz = (la, lo) => ATM.z500(lo, la, 0) - ATM.base(la) + 30 * Math.cos((37 * lo + 40) * D2R) * Math.cos(31 * la * D2R) + 22 * Math.sin((53 * lo) * D2R) * Math.sin(47 * la * D2R) * Math.cos(la * D2R);
+    function vals(ns) { if (!VALS.has(ns)) VALS.set(ns, Float32Array.from(HPX.centers(ns), c => fz(90 - c.theta / D2R, c.phi / D2R))); return VALS.get(ns); }
+    function drawGlobe() {
+      const V = vals(ns), pix = (la, lo) => HPX.ang2pix(ns, (90 - la) * D2R, lo * D2R), e = 0.8;
+      VIZ.globe($("#clSrGlobe"), (la, lo) => V[pix(la, lo)], { size: 215, lon0: view[0], lat0: view[1], color: CM.div, lo: -130, hi: 130, graticule: 0,
+        onRotate: (a, b) => view = [a, b],
+        edges: ns <= 8 ? (la, lo) => { const p = pix(la, lo); return p !== pix(Math.min(89.9, la + e), lo) || p !== pix(la, lo + e / Math.max(.15, Math.cos(la * D2R))); } : null });
+      const np = HPX.npix(ns), km = Math.sqrt(4 * Math.PI * 6371 ** 2 / np);
+      $("#clSrRead").innerHTML = `<div><span>Pixels 12·nside²</span><b>${fmtN(np)}</b></div><div><span>√(pixel area)</span><b class="c-ok">≈ ${fmtN(km)} km</b></div>`;
+    }
+    function diagram() {
+      const W = 470, H = 92, svg = svgIn($("#clSrDiag"), W, H); arrowDefs(svg, "clSrAr", css("--muted"));
+      const box = (x, w, t1, t2, col) => { el("rect", { x, y: 8, width: w, height: 58, rx: 10, fill: css("--card"), stroke: css(col), "stroke-width": 1.6 }, svg);
+        el("text", { x: x + w / 2, y: 30, "text-anchor": "middle", "font-size": 12.5, "font-weight": 600, fill: css(col) }, svg, t1);
+        el("text", { x: x + w / 2, y: 50, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, t2); };
+      box(2, 150, "Stage 1: HPX64", "~100 km · 49k px", "--ok");
+      box(W - 152, 150, "Stage 2: HPX1024", "~5 km · 12.5M px", "--ok");
+      el("line", { x1: 158, x2: W - 158, y1: 37, y2: 37, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#clSrAr)" }, svg);
+      el("text", { x: W / 2, y: 30, "text-anchor": "middle", "font-size": 11.5, fill: css("--fg") }, svg, "16× per side");
+      el("text", { x: W / 2, y: 52, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "patch by patch");
+      el("text", { x: W / 2, y: 86, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, "cBottle's super-resolution: 4 more doublings of nside, 256× more pixels");
+    }
+    render(); return render;
+  });
 
-demo("st-summary", () => {
-  VIZ.quiz($("#stQuiz"), [{ q: "Why do deterministic AI forecasts look smoother at day 10 than at day 1?", opts: ["The network is too small", "MSE training predicts the mean of possible futures", "ERA5 is smooth"], right: 1,
-    why: "When the future is uncertain, the forecast that minimises squared error is the average of the possible outcomes, which has lost the small scales. CRPS and diffusion training fix this by producing samples." }]);
-  return () => {};
-});
+  /* ───────── huge ensembles: return periods and the uncertainty of a return level ───────── */
+  demo("cl-extremes", slide => {
+    const MEM = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000], MU = 60, BETA = 15, TRIALS = 300;
+    const level = T => MU - BETA * Math.log(-Math.log(1 - 1 / T));
+    let T = 100;
+    chips($("#clExT"), x => { T = +x; render(); });
+    const mem = slider("clExM", i => fmtN(MEM[i]), render), yrs = slider("clExY", x => x + (x > 1 ? " yr" : " yr"), render);
+    // the k largest of N annual maxima, drawn directly as uniform order statistics (log scale), then mapped to Gumbel
+    function topK(N, k, r) { const out = new Float64Array(k); let L = 0;
+      for (let j = 0; j < k; j++) { L += Math.log(1 - r()) / (N - j); out[j] = MU - BETA * Math.log(-L); } return out; }
+    function render() {
+      const N = MEM[mem()] * yrs(), k = Math.max(1, Math.round(N / T)), truth = level(T), r = rng(4242);
+      $("#clExTT").textContent = fmtN(T);
+      const est = new Float64Array(TRIALS); let hit = 0;
+      for (let t = 0; t < TRIALS; t++) { const top = topK(N, k, r); est[t] = top[k - 1]; if (top[0] >= truth) hit++; }
+      // one ensemble for the return-level plot
+      const one = topK(N, Math.min(N, 400), rng(99)), pts = Array.from(one, (x, i) => [(N + 1) / (i + 1), x]);
+      const curve = []; for (let e = 0; e <= 5.001; e += 0.05) { const TT = 10 ** e; if (TT > 1.01) curve.push([TT, level(TT)]); }
+      const C = VIZ.curves($("#clExFig"), [{ pts: curve, col: "--fg", w: 2, label: "true return level" }], { xr: [1, 1e5], yr: [40, 260], logx: true, xl: "return period (years, log)", yl: "rain (mm)",
+        W: 520, H: 180, xt: [1, 10, 100, 1000, 1e4, 1e5], yt: [50, 100, 150, 200, 250], xf: v => fmtN(v), yf: v => fmt(v, 0), legendAt: "tl" });
+      [[T, "1-in-" + fmtN(T), "--lw", 26], [N, "N = " + fmtN(N) + " yr", "--accent", 42]].forEach(([x, lab, tok, y]) => {
+        el("line", { x1: C.X(x), x2: C.X(x), y1: 12, y2: 152, stroke: css(tok), "stroke-dasharray": "3 3" }, C.svg);
+        const right = C.X(x) > 420; el("text", { x: C.X(x) + (right ? -4 : 4), y, "font-size": 10.5, "text-anchor": right ? "end" : "start", fill: css(tok) }, C.svg, lab); });
+      dots(C.svg, pts, C.X, C.Y, "--accent", 2.2, .7);
+      el("text", { x: 504, y: 140, "font-size": 11, "text-anchor": "end", fill: css("--accent") }, C.svg, "● largest annual maxima of one ensemble");
+      // histogram of the estimates
+      const sorted = Array.from(est).sort((a, b) => a - b), q05 = sorted[Math.floor(.05 * TRIALS)], q95 = sorted[Math.floor(.95 * TRIALS)];
+      // bin width follows the spread so that narrow and wide distributions both show their shape
+      const w = clamp(Math.max(q95 - truth, truth - q05) / 10, 0.25, 5), nb = 28, lo = truth - 14 * w, h = new Array(nb).fill(0); est.forEach(x => h[clamp(Math.floor((x - lo) / w), 0, nb - 1)]++);
+      VIZ.curves($("#clExHist"), [{ pts: stepPts(h, lo, w), col: "--accent", w: 2, label: N < T ? "estimates (record maximum)" : "estimates" }], { xr: [lo, lo + nb * w], yr: [0, Math.max(...h) * 1.15], xl: "estimated level (mm)",
+        W: 520, H: 110, xt: [lo + w, truth, lo + (nb - 1) * w], yt: [0], xf: v => fmt(v, w < 1 ? 1 : 0), yf: () => "", legendAt: "tl", marks: [[truth, "true " + fmt(truth, 0) + " mm", "--fg"]] });
+      const p = 1 - Math.pow(1 - 1 / T, N);
+      $("#clExRead").innerHTML = `<div><span>Years N</span><b>${fmtN(N)}</b></div><div><span>Expected events</span><b>${fmt(N / T, N / T < 10 ? 1 : 0)}</b></div>` +
+        `<div><span>P(≥ 1 event)</span><b class="c-ok">${fmt(100 * p, p > 0.995 ? 1 : 0)} %</b></div><div><span>Monte Carlo</span><b class="c-data">${fmt(100 * hit / TRIALS, 0)} %</b></div>` +
+        `<div><span>90 % range</span><b class="${q95 - q05 > 30 ? "c-lw" : "c-ok"}">${fmt(q05, 0)}–${fmt(q95, 0)}</b></div>`;
+    }
+    render(); return render;
+  });
+
+  /* ───────── quiz ───────── */
+  demo("cl-quiz", () => {
+    const Q = [
+      { q: "An emulator has no skill beyond about two weeks. Why can a 100-year run of it still be useful?", opts: ["Its errors average out over 100 years", "A stable model can reproduce the statistics without following the true path", "Long runs are restarted from observations"], right: 1,
+        why: "Weather paths diverge (chaos), but if the model keeps the right mean, variance and extremes, its long run samples the right climate." },
+      { q: "Why does DLESyM step the ocean every 48 h but the atmosphere every few hours?", opts: ["The ocean network is too big", "SST changes slowly, so a long step is enough and cheaper", "HEALPix requires it"], right: 1,
+        why: "Different components have different time scales; they exchange information every 4 days." },
+      { q: "What does cBottle need to generate a global atmospheric state?", opts: ["The state 6 hours earlier", "Monthly SST and the solar position", "48 h of satellite observations"], right: 1,
+        why: "It samples p(state | SST, time) with a diffusion model; it does not time-step, so there is nothing to drift." },
+      { q: "You run 100 members for 10 years each. How many 1-in-100-year events do you expect?", opts: ["About 0.1", "About 1", "About 10"], right: 2,
+        why: "1,000 simulated years × 1/100 = 10 expected events (if the members are independent and the model's tails are right)." }];
+    Q.forEach((q, i) => VIZ.quiz($("#clQuiz" + (i + 1)), [q]));
+    return () => {};
+  });
+}
 
 </script>
 <script>/* common/boot.js */

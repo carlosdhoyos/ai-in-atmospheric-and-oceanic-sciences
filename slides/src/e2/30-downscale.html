@@ -1,0 +1,159 @@
+<section class="slide" id="s-downscale" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">4 · Downscaling · the problem</p>
+  <h2>Interpolation smooths a coarse map; it cannot invent 2 km detail</h2>
+  <div class="four" id="dsPbMaps">
+    <div><h3>Truth · 2 km (toy)</h3><div id="dsPbTruth"></div></div>
+    <div><h3 id="dsPbCoarseT">Coarse input</h3><div id="dsPbCoarse"></div></div>
+    <div><h3 id="dsPbUpT">Upsampled to 2 km</h3><div id="dsPbUp"></div></div>
+    <div><h3>Error = upsampled − truth</h3><div id="dsPbErr"></div></div>
+  </div>
+  <div class="two" style="margin-top:10px">
+    <div>
+      <p style="font-size:14.5px;margin-bottom:6px"><b>Downscaling</b> turns a coarse field (a global model or reanalysis such as ERA5, ~25 km) into a km-scale map. Cold valleys, ridges, sea breezes and showers live <i>below</i> the coarse grid spacing. Interpolation only fills in between coarse values: it adds no variance at scales the input never resolved.</p>
+      <div class="chips" id="dsPbFac" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Coarsen</span><button class="chip" data-v="4">×4 · 8 km</button><button class="chip" data-v="8">×8 · 16 km</button><button class="chip" data-v="16" aria-pressed="true">×16 · 32 km</button></div>
+      <div class="chips" id="dsPbMeth" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Upsample</span><button class="chip" data-v="near">Nearest neighbour</button><button class="chip" data-v="bil" aria-pressed="true">Bilinear</button></div>
+      <div class="ctl" style="margin:4px 0"><label for="dsPbRow">Transect row</label><input id="dsPbRow" type="range" min="0" max="127" step="1" value="70"><output></output></div>
+      <p class="tryit">switch nearest ↔ bilinear: blocks become ramps, but the error map keeps the same small-scale blobs. Then try ×4.</p>
+    </div>
+    <div class="panel"><h3>Along the transect (dashed line on the maps)</h3><div id="dsPbFig"></div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:end"><div class="readout" id="dsPbRead" style="margin-top:2px;gap:16px"></div></div>
+      <div class="two even" style="gap:12px;margin-top:4px"><div id="dsPbLeg1"></div><div id="dsPbLeg2"></div></div></div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Toy: synthetic 2 m temperature on 128 × 128 cells of 2 km (a terrain-like pattern plus random fields), block-averaged to the coarse grid. The real CorrDiff task: 25 km ERA5 → 2 km over Taiwan, 36 × 36 → 448 × 448 grid points (Mardani et al., arXiv:2309.15214; Commun. Earth Environ. 2025).</p>
+</section>
+
+<section class="slide" id="ds-steps" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">CorrDiff step by step · <span class="en">residual corrective diffusion</span></p>
+  <h2>Regression draws the mean; diffusion paints the details the mean cannot know</h2>
+  <div class="two">
+    <div>
+      <div class="eq" style="font-size:17px;margin-top:0"><i>x</i> = <span style="color:var(--mag)">μ(input)</span> + <span style="color:var(--sw)"><i>r</i></span>, &nbsp; <i>r</i> ~ diffusion model</div>
+      <div class="chips" id="dsStStage"><button class="chip" data-v="0" aria-pressed="true">1 Input</button><button class="chip" data-v="1">2 Regression</button><button class="chip" data-v="2">3 Diffusion</button><button class="chip" data-v="3">4 Sum</button><button class="chip" data-v="4">5 Samples</button></div>
+      <div class="card" id="dsStCard" style="min-height:10.5em;margin-top:8px"></div>
+      <div class="chips" id="dsStSeed" style="margin-top:8px"><span class="note" style="align-self:center;margin:0">Noise draw</span><button class="chip" data-v="0" aria-pressed="true">A</button><button class="chip" data-v="1">B</button><button class="chip" data-v="2">C</button><button class="chip" data-v="3">D</button></div>
+      <p class="tryit">step through 1 → 5; at stage 3 or 4 change the noise draw: what changes, and what stays put?</p>
+      <div class="readout" id="dsStRead" style="margin-top:4px"></div>
+    </div>
+    <div class="panel">
+      <div id="dsStFlow"></div>
+      <div class="two even" style="gap:14px;margin-top:4px">
+        <div><h3 id="dsStNowT">This stage</h3><div id="dsStNow"></div></div>
+        <div><h3>Truth · 2 km</h3><div id="dsStTruth"></div></div>
+      </div>
+      <div id="dsStLeg"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Mechanism after Mardani et al., arXiv:2309.15214 (regression UNet for the conditional mean, EDM diffusion for the residual). Toy stand-ins, not the real networks: μ = the truth blurred to the coarse scale; r = a fresh random field with the same power spectrum as the true residual (truth − μ), one per noise draw.</p>
+</section>
+
+<section class="slide" id="ds-diff" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">A diffusion toy · <span class="en">denoising, score, noise schedule</span></p>
+  <h2>Start from pure noise; remove a little at each step; large scales appear first</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px;margin-bottom:6px">Training: add noise of level σ to real residuals; teach a network <b>D(x; σ)</b> to recover the clean field (a <b>denoiser</b>; D(x) − x points toward the data: the <b>score</b>). Sampling: start from pure noise (σ large) and walk σ down to 0, each step moving x toward the guess.</p>
+      <div class="eq" style="font-size:14.5px;margin:4px 0">x<sub>i+1</sub> = x<sub>i</sub> + (σ<sub>i+1</sub> − σ<sub>i</sub>) · (x<sub>i</sub> − D(x<sub>i</sub>; σ<sub>i</sub>)) / σ<sub>i</sub></div>
+      <div class="chips" id="dsDfN" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Steps</span><button class="chip" data-v="4">4</button><button class="chip" data-v="8">8</button><button class="chip" data-v="18" aria-pressed="true">18</button><button class="chip" data-v="40">40</button></div>
+      <div style="display:flex;gap:10px;align-items:center"><button class="btn" id="dsDfPlay" type="button">▶ Play</button><button class="btn" id="dsDfNew" type="button">New noise</button><div class="ctl" style="flex:1;margin:0"><label for="dsDfStep">Step</label><input id="dsDfStep" type="range" min="0" max="18" step="1" value="0"><output></output></div></div>
+      <p class="tryit">drag the step slider slowly: which scales settle first? Then try 4 steps vs 40.</p>
+      <h3 style="margin-top:6px">Noise level <span style="text-transform:none">σ<sub>i</sub></span> (log scale, × residual std)</h3>
+      <div id="dsDfSched"></div>
+    </div>
+    <div class="panel">
+      <div class="chips" id="dsDfView" style="margin-top:0"><button class="chip" data-v="r" aria-pressed="true">Residual r only</button><button class="chip" data-v="x">μ + r (the 2 km sample)</button></div>
+      <div class="three" style="gap:10px">
+        <div><h3><span style="text-transform:none">x<sub>i</sub></span> (noisy state)</h3><div id="dsDfX"></div></div>
+        <div><h3><span style="text-transform:none">D(x<sub>i</sub>)</span> guess</h3><div id="dsDfD"></div></div>
+        <div><h3>Final sample</h3><div id="dsDfF"></div></div>
+      </div>
+      <div class="readout" id="dsDfRead" style="margin-top:6px"></div>
+      <h3 style="margin-top:8px">What the denoiser keeps at this <span style="text-transform:none">σ</span>, by wavelength</h3>
+      <div id="dsDfGain"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Toy: the residual is a Gaussian random field, so the ideal denoiser is exact (a Wiener filter: keep scales whose power exceeds σ²); CorrDiff learns D with a UNet (EDM, arXiv:2309.15214). x<sub>i</sub> is divided by its std for display. StormCast uses 18 denoising steps (arXiv:2408.10958).</p>
+</section>
+
+<section class="slide" id="ds-spec" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">Power spectra · <span class="en">where the variance sits, scale by scale</span></p>
+  <h2>Regression alone wins on RMSE but loses the small scales; diffusion puts their power back</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px;margin-bottom:6px">The <b>power spectrum</b> splits a field's variance by wavelength. Real weather keeps power down to the grid scale. A field that is too smooth falls off a cliff to the right of the coarse-grid limit.</p>
+      <div class="chips" id="dsSpShow" style="margin:4px 0"><button class="chip" type="button" data-s="truth" aria-pressed="true">Truth</button><button class="chip" type="button" data-s="bil" aria-pressed="true">Bilinear</button><button class="chip" type="button" data-s="mu" aria-pressed="true">Regression μ</button><button class="chip" type="button" data-s="x" aria-pressed="true">μ + r (sample)</button><button class="chip" type="button" data-s="avg" aria-pressed="false">Mean of N samples</button></div>
+      <div class="chips" id="dsSpFac" style="margin:4px 0"><span class="note" style="align-self:center;margin:0">Coarsen by</span><button class="chip" data-v="4">×4</button><button class="chip" data-v="8">×8</button><button class="chip" data-v="16" aria-pressed="true">×16</button></div>
+      <div class="ctl"><label for="dsSpN">Samples N</label><input id="dsSpN" type="range" min="1" max="8" step="1" value="4"><output></output></div>
+      <p class="tryit">turn on "Mean of N samples" and raise N: the average climbs back toward μ's curve and its RMSE drops. Which would you hand to a forecaster?</p>
+      <div class="calc" id="dsSpCalc" style="font-size:12.5px;margin-top:4px"></div>
+    </div>
+    <div class="panel">
+      <div id="dsSpFig"></div>
+      <div class="three" style="gap:10px;margin-top:4px">
+        <div><h3>Regression <span style="text-transform:none">μ</span></h3><div id="dsSpMu"></div></div>
+        <div><h3>One sample <span style="text-transform:none">μ + r</span></h3><div id="dsSpOne"></div></div>
+        <div><h3 id="dsSpAvgT">Mean of samples</h3><div id="dsSpAvg"></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Toy fields as before (128 × 128 cells of 2 km; RMSE against the toy truth). MSE training rewards the average of all plausible fields, which cancels details that sit in different places. CorrDiff restores fine-scale spectra by sampling the residual (arXiv:2309.15214).</p>
+</section>
+
+<section class="slide" id="ds-var" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">Variants and users · <span class="en">CorrDiff in Earth2Studio</span></p>
+  <h2>One recipe, many regions: coarse fields in, km-scale samples out</h2>
+  <div class="two" style="grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)">
+    <div>
+      <div class="chips" id="dsVaPick" style="margin-top:0"><button class="chip" data-v="tw" aria-pressed="true">Taiwan</button><button class="chip" data-v="hrrr">ERA5 → HRRR</button><button class="chip" data-v="cosmo">ERA5 → COSMO</button><button class="chip" data-v="sda">COSMO + assimilation</button><button class="chip" data-v="cmip">CMIP6 → ERA5</button></div>
+      <p class="tryit">click each variant: which one outputs a field the input never had, and which starts from a climate model?</p>
+      <div class="card" id="dsVaCard" style="min-height:12em"></div>
+    </div>
+    <div class="panel">
+      <div id="dsVaFig"></div>
+      <h3 style="margin-top:8px">Who uses it (as named by NVIDIA, Jan 2026)</h3>
+      <div id="dsVaUsers" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px"></div>
+    </div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Taiwan setup: Mardani et al., arXiv:2309.15214 (trained 2018–2020, tested 2021). Variants: Earth2Studio diagnostic models CorrDiffTaiwan, CorrDiffEra5Hrrr, CorrDiffCosmoEra5, CorrDiffCosmoEra5SDA, CorrDiffCMIP6; weights on Hugging Face (nvidia/earth-2: corrdiff-era5-hrrr, corrdiff-cosmo-era5, corrdiff-cmip6-era5). Users: NVIDIA blog "Earth-2 family of open models", 26 Jan 2026. Product name Earth-2 CorrDiff; also a NIM microservice (SC24, Nov 2024).</p>
+</section>
+
+<section class="slide" id="ds-speed" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">Speed claims · <span class="en">read the baseline first</span></p>
+  <h2>“22×”, “500×”, “1,000×” faster: the sources disagree, so read each with its baseline</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:15px;margin-bottom:6px">Each number below is a claim about CorrDiff against a physics model, as stated by its source. They span more than an order of magnitude. A speed-up is a ratio, so it depends on both sides: which NWP run, on how many CPU cores, at what resolution, against which GPU, counting what.</p>
+      <div class="chips" id="dsSpdM" style="margin:4px 0"><button class="chip" data-v="speed" aria-pressed="true">Speed</button><button class="chip" data-v="energy">Energy efficiency</button></div>
+      <div class="chips" id="dsSpdScale" style="margin:4px 0"><button class="chip" data-v="log" aria-pressed="true">Log scale</button><button class="chip" data-v="lin">Linear scale</button></div>
+      <p class="tryit">click each bar to read its baseline; switch to a linear scale and see the paper's own figure almost vanish.</p>
+      <div class="card" id="dsSpdCard" style="min-height:7.5em"></div>
+    </div>
+    <div class="panel">
+      <div id="dsSpdFig"></div>
+      <div class="callout amber" style="font-size:14px;margin-bottom:0"><b>Before you quote a speed-up, ask:</b> what was the baseline model and hardware? Same resolution and domain? One sample or an ensemble? Is training cost included? A fair line for a report: “NVIDIA reports up to 500× faster; the peer-reviewed paper reports at least 22× against WRF on 928 CPU cores.”</div>
+    </div>
+  </div>
+  <p class="note" style="margin:6px 0 0;max-width:none">Sources: Mardani et al., arXiv:2309.15214 v4 (at least 22× faster, 1,300× more energy-efficient than WRF on 928 CPU cores); NVIDIA blog, Jun 2024 (1,000× faster, 3,000× more energy-efficient); SC24 NIM announcement and Earth-2 page (500× faster, 10,000× energy efficiency); NVIDIA blog 26 Jan 2026 (up to 500× faster; Israel Meteorological Service: 90% less compute time at 2.5 km vs classic NWP on a CPU cluster).</p>
+</section>
+
+<section class="slide" id="ds-quiz" data-g="a" data-sec="4 · Downscaling">
+  <p class="kicker" style="color:var(--sw)">Check yourself · downscaling</p>
+  <h2>Five questions on CorrDiff</h2>
+  <div class="two even">
+    <div>
+      <div class="callout amber" style="margin-top:0"><b>Take-aways</b>
+        <ul class="pts" style="margin:4px 0 0;font-size:13.5px">
+          <li>Interpolation cannot create variance below the coarse grid spacing.</li>
+          <li>A regression network trained with MSE gives the conditional mean: lowest RMSE, too smooth.</li>
+          <li>CorrDiff adds a diffusion-generated residual: realistic spectra, and samples that agree at large scale and differ in detail.</li>
+          <li>Diffusion builds a field from noise in steps, coarse scales first.</li>
+          <li>Speed-ups are claims against a baseline; the paper and the vendor posts differ by more than 20×.</li>
+        </ul></div>
+      <p class="tryit">answer all five; a wrong click shows the right answer and why.</p>
+      <div id="dsQzBox1"></div>
+    </div>
+    <div>
+      <div id="dsQzBox2"></div>
+      <p class="note" style="margin:4px 0 0">Numbers from arXiv:2309.15214 and the NVIDIA posts cited on the previous slide.</p>
+    </div>
+  </div>
+</section>

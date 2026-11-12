@@ -1,0 +1,145 @@
+<section class="slide" id="s-da" data-g="d" data-sec="3 · Data assimilation">
+  <style>#s-da .readout b,#da-oi .readout b,#da-obs .readout b,#da-hpx .readout b,#da-healda .readout b{font-size:21px} .da-key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted);margin:0 0 2px} .da-key i{display:inline-block;width:16px;height:0;border-top:2px solid;vertical-align:middle;margin-right:5px} .da-key i.d{border-top-style:dashed} .da-key i.o{width:8px;height:8px;border:0;border-radius:50%;background:currentColor}</style>
+  <p class="kicker k-data">3 · Data assimilation · why initial conditions matter</p>
+  <h2>A forecast is only as good as its starting state, and errors in it grow</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:15px">
+        <li>The atmosphere is <b>chaotic</b>: two states that differ by a tiny amount drift apart, slowly at first and then exponentially, until they are as different as two random states.</li>
+        <li>The toy is the <b>Lorenz-63</b> system, three equations for convection. The same model runs twice; the second start differs from the first by the slider's amount in <i>x</i>.</li>
+        <li>The <b>analysis</b> is the best estimate of the current state, built from observations and a short forecast. Producing it is called <b>data assimilation</b> (DA). Every forecast, physics or AI, starts from one.</li>
+      </ul>
+      <div class="ctl"><label for="daLzEps">Initial error</label><input id="daLzEps" type="range" min="-9" max="-1" step="0.5" value="-5"><output></output></div>
+      <div class="chips" id="daLzStart"><span class="note" style="align-self:center;margin:0">Start:</span><button class="chip" data-v="0" aria-pressed="true">State A</button><button class="chip" data-v="1">State B</button><button class="chip" data-v="2">State C</button></div>
+      <p class="tryit">make the initial error 10× smaller several times: how much longer does the forecast stay close each time? Then switch start state.</p>
+      <div class="callout teal" style="font-size:14.5px;margin-bottom:0"><b>Why it matters:</b> because errors grow exponentially, a 10× better analysis buys a <i>fixed</i> extra amount of forecast time, not 10× more. That is still worth a lot, and it is why forecast centres invest so heavily in DA.</div>
+    </div>
+    <div class="panel nosw">
+      <h3>x(t) of the two runs</h3>
+      <div class="da-key"><span style="color:var(--fg)"><i></i>run 1</span><span style="color:var(--accent)"><i class="d"></i>run 2 (perturbed start)</span></div>
+      <div id="daLzFig"></div>
+      <h3 style="margin-top:6px">Distance between the runs (log scale)</h3>
+      <div class="da-key"><span style="color:var(--accent)"><i></i>this initial error</span><span style="color:var(--muted)"><i class="d"></i>10× smaller</span><span style="color:var(--lw)"><i class="d"></i>"lost" level</span></div>
+      <div id="daLzErr"></div>
+      <div class="readout" id="daLzRead" style="margin-top:4px"></div>
+      <p class="note" style="margin:4px 0 0;font-size:12.5px">Toy: Lorenz (1963), σ = 10, ρ = 28, β = 8/3, RK4, Δt = 0.01 (model time units, not days). "Lost": distance above 5. λ: growth rate fitted to the log distance; errors grow in bursts, so one run can gain more or less.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="da-oi" data-g="d" data-sec="3 · Data assimilation">
+  <p class="kicker k-data">Classical analysis · <span class="en">optimal interpolation</span></p>
+  <h2>The analysis weighs background and observations by their error variances</h2>
+  <div class="two">
+    <div>
+      <div class="eq data" style="font-size:17px;margin:0">x<sub>a</sub> = x<sub>b</sub> + K (y − H x<sub>b</sub>), &nbsp; K = B Hᵀ (H B Hᵀ + R)⁻¹</div>
+      <p style="font-size:14px;margin:6px 0">The <b>background</b> x<sub>b</sub> is a short forecast from the last analysis, <b>y</b> the observations, <b>H</b> maps the grid to the observation points (here: linear interpolation). <b>B</b>, <b>R</b>: background and observation error covariances. One observation on a grid point: K = σ<sub>b</sub>² / (σ<sub>b</sub>² + σ<sub>o</sub>²), so trust whichever is less wrong. The correlation length L in B spreads each correction to the neighbours.</p>
+      <div class="ctl" style="margin:4px 0"><label for="daOiSb">σ<sub>b</sub> assumed</label><input id="daOiSb" type="range" min="5" max="100" step="1" value="40"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="daOiSo">σ<sub>o</sub> assumed</label><input id="daOiSo" type="range" min="2" max="80" step="1" value="15"><output></output></div>
+      <div class="ctl" style="margin:4px 0"><label for="daOiL">Corr. length L</label><input id="daOiL" type="range" min="100" max="4000" step="50" value="1500"><output></output></div>
+      <div class="chips" id="daOiNet" style="margin:4px 0"><button class="chip" data-v="sparse" aria-pressed="true">6 stations</button><button class="chip" data-v="dense">Dense</button><button class="chip" data-v="one">One obs</button><button class="chip" data-v="half">Gap (ocean)</button></div>
+      <div class="chips" style="margin:4px 0"><button class="btn" type="button" id="daOiTrue">Use the true statistics</button><button class="btn" type="button" id="daOiNew">New background error</button></div>
+      <p class="tryit">click the chart to add an observation, drag one, double-click to remove it. Make σ<sub>o</sub> ≪ σ<sub>b</sub>, then L very short: what happens between stations?</p>
+      <p class="note" style="margin:4px 0 0;font-size:12.5px">Toy: truth = the deck's synthetic 500 hPa field. True errors (chosen for the toy): σ<sub>b</sub> = 40 m with Gaussian correlation L = 1,500 km, σ<sub>o</sub> = 15 m. Shaded band: the error σ<sub>a</sub> that OI <i>expects</i> from the assumed values. Method: optimal interpolation (e.g. Kalnay 2003, <i>Atmospheric Modeling, Data Assimilation and Predictability</i>).</p>
+    </div>
+    <div class="panel nosw" style="padding:14px 16px">
+      <h3>Toy 500 hPa height along 45° N (m)</h3>
+      <div class="da-key"><span style="color:var(--fg)"><i></i>truth</span><span style="color:var(--muted)"><i class="d"></i>background x<sub>b</sub></span><span style="color:var(--data)"><i style="border-top-width:3px"></i>analysis x<sub>a</sub> ± σ<sub>a</sub></span><span style="color:var(--fg)"><i class="o"></i>obs ± σ<sub>o</sub></span><span style="color:var(--sw)"><i class="o"></i>selected</span></div>
+      <div id="daOiFig" style="touch-action:none"></div>
+      <h3 style="margin-top:4px">Error against the truth (m)</h3>
+      <div id="daOiErr"></div>
+      <div class="readout" id="daOiRead" style="margin-top:0;gap:18px"></div>
+      <div class="calc" id="daOiCalc" style="font-size:12.5px;white-space:normal;margin-top:6px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="da-obs" data-g="d" data-sec="3 · Data assimilation">
+  <p class="kicker k-data">Observations · <span class="en">what the system actually sees</span></p>
+  <h2>Observations are scattered in space and time; each instrument sees a different piece</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14.5px">
+        <li><b style="color:var(--accent)">Polar orbiters</b> fly pole to pole and scan a strip below them; Earth turns underneath, so the gaps fill only over hours. They carry the microwave and infrared <b>sounders</b> that matter most for DA.</li>
+        <li><b style="color:var(--data)">Geostationary</b> satellites stay over one point on the equator and image the same disk again and again, but never see the poles.</li>
+        <li><b style="color:var(--sw)">Radiosondes</b>: balloons launched at 00 and 12 UTC, mostly over Northern Hemisphere land. Aircraft, ships, buoys and GNSS radio occultation add more.</li>
+        <li>Satellites measure <b>radiances</b>, so classical DA needs an observation operator H (a radiative-transfer model) per instrument.</li>
+      </ul>
+      <div class="chips" id="daObLay"><button class="chip" type="button" data-v="polar" aria-pressed="true">Polar swaths</button><button class="chip" type="button" data-v="geo" aria-pressed="true">Geostationary disks</button><button class="chip" type="button" data-v="sonde" aria-pressed="true">Radiosondes</button></div>
+      <div class="ctl"><label for="daObWin">Time window</label><input id="daObWin" type="range" min="0" max="6" step="1" value="1"><output></output></div>
+      <p class="tryit">switch layers on and off and stretch the window from 1 h to 48 h: when do the polar swaths close their gaps? Drag the globe to a pole.</p>
+      <div class="readout" id="daObRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel nosw" style="padding:14px 16px"><div id="daObGlobe"></div>
+      <div id="daObKey" class="note" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:8px 0 0"></div>
+      <p class="note" style="margin:6px 0 0;font-size:12.5px">Synthetic but plausible geometry: four sun-synchronous satellites in two orbital planes, five geostationary positions, toy radiosonde stations in the populated continents. Percentages are for this toy only. HealDA reads a 48 h window of satellite and conventional observations (arXiv:2601.17636).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="da-hpx" data-g="d" data-sec="3 · Data assimilation">
+  <p class="kicker k-data">The HEALPix grid · <span class="en">equal-area pixels on the sphere</span></p>
+  <h2>HEALPix: pixels of equal area, sitting on rings of latitude</h2>
+  <div class="two">
+    <div>
+      <ul class="pts" style="font-size:14px">
+        <li><b>HEALPix</b> (Hierarchical Equal Area isoLatitude Pixelization): 12 base pixels, each split into N<sub>side</sub> × N<sub>side</sub>: <b>12 N<sub>side</sub>²</b> pixels. Doubling N<sub>side</sub> splits every pixel into 4 (<b>hierarchical</b>).</li>
+        <li>Every pixel has the <b>same area</b>, so none is over-counted in a loss or a global mean. Lat-lon cells shrink to slivers at the poles.</li>
+        <li>Pixel centres lie on <b>rings of constant latitude</b> (fast spherical-harmonic transforms), and the 12 faces tile into square patches that ordinary convolutions can use.</li>
+        <li>Used by <b>HealDA</b> (v1 analysis on a 1° HEALPix grid), <b>DLESyM</b> (12 faces × 64 × 64 = 49,152 cells, ~110 km) and <b>cBottle</b> (HPX64 ~100 km → HPX1024 ~5 km).</li>
+      </ul>
+      <div class="ctl"><label for="daHpNs">N<sub>side</sub></label><input id="daHpNs" type="range" min="0" max="10" step="1" value="2"><output></output></div>
+      <div class="chips" id="daHpMode"><button class="chip" data-v="hpx" aria-pressed="true">HEALPix</button><button class="chip" data-v="ll">Lat-lon grid, same cell count</button></div>
+      <p class="tryit">step N<sub>side</sub> from 1 to 8, then switch to the lat-lon grid and drag the globe over the pole: compare cell shapes and the area ratio.</p>
+      <div class="readout" id="daHpRead" style="gap:16px;margin-top:4px"></div>
+    </div>
+    <div class="panel nosw" style="padding:14px 16px"><div id="daHpGlobe"></div>
+      <h3 style="margin-top:6px">Cell area ÷ mean area, by latitude</h3>
+      <div class="da-key"><span style="color:var(--data)"><i style="border-top-width:3px"></i>HEALPix pixels</span><span style="color:var(--muted)"><i></i>lat-lon cells</span></div>
+      <div id="daHpArea"></div>
+      <p class="note" style="margin:4px 0 0;font-size:12.5px">Colour: the toy 500 hPa field at each cell centre. Pixel size = √(sphere area / pixel count). HEALPix: Górski et al., ApJ 622 (2005). Grids: DLESyM arXiv:2409.16247; cBottle arXiv:2505.06474; HealDA arXiv:2601.17636.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="da-healda" data-g="d" data-sec="3 · Data assimilation">
+  <p class="kicker k-data">HealDA · <span class="en">Earth-2 Global Data Assimilation</span></p>
+  <h2>HealDA maps raw observations straight to an analysis, with no background forecast</h2>
+  <div class="fig-wrap" id="daHdFlow"></div>
+  <div class="two" style="margin-top:6px">
+    <div>
+      <div class="chips" id="daHdMode" style="margin:0 0 6px"><button class="chip" data-v="cl">Classical cycle</button><button class="chip" data-v="hd" aria-pressed="true">HealDA</button></div>
+      <p class="tryit">switch between the two pipelines: which boxes and which loop disappear with HealDA?</p>
+      <div class="card" id="daHdCard" style="font-size:14px;padding:10px 14px"></div>
+      <ul class="pts" style="font-size:13.5px;margin:6px 0 0">
+        <li>Output: v1 on a 1° HEALPix grid; v2 a "104-channel, 0.25 degree atmospheric analysis".</li>
+        <li>NVIDIA's claim: initial conditions "in seconds on GPUs instead of hours on supercomputers".</li>
+        <li>With Earth-2 Medium Range (Atlas), NVIDIA calls it "the most skillful … open, entirely AI pipeline".</li>
+      </ul>
+    </div>
+    <div class="panel nosw" style="padding:12px 16px">
+      <h3>"&lt; 1 day of effective lead time", illustrated</h3>
+      <div class="da-key"><span style="color:var(--fg)"><i></i>forecast started from ERA5</span><span style="color:var(--data)"><i class="d" style="border-top-width:3px"></i>started from HealDA</span></div>
+      <div id="daHdFig"></div>
+      <div class="ctl" style="margin:2px 0"><label for="daHdShift">Lead-time cost</label><input id="daHdShift" type="range" min="0" max="2" step="0.05" value="0.75"><output></output></div>
+      <p class="tryit" style="margin:4px 0">move the cost: the HealDA curve is the ERA5 curve shifted left. The paper reports a cost below 1 day.</p>
+      <p class="note" style="margin:2px 0 0;font-size:12.5px">Toy curve shapes, not results. Reported: starting FCN3, Aurora and FengWu from HealDA instead of ERA5 costs &lt; 1 day of effective lead time (arXiv:2601.17636; NVIDIA blog, 26 Jan 2026).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="da-quiz" data-g="d" data-sec="3 · Data assimilation">
+  <p class="kicker k-data">Check yourself · data assimilation</p>
+  <h2>Four questions on initial conditions, analyses and grids</h2>
+  <div id="daQuiz" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 12px"></div>
+  <div class="card" style="padding:10px 16px"><h4>Key ideas</h4>
+    <ul class="pts" style="font-size:14px;margin:0;max-width:none;columns:2 340px;column-gap:28px">
+      <li>Chaos makes initial errors grow exponentially: better analyses buy forecast time.</li>
+      <li>A classical analysis blends a background forecast and observations, weighted by their error variances and correlations (B, R, H).</li>
+      <li>Observations are irregular and indirect; coverage depends on the time window.</li>
+      <li>HEALPix: equal-area pixels on latitude rings (HealDA, DLESyM, cBottle).</li>
+      <li>HealDA learns observations → analysis without a background; reported cost &lt; 1 day of lead time vs ERA5 starts.</li>
+    </ul></div>
+  <p class="tryit">answer all four, then check the gain question on the OI slide with the sliders.</p>
+  <p class="note" style="margin:2px 0 0">Sources: HealDA arXiv:2601.17636; DLESyM arXiv:2409.16247; cBottle arXiv:2505.06474; Lorenz (1963), J. Atmos. Sci. 20, 130–141.</p>
+</section>
