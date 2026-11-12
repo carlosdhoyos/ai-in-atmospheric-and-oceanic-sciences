@@ -1,0 +1,173 @@
+<style>
+.slide[id^="sc-"]{padding-top:16px;padding-bottom:14px}
+.slide[id^="sc-"] h2{font-size:clamp(21px,2.4vw,25px);margin-bottom:6px}
+.slide[id^="sc-"] .kicker{max-width:none;margin-bottom:4px}
+.slide[id^="sc-"]>p.note{max-width:none;font-size:12.5px;line-height:1.4;margin:6px 0 0}
+.slide[id^="sc-"] .tryit{font-size:13.5px;margin:5px 0;padding:5px 10px}
+.slide[id^="sc-"] h3{text-transform:none;letter-spacing:.01em;font-size:13px;font-family:var(--f-body);font-weight:600;margin:0 0 4px}
+.slide[id^="sc-"] .readout{gap:6px 18px;margin-top:4px}
+.slide[id^="sc-"] .readout b{font-size:20px}
+.slide[id^="sc-"] .readout span{font-size:10.5px}
+.slide[id^="sc-"] .ctl{margin:3px 0;font-size:13.5px}
+.slide[id^="sc-"] .stg{grid-template-columns:6.2em minmax(0,1fr)}
+.slide[id^="sc-"] .stg .chips{margin:2px 0}
+.scsteps{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 4px;align-items:center}
+.scsteps button.chip{font-size:12.5px;padding:4px 10px}
+.scsteps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.scbar{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
+.sccard{padding:9px 14px}
+.sccard h4{margin:0 0 4px;font-size:15px;color:var(--accent)}
+.sccard p{font-size:13.5px;margin:0 0 5px;line-height:1.45}
+.sccard p:last-child{margin-bottom:0}
+.sctag{display:inline-block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:6px;margin-right:6px;vertical-align:1px;border:1px solid currentColor}
+.sctag.p{color:var(--ok)} .sctag.s{color:var(--sw)} .sctag.u{color:var(--lw)} .sctag.e{color:var(--cool)} .sctag.o{color:var(--arch)} .sctag.t{color:var(--muted)}
+.scfig svg{display:block;width:100%;height:auto}
+.scfig [data-st]{cursor:pointer}
+pre.code.sccode{min-height:0;font-size:12.5px;line-height:1.5;padding:8px 10px}
+pre.code.sccode .ln{display:block;border-radius:4px;padding:0 4px;margin:0 -4px}
+pre.code.sccode .ln.on{background:color-mix(in srgb,var(--accent) 18%,transparent);box-shadow:inset 3px 0 0 var(--accent)}
+pre.code.sccode .c{color:var(--muted)}
+.scopt{padding:8px 12px;cursor:pointer}
+.scopt h4{font-size:14px;margin:0 0 3px}
+.scopt p{font-size:13px;margin:0;line-height:1.42}
+.scopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.slide[id^="sc-"] .calc{font-size:12px;margin-top:6px;padding:8px 10px;line-height:1.5}
+.scgo{font-size:12.5px;padding:3px 10px}
+</style>
+
+<section class="slide" id="sc-arch" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 1 · one denoiser call, end to end</p>
+  <h2>From a stack of images to a denoised future: the tensor shape at every stage</h2>
+  <div class="scbar">
+    <div class="chips scsteps" id="scArStep"><button class="chip" data-v="0" aria-pressed="true">① Inputs</button><button class="chip" data-v="1">② c<sub>in</sub> + concat</button><button class="chip" data-v="2">③ Patch embed</button><button class="chip" data-v="3">④ Tokens</button><button class="chip" data-v="4">⑤ σ embedding</button><button class="chip" data-v="5">⑥ 16 DiT blocks</button><button class="chip" data-v="6">⑦ Output head</button><button class="chip" data-v="7">⑧ Unpatchify</button><button class="chip" data-v="8">⑨ Skip + combine</button></div>
+    <div class="chips scsteps" id="scArMode"><button class="chip" data-v="sn" aria-pressed="true">sat. nowcast</button><button class="chip" data-v="sr">sat. nearcast</button><button class="chip" data-v="rn">radar nowcast</button><button class="chip" data-v="rr">radar nearcast</button></div>
+  </div>
+  <div class="scfig" id="scArFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;margin-top:4px">
+    <div class="card sccard" id="scArCard" style="min-height:196px"></div>
+    <div>
+      <div class="readout" id="scArRead"></div>
+      <p class="tryit">step ①→⑨ (or click a box), then switch the model: which shapes change, and which never do?</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn scgo" data-go="sb-tokens">patches in detail →</button><button class="btn scgo" data-go="sb-na">neighborhood attention →</button><button class="btn scgo" data-go="sb-block">one DiT block →</button><button class="btn scgo" data-go="sd-why">what is diffusion? →</button></div>
+    </div>
+  </div>
+  <p class="note">Pathak et al. 2026, arXiv:2601.17268, §4.2.2: DiT on 512 × 896 at 6 km; noisy state, previous states, lat/lon, solar zenith angle and NWP fields concatenated as channels; strided-conv 4 × 4 patch embedding → 128 × 224 tokens of 768; 16 blocks with DiT conditional layer norm on the noise level; 2-D neighborhood attention 31 × 31; output projected and reshaped to 512 × 896. §4.2.3: EDM pre-conditioning of inputs and outputs. Channel totals: our count, as in Part B. Tags: <span class="sctag p">paper</span> stated in the paper · <span class="sctag s">DiT/EDM practice</span> what the standard recipe does (assumed) · <span class="sctag u">unstated</span> not in the paper.</p>
+</section>
+
+<section class="slide" id="sc-params" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 2 · where the parameters and the compute go</p>
+  <h2>195 M parameters, ~8 trillion operations per call: which parts cost what?</h2>
+  <div class="two" style="grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px">
+    <div>
+      <div class="stg"><span>Model</span><div class="chips" id="scPaMode"><button class="chip" data-v="sn" aria-pressed="true">sat. now</button><button class="chip" data-v="sr">sat. near</button><button class="chip" data-v="rn">radar now</button><button class="chip" data-v="rr">radar near</button></div></div>
+      <div class="stg"><span>Width d</span><div class="chips" id="scPaD"><button class="chip" data-v="384">384</button><button class="chip" data-v="512">512</button><button class="chip" data-v="768" aria-pressed="true">768 (paper)</button><button class="chip" data-v="1024">1024</button></div></div>
+      <div class="ctl"><label for="scPaL">Blocks</label><input type="range" id="scPaL" min="4" max="32" step="1" value="16"><output></output></div>
+      <div class="stg"><span>MLP width</span><div class="chips" id="scPaR"><button class="chip" data-v="2">2 d</button><button class="chip" data-v="4" aria-pressed="true">4 d (DiT)</button><button class="chip" data-v="8">8 d</button></div></div>
+      <div class="stg"><span>Position</span><div class="chips" id="scPaPos"><button class="chip" data-v="0">none / fixed</button><button class="chip" data-v="1" aria-pressed="true">learned table</button></div></div>
+      <div class="readout" id="scPaRead"></div>
+      <p class="tryit">turn the learned position table off and on: which setting lands on the paper's 195 M? Then double the width d: parameters ×4, but what about the attention scores?</p>
+      <div class="calc" id="scPaCalc"></div>
+    </div>
+    <div class="panel" style="padding:10px 14px">
+      <h3>Parameters by part (our estimate) · dashed line: the paper's 195 M</h3>
+      <div id="scPaP"></div>
+      <h3 style="margin-top:6px">Operations per network call, 28,672 tokens (our estimate)</h3>
+      <div id="scPaF"></div>
+      <h3 style="margin-top:6px">GPU memory · fp32, 1 sample per GPU (our estimate) vs the paper</h3>
+      <div id="scPaM"></div>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: 195 M parameters in total, ~70 GB GPU memory in training, ~5 GB and 33 s per forecast step (100 sampling steps, fp32, one H100) at inference; d = 768, 16 blocks, 28,672 tokens, NA 31 × 31. Not stated: heads, MLP width, positional embedding, output head, training precision. Our estimate uses the DiT recipe (Peebles &amp; Xie 2023): heads of 64, MLP 4 d, adaLN-Zero (6 d per block from a d-vector), 256-frequency σ embedding + 2-layer MLP, final adaLN + linear; activations: ~(12 + 2·r) d floats per token per block + attention weights. The "learned table" option is our way to reconcile the count, not a paper fact.</p>
+</section>
+
+<section class="slide" id="sc-iter" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 3 · one training iteration</p>
+  <h2>One training iteration, step by step: data → noise → prediction → loss → update</h2>
+  <div class="scbar">
+    <div class="chips scsteps" id="scItStep"><button class="chip" data-v="0" aria-pressed="true">① Pick t</button><button class="chip" data-v="1">② Load frames</button><button class="chip" data-v="2">③ Draw σ</button><button class="chip" data-v="3">④ Add noise</button><button class="chip" data-v="4">⑤ Forward</button><button class="chip" data-v="5">⑥ Loss</button><button class="chip" data-v="6">⑦ Backward</button><button class="chip" data-v="7">⑧ All-reduce</button><button class="chip" data-v="8">⑨ Update</button></div>
+    <div style="display:flex;gap:6px"><button class="btn scgo" type="button" id="scItRun">▶ Run one iteration</button><button class="btn scgo" type="button" id="scItNew">New draw</button></div>
+  </div>
+  <div class="scfig" id="scItFig"></div>
+  <div class="two" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:18px;margin-top:4px">
+    <div>
+      <div class="card sccard" id="scItCard" style="min-height:150px"></div>
+      <p class="tryit">press "New draw" a few times: σ jumps over 4 orders of magnitude; which expert trains, and how large is the toy loss?</p>
+    </div>
+    <div class="panel" style="padding:8px 12px">
+      <div class="ctl" style="margin:0"><label for="scItI">Iteration</label><input type="range" id="scItI" min="0" max="100" step="1" value="25"><output></output></div>
+      <div id="scItLr"></div>
+      <div class="stg"><span>"~6 M" counts</span><div class="chips" id="scItRead6"><button class="chip" data-v="it" aria-pressed="true">optimizer steps</button><button class="chip" data-v="smp">training samples</button></div></div>
+      <div class="readout" id="scItRead"></div>
+      <p class="tryit" style="margin-bottom:0">switch how "~6 M" is read: which reading fits 32 H100s in 48 hours?</p>
+    </div>
+  </div>
+  <p class="note">Paper §4.1, §4.2.3: GOES 2018–2023 and MRMS 2020–2023 for training (2024 held out); loss eq. (1) with EDM weight λ(σ) and pre-conditioning; σ uniform in log σ; two experts split at σ<sub>int</sub>; Stable AdamW, lr 5 × 10⁻⁴ → 0 cosine, batch 32 on 32 H100 (data parallel), ~6 M iterations, ~48 h per model. Not stated: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub> (we use EDM defaults 0.002, 80, σ<sub>data</sub> = 0.5 and a toy σ<sub>int</sub> = 1), warm-up, weight decay, precision, whether the two experts are separate networks. Images, dates and loss values: toy. FLOP per iteration: our estimate (backward ≈ 2 × forward).</p>
+</section>
+
+<section class="slide" id="sc-forecast" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 4 · one full forecast</p>
+  <h2>One forecast = three nested loops: lead steps × σ steps × models</h2>
+  <div class="two" style="grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px">
+    <div>
+      <pre class="code sccode" id="scFcCode"></pre>
+      <div class="stg" style="margin-top:4px"><span>Mode</span><div class="chips" id="scFcMode"><button class="chip" data-v="now" aria-pressed="true">nowcast 12 × 10 min</button><button class="chip" data-v="near">nearcast 12 × 1 h</button></div></div>
+      <div class="stg"><span>Models</span><div class="chips" id="scFcMod"><button class="chip" data-v="1">satellite</button><button class="chip" data-v="2" aria-pressed="true">satellite + radar</button></div></div>
+      <div class="ctl"><label for="scFcS">σ steps</label><input type="range" id="scFcS" min="10" max="100" step="10" value="100"><output></output></div>
+      <div class="ctl"><label for="scFcM">Members</label><input type="range" id="scFcM" min="1" max="48" step="1" value="1"><output></output></div>
+      <div class="ctl"><label for="scFcG">H100 GPUs</label><input type="range" id="scFcG" min="1" max="32" step="1" value="1"><output></output></div>
+    </div>
+    <div class="panel" style="padding:10px 12px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:4px"><button class="btn scgo" type="button" id="scFcPlay">▶ Play</button><button class="btn scgo" type="button" id="scFcI">+1 σ step</button><button class="btn scgo" type="button" id="scFcK">+1 lead step</button><button class="btn scgo" type="button" id="scFcR">Reset</button><div class="chips" id="scFcSp" style="margin:0 0 0 auto;gap:4px"><button class="chip" data-v="1">slow</button><button class="chip" data-v="4" aria-pressed="true">fast</button><button class="chip" data-v="20">faster</button></div></div>
+      <div class="scfig" id="scFcFig"></div>
+      <div class="readout" id="scFcRead"></div>
+      <p class="tryit" style="margin-bottom:0">press ▶ and watch the line that runs in the code; then drop σ steps to 20 or add members and GPUs: what changes the wall-clock time, and what only the GPU-hours?</p>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: 33 s per forecast step at 100 sampling steps (fp32, one H100) → ~7 min for a 12-h nearcast or a 2-h nowcast (12 steps); multimodal forecasts run the satellite and radar models in sequence and "take longer" (we assume 2×). §4.2.3: σ<sub>max</sub> → σ<sub>min</sub> in 100 steps, coarse expert then fine expert at σ<sub>int</sub>. §4.2.1, Fig. 11: sliding window, predictions recycled as inputs. Network evaluations: we count one per σ step; EDM's Heun sampler makes a second (correction) call on most steps, which the paper does not mention. Time ∝ σ steps, members spread evenly over GPUs: our assumptions. Images: toy.</p>
+</section>
+
+<section class="slide" id="sc-domain" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 5 · global or limited area?</p>
+  <h2>Limited area: one fixed CONUS box, and storms keep entering from outside it</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px">
+    <div class="panel" style="padding:10px 12px">
+      <div class="stg"><span>Domain</span><div class="chips" id="scDoDom"><button class="chip" data-v="conus" aria-pressed="true">CONUS 512 × 896</button><button class="chip" data-v="col">Colombia toy 300 × 400</button><button class="chip" data-v="small">small 128 × 128</button></div></div>
+      <div id="scDoMap"></div>
+      <div class="ctl"><label for="scDoU">Steering wind</label><input type="range" id="scDoU" min="0" max="30" step="1" value="12"><output></output></div>
+      <div class="ctl"><label for="scDoA">From</label><input type="range" id="scDoA" min="0" max="345" step="15" value="270"><output></output></div>
+      <div style="display:flex;gap:10px;align-items:center"><div class="ctl" style="flex:1"><label for="scDoT">Lead time</label><input type="range" id="scDoT" min="0" max="12" step="0.5" value="3"><output></output></div><button class="btn scgo" type="button" id="scDoPlay">▶ Play</button></div>
+    </div>
+    <div>
+      <div class="readout" id="scDoRead" style="margin-top:0"></div>
+      <p class="tryit">play 0 → 12 h on CONUS, then on the Colombia box: how much of the domain is still "fed" only by what the model saw at t = 0?</p>
+      <div class="card sccard" style="margin-top:4px">
+        <h4>What the paper says</h4>
+        <p><span class="sctag p">paper</span>One fixed domain over the continental US on the HRRR Lambert grid: 512 × 896 cells of 6 km ≈ 3,072 × 5,376 km (§4.1, §4.2.2). The paper itself calls it "the limited-area domain" (§4.2.1). Scores are computed inside the CONUS land boundary (§2.2.1).</p>
+        <p><span class="sctag p">paper</span>For 0–12 h nearcasts, large-scale context comes from one GFS field (Z500 or simulated reflectivity), "given the limited-area domain and the relatively long forecast lead time" (§4.2.1). Nowcasts (0–2 h) have none.</p>
+        <p><span class="sctag o">our reasoning</span>Nothing outside the box enters the network. A storm upstream of the boundary is invisible at t = 0, so near the inflow edge the forecast must invent what comes in. The band of affected cells grows as wind × lead time (green: cells whose upstream source was inside the box).</p>
+      </div>
+      <button class="btn scgo" data-go="sc-region" style="margin-top:6px">options for another region, and Colombia →</button>
+    </div>
+  </div>
+  <p class="note">Toy: storms as dots moved by one uniform steering wind; no growth, decay or new storms. It shows only the geometry of an open boundary, not a model result. A real model also sees clues near the edge (anvils, moisture, the GFS field in nearcast mode), so the "trustworthy interior" is our simplification, not something the paper measures.</p>
+</section>
+
+<section class="slide" id="sc-region" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · the whole network · 6 · another region</p>
+  <h2>Running StormScope elsewhere: retrain on a new box, grow the box, or crop (untested)</h2>
+  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:18px">
+    <div>
+      <div class="stack" id="scRgOpt" style="gap:6px"></div>
+      <p class="tryit">click an option to see what it would mean for a Colombian domain on the map and in the numbers.</p>
+    </div>
+    <div class="panel" style="padding:10px 12px">
+      <h3>A Colombian box at 6 km (our example)</h3>
+      <div id="scRgMap"></div>
+      <div class="ctl"><label for="scRgW">West–east</label><input type="range" id="scRgW" min="600" max="4800" step="60" value="2400"><output></output></div>
+      <div class="ctl"><label for="scRgH">South–north</label><input type="range" id="scRgH" min="600" max="3600" step="60" value="1800"><output></output></div>
+      <div class="readout" id="scRgRead"></div>
+      <p class="tryit" style="margin-bottom:0">shrink the box below ~750 km: what breaks? Grow it past CONUS size: what does training need then?</p>
+    </div>
+  </div>
+  <p class="note">Paper: satellite-first design deployable "even where radar data is unavailable" (§4.2.1); "a pathway to extend skillful mesoscale forecasting to … countries without strong operational mesoscale modeling programs" (Abstract, §3); domain parallelism "to directly scale both training and inference to larger domains including full disk forecasts", 3 km CONUS demo 1792 × 1024, ~87.5 % scaling efficiency (§6.2). Earth2Studio lists a StormScopeMeteosatEU variant (MTG FCI imagery over Europe). Our estimates: time and memory ∝ number of tokens (true for patch embedding, MLP and neighborhood attention; ignores fixed costs); 70 GB × token ratio for training memory. Colombian outline: rough, hand-drawn.</p>
+</section>

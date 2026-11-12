@@ -1,0 +1,209 @@
+<style>
+.slide.sd-s{padding-top:16px;padding-bottom:10px}
+.sd-s h2{font-size:clamp(21px,2.4vw,26px);margin-bottom:8px}
+.sd-s .kicker{max-width:none}
+.sd-s p,.sd-s .note,.sd-s .tryit{max-width:none}
+.sd-s>.note{font-size:12.5px;line-height:1.4;margin:6px 0 0}
+.sd-s .tryit{font-size:13.5px;margin:5px 0;padding:5px 10px}
+.sd-s h3{text-transform:none;letter-spacing:.01em;font-size:12.5px;font-family:var(--f-body);font-weight:600;margin:0 0 3px}
+.sd-s .ctl{margin:4px 0;font-size:13.5px;grid-template-columns:minmax(5.5em,auto) minmax(0,1fr) 5.4em}
+.sd-s .readout{gap:6px 20px;margin-top:6px}
+.sd-s .readout b{font-size:20px}
+.sd-s .readout span{font-size:10.5px}
+.sd-s .stg{grid-template-columns:6.4em minmax(0,1fr)}
+.sd-s .stg .chips{margin:2px 0}
+.sd-card{padding:9px 14px}
+.sd-card h4{margin:0 0 3px;font-size:15px}
+.sd-card p{font-size:14px;margin:0 0 4px}
+.sd-card p:last-child{margin-bottom:0}
+.sd-steps{margin:0 0 4px;gap:6px}
+.sd-steps button.chip{font-size:13px;padding:4px 11px}
+.sd-steps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.sd-row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.sd-row .btn,.sd-go{padding:4px 12px;font-size:13px}
+.sd-g{display:grid;gap:16px;align-items:start}
+.sd-pn{padding:10px 12px}
+.sd-s .eq{font-size:16px;padding:7px 12px;margin:4px 0 6px;white-space:normal}
+.sd-s ul.pts{font-size:14px;margin:0 0 6px}
+.sd-s ul.pts li{margin:2px 0}
+.sd-s .callout{font-size:13.5px;padding:8px 12px;margin:6px 0}
+.sd-cv canvas{cursor:crosshair;touch-action:none}
+.sd-lab{font-size:12px;color:var(--muted);margin:2px 0 0;text-align:center}
+.sd-kc{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+@media (max-width:900px){.sd-g{grid-template-columns:minmax(0,1fr)!important}}
+</style>
+
+<section class="slide sd-s" id="sd-why" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 1 · why a generative model</p>
+  <h2>When the future is uncertain, a model trained on squared error forecasts the average: two half-storms</h2>
+  <div class="fig-wrap" id="sdWhFig"></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);margin-top:4px">
+    <div>
+      <div class="ctl"><label for="sdWhS">Track uncertainty</label><input type="range" id="sdWhS" min="0" max="1" step="0.02" value="0.6"><output></output></div>
+      <div class="stg"><span>Possible futures</span><div class="chips" id="sdWhK"><button class="chip" data-v="1">1 (certain)</button><button class="chip" data-v="2">2</button><button class="chip" data-v="3" aria-pressed="true">3</button><button class="chip" data-v="5">5</button></div></div>
+      <div class="stg"><span>May decay?</span><div class="chips" id="sdWhNone"><button class="chip" data-v="0" aria-pressed="true">no</button><button class="chip" data-v="1">yes: add "no storm"</button></div></div>
+      <div class="sd-row" style="margin:4px 0"><button class="btn" type="button" id="sdWhDraw">🎲 Draw a sample</button><span class="note" id="sdWhCnt" style="margin:0"></span></div>
+      <p class="tryit">raise the uncertainty with 3 futures: the MSE forecast's peak drops below 30 dBZ and the storm "disappears"; each drawn sample keeps a full 50 dBZ storm.</p>
+    </div>
+    <div>
+      <div class="panel sd-pn"><h3>South–north cut through the storms (toy, dBZ)</h3><div id="sdWhCut"></div></div>
+    </div>
+  </div>
+  <p class="note">A model trained to minimise the mean squared error (MSE) predicts the <b>conditional mean</b> of the possible futures: it is the best single guess on average, but no single future looks like it. A <b>generative model</b> learns the whole distribution p(future | past) and draws one plausible future per sample; StormScope does this with a diffusion model (paper §4.2.3: it "learns the conditional distribution p(x<sub>t+</sub> | x<sub>t−</sub>; c)"). Toy: one storm on a 40 × 70 grid of 6 km cells, peak 50 dBZ; averages taken in dBZ.</p>
+</section>
+
+<section class="slide sd-s" id="sd-forward" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 2 · the forward process: adding noise</p>
+  <h2>Adding noise x<sub>σ</sub> = x + σ·n destroys the small scales first; the large ones survive longest</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.86fr) minmax(0,1.07fr) minmax(0,1.07fr)">
+    <div>
+      <h3 id="sdFwA"></h3>
+      <div id="sdFwImg"></div>
+      <div class="sd-row" style="margin-top:4px"><div class="chips" id="sdFwView" style="margin:0;gap:5px"><button class="chip" data-v="1" aria-pressed="true" style="padding:3px 9px;font-size:12px">rescaled to unit size</button><button class="chip" data-v="0" style="padding:3px 9px;font-size:12px">raw values</button></div><button class="btn" type="button" id="sdFwNew" style="padding:3px 10px;font-size:12px">new noise</button></div>
+    </div>
+    <div class="panel sd-pn"><h3>Power spectrum: how much variance at each scale</h3><div id="sdFwSpec"></div></div>
+    <div class="panel sd-pn"><h3>Histogram of pixel values</h3><div id="sdFwHist"></div></div>
+  </div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);margin-top:6px">
+    <div>
+      <div class="ctl"><label for="sdFwS">Noise level σ</label><input type="range" id="sdFwS" min="-2.7" max="1.9" step="0.02" value="-0.6"><output></output></div>
+      <div class="chips sd-steps" id="sdFwPre"><button class="chip" data-v="-2.7">σ = 0.002</button><button class="chip" data-v="-1.3">0.05</button><button class="chip" data-v="-0.6" aria-pressed="true">0.25</button><button class="chip" data-v="0">1</button><button class="chip" data-v="0.7">5</button><button class="chip" data-v="1.9">80</button></div>
+      <p class="tryit">step σ through 0.002 → 80 with the chips: watch where the noisy spectrum (blue) leaves the clean one (black). Everything to the right of that point is drowned.</p>
+    </div>
+    <div>
+      <div class="readout" id="sdFwRead" style="margin-top:0"></div>
+      <div class="callout blue" style="margin-top:6px">Noise is <b>white</b>: the same variance σ² at every scale. Weather fields have most variance at large scales, so the small scales sink below the noise first. Denoising therefore rebuilds the <b>large scales at high σ</b> and the <b>details at low σ</b>.</div>
+    </div>
+  </div>
+  <p class="note">Forward process as in EDM (Karras et al. 2022): x<sub>σ</sub> = x + σ·n with n ~ N(0, I), the same as eq. (1) of the paper (n<sub>σ</sub> ~ N(0, σ²I), §4.2.3). σ range 0.002–80 and σ<sub>data</sub> = 0.5 are EDM defaults (the paper does not state its values). Toy: a 128 × 128 storm field (6 km cells, 768 km across), scaled to standard deviation 0.5; "rescaled" divides by √(σ² + σ<sub>data</sub>²), which is what EDM's input scaling c<sub>in</sub> does before the network sees the image.</p>
+</section>
+
+<section class="slide sd-s" id="sd-denoiser" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 3 · the denoiser</p>
+  <h2>The best possible denoiser returns a weighted average of all clean images that could explain the noisy one</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
+    <div class="panel sd-pn"><div id="sdDnFig"></div></div>
+    <div>
+      <div class="eq">D(x<sub>σ</sub>; σ) = Σ<sub>i</sub> w<sub>i</sub> x<sub>i</sub>, &nbsp; w<sub>i</sub> ∝ exp(−‖x<sub>σ</sub> − x<sub>i</sub>‖² / 2σ²)</div>
+      <ul class="pts">
+        <li>The <b>denoiser</b> D gets a noisy image and σ, and must guess the clean image. Trained with squared error, its best answer is the <b>average of the candidates</b>, weighted by how well each one explains the noisy image.</li>
+        <li><b>High σ</b>: every candidate fits equally badly → equal weights → the dataset mean (blurry).</li>
+        <li><b>Low σ</b>: one candidate fits far better → weight ≈ 1 → a sharp image.</li>
+      </ul>
+      <div class="ctl"><label for="sdDnS">Noise level σ</label><input type="range" id="sdDnS" min="-2" max="1.3" step="0.02" value="0.3"><output></output></div>
+      <div class="stg"><span>Noise image #</span><div class="chips" id="sdDnK"><button class="chip" data-v="0" aria-pressed="true">1</button><button class="chip" data-v="1">2</button><button class="chip" data-v="2">3</button><button class="chip" data-v="3">4</button><button class="chip" data-v="4">5</button><button class="chip" data-v="5">6</button><button class="chip" data-v="6">7</button><button class="chip" data-v="7">8</button></div></div>
+      <div class="sd-row"><button class="btn" type="button" id="sdDnNew">new noise</button><span class="sd-kc" id="sdDnInfo"></span></div>
+      <p class="tryit">slide σ slowly from 20 down to 0.01: at what σ does the denoiser "decide" which of the 8 storms it is looking at?</p>
+    </div>
+  </div>
+  <p class="note">Toy: 8 "training" futures of the same scene (32 × 56 cells, dBZ/60), exact optimal denoiser for this finite set (the posterior mean under equal prior weights). With 1,792 pixels pooling evidence, the noisy image still identifies its source at σ ≈ 1. A real network never sees the whole training set at once: it learns a smooth approximation of this average and can also produce futures that are not in the training set. StormScope trains this denoiser with eq. (1) of the paper (§4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-field" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 4 · a picture with two pixels</p>
+  <h2>With two pixels, every image is a point; the denoiser becomes a field of arrows towards the data</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)">
+    <div class="panel sd-pn sd-cv"><div id="sdFdMap"></div></div>
+    <div>
+      <ul class="pts">
+        <li>Image = (rain at pixel A, rain at pixel B). Training data: 3 kinds of future, <b style="color:var(--lw)">storm over A</b>, <b style="color:var(--cool)">storm over B</b>, <b style="color:var(--muted)">no storm</b> (9 examples each).</li>
+        <li>Shading: the density of <b>noisy</b> images p<sub>σ</sub>. Arrows: D(x; σ) − x, the step to the denoiser's guess. Divided by σ², it is the <b>score</b> ∇ log p<sub>σ</sub>: the uphill direction of that density.</li>
+        <li>Diffusion sampling = start at high σ, then follow the arrows while lowering σ.</li>
+      </ul>
+      <div class="ctl"><label for="sdFdS">Noise level σ</label><input type="range" id="sdFdS" min="-2" max="0.5" step="0.01" value="-0.3"><output></output></div>
+      <div class="sd-row"><button class="btn" type="button" id="sdFdDrop">Drop 20 points at σ = 1</button><button class="btn" type="button" id="sdFdClr">Clear</button><button class="btn" type="button" id="sdFdStop">❚❚ Stop</button></div>
+      <div class="readout" id="sdFdRead"></div>
+      <p class="tryit">set σ to 1 and click anywhere on the map: the point follows the arrows as σ shrinks and lands on one kind of future. Hover to see the denoiser's guess and its weights.</p>
+    </div>
+  </div>
+  <p class="note">Toy: 27 data points in 2-D, exact denoiser of this set; σ range 0.01–3 (toy). Points move with the probability-flow ODE of EDM (Karras et al. 2022, eq. 1 with σ(t) = t): dx/dσ = (x − D(x; σ)) / σ. In StormScope a point x is a whole future frame: 512 × 896 = 458,752 numbers per channel (§4.2.2), so 8 GOES channels (Table 1) make a point in a space of ~3.7 million dimensions; the arrows are the same idea.</p>
+</section>
+
+<section class="slide sd-s" id="sd-live" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 5 · training one, live</p>
+  <h2>Train a diffusion model in your browser: a small neural network learns the arrows from noisy examples</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:14px">
+    <div>
+      <div class="sd-row" style="margin-bottom:4px"><button class="btn" type="button" id="sdLvPlay">▶ Train</button><button class="btn" type="button" id="sdLvReset">↺ Reset</button><button class="btn" type="button" id="sdLvSamp">🎲 Sample now</button></div>
+      <div class="stg"><span>Data</span><div class="chips" id="sdLvData"><button class="chip" data-v="storms" aria-pressed="true">3 storms</button><button class="chip" data-v="ring">ring</button><button class="chip" data-v="moons">two moons</button></div></div>
+      <div class="stg"><span>Learning rate</span><div class="chips" id="sdLvLr"><button class="chip" data-v="0.0003">3e-4</button><button class="chip" data-v="0.002" aria-pressed="true">2e-3</button><button class="chip" data-v="0.01">1e-2</button><button class="chip" data-v="0.05">5e-2</button></div></div>
+      <div class="stg"><span>Width</span><div class="chips" id="sdLvW"><button class="chip" data-v="8">8</button><button class="chip" data-v="32" aria-pressed="true">32</button><button class="chip" data-v="64">64</button></div></div>
+      <div class="readout" id="sdLvRead"></div>
+      <div id="sdLvLoss" style="margin-top:4px"></div>
+    </div>
+    <div>
+      <div class="sd-g" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+        <div><h3 style="color:var(--accent)">Network: D<sub>θ</sub>(x; σ) − x</h3><div id="sdLvNet"></div></div>
+        <div><h3>Exact: D(x; σ) − x</h3><div id="sdLvEx"></div></div>
+        <div><h3 id="sdLvSmH">Samples from the network</h3><div id="sdLvSm"></div></div>
+      </div>
+      <div class="ctl" style="margin-top:6px"><label for="sdLvS">Arrows at σ</label><input type="range" id="sdLvS" min="-2" max="0.6" step="0.02" value="-0.7"><output></output></div>
+      <div class="card sd-card" id="sdLvCard"></div>
+      <p class="tryit">press ▶ Train and watch the left arrows come to match the middle ones; press 🎲 Sample now early (at ~200 iterations) and again later. Then try learning rate 5e-2 or width 8.</p>
+    </div>
+  </div>
+  <p class="note">Everything runs in this page: a 2-hidden-layer network with SiLU activations, written by hand (forward pass, backpropagation, Adam), inputs (c<sub>in</sub>·x, c<sub>noise</sub>), EDM pre-conditioning D = c<sub>skip</sub>·x + c<sub>out</sub>·F and EDM loss weight λ(σ) (Karras et al. 2022; σ<sub>data</sub> = 0.5). σ is drawn uniform in log σ as in the paper (§4.2.3), here between 0.01 and 4 (toy). Batch 128, fresh data each step. Sampler: EDM Heun, 24 steps, ρ = 7. StormScope does exactly this, with a 195 M-parameter transformer on 512 × 896 images, batch 32 on 32 H100 GPUs for ~6 M iterations (~48 h; §4.2.2–4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-sample" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 6 · sampling</p>
+  <h2>Sampling: start from pure noise at σ<sub>max</sub> and step σ down to 0, following the denoiser</h2>
+  <div class="sd-g" style="grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr) minmax(0,.95fr);gap:14px">
+    <div class="panel sd-pn"><h3>80 samples in the two-pixel world</h3><div id="sdSmMap"></div></div>
+    <div class="panel sd-pn"><h3>Pixel A of each sample, step by step</h3><div id="sdSmPath"></div>
+      <div class="sd-row"><div class="ctl" style="flex:1;margin:0"><label for="sdSmI">Show step</label><input type="range" id="sdSmI" min="0" max="12" step="1" value="12"><output></output></div><button class="btn" type="button" id="sdSmPlay">▶ Play</button></div></div>
+    <div>
+      <div class="ctl"><label for="sdSmN">Steps N</label><input type="range" id="sdSmN" min="1" max="64" step="1" value="12"><output></output></div>
+      <div class="stg"><span>Sampler</span><div class="chips" id="sdSmAlg"><button class="chip" data-v="euler">Euler</button><button class="chip" data-v="heun" aria-pressed="true">Heun</button><button class="chip" data-v="churn">Heun + churn</button></div></div>
+      <div class="readout" id="sdSmRead"></div>
+      <div class="card sd-card" id="sdSmCard" style="margin-top:6px"></div>
+      <p class="tryit">set N = 1, then 2, 4, 12: with too few steps the samples land between the clusters (grey).</p>
+      <div class="sd-row"><button class="chip sd-go" type="button" data-go="sb-sample">Same on a toy storm image →</button></div>
+    </div>
+  </div>
+  <p class="note">EDM samplers (Karras et al. 2022, Alg. 1–2): Euler takes the slope (x − D)/σ at the start of a step; Heun averages it with the slope at the end (2 network calls per step, 1 on the last); "churn" adds a little fresh noise before each step. Schedule σ<sub>i</sub> = (σ<sub>max</sub><sup>1/ρ</sup> + i/(N−1)·(σ<sub>min</sub><sup>1/ρ</sup> − σ<sub>max</sub><sup>1/ρ</sup>))<sup>ρ</sup>, ρ = 7 (EDM default), then σ = 0. Toy: σ<sub>max</sub> = 4, σ<sub>min</sub> = 0.01, exact denoiser of a 3-cluster distribution (no storm 50 %, A 25 %, B 25 %). StormScope: "ODE-based deterministic sampler with stochastic perturbations", 100 steps from σ<sub>max</sub> to σ<sub>min</sub> (paper §4.2.3).</p>
+</section>
+
+<section class="slide sd-s" id="sd-cond" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 7 · conditioning on the past</p>
+  <h2>Give the denoiser the past as extra input channels, and it learns p(future | past)</h2>
+  <div class="chips sd-steps" id="sdCdStep"><button class="chip" data-v="0" aria-pressed="true">① Noisy future</button><button class="chip" data-v="1">② Past states</button><button class="chip" data-v="2">③ Lat / lon</button><button class="chip" data-v="3">④ Sun angle</button><button class="chip" data-v="4">⑤ GFS (nearcast)</button><button class="chip" data-v="5">⑥ σ</button><button class="chip" data-v="6">⑦ Concatenate → D<sub>θ</sub></button></div>
+  <div class="fig-wrap" id="sdCdFig"></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);margin-top:4px">
+    <div>
+      <div class="card sd-card" id="sdCdCard"></div>
+      <div class="stg" style="margin-top:4px"><span>Mode</span><div class="chips" id="sdCdMode"><button class="chip" data-v="now" aria-pressed="true">nowcast: 6 past frames</button><button class="chip" data-v="near">nearcast: 1 frame + GFS</button></div></div>
+      <p class="tryit">click ①–⑦ to walk through the inputs; switch the mode: what changes in the stack?</p>
+    </div>
+    <div class="panel sd-pn">
+      <div class="sd-g" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+        <div><div id="sdCdMap"></div></div>
+        <div>
+          <h3>Toy: the past is the condition c</h3>
+          <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdP">Past storm: west ↔ east</label><input type="range" id="sdCdP" min="0" max="1" step="0.01" value="0.3"><output style="text-align:left"></output></div>
+          <div class="ctl" style="grid-template-columns:1fr;gap:0"><label for="sdCdQ">Past storm: weak ↔ strong</label><input type="range" id="sdCdQ" min="0" max="1" step="0.01" value="0.7"><output style="text-align:left"></output></div>
+          <div class="readout" id="sdCdRead" style="margin-top:2px"></div>
+          <p class="tryit" style="font-size:12.5px">move the past: the same 150 noise seeds now land on other futures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Paper §4.2.2: "a dense input conditioning scheme where exogenous variables, namely the latitude/longitude and the solar zenith angle, are concatenated with the noisy latent state along with the previous state (satellite or radar) inputs and NWP conditioning inputs, if used"; σ enters through the DiT's conditional layer norm. §4.2.3: nowcast models use 6 states 10 min apart, nearcast models 1 state an hour earlier; Table 2 and §4.2.1: the satellite nearcast model gets GFS 500 hPa height, the radar model GFS simulated reflectivity, and the radar model is also conditioned on satellite. Channel totals are not stated (see sb-tokens). Toy: exact conditional denoiser, deterministic Heun sampler, 24 steps.</p>
+</section>
+
+<section class="slide sd-s" id="sd-edm" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · StormScope · diffusion from scratch · 8 · the EDM recipe</p>
+  <h2>StormScope's recipe (EDM): scale inputs and outputs, weight the loss, choose σ, two experts, 100 steps</h2>
+  <div class="chips sd-steps" id="sdEdStep"><button class="chip" data-v="0" aria-pressed="true">① Pre-conditioning</button><button class="chip" data-v="1">② Loss weight λ(σ)</button><button class="chip" data-v="2">③ Which σ to train on</button><button class="chip" data-v="3">④ Two experts</button><button class="chip" data-v="4">⑤ The sampler</button></div>
+  <div class="sd-g" style="grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px">
+    <div>
+      <div class="card sd-card" id="sdEdCard"></div>
+      <div class="ctl" style="margin-top:6px"><label for="sdEdS">Noise level σ</label><input type="range" id="sdEdS" min="-2.7" max="1.9" step="0.02" value="0"><output></output></div>
+      <div class="readout" id="sdEdRead"></div>
+      <p class="tryit">pick a step, then slide σ: read the coefficients, and in ① see what the network F actually has to output.</p>
+      <div class="sd-row"><span class="sd-kc">More:</span><button class="chip sd-go" type="button" data-go="sb-train">training on a toy storm →</button><button class="chip sd-go" type="button" data-go="sb-block">how σ enters a DiT block →</button></div>
+    </div>
+    <div class="panel sd-pn"><h3 id="sdEdH"></h3><div id="sdEdFig"></div><div id="sdEdImgs"></div></div>
+  </div>
+  <p class="note">Paper §4.2.3: EDM framework (Karras et al. 2022), loss eq. (1) with "the standard EDM loss weighting" λ(σ) and EDM pre-conditioning "to ensure unit variance across the range of noise levels"; σ "uniform in log(σ)" within [σ<sub>min</sub>, σ<sub>max</sub>]; coarse and fine experts split at σ<sub>int</sub> (refs. 46–47: eDiff-I, cBottle); sampler: EDM ODE with stochastic perturbations, 100 steps, expert switch at σ<sub>int</sub>. Not stated in the paper: σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub>, σ<sub>data</sub>, ρ, churn settings. Shown: EDM defaults σ<sub>min</sub> = 0.002, σ<sub>max</sub> = 80, σ<sub>data</sub> = 0.5, ρ = 7, log-normal P<sub>mean</sub> = −1.2, P<sub>std</sub> = 1.2 (Karras et al. 2022, Table 1); σ<sub>int</sub> = 1 is a toy value.</p>
+</section>
