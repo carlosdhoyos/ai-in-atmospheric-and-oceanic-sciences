@@ -215,7 +215,7 @@
         const go = () => { sel = k; render(); }; g.addEventListener("click", go); g.addEventListener("keydown", e => { if (e.key === "Enter") go(); }); });
       const b = B[sel];
       $("#ncScCard").innerHTML = `<h4 style="color:var(${b.col})">${b.t}</h4><p>${b.d}</p>`;
-      const r = (k, v, c = "") => `<div><span>${k}</span><b class="${c}" style="font-size:19px">${v}</b></div>`;
+      const r = (k, v, c = "") => `<div><span>${k}</span><b class="${c}" style="font-size:17px">${v}</b></div>`;
       $("#ncScRead").innerHTML = r("Grid", "3 km", "c-lw") + r("Step", "1 h", "c-lw") + r("State", "99 vars") + r("Conditioning", "26 vars") + r("Training", "64 H100 × 120 h", "c-sw");
       drawToy();
     }
@@ -226,7 +226,7 @@
   demo("nc-stormscope", slide => {
     const W = world(5, 35, 1.4); let timer = null, mode = "now";
     chips($("#ncSsMode"), v => { mode = v; render(); });
-    const tS = slider("ncSsT", v => v < 0 ? -v * DT + " min before" : v === 0 ? "issue time" : "+" + leadTxt(v), () => draw());
+    const tS = slider("ncSsT", v => v === 0 ? "issue" : (v < 0 ? "−" : "+") + leadTxt(Math.abs(v)), () => draw());
     const stop = () => { clearInterval(timer); timer = null; $("#ncSsPlay").textContent = "▶ Play"; };
     $("#ncSsPlay").onclick = () => { if (timer) { stop(); return; } const r = $("#ncSsT"); if (+r.value >= 12) r.value = -4;
       $("#ncSsPlay").textContent = "❚❚ Pause";
@@ -253,7 +253,7 @@
         s.forEach((q, i) => el("text", { x: x + w / 2, y: y + 40 + 13 * i, "text-anchor": "middle", "font-size": 11, fill: css("--muted") }, svg, q)); };
       const ar = (x1, y1, x2, y2) => el("line", { x1, y1, x2, y2, stroke: css("--muted"), "stroke-width": 1.6, "marker-end": "url(#ncSsAr)" }, svg);
       box(0, 2, 210, 56, near ? "Observed state at t" : "Past hour of observations", [near ? "GOES or MRMS, one state 1 h earlier" : "6 states, 10 min apart (GOES or MRMS)"], "--data", false);
-      box(0, 64, 210, 56, "GFS guidance", near ? ["one channel: Z500 (satellite model)", "or simulated reflectivity (radar)"] : ["not used: observations only"], near ? "--muted" : "--line", false);
+      box(0, 64, 210, 56, "GFS guidance", near ? ["one channel: Z500 (satellite model)", "or simulated reflectivity (radar)"] : ["not used: observations only"], "--muted", false);
       box(310, 22, 230, 78, "Transformer diffusion", ["generates the next state", "(noise → sample), 6 km"], "--lw", true);
       box(640, 30, 170, 62, near ? "State t + 1 h" : "State t + 10 min", ["fed back as input"], "--lw", false);
       ar(210, 30, 306, 52); if (near) ar(210, 92, 306, 72); ar(540, 61, 636, 61);
@@ -324,11 +324,11 @@
       const ink = lum(css("--bg")) > 128 ? "#111" : "#fff";
       const halo = ink === "#111" ? "rgba(255,255,255,.85)" : "rgba(0,0,0,.75)";
       const ov = (g, S) => { if (view !== "truth") { outline(g, S, i => T[i] >= th, halo, 4); outline(g, S, i => T[i] >= th, ink, 1.6); } };
-      if (view === "prob") VIZ.raster($("#ncCmMap"), D.prob(q, k), N, N, { color: CM.vir, lo: 0, hi: 1, mask: v => v <= 0, overlay: ov, onHover: hover });
+      if (view === "prob") VIZ.raster($("#ncCmMap"), D.prob(q, k), N, N, { color: CM.vir, lo: 0, hi: 1, mask: v => v < 0.1, overlay: ov, onHover: hover });
       else { const f = view === "truth" ? T : view === "pers" ? D.truth[0] : view === "adv" ? D.adv[k] : D.mem0[k];
         VIZ.raster($("#ncCmMap"), f, N, N, { ...DBZ, overlay: (g, S) => { ov(g, S); if (view === "truth") outline(g, S, i => T[i] >= th, ink, 1.2); }, onHover: hover }); }
-      if (view === "prob") VIZ.legend($("#ncCmLeg"), { color: CM.vir, min: 0, max: 100, label: `% of members ≥ ${th} dBZ`, width: 400 });
-      else VIZ.legend($("#ncCmLeg"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 400 });
+      if (view === "prob") VIZ.legend($("#ncCmLeg"), { color: CM.vir, min: 0, max: 100, label: `% of members ≥ ${th} dBZ (blank < 10)`, width: 345 });
+      else VIZ.legend($("#ncCmLeg"), { color: CM.precip, min: 10, max: 60, label: "dBZ (toy)", width: 345 });
       const xs = i => i * DT / 60;
       VIZ.curves($("#ncCmFig"), [
         { pts: C.pers.map((v, i) => [xs(i), v]), col: "--muted", label: "persistence", w: 2 },
@@ -338,7 +338,7 @@
         { xr: [0, 6], yr: [0, 1], xl: "lead time (h)", yl: `CSI at ${th} dBZ`, W: 460, H: 190, xt: [0, 1, 2, 3, 4, 5, 6], yt: [0, 0.5, 1], xf: v => fmt(v, 0), yf: v => fmt(v, 1), marks: [[xs(k), leadTxt(k), "--fg"]], legendAt: "tr" });
       $("#ncCmRead").innerHTML = `<div><span>Persistence</span><b style="color:var(--muted)">${fmt(C.pers[k], 2)}</b></div><div><span>Advection</span><b style="color:var(--cool)">${fmt(C.adv[k], 2)}</b></div><div><span>Ens. P ≥ 30 %</span><b class="c-lw">${fmt(C.p30[k], 2)}</b></div><div><span>One member</span><b class="c-lw">${fmt(C.mem[k], 2)}</b></div>`;
       const sp = Math.hypot(D.est.u, D.est.v) * KM * 60 / DT, tr = Math.hypot(...D.trueMove) * KM * 60 / DT;
-      $("#ncCmNote").innerHTML = `Outline: where the truth is ≥ ${th} dBZ. Estimated motion ${fmt(sp, 0)} km/h (true mean cell motion ${fmt(tr, 0)} km/h). A single member is sharp, so a storm placed a little wrong counts twice (a miss and a false alarm): the <b>double penalty</b>. The ensemble curve uses the map "P ≥ 30 %", which keeps what enough members agree on.`;
+      $("#ncCmNote").innerHTML = `Outline: truth ≥ ${th} dBZ. Estimated motion ${fmt(sp, 0)} km/h (true mean ${fmt(tr, 0)} km/h). One sharp member pays a <b>double penalty</b> for a storm placed a little wrong (a miss and a false alarm); the ensemble curve scores the map "P ≥ 30 %".`;
     }
     render(); return render;
   });

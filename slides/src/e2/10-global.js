@@ -257,9 +257,11 @@ demo("gf-crps", () => {
     $("#gfCrRead").innerHTML = `<div><span>CRPS</span><b class="c-data">${fmt(c, 3)}</b></div><div><span>E|X − y|</span><b>${fmt(t1, 3)}</b></div><div><span>½ E|X − X′|</span><b class="c-ok">${fmt(t1 - c, 3)}</b></div><div><span>|mean − y|</span><b class="c-sw">${fmt(mae, 3)}</b></div>`;
     // average CRPS vs spread, at the current bias; the ensemble mean's RMSE does not depend on spread
     const ss = Array.from({ length: 51 }, (_, i) => i * .05), cr = ss.map(sv => [sv, eCrps(sv, b)]), best = cr.reduce((p, q) => q[1] < p[1] ? q : p);
-    VIZ.curves($("#gfCrAvg"), [{ pts: ss.map(sv => [sv, Math.sqrt(1 + b * b)]), col: "--sw", dash: "5 4", label: "RMSE of the ensemble mean" }, { pts: cr, col: "--data", w: 2.6, label: "mean CRPS" }],
-      { xr: [0, 2.5], yr: [0.4, Math.sqrt(1 + b * b) + .45], W: 520, H: 140, xl: "ensemble spread (truth: 1)", xt: [0, 1, 2, 2.5], yt: [0.4, 0.8, 1.2], xf: v => fmt(v, 1), yf: v => fmt(v, 1), legendAt: "tr",
+    const rm = Math.sqrt(1 + b * b), A = VIZ.curves($("#gfCrAvg"), [{ pts: ss.map(sv => [sv, rm]), col: "--sw", dash: "5 4" }, { pts: cr, col: "--data", w: 2.6 }],
+      { xr: [0, 2.5], yr: [0.4, Math.sqrt(1 + b * b) + .3], W: 520, H: 140, xl: "ensemble spread (truth: 1)", xt: [0, 1, 2, 2.5], yt: [0.4, 0.8, 1.2], xf: v => fmt(v, 1), yf: v => fmt(v, 1), legendAt: "tr",
         marks: [[s, "", "--data"], [best[0], "", "--ok"]] });
+    el("text", { x: A.X(2.48), y: A.Y(rm) - 5, "text-anchor": "end", "font-size": 11, fill: css("--sw") }, A.svg, "RMSE of the ensemble mean (blind to spread)");
+    el("text", { x: A.X(2.48), y: A.Y(cr[50][1]) + 15, "text-anchor": "end", "font-size": 11, fill: css("--data") }, A.svg, "mean CRPS");
     $("#gfCrAvgT").innerHTML = `yours <b style="color:var(--data)">${fmt(eCrps(s, b), 3)}</b> · best <b style="color:var(--ok)">${fmt(best[1], 3)}</b> at spread ${fmt(best[0], 2)}`;
   }
   render(); return render;
@@ -345,15 +347,15 @@ demo("gf-quiz", () => {
     ["gf-atlas", "--arch", "Atlas · 2026", "Latent transformer; diffusion, interpolant or CRPS; 15 days."]];
   $("#gfQzCards").innerHTML = C.map(([id, col, t, d]) => `<button class="btn" type="button" data-go="${id}" title="${d}" style="border-color:var(${col});color:var(${col})">← ${t}</button>`).join("");
   VIZ.quiz($("#gfQzBox"), [
-    { q: "A deterministic model trained on MSE looks smooth at day 10 because it predicts…", opts: ["a too-coarse grid", "the mean of the possible futures", "too few variables"], right: 1,
-      why: "Averaging many sharp but shifted futures cancels the small waves; MSE rewards exactly that average." },
-    { q: "What does the FFT across tokens give AFNO that a small convolution does not?", opts: ["Mass conservation", "A global receptive field", "A longer time step"], right: 1,
-      why: "Each Fourier mode spans the whole circle, so one per-mode multiplication mixes all longitudes at once." },
-    { q: "SFNO replaced the 2-D FFT on the lat-lon grid because that FFT…", opts: ["assumes a flat periodic map", "is slow on GPUs", "limits the channels"], right: 0,
-      why: "Poles become edges and the top row wraps to the bottom; the spherical harmonic transform respects the geometry, which helps keep 1-year rollouts stable." },
-    { q: "All 16 members of an ensemble are identical. Its CRPS equals…", opts: ["zero", "|x − y|, the absolute error", "half its spread"], right: 1,
-      why: "With no spread the ½ E|X − X′| term is zero: CRPS generalises the absolute error." },
-    { q: "Atlas trained with CRPS instead of diffusion needs, per sample…", opts: ["one network pass", "many denoising passes", "no latent space"], right: 0,
-      why: "A CRPS generator maps noise to a sample in one pass; diffusion needs many passes, which is why FCN3 reports large speed-ups over GenCast." }]);
+    { q: "An MSE-trained model is smooth at day 10: it predicts…", opts: ["a coarse grid", "the mean of possible futures", "few variables"], right: 1,
+      why: "Averaging sharp but shifted futures cancels the small waves, and MSE rewards that average." },
+    { q: "What does the FFT across tokens give AFNO?", opts: ["Mass conservation", "A global receptive field", "A longer step"], right: 1,
+      why: "Each Fourier mode spans the whole circle, so one per-mode product mixes all longitudes." },
+    { q: "SFNO dropped the lat-lon 2-D FFT because it…", opts: ["assumes a flat, periodic map", "is slow", "limits channels"], right: 0,
+      why: "Poles become edges and the top row wraps to the bottom; spherical harmonics respect the sphere." },
+    { q: "All 16 members are identical. Their CRPS is…", opts: ["zero", "the absolute error |x − y|", "half the spread"], right: 1,
+      why: "With no spread the ½ E|X − X′| term vanishes: CRPS generalises the absolute error." },
+    { q: "Atlas trained with CRPS needs, per sample…", opts: ["one network pass", "many denoising passes", "no latent space"], right: 0,
+      why: "Noise in, sample out in one pass; diffusion needs a pass per denoising step." }]);
   return () => {};
 });
