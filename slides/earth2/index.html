@@ -256,6 +256,20 @@ nav.series button.mod{font:inherit;cursor:pointer;background:transparent}
 .mapwrap{position:relative}
 .mapwrap canvas{cursor:crosshair}
 .maptip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12px;font-family:var(--f-mono);white-space:pre;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;z-index:3}
+.stg{display:grid;grid-template-columns:5.5em minmax(0,1fr);align-items:center;gap:8px}
+.stg>span{font-size:13px;color:var(--muted)}
+.stg .chips{margin:4px 0}
+.stg .chip{padding:3px 9px;font-size:12px}
+pre.code{font-family:var(--f-mono);font-size:12.5px;line-height:1.55;background:var(--well);border-radius:10px;padding:12px 14px;margin:0;white-space:pre-wrap;word-break:break-word;min-height:15em}
+pre.code .k{color:var(--arch)} pre.code .g{color:var(--ok)} pre.code .m{color:var(--muted)}
+table.zt{width:100%;border-collapse:collapse;font-size:13px}
+table.zt th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);padding:5px 8px;position:sticky;top:0;background:var(--bg)}
+table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:top}
+.mut{color:var(--muted)}
+.card.cmp{padding:8px 12px}
+.card.cmp h4{font-size:14px;margin:0 0 2px}
+.card.cmp p{font-size:13px}
+.stack:has(>.card.cmp){gap:7px}
 
 </style>
 </head>
@@ -331,6 +345,239 @@ nav.series button.mod{font:inherit;cursor:pointer;background:transparent}
       <div class="calc" id="ppInfo" style="white-space:normal;min-height:7.5em"></div>
     </div>
     <div class="panel"><div id="ppBub"></div></div>
+  </div>
+</section>
+<section class="slide" id="s-global" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker">2 · Global forecasting · autoregressive rollout</p>
+  <h2>A forecast is one 6-hour step fed back into itself: small errors grow</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:15px">An AI global model learns a single map: the state at <i>t</i> → the state at <i>t</i> + 6 h. To reach day 10 it applies that map 40 times to its own output (<b>autoregressive rollout</b>). Here the "truth" is a toy 500 hPa field of drifting Rossby-like waves; the toy model gets each wave's speed slightly wrong, more so for the small waves, so the error compounds with every step.</p>
+      <div class="ctl"><label for="gfRoErr">Step error</label><input type="range" id="gfRoErr" min="0" max="3" step="0.25" value="1"><output></output></div>
+      <div class="ctl"><label for="gfRoLead">Lead time</label><input type="range" id="gfRoLead" min="0" max="60" step="1" value="20"><output></output></div>
+      <div class="chips" id="gfRoShow"><button class="chip" type="button" data-v="fc" aria-pressed="true">Forecast</button><button class="chip" type="button" data-v="err">Error (forecast − truth)</button><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" id="gfRoPlay" style="margin-left:auto">▶ Play 15 days</button></div>
+      <p class="tryit">play the rollout, then set the step error to 0.5 and to 3: on which day does the ACC fall below 0.6, and when does the forecast's RMSE pass the climatology line?</p>
+      <div class="readout" id="gfRoRead" style="margin-top:2px"></div>
+    </div>
+    <div class="panel">
+      <h3 id="gfRoTitle">Forecast</h3>
+      <div id="gfRoMap"></div><div id="gfRoLeg" style="display:flex;justify-content:center"></div>
+      <div class="two even" style="gap:12px;margin-top:4px"><div id="gfRoRmse"></div><div id="gfRoAcc"></div></div>
+      <p class="note" style="margin:4px 0 0">Toy model. RMSE and ACC (anomaly correlation, against the zonal-mean climatology) are area-weighted by cos(latitude). <b>Persistence</b> = the start state kept fixed; <b>climatology</b> = always forecast the zonal mean. ACC = 0.6 is the usual "useful skill" line. Real models: FourCastNet steps 6 h at 0.25° (arXiv:2202.11214); SFNO stays stable for 1,460 six-hour steps = 1 year (arXiv:2306.03838).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="gf-afno" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker">FourCastNet (2022) · Adaptive Fourier Neural Operator</p>
+  <h2>Mixing in Fourier space: every longitude talks to every other in one step</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px">A vision transformer mixes its patches ("tokens") with attention, whose cost grows with the square of the number of tokens. <b>AFNO</b> instead takes an <b>FFT</b> across the tokens, multiplies each wavenumber by learned weights (a small MLP per mode), drops the high modes, and transforms back. Here: one latitude circle of the toy field, 128 longitudes.</p>
+      <div class="eq" style="font-size:16px;margin:6px 0">x → FFT → <i>X<sub>k</sub></i> → <i>W<sub>k</sub></i>·<i>X<sub>k</sub></i> (keep <i>k</i> ≤ <i>K</i>) → iFFT → x′</div>
+      <div class="ctl"><label for="gfAfLat">Latitude</label><input type="range" id="gfAfLat" min="25" max="70" step="1" value="48"><output></output></div>
+      <div class="ctl"><label for="gfAfK">Modes kept <i>K</i></label><input type="range" id="gfAfK" min="0" max="40" step="1" value="12"><output></output></div>
+      <div class="chips" id="gfAfMode"><button class="chip" type="button" data-v="id" aria-pressed="true">W = 1 (just truncate)</button><button class="chip" type="button" data-v="learn">W learned for +24 h</button></div>
+      <p class="tryit">with W = 1, lower <i>K</i> from 40 to 3 and watch the curve lose its small waves; then switch to the learned W: one complex number per mode moves every wave one day east.</p>
+      <div class="readout" id="gfAfRead" style="margin-top:2px"></div>
+    </div>
+    <div class="panel">
+      <h3>Signal along the latitude circle (m)</h3>
+      <div id="gfAfSig"></div>
+      <h3 style="margin-top:6px">Amplitude per zonal wavenumber <i>k</i> · learned phase shift</h3>
+      <div id="gfAfSpec"></div>
+      <p class="note" style="margin:4px 0 0">Toy: W<sub>k</sub> is fitted by least squares on pairs (day <i>d</i>, day <i>d</i> + 1) for 20 days at this latitude. FourCastNet: AFNO token mixing (FFT → per-mode MLP → iFFT) on a ViT patch backbone, 0.25° global grid (721 × 1440), 6-h step, 20 variables, ERA5 1979–2015; a week-long forecast in &lt; 2 s; the authors estimate ~45,000× faster per node-hour than IFS (vs an extrapolated 18 km IFS) (Pathak et al., arXiv:2202.11214).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="gf-sfno" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker">SFNO (2023) · spherical Fourier neural operator</p>
+  <h2>The Earth is not a flat periodic rectangle: SFNO mixes in spherical harmonics</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px">A 2-D FFT on the lat-lon grid treats the map as a flat sheet that wraps around top to bottom. But the top row is a single point (the pole), a grid cell at 80° is 6 times narrower than at the equator, and the north edge does not touch the south edge. <b>SFNO</b> replaces the FFT by the <b>spherical harmonic transform</b>: basis patterns <i>Y<sub>ℓ</sub><sup>m</sup></i> that live on the sphere, with no edges and no special poles.</p>
+      <div class="chips" id="gfShWhat"><button class="chip" type="button" data-v="ylm" aria-pressed="true">Spherical harmonic</button><button class="chip" type="button" data-v="blob">A round storm</button><button class="chip" type="button" data-v="fft">Flat-FFT mode</button></div>
+      <div id="gfShCtlY"><div class="ctl"><label for="gfShL">Degree ℓ</label><input type="range" id="gfShL" min="0" max="12" step="1" value="5"><output></output></div>
+      <div class="ctl"><label for="gfShM">Order m</label><input type="range" id="gfShM" min="0" max="12" step="1" value="3"><output></output></div></div>
+      <div id="gfShCtlB" hidden><div class="ctl"><label for="gfShLat">Latitude</label><input type="range" id="gfShLat" min="0" max="85" step="1" value="70"><output></output></div></div>
+      <p class="tryit">compare a harmonic with a flat-FFT mode near the pole (drag the globe to look down on it); then move the round storm from 0° to 85° and read how many grid columns it covers.</p>
+      <div class="readout" id="gfShRead" style="margin-top:2px"></div>
+    </div>
+    <div class="panel">
+      <div class="two even" style="gap:12px;align-items:center"><div><h3>On the sphere (drag)</h3><div id="gfShGlobe"></div></div><div><h3>On the lat-lon grid</h3><div id="gfShMap"></div><div id="gfShArea"></div></div></div>
+      <p class="note" style="margin:6px 0 0">Spherical harmonics are drawn as real parts <i>P<sub>ℓ</sub><sup>m</sup></i>(sin φ) cos(<i>m</i>λ); a flat-FFT mode is cos(<i>m</i>λ)·cos(2π<i>n</i>·row/rows), periodic top to bottom. SFNO / FourCastNet v2: the lat-lon FFT "incorrectly assumes a flat geometry" (artefacts, dissipation); 73 channels, ERA5 0.25°, 6 h; stable rollouts for 1 year (1,460 steps), a year-long rollout in 12.8 min on one A6000; skill comparable to IFS to ~2 weeks (Bonev et al., ICML 2023, arXiv:2306.03838).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="gf-blur" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker">Deterministic models at long lead · the mean of possible futures</p>
+  <h2>Trained on mean-squared error, a model learns to blur</h2>
+  <div class="two">
+    <div>
+      <p style="font-size:14.5px">At long lead the future is uncertain: many states are possible. A network trained to minimise the <b>mean-squared error</b> (MSE) is rewarded for predicting their <b>average</b>, and the average of many sharp, shifted waves is a smooth, weak wave. The small scales go first, because their position is lost first. Each member below is as sharp as the truth.</p>
+      <div class="ctl"><label for="gfBlLead">Lead time</label><input type="range" id="gfBlLead" min="0" max="15" step="0.5" value="6"><output></output></div>
+      <div class="ctl"><label for="gfBlN">Members</label><input type="range" id="gfBlN" min="1" max="50" step="1" value="30"><output></output></div>
+      <div class="chips" id="gfBlShow"><button class="chip" type="button" data-v="tr">Truth</button><button class="chip" type="button" data-v="mem">One member</button><button class="chip" type="button" data-v="mean" aria-pressed="true">Mean of the members</button><button class="chip" type="button" id="gfBlNew" style="margin-left:auto">↻ New members</button></div>
+      <p class="tryit">at day 6, switch between one member and the mean: which has the lower RMSE, and which one looks like weather? Then read the spectrum on the right at wavenumbers above 10.</p>
+      <div class="readout" id="gfBlRead" style="margin-top:2px"></div>
+    </div>
+    <div class="panel">
+      <h3 id="gfBlTitle">Mean of the members</h3>
+      <div id="gfBlMap"></div>
+      <h3 style="margin-top:8px">Zonal power spectrum (log–log)</h3>
+      <div id="gfBlSpec"></div>
+      <p class="note" style="margin:4px 0 0">Toy: each member shifts every wave by a random phase whose spread grows with lead time and wavenumber. The mean of the members is what an MSE-trained deterministic model converges to. This is why FourCastNet 3 is trained as an ensemble and reports "realistic spectra to 60 days" (arXiv:2507.12144).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="gf-crps" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker k-data">FourCastNet 3 (2025) · ensembles scored by CRPS</p>
+  <h2>CRPS rewards an ensemble that is both sharp and honest about its spread</h2>
+  <div class="two">
+    <div>
+      <div class="eq data" style="font-size:16px;margin:0 0 6px">CRPS = E|<i>X</i> − <i>y</i>| − ½ E|<i>X</i> − <i>X</i>′| = ∫ (<i>F</i>(<i>x</i>) − 1[<i>x</i> ≥ <i>y</i>])² d<i>x</i></div>
+      <p style="font-size:14.5px;margin:4px 0">The <b>continuous ranked probability score</b> compares the ensemble's CDF <i>F</i> with the observation <i>y</i>. The first term pulls members towards <i>y</i>; the second rewards spread. Blurring every member does not help: CRPS is minimised, on average, only when members are drawn from the true distribution.</p>
+      <div class="chips" id="gfCrPre"><button class="chip" type="button" data-v="good" aria-pressed="true">Sharp, calibrated</button><button class="chip" type="button" data-v="wide">Over-dispersed</button><button class="chip" type="button" data-v="narrow">Under-dispersed</button><button class="chip" type="button" data-v="det">Deterministic</button><button class="chip" type="button" data-v="bias">Biased</button></div>
+      <div class="ctl"><label for="gfCrY">Observation <i>y</i></label><input type="range" id="gfCrY" min="-3" max="3" step="0.05" value="0.6"><output></output></div>
+      <div class="ctl"><label for="gfCrS">Spread</label><input type="range" id="gfCrS" min="0" max="2.5" step="0.05" value="1"><output></output></div>
+      <div class="ctl"><label for="gfCrB">Bias</label><input type="range" id="gfCrB" min="-2" max="2" step="0.05" value="0"><output></output></div>
+      <p class="tryit">drag the observation: an under-dispersed ensemble wins when <i>y</i> is near its centre and loses badly in the tails. On the right, find the spread that gives the lowest average CRPS.</p>
+    </div>
+    <div class="panel">
+      <h3>One case: ensemble CDF vs the observation (shaded area = CRPS)</h3>
+      <div id="gfCrFig"></div>
+      <div class="readout" id="gfCrRead" style="margin-top:0"></div>
+      <h3 style="margin-top:8px">Average over many cases (truth ~ N(0, 1))</h3>
+      <div id="gfCrAvg"></div>
+      <p class="note" style="margin:4px 0 0">Toy: 16 members placed at Gaussian quantiles (16 is FCN3's training ensemble size). FourCastNet 3: probabilistic, convolutional on the sphere (spherical-harmonic filters + local DISCO convolutions), ~711M parameters, 72 variables, 0.25°, 6 h; trained with point-wise CRPS plus a <b>spectral CRPS</b> (CRPS on the spherical-harmonic coefficients, so members keep the right power at each scale); 50 members in evaluation; 15-day forecast ≈ 60 s on one H100; ~8× faster than GenCast, ~60× than IFS-ENS; beats IFS-ENS, close to GenCast (Bonev, Kurth et al., arXiv:2507.12144).</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="gf-atlas" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker k-arch">Atlas = Earth-2 Medium Range (2026) · latent transformer</p>
+  <h2>Atlas forecasts in a compressed latent space, and one backbone fits three training recipes</h2>
+  <div class="fig-wrap" id="gfAtFlow"></div>
+  <div class="two" style="margin-top:4px">
+    <div>
+      <div class="chips" id="gfAtObj" style="margin-top:0"><button class="chip" type="button" data-v="diff" aria-pressed="true">Diffusion</button><button class="chip" type="button" data-v="si">Stochastic interpolant</button><button class="chip" type="button" data-v="crps">CRPS</button><button class="chip" type="button" id="gfAtGo" style="margin-left:auto">▶ Draw 8 samples</button></div>
+      <div class="ctl"><label for="gfAtSteps">Sampler steps</label><input type="range" id="gfAtSteps" min="2" max="40" step="1" value="20"><output></output></div>
+      <p class="tryit">draw samples with each recipe and compare where a sample starts (pure noise or today's state) and how many network passes it needs.</p>
+      <div class="card" id="gfAtCard"></div>
+    </div>
+    <div class="panel" style="padding:12px 16px"><h3>Toy 2-D latent space: how one sample of z<sub>t+1</sub> is drawn</h3><div id="gfAtFig"></div><div class="readout" id="gfAtRead" style="margin-top:0"></div></div>
+  </div>
+  <p class="note" style="margin:4px 0 0">The 2-D latent and the step counts are a toy. Atlas (Atmospheric Transformer in Latent Space): a latent transformer that can be trained as diffusion, stochastic interpolant or CRPS; 15-day forecasts, 70+ variables, 0.25°; NVIDIA reports statistically significant gains over IFS and GenCast on most variables (arXiv:2601.18111 "Demystifying Data-Driven Probabilistic Medium-Range Weather Forecasting"). Earth2Studio: Atlas, AtlasCRPS (80 GB VRAM); weights nvidia/atlas-era5; Brightband runs it daily (NVIDIA blog, 26 Jan 2026).</p>
+</section>
+
+<section class="slide" id="gf-quiz" data-g="a" data-sec="2 · Global forecasting">
+  <p class="kicker">Global forecasting · check yourself</p>
+  <h2>Four models, four ideas</h2>
+  <div class="two">
+    <div class="stack" id="gfQzCards"></div>
+    <div><div id="gfQzBox"></div><p class="tryit">answer all four; the feedback explains each answer.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s-studio" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">7 · Earth2Studio · build a pipeline</p>
+  <h2>Earth2Studio chains a data source, a model and an output in a few lines of Python</h2>
+  <div class="two">
+    <div>
+      <p><b>Earth2Studio</b> is NVIDIA's open-source (Apache-2.0) Python package for running the models. A forecast is always the same recipe: a <b>data source</b> gives the initial state, a <b>prognostic</b> model (<code>px</code>) steps it forward, an optional <b>diagnostic</b> model (<code>dx</code>) derives other variables, and an <b>IO backend</b> stores the result.</p>
+      <div class="stg"><span class="mut">Data</span><div class="chips" id="stData"></div></div>
+      <div class="stg"><span class="mut">Model</span><div class="chips" id="stPx"></div></div>
+      <div class="stg"><span class="mut">Workflow</span><div class="chips" id="stRun"><button class="chip" data-v="det" aria-pressed="true">deterministic</button><button class="chip" data-v="ens">ensemble</button><button class="chip" data-v="dx">+ diagnostic</button></div></div>
+      <div class="stg" id="stDxRow"><span class="mut">Diagnostic</span><div class="chips" id="stDx"></div></div>
+      <div class="ctl"><label for="stN">Steps</label><input type="range" id="stN" min="1" max="60" step="1" value="20"><output id="stNO"></output></div>
+      <p class="tryit">pick StormCast with GFS as the data source, then switch the data to HRRR: what does the check say, and why?</p>
+    </div>
+    <div class="panel"><pre class="code" id="stCode"></pre><div class="readout" id="stRead"></div><p class="note" id="stWarn" style="margin:6px 0 0"></p></div>
+  </div>
+  <p class="note">Pattern from the Earth2Studio README (github.com/NVIDIA/earth2studio). The README warns that the release after 0.20.0 will be 1.0.0 and not backward compatible: pin the version you test with. Each model's licence belongs to its provider.</p>
+</section>
+
+<section class="slide" id="st-zoo" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">The model zoo · not only NVIDIA</p>
+  <h2>One interface for NVIDIA, ECMWF, Google, Microsoft, Huawei and academic models</h2>
+  <div class="chips" id="stTask"><span class="mut" style="font-size:13px;align-self:center">Task:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="px">Prognostic (steps in time)</button><button class="chip" data-v="dx">Diagnostic</button><button class="chip" data-v="da">Assimilation</button></div>
+  <div class="chips" id="stDev"><span class="mut" style="font-size:13px;align-self:center">Developer:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="NVIDIA">NVIDIA</button><button class="chip" data-v="other">Others</button></div>
+  <p class="tryit">filter to assimilation, then to diagnostics: which models are tied to one region?</p>
+  <div class="fig-wrap" id="stTable" style="max-height:370px;overflow-y:auto"></div>
+  <p class="note">A selection of the classes listed in the Earth2Studio docs (models_px, models_dx, models_da pages), with the region and recommended GPU memory they state. Developers and architectures: FACTS (GraphCast arXiv:2212.12794; Pangu-Weather arXiv:2211.02556; FuXi arXiv:2306.12873; AIFS arXiv:2406.01465; Aurora arXiv:2405.13063).</p>
+</section>
+
+<section class="slide" id="st-users" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">Who uses it · as reported by NVIDIA</p>
+  <h2>Weather services, energy companies and insurers are the first users</h2>
+  <div class="two">
+    <div>
+      <div class="chips" id="stSector"><button class="chip" data-v="wx" aria-pressed="true">Weather services</button><button class="chip" data-v="en">Energy</button><button class="chip" data-v="fin">Insurance and risk</button></div>
+      <p class="tryit">switch sectors: which Earth-2 model appears most often, and for what lead time?</p>
+      <div class="stack" id="stUsers"></div>
+    </div>
+    <div class="panel"><h4>Which models, by sector</h4><div id="stUseBars"></div>
+      <p class="note" style="margin:6px 0 0">Count of named organisations using or evaluating each model, from the 26 Jan 2026 announcement (blogs.nvidia.com/blog/nvidia-earth-2-open-models). These are vendor statements, not independent evaluations; "evaluating" is not "operational".</p></div>
+  </div>
+</section>
+
+<section class="slide" id="st-choose" data-g="a" data-sec="7 · Earth2Studio">
+  <p class="kicker k-arch">Choosing a model · and its limits</p>
+  <h2>Pick the model by the question: lead time, region, resolution, and whether you need an ensemble</h2>
+  <div class="two">
+    <div>
+      <div class="stack" id="stCases"></div>
+      <p class="tryit">answer each case, then read why. Which case has no single right model?</p>
+    </div>
+    <div>
+      <div class="callout amber" style="margin-top:0"><b>Limits every report should state</b>
+        <ul class="pts" style="font-size:14px;margin:6px 0 0">
+          <li><b>Trained on reanalysis.</b> ERA5 has its own biases and smooths extremes; a model learns them too.</li>
+          <li><b>Out of distribution.</b> Record heat or a warmer climate lies outside the training years; check before trusting extremes.</li>
+          <li><b>Blur and calibration.</b> Deterministic models get smoother with lead time; ensembles must be checked for spread (section 2).</li>
+          <li><b>Physics is learned, not imposed.</b> Conservation and balance hold only approximately.</li>
+          <li><b>Verification first.</b> Compare against observations and a physics baseline for your region before operational use.</li>
+        </ul></div>
+      <p class="note">Vendor speed-ups use different baselines (section 4 shows CorrDiff's four versions). Quote the baseline with the number.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="st-summary" data-g="" data-sec="7 · Earth2Studio">
+  <p class="kicker">Summary and references</p>
+  <h2>Six ideas to take away</h2>
+  <div class="two">
+    <div>
+      <ol class="pts" style="padding-left:20px">
+        <li><b>Emulators learn one big step</b> from decades of reanalysis and roll it out on a GPU, thousands of times cheaper than integrating the equations.</li>
+        <li><b>Geometry matters.</b> SFNO uses spherical harmonics and HEALPix gives equal-area pixels, so the poles are not edges.</li>
+        <li><b>Mean vs samples.</b> Training on MSE gives the blurry mean of possible futures; CRPS (FCN3) and diffusion (CorrDiff, StormCast, cBottle) give sharp, varied samples.</li>
+        <li><b>Every link is learnable:</b> assimilation (HealDA), global forecast (FCN3, Atlas), downscaling (CorrDiff), nowcasting (StormScope), climate (DLESyM, cBottle).</li>
+        <li><b>Cheap ensembles change risk analysis:</b> thousands of members make rare events countable.</li>
+        <li><b>Verify locally.</b> Open weights and Earth2Studio make it possible to test these models on your own region and data.</li>
+      </ol>
+      <div id="stQuiz"></div>
+    </div>
+    <div>
+      <h3>References</h3>
+      <ul class="pts" style="font-size:13px">
+        <li>Pathak et al. (2022). FourCastNet. arXiv:2202.11214.</li>
+        <li>Bonev et al. (2023). Spherical Fourier Neural Operators. ICML, arXiv:2306.03838.</li>
+        <li>Bonev, Kurth et al. (2025). FourCastNet 3. arXiv:2507.12144.</li>
+        <li>NVIDIA (2026). Demystifying data-driven probabilistic medium-range weather forecasting (Atlas). arXiv:2601.18111.</li>
+        <li>NVIDIA (2026). HealDA. arXiv:2601.17636.</li>
+        <li>Mardani et al. (2025). Residual corrective diffusion modeling for km-scale atmospheric downscaling (CorrDiff). Commun. Earth Environ., arXiv:2309.15214.</li>
+        <li>Pathak et al. (2024). StormCast. arXiv:2408.10958.</li>
+        <li>NVIDIA (2026). Learning accurate storm-scale evolution from observations (StormScope). arXiv:2601.17268.</li>
+        <li>Brenowitz, Ge et al. (2025). Climate in a Bottle (cBottle). arXiv:2505.06474.</li>
+        <li>Cresswell-Clay et al. (2024). DLESyM. arXiv:2409.16247.</li>
+        <li>NVIDIA Earth-2: nvidia.com/en-us/high-performance-computing/earth-2 · Earth2Studio: github.com/NVIDIA/earth2studio · weights: huggingface.co/collections/nvidia/earth-2.</li>
+      </ul>
+      <p class="note">Demos in this deck are toys written for teaching; they show mechanisms, not the real models' skill. Numbers next to them come from the papers and NVIDIA announcements cited on each slide. Related: the <a href="https://claude.ai/artifact/1jrTDUz6ck9e8KiU1JimmX" target="_blank" rel="noopener">neural-network series</a> (operations, layers, attention, optimisation).</p>
+    </div>
   </div>
 </section>
 
@@ -929,6 +1176,151 @@ demo("p-map", () => {
     if (hov >= 0) info(hov); else $("#ppInfo").innerHTML = "Hover or tap a bubble. Bars span the lead times each model is built for; positions are approximate.";
   }
   render(); return render;
+});
+
+</script>
+<script>/* e2/60-studio.js */
+/* ═════════ Earth-2 · section 7: Earth2Studio ═════════ */
+
+/* pipeline builder → Python code */
+demo("s-studio", () => {
+  const DATA = { GFS: { reg: "global", d: "NOAA GFS analysis, 0.25°, global" }, IFS: { reg: "global", d: "ECMWF IFS HRES initial state, 0.25°" },
+    ARCO_ERA5: { reg: "global", d: "ERA5 reanalysis (analysis-ready, cloud-optimised), for past dates" }, HRRR: { reg: "na", d: "NOAA HRRR, 3 km, hourly, CONUS" },
+    GOES: { reg: "obs", d: "GOES satellite imagery (North America)" } };
+  const PX = { FCN3: { reg: "global", dt: 6, vram: 80, dev: "NVIDIA", ens: true, d: "FourCastNet 3: probabilistic, 0.25°, 72 variables" },
+    Atlas: { reg: "global", dt: 6, vram: 80, dev: "NVIDIA", ens: true, d: "Earth-2 Medium Range, 0.25°, 70+ variables" },
+    SFNO: { reg: "global", dt: 6, vram: 40, dev: "NVIDIA", d: "Spherical Fourier neural operator, 73 channels" },
+    GraphCastOperational: { reg: "global", dt: 6, vram: 40, dev: "Google DeepMind", d: "Graph network on an icosahedral mesh, 0.25°" },
+    AIFS: { reg: "global", dt: 6, vram: 40, dev: "ECMWF", d: "ECMWF's AI Forecasting System" },
+    Pangu6: { reg: "global", dt: 6, vram: 40, dev: "Huawei", d: "Pangu-Weather, 6-hour model" },
+    StormCast: { reg: "na", dt: 1, vram: 40, dev: "NVIDIA", d: "Emulates 3 km HRRR, 1-h steps, central US" },
+    StormScopeGOES: { reg: "obs", dt: 1 / 6, vram: 80, dev: "NVIDIA", d: "Earth-2 Nowcasting: GOES imagery on the HRRR grid, 10-min steps" } };
+  const DX = { PrecipitationAFNOv2: "total precipitation from the atmospheric state", SolarRadiationAFNO6H: "surface solar radiation, 6-hourly",
+    WindgustAFNO: "10 m wind gust", CorrDiffTaiwan: "2 km downscaling over Taiwan (CorrDiff)", TCTrackerWuDuan: "tropical-cyclone tracks" };
+  const mk = (host, keys, on) => { $(host).innerHTML = keys.map(k => `<button class="chip" data-v="${k}" aria-pressed="${k === on}">${k}</button>`).join(""); };
+  mk("#stData", Object.keys(DATA), "GFS"); mk("#stPx", Object.keys(PX), "FCN3"); mk("#stDx", Object.keys(DX), "PrecipitationAFNOv2");
+  let data = "GFS", px = "FCN3", wf = "det", dx = "PrecipitationAFNOv2";
+  chips($("#stData"), v => { data = v; render(); }); chips($("#stPx"), v => { px = v; render(); });
+  chips($("#stRun"), v => { wf = v; render(); }); chips($("#stDx"), v => { dx = v; render(); });
+  const nS = slider("stN", v => v, render);
+  const span = (c, t) => `<span class="${c}">${t}</span>`, kw = t => span("k", t), str = t => span("g", `"${t}"`), cm = t => span("m", "# " + t);
+  function render() {
+    const n = nS(), P = PX[px], D = DATA[data];
+    $("#stDxRow").style.display = wf === "dx" ? "" : "none";
+    const L = [];
+    L.push(`${kw("from")} earth2studio.models.px ${kw("import")} ${px}`);
+    L.push(`${kw("from")} earth2studio.data ${kw("import")} ${data}`);
+    L.push(`${kw("from")} earth2studio.io ${kw("import")} ZarrBackend`);
+    if (wf === "ens") L.push(`${kw("from")} earth2studio.perturbation ${kw("import")} SphericalGaussian`);
+    if (wf === "dx") L.push(`${kw("from")} earth2studio.models.dx ${kw("import")} ${dx}`);
+    L.push(`${kw("from")} earth2studio.run ${kw("import")} ${{ det: "deterministic", ens: "ensemble", dx: "diagnostic" }[wf]} ${kw("as")} run`, "");
+    L.push(`model = ${px}.load_model(${px}.load_default_package())`);
+    if (wf === "dx") L.push(`diagnostic = ${dx}.load_model(${dx}.load_default_package())`);
+    L.push(`data = ${data}()`);
+    L.push(`io = ZarrBackend(${str(`outputs/${px.toLowerCase()}_${wf}.zarr`)})`);
+    if (wf === "ens") L.push(`perturbation = SphericalGaussian(noise_amplitude=0.15)  ${cm("noise on the initial state")}`);
+    L.push("");
+    const t0 = str("2025-01-01T00:00:00");
+    if (wf === "det") L.push(`run([${t0}], ${n}, model, data, io)`);
+    if (wf === "ens") L.push(`run([${t0}], ${n}, 16, model, data, io, perturbation)  ${cm("16 members")}`);
+    if (wf === "dx") L.push(`run([${t0}], ${n}, model, diagnostic, data, io)`);
+    $("#stCode").innerHTML = L.join("\n");
+    const lead = n * P.dt, leadTxt = lead < 1 ? `${fmtN(lead * 60)} min` : lead < 48 ? `${fmt(lead, 0)} h` : `${fmt(lead / 24, 1)} days`;
+    $("#stRead").innerHTML = `<div><span>Lead time</span><b>${leadTxt}</b></div><div><span>Step</span><b>${P.dt < 1 ? "10 min" : P.dt + " h"}</b></div><div><span>GPU memory (rec.)</span><b>${P.vram} GB</b></div>`;
+    const W = [];
+    if (P.reg === "global" && D.reg !== "global") W.push(`<b style="color:var(--lw)">Mismatch:</b> ${px} is global and needs a global initial state; ${data} is ${D.reg === "na" ? "a regional (CONUS) model analysis" : "satellite imagery"}.`);
+    if (P.reg === "na" && data !== "HRRR") W.push(`<b style="color:var(--lw)">Mismatch:</b> StormCast starts from a 3 km HRRR state, so use HRRR; it also takes a coarse global model for its conditioning variables (see its docs).`);
+    if (P.reg === "obs" && data !== "GOES") W.push(`<b style="color:var(--lw)">Mismatch:</b> StormScope learns from observations (GOES imagery, and radar for the MRMS variant), not from model analyses.`);
+    if (wf === "ens" && !P.ens) W.push(`<b style="color:var(--sw)">Note:</b> ${px} is deterministic: the ensemble comes only from perturbing the initial state, and its spread may be too small.`);
+    if (wf === "ens" && P.ens) W.push(`<b style="color:var(--ok)">Good:</b> ${px} is trained to produce ensembles; members differ even from the same start.`);
+    if (wf === "dx" && dx === "CorrDiffTaiwan" && P.reg !== "global") W.push(`<b style="color:var(--lw)">Mismatch:</b> CorrDiffTaiwan needs coarse fields over Taiwan; a CONUS model does not cover it.`);
+    if (!W.length) W.push(`<b style="color:var(--ok)">Check passed.</b> ${px}: ${P.d}. Data: ${D.d}.`);
+    $("#stWarn").innerHTML = W.join(" ");
+  }
+  render(); return render;
+});
+
+/* model table */
+demo("st-zoo", () => {
+  // name, kind, developer, region, year, vram, description
+  const Z = [["FCN", "px", "NVIDIA", "Global", 2022, 40, "FourCastNet (AFNO), 0.25°, 6 h"], ["SFNO", "px", "NVIDIA", "Global", 2023, 40, "Spherical Fourier neural operator"],
+    ["FCN3", "px", "NVIDIA", "Global", 2025, 80, "FourCastNet 3, probabilistic ensembles"], ["Atlas / AtlasCRPS", "px", "NVIDIA", "Global", 2026, 80, "Earth-2 Medium Range, 0.25°"],
+    ["DLESyM", "px", "NVIDIA / U. Washington", "Global", 2025, 40, "Coupled atmosphere–ocean, S2S to climate"], ["StormCast / StormCastCONUS", "px", "NVIDIA", "N. America", 2024, 40, "HRRR emulator, 1-h steps"],
+    ["StormScopeGOES / MRMS", "px", "NVIDIA", "N. America", 2026, 80, "Nowcasting from GOES / radar on the HRRR grid"], ["StormScopeMeteosatEU", "px", "NVIDIA", "Europe", 2026, 80, "Nowcasting from MTG FCI imagery"],
+    ["CBottleVideo", "px", "NVIDIA", "Global", 2025, 40, "cBottle video model on HEALPix"], ["GraphCastOperational", "px", "Google DeepMind", "Global", 2022, 40, "GNN on icosahedral multimesh, 0.25°"],
+    ["GenCastMini", "px", "Google DeepMind", "Global", 2024, 40, "Diffusion ensemble (mini variant)"], ["AIFS / AIFSENS", "px", "ECMWF", "Global", 2025, 40, "ECMWF AI Forecasting System"],
+    ["Aurora", "px", "Microsoft", "Global", 2024, 48, "3-D Swin foundation model, 0.25°"], ["Pangu24 / 6 / 3", "px", "Huawei", "Global", 2023, 40, "3-D Earth-Specific Transformer"],
+    ["FuXi", "px", "Fudan University", "Global", 2023, 40, "Cascaded U-Transformers, 6 h"], ["FengWu", "px", "Shanghai AI Lab", "Global", 2023, 40, "Autoregressive, 6 h"],
+    ["ACE2ERA5", "px", "Ai2", "Global", 2024, 40, "Climate emulator"], ["CAMulator", "px", "NSF NCAR", "Global", 2025, 24, "Emulator of the CAM6 atmosphere"],
+    ["CorrDiffTaiwan", "dx", "NVIDIA", "Asia (Taiwan)", 2023, 40, "25 km → 2 km downscaling"], ["CorrDiffEra5Hrrr", "dx", "NVIDIA", "N. America", 2026, 80, "ERA5 0.25° → 3 km HRRR"],
+    ["CorrDiffCosmoEra5", "dx", "NVIDIA", "Europe", 2026, 80, "ERA5 → COSMO-REA"], ["CorrDiffCMIP6", "dx", "NVIDIA", "Global", 2026, 80, "CMIP6 → ERA5 downscaling"],
+    ["CBottleInfill / SR / TCGuidance", "dx", "NVIDIA", "Global", 2025, 80, "Channel infilling, super-resolution, cyclone guidance"],
+    ["PrecipitationAFNOv2", "dx", "NVIDIA", "Global", 2024, 40, "Precipitation from the state"], ["SolarRadiationAFNO", "dx", "NVIDIA", "Global", 2024, 40, "Surface solar radiation, 1 h / 6 h"],
+    ["StormScopeDxNSRDB", "dx", "NVIDIA", "N. America", 2026, 48, "Solar irradiance (GHI) from GOES"], ["TCTrackerWuDuan / Vitart", "dx", "(classic algorithms)", "Global", 2023, 0, "Tropical-cyclone trackers"],
+    ["HealDA / HealDAv2", "da", "NVIDIA", "Global", 2026, 40, "Observations → analysis (v2: 104 channels, 0.25°)"], ["StormCastSDA", "da", "NVIDIA", "N. America", 2024, 40, "StormCast with score-based assimilation"],
+    ["CorrDiffCosmoEra5SDA", "da", "NVIDIA", "Europe", 2026, 80, "CorrDiff-COSMO with diffusion posterior sampling"]];
+  let task = "all", dev = "all";
+  chips($("#stTask"), v => { task = v; render(); }); chips($("#stDev"), v => { dev = v; render(); });
+  const KIND = { px: ["prognostic", "--accent"], dx: ["diagnostic", "--sw"], da: ["assimilation", "--data"] };
+  function render() {
+    const rows = Z.filter(z => (task === "all" || z[1] === task) && (dev === "all" || (dev === "NVIDIA" ? z[2].startsWith("NVIDIA") : !z[2].startsWith("NVIDIA"))));
+    $("#stTable").innerHTML = `<table class="zt"><thead><tr><th>Class</th><th>Kind</th><th>Developer</th><th>Region</th><th>Year</th><th>GPU mem.</th><th>What it does</th></tr></thead><tbody>${rows.map(z =>
+      `<tr><td class="mono">${z[0]}</td><td><span class="tag" style="color:var(${KIND[z[1]][1]})">${KIND[z[1]][0]}</span></td><td>${z[2]}</td><td>${z[3]}</td><td class="mono">${z[4]}</td><td class="mono">${z[5] ? z[5] + " GB" : "–"}</td><td>${z[6]}</td></tr>`).join("")}</tbody></table>
+      <p class="note" style="margin:6px 0 0">${rows.length} of ${Z.length} shown.</p>`;
+  }
+  render(); return render;
+});
+
+/* adopters */
+demo("st-users", () => {
+  const U = { wx: [["Brightband", "Runs Earth-2 Medium Range (Atlas) to issue global forecasts daily; “among the first to run Earth-2 Medium Range operationally”.", ["Atlas"]],
+      ["Israel Meteorological Service", "CorrDiff in operation: “a 90% reduction in compute time at 2.5-kilometer resolution” vs classic NWP on a CPU cluster; plans Nowcasting up to 8 times a day.", ["CorrDiff", "StormScope"]],
+      ["Taiwan Central Weather Administration", "Named as a forecaster using Earth-2 (CorrDiff was first trained on its WRF data over Taiwan).", ["CorrDiff"]],
+      ["The Weather Company", "Evaluating Earth-2 Nowcasting for localised severe-weather applications.", ["StormScope"]],
+      ["US National Weather Service", "Evaluating the new models for its operational workflows.", ["Atlas", "StormScope"]]],
+    en: [["Southwest Power Pool + Hitachi", "Nowcasting and FourCastNet 3 for intraday and day-ahead wind forecasting.", ["StormScope", "FCN3"]],
+      ["TotalEnergies", "Evaluating Nowcasting for short-term risk awareness.", ["StormScope"]],
+      ["Eni", "Testing FourCastNet and CorrDiff for semi-operational downscaling and gas demand weeks ahead.", ["FCN3", "CorrDiff"]],
+      ["GCL", "Earth-2 models in operation in its photovoltaic prediction system.", ["FCN3"]]],
+    fin: [["AXA", "FourCastNet to generate thousands of hypothetical hurricane scenarios.", ["FCN3"]],
+      ["S&P Global Energy", "CorrDiff to turn climate data into local insights for risk assessment.", ["CorrDiff"]],
+      ["JBA Risk Management · Jua · Metdesk", "Named for flood risk and energy trading (no detail given).", []]] };
+  const COL = { Atlas: "--arch", CorrDiff: "--sw", StormScope: "--lw", FCN3: "--data" };
+  let sec = "wx";
+  chips($("#stSector"), v => { sec = v; render(); });
+  function render() {
+    $("#stUsers").innerHTML = U[sec].map(([n, d, m]) => `<div class="card cmp"><h4>${n}</h4><p>${d}</p>${m.length ? `<p style="margin-top:4px">${m.map(x => `<span class="tag" style="color:var(${COL[x]})">${x === "FCN3" ? "FourCastNet" : x}</span>`).join(" ")}</p>` : ""}</div>`).join("");
+    const cnt = {}; U[sec].forEach(u => u[2].forEach(m => cnt[m] = (cnt[m] || 0) + 1));
+    VIZ.bars($("#stUseBars"), Object.keys(COL).map(k => ({ label: k === "FCN3" ? "FourCastNet / FCN3" : k, v: cnt[k] || 0, col: COL[k] })), { digits: 0, max: 4, W: 420, labelW: 140 });
+  }
+  render(); return render;
+});
+
+/* which model for which question */
+demo("st-choose", () => {
+  const C = [{ q: "A wind-farm operator in Oklahoma wants hourly 3 km wind for tomorrow.", o: ["FourCastNet 3", "StormCast", "cBottle"], r: [1],
+      w: "StormCast steps a 3 km HRRR state hour by hour over the US. A 0.25° global model is too coarse for one wind farm; cBottle samples climate, not tomorrow's weather. (SPP + Hitachi combine Nowcasting and FCN3.)" },
+    { q: "A ministry needs the probability of a heatwave 10 days ahead, worldwide.", o: ["CorrDiff", "FCN3 or Atlas ensemble", "StormScope"], r: [1],
+      w: "Ten days ahead is medium range and needs an ensemble: FCN3 and Atlas are trained to give calibrated ensembles. CorrDiff only adds local detail; StormScope stops at 6 h." },
+    { q: "A city has a 25 km forecast and wants 2 km rain and wind detail.", o: ["CorrDiff", "HealDA", "DLESyM"], r: [0],
+      w: "Downscaling is CorrDiff's job, but a new region needs training data: the released versions cover Taiwan, CONUS (HRRR), Europe (COSMO) and CMIP6 → ERA5." },
+    { q: "An insurer wants 10,000 plausible hurricane seasons.", o: ["Huge ensemble of FourCastNet/SFNO", "cBottle with cyclone guidance", "Either, with care"], r: [2],
+      w: "No single answer: AXA uses FourCastNet to generate thousands of scenarios; cBottle can be guided to sample cyclones. Both need checking against observed statistics (section 6)." },
+    { q: "IDEAM wants thunderstorm warnings for the next 2 h over Colombia.", o: ["StormScope as released", "StormScope after fine-tuning on local data", "FourCastNet 3"], r: [1],
+      w: "StormScope was trained over the US (GOES + MRMS radar) and Europe (MTG). GOES-East sees Colombia, but storms, radar and terrain differ: verify, and fine-tune with local data (PhysicsNeMo) before relying on it." }];
+  $("#stCases").innerHTML = C.map((c, n) => `<div class="card cmp"><p style="margin:0 0 6px"><b>${n + 1}. ${c.q}</b></p><div class="chips" style="margin:0">${c.o.map((o, i) => `<button class="chip" type="button" data-c="${n}" data-i="${i}" style="padding:4px 10px;font-size:12.5px">${o}</button>`).join("")}</div><p class="note" data-cf="${n}" style="margin:6px 0 0"></p></div>`).join("");
+  $$("#stCases button[data-c]").forEach(b => b.addEventListener("click", () => {
+    const c = C[+b.dataset.c], ok = c.r.includes(+b.dataset.i);
+    $$(`#stCases button[data-c="${b.dataset.c}"]`).forEach(x => x.setAttribute("aria-pressed", x === b));
+    $(`#stCases [data-cf="${b.dataset.c}"]`).innerHTML = `<b style="color:var(${ok ? "--ok" : "--lw"})">${ok ? "Yes." : "Better: " + c.r.map(i => c.o[i]).join(" / ") + "."}</b> ${c.w}`;
+  }));
+  return () => {};
+});
+
+demo("st-summary", () => {
+  VIZ.quiz($("#stQuiz"), [{ q: "Why do deterministic AI forecasts look smoother at day 10 than at day 1?", opts: ["The network is too small", "MSE training predicts the mean of possible futures", "ERA5 is smooth"], right: 1,
+    why: "When the future is uncertain, the forecast that minimises squared error is the average of the possible outcomes, which has lost the small scales. CRPS and diffusion training fix this by producing samples." }]);
+  return () => {};
 });
 
 </script>
