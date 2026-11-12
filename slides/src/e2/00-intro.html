@@ -1,0 +1,65 @@
+
+<section class="slide" id="cover" data-g="" data-sec="Earth-2">
+  <div class="cover" style="padding-block:1vh 0">
+    <p class="kicker">AI study group · Atmospheric and ocean sciences</p>
+    <h1 style="font-size:clamp(28px,3.6vw,46px)">NVIDIA Earth-2: <span class="hl">how the AI weather and climate models work</span></h1>
+    <p class="lead">Earth-2 is NVIDIA's family of AI models and software for weather and climate, from observations to a 15-day forecast, a 2 km map or a 1,000-year climate run. We open each model, see the idea that makes it work on toy fields you can move, and put the real numbers next to it.</p>
+    <div class="two" style="align-items:start">
+      <div class="panel"><div id="pcGlobe"></div><p class="note" style="margin:6px 0 0;text-align:center">A toy 500 hPa height field (m). <b>Drag</b> to rotate; ▶ to let the waves drift.</p>
+        <div class="chips" style="justify-content:center;margin:4px 0 0"><button class="chip" id="pcPlay" type="button">▶ Play 5 days</button></div></div>
+      <div class="stack" id="pcCards"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="toc" data-g="" data-sec="Contents">
+  <p class="kicker">Contents</p>
+  <h2>Seven sections, one pipeline</h2>
+  <p class="note">Click a title to go to that slide. The section buttons in the header jump to each section.</p>
+  <div id="tocList" class="toclist"></div>
+</section>
+
+<section class="slide" id="s-platform" data-g="d" data-sec="1 · Platform">
+  <p class="kicker k-data">1 · Platform · the Earth-2 pipeline</p>
+  <h2>From observations to decisions: each stage now has an AI model</h2>
+  <p class="lead" style="margin-bottom:6px">A forecast is a chain. Physics-based centres run every link on supercomputers; Earth-2 offers a neural network for each. Click a stage.</p>
+  <div class="fig-wrap" id="ppFlow"></div>
+  <p class="tryit">click each stage in order, from observations to decisions: which models are global and which are regional?</p>
+  <div class="two" style="margin-top:4px">
+    <div class="card" id="ppCard"></div>
+    <div class="card" id="ppIO"></div>
+  </div>
+  <p class="note">Names: Earth-2 Medium Range = Atlas, Earth-2 Nowcasting = StormScope, Earth-2 Global Data Assimilation = HealDA (NVIDIA, AMS Annual Meeting, 26 Jan 2026). Sources in FACTS: arXiv:2601.18111, 2601.17268, 2601.17636, 2309.15214, 2507.12144, 2408.10958, 2505.06474, 2409.16247.</p>
+</section>
+
+<section class="slide" id="p-why" data-g="d" data-sec="1 · Platform">
+  <p class="kicker k-data">Physics vs emulator · why AI weather models are fast</p>
+  <h2>A physics model solves equations at every small time step; an emulator learns one big step</h2>
+  <div class="two">
+    <div>
+      <ul class="pts">
+        <li><b>Numerical weather prediction (NWP)</b> integrates the equations of motion, thermodynamics and moisture on a grid. Stability limits the time step to minutes, and every step runs the physics (radiation, clouds, convection) on thousands of CPU cores.</li>
+        <li>An <b>AI emulator</b> is trained on decades of <b>ERA5 reanalysis</b> (ECMWF's best estimate of the past atmosphere) to map the state at time <i>t</i> to <i>t</i> + 6 h in one pass of a network on a GPU, then feeds its own output back in (<b>autoregressive</b> rollout).</li>
+        <li>The price: it can only be as good as its training data, it may drift over long runs, and it knows physics only through examples.</li>
+      </ul>
+      <div class="ctl"><label for="ppDays">Forecast length</label><input type="range" id="ppDays" min="1" max="15" step="1" value="7"><output id="ppDaysO"></output></div>
+      <p class="tryit">stretch the forecast to 15 days: how many network passes does the emulator need, and how many steps the physics model?</p>
+    </div>
+    <div class="panel"><div id="ppSteps"></div><div class="readout" id="ppRead"></div>
+      <p class="note" style="margin:6px 0 0">Step counts are illustrative (a 0.25° global NWP model typically uses a time step of a few minutes). Speed-ups as reported by the authors, each against its own baseline: FourCastNet ~45,000× per node-hour vs IFS (arXiv:2202.11214); SFNO one-year rollout in 12.8 min on one GPU (arXiv:2306.03838); FCN3 15-day forecast ≈ 60 s on one H100 (arXiv:2507.12144).</p></div>
+  </div>
+</section>
+
+<section class="slide" id="p-map" data-g="d" data-sec="1 · Platform">
+  <p class="kicker k-data">The model map · scales in space and time</p>
+  <h2>Earth-2 models cover minutes to centuries and 2 km to 100 km</h2>
+  <div class="two">
+    <div>
+      <p>Each bubble is a model placed by its grid spacing and the range of lead times it is built for. Colour shows the task.</p>
+      <div class="chips" id="ppTask"><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="fc">Global forecast</button><button class="chip" data-v="da">Assimilation</button><button class="chip" data-v="ds">Downscaling</button><button class="chip" data-v="nc">Nowcast / km-scale</button><button class="chip" data-v="cl">Climate</button></div>
+      <p class="tryit">hover a bubble, then filter by task: which corner of the map has no model yet?</p>
+      <div class="calc" id="ppInfo" style="white-space:normal;min-height:7.5em"></div>
+    </div>
+    <div class="panel"><div id="ppBub"></div></div>
+  </div>
+</section>
