@@ -1,18 +1,35 @@
+<style>
+.slide[id^="sb-"] h2{font-size:clamp(21px,2.4vw,26px);margin-bottom:8px}
+.sbcard{padding:9px 14px}
+.sbcard h4{margin:0 0 3px;font-size:15px}
+.sbcard p{font-size:14px;margin:0 0 4px}
+.sbsteps{margin:0 0 4px}
+.sbsteps button.chip{font-size:13px;padding:4px 11px}
+.sbsteps button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.slide[id^="sb-"] .kicker{max-width:none}
+.slide[id^="sb-"]>p.note{max-width:none;font-size:12.5px;line-height:1.4;margin:6px 0 0}
+.slide[id^="sb-"] h3{text-transform:none;letter-spacing:.01em;font-size:12.5px;font-family:var(--f-body);font-weight:600}
+.slide[id^="sb-"] .tryit{font-size:13.5px;margin:5px 0;padding:5px 10px}
+.sbquiz .card{padding:8px 12px;margin-bottom:0!important}
+.sbquiz .card p{font-size:14px}
+.sbquiz button.chip{font-size:12.5px;padding:4px 10px}
+.sbquiz .chips{gap:6px}
+.slide[id^="sb-"] .readout b{font-size:21px}
+</style>
 <section class="slide" id="sb-tokens" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · StormScope · inside the network · 1 · from images to tokens</p>
   <h2>Stack every input as channels, cut 4 × 4 patches: 28,672 tokens of 768 numbers</h2>
-  <div class="chips sbsteps" id="sbTkStep"><button class="chip" data-v="0" aria-pressed="true">① Stack the inputs</button><button class="chip" data-v="1">② Cut 4 × 4 patches</button><button class="chip" data-v="2">③ Embed each patch</button><button class="chip" data-v="3">④ A sequence of tokens</button></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div class="chips sbsteps" id="sbTkStep"><button class="chip" data-v="0" aria-pressed="true">① Stack the inputs</button><button class="chip" data-v="1">② Cut 4 × 4 patches</button><button class="chip" data-v="2">③ Embed each patch</button><button class="chip" data-v="3">④ A sequence of tokens</button></div>
+    <div class="chips sbsteps" id="sbTkMode" style="gap:5px"><span class="note" style="align-self:center;margin:0">Model:</span><button class="chip" data-v="sn" aria-pressed="true">sat. nowcast</button><button class="chip" data-v="sr">sat. nearcast</button><button class="chip" data-v="rn">radar nowcast</button><button class="chip" data-v="rr">radar nearcast</button></div></div>
   <div class="fig-wrap" id="sbTkFig"></div>
-  <div class="two" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;margin-top:2px">
+  <div class="two" style="grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:20px;margin-top:2px">
     <div>
       <div class="card sbcard" id="sbTkCard"></div>
-      <div class="stg" style="margin-top:6px"><span>Model</span><div class="chips" id="sbTkMode"><button class="chip" data-v="sn" aria-pressed="true">satellite · nowcast</button><button class="chip" data-v="sr">satellite · nearcast</button><button class="chip" data-v="rn">radar · nowcast</button><button class="chip" data-v="rr">radar · nearcast</button></div></div>
-      <p class="tryit">click the steps ①–④, then switch the model: how many channels does each one stack, and how many numbers go into one patch?</p>
+      <p class="tryit">click the steps ①–④, then switch the model in ①: which one stacks the most channels, and why?</p>
     </div>
     <div>
-      <div class="calc" id="sbTkCalc" style="margin-top:0;font-size:12.5px"></div>
-      <div class="stg"><span>Patch size</span><div class="chips" id="sbTkP"><button class="chip" data-v="2">2 × 2</button><button class="chip" data-v="4" aria-pressed="true">4 × 4 (paper)</button><button class="chip" data-v="8">8 × 8</button><button class="chip" data-v="16">16 × 16</button></div></div>
-      <div class="readout" id="sbTkRead" style="margin-top:2px;gap:16px"></div>
+      <div class="stg"><span>Patch size</span><div class="chips" id="sbTkP" style="margin:2px 0"><button class="chip" data-v="2">2 × 2</button><button class="chip" data-v="4" aria-pressed="true">4 × 4 (paper)</button><button class="chip" data-v="8">8 × 8</button><button class="chip" data-v="16">16 × 16</button></div></div>
+      <div class="readout" id="sbTkRead" style="margin-top:2px;gap:14px"></div>
       <p class="tryit">halve the patch size to 2 × 2: by how much do the tokens grow, and the cost of global attention?</p>
     </div>
   </div>
@@ -47,7 +64,7 @@
 <section class="slide" id="sb-block" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · StormScope · inside the network · 3 · one transformer block</p>
   <h2>One DiT block: normalise, modulate by the noise level σ, attend, mix, add back</h2>
-  <div class="chips sbsteps" id="sbBkStep"><button class="chip" data-v="0" aria-pressed="true">① Normalise</button><button class="chip" data-v="1">② Condition on σ</button><button class="chip" data-v="2">③ Neighborhood attention</button><button class="chip" data-v="3">④ Gate + residual</button><button class="chip" data-v="4">⑤ Normalise + modulate</button><button class="chip" data-v="5">⑥ MLP</button><button class="chip" data-v="6">⑦ Gate + residual</button><button class="chip" data-v="7">⑧ × 16 → output</button></div>
+  <div class="chips sbsteps" id="sbBkStep"><button class="chip" data-v="0" aria-pressed="true">① Norm</button><button class="chip" data-v="1">② σ → γ, β, α</button><button class="chip" data-v="2">③ Attention</button><button class="chip" data-v="3">④ Gate + add</button><button class="chip" data-v="4">⑤ Norm + modulate</button><button class="chip" data-v="5">⑥ MLP</button><button class="chip" data-v="6">⑦ Gate + add</button><button class="chip" data-v="7">⑧ × 16 → output</button></div>
   <div class="fig-wrap" id="sbBkFig"></div>
   <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:2px">
     <div>
@@ -55,10 +72,10 @@
       <div class="calc" id="sbBkCalc" style="font-size:12px;margin-top:8px"></div>
     </div>
     <div class="panel" style="padding:12px 14px">
-      <h4 style="margin:0">Same weights, different σ: adaptive layer norm on one token (toy)</h4>
+      <h4 style="margin:0;font-size:14px">Toy: one token, same weights, different σ</h4>
       <div class="ctl" style="margin:4px 0"><label for="sbBkS">Noise σ</label><input type="range" id="sbBkS" min="-2.7" max="1.9" step="0.05" value="1.2"><output></output></div>
       <div id="sbBkBars"></div>
-      <p class="tryit">slide σ from high to low noise: the normalised features (grey) stay put, but the scale and shift the block applies (blue) change.</p>
+      <p class="tryit" style="margin-bottom:0">slide σ from high to low noise: the normalised features (grey) stay put; the scale and shift applied (blue) change.</p>
     </div>
   </div>
   <p class="note" style="margin-top:4px">Paper §4.2.2: 16 transformer blocks "conditioned on the diffusion timestep using the standard conditional layer normalization adopted in DiTs", 2-D NA 31 × 31, 195 M parameters in total. The DiT block (adaLN-Zero: scale γ, shift β, gate α regressed from the noise embedding; MLP 4× wider) is from Peebles &amp; Xie 2023 [paper ref 31]; the paper does not list its MLP width, so the per-block count is our estimate. c<sub>noise</sub> = ¼ ln σ is the EDM choice (Karras et al. 2022, ref 45).</p>
@@ -69,19 +86,20 @@
   <h2>Training: add noise of a random size σ to the true future, learn to remove it</h2>
   <div class="chips sbsteps" id="sbTrStep"><button class="chip" data-v="0" aria-pressed="true">① A training pair</button><button class="chip" data-v="1">② Draw σ</button><button class="chip" data-v="2">③ Add noise</button><button class="chip" data-v="3">④ Denoise</button><button class="chip" data-v="4">⑤ Weighted loss</button><button class="chip" data-v="5">⑥ Two experts</button></div>
   <div class="fig-wrap" id="sbTrFig"></div>
-  <div class="two" style="grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;margin-top:2px">
+  <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,.85fr);gap:14px;margin-top:2px;align-items:start">
     <div>
-      <div class="eq" style="font-size:17px;margin:2px 0 6px">L(θ) = E<sub>x,σ,n</sub> λ(σ) ‖ D<sub>θ</sub>(x<sub>t+</sub> + n<sub>σ</sub> ; x<sub>t−</sub> ; c ; σ) − x<sub>t+</sub> ‖²<sub>2</sub> &nbsp; <span class="note" style="font-family:var(--f-body)">eq. (1)</span></div>
+      <div class="eq" style="font-size:15px;margin:0 0 6px;padding:8px 12px">L(θ) = E<sub>x,σ,n</sub> λ(σ) ‖ D<sub>θ</sub>(x<sub>t+</sub> + n<sub>σ</sub> ; x<sub>t−</sub> ; c ; σ) − x<sub>t+</sub> ‖²<sub>2</sub> &nbsp;<span style="font-family:var(--f-body);font-size:12px;color:var(--muted)">eq. (1)</span></div>
       <div class="card sbcard" id="sbTrCard"></div>
       <div class="ctl" style="margin:6px 0 0"><label for="sbTrS">Noise σ</label><input type="range" id="sbTrS" min="-2.7" max="1.9" step="0.05" value="0"><output></output></div>
-      <p class="tryit">slide σ from 80 down to 0.002 and watch the denoiser's guess (④): blurry average at high σ, sharp storms at low σ.</p>
+      <p class="tryit">slide σ from 80 down to 0.002 and watch the denoiser's guess (④): a blurry average at high σ, sharp storms at low σ.</p>
     </div>
-    <div class="panel" style="padding:12px 14px">
-      <h4 style="margin:0">Which σ does training see? Uniform in log σ</h4>
+    <div class="panel" style="padding:10px 12px">
+      <h4 style="margin:0;font-size:14px">Which σ does training see? Uniform in log σ</h4>
       <div id="sbTrHist"></div>
-      <div class="chips" style="margin:2px 0"><button class="btn" type="button" id="sbTrDraw">Draw 500 more σ</button><button class="btn" type="button" id="sbTrReset">Reset</button></div>
-      <div class="calc" id="sbTrCalc" style="font-size:12px;margin-top:4px"></div>
+      <div class="chips" style="margin:2px 0 0"><button class="btn" type="button" id="sbTrDraw">Draw 500 more</button><button class="btn" type="button" id="sbTrReset">Reset</button></div>
+      <p class="tryit" style="margin-bottom:0">draw more σ: does each expert get its share? Compare with EDM's log-normal default (dashed).</p>
     </div>
+    <div class="calc" id="sbTrCalc" style="font-size:12px;margin-top:0"></div>
   </div>
   <p class="note" style="margin-top:4px">Paper §4.2.3: EDM framework (Karras et al. 2022); eq. (1) with n<sub>σ</sub> ~ N(0, σ²I) and the standard EDM weight λ(σ); EDM pre-conditioning of inputs and outputs; σ drawn uniform in log σ; two experts, coarse and fine, split at σ<sub>int</sub>. The paper does not give σ<sub>min</sub>, σ<sub>max</sub>, σ<sub>int</sub> or σ<sub>data</sub>: we use EDM's defaults (0.002, 80, σ<sub>data</sub> = 0.5) and a toy σ<sub>int</sub> = 1. Toy denoiser: the exact posterior mean over 24 plausible toy futures (radar, dBZ / 60).</p>
 </section>
@@ -114,7 +132,7 @@
 
 <section class="slide" id="sb-ens" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · StormScope · 6 · ensembles and probability</p>
-  <h2>Run the sampler many times: members differ, their spread is the forecast's uncertainty</h2>
+  <h2>Many samples make an ensemble: their spread is the uncertainty</h2>
   <div class="ctl" style="margin:0 0 4px;max-width:640px"><label for="sbEnL">Lead time</label><input type="range" id="sbEnL" min="0" max="36" step="1" value="18"><output></output></div>
   <div class="four" id="sbEnThumbs" style="gap:10px"></div>
   <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:6px">
@@ -203,7 +221,7 @@
 
 <section class="slide" id="sb-cost" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · StormScope · 10 · cost and scaling</p>
-  <h2>33 s per forecast step on one GPU; a 3 km model needs the domain split across GPUs</h2>
+  <h2>33 s per step on one GPU; at 3 km the domain is split across GPUs</h2>
   <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px">
     <div>
       <div class="stg"><span>Mode</span><div class="chips" id="sbCoMode"><button class="chip" data-v="now" aria-pressed="true">nowcast 2 h · 12 × 10 min</button><button class="chip" data-v="near">nearcast 12 h · 12 × 1 h</button></div></div>
@@ -229,19 +247,22 @@
 <section class="slide" id="sb-colombia" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · StormScope · 11 · limitations, and Colombia</p>
   <h2>What the authors say is missing, and what a Colombian StormScope would need</h2>
-  <div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start">
     <div>
       <h3>Limitations stated in the paper (§3)</h3>
       <div class="stack" id="sbCoLim" style="gap:6px"></div>
     </div>
-    <div class="panel" style="padding:12px 14px">
-      <h4 style="margin:0 0 2px">Parallax: how far a cloud top appears displaced, seen from GOES-East (75.2° W)</h4>
-      <div class="chips" id="sbPxCity" style="margin:4px 0"></div>
+    <div class="panel" style="padding:10px 12px">
+      <h4 style="margin:0 0 2px;font-size:14px">Parallax: how far a cloud top appears displaced, seen from GOES-East (75.2° W)</h4>
+      <div class="chips" id="sbPxCity" style="margin:4px 0;gap:5px"></div>
       <div class="ctl" style="margin:2px 0"><label for="sbPxH">Cloud top</label><input type="range" id="sbPxH" min="4" max="18" step="1" value="12"><output></output></div>
       <div id="sbPxFig"></div>
-      <p class="tryit">compare Bogotá with Seattle for a 12 km storm top: how many 6 km pixels is the shift?</p>
-      <h3 style="margin-top:6px">A Colombian version: checklist</h3>
-      <div class="stack" id="sbCoChk" style="gap:4px"></div>
+      <p class="tryit" style="margin-bottom:0">compare Bogotá with Seattle for a 12 km storm top: how many 6 km pixels is the shift?</p>
+    </div>
+    <div>
+      <h3>A Colombian version: checklist</h3>
+      <div class="stack" id="sbCoChk" style="gap:6px"></div>
+      <div class="callout green" style="font-size:13.5px;margin:8px 0 0;padding:8px 12px"><b>Why it is plausible.</b> Colombia lies almost under GOES-East, so its parallax is small, and the paper's design runs on satellite alone where radar is missing.</div>
     </div>
   </div>
   <p class="note" style="margin-top:4px">Limitations: paper §3 and §6.4. Opportunity: §1 and §3 ("a pathway to extend skillful mesoscale forecasting to oceanic regions and countries without strong operational mesoscale modeling programs"; synoptic conditioning "could also be provided by an AI medium-range weather model", §4.2.1). Parallax: our geometry for a geostationary satellite at 75.2° W (shift ≈ h · tan of the viewing zenith angle, ignoring Earth curvature at the cloud). Checklist items marked "ours" are our suggestions, not the paper's.</p>
@@ -252,6 +273,6 @@
   <h2>StormScope in numbers, and six questions</h2>
   <div class="fig-wrap" id="sbQzFig"></div>
   <p class="tryit">click a box in the recap to go back to its slide; then answer the questions.</p>
-  <div class="two even" id="sbQz" style="gap:14px"></div>
+  <div class="three sbquiz" id="sbQz" style="gap:10px"></div>
   <p class="note" style="margin-top:4px">All numbers from Pathak et al. 2026, arXiv:2601.17268 (§2, §4, §6). Cost: 24 × 12 steps × 33 s ≈ 2.6 GPU-hours on H100 (§4.2.2; our arithmetic).</p>
 </section>

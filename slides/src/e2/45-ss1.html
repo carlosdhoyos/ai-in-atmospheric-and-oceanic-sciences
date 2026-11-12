@@ -1,135 +1,148 @@
-<section class="slide" id="ss-intro" data-g="a" data-sec="5b · StormScope">
+<section class="slide sa-s" id="ss-intro" data-g="a" data-sec="5b · StormScope">
   <style>
-    .sa-steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0}
+    .slide.sa-s{padding-top:18px;padding-bottom:12px}
+    .sa-s h2{margin-bottom:8px}
+    .sa-s .note,.sa-s .tryit,.sa-s .lead{max-width:none}
+    .sa-s .note{font-size:12.5px;line-height:1.4;margin:6px 0 0}
+    .sa-s .tryit{margin:6px 0}
+    .sa-steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:4px 0}
     .sa-steps button.chip{padding:4px 11px;font-size:13px;min-width:2.3em}
     .sa-steps button.btn{padding:4px 12px}
     .sa-steps button:disabled{opacity:.35;cursor:default}
     .sa-steps .sa-stl{font-size:14px;font-weight:600;color:var(--accent);margin-left:6px}
+    .sa-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+    .sa-row .tryit{flex:1;min-width:280px}
     .sa-card h4{margin:0 0 4px}
     .sa-card p{font-size:14px;margin:0 0 6px}
     .sa-card .chips{margin:4px 0 0}
-    .sa-kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 14px}
+    .sa-kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px}
     .sa-kv div{display:flex;flex-direction:column}
     .sa-kv span{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-    .sa-kv b{font-family:var(--f-mono);font-size:19px;font-weight:500;color:var(--accent)}
+    .sa-kv b{font-family:var(--f-mono);font-size:18px;font-weight:500;color:var(--accent)}
     .sa-sat{color:var(--cool)} .sa-rad{color:var(--lw)} .sa-mdl{color:var(--accent)} .sa-nwp{color:var(--muted)}
-    table.sa-t2{border-collapse:collapse;width:100%;font-size:13px}
-    table.sa-t2 th,table.sa-t2 td{padding:4px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-    table.sa-t2 th{font-weight:600}
-    table.sa-t2 td:first-child{color:var(--muted);font-size:12px;width:28%}
+    table.sa-t2{border-collapse:collapse;width:100%;font-size:12.5px}
+    table.sa-t2 th,table.sa-t2 td{padding:3px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    table.sa-t2 th{font-weight:600;font-size:13px}
+    table.sa-t2 td:first-child{color:var(--muted);font-size:12px;width:27%}
     table.sa-t2 .on{background:color-mix(in srgb,var(--accent) 11%,transparent);font-weight:600}
-    .sa-g2{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:18px;align-items:start}
-    @media (max-width:900px){.sa-g2{grid-template-columns:minmax(0,1fr)}.sa-kv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .sa-g2{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:16px;align-items:start}
+    .sa-g3{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;align-items:start}
+    @media (max-width:900px){.sa-g2,.sa-g3{grid-template-columns:minmax(0,1fr)}}
     .sa-in{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0}
     .sa-in>span{font-size:13px;color:var(--muted);margin-right:2px}
     .sa-in button.chip{padding:4px 10px;font-size:13px}
+    .readout.sa-sm{gap:8px 24px;margin-top:8px} .readout.sa-sm b{font-size:21px}
   </style>
   <p class="kicker">5b · StormScope step by step</p>
-  <h2>StormScope in one picture: recent satellite and radar images in, an ensemble of future images out</h2>
-  <p class="lead" style="font-size:16px;max-width:none;margin-bottom:4px"><b>StormScope</b> (Earth-2 Nowcasting) forecasts the <i>observations themselves</i>: the next GOES satellite image and the next radar image, 10 minutes or 1 hour ahead, again and again. There is no weather-model state and no data assimilation in the loop.</p>
+  <h2>StormScope in one picture: images in, future images out</h2>
+  <p class="lead" style="font-size:15.5px;margin-bottom:4px"><b>StormScope</b> (Earth-2 Nowcasting) forecasts the next satellite and radar images directly: no model state, no data assimilation.</p>
   <div class="fig-wrap" id="saPipe"></div>
-  <div id="saPipeSt"></div>
-  <p class="tryit">click any box, or walk the pipeline with ◀ ▶. Which box is the only one that needs a physics model, and only in one of the two modes?</p>
-  <div class="two even" style="gap:16px">
-    <div class="card sa-card" id="saPipeCard"></div>
-    <div class="card"><h4>The numbers to remember</h4>
-      <div class="sa-kv">
+  <div class="sa-row"><div id="saPipeSt"></div><p class="tryit">click a box: which one needs a physics model, and only in one mode?</p></div>
+  <div class="sa-g3">
+    <div class="card sa-card" id="saPipeCard" style="padding:10px 14px"></div>
+    <div class="card" style="padding:10px 14px"><div class="sa-kv">
         <div><span>Channels predicted</span><b><span class="sa-sat" style="font:inherit;text-transform:none;letter-spacing:0">8</span> + <span class="sa-rad" style="font:inherit;text-transform:none;letter-spacing:0">1</span></b></div>
-        <div><span>Grid</span><b>512 × 896</b></div>
-        <div><span>Spacing</span><b>6 km</b></div>
+        <div><span>Grid (6 km)</span><b>512 × 896</b></div>
         <div><span>Step</span><b>10 min · 1 h</b></div>
         <div><span>Parameters</span><b>195 M</b></div>
         <div><span>Per step, 1 H100</span><b>33 s</b></div>
-      </div>
-    </div>
+        <div><span>Test year</span><b>2024</b></div>
+      </div></div>
   </div>
-  <p class="note" style="margin-top:6px">Pathak et al. (NVIDIA), "Learning Accurate Storm-Scale Evolution from Observations", arXiv:2601.17268 (23 Jan 2026). 8 GOES-16 ABI channels + MRMS reflectivity (Table 1); 512 × 896 grid at 6 km, 195 M parameters, 33 s per forecast step at 100 sampling steps in fp32 on one H100 (§4.2.2); 10-min steps (nowcast) or 1-h steps (nearcast) (Table 2).</p>
+  <p class="note">Pathak et al. (NVIDIA), "Learning Accurate Storm-Scale Evolution from Observations", arXiv:2601.17268 (23 Jan 2026). 8 GOES-16 ABI channels + MRMS reflectivity (Table 1); 512 × 896 grid at 6 km, 195 M parameters, 33 s per step at 100 sampling steps in fp32 on one H100 (§4.2.2); 10-min (nowcast) or 1-h (nearcast) steps (Table 2); test year 2024 (§4.1.1).</p>
 </section>
 
-<section class="slide" id="sa-why" data-g="a" data-sec="5b · StormScope">
+<section class="slide sa-s" id="sa-why" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · Why learn from observations</p>
-  <h2>Storm-scale forecasts fall in a gap: extrapolation fades within 1–2 h, and NWP has to assimilate and spin up</h2>
+  <h2>The storm-scale gap: extrapolation fades, NWP must assimilate first</h2>
   <div class="fig-wrap" id="saFlow"></div>
-  <div class="two" style="gap:20px;margin-top:4px">
+  <div class="two" style="gap:18px;margin-top:6px">
     <div>
-      <div class="panel" style="padding:10px 12px"><div id="saSkill"></div>
-        <div class="ctl" style="margin:4px 0 0"><label for="saLead">Lead time</label><input type="range" id="saLead" min="1" max="72" step="1" value="9"><output id="saLeadO"></output></div></div>
-      <p class="tryit">slide the lead time from 10 min to 12 h and read what the paper actually measured at that lead.</p>
-      <div class="callout blue" id="saLeadCard" style="font-size:13.5px;margin:4px 0 0;min-height:6.6em"></div>
+      <div class="panel" style="padding:8px 12px"><div id="saSkill"></div>
+        <div class="ctl" style="margin:2px 0 0;grid-template-columns:auto minmax(0,1fr) 6.5em"><label for="saLead">Lead time</label><input type="range" id="saLead" min="1" max="72" step="1" value="9"><output id="saLeadO"></output></div></div>
+      <p class="tryit">slide from 10 min to 12 h and read what the paper measured there.</p>
+      <div class="callout blue" id="saLeadCard" style="font-size:13px;margin:0;min-height:7.6em;padding:8px 12px"></div>
     </div>
     <div>
       <div class="chips" id="saDA" style="margin-top:0"></div>
-      <p class="tryit" style="margin-top:0">click each data-assimilation problem: which ones does StormScope avoid, and which does it inherit?</p>
-      <div class="panel" style="padding:8px 12px"><div id="saDAFig"></div><p id="saDAText" style="font-size:14px;margin:4px 0 0"></p></div>
+      <p class="tryit" style="margin-top:0">click each problem of storm-scale data assimilation: which does StormScope avoid, which does it inherit?</p>
+      <div class="panel" style="padding:8px 12px"><div id="saDAFig"></div><p id="saDAText" style="font-size:13.5px;margin:4px 0 0"></p></div>
     </div>
   </div>
-  <p class="note" style="margin-top:6px">Problems of convective-scale data assimilation from §1 of arXiv:2601.17268 (and refs. 8–11 there). Skill curves are a <b>schematic</b> (shapes only); the statements in the blue box are the paper's results: Abstract, §2.2.1 (Figs. 6–8, 12–13, 17), §2.2.2 (Figs. 9–10), §2.1 (Fig. 1).</p>
+  <p class="note">Data-assimilation problems from §1 of arXiv:2601.17268 (refs. 8–11 there). The skill curves are a <b>schematic</b> (shapes only); the statements in the blue box are the paper's results: Abstract, §2.1 (Fig. 1), §2.2.1 (Figs. 6–8, 12–13, 17), §2.2.2 (Figs. 9–10).</p>
 </section>
 
-<section class="slide" id="sa-inputs" data-g="a" data-sec="5b · StormScope">
+<section class="slide sa-s" id="sa-inputs" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · The inputs · <span class="en">what the model sees</span></p>
-  <h2>Eight satellite channels, one radar mosaic, and a few maps that say where and when</h2>
+  <h2>8 satellite channels, 1 radar mosaic, and maps of where and when</h2>
   <div class="fig-wrap" id="saSpec"></div>
-  <div class="sa-in" id="saOther"><span>Other inputs:</span>
-    <button class="chip" type="button" data-v="mrms">MRMS radar</button><button class="chip" type="button" data-v="cosz">cos solar zenith</button><button class="chip" type="button" data-v="lat">latitude</button><button class="chip" type="button" data-v="lon">longitude</button><button class="chip" type="button" data-v="z500">GFS Z500</button><button class="chip" type="button" data-v="refc">GFS sim. reflectivity</button></div>
-  <p class="tryit">click 0.64 µm, then switch the clock to 06 UTC; now click 10.35 µm. Which channels still show the storms at night?</p>
-  <div class="two" style="gap:18px">
+  <div class="two even" style="gap:18px;margin-top:4px">
     <div>
-      <div class="card sa-card" id="saInCard" style="min-height:14.5em"></div>
-      <div class="sa-in" id="saUtc" style="margin-top:8px"><span>Toy clock (summer):</span><button class="chip" type="button" data-v="18" aria-pressed="true">18 UTC · afternoon</button><button class="chip" type="button" data-v="0">00 UTC · sunset in the west</button><button class="chip" type="button" data-v="6">06 UTC · night</button></div>
+      <div class="sa-in" id="saOther"><span>Other inputs:</span><button class="chip" type="button" data-v="mrms">MRMS radar</button><button class="chip" type="button" data-v="cosz">cos solar zenith</button><button class="chip" type="button" data-v="lat">latitude</button><button class="chip" type="button" data-v="lon">longitude</button><button class="chip" type="button" data-v="z500">GFS Z500</button><button class="chip" type="button" data-v="refc">GFS sim. reflectivity</button></div>
+      <div class="sa-in" id="saUtc"><span>Toy clock (summer):</span><button class="chip" type="button" data-v="18" aria-pressed="true">18 UTC · day</button><button class="chip" type="button" data-v="0">00 UTC · dusk</button><button class="chip" type="button" data-v="6">06 UTC · night</button></div>
+      <p class="tryit">click Red (0.64 µm), then 06 UTC; now click Clean IR (10.35 µm). Which channels still see the storms at night?</p>
+      <div class="card sa-card" id="saInCard" style="padding:10px 14px"></div>
     </div>
-    <div class="panel" style="padding:10px 12px"><div id="saInMap"></div><div id="saInBar" style="margin-top:4px"></div>
-      <p class="note" style="margin:2px 0 0" id="saInNote"></p></div>
+    <div class="panel" style="padding:8px 10px"><div id="saInMap"></div><div id="saInBar" style="margin-top:4px"></div>
+      <p class="note" style="margin:0" id="saInNote"></p></div>
   </div>
-  <p class="note" style="margin-top:6px">Channels, modalities and uses from Table 1 of arXiv:2601.17268; GOES 2018–2023 and MRMS 2020–2023 for training, 2024 for testing (§4.1.1); latitude/longitude and solar zenith angle as conditioning (§4.2.2). The scene is a <b>toy</b> (cells, clouds and moisture invented here, 224 × 128 cells), not GOES data; what each channel "sees" is standard satellite meteorology.</p>
+  <p class="note">Channels, modalities and uses: Table 1 of arXiv:2601.17268; GOES 2018–2023 and MRMS 2020–2023 for training, 2024 for testing (§4.1.1); lat/lon and solar zenith angle as conditioning (§4.2.2). The scene is a <b>toy</b> (224 × 128 cells, invented storms, clouds and moisture), not GOES data; what each channel "sees" is standard satellite meteorology.</p>
 </section>
 
-<section class="slide" id="sa-grid" data-g="a" data-sec="5b · StormScope">
-  <p class="kicker">5b · The grid · <span class="en">from a satellite view to 512 × 896 pixels</span></p>
-  <h2>Every source is put on one 6 km grid over the US, one frame every 10 minutes</h2>
+<section class="slide sa-s" id="sa-grid" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · The grid</p>
+  <h2>Every source goes onto one 6 km grid, one frame every 10 minutes</h2>
   <div class="fig-wrap" id="saGridFig"></div>
-  <div id="saGridSt"></div>
-  <div class="two" style="gap:18px;margin-top:2px">
-    <div>
-      <div class="card sa-card" id="saGridCard" style="min-height:11em"></div>
-      <p class="tryit">move the grid spacing from 3 to 24 km: when do the small cells vanish, and what happens to the peak reflectivity?</p>
-    </div>
-    <div class="panel" style="padding:10px 12px">
-      <div class="ctl" style="margin:0 0 6px"><label for="saRes">Grid spacing</label><input type="range" id="saRes" min="0" max="3" step="1" value="1"><output id="saResO"></output></div>
-      <div id="saResMap"></div><div id="saResBar"></div>
-      <div class="readout" id="saResRead" style="gap:16px;margin-top:4px"></div>
-    </div>
+  <div class="sa-row"><div id="saGridSt"></div><p class="tryit">click the four stages in order: where do the 512 × 896 pixels come from?</p></div>
+  <div class="two even" style="gap:16px">
+    <div class="card sa-card" id="saGridCard" style="padding:10px 14px;min-height:9.5em"></div>
+    <div><table class="sa-t2" id="saSrc"></table></div>
   </div>
-  <p class="note" style="margin-top:6px">ABI remapped to the HRRR 3 km Lambert conformal grid, then downsampled to 6 km; MRMS interpolated to the same grid; 10-min cadence (§4.1.1); GFS/ERA5 Z500 at 0.25° bilinearly interpolated to 3 km and then 6 km (§4.1.2); model grid 512 × 896 (§4.2.2); 3 km version 1792 × 1024 (§6.2). Storm objects: ≥ 40 dBZ and area &gt; 108 km² (§2.2.2). The storm is a <b>toy</b> built at 1.5 km and averaged in linear Z units.</p>
+  <p class="note">ABI remapped to the HRRR 3 km Lambert conformal conic grid, then downsampled to 6 km; MRMS interpolated to the same grid at a 10-min cadence (§4.1.1); GFS/ERA5 at 0.25° bilinearly interpolated to 3 km then 6 km (§4.1.2); model grid 512 × 896 (§4.2.2); 3 km domain 1792 × 1024 ≈ 1.8 M pixels (§6.2); parallax (§3); GOES and radar every 2–4 min over CONUS (§4.2.1).</p>
 </section>
 
-<section class="slide" id="sa-modes" data-g="a" data-sec="5b · StormScope">
-  <p class="kicker">5b · Two modes · <span class="en">nowcasting and nearcasting</span></p>
-  <h2>Nowcast: six recent frames, 10-minute steps to 2 h. Nearcast: one frame plus one GFS field, 1-hour steps to 12 h</h2>
-  <div class="sa-in"><div class="chips" id="saMode" style="margin:0"><button class="chip" type="button" data-v="now" aria-pressed="true">Nowcast · 0–2 h</button><button class="chip" type="button" data-v="near">Nearcast · 0–12 h</button></div>
-    <div class="ctl" style="flex:1;min-width:260px;margin:0 0 0 12px"><label for="saStep">Forecast step</label><input type="range" id="saStep" min="1" max="12" step="1" value="1"><output id="saStepO"></output></div></div>
-  <div class="fig-wrap" id="saTime"></div>
-  <p class="tryit">in the nowcast, move to step 6 and then 7: when does the input window stop containing any real observation? Then switch to the nearcast.</p>
+<section class="slide sa-s" id="sa-res" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · The grid · <span class="en">why 6 km, and what it costs</span></p>
+  <h2>What grid spacing does to a storm: small cells vanish, peaks drop</h2>
   <div class="two" style="gap:18px">
-    <div><table class="sa-t2" id="saT2"></table></div>
-    <div><div class="card sa-card" id="saModeCard"></div><div class="readout" id="saModeRead" style="gap:16px;margin-top:6px"></div></div>
+    <div>
+      <p style="font-size:15px">Averaging a storm onto coarser pixels (in linear units of Z, as radar power adds) smooths its cores. StormScope runs at <b>6 km</b>: fine enough to keep most convective structure, coarse enough for 512 × 896 pixels per channel on one GPU.</p>
+      <div class="ctl"><label for="saRes">Grid spacing</label><input type="range" id="saRes" min="0" max="3" step="1" value="1"><output id="saResO"></output></div>
+      <p class="tryit">move from 3 to 24 km: when do the small cells vanish, what happens to the peak, and how many storm objects survive the 108 km² rule?</p>
+      <div class="readout" id="saResRead" style="gap:10px 18px;margin-top:6px"></div>
+      <div class="callout amber" id="saResCard" style="font-size:13.5px;padding:8px 12px"></div>
+    </div>
+    <div class="panel" style="padding:8px 10px"><div id="saResMap"></div><div id="saResBar"></div></div>
   </div>
-  <p class="note" style="margin-top:6px">Table 2, §4.2.1, §4.2.3 and Fig. 11 of arXiv:2601.17268: nowcast input = 6 states 10 min apart over the preceding hour; nearcast input = one state 1 h earlier; GFS Z500 (ERA5 in training) conditions the satellite nearcast, GFS simulated composite reflectivity the radar nearcast. 33 s per step on one H100 → ~7 min for a 2-h nowcast or 12-h nearcast (§4.2.2).</p>
+  <p class="note">6 km grid 512 × 896 (§4.2.2); the 3 km model (1792 × 1024) needed domain parallelism: 2 GPUs per model, ~87.5 % scaling efficiency (§6.2); pySTEPS can run at the radar's native 1–2 km while StormScope runs at 6 km (§3); storm objects ≥ 40 dBZ with area &gt; 108 km² (§2.2.2, following WoFSCast). The storm is a <b>toy</b> built at 1.5 km over 504 × 288 km.</p>
 </section>
 
-<section class="slide" id="sa-multi" data-g="a" data-sec="5b · StormScope">
+<section class="slide sa-s" id="sa-modes" data-g="a" data-sec="5b · StormScope">
+  <p class="kicker">5b · Two modes · <span class="en">nowcasting and nearcasting</span></p>
+  <h2>Nowcast: 6 frames, 10-min steps. Nearcast: 1 frame + GFS, 1-h steps</h2>
+  <div class="sa-in"><div class="chips" id="saMode" style="margin:0"><button class="chip" type="button" data-v="now" aria-pressed="true">Nowcast · 0–2 h</button><button class="chip" type="button" data-v="near">Nearcast · 0–12 h</button></div>
+    <div class="ctl" style="flex:1;min-width:260px;margin:0 0 0 12px;grid-template-columns:auto minmax(0,1fr) 8.5em"><label for="saStep">Forecast step</label><input type="range" id="saStep" min="1" max="12" step="1" value="1"><output id="saStepO"></output></div></div>
+  <div class="fig-wrap" id="saTime"></div>
+  <div class="two even" style="gap:16px;margin-top:4px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)">
+    <div><table class="sa-t2" id="saT2"></table>
+      <p class="tryit">in the nowcast, go to step 6, then 7: when does the window stop holding real observations? Then try the nearcast.</p></div>
+    <div><div class="card sa-card" id="saModeCard" style="padding:10px 14px"></div><div class="readout sa-sm" id="saModeRead"></div></div>
+  </div>
+  <p class="note">Table 2, §4.2.1, §4.2.3 and Fig. 11 of arXiv:2601.17268: nowcast input = 6 states 10 min apart over the preceding hour; nearcast input = one state 1 h earlier plus one GFS channel at the prior step; 33 s per step on one H100 → ~7 min for a 2-h nowcast or a 12-h nearcast (§4.2.2).</p>
+</section>
+
+<section class="slide sa-s" id="sa-multi" data-g="a" data-sec="5b · StormScope">
   <p class="kicker">5b · Two stages and a sliding window</p>
-  <h2>Each step runs the satellite model first, then the radar model on its output; the forecasts slide into the input window</h2>
+  <h2>Satellite first, then radar; the forecasts slide into the window</h2>
   <div class="sa-in"><div class="chips" id="saMMode" style="margin:0"><button class="chip" type="button" data-v="now" aria-pressed="true">Nowcast (6 frames, 10 min)</button><button class="chip" type="button" data-v="near">Nearcast (1 frame + GFS, 1 h)</button></div>
     <div class="chips" id="saRadar" style="margin:0 0 0 10px"><button class="chip" type="button" data-v="1" aria-pressed="true">Radar available</button><button class="chip" type="button" data-v="0">No radar</button></div>
     <button class="btn" type="button" id="saPlay" style="margin-left:auto">▶ Play</button></div>
-  <div class="sa-g2">
-    <div><div id="saMSt"></div><div class="fig-wrap" id="saMFig"></div></div>
-    <div>
-      <div class="card sa-card" id="saMCard" style="min-height:13em"></div>
-      <div class="readout" id="saMRead" style="gap:14px;margin-top:8px"></div>
-      <p class="tryit">step with ▶ through three steps; then pick "No radar": which half of the system still runs?</p>
-    </div>
+  <div id="saMSt"></div>
+  <div class="fig-wrap" id="saMFig"></div>
+  <div class="two even" style="gap:16px;margin-top:4px">
+    <div class="card sa-card" id="saMCard" style="padding:10px 14px"></div>
+    <div><div class="readout sa-sm" id="saMRead" style="margin-top:0"></div>
+      <p class="tryit">step with ▶ through three steps, or press Play; then pick "No radar": which half still runs?</p></div>
   </div>
-  <p class="note" style="margin-top:6px">Fig. 11 and §4.2.1 of arXiv:2601.17268: predicted x̃(t), ỹ(t) are recycled as inputs (autoregressive sliding window); the satellite models are trained and sampled independently of the radar models, which are conditioned on satellite inputs in training and on the satellite forecast at inference (§4.1.2), so the approach also works without radar; multimodal forecasts run the two models in sequence each step (§4.2.2). Thumbnails are a <b>toy</b> world; "forecast" frames are the toy truth with errors that grow with lead.</p>
+  <p class="note">Fig. 11 and §4.2.1 of arXiv:2601.17268: x̃(t), ỹ(t) are recycled as inputs (autoregressive sliding window); satellite models are trained and sampled independently of the radar models, which are conditioned on satellite inputs in training and on the satellite forecast at inference (§4.1.2); the two models run in sequence each step (§4.2.2). Thumbnails: a <b>toy</b> world cropped to the central US (clean IR shown for GOES, 1 of 8 channels); "forecast" frames are the toy truth with errors that grow with lead.</p>
 </section>
