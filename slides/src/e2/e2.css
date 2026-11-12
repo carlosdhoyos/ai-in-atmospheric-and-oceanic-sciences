@@ -21,3 +21,8 @@ table.zt td{border-bottom:1px solid var(--line);padding:4px 8px;vertical-align:t
 .card.cmp h4{font-size:14px;margin:0 0 2px}
 .card.cmp p{font-size:13px}
 .stack:has(>.card.cmp){gap:7px}
+#pcCards,#stUsers,#stCases{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+#toc .toclist{columns:3 15em;font-size:12.5px}
+#toc .toclist button{padding:1px 4px}
+#cover .cover{gap:12px}
+#cover .lead{font-size:16.5px}

@@ -16,13 +16,13 @@ demo("cover", slide => {
     ["s-global", "2 · Global forecasting", "FourCastNet, SFNO, FourCastNet 3, Atlas: Fourier mixing, the sphere, ensembles, CRPS."],
     ["s-da", "3 · Data assimilation", "Initial conditions, observations, HEALPix, HealDA."],
     ["s-downscale", "4 · Downscaling", "CorrDiff: regression for the mean, diffusion for the detail."],
-    ["s-nowcast", "5 · Nowcasting", "StormCast and StormScope: storms in the next 0–6 hours."],
+    ["s-nowcast", "5 · Nowcasting", "StormCast and StormScope: storms in the next 0–6 hours."], ["ss-intro", "5b · StormScope step by step", "Inputs, tokens, neighborhood attention, diffusion, ensembles, verification."],
     ["s-climate", "6 · Climate", "DLESyM, cBottle, huge ensembles for rare extremes."],
     ["s-studio", "7 · Earth2Studio", "Build a pipeline in Python; the model zoo; who uses it; limits."]];
   $("#pcCards").innerHTML = cards.map(([id, t, d]) => `<button class="pick" type="button" data-go="${id}" style="padding:7px 12px"><b>${t}</b><span>${d}</span></button>`).join("");
   const NL = 144, NB = 72; let t = 0, G = null, view = [-60, 25], timer = null;
   const field = () => { const g = ATM.grid(NL, NB, t); return (lat, lon) => { const j = clamp(Math.floor((90 - lat) / 180 * NB), 0, NB - 1), i = Math.floor(((lon + 360) % 360) / 360 * NL) % NL; return g[j * NL + i]; }; };
-  function render() { G = VIZ.globe($("#pcGlobe"), field(), { size: 300, lon0: view[0], lat0: view[1], color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], onRotate: (a, b) => view = [a, b] }); }
+  function render() { G = VIZ.globe($("#pcGlobe"), field(), { size: 270, lon0: view[0], lat0: view[1], color: CM.temp, lo: ATM.RANGE[0], hi: ATM.RANGE[1], onRotate: (a, b) => view = [a, b] }); }
   $("#pcPlay").onclick = () => {
     if (timer) { clearInterval(timer); timer = null; $("#pcPlay").textContent = "▶ Play 5 days"; return; }
     t = 0; $("#pcPlay").textContent = "❚❚ Pause";

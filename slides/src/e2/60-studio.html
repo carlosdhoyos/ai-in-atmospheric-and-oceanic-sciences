@@ -23,14 +23,14 @@
   <div class="chips" id="stTask"><span class="mut" style="font-size:13px;align-self:center">Task:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="px">Prognostic (steps in time)</button><button class="chip" data-v="dx">Diagnostic</button><button class="chip" data-v="da">Assimilation</button></div>
   <div class="chips" id="stDev"><span class="mut" style="font-size:13px;align-self:center">Developer:</span><button class="chip" data-v="all" aria-pressed="true">All</button><button class="chip" data-v="NVIDIA">NVIDIA</button><button class="chip" data-v="other">Others</button></div>
   <p class="tryit">filter to assimilation, then to diagnostics: which models are tied to one region?</p>
-  <div class="fig-wrap" id="stTable" style="max-height:370px;overflow-y:auto"></div>
+  <div class="fig-wrap" id="stTable" style="max-height:300px;overflow-y:auto"></div>
   <p class="note">A selection of the classes listed in the Earth2Studio docs (models_px, models_dx, models_da pages), with the region and recommended GPU memory they state. Developers and architectures from the papers: GraphCast arXiv:2212.12794; Pangu-Weather arXiv:2211.02556; FuXi arXiv:2306.12873; AIFS arXiv:2406.01465; Aurora arXiv:2405.13063.</p>
 </section>
 
 <section class="slide" id="st-users" data-g="a" data-sec="7 · Earth2Studio">
   <p class="kicker k-arch">Who uses it · as reported by NVIDIA</p>
   <h2>Weather services, energy companies and insurers are the first users</h2>
-  <div class="two">
+  <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
     <div>
       <div class="chips" id="stSector"><button class="chip" data-v="wx" aria-pressed="true">Weather services</button><button class="chip" data-v="en">Energy</button><button class="chip" data-v="fin">Insurance and risk</button></div>
       <p class="tryit">switch sectors: which Earth-2 model appears most often, and for what lead time?</p>
@@ -44,7 +44,7 @@
 <section class="slide" id="st-choose" data-g="a" data-sec="7 · Earth2Studio">
   <p class="kicker k-arch">Choosing a model · and its limits</p>
   <h2>Pick the model by the question: lead time, region, resolution, and whether you need an ensemble</h2>
-  <div class="two">
+  <div class="two" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
     <div>
       <div class="stack" id="stCases"></div>
       <p class="tryit">answer each case, then read why. Which case has no single right model?</p>
@@ -68,7 +68,7 @@
   <h2>Six ideas to take away</h2>
   <div class="two">
     <div>
-      <ol class="pts" style="padding-left:20px">
+      <ol class="pts" style="padding-left:20px;font-size:15px">
         <li><b>Emulators learn one big step</b> from decades of reanalysis and roll it out on a GPU, thousands of times cheaper than integrating the equations.</li>
         <li><b>Geometry matters.</b> SFNO uses spherical harmonics and HEALPix gives equal-area pixels, so the poles are not edges.</li>
         <li><b>Mean vs samples.</b> Training on MSE gives the blurry mean of possible futures; CRPS (FCN3) and diffusion (CorrDiff, StormCast, cBottle) give sharp, varied samples.</li>
